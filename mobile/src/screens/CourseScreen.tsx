@@ -84,6 +84,11 @@ const VISUALS: Record<string, { image: string; description: string; color: strin
     description: 'Preguntas y respuestas para identificar personas.',
     color: '#e5eefb',
   },
+  'lesson-1-10-pets': {
+    image: 'a1_photo_u1_pets_group_v1.webp',
+    description: 'Las mascotas de la familia y lo que hacen.',
+    color: '#dff4ef',
+  },
   'lesson-9-unit-review': {
     image: 'a1_u1_review_family_story.webp',
     description: 'Una historia nueva reúne personas, familia y acciones.',

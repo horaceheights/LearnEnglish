@@ -58,8 +58,9 @@ Lessons:
    - Existing reviewed single-word action banks are historical content, not a template for new or rebuilt action lessons. When revising them, teach and recognize actions in meaningful subject–verb context using familiar support words. Keep any preserved single-word bank separate from full sentences; sentence alternatives have comparable structure and reading load, with varied learned subjects and actions. See the newer contextual-verb and choice-coherence guardrails.
 8. 1.8 What They Are Not Doing: use `not` to contrast each visible action with a true negative statement
 9. 1.9 Who Is He? Who Are They?: identity questions and short answers (42 cards since 2026-09-23)
-10. 1.10 Unit 1 Story Review: comprehensive retrieval with no new vocabulary and only newly authored scenes and combinations
-11. 1.11 ¡Todos a la celebración!: complete one continuous 22-beat adventure by finding the missing people, connecting their family relationships, following all thirteen action clues, correcting false reports with `not`, answering all three `Who ...?` forms, and bringing everyone to the celebration
+10. 1.10 Pets: `dog`, `cat`, `bird`, `rabbit`, `pet`, `pets`; name four family pets and say what each one is doing with the unit's `is`/`are` action frames (42 cards, added 2026-11-14 as the first coverage-gap lesson)
+11. 1.11 Unit 1 Story Review: comprehensive retrieval with no new vocabulary and only newly authored scenes and combinations
+12. 1.12 ¡Todos a la celebración!: complete one continuous 22-beat adventure by finding the missing people, connecting their family relationships, following all thirteen action clues, correcting false reports with `not`, answering all three `Who ...?` forms, and bringing everyone to the celebration
 
 Core patterns:
 
@@ -445,7 +446,7 @@ Avoid:
 
 ## Current Unit 1 Build
 
-The approved Unit 1 rebuild now includes all eleven lessons:
+The approved Unit 1 build now includes all twelve lessons:
 
 | Lesson | Scope | Build status |
 | --- | --- | --- |
@@ -458,10 +459,11 @@ The approved Unit 1 rebuild now includes all eleven lessons:
 | `1.7` | Family Actions | 42-card cumulative rebuild ready for learner review |
 | `1.8` | What They Are Not Doing | cumulative contrast lesson ready for learner review |
 | `1.9` | Who Is He? Who Are They? | question/answer pairs in all five stages |
-| `1.10` | Unit 1 Story Review | 54-card fresh-scene review ready for learner review |
-| `1.11` | ¡Todos a la celebración! | 22-beat find/connect/action/correct/Who adventure ready for Preview learner review |
+| `1.10` | Pets | 42-card coverage-gap lesson (2026-11-14); its words do not yet return in the review or the mission |
+| `1.11` | Unit 1 Story Review | 54-card fresh-scene review ready for learner review |
+| `1.12` | ¡Todos a la celebración! | 22-beat find/connect/action/correct/Who adventure ready for Preview learner review |
 
-Every standard and comprehensive-review lesson uses the same `Learn -> Recognize -> Listen -> Speak -> Use` journey. A lesson declared as `experience_type: mission` instead uses one continuous learner-facing mission; its internal stage values remain engine/modality metadata and may interleave in story order. Canonical YAML is the current Unit 1 source; the legacy unit-specific builder is retired. Automated checks enforce the story sequence, intentional card counts, vocabulary boundaries, bidirectional image/text recognition, audio-only listening choices, speaking cards, multi-word completion, valid media, the fresh-scene boundary for the comprehensive review, and the distinct 22-beat mission contract for 1.11.
+Every standard and comprehensive-review lesson uses the same `Learn -> Recognize -> Listen -> Speak -> Use` journey. A lesson declared as `experience_type: mission` instead uses one continuous learner-facing mission; its internal stage values remain engine/modality metadata and may interleave in story order. Canonical YAML is the current Unit 1 source; the legacy unit-specific builder is retired. Automated checks enforce the story sequence, intentional card counts, vocabulary boundaries, bidirectional image/text recognition, audio-only listening choices, speaking cards, multi-word completion, valid media, the fresh-scene boundary for the comprehensive review, and the distinct 22-beat mission contract for 1.12.
 
 The previously built family lessons supply the existing assets and cards for the new `1.4` through `1.7` sequence. `Places Around Me` leaves Unit 1 and becomes the start of Unit 2.
 
