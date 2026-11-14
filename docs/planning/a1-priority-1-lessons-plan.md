@@ -1,6 +1,6 @@
 # A1 Priority 1 gap lessons: detailed plan
 
-Date: 2026-11-14. Status: **plan for discussion**. Nothing here is approved and no lesson has been built. It details the Priority 1 group from [a1-gap-lessons-draft.md](a1-gap-lessons-draft.md).
+Date: 2026-11-14. Status: **plan for discussion**. Only 1.10 Pets is approved and built (2026-11-14, with a temporary later-reuse exception recorded in the guardrails decision log); nothing else here is approved. It details the Priority 1 group from [a1-gap-lessons-draft.md](a1-gap-lessons-draft.md).
 
 ## 1. What changed from the draft
 
@@ -56,7 +56,7 @@ So five unit reviews must grow to include the new words. Two lessons still need 
 
 ## 4. Decisions needed before building
 
-1. **Alphabet size.** Two lessons of 14 and 15 items need an approved exception to the 8-item limit. The largest exception so far is 11 (lesson 7.1, The Body). The alternative is four lessons of 6–7 letters each.
+1. **Alphabet: conflicts with an earlier decision.** On 2026-09-23 the user deferred spelling and the alphabet because they stress adult beginners. Lessons 3.13 and 3.14 therefore stay out of the build unless the user reverses that decision; 3.15 Phone Number and Address would then drop its spelling line and become 3.13. If they are ever built, two lessons of 14 and 15 items need an approved exception to the 8-item limit (the largest so far is 11, lesson 7.1), or four lessons of 6–7 letters each.
 2. **Speaking single letters.** Pronunciation scoring may not tell `B` from `D` or `P`. This needs a quick test in the app before the alphabet lessons are written. If it fails, Speak can use spelled names (`A-N-A`) instead of single letters.
 3. **`old` in A1 2.11.** A1+ 1.1 teaches `old` and `young` for people and is already in Preview. If A1 teaches `old` for things, A1+ 1.1 treats it as known. The alternative is to drop `old` and teach only `new` here.
 4. **Reviews.** Reviews are capped at 48–54 cards. Adding the new words means either replacing existing review cards or approving longer reviews.
