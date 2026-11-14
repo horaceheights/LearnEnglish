@@ -128,10 +128,11 @@ test('conversation decisions use ordinary contrast teaching and keep semantic im
   }
 });
 
-test('all 2369 established A1 ordinary wrong-choice outputs remain unchanged', () => {
+// A1 1.10 Pets (2026-11-14) added 31 outputs; the 2369 earlier ones were proven byte-identical first.
+test('all 2400 established A1 ordinary wrong-choice outputs remain unchanged', () => {
   const course = JSON.parse(fs.readFileSync(path.join(__dirname, '../src/generated/a1-course.json'), 'utf8'));
   const results = course.flatMap(lesson => lesson.cards).filter(card => card.options.length >= 2 && !card.interaction_type?.startsWith('complete'))
     .flatMap(card => wrongOptions(card).map(option => [card.slide_id, option.id, lessonMistakeHint(card, option.id)]));
-  assert.equal(results.length, 2369);
+  assert.equal(results.length, 2400);
   assert.equal(crypto.createHash('sha256').update(JSON.stringify(results)).digest('hex'), fixture.a1BaselineSha256);
 });
