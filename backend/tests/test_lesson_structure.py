@@ -28,6 +28,7 @@ UNIT_1_IDS = [
     "lesson-6-family-actions",
     "lesson-7-is-are-not",
     "lesson-8-who",
+    "lesson-1-10-pets",
     "lesson-9-unit-review",
     "lesson-10-family-mission",
 ]
@@ -41,6 +42,7 @@ EXPECTED_TITLES = [
     "Family Actions",
     "What They Are Not Doing",
     "Who Is He? Who Are They?",
+    "Pets",
     "Unit 1 Story Review",
     "¡Todos a la celebración!",
 ]
@@ -1594,7 +1596,7 @@ class LessonStructureTests(unittest.TestCase):
             '1.4': ['U4', 'U5', 'U6', 'U7'], '1.5': ['U4', 'U5', 'U6', 'U7'],
             '1.6': ['U4', 'U5', 'U6', 'U7'], '1.7': ['U4', 'U5', 'U6', 'U7'],
             '1.8': ['U4', 'U5', 'U6', 'U7'], '1.9': ['U7', 'U8', 'U9', 'U10'],
-            '1.10': ['U5', 'U6', 'U8'],
+            '1.10': ['U5', 'U6', 'U7', 'U8'], '1.11': ['U5', 'U6', 'U8'],
         }
         for lesson in LESSONS.values():
             if lesson.sub_lesson_id not in expected:

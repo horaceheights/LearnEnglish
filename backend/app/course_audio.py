@@ -90,6 +90,13 @@ class CompletionSequenceContract:
 # syllable counts explicit makes pacing deterministic instead of treating
 # "woman" and "boy" as if they took the same teaching time.
 COURSE_SYLLABLES = {
+    # A1 1.10 Pets (2026-11-14).
+    "dog": 1,
+    "cat": 1,
+    "bird": 1,
+    "rabbit": 2,
+    "pet": 1,
+    "pets": 1,
     "evening": 2,
     "m": 1,  # Letter names in a.m./p.m.
     "p": 1,
