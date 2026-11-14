@@ -1,0 +1,57 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "be1c387e-8700-4a36-bd47-a7e822111158",
+  "asset_id": "p01-dog",
+  "pack_sha256": "ba7d39d3a3fd04de5a5da3d5b32c9cff981b7756a7d8a361a7c6f5b2aa0bd527",
+  "started_at": "2026-11-14T16:31:01.527241+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real fur and feather texture, soft natural daylight and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, numbers, logos or brand marks anywhere, including on collars, tags, bowls, toys and furniture. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.\n\nKeep the whole animal, from the tips of its ears to its feet and tail, inside the central 55 percent of the photo width, so a centered 4:5 crop keeps it whole; only expendable background reaches the left and right edges.\n\nExactly ONE animal is in the photo. There is no other animal, no person, no hand, no toy animal, no animal picture on a wall and no mirror or reflection.\n\nThe animal is awake, calm and still, with its eyes open and its mouth closed, seen from the side-front in three-quarter view at its own eye level. Its whole body is visible and sharp, it fills at least 55 percent of the photo height, and the home background behind it is softly out of focus. It is NOT running, NOT jumping, NOT sleeping, NOT lying down, NOT eating and NOT drinking, and there is no food, no water bowl and no toy in the photo.\n\nA family's pet dog at home: a medium-size adult mixed-breed dog with a short golden-tan coat, a white chest patch, soft floppy ears and a plain red collar with no tag. The dog SITS upright on a light beige rug on the wooden floor of a bright family living room, front paws together, head turned slightly toward the camera. A sofa and a window are softly blurred behind it.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "xYz4avOVIcGgqtsP_Ij_0AY",
+  "usage": {
+    "promptTokenCount": 412,
+    "candidatesTokenCount": 1309,
+    "totalTokenCount": 1999,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 412
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 278,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.138160",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 412,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 278
+  },
+  "elapsed_seconds": 21.55,
+  "output": "output/imagegen/unit-1-lesson-v1/p01-dog.png",
+  "sha256": "3a9a7b2c49352c922c630986cbfbd93dfdd7df77dcf74df26279ab79729295f4",
+  "byte_count": 5945810,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

@@ -1,0 +1,143 @@
+{
+  "schema_version": 1,
+  "pack": "unit-1-pets-photos",
+  "revision": 1,
+  "output_namespace": "unit-1-lesson-v1",
+  "authorization": "2026-11-14: the user asked for A1 lesson 1.10 Pets to be built (\"Yes, build Pets\") and approved its media in advance (\"I preapprove all image and audios creation no need for me to reiew and approve on the fly\"). Ceiling US$2.00 for this revision. Gemini is the approved image tool (2026-09-23). Revision 1 is frozen: a changed prompt is a new revision in a new file, written before any render from it. Each base is inspected at phone sizes and at the centered 4:5 crop before its edit is sent, and every rejected output is reported with its cost.",
+  "image_settings": {
+    "provider": "google-gemini",
+    "model": "gemini-3-pro-image",
+    "aspect_ratio": "3:2",
+    "image_size": "2K",
+    "runtime_size": "1536x1024",
+    "runtime_format": "webp",
+    "n": 1
+  },
+  "production": {
+    "price_per_image_usd": "0.134",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing (checked 2026-09-24: Gemini 3 Pro Image, $0.134 per 1K/2K image)",
+    "planned_images": 10,
+    "expected_cost_usd": "1.40",
+    "requested_ceiling_usd": "2.00",
+    "no_automatic_retries": true,
+    "order": "Generate the four animal portraits first (dog, cat, bird, rabbit) and inspect each at 900/360/250/180 px and at the centered 4:5 crop; only then send each animal's action edit, then the group and the girl-and-dog photo. A rejected output is reported with its cost; a redo needs a changed prompt in a new revision file."
+  },
+  "shared_prompts": {
+    "photo": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real fur and feather texture, soft natural daylight and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, numbers, logos or brand marks anywhere, including on collars, tags, bowls, toys and furniture. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.",
+    "safe_center": "Keep the whole animal, from the tips of its ears to its feet and tail, inside the central 55 percent of the photo width, so a centered 4:5 crop keeps it whole; only expendable background reaches the left and right edges.",
+    "one_animal": "Exactly ONE animal is in the photo. There is no other animal, no person, no hand, no toy animal, no animal picture on a wall and no mirror or reflection.",
+    "portrait": "The animal is awake, calm and still, with its eyes open and its mouth closed, seen from the side-front in three-quarter view at its own eye level. Its whole body is visible and sharp, it fills at least 55 percent of the photo height, and the home background behind it is softly out of focus. It is NOT running, NOT jumping, NOT sleeping, NOT lying down, NOT eating and NOT drinking, and there is no food, no water bowl and no toy in the photo.",
+    "same_animal": "Image 1 shows the animal. Keep exactly the same animal: the same species, size, face, coat colors and markings, and the same collar if it has one. Create a NEW photograph of it in a different pose; do not copy the pose or the background of Image 1."
+  },
+  "assets": [
+    {
+      "id": "p01-dog",
+      "order": 1,
+      "lesson": "1.10",
+      "item": "A dog / The dog is a pet.",
+      "runtime_filename": "a1_photo_u1_pets_dog_v1.webp",
+      "four_card": true,
+      "shared": ["photo", "safe_center", "one_animal", "portrait"],
+      "prompt": "A family's pet dog at home: a medium-size adult mixed-breed dog with a short golden-tan coat, a white chest patch, soft floppy ears and a plain red collar with no tag. The dog SITS upright on a light beige rug on the wooden floor of a bright family living room, front paws together, head turned slightly toward the camera. A sofa and a window are softly blurred behind it."
+    },
+    {
+      "id": "p02-cat",
+      "order": 2,
+      "lesson": "1.10",
+      "item": "A cat / The cat is a pet.",
+      "runtime_filename": "a1_photo_u1_pets_cat_v1.webp",
+      "four_card": true,
+      "shared": ["photo", "safe_center", "one_animal", "portrait"],
+      "prompt": "A family's pet cat at home: an adult short-haired grey tabby cat with dark stripes, a white chest and white front paws, green eyes and a plain blue collar with no tag. The cat SITS upright on a wooden floor in a bright family hallway, tail curled around its feet, pointed ears up, eyes wide open and looking toward the camera. A plain wall and a doorway are softly blurred behind it."
+    },
+    {
+      "id": "p03-bird",
+      "order": 3,
+      "lesson": "1.10",
+      "item": "A bird",
+      "runtime_filename": "a1_photo_u1_pets_bird_v1.webp",
+      "four_card": true,
+      "shared": ["photo", "safe_center", "one_animal", "portrait"],
+      "prompt": "A family's pet bird at home: one small parakeet (budgerigar) with a bright yellow head, a bright green body, black-and-yellow striped wings and a long dark-blue tail. The bird PERCHES on a plain horizontal wooden perch on a small table stand in a bright family living room, wings closed, seen in clear side-front view with its beak, eye, wings, tail and both feet visible. A close photo: the bird is large in the frame. A window with soft daylight is blurred behind it. There is no cage in front of the bird and no bars cross it."
+    },
+    {
+      "id": "p04-rabbit",
+      "order": 4,
+      "lesson": "1.10",
+      "item": "A rabbit / The rabbit is a pet.",
+      "runtime_filename": "a1_photo_u1_pets_rabbit_v1.webp",
+      "four_card": true,
+      "shared": ["photo", "safe_center", "one_animal", "portrait"],
+      "prompt": "A family's pet rabbit at home: one adult rabbit with a white coat and large light-brown patches on its back and around its eyes, two long UPRIGHT ears standing straight up, a small round tail and a pink nose. The rabbit sits on all four feet on a light wooden floor in a bright family room, both long ears fully visible and not cut by the frame. A plain wall and the corner of a rug are softly blurred behind it. The long upright ears make it unmistakably a rabbit, not a cat and not a guinea pig."
+    },
+    {
+      "id": "p05-dog-running",
+      "order": 5,
+      "lesson": "1.10",
+      "item": "The dog is running.",
+      "runtime_filename": "a1_photo_u1_pets_dog_running_v1.webp",
+      "four_card": true,
+      "reference": "p01-dog",
+      "shared": ["photo", "safe_center", "one_animal", "same_animal"],
+      "prompt": "The golden-tan dog with the white chest patch and the plain red collar RUNS fast across a short green lawn in a sunny family garden, seen from the side-front. It is caught in mid-stride with all four legs off the ground or stretched out, ears flying back, mouth open and tail streaming behind: running is unmistakable. The whole dog is sharp and fills at least 45 percent of the photo height; the garden fence and bushes behind are softly blurred. There is no ball, no stick, no toy, no leash and no person: the dog is only running, not playing."
+    },
+    {
+      "id": "p06-cat-sleeping",
+      "order": 6,
+      "lesson": "1.10",
+      "item": "The cat is sleeping.",
+      "runtime_filename": "a1_photo_u1_pets_cat_sleeping_v1.webp",
+      "four_card": true,
+      "reference": "p02-cat",
+      "shared": ["photo", "safe_center", "one_animal", "same_animal"],
+      "prompt": "The grey tabby cat with the white chest, white front paws and the plain blue collar SLEEPS curled up in a round ball on a plain cream sofa cushion in a bright living room. Both eyes are fully CLOSED, the head rests on the front paws, the tail is wrapped around the body and the whole body is relaxed: sleeping is unmistakable. The camera is slightly above and to the side, the closed eyes and the face are clearly visible and sharp, and the whole cat fills at least 45 percent of the photo height."
+    },
+    {
+      "id": "p07-bird-drinking",
+      "order": 7,
+      "lesson": "1.10",
+      "item": "The bird is drinking.",
+      "runtime_filename": "a1_photo_u1_pets_bird_drinking_v1.webp",
+      "four_card": true,
+      "reference": "p03-bird",
+      "shared": ["photo", "safe_center", "one_animal", "same_animal"],
+      "prompt": "The yellow-headed green parakeet DRINKS water. It stands on the rim of a small plain white ceramic dish filled to the top with clear water, on a wooden table in a bright living room, and leans forward with its head lowered so that the tip of its beak touches the surface of the water; a few small ripples spread from the beak. Seen in clear side view, a close photo with the bird and the dish large in the frame, both fully visible and sharp. The dish holds ONLY clear water: there are no seeds, no food and no fruit anywhere, so the bird is clearly drinking and not eating."
+    },
+    {
+      "id": "p08-rabbit-eating",
+      "order": 8,
+      "lesson": "1.10",
+      "item": "The rabbit is eating.",
+      "runtime_filename": "a1_photo_u1_pets_rabbit_eating_v1.webp",
+      "four_card": true,
+      "reference": "p04-rabbit",
+      "shared": ["photo", "safe_center", "one_animal", "same_animal"],
+      "prompt": "The white rabbit with the light-brown patches and the two long upright ears EATS. It sits on a light wooden floor in a bright family room and holds one large fresh green lettuce leaf in its mouth, half of the leaf already inside its mouth and clearly being chewed; two more green leaves and one orange carrot lie on the floor directly in front of it. Seen from the side-front, both long ears fully visible, the mouth and the leaf sharp and easy to see, and the whole rabbit fills at least 45 percent of the photo height. There is no water bowl and no bottle: the rabbit is clearly eating, not drinking."
+    },
+    {
+      "id": "p09-pets-group",
+      "order": 9,
+      "lesson": "1.10",
+      "item": "They are pets.",
+      "runtime_filename": "a1_photo_u1_pets_group_v1.webp",
+      "four_card": false,
+      "shared": ["photo"],
+      "prompt": "Four family pets together in one bright family living room, seen from the front at their eye level, all four sharp, awake, calm and looking toward the camera, spread in one row across the central 80 percent of the photo width with clear space between them so that each one is easy to see. From left to right: (1) a medium-size golden-tan mixed-breed dog with a white chest patch, floppy ears and a plain red collar, sitting upright on a light beige rug; (2) a grey tabby cat with a white chest, white front paws and a plain blue collar, sitting upright on the rug; (3) a white rabbit with light-brown patches and two long upright ears, sitting on the rug; (4) a small parakeet with a yellow head and a green body, perched on a low wooden perch stand that rests on the rug, at the same height as the other animals' heads. Exactly these four animals and no others; no people, no hands, no cage bars in front of the bird, no food and no toys. A sofa and a window are softly blurred behind them."
+    },
+    {
+      "id": "p10-girl-dog-playing",
+      "order": 10,
+      "lesson": "1.10",
+      "item": "The girl and the dog are playing.",
+      "runtime_filename": "a1_photo_u1_pets_girl_dog_playing_v1.webp",
+      "four_card": false,
+      "shared": ["photo"],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/girl.webp",
+        "sha256": "3cbaee986b59bf009ed1a60a397cc7b23cde937e1287cd222d3e6818b197f9a7",
+        "observed_description": "The family's girl, about seven, with long dark-brown hair tied half up, small stud earrings and a lilac short-sleeved T-shirt, stands smiling at the camera on a gravel garden path between beds of pink, blue and yellow flowers."
+      },
+      "prompt": "Image 1 shows the family's girl: about seven, long dark-brown hair tied half up, a lilac short-sleeved T-shirt. Keep her face, hair and T-shirt exactly. Create a new photograph on a short green lawn in the family's sunny garden: the girl and the family dog PLAY together with a ball. The dog is a medium-size golden-tan mixed-breed dog with a white chest patch, floppy ears and a plain red collar. The girl, wearing blue jeans, kneels on one knee and holds a plain bright-orange ball up in one hand, laughing, her face in three-quarter view and fully visible; the dog stands facing her on its hind legs with its front paws in the air, jumping for the ball with its mouth open and its tail up. The girl and the dog are close together, both whole and sharp inside the central 65 percent of the photo width, and they look at each other and the ball, not at the camera. Her visible hands each have five natural fingers. Only this one girl and this one dog; no other people or animals, and nothing written on the ball."
+    }
+  ]
+}

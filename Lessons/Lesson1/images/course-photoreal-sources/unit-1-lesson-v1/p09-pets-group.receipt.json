@@ -1,0 +1,57 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "72bbf2b8-ae39-4788-a717-b42efdbbfe56",
+  "asset_id": "p09-pets-group",
+  "pack_sha256": "ba7d39d3a3fd04de5a5da3d5b32c9cff981b7756a7d8a361a7c6f5b2aa0bd527",
+  "started_at": "2026-11-14T16:35:17.097106+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real fur and feather texture, soft natural daylight and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, numbers, logos or brand marks anywhere, including on collars, tags, bowls, toys and furniture. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.\n\nFour family pets together in one bright family living room, seen from the front at their eye level, all four sharp, awake, calm and looking toward the camera, spread in one row across the central 80 percent of the photo width with clear space between them so that each one is easy to see. From left to right: (1) a medium-size golden-tan mixed-breed dog with a white chest patch, floppy ears and a plain red collar, sitting upright on a light beige rug; (2) a grey tabby cat with a white chest, white front paws and a plain blue collar, sitting upright on the rug; (3) a white rabbit with light-brown patches and two long upright ears, sitting on the rug; (4) a small parakeet with a yellow head and a green body, perched on a low wooden perch stand that rests on the rug, at the same height as the other animals' heads. Exactly these four animals and no others; no people, no hands, no cage bars in front of the bird, no food and no toys. A sofa and a window are softly blurred behind them.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "xI34are0LcSsz7IPpqKs2Qk",
+  "usage": {
+    "promptTokenCount": 363,
+    "candidatesTokenCount": 1332,
+    "totalTokenCount": 1957,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 363
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 262,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137870",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 363,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 262
+  },
+  "elapsed_seconds": 21.21,
+  "output": "output/imagegen/unit-1-lesson-v1/p09-pets-group.png",
+  "sha256": "f48f68f9f124dfc85e59832f7891e0dead818b8432a0511ccf072e75c3148139",
+  "byte_count": 6124715,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "3873f34f-c501-493b-9489-8dc901640703",
+  "asset_id": "p07-bird-drinking",
+  "pack_sha256": "ba7d39d3a3fd04de5a5da3d5b32c9cff981b7756a7d8a361a7c6f5b2aa0bd527",
+  "started_at": "2026-11-14T16:34:25.298685+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real fur and feather texture, soft natural daylight and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, numbers, logos or brand marks anywhere, including on collars, tags, bowls, toys and furniture. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.\n\nKeep the whole animal, from the tips of its ears to its feet and tail, inside the central 55 percent of the photo width, so a centered 4:5 crop keeps it whole; only expendable background reaches the left and right edges.\n\nExactly ONE animal is in the photo. There is no other animal, no person, no hand, no toy animal, no animal picture on a wall and no mirror or reflection.\n\nImage 1 shows the animal. Keep exactly the same animal: the same species, size, face, coat colors and markings, and the same collar if it has one. Create a NEW photograph of it in a different pose; do not copy the pose or the background of Image 1.\n\nThe yellow-headed green parakeet DRINKS water. It stands on the rim of a small plain white ceramic dish filled to the top with clear water, on a wooden table in a bright living room, and leans forward with its head lowered so that the tip of its beak touches the surface of the water; a few small ripples spread from the beak. Seen in clear side view, a close photo with the bird and the dish large in the frame, both fully visible and sharp. The dish holds ONLY clear water: there are no seeds, no food and no fruit anywhere, so the bird is clearly drinking and not eating.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "output/imagegen/unit-1-lesson-v1/p03-bird.png",
+    "sha256": "d7d90fbea017a2030e6243c4fe566e4fac54c9b6ccfee2e9f3e80d4716fec6a1"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "kY34auPwJvCsz7IPv5yCqAw",
+  "usage": {
+    "promptTokenCount": 666,
+    "candidatesTokenCount": 1293,
+    "totalTokenCount": 2130,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 408
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 171,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137384",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 666,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 171
+  },
+  "elapsed_seconds": 23.35,
+  "output": "output/imagegen/unit-1-lesson-v1/p07-bird-drinking.png",
+  "sha256": "5f390382c09b491739bd7de89b648452ce37f38b66dfabf55d9e6bd8cfe02994",
+  "byte_count": 5180420,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

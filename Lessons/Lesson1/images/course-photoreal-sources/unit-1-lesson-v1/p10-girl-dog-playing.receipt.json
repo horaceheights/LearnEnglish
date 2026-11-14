@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "4daa8c58-2a55-4a32-b8cc-3d79898992ad",
+  "asset_id": "p10-girl-dog-playing",
+  "pack_sha256": "ba7d39d3a3fd04de5a5da3d5b32c9cff981b7756a7d8a361a7c6f5b2aa0bd527",
+  "started_at": "2026-11-14T16:35:39.974710+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real fur and feather texture, soft natural daylight and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, numbers, logos or brand marks anywhere, including on collars, tags, bowls, toys and furniture. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.\n\nImage 1 shows the family's girl: about seven, long dark-brown hair tied half up, a lilac short-sleeved T-shirt. Keep her face, hair and T-shirt exactly. Create a new photograph on a short green lawn in the family's sunny garden: the girl and the family dog PLAY together with a ball. The dog is a medium-size golden-tan mixed-breed dog with a white chest patch, floppy ears and a plain red collar. The girl, wearing blue jeans, kneels on one knee and holds a plain bright-orange ball up in one hand, laughing, her face in three-quarter view and fully visible; the dog stands facing her on its hind legs with its front paws in the air, jumping for the ball with its mouth open and its tail up. The girl and the dog are close together, both whole and sharp inside the central 65 percent of the photo width, and they look at each other and the ball, not at the camera. Her visible hands each have five natural fingers. Only this one girl and this one dog; no other people or animals, and nothing written on the ball.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/girl.webp",
+    "sha256": "3cbaee986b59bf009ed1a60a397cc7b23cde937e1287cd222d3e6818b197f9a7"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "2434aqTpOJ6VmtkP8quM2Qg",
+  "usage": {
+    "promptTokenCount": 627,
+    "candidatesTokenCount": 1363,
+    "totalTokenCount": 2203,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 369
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 213,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137810",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 627,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 213
+  },
+  "elapsed_seconds": 27.25,
+  "output": "output/imagegen/unit-1-lesson-v1/p10-girl-dog-playing.png",
+  "sha256": "854c85ee772f1475998292b5712e3e5c7730f12b9494976a8a8adff9073cddd2",
+  "byte_count": 7116304,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

@@ -1,0 +1,188 @@
+{
+  "brief_version": 1,
+  "note": "Coverage gap lesson (2026-11-14): the coverage benchmark found no animal words in A1. Pets joins Unit 1 after 1.9 and reuses the unit's is/are action frames. Source: docs/planning/a1-priority-1-lessons-plan.md.",
+  "target": "backend/lessons/unit_1/1.10_pets.yaml",
+  "lesson": {
+    "id": "lesson-1-10-pets",
+    "title": "1.10 Pets",
+    "level": "Beginner A1",
+    "unit_id": "unit-1",
+    "unit_title": "Unit 1: People, Family, and Actions",
+    "unit_outcome": "Understand and produce simple sentences about people, family members, and actions.",
+    "lesson_id": "lesson-1",
+    "lesson_title": "Unit 1: People, Family, and Actions",
+    "sub_lesson_id": "1.10",
+    "sub_lesson_title": "Pets",
+    "goal": "Name four family pets and say what each one is doing.",
+    "vocabulary": [
+      "dog",
+      "cat",
+      "bird",
+      "rabbit",
+      "pet",
+      "pets"
+    ],
+    "review_vocabulary": [
+      "a",
+      "the",
+      "is",
+      "are",
+      "they",
+      "and",
+      "girl",
+      "running",
+      "sleeping",
+      "drinking",
+      "eating",
+      "playing"
+    ],
+    "grammar_function": "A + animal; The + animal + is + action; The + animal + is a pet; They are pets; The + person + and the + animal + are + action.",
+    "prerequisite": "Lessons 1.1-1.7: a, the, is, are, they, and, girl, and the actions running, sleeping, drinking, eating and playing.",
+    "speaking_outcome": "Name a dog, a cat, a bird and a rabbit, say what each one is doing, and say that they are pets.",
+    "content_revision": 1
+  },
+  "items": [
+    {
+      "text": "A dog",
+      "es": "Un perro",
+      "image": "/lesson-assets/a1_photo_u1_pets_dog_v1.webp",
+      "kind": "animal-word"
+    },
+    {
+      "text": "A cat",
+      "es": "Un gato",
+      "image": "/lesson-assets/a1_photo_u1_pets_cat_v1.webp",
+      "kind": "animal-word"
+    },
+    {
+      "text": "A bird",
+      "es": "Un pájaro",
+      "image": "/lesson-assets/a1_photo_u1_pets_bird_v1.webp",
+      "kind": "animal-word"
+    },
+    {
+      "text": "A rabbit",
+      "es": "Un conejo",
+      "image": "/lesson-assets/a1_photo_u1_pets_rabbit_v1.webp",
+      "kind": "animal-word"
+    },
+    {
+      "text": "A pet",
+      "es": "Una mascota",
+      "image": "/lesson-assets/a1_photo_u1_pets_dog_v1.webp",
+      "kind": "pet-word",
+      "choices": false
+    },
+    {
+      "text": "Pets",
+      "es": "Mascotas",
+      "image": "/lesson-assets/a1_photo_u1_pets_group_v1.webp",
+      "kind": "pet-word",
+      "choices": false,
+      "four_card": false
+    },
+    {
+      "text": "The dog is running.",
+      "es": "El perro está corriendo.",
+      "image": "/lesson-assets/a1_photo_u1_pets_dog_running_v1.webp",
+      "kind": "animal-action",
+      "learn": false
+    },
+    {
+      "text": "The cat is sleeping.",
+      "es": "El gato está durmiendo.",
+      "image": "/lesson-assets/a1_photo_u1_pets_cat_sleeping_v1.webp",
+      "kind": "animal-action",
+      "learn": false
+    },
+    {
+      "text": "The bird is drinking.",
+      "es": "El pájaro está bebiendo.",
+      "image": "/lesson-assets/a1_photo_u1_pets_bird_drinking_v1.webp",
+      "kind": "animal-action",
+      "learn": false
+    },
+    {
+      "text": "The rabbit is eating.",
+      "es": "El conejo está comiendo.",
+      "image": "/lesson-assets/a1_photo_u1_pets_rabbit_eating_v1.webp",
+      "kind": "animal-action",
+      "learn": false
+    },
+    {
+      "text": "The dog is a pet.",
+      "es": "El perro es una mascota.",
+      "image": "/lesson-assets/a1_photo_u1_pets_dog_v1.webp",
+      "kind": "pet-sentence",
+      "learn": false
+    },
+    {
+      "text": "The cat is a pet.",
+      "es": "El gato es una mascota.",
+      "image": "/lesson-assets/a1_photo_u1_pets_cat_v1.webp",
+      "kind": "pet-sentence",
+      "learn": false
+    },
+    {
+      "text": "The rabbit is a pet.",
+      "es": "El conejo es una mascota.",
+      "image": "/lesson-assets/a1_photo_u1_pets_rabbit_v1.webp",
+      "kind": "pet-sentence",
+      "learn": false
+    },
+    {
+      "text": "They are pets.",
+      "es": "Ellos son mascotas.",
+      "image": "/lesson-assets/a1_photo_u1_pets_group_v1.webp",
+      "kind": "identity-sentence",
+      "learn": false,
+      "four_card": false
+    },
+    {
+      "text": "The girl and the dog are playing.",
+      "es": "La niña y el perro están jugando.",
+      "image": "/lesson-assets/a1_photo_u1_pets_girl_dog_playing_v1.webp",
+      "kind": "pair-action",
+      "learn": false,
+      "four_card": false
+    }
+  ],
+  "pool": [
+    {
+      "text": "The boy and the girl are running.",
+      "es": "El niño y la niña están corriendo.",
+      "image": "/lesson-assets/they_boy_girl_are_running.webp",
+      "kind": "pair-action"
+    },
+    {
+      "text": "The boy and the girl are reading.",
+      "es": "El niño y la niña están leyendo.",
+      "image": "/lesson-assets/they_boy_girl_are_reading.webp",
+      "kind": "pair-action"
+    },
+    {
+      "text": "They are children.",
+      "es": "Ellos son niños.",
+      "image": "/lesson-assets/family_children.webp",
+      "kind": "identity-sentence"
+    },
+    {
+      "text": "They are babies.",
+      "es": "Ellos son bebés.",
+      "image": "/lesson-assets/family_babies.webp",
+      "kind": "identity-sentence"
+    },
+    {
+      "text": "They are a family.",
+      "es": "Ellos son una familia.",
+      "image": "/lesson-assets/family_all_members.webp",
+      "kind": "identity-sentence"
+    }
+  ],
+  "layout": {
+    "Recognize": 11,
+    "Listen": 9,
+    "Speak": 8,
+    "Use": 8
+  }
+}
