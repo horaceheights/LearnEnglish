@@ -1,0 +1,57 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "166472c3-6ce7-4679-b12c-98cdac6d21e4",
+  "asset_id": "b04-new-car",
+  "pack_sha256": "64536db16c536b8b199eb140a99a8f34d169eb6b6a787d894a3b6dcfbcc2a8c4",
+  "started_at": "2026-11-14T22:19:25.682303+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material, fabric, metal and fur texture, soft natural daylight and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, numbers, logos or brand marks anywhere, including on clothing, collars, bags, vehicles, plates and walls. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.\n\nKeep the main subject of the photo whole inside the central 55 percent of the photo width, so a centered 4:5 crop keeps it whole; only expendable background reaches the left and right edges.\n\nOne brand-NEW car. A small modern blue five-door hatchback is parked alone on a clean pale concrete driveway in front of a plain light garage wall on a sunny day, seen from the front left three-quarter angle at headlight height, so the whole car, from bumper to bumper and with all of its wheels touching the ground, fits inside the central 55 percent of the photo width. Everything on the car is perfect and factory fresh: deep glossy blue paint with bright clean reflections, spotless clear windows, crystal-clear headlights, shiny silver wheels and deep-black clean tires; not one scratch, dent, speck of dust or drop of mud. The front licence plate is a blank plain white rectangle, and the car has no badge, logo or lettering. Exactly one car; no people, no other vehicles, no price tag, no ribbon and no signs.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "bN74aobJK4DBz7IPkrve4Ac",
+  "usage": {
+    "promptTokenCount": 356,
+    "candidatesTokenCount": 1274,
+    "totalTokenCount": 1856,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 356
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 226,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137424",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 356,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 226
+  },
+  "elapsed_seconds": 21.09,
+  "output": "output/imagegen/unit-2-lesson-v6/b04-new-car.png",
+  "sha256": "dc1f2a449c5b05ef638851060aacd552214700a2f92ef47a4ab1c2b78c9568a3",
+  "byte_count": 5499829,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

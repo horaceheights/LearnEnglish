@@ -1,0 +1,109 @@
+{
+  "schema_version": 1,
+  "pack": "unit-2-review-gap-photos",
+  "revision": 1,
+  "output_namespace": "unit-2-review-v3",
+  "authorization": "2026-11-14: the user approved a longer Unit 2 review that brings back the 2.11 Big and Small words (answer \"Same as Unit 1 (Recommended)\") and had approved the gap-lesson media in advance the same day (\"I preapprove all image and audios creation no need for me to reiew and approve on the fly\"). Ceiling US$1.50 for this revision. Gemini is the approved image tool (2026-09-23). The review may not reuse a teaching lesson's photo, so its three pairs are fresh: each second photo is an edit of the inspected first one. Revision 1 is frozen: a changed prompt is a new revision in a new file, and every rejected output is reported with its cost.",
+  "image_settings": {
+    "provider": "google-gemini",
+    "model": "gemini-3-pro-image",
+    "aspect_ratio": "3:2",
+    "image_size": "2K",
+    "runtime_size": "1536x1024",
+    "runtime_format": "webp",
+    "n": 1
+  },
+  "production": {
+    "price_per_image_usd": "0.134",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing (checked 2026-09-24: Gemini 3 Pro Image, $0.134 per 1K/2K image)",
+    "planned_images": 6,
+    "expected_cost_usd": "0.83",
+    "requested_ceiling_usd": "1.50",
+    "no_automatic_retries": true,
+    "order": "g01, g03 and g05 first; each is inspected at 900/360/250/180 px and recorded before its edit (g02, g04, g06) is sent. A rejected output is reported with its cost; a redo needs a changed prompt in a new revision file."
+  },
+  "shared_prompts": {
+    "photo": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material, fabric, paper and wood texture, soft natural daylight and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, numbers, logos or brand marks anywhere, including on bags, books, furniture and walls. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.",
+    "edit": "This is a precise edit of image 1: the result must look like a second photograph taken from the same spot a moment later, with the same framing, perspective, lens and light, and with every kept object in the same place at the same size. Change only what the instruction names."
+  },
+  "assets": [
+    {
+      "id": "g01-new-bag",
+      "order": 1,
+      "lesson": "2.12",
+      "item": "The bag is new.",
+      "runtime_filename": "a1_u2_review_v3_new_bag.webp",
+      "four_card": false,
+      "shared": [
+        "photo"
+      ],
+      "prompt": "One brand-NEW backpack. A green school backpack stands upright, alone, in the middle of a light wooden table in front of a plain pale wall, facing the camera, and fills about half of the photo height. Everything on it is perfect and fresh from the shop: bright, even, saturated green fabric, a full crisp shape, straight clean seams, shiny silver zippers and a clean green top handle; not one stain, crease, loose thread, patch or mark. The whole backpack is one plain green with no other color. Exactly one bag and nothing else on the table; no people, no price tag, no labels, no key rings and no other objects."
+    },
+    {
+      "id": "g02-used-bag",
+      "order": 2,
+      "lesson": "2.12",
+      "item": "The bag is used.",
+      "runtime_filename": "a1_u2_review_v3_used_bag.webp",
+      "four_card": false,
+      "shared": [
+        "photo",
+        "edit"
+      ],
+      "reference": "g01-new-bag",
+      "prompt": "Image 1 shows a brand-new green backpack. Keep the same backpack model, the same green color family, the same position and size in the frame, and the same table, wall and camera position. Show the SAME backpack many years later as a clearly USED bag. Its fabric is faded and unevenly sun-bleached to a pale dull green; it sags and has lost its crisp shape; there are several dark dirt stains and scuff marks; the edges and the bottom corners are frayed with loose threads; the front pocket has one hand-sewn square brown patch; the zipper is dull and its pull is replaced by a short knotted string; the top handle is worn thin. The wear is obvious at a glance even when the photo is very small. It is an ordinary used bag that still works: it is closed, not torn open, not empty or crushed flat, and nothing spills out of it. Exactly one bag and nothing else on the table; no people, no labels and no other objects."
+    },
+    {
+      "id": "g03-same-books",
+      "order": 3,
+      "lesson": "2.12",
+      "item": "The books are the same.",
+      "runtime_filename": "a1_u2_review_v3_same_books.webp",
+      "four_card": false,
+      "shared": [
+        "photo"
+      ],
+      "prompt": "Two IDENTICAL books. Two closed hardcover books stand upright side by side on a light wooden table in front of a plain pale wall, front covers facing the camera, with a clear gap of one hand's width between them. They are exact twins: the same plain bright-red cover, the same height, the same width and the same thickness. A viewer sees at a glance that the two books are the same. The covers are completely plain, with no title, picture, line or mark. Both books are whole and sharp, and together they fill the central 60 percent of the photo width. Exactly two books and nothing else on the table; no people, no pens, no bookmarks and no other objects."
+    },
+    {
+      "id": "g04-different-books",
+      "order": 4,
+      "lesson": "2.12",
+      "item": "The books are different.",
+      "runtime_filename": "a1_u2_review_v3_different_books.webp",
+      "four_card": false,
+      "shared": [
+        "photo",
+        "edit"
+      ],
+      "reference": "g03-same-books",
+      "prompt": "Image 1 shows two identical red books standing side by side on a table. Keep the LEFT red book, the table, the wall, the light and the camera position exactly as they are. REPLACE the RIGHT book with a clearly DIFFERENT book standing in the same place: one closed book with a plain dark-blue cover that is much shorter and much thicker than the red one, about half as tall and three times as thick, front cover facing the camera. A viewer sees at a glance that the two books are different in color, size and shape. Both covers are completely plain, with no title, picture, line or mark. Both books are whole and sharp with a clear gap between them. Exactly two books and nothing else on the table; no people, no pens, no bookmarks and no other objects."
+    },
+    {
+      "id": "g05-big-table",
+      "order": 5,
+      "lesson": "2.12",
+      "item": "It is a big table.",
+      "runtime_filename": "a1_u2_review_v3_big_table.webp",
+      "four_card": false,
+      "shared": [
+        "photo"
+      ],
+      "prompt": "One very BIG table beside a chair, in a bright empty room with a light wooden floor and a plain pale wall. A huge, long, heavy wooden dining table with thick legs stands across the room, seen from its long side, and fills about two thirds of the photo width. At its left end stands a simple light-oak wooden dining chair with a straight slatted backrest and no cushion, facing the camera, not pushed under the table. The table is enormous next to the chair: it is about five times as wide as the chair, and its top is higher than the chair's seat. The table top is completely empty. The camera is at the height of the table top, straight on. The whole table and the whole chair are sharp and touch the floor. Exactly one table and one chair; no people, no other chairs, no plates, no vase, no rug and no pictures on the wall."
+    },
+    {
+      "id": "g06-small-table",
+      "order": 6,
+      "lesson": "2.12",
+      "item": "It is a small table.",
+      "runtime_filename": "a1_u2_review_v3_small_table.webp",
+      "four_card": false,
+      "shared": [
+        "photo",
+        "edit"
+      ],
+      "reference": "g05-big-table",
+      "prompt": "Image 1 shows a very big table with one wooden chair at its left end. Keep the room, the floor, the wall, the light, the camera position and the wooden chair exactly as they are, with the chair in the same place and at the same size in the frame. REMOVE the big table completely, so the floor and wall behind it are empty, and put one very SMALL table right beside the chair: a tiny, low, square wooden side table with four thin legs and an empty top. The little table is tiny next to the chair: its top is clearly LOWER than the chair's seat, and it is narrower than the chair. It is sharp and easy to recognise as a table, not a stool, a box or a toy. Exactly one table and one chair; no people, no other furniture, no lamp, no books, no rug and nothing on the table."
+    }
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "6d572690-f53e-41bc-95b6-8e002f0b04f5",
+  "asset_id": "g06-small-table",
+  "pack_sha256": "0056831e3a0472ee709e227e73a34f5ed1cc134aca091dfeb95f524f250c2860",
+  "started_at": "2026-11-14T22:35:47.252377+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material, fabric, paper and wood texture, soft natural daylight and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, numbers, logos or brand marks anywhere, including on bags, books, furniture and walls. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.\n\nThis is a precise edit of image 1: the result must look like a second photograph taken from the same spot a moment later, with the same framing, perspective, lens and light, and with every kept object in the same place at the same size. Change only what the instruction names.\n\nImage 1 shows a very big table with one wooden chair at its left end. Keep the room, the floor, the wall, the light, the camera position and the wooden chair exactly as they are, with the chair in the same place and at the same size in the frame. REMOVE the big table completely, so the floor and wall behind it are empty, and put one very SMALL table right beside the chair: a tiny, low, square wooden side table with four thin legs and an empty top. The little table is tiny next to the chair: its top is clearly LOWER than the chair's seat, and it is narrower than the chair. It is sharp and easy to recognise as a table, not a stool, a box or a toy. Exactly one table and one chair; no people, no other furniture, no lamp, no books, no rug and nothing on the table.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "output/imagegen/unit-2-review-v3/g05-big-table.png",
+    "sha256": "9e3e14d9f440f2f44a3e3a5abe38fb569c11815deeff9fbe89d519f0cdc9254b"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "QuL4ar2_MY7oz7IPida7yQU",
+  "usage": {
+    "promptTokenCount": 633,
+    "candidatesTokenCount": 1266,
+    "totalTokenCount": 2127,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 375
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 228,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.138002",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 633,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 228
+  },
+  "elapsed_seconds": 22.63,
+  "output": "output/imagegen/unit-2-review-v3/g06-small-table.png",
+  "sha256": "9dcfdeffb484fe091f7414b1e89efc817c2fdaf7b8c0de44a810de425477e1d7",
+  "byte_count": 4342209,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

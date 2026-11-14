@@ -1,0 +1,267 @@
+{
+  "brief_version": 1,
+  "note": "Coverage gap lesson (2026-11-14, user request \"build 2.11 Big and Small next\"). The user chose `used` and `new` for things (\"for things lets use 'used' and 'new'\"), so `old` stays with A1+ 1.1 for people. It brings back the 1.10 Pets word dog and the Unit 2 nouns car, bike, house, bag and chairs. Source: docs/planning/a1-priority-1-lessons-plan.md.",
+  "target": "backend/lessons/unit_2/lesson-2-11-big-and-small.yaml",
+  "lesson": {
+    "id": "lesson-2-11-big-small",
+    "title": "2.11 Big and Small",
+    "level": "Beginner A1",
+    "unit_id": "unit-2",
+    "unit_title": "Unit 2: Places, Objects, Numbers, and Colors",
+    "unit_outcome": "Recognize common surroundings and identify, count, and describe concrete objects without using untaught location language.",
+    "lesson_id": "lesson-2",
+    "lesson_title": "Unit 2: Places, Objects, Numbers, and Colors",
+    "sub_lesson_id": "2.11",
+    "sub_lesson_title": "Big and Small",
+    "goal": "Describe a known thing as big or small and new or used, and say that two things are the same or different.",
+    "vocabulary": [
+      "big",
+      "small",
+      "new",
+      "used",
+      "same",
+      "different"
+    ],
+    "review_vocabulary": [
+      "it",
+      "is",
+      "are",
+      "a",
+      "the",
+      "dog",
+      "house",
+      "car",
+      "bike",
+      "bag",
+      "bags",
+      "chairs",
+      "red"
+    ],
+    "grammar_function": "It is a + big/small + noun; The + noun + is + new/used; The + plural noun + are + the same/different; size before color (a big red bag).",
+    "prerequisite": "1.10 dog; 2.1 it is, house; 2.2 car, bike; 2.3 bag, chair; 2.7 chairs; 2.8 It is a + color + noun; 2.9 bags.",
+    "speaking_outcome": "Say It is a big dog., The car is new. and The bags are the same. about a picture.",
+    "content_revision": 1
+  },
+  "layout": {
+    "Recognize": 11,
+    "Listen": 9,
+    "Speak": 8,
+    "Use": 8
+  },
+  "items": [
+    {
+      "text": "Big",
+      "es": "Grande",
+      "image": "/lesson-assets/a1_photo_u2_bigsmall_big_dog_v1.webp",
+      "kind": "describing-word",
+      "choices": false
+    },
+    {
+      "text": "Small",
+      "es": "Pequeño",
+      "image": "/lesson-assets/a1_photo_u2_bigsmall_small_dog_v1.webp",
+      "kind": "describing-word",
+      "choices": false
+    },
+    {
+      "text": "New",
+      "es": "Nuevo",
+      "image": "/lesson-assets/a1_photo_u2_bigsmall_new_car_v1.webp",
+      "kind": "describing-word",
+      "choices": false
+    },
+    {
+      "text": "Used",
+      "es": "Usado",
+      "image": "/lesson-assets/a1_photo_u2_bigsmall_used_car_v1.webp",
+      "kind": "describing-word",
+      "choices": false
+    },
+    {
+      "text": "Same",
+      "es": "Igual",
+      "image": "/lesson-assets/a1_photo_u2_bigsmall_same_bags_v1.webp",
+      "kind": "describing-word",
+      "choices": false
+    },
+    {
+      "text": "Different",
+      "es": "Diferente",
+      "image": "/lesson-assets/a1_photo_u2_bigsmall_different_bags_v1.webp",
+      "kind": "describing-word",
+      "choices": false
+    },
+    {
+      "text": "It is a big dog.",
+      "es": "Es un perro grande.",
+      "image": "/lesson-assets/a1_photo_u2_bigsmall_big_dog_v1.webp",
+      "kind": "size",
+      "learn": false,
+      "prefer": [
+        "It is a small dog."
+      ],
+      "blanks": [
+        "big",
+        "dog"
+      ]
+    },
+    {
+      "text": "It is a small dog.",
+      "es": "Es un perro pequeño.",
+      "image": "/lesson-assets/a1_photo_u2_bigsmall_small_dog_v1.webp",
+      "kind": "size",
+      "learn": false,
+      "prefer": [
+        "It is a big dog."
+      ],
+      "blanks": [
+        "small",
+        "dog"
+      ]
+    },
+    {
+      "text": "The car is new.",
+      "es": "El automóvil es nuevo.",
+      "image": "/lesson-assets/a1_photo_u2_bigsmall_new_car_v1.webp",
+      "kind": "state",
+      "learn": false,
+      "prefer": [
+        "The car is used."
+      ],
+      "four_card": false
+    },
+    {
+      "text": "The car is used.",
+      "es": "El automóvil es usado.",
+      "image": "/lesson-assets/a1_photo_u2_bigsmall_used_car_v1.webp",
+      "kind": "state",
+      "learn": false,
+      "prefer": [
+        "The car is new."
+      ],
+      "four_card": false
+    },
+    {
+      "text": "The bags are the same.",
+      "es": "Las bolsas son iguales.",
+      "image": "/lesson-assets/a1_photo_u2_bigsmall_same_bags_v1.webp",
+      "kind": "compare",
+      "learn": false,
+      "prefer": [
+        "The bags are different."
+      ],
+      "four_card": false
+    },
+    {
+      "text": "The bags are different.",
+      "es": "Las bolsas son diferentes.",
+      "image": "/lesson-assets/a1_photo_u2_bigsmall_different_bags_v1.webp",
+      "kind": "compare",
+      "learn": false,
+      "prefer": [
+        "The bags are the same."
+      ],
+      "four_card": false
+    },
+    {
+      "text": "It is a big house.",
+      "es": "Es una casa grande.",
+      "image": "/lesson-assets/a1_photo_u2_bigsmall_big_house_v1.webp",
+      "kind": "size",
+      "learn": false,
+      "prefer": [
+        "It is a small house."
+      ],
+      "blanks": [
+        "big",
+        "house"
+      ]
+    },
+    {
+      "text": "It is a small house.",
+      "es": "Es una casa pequeña.",
+      "image": "/lesson-assets/a1_photo_u2_bigsmall_small_house_v1.webp",
+      "kind": "size",
+      "learn": false,
+      "prefer": [
+        "It is a big house."
+      ],
+      "blanks": [
+        "small",
+        "house"
+      ]
+    },
+    {
+      "text": "The bike is new.",
+      "es": "La bicicleta es nueva.",
+      "image": "/lesson-assets/a1_photo_u2_bigsmall_new_bike_v1.webp",
+      "kind": "state",
+      "learn": false,
+      "prefer": [
+        "The bike is used."
+      ],
+      "four_card": false
+    },
+    {
+      "text": "The bike is used.",
+      "es": "La bicicleta es usada.",
+      "image": "/lesson-assets/a1_photo_u2_bigsmall_used_bike_v1.webp",
+      "kind": "state",
+      "learn": false,
+      "prefer": [
+        "The bike is new."
+      ],
+      "four_card": false
+    },
+    {
+      "text": "The chairs are the same.",
+      "es": "Las sillas son iguales.",
+      "image": "/lesson-assets/a1_photo_u2_bigsmall_same_chairs_v1.webp",
+      "kind": "compare",
+      "learn": false,
+      "prefer": [
+        "The chairs are different."
+      ],
+      "four_card": false
+    },
+    {
+      "text": "The chairs are different.",
+      "es": "Las sillas son diferentes.",
+      "image": "/lesson-assets/a1_photo_u2_bigsmall_different_chairs_v1.webp",
+      "kind": "compare",
+      "learn": false,
+      "prefer": [
+        "The chairs are the same."
+      ],
+      "four_card": false
+    },
+    {
+      "text": "It is a big red bag.",
+      "es": "Es una bolsa roja grande.",
+      "image": "/lesson-assets/a1_photo_u2_bigsmall_big_red_bag_v1.webp",
+      "kind": "size",
+      "learn": false,
+      "prefer": [
+        "It is a small red bag."
+      ],
+      "blanks": [
+        "big",
+        "red"
+      ]
+    },
+    {
+      "text": "It is a small red bag.",
+      "es": "Es una bolsa roja pequeña.",
+      "image": "/lesson-assets/a1_photo_u2_bigsmall_small_red_bag_v1.webp",
+      "kind": "size",
+      "learn": false,
+      "prefer": [
+        "It is a big red bag."
+      ],
+      "blanks": [
+        "small",
+        "red"
+      ]
+    }
+  ]
+}

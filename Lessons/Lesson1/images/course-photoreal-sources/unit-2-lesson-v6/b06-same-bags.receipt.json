@@ -1,0 +1,57 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "40959b0f-7e0f-4f2c-8473-dd35af028684",
+  "asset_id": "b06-same-bags",
+  "pack_sha256": "64536db16c536b8b199eb140a99a8f34d169eb6b6a787d894a3b6dcfbcc2a8c4",
+  "started_at": "2026-11-14T22:20:12.486179+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material, fabric, metal and fur texture, soft natural daylight and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, numbers, logos or brand marks anywhere, including on clothing, collars, bags, vehicles, plates and walls. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.\n\nTwo IDENTICAL backpacks. Two school backpacks stand upright side by side on a light wooden table in front of a plain pale wall, both facing the camera, with a clear gap of one hand's width between them. They are exact twins: the same model, the same medium-blue fabric, the same size, the same height and the same shape, each with the same single front pocket, the same black zippers and the same grey top handle. A viewer sees at a glance that the two bags are the same. Both backpacks are whole and sharp, and together they fill the central 70 percent of the photo width. Exactly two bags and nothing else on the table; no people, no books, no bottles, no labels and no key rings.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "m974apKjHKXnz7IPo7urgAo",
+  "usage": {
+    "promptTokenCount": 289,
+    "candidatesTokenCount": 1270,
+    "totalTokenCount": 1870,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 289
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 311,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.138310",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 289,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 311
+  },
+  "elapsed_seconds": 21.48,
+  "output": "output/imagegen/unit-2-lesson-v6/b06-same-bags.png",
+  "sha256": "00262937ce2bea96a05abb00ee3ac76a798663efbccef2af607a7e8d8561d68b",
+  "byte_count": 6978398,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

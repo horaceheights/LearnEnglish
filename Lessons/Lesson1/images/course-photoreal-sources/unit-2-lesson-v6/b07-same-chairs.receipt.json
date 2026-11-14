@@ -1,0 +1,57 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "4f958008-4544-44df-ae18-7b6efeab9e3d",
+  "asset_id": "b07-same-chairs",
+  "pack_sha256": "64536db16c536b8b199eb140a99a8f34d169eb6b6a787d894a3b6dcfbcc2a8c4",
+  "started_at": "2026-11-14T22:20:35.141087+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material, fabric, metal and fur texture, soft natural daylight and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, numbers, logos or brand marks anywhere, including on clothing, collars, bags, vehicles, plates and walls. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.\n\nTwo IDENTICAL chairs. Two wooden dining chairs stand side by side on a light wooden floor in front of a plain pale wall, with a clear gap of one hand's width between them, both turned the same way, three-quarters toward the camera. They are exact twins: each is a simple light-oak wooden dining chair with a straight slatted backrest and no cushion, with the same wood color, the same size, the same height and the same shape. A viewer sees at a glance that the two chairs are the same. Both chairs are whole, with all legs on the floor, and sharp, and together they fill the central 70 percent of the photo width. Exactly two chairs and nothing else in the room; no people, no table, no cushions, no bags and no rug.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "st74ao-IBNyLmtkPoaCGoAc",
+  "usage": {
+    "promptTokenCount": 301,
+    "candidatesTokenCount": 1253,
+    "totalTokenCount": 1807,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 301
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 253,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137638",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 301,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 253
+  },
+  "elapsed_seconds": 22.04,
+  "output": "output/imagegen/unit-2-lesson-v6/b07-same-chairs.png",
+  "sha256": "3faec19abe2438016e667f874164393f68eb9b127d3e8fa12b55533715f05a48",
+  "byte_count": 4945824,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

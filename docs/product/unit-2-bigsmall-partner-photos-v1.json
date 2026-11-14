@@ -1,0 +1,139 @@
+{
+  "schema_version": 1,
+  "pack": "unit-2-bigsmall-partner-photos",
+  "revision": 1,
+  "output_namespace": "unit-2-lesson-v7",
+  "authorization": "2026-11-14: the user asked for A1 lesson 2.11 Big and Small to be built (\"build 2.11 Big and Small next\"), chose `used` and `new` for things, and had approved the gap-lesson media in advance the same day (\"I preapprove all image and audios creation no need for me to reiew and approve on the fly\"). Ceiling US$1.50 for this revision. Gemini is the approved image tool (2026-09-23). Each photo is an edit of one installed, inspected base photo from docs/product/unit-2-bigsmall-photos-v1.json, so a pair differs only in what its sentence names. Revision 1 is frozen: a changed prompt is a new revision in a new file, and every rejected output is reported with its cost.",
+  "image_settings": {
+    "provider": "google-gemini",
+    "model": "gemini-3-pro-image",
+    "aspect_ratio": "3:2",
+    "image_size": "2K",
+    "runtime_size": "1536x1024",
+    "runtime_format": "webp",
+    "n": 1
+  },
+  "production": {
+    "price_per_image_usd": "0.134",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing (checked 2026-09-24: Gemini 3 Pro Image, $0.134 per 1K/2K image)",
+    "planned_images": 6,
+    "expected_cost_usd": "0.83",
+    "requested_ceiling_usd": "1.50",
+    "no_automatic_retries": true,
+    "order": "Six independent edits in any order; each is inspected beside its base photo at 900/360/250/180 px and at the centered 4:5 crop. A rejected output is reported with its cost; a redo needs a changed prompt in a new revision file."
+  },
+  "shared_prompts": {
+    "photo": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material, fabric, metal and fur texture, soft natural daylight and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, numbers, logos or brand marks anywhere, including on clothing, collars, bags, vehicles, plates and walls. A first-time learner must understand the picture instantly on a small phone screen.",
+    "edit": "This is a precise edit of image 1: the result must look like a second photograph taken from the same spot a moment later, with the same framing, perspective, lens and light, and with every kept object in the same place at the same size. Change only what the instruction names."
+  },
+  "assets": [
+    {
+      "id": "p01-small-dog",
+      "order": 1,
+      "lesson": "2.11",
+      "item": "Small / It is a small dog.",
+      "runtime_filename": "a1_photo_u2_bigsmall_small_dog_v1.webp",
+      "four_card": true,
+      "shared": [
+        "photo",
+        "edit"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1_photo_u2_bigsmall_big_dog_v1.webp",
+        "sha256": "12a588c078862dd0ba5f912890f1d9a1d8d268072edd04e0e584ca8f7505a454",
+        "observed_description": "In a bright empty room with a light wooden floor and a plain pale wall a huge fawn Great Dane with a red collar sits upright beside a light-oak slatted dining chair; the top of the dog's head is clearly higher than the chair's backrest and its body is wider than the chair. One dog, one chair, a strip of window at the far left edge; no people, text or other objects."
+      },
+      "prompt": "Image 1 shows a very big dog sitting beside a wooden chair. Keep the room, the floor, the wall, the light, the camera position and the wooden chair exactly as they are, with the chair in the same place and at the same size in the frame. REMOVE the big dog completely and put a very SMALL dog in its place: one tiny adult chihuahua with a short fawn coat and a thin plain red collar, sitting upright on the floor right beside the chair, turned three-quarters toward the camera, mouth closed. The little dog is tiny next to the chair: the top of its head is clearly LOWER than the chair's seat, at about half the height of the seat, and it is much narrower than the chair. It is a real small adult dog, not a puppy, a toy or a statue, and it is sharp and easy to recognise as a dog. Exactly one dog and one chair; no people, no other animals and no toys."
+    },
+    {
+      "id": "p02-used-car",
+      "order": 2,
+      "lesson": "2.11",
+      "item": "Used / The car is used.",
+      "runtime_filename": "a1_photo_u2_bigsmall_used_car_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo",
+        "edit"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1_photo_u2_bigsmall_new_car_v1.webp",
+        "sha256": "4db9af371e37249200a56debb061b6926109caada6989a6a65828a1a4abfa7b6",
+        "observed_description": "A spotless glossy dark-blue five-door hatchback is parked alone on a clean pale concrete driveway in front of a plain beige garage door, seen from the front left; bright reflections, clear headlights, shiny silver wheels, clean black tires, a blank white front plate and no badge. No people, other vehicles, text or dirt."
+      },
+      "prompt": "Image 1 shows a brand-new blue car. Keep the same car model, the same blue color, the same camera angle, the same position and size in the frame, and the same driveway and garage wall. Show the SAME car many years later as a clearly USED car. Its paint is dull, faded and chalky with no shine and no reflections; there are several long pale scratches and two shallow dents on the front door and the front wing; the front bumper is scuffed and scraped at its corner; there are small rust spots along the wheel arch and the bottom of the doors; the headlights are cloudy and yellowed; the windows are dusty; the wheels are dull grey with dark brake dust and one scraped rim; the tires are worn and dusty; dried mud is splashed low on the body. The wear is obvious at a glance even when the photo is very small. It is an ordinary used car that still drives: nothing is broken off, crashed, burnt or missing, the glass is whole and all four tires are full. The front plate stays a blank plain white rectangle. Exactly one car; no people, no other vehicles, no price tag and no signs."
+    },
+    {
+      "id": "p03-used-bike",
+      "order": 3,
+      "lesson": "2.11",
+      "item": "The bike is used.",
+      "runtime_filename": "a1_photo_u2_bigsmall_used_bike_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo",
+        "edit"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1_photo_u2_bigsmall_new_bike_v1.webp",
+        "sha256": "87f03cd5f678ffae9f3d884b95b3524edefc45be89f1e870e643aaba792363d2",
+        "observed_description": "A glossy bright-red city bike with a straight handlebar, a black saddle, bright silver rims, spokes and chain and clean black tires stands on its kickstand on clean pale paving in front of a plain cream wall, seen from the front left. No logo, basket, people or other objects."
+      },
+      "prompt": "Image 1 shows a brand-new red bike. Keep the same bike model, the same red color, the same camera angle, the same position and size in the frame, and the same paving and wall. Show the SAME bike many years later as a clearly USED bike. Its red paint is dull and faded, with many scratches and chips that show bare grey metal; the handlebar, rims, spokes, chain and pedals are dull and covered with brown rust; the black saddle is worn and cracked with a torn corner; the grips are worn; the tires are grey with dust and dried mud, and dried mud is splashed on the frame. The wear is obvious at a glance even when the photo is very small. It is an ordinary used bike that still rides: nothing is broken off, bent or missing, both wheels are round and both tires are full, and it still stands on its kickstand. Exactly one bike; no people, no other vehicles, no basket, no bag, no price tag and no signs."
+    },
+    {
+      "id": "p04-different-bags",
+      "order": 4,
+      "lesson": "2.11",
+      "item": "Different / The bags are different.",
+      "runtime_filename": "a1_photo_u2_bigsmall_different_bags_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo",
+        "edit"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1_photo_u2_bigsmall_same_bags_v1.webp",
+        "sha256": "02dc1821040bae0372a1016101af268b4b8e779837f14d1d1e809719d1eede69",
+        "observed_description": "Two identical medium-blue school backpacks stand upright side by side on a light wooden table in front of a plain pale wall, both facing the camera with a gap between them: same size, shape, front pocket, black zipper and grey top handle. Nothing else on the table; no labels or text."
+      },
+      "prompt": "Image 1 shows two identical blue backpacks side by side on a table. Keep the LEFT blue backpack, the table, the wall, the light and the camera position exactly as they are. REPLACE the RIGHT backpack with a clearly DIFFERENT bag standing in the same place: one small bright-yellow backpack with a rounded top, a buckled front flap and two brown leather straps, about two thirds as tall as the blue one. A viewer sees at a glance that the two bags are different in color, size and shape. Both bags are whole and sharp with a clear gap between them. Exactly two bags and nothing else on the table; no people, no books, no bottles, no labels and no key rings."
+    },
+    {
+      "id": "p05-different-chairs",
+      "order": 5,
+      "lesson": "2.11",
+      "item": "The chairs are different.",
+      "runtime_filename": "a1_photo_u2_bigsmall_different_chairs_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo",
+        "edit"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1_photo_u2_bigsmall_same_chairs_v1.webp",
+        "sha256": "8b97e5b2568bd110e1f084ae7584db9065ae50c76ca7745780c6e8988c19b9d8",
+        "observed_description": "Two light-oak slatted wooden dining chairs of the same model and size stand side by side on a light wooden floor in front of a plain pale wall, turned toward each other; the left one is slightly more in shadow. A strip of window at the far left edge; no people, table, cushions or other objects."
+      },
+      "prompt": "Image 1 shows two wooden dining chairs of the same model side by side. Keep the LEFT wooden chair, the floor, the wall, the light and the camera position exactly as they are. REPLACE the RIGHT chair with a clearly DIFFERENT chair standing in the same place: one low, wide armchair covered in plain dark-green fabric, with thick padded arms, a soft padded seat and back, and short dark legs. A viewer sees at a glance that the two chairs are different in color, shape and material. Both chairs are whole, with all legs on the floor, and sharp, with a clear gap between them. Exactly two chairs and nothing else in the room; no people, no table, no cushions, no bags and no rug."
+    },
+    {
+      "id": "p06-small-red-bag",
+      "order": 6,
+      "lesson": "2.11",
+      "item": "It is a small red bag.",
+      "runtime_filename": "a1_photo_u2_bigsmall_small_red_bag_v1.webp",
+      "four_card": true,
+      "shared": [
+        "photo",
+        "edit"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1_photo_u2_bigsmall_big_red_bag_v1.webp",
+        "sha256": "411f17c5722a84183fa2405e6a1af4caa1a71dd4fc1de78bfe6dd7a3e854dfb0",
+        "observed_description": "In a bright hallway with pale stone tiles and white walls a huge, full, all-red hiking backpack with red straps stands on the floor beside a light-oak slatted dining chair; its top is far above the chair's seat and reaches the lower rail of the backrest, and it is almost as wide as the chair. One bag, one chair; no people, shoes, coats or text."
+      },
+      "prompt": "Image 1 shows a very big red backpack standing beside a wooden chair. Keep the hallway, the floor, the walls, the light, the camera position and the wooden chair exactly as they are, with the chair in the same place and at the same size in the frame. REMOVE the big backpack completely and put a very SMALL red backpack in its place: one tiny, plain bright-red backpack with red straps, of the size made for a small child, standing upright on the floor right beside the chair and facing the camera. The little backpack is tiny next to the chair: its top is clearly LOWER than the chair's seat, at about half the height of the seat, and it is much narrower than the chair. The whole backpack is one plain bright red with no other color, picture or pattern on it, and it is sharp and easy to recognise as a backpack. Exactly one bag and one chair; no people, no animals, no other bags, no shoes, no coats and nothing on the chair."
+    }
+  ]
+}

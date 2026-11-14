@@ -1,0 +1,57 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "200f0ddf-84aa-4353-aa62-2e8cfba58d43",
+  "asset_id": "b01-big-dog",
+  "pack_sha256": "64536db16c536b8b199eb140a99a8f34d169eb6b6a787d894a3b6dcfbcc2a8c4",
+  "started_at": "2026-11-14T22:18:40.866010+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material, fabric, metal and fur texture, soft natural daylight and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, numbers, logos or brand marks anywhere, including on clothing, collars, bags, vehicles, plates and walls. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.\n\nKeep the main subject of the photo whole inside the central 55 percent of the photo width, so a centered 4:5 crop keeps it whole; only expendable background reaches the left and right edges.\n\nOne very BIG dog beside a chair, in a bright empty room with a light wooden floor and a plain pale wall. A huge adult Great Dane with a short fawn coat and a plain red collar SITS upright on the floor directly beside a simple light-oak wooden dining chair with a straight slatted backrest and no cushion. Sitting, the dog is enormous next to the chair: the top of its head is clearly HIGHER than the top of the chair's backrest, and its body is wider than the chair. The dog is calm, mouth closed, turned three-quarters toward the camera. The camera is at the dog's chest height, straight on. The whole dog and the whole chair are sharp, touch the floor, and stand close together inside the central 55 percent of the photo width. Exactly one dog and one chair. Nothing else is in the room: no people, no other animals, no other furniture, no toys, no rugs, no pictures on the wall.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "P974ar39MNfpz7IPqKLjqQc",
+  "usage": {
+    "promptTokenCount": 383,
+    "candidatesTokenCount": 1333,
+    "totalTokenCount": 1916,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 383
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 200,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137166",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 383,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 200
+  },
+  "elapsed_seconds": 19.75,
+  "output": "output/imagegen/unit-2-lesson-v6/b01-big-dog.png",
+  "sha256": "fbf0484fc082381097ef0b737b80bfb65eb917b7f64ca4bf381f7d4df2f00b1f",
+  "byte_count": 5738064,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

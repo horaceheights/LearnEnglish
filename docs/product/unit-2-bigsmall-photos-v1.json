@@ -1,0 +1,132 @@
+{
+  "schema_version": 1,
+  "pack": "unit-2-bigsmall-photos",
+  "revision": 1,
+  "output_namespace": "unit-2-lesson-v6",
+  "authorization": "2026-11-14: the user asked for A1 lesson 2.11 Big and Small to be built (\"build 2.11 Big and Small next\") and had approved the gap-lesson media in advance the same day (\"I preapprove all image and audios creation no need for me to reiew and approve on the fly\"). Ceiling US$2.00 for this revision. Gemini is the approved image tool (2026-09-23). Revision 1 is frozen: a changed prompt is a new revision in a new file, written before any render from it. Each photo is inspected at phone sizes and at the centered 4:5 crop, because six partner photos in the next pack are edits of these, and every rejected output is reported with its cost.",
+  "image_settings": {
+    "provider": "google-gemini",
+    "model": "gemini-3-pro-image",
+    "aspect_ratio": "3:2",
+    "image_size": "2K",
+    "runtime_size": "1536x1024",
+    "runtime_format": "webp",
+    "n": 1
+  },
+  "production": {
+    "price_per_image_usd": "0.134",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing (checked 2026-09-24: Gemini 3 Pro Image, $0.134 per 1K/2K image)",
+    "planned_images": 8,
+    "expected_cost_usd": "1.08",
+    "requested_ceiling_usd": "2.00",
+    "no_automatic_retries": true,
+    "order": "Eight independent photos in any order; each is inspected at 900/360/250/180 px and at the centered 4:5 crop. A rejected output is reported with its cost; a redo needs a changed prompt in a new revision file."
+  },
+  "shared_prompts": {
+    "photo": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material, fabric, metal and fur texture, soft natural daylight and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, numbers, logos or brand marks anywhere, including on clothing, collars, bags, vehicles, plates and walls. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.",
+    "safe_center": "Keep the main subject of the photo whole inside the central 55 percent of the photo width, so a centered 4:5 crop keeps it whole; only expendable background reaches the left and right edges."
+  },
+  "assets": [
+    {
+      "id": "b01-big-dog",
+      "order": 1,
+      "lesson": "2.11",
+      "item": "Big / It is a big dog.",
+      "runtime_filename": "a1_photo_u2_bigsmall_big_dog_v1.webp",
+      "four_card": true,
+      "shared": [
+        "photo",
+        "safe_center"
+      ],
+      "prompt": "One very BIG dog beside a chair, in a bright empty room with a light wooden floor and a plain pale wall. A huge adult Great Dane with a short fawn coat and a plain red collar SITS upright on the floor directly beside a simple light-oak wooden dining chair with a straight slatted backrest and no cushion. Sitting, the dog is enormous next to the chair: the top of its head is clearly HIGHER than the top of the chair's backrest, and its body is wider than the chair. The dog is calm, mouth closed, turned three-quarters toward the camera. The camera is at the dog's chest height, straight on. The whole dog and the whole chair are sharp, touch the floor, and stand close together inside the central 55 percent of the photo width. Exactly one dog and one chair. Nothing else is in the room: no people, no other animals, no other furniture, no toys, no rugs, no pictures on the wall."
+    },
+    {
+      "id": "b02-big-house",
+      "order": 2,
+      "lesson": "2.11",
+      "item": "It is a big house.",
+      "runtime_filename": "a1_photo_u2_bigsmall_big_house_v1.webp",
+      "four_card": true,
+      "shared": [
+        "photo"
+      ],
+      "prompt": "One very BIG family house seen straight from its front garden on a clear day. A wide two-storey house with pale walls, a large dark tiled roof, a wide front door in the middle and at least ten large windows across its two floors; the house is so wide that it fills almost the whole width of the photo, and so tall that its roof is near the top of the photo. One adult in plain clothes stands on the path right beside the front door with their back to the camera and looks tiny against the house: the door alone is taller than the adult and the first-floor windows are far above their head. A short lawn and a straight path are in front. Exactly one house and one person; no cars, no bikes, no animals, no house number, no mailbox and no signs."
+    },
+    {
+      "id": "b03-small-house",
+      "order": 3,
+      "lesson": "2.11",
+      "item": "It is a small house.",
+      "runtime_filename": "a1_photo_u2_bigsmall_small_house_v1.webp",
+      "four_card": true,
+      "shared": [
+        "photo",
+        "safe_center"
+      ],
+      "prompt": "One very SMALL house seen straight from its garden on a clear day. A tiny one-room, one-storey house with pale walls, a dark tiled pitched roof, ONE narrow front door and ONE small square window beside it. The house stands alone in the middle of a wide flat green lawn and takes up only the central third of the photo width, with open grass on both sides and a lot of sky above. One adult in plain clothes stands on the grass right beside the front door with their back to the camera and makes the house look tiny: the edge of the roof is only a little higher than the adult's head, and the whole house is barely three times as wide as the adult. It is a real little house with brick or plaster walls, not a shed, tent, dollhouse or toy. Exactly one house and one person; no cars, no bikes, no animals, no house number, no mailbox and no signs."
+    },
+    {
+      "id": "b04-new-car",
+      "order": 4,
+      "lesson": "2.11",
+      "item": "New / The car is new.",
+      "runtime_filename": "a1_photo_u2_bigsmall_new_car_v1.webp",
+      "four_card": true,
+      "shared": [
+        "photo",
+        "safe_center"
+      ],
+      "prompt": "One brand-NEW car. A small modern blue five-door hatchback is parked alone on a clean pale concrete driveway in front of a plain light garage wall on a sunny day, seen from the front left three-quarter angle at headlight height, so the whole car, from bumper to bumper and with all of its wheels touching the ground, fits inside the central 55 percent of the photo width. Everything on the car is perfect and factory fresh: deep glossy blue paint with bright clean reflections, spotless clear windows, crystal-clear headlights, shiny silver wheels and deep-black clean tires; not one scratch, dent, speck of dust or drop of mud. The front licence plate is a blank plain white rectangle, and the car has no badge, logo or lettering. Exactly one car; no people, no other vehicles, no price tag, no ribbon and no signs."
+    },
+    {
+      "id": "b05-new-bike",
+      "order": 5,
+      "lesson": "2.11",
+      "item": "The bike is new.",
+      "runtime_filename": "a1_photo_u2_bigsmall_new_bike_v1.webp",
+      "four_card": true,
+      "shared": [
+        "photo",
+        "safe_center"
+      ],
+      "prompt": "One brand-NEW bike. A red adult city bike with a straight handlebar stands alone on its kickstand on clean pale paving in front of a plain light wall on a sunny day, seen from the front left three-quarter angle, so the whole bike, both wheels included, fits inside the central 55 percent of the photo width. Everything on the bike is perfect and factory fresh: glossy bright-red frame with clean reflections, mirror-bright silver handlebar, rims, spokes and chain, a smooth clean black saddle, clean black grips and deep-black clean tires; not one scratch, speck of rust, dust or mud. The frame has no logo or lettering. Exactly one bike; no people, no other vehicles, no basket, no bag, no price tag, no ribbon and no signs."
+    },
+    {
+      "id": "b06-same-bags",
+      "order": 6,
+      "lesson": "2.11",
+      "item": "Same / The bags are the same.",
+      "runtime_filename": "a1_photo_u2_bigsmall_same_bags_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo"
+      ],
+      "prompt": "Two IDENTICAL backpacks. Two school backpacks stand upright side by side on a light wooden table in front of a plain pale wall, both facing the camera, with a clear gap of one hand's width between them. They are exact twins: the same model, the same medium-blue fabric, the same size, the same height and the same shape, each with the same single front pocket, the same black zippers and the same grey top handle. A viewer sees at a glance that the two bags are the same. Both backpacks are whole and sharp, and together they fill the central 70 percent of the photo width. Exactly two bags and nothing else on the table; no people, no books, no bottles, no labels and no key rings."
+    },
+    {
+      "id": "b07-same-chairs",
+      "order": 7,
+      "lesson": "2.11",
+      "item": "The chairs are the same.",
+      "runtime_filename": "a1_photo_u2_bigsmall_same_chairs_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo"
+      ],
+      "prompt": "Two IDENTICAL chairs. Two wooden dining chairs stand side by side on a light wooden floor in front of a plain pale wall, with a clear gap of one hand's width between them, both turned the same way, three-quarters toward the camera. They are exact twins: each is a simple light-oak wooden dining chair with a straight slatted backrest and no cushion, with the same wood color, the same size, the same height and the same shape. A viewer sees at a glance that the two chairs are the same. Both chairs are whole, with all legs on the floor, and sharp, and together they fill the central 70 percent of the photo width. Exactly two chairs and nothing else in the room; no people, no table, no cushions, no bags and no rug."
+    },
+    {
+      "id": "b08-big-red-bag",
+      "order": 8,
+      "lesson": "2.11",
+      "item": "It is a big red bag.",
+      "runtime_filename": "a1_photo_u2_bigsmall_big_red_bag_v1.webp",
+      "four_card": true,
+      "shared": [
+        "photo",
+        "safe_center"
+      ],
+      "prompt": "One very BIG red backpack beside a chair, in a bright empty hallway with a pale stone-tile floor and a plain white wall. A huge, fully packed, bright-red hiking backpack stands upright on the floor directly beside a simple light-oak wooden dining chair with a straight slatted backrest and no cushion. The backpack is enormous next to the chair: its top is clearly HIGHER than the chair's seat and reaches almost to the top of the backrest, and it is as wide as the chair. The whole backpack is one plain bright red with red straps and red pockets, with no other color on it. The camera is at seat height, straight on. The whole backpack and the whole chair are sharp, touch the floor, and stand close together inside the central 55 percent of the photo width. Exactly one bag and one chair; no people, no animals, no other bags, no shoes, no coats and nothing on the chair."
+    }
+  ]
+}

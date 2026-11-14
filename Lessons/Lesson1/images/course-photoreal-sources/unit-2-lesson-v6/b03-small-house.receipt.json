@@ -1,0 +1,57 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "2d10e8e3-3a17-4f22-8c91-2340efa54b65",
+  "asset_id": "b03-small-house",
+  "pack_sha256": "64536db16c536b8b199eb140a99a8f34d169eb6b6a787d894a3b6dcfbcc2a8c4",
+  "started_at": "2026-11-14T22:19:01.723137+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material, fabric, metal and fur texture, soft natural daylight and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, numbers, logos or brand marks anywhere, including on clothing, collars, bags, vehicles, plates and walls. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.\n\nKeep the main subject of the photo whole inside the central 55 percent of the photo width, so a centered 4:5 crop keeps it whole; only expendable background reaches the left and right edges.\n\nOne very SMALL house seen straight from its garden on a clear day. A tiny one-room, one-storey house with pale walls, a dark tiled pitched roof, ONE narrow front door and ONE small square window beside it. The house stands alone in the middle of a wide flat green lawn and takes up only the central third of the photo width, with open grass on both sides and a lot of sky above. One adult in plain clothes stands on the grass right beside the front door with their back to the camera and makes the house look tiny: the edge of the roof is only a little higher than the adult's head, and the whole house is barely three times as wide as the adult. It is a real little house with brick or plaster walls, not a shed, tent, dollhouse or toy. Exactly one house and one person; no cars, no bikes, no animals, no house number, no mailbox and no signs.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "VN74avLGKb6sqtsP57PVuAI",
+  "usage": {
+    "promptTokenCount": 371,
+    "candidatesTokenCount": 1302,
+    "totalTokenCount": 1948,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 371
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 275,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.138042",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 371,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 275
+  },
+  "elapsed_seconds": 21.5,
+  "output": "output/imagegen/unit-2-lesson-v6/b03-small-house.png",
+  "sha256": "3d3bbd9cace8b5baf6bfa9455cb1a80b70278389acfd41a59b67beab93c4c595",
+  "byte_count": 6759314,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

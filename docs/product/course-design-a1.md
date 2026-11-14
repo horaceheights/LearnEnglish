@@ -94,8 +94,10 @@ Lessons:
 7. 2.7 Numbers 6-10: `six`–`ten`; `It is six.`
 8. 2.8 Basic Colors
 9. 2.9 Count and Describe
-10. 2.10 Unit 2 Review
-11. 2.11 Around Me Mission
+10. 2.10 These and Those
+11. 2.11 Big and Small: `big`, `small`, `new`, `used`, `same`, `different`
+12. 2.12 Unit 2 Review (56 cards)
+13. 2.13 Around Me Mission
 
 Core patterns:
 
@@ -107,6 +109,8 @@ Core patterns:
 **2026-09-23 rebuild (practice and pacing standards).** Numbers 1-10 introduced ten words with two or three practices each and used colors before 2.8 taught them, so it became two engine-authored lessons (briefs in `docs/product/content-briefs/unit-2/`) with five numbers each, shown on the numeral cards. Every other foundation lesson grew from 34-36 to 40 cards with six extra practice cards on its own words (two Recognize, two Listen, one Speak, one whole-sentence construction), without changing any reviewed card. Lesson IDs are unchanged; the new lesson is `lesson-2-numbers-6-10`. `These/those` and `Which one?` are the next Unit 2 additions and need new photographs. `cars` should return in Unit 6 transport, alongside the Unit 1 family words carried forward.
 
 **2026-09-24 reuse pass (user direction).** Numbers and colors practise what the learner already knows instead of untaught objects. 2.6 teaches `number` and one to five; 2.7 teaches six to ten. Both introduce each number on its numeral card, ask `What number is it?` / `It is number eight.` about the card, and count nouns from 2.2-2.3 (`Two cars.`, `Seven chairs.`), with wrong options that change only the number (`Three books.` against `Two books.`). 2.8 shows each color on a known object (red bus, blue bike, green chair, yellow backpack, black car, white table) and brings the counting photos back with `They are blue.`, so 2.9 can join number, color and noun. The review asks `It is number seven/eight.` over its own fresh photos (a parking space, a bus), and the mission's number clues say `It is number seven.` Learn cards hold only new vocabulary. Later the same day (user direction) colors followed the numbers pattern: 2.8's Learn cards show `Colors` and the six colors on the restored plain discs only, and every later card asks `What color is it?` / `What color are they?` about known objects and the counting photos, or names the thing with its color (`It is a blue bike.`). A new **2.10 These and Those** teaches `these`, `those` and `Which one?` on first-person table pairs (books, phones) and the red/blue backpacks, contrasting them with 2.5's this/that photos; Unit 2 now has 12 lessons (review 2.11, mission 2.12). The review asks `What color are they?`, hears `These are bags.`, `Those are phones.` and `Which one? The red one.`; the mission's near/far beat became `These are books. Those are books. These are phones. That is a phone.` on a plural scene, its objects beat says `This is a …`, its chair beat asks `Which one? The red one.`, and its gates ask `What color is it?` and `What number is it?`.
+
+**2026-11-14 coverage-gap lesson (user request).** A new **2.11 Big and Small** (`lesson-2-11-big-small`) teaches `big`, `small`, `new`, `used`, `same` and `different` on photo pairs that change only the described quality: a big and a small dog beside the same chair, a big and a small house with a person at the door, the same car and the same bike new and used, two bags and two chairs that are the same or different, and a big and a small red bag (`It is a big red bag.`, size before color). The user chose `used` for things, so `old` stays with A1+ 1.1 for people. Learn holds the six words; every later card uses a known frame (`It is a big dog.`, `The car is new.`, `The bags are the same.`). Unit 2 now has 13 lessons (review 2.12, mission 2.13). The review grew from 48 to 56 cards (8/10/21/8/9) with eight cards on three fresh photo pairs (a new and a used bag, books that are the same or different, a big and a small table). The mission is unchanged: it does not practise the six words yet, under a dated deferral in `a1-unit-parity-contracts.json`.
 
 The paragraph below predates that rebuild: its 2.9 is today's 2.10.
 

@@ -34,6 +34,8 @@ const STATES = set('red blue green yellow black white happy sad tired hungry thi
 const DESCRIPTIONS = set('tall short old young long');
 // A1+ 1.5 (2026-11-11): brothers and sisters before a noun (an older sister, my younger brother).
 for (const description of words('older younger')) DESCRIPTIONS.add(description);
+// A1 2.11 (2026-11-14): things after "is" (The car is new.) or before a noun (a big dog); the same / different.
+for (const description of words('big small new used same different')) DESCRIPTIONS.add(description);
 for (const state of DESCRIPTIONS) STATES.add(state);
 const OWNERS = set('mine yours ours');
 const OWNER_MEANINGS: Record<string, string> = { mine: 'mío', yours: 'tuyo', ours: 'nuestro' };

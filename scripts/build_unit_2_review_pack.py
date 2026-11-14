@@ -62,7 +62,7 @@ def compile_lesson(base: dict, pack: dict) -> dict:
                 remap_images(item)
     remap_images(lesson)
     cards = {card["slide_id"]: card for card in lesson["cards"]}
-    if len(cards) not in (32, 48):
+    if len(cards) not in (32, 48, 56):
         raise ValueError("Unexpected independent review revision; reconcile before authoring.")
     # Retain the old IDs for existing cards so their history stays traceable.
     def teach(identifier, text, translation, asset):
@@ -187,15 +187,64 @@ def compile_lesson(base: dict, pack: dict) -> dict:
                                     "U7": "Un coche rojo", "U8": "Seis bolsas blancas"}.items():
         cards[identifier]["spanish_translation"] = translation
         cards[identifier]["translation"] = translation
+    # 2026-11-14: Lesson 2.11 Big and Small adds six describing words; the review brings each back on
+    # three fresh photo pairs (docs/product/unit-2-review-gap-photos-v1.json), appended after each station.
+    gap = lambda name: f"a1_u2_review_v3_{name}.webp"
+    gap_note = "Brings back the 2.11 Big and Small words on a fresh review photo; only the described quality changes between the options."
+    key = lambda text: "-".join("".join(ch for ch in word.lower() if ch.isalpha()) for word in text.split())
+    cards["R9"] = {"slide_id": "R9", "interaction_type": "i2t2", "prompt": "", "stage": "Recognize",
+                   "correct_option_id": "the-bag-is-used",
+                   "options": [{"id": key(text), "image_url": "", "label": text} for text in ("The bag is new.", "The bag is used.")],
+                   "audio_text": "", "answer_audio_text": "The bag is used.", "prompt_image_url": gap("used_bag"),
+                   "spanish_translation": "Elige la frase correcta.", "pedagogy_note": gap_note}
+    cards["R10"] = {"slide_id": "R10", "interaction_type": "t2i2", "prompt": "The books are different.", "stage": "Recognize",
+                    "correct_option_id": "different-books",
+                    "options": [{"id": name.replace("_", "-"), "label": None, "image_url": gap(name)}
+                                for name in ("different_books", "same_books")],
+                    "audio_text": "The books are different.", "answer_audio_text": None, "prompt_image_url": "",
+                    "spanish_translation": "Los libros son diferentes.", "pedagogy_note": gap_note}
+    cards["N19"] = {"slide_id": "N19", "stage": "Listen", "interaction_type": "a2t3", "prompt": "Listen and choose.",
+                    "audio_text": "It is a small table.", "answer_audio_text": None, "correct_option_id": "it-is-a-small-table",
+                    "prompt_image_url": "", "spanish_translation": "Es una mesa pequeña.",
+                    "pedagogy_note": "Audio-to-written-English check of Lesson 2.11; all options already taught.",
+                    "options": [{"id": key(text), "label": text, "image_url": ""}
+                                for text in ("It is a big table.", "It is a small table.", "It is a small chair.")]}
+    for identifier, text, translated, correct, wrong in (
+        ("N20", "The bag is new.", "La bolsa es nueva.", "new_bag", "used_bag"),
+        ("N21", "The books are the same.", "Los libros son iguales.", "same_books", "different_books"),
+    ):
+        cards[identifier] = {"slide_id": identifier, "stage": "Listen", "interaction_type": "a2i2", "prompt": "Listen and choose.",
+                             "audio_text": text, "answer_audio_text": None, "correct_option_id": correct.replace("_", "-"),
+                             "prompt_image_url": "", "spanish_translation": translated, "pedagogy_note": gap_note,
+                             "options": [{"id": name.replace("_", "-"), "label": None, "image_url": gap(name)}
+                                         for name in (wrong, correct)]}
+    for identifier, text, translated, name in (
+        ("S7", "It is a big table.", "Es una mesa grande.", "big_table"),
+        ("S8", "The books are different.", "Los libros son diferentes.", "different_books"),
+    ):
+        cards[identifier] = {"slide_id": identifier, "interaction_type": "repeat", "prompt": text, "stage": "Speak",
+                             "correct_option_id": key(text) + "-1",
+                             "options": [{"id": key(text) + "-1", "image_url": gap(name), "label": text}], "audio_text": text,
+                             "answer_audio_text": None, "prompt_image_url": "", "spanish_translation": translated,
+                             "pedagogy_note": gap_note}
+    gap_words = "It is a small table".split()
+    gap_ids = [f"word-{i + 1}" for i in range(len(gap_words))]
+    cards["U9"] = {"slide_id": "U9", "interaction_type": "complete-sentence", "prompt": " ".join("___" for _ in gap_words) + ".",
+                   "stage": "Use", "correct_option_id": "word-1",
+                   "options": [{"id": identifier, "label": word, "image_url": ""} for identifier, word in zip(gap_ids, gap_words)],
+                   "audio_text": "It is a small table.", "answer_audio_text": "It is a small table.",
+                   "prompt_image_url": gap("small_table"), "spanish_translation": "Es una mesa pequeña.",
+                   "pedagogy_note": "word-order selection", "translation": "Es una mesa pequeña.", "correct_option_ids": gap_ids}
     # Same ordered stations across modalities: surroundings -> object identity
     # -> pointing near/far -> quantity/color -> final number check (Listen).
     order = ["L1", "L5", "L2", "L6", "L4", "L7", "L3", "L8"]
-    order += [f"R{i}" for i in range(1, 9)]
-    order += ["N1", "N11", "N12", "N13", "N14", "N15", "N2", "N16", "N17", "N18", "N3", "N4", "N6", "N5", "N7", "N8", "N9", "N10"]
-    order += [f"S{i}" for i in range(1, 7)] + [f"U{i}" for i in range(1, 9)]
+    order += [f"R{i}" for i in range(1, 11)]
+    order += ["N1", "N11", "N12", "N13", "N14", "N15", "N2", "N16", "N17", "N18", "N3", "N4", "N6", "N5", "N7", "N8", "N9", "N10", "N19", "N20", "N21"]
+    order += [f"S{i}" for i in range(1, 9)] + [f"U{i}" for i in range(1, 10)]
     lesson["cards"] = [cards[key] for key in order]
     lesson["content_revision"] = 1
-    lesson["goal"] = "Review Unit 2 through fresh surroundings, object identification, true near/far contrasts, quantities and colors, then recognize the final numbers by ear. No new language."
+    lesson["goal"] = ("Review Unit 2 through fresh surroundings, object identification, true near/far contrasts, quantities, colors and "
+                      "big/small, new/used and same/different pairs, then recognize the final numbers by ear. No new language.")
     from scripts.course_contract import is_foundation
     lesson["review_vocabulary"] = sorted(set(word for value in lessons(ROOT).values()
                                                if value.get("unit_id") == "unit-2" and is_foundation(value)

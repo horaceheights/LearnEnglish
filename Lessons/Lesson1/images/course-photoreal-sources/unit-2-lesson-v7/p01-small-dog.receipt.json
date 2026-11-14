@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "b74613d6-ba39-449b-af9e-84674df65d6c",
+  "asset_id": "p01-small-dog",
+  "pack_sha256": "74297fb8e9a80f3f3e7b3e0c024cfc302ba9a3ff4c7c0e2e1b655bdc29a4e18b",
+  "started_at": "2026-11-14T22:23:13.925506+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material, fabric, metal and fur texture, soft natural daylight and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, numbers, logos or brand marks anywhere, including on clothing, collars, bags, vehicles, plates and walls. A first-time learner must understand the picture instantly on a small phone screen.\n\nThis is a precise edit of image 1: the result must look like a second photograph taken from the same spot a moment later, with the same framing, perspective, lens and light, and with every kept object in the same place at the same size. Change only what the instruction names.\n\nImage 1 shows a very big dog sitting beside a wooden chair. Keep the room, the floor, the wall, the light, the camera position and the wooden chair exactly as they are, with the chair in the same place and at the same size in the frame. REMOVE the big dog completely and put a very SMALL dog in its place: one tiny adult chihuahua with a short fawn coat and a thin plain red collar, sitting upright on the floor right beside the chair, turned three-quarters toward the camera, mouth closed. The little dog is tiny next to the chair: the top of its head is clearly LOWER than the chair's seat, at about half the height of the seat, and it is much narrower than the chair. It is a real small adult dog, not a puppy, a toy or a statue, and it is sharp and easy to recognise as a dog. Exactly one dog and one chair; no people, no other animals and no toys.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1_photo_u2_bigsmall_big_dog_v1.webp",
+    "sha256": "12a588c078862dd0ba5f912890f1d9a1d8d268072edd04e0e584ca8f7505a454"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "Ud_4arLsB7Xoz7IP5oKw6QU",
+  "usage": {
+    "promptTokenCount": 645,
+    "candidatesTokenCount": 1305,
+    "totalTokenCount": 2220,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 387
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 270,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.138530",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 645,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 270
+  },
+  "elapsed_seconds": 19.74,
+  "output": "output/imagegen/unit-2-lesson-v7/p01-small-dog.png",
+  "sha256": "506469671cc80b216311e7e29912e4fbde6b40f815b2532c597701cfd37b185c",
+  "byte_count": 4754487,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

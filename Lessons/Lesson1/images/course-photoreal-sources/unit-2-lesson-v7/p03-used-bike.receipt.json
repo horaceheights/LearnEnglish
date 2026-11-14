@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "45242146-98fb-4d09-809f-639486e13557",
+  "asset_id": "p03-used-bike",
+  "pack_sha256": "74297fb8e9a80f3f3e7b3e0c024cfc302ba9a3ff4c7c0e2e1b655bdc29a4e18b",
+  "started_at": "2026-11-14T22:23:57.717858+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material, fabric, metal and fur texture, soft natural daylight and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, numbers, logos or brand marks anywhere, including on clothing, collars, bags, vehicles, plates and walls. A first-time learner must understand the picture instantly on a small phone screen.\n\nThis is a precise edit of image 1: the result must look like a second photograph taken from the same spot a moment later, with the same framing, perspective, lens and light, and with every kept object in the same place at the same size. Change only what the instruction names.\n\nImage 1 shows a brand-new red bike. Keep the same bike model, the same red color, the same camera angle, the same position and size in the frame, and the same paving and wall. Show the SAME bike many years later as a clearly USED bike. Its red paint is dull and faded, with many scratches and chips that show bare grey metal; the handlebar, rims, spokes, chain and pedals are dull and covered with brown rust; the black saddle is worn and cracked with a torn corner; the grips are worn; the tires are grey with dust and dried mud, and dried mud is splashed on the frame. The wear is obvious at a glance even when the photo is very small. It is an ordinary used bike that still rides: nothing is broken off, bent or missing, both wheels are round and both tires are full, and it still stands on its kickstand. Exactly one bike; no people, no other vehicles, no basket, no bag, no price tag and no signs.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1_photo_u2_bigsmall_new_bike_v1.webp",
+    "sha256": "87f03cd5f678ffae9f3d884b95b3524edefc45be89f1e870e643aaba792363d2"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "fN_4aqe0M9eKqtsP14jf8Ak",
+  "usage": {
+    "promptTokenCount": 653,
+    "candidatesTokenCount": 1320,
+    "totalTokenCount": 2135,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 395
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 162,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137250",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 653,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 162
+  },
+  "elapsed_seconds": 19.8,
+  "output": "output/imagegen/unit-2-lesson-v7/p03-used-bike.png",
+  "sha256": "f1a430380efb87b8c5987abcbd59f5fc7a8c2cce10459d18af050e990f694c89",
+  "byte_count": 5021125,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

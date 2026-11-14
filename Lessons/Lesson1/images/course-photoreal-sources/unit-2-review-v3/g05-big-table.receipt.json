@@ -1,0 +1,57 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "dbdb6549-87f2-4fb3-a2b4-05dfc4706dd3",
+  "asset_id": "g05-big-table",
+  "pack_sha256": "0056831e3a0472ee709e227e73a34f5ed1cc134aca091dfeb95f524f250c2860",
+  "started_at": "2026-11-14T22:34:13.396532+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material, fabric, paper and wood texture, soft natural daylight and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, numbers, logos or brand marks anywhere, including on bags, books, furniture and walls. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.\n\nOne very BIG table beside a chair, in a bright empty room with a light wooden floor and a plain pale wall. A huge, long, heavy wooden dining table with thick legs stands across the room, seen from its long side, and fills about two thirds of the photo width. At its left end stands a simple light-oak wooden dining chair with a straight slatted backrest and no cushion, facing the camera, not pushed under the table. The table is enormous next to the chair: it is about five times as wide as the chair, and its top is higher than the chair's seat. The table top is completely empty. The camera is at the height of the table top, straight on. The whole table and the whole chair are sharp and touch the floor. Exactly one table and one chair; no people, no other chairs, no plates, no vase, no rug and no pictures on the wall.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "5OH4ata1EtXoz7IPgOmC-AU",
+  "usage": {
+    "promptTokenCount": 319,
+    "candidatesTokenCount": 1278,
+    "totalTokenCount": 1884,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 319
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 287,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.138082",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 319,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 287
+  },
+  "elapsed_seconds": 21.5,
+  "output": "output/imagegen/unit-2-review-v3/g05-big-table.png",
+  "sha256": "9e3e14d9f440f2f44a3e3a5abe38fb569c11815deeff9fbe89d519f0cdc9254b",
+  "byte_count": 5155355,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

@@ -1,0 +1,57 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "e1b4bae1-9d56-484a-931a-7c5acd1a620a",
+  "asset_id": "b02-big-house",
+  "pack_sha256": "64536db16c536b8b199eb140a99a8f34d169eb6b6a787d894a3b6dcfbcc2a8c4",
+  "started_at": "2026-11-14T22:18:11.257758+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material, fabric, metal and fur texture, soft natural daylight and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, numbers, logos or brand marks anywhere, including on clothing, collars, bags, vehicles, plates and walls. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.\n\nOne very BIG family house seen straight from its front garden on a clear day. A wide two-storey house with pale walls, a large dark tiled roof, a wide front door in the middle and at least ten large windows across its two floors; the house is so wide that it fills almost the whole width of the photo, and so tall that its roof is near the top of the photo. One adult in plain clothes stands on the path right beside the front door with their back to the camera and looks tiny against the house: the door alone is taller than the adult and the first-floor windows are far above their head. A short lawn and a straight path are in front. Exactly one house and one person; no cars, no bikes, no animals, no house number, no mailbox and no signs.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "It74auHLFsnUz7IPtKe9iQY",
+  "usage": {
+    "promptTokenCount": 300,
+    "candidatesTokenCount": 1310,
+    "totalTokenCount": 1850,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 300
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 240,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137480",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 300,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 240
+  },
+  "elapsed_seconds": 21.66,
+  "output": "output/imagegen/unit-2-lesson-v6/b02-big-house.png",
+  "sha256": "abb4cf5178d854972b8a372478897042faa3109d4743f3984d1ed6696be5546b",
+  "byte_count": 6279437,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

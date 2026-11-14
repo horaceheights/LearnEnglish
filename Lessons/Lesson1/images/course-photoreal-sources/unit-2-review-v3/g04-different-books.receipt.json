@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "d4ff633d-11b6-40ea-b354-81902e02ad9b",
+  "asset_id": "g04-different-books",
+  "pack_sha256": "0056831e3a0472ee709e227e73a34f5ed1cc134aca091dfeb95f524f250c2860",
+  "started_at": "2026-11-14T22:35:22.768069+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material, fabric, paper and wood texture, soft natural daylight and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, numbers, logos or brand marks anywhere, including on bags, books, furniture and walls. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.\n\nThis is a precise edit of image 1: the result must look like a second photograph taken from the same spot a moment later, with the same framing, perspective, lens and light, and with every kept object in the same place at the same size. Change only what the instruction names.\n\nImage 1 shows two identical red books standing side by side on a table. Keep the LEFT red book, the table, the wall, the light and the camera position exactly as they are. REPLACE the RIGHT book with a clearly DIFFERENT book standing in the same place: one closed book with a plain dark-blue cover that is much shorter and much thicker than the red one, about half as tall and three times as thick, front cover facing the camera. A viewer sees at a glance that the two books are different in color, size and shape. Both covers are completely plain, with no title, picture, line or mark. Both books are whole and sharp with a clear gap between them. Exactly two books and nothing else on the table; no people, no pens, no bookmarks and no other objects.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "output/imagegen/unit-2-review-v3/g03-same-books.png",
+    "sha256": "9a7378410648ecf8836c2260045aac6afff74038d30fda9ab45779a5714db2b3"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "KuL4aoXCGsDAz7IPx6_6oA8",
+  "usage": {
+    "promptTokenCount": 613,
+    "candidatesTokenCount": 1302,
+    "totalTokenCount": 2085,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 355
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 170,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137266",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 613,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 170
+  },
+  "elapsed_seconds": 23.29,
+  "output": "output/imagegen/unit-2-review-v3/g04-different-books.png",
+  "sha256": "4e56414df72cc6040c91fe609cd2af940a136dfaae25df00d6fdc32aed45a657",
+  "byte_count": 5745119,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}
