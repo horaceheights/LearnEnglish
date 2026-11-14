@@ -23,14 +23,14 @@ const expectedParallelTextBanks = [
   ['1.3', 'R5', ['The man is sitting.', 'The man is drinking.', 'The boy is swimming.']],
   ['1.3', 'A3', ['They are running.', 'They are eating.', 'They are reading.']],
   ['1.3', 'A6', ['She is sleeping.', 'She is reading.', 'She is writing.']],
-  ['1.11', 'R6', ['The children are swimming.', 'The brothers are studying.', 'The sisters are playing.']],
-  ['1.11', 'R8', ['The brothers are studying.', 'The children are swimming.', 'The sisters are playing.']],
-  ['1.11', 'R10', ['They are a family.', 'They are not a family.', 'They are babies.']],
-  ['1.11', 'R12', ['Who is she? She is the mother. The mother is cooking.', 'Who is he? He is the father. The father is working.', 'Who are they? They are the sisters. The sisters are playing.']],
-  ['1.11', 'R14', ['Who are they? They are the grandparents. They are sitting and talking. They are not sleeping.', 'Who are they? They are the grandparents. They are running and talking. They are not sleeping.', 'Who are they? They are the grandparents. They are sitting and sleeping. They are not talking.']],
-  ['1.11', 'A6', ['The children are swimming.', 'The brothers are studying.', 'The sisters are playing.']],
-  ['1.11', 'A8', ['They are a family.', 'They are not a family.', 'They are babies.']],
-  ['1.11', 'A9', ['Who are they? They are the parents. The parents are talking.', 'Who is he? He is the father. The father is working.', 'Who is she? She is the mother. The mother is cooking.']],
+  ['1.12', 'R6', ['The children are swimming.', 'The brothers are studying.', 'The sisters are playing.']],
+  ['1.12', 'R8', ['The brothers are studying.', 'The children are swimming.', 'The sisters are playing.']],
+  ['1.12', 'R10', ['They are a family.', 'They are not a family.', 'They are babies.']],
+  ['1.12', 'R12', ['Who is she? She is the mother. The mother is cooking.', 'Who is he? He is the father. The father is working.', 'Who are they? They are the sisters. The sisters are playing.']],
+  ['1.12', 'R14', ['Who are they? They are the grandparents. They are sitting and talking. They are not sleeping.', 'Who are they? They are the grandparents. They are running and talking. They are not sleeping.', 'Who are they? They are the grandparents. They are sitting and sleeping. They are not talking.']],
+  ['1.12', 'A6', ['The children are swimming.', 'The brothers are studying.', 'The sisters are playing.']],
+  ['1.12', 'A8', ['They are a family.', 'They are not a family.', 'They are babies.']],
+  ['1.12', 'A9', ['Who are they? They are the parents. The parents are talking.', 'Who is he? He is the father. The father is working.', 'Who is she? She is the mother. The mother is cooking.']],
 ];
 const unitOneActions = /\b(?:eating|drinking|reading|writing|running|sitting|swimming|sleeping|playing|studying|working|cooking|talking)\b/i;
 const choiceFrame = (label) => (label.match(/[^.!?]+[.!?]?/g) || []).map((part) => {
@@ -57,13 +57,13 @@ function assertParallelUnitOneChoices(lessons, context) {
     assert.equal(card.options.every((option) => !option.image_url), true, `${context}: ${number} ${slideId} must remain a text-answer bank`);
     assert.deepEqual(card.options.map((option) => option.label), labels, `${context}: ${number} ${slideId} must preserve its reviewed exclusive, parallel alternatives`);
   }
-  for (const number of ['1.2', '1.3', '1.4', '1.5', '1.6', '1.9', '1.11']) {
+  for (const number of ['1.2', '1.3', '1.4', '1.5', '1.6', '1.9', '1.12']) {
     const current = findLesson(number);
     for (const card of current.cards.filter((item) => ['Recognize', 'Listen'].includes(item.stage))) {
       const frames = card.options.map((option) => choiceFrame(option.label));
       assert.equal(new Set(frames).size, 1, `${context}: ${number} ${card.slide_id} mixes grammatical/semantic frames: ${card.options.map((option) => option.label).join(' | ')}`);
     }
-    const expectedCounts = number === '1.11' ? [14, 14, 10, 8, 8] : [10, 10, 8, 7, 7];
+    const expectedCounts = number === '1.12' ? [14, 16, 13, 10, 9] : [10, 10, 8, 7, 7];
     assert.deepEqual(
       ['Learn', 'Recognize', 'Listen', 'Speak', 'Use'].map((stage) => current.cards.filter((card) => card.stage === stage).length),
       expectedCounts,
@@ -71,8 +71,8 @@ function assertParallelUnitOneChoices(lessons, context) {
     );
     assert.deepEqual([...new Set(current.cards.map((card) => card.stage))], ['Learn', 'Recognize', 'Listen', 'Speak', 'Use'], `${context}: ${number} choice repair must preserve story stage order`);
   }
-  assert.equal(findCard('1.11', 'A8').interaction_type, 'a2t3', `${context}: review family listening must use the approved parallel text bank`);
-  assert.equal(findLesson('1.11').review_vocabulary.includes('grandchildren'), false, `${context}: review metadata may not claim unretrieved grandchildren`);
+  assert.equal(findCard('1.12', 'A8').interaction_type, 'a2t3', `${context}: review family listening must use the approved parallel text bank`);
+  assert.equal(findLesson('1.12').review_vocabulary.includes('grandchildren'), false, `${context}: review metadata may not claim unretrieved grandchildren`);
   assert.equal(findLesson('1.6').vocabulary.includes('grandchildren'), true, `${context}: keep the new word in lesson 1.6`);
   assert.equal(path.basename(findCard('1.6', 'L10').options[0].image_url), 'family_grandparents_grandchildren.webp', `${context}: L10 must show the grandparents with their grandchildren`);
   assert.equal(path.basename(findCard('1.6', 'R10').prompt_image_url), 'family_grandparents_grandchildren.webp', `${context}: R10 must assess the exact generations scene`);
@@ -126,7 +126,7 @@ const mediaFilenames = (value, filenames = []) => {
   return filenames;
 };
 
-const unitOneReview = learnMedia('1.11');
+const unitOneReview = learnMedia('1.12');
 const expectedUnitOneReview = new Map([
   ['The boy is eating. He is eating.', 'a1_u1_review_boy_eating.webp'],
   ['The girl is writing. She is writing.', 'a1_u1_review_girl_writing.webp'],
@@ -145,7 +145,7 @@ const expectedUnitOneReview = new Map([
 ]);
 assert.deepEqual(unitOneReview, expectedUnitOneReview, 'Lesson 1.10 must use the complete fresh-scene story in order');
 assert.equal(
-  mediaFilenames(lesson('1.11')).every((filename) => filename.startsWith('a1_u1_review_')),
+  mediaFilenames(lesson('1.12')).every((filename) => filename.startsWith('a1_u1_review_')),
   true,
   'every Lesson 1.10 card and distractor must stay inside the newly authored review media set',
 );
@@ -232,7 +232,7 @@ for (const [number, slideId, target] of [
   ['1.6', 'U6', 'They are the grandparents.'],
   ['1.9', 'U8', 'They are the children.'],
   ['1.9', 'U10', 'They are the grandparents.'],
-  ['1.11', 'U8', 'They are the grandparents. They are not sleeping.'],
+  ['1.12', 'U8', 'They are the grandparents. They are not sleeping.'],
 ]) {
   for (const current of [cardBySlide(number, 'Use', slideId)]) {
     assert.equal(current.interaction_type, 'complete-sentence');
@@ -339,13 +339,13 @@ for (const [slideId, expectedLabels] of expectedLessonEightCompletionLabels) {
 }
 
 assert.deepEqual(
-  cardBySlide('1.11', 'Use', 'U7').options.map((option) => option.label),
+  cardBySlide('1.12', 'Use', 'U7').options.map((option) => option.label),
   ['parents', 'talking'],
   'Lesson 1.10 U7 must provide the required completion tiles',
 );
 
 
-const unitOneMission = lesson('1.12');
+const unitOneMission = lesson('1.13');
 const expectedMissionHeroes = [
   '01_people_path', '02_four_people_search', '03_pronoun_arrival',
   '04_age_groups', '05_babies', '06_brother_sister', '07_sibling_pairs',

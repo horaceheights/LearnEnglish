@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "406c11d5-d444-43c2-bbd0-04066c8779bf",
+  "asset_id": "r02-son-dog-playing",
+  "pack_sha256": "1de2ee1abeb2b14b631660fd5309ebdd74a8bc04d032869069686e869658122c",
+  "started_at": "2026-11-14T19:01:18.320080+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material, skin, fur and feather texture, soft natural daylight and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, numbers, logos or brand marks anywhere, including on clothing, collars, signs, books, toys and dishes. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.\n\nImage 1 shows the family's boy: about nine, short dark hair combed to the side, a blue short-sleeved button shirt. Keep his face, hair and shirt exactly. Create a new photograph on the lawn of the family's sunny garden: the boy, in dark shorts, and the family dog, a medium-size golden-tan mixed-breed dog with a white chest patch, floppy ears and a plain red collar, PLAY tug-of-war with a thick plain blue rope toy. The boy leans back holding one end of the rope with both hands and laughs; the dog holds the other end in its mouth and pulls, front legs braced and tail up. Playing together is unmistakable. Both are whole and sharp inside the central 75 percent of the photo width, seen from the side, with a garden fence and bushes softly blurred behind. Neither is running. Only this boy and this dog; no ball, no other person or animal. Every visible hand has five natural fingers.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/boy.webp",
+    "sha256": "c882743482d0d7b7aed75f959c05253ac508895376e93ce9de9dd13f4fa0207e"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "_a_4arzNOvrgqtsPkJ6ssQs",
+  "usage": {
+    "promptTokenCount": 599,
+    "candidatesTokenCount": 1340,
+    "totalTokenCount": 2187,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 341
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 248,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.138174",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 599,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 248
+  },
+  "elapsed_seconds": 22.06,
+  "output": "output/imagegen/unit-1-review-v1/r02-son-dog-playing.png",
+  "sha256": "ff58cbaf52a291491ed3be323ac7bc5f6fbdf43431bf90f3d36e5f2235453ed9",
+  "byte_count": 6008017,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

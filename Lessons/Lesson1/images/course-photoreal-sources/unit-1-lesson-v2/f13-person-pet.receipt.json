@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "02a974f2-7211-4112-893c-07bc046448bb",
+  "asset_id": "f13-person-pet",
+  "pack_sha256": "a26b24ef1159dec179d225a2ea3a082da56426eefaaab644e36d04ec5ee4302d",
+  "started_at": "2026-11-14T18:26:38.736711+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material, skin, fur and feather texture, soft natural daylight and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, numbers, logos or brand marks anywhere, including on clothing, collars, signs, books, balls and dishes. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.\n\nImage 1 shows a person from behind on a park bench by a lake. Keep exactly the same person, long beige coat, grey knitted hat, dark scarf, bench, park and camera position. Create a new photograph that adds the person's pet: a medium-size golden-tan mixed-breed dog with a white chest patch, floppy ears and a plain red collar SITS on the ground close beside the bench, also seen from behind, looking at the lake, on a short red leash that the person holds in one gloved hand. The person is still seen only from behind, so it is impossible to tell whether it is a man or a woman. The person, the bench and the whole dog are sharp and inside the central 65 percent of the photo width. Exactly one person and one dog; nobody else and no other animal.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "output/imagegen/unit-1-lesson-v2/f07-person.png",
+    "sha256": "fe4cb9182f7798244268f915ef664790ae2f94a8ebae7b0311fb450c11397c9c"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "3qf4au3qNqCfz7IP3eOSiQY",
+  "usage": {
+    "promptTokenCount": 567,
+    "candidatesTokenCount": 1335,
+    "totalTokenCount": 2075,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 309
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 173,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137210",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 567,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 173
+  },
+  "elapsed_seconds": 24.39,
+  "output": "output/imagegen/unit-1-lesson-v2/f13-person-pet.png",
+  "sha256": "3d74f0d857ef1de423d2daed413326d7920bb2f35ff5337dcaf7f48658c6346e",
+  "byte_count": 6183973,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

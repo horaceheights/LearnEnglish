@@ -1,0 +1,57 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "664afdf5-8579-44aa-8bca-8e0705aa14c4",
+  "asset_id": "r04-rabbit-bird-eating",
+  "pack_sha256": "1de2ee1abeb2b14b631660fd5309ebdd74a8bc04d032869069686e869658122c",
+  "started_at": "2026-11-14T19:02:06.785197+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material, skin, fur and feather texture, soft natural daylight and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, numbers, logos or brand marks anywhere, including on clothing, collars, signs, books, toys and dishes. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.\n\nTwo family pets eat side by side on a light wooden floor in a bright family living room, seen from the front-side at their eye level: on the left a white rabbit with light-brown patches and two long upright ears, sitting and holding a fresh green lettuce leaf in its mouth, half of the leaf already inside its mouth, with two more lettuce leaves on the floor in front of it; on the right, close to the rabbit, a small parakeet with a yellow head, a green body, black-and-yellow striped wings and a long dark-blue tail, standing at a small white dish full of seeds with its beak down in the seeds. Eating is unmistakable for both. The rabbit and the bird are both whole, sharp and large enough to recognise at a glance, inside the central 75 percent of the photo width; the bird is at least one third of the rabbit's height in the frame. A sofa is softly blurred behind. Exactly these two animals: no other animal, no person, no hand, no cage bars and no water dish.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "LbD4atuRPLSgz7IPs7uCsAk",
+  "usage": {
+    "promptTokenCount": 356,
+    "candidatesTokenCount": 1337,
+    "totalTokenCount": 1933,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 356
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 240,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137592",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 356,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 240
+  },
+  "elapsed_seconds": 24.53,
+  "output": "output/imagegen/unit-1-review-v1/r04-rabbit-bird-eating.png",
+  "sha256": "1c2e7aaf6784b5d4634726fa4823f6dfb6283c1869df5d3ac415f41e7ff8da1d",
+  "byte_count": 5561645,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

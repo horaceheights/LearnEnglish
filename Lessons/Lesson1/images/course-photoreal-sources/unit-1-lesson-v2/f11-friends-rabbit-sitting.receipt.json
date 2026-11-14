@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "70243366-0a18-4b41-868e-bef6e5da730c",
+  "asset_id": "f11-friends-rabbit-sitting",
+  "pack_sha256": "a26b24ef1159dec179d225a2ea3a082da56426eefaaab644e36d04ec5ee4302d",
+  "started_at": "2026-11-14T18:25:46.423627+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material, skin, fur and feather texture, soft natural daylight and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, numbers, logos or brand marks anywhere, including on clothing, collars, signs, books, balls and dishes. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.\n\nImage 1 shows two girls who are friends: one with long dark-brown hair and a lilac T-shirt, one with very curly black hair in two round puffs and a bright yellow T-shirt. Keep both faces, hair, skin tones and T-shirts exactly. Create a new photograph in a bright family living room: the two girls SIT cross-legged side by side on a light beige rug, hands resting on their knees, calm and smiling, and the family rabbit, a white rabbit with light-brown patches and two long upright ears, SITS on the rug directly in front of them, between them. All three are still and clearly sitting; the girls look down at the rabbit. Seen from the front at their eye level, both girls whole from head to feet and the whole rabbit sharp, all inside the central 75 percent of the photo width. No ball, no toys and no food: nobody is playing or eating. Only these two girls and this one rabbit. Every visible hand has five natural fingers.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "output/imagegen/unit-1-lesson-v2/f01-friends.png",
+    "sha256": "85c5ea154d21cd92c6ca81e72f8c2f13721872ba51cfa71f4192423eff9d8ce9"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "qqf4atLoJrvrz7IP1fa-yQc",
+  "usage": {
+    "promptTokenCount": 603,
+    "candidatesTokenCount": 1329,
+    "totalTokenCount": 2162,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 345
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 230,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137966",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 603,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 230
+  },
+  "elapsed_seconds": 25.06,
+  "output": "output/imagegen/unit-1-lesson-v2/f11-friends-rabbit-sitting.png",
+  "sha256": "e8ad8e04755e5c90d8acbc4fcee927648630888b99eea69e0cf41fef0722c8b3",
+  "byte_count": 5808505,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

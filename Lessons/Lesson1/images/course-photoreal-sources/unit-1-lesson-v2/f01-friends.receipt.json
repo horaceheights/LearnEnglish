@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "d78a2320-7f0e-4637-9856-e8fdcdaf6605",
+  "asset_id": "f01-friends",
+  "pack_sha256": "a26b24ef1159dec179d225a2ea3a082da56426eefaaab644e36d04ec5ee4302d",
+  "started_at": "2026-11-14T18:20:40.510285+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material, skin, fur and feather texture, soft natural daylight and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, numbers, logos or brand marks anywhere, including on clothing, collars, signs, books, balls and dishes. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.\n\nImage 1 shows the family's girl: about seven, long dark-brown hair tied half up, a lilac short-sleeved T-shirt. Keep her face, hair and T-shirt exactly. Create a new photograph on a sunny playground lawn with a wooden climbing frame softly blurred behind: the girl and her friend, a girl of the same age with very curly black hair in two round puffs, dark-brown skin and a bright yellow short-sleeved T-shirt PLAY together. They stand facing each other one step apart and throw a plain bright-red ball between them: the ball is in the air between their raised hands and both girls laugh with open smiles, clearly two friends having fun. Both faces are in three-quarter view, fully visible and sharp, and both girls are seen from head to knees inside the central 70 percent of the photo width. The two girls look clearly different from each other (hair, skin tone, T-shirt color), so they do not look like sisters. Only these two girls; no adults, no other children, no animals. Every visible hand has five natural fingers.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/girl.webp",
+    "sha256": "3cbaee986b59bf009ed1a60a397cc7b23cde937e1287cd222d3e6818b197f9a7"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "eKb4arytHOvQz7IP59OEyQc",
+  "usage": {
+    "promptTokenCount": 624,
+    "candidatesTokenCount": 1338,
+    "totalTokenCount": 2162,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 366
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 200,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137648",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 624,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 200
+  },
+  "elapsed_seconds": 22.55,
+  "output": "output/imagegen/unit-1-lesson-v2/f01-friends.png",
+  "sha256": "85c5ea154d21cd92c6ca81e72f8c2f13721872ba51cfa71f4192423eff9d8ce9",
+  "byte_count": 6134055,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

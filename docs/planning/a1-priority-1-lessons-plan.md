@@ -1,6 +1,6 @@
 # A1 Priority 1 gap lessons: detailed plan
 
-Date: 2026-11-14. Status: **plan for discussion**. Only 1.10 Pets is approved and built (2026-11-14, with a temporary later-reuse exception recorded in the guardrails decision log); nothing else here is approved. It details the Priority 1 group from [a1-gap-lessons-draft.md](a1-gap-lessons-draft.md).
+Date: 2026-11-14. Status: **plan for discussion**. 1.10 Pets and 1.11 Friends and People are approved and built (2026-11-14; see the guardrails decision log for the later-reuse status); nothing else here is approved. It details the Priority 1 group from [a1-gap-lessons-draft.md](a1-gap-lessons-draft.md).
 
 ## 1. What changed from the draft
 

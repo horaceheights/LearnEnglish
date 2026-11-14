@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "97d94a75-0af5-4eeb-8eaf-e74f986be725",
+  "asset_id": "f02-friend",
+  "pack_sha256": "a26b24ef1159dec179d225a2ea3a082da56426eefaaab644e36d04ec5ee4302d",
+  "started_at": "2026-11-14T18:21:49.520158+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material, skin, fur and feather texture, soft natural daylight and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, numbers, logos or brand marks anywhere, including on clothing, collars, signs, books, balls and dishes. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.\n\nKeep the main subject of the photo, from the top of the head down, inside the central 55 percent of the photo width, so a centered 4:5 crop keeps it whole; only expendable background reaches the left and right edges.\n\nImage 1 shows two girls playing with a red ball. Use ONLY the girl with very curly black hair in two round puffs and the bright yellow T-shirt; keep her face, hair, skin tone and T-shirt exactly. The other girl is NOT in the new photo. Create a new photograph of her alone on the same sunny playground lawn: she stands facing the camera, smiling warmly, and waves hello with one raised open hand, like a friend greeting you. She is seen from head to knees, sharp, and fills at least 70 percent of the photo height. No ball, no toy, no other person and no animal. Her raised hand has five natural fingers.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "output/imagegen/unit-1-lesson-v2/f01-friends.png",
+    "sha256": "85c5ea154d21cd92c6ca81e72f8c2f13721872ba51cfa71f4192423eff9d8ce9"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "vab4arivNqKzmtkPzMergAc",
+  "usage": {
+    "promptTokenCount": 585,
+    "candidatesTokenCount": 1307,
+    "totalTokenCount": 2075,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 327
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 183,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137366",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 585,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 183
+  },
+  "elapsed_seconds": 25.51,
+  "output": "output/imagegen/unit-1-lesson-v2/f02-friend.png",
+  "sha256": "c664fcde48890ea096c4b979e10529da6eddc148ae17c038eaf171b91ccc1cd6",
+  "byte_count": 5532759,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

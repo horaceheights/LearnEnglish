@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "7f3cb00e-1203-415d-87f4-f43ae736f81e",
+  "asset_id": "f10-daughter-cat-sleeping",
+  "pack_sha256": "a26b24ef1159dec179d225a2ea3a082da56426eefaaab644e36d04ec5ee4302d",
+  "started_at": "2026-11-14T18:25:20.198133+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material, skin, fur and feather texture, soft natural daylight and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, numbers, logos or brand marks anywhere, including on clothing, collars, signs, books, balls and dishes. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.\n\nImage 1 shows the family's girl: about seven, long dark-brown hair tied half up, a lilac short-sleeved T-shirt. Keep her face, hair and T-shirt exactly. Create a new photograph in the family's bright living room in the daytime: the girl SLEEPS lying on her side on a cream sofa with her head on a plain cushion, both eyes fully closed, her face toward the camera, relaxed. The family cat, a grey tabby cat with dark stripes, a white chest, white front paws and a plain blue collar, SLEEPS curled up in a round ball against her stomach on the sofa, both of its eyes fully closed too. Sleeping is unmistakable for both. The camera is at sofa height; the girl's closed eyes and the whole cat are sharp and easy to see, and both are inside the central 75 percent of the photo width. Only this girl and this cat; no blanket covers the cat, no toys, no book and no phone. Every visible hand has five natural fingers.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/girl.webp",
+    "sha256": "3cbaee986b59bf009ed1a60a397cc7b23cde937e1287cd222d3e6818b197f9a7"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "j6f4ap7fOJ_Qz7IPxNbN-QU",
+  "usage": {
+    "promptTokenCount": 609,
+    "candidatesTokenCount": 1372,
+    "totalTokenCount": 2164,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 351
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 183,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137414",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 609,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 183
+  },
+  "elapsed_seconds": 23.33,
+  "output": "output/imagegen/unit-1-lesson-v2/f10-daughter-cat-sleeping.png",
+  "sha256": "6a16b0c4561ad3412b445dac5582739069e2ef5b6adac2050f9b93ad86017b37",
+  "byte_count": 5978682,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

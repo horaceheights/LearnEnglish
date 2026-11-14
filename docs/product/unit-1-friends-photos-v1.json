@@ -1,0 +1,248 @@
+{
+  "schema_version": 1,
+  "pack": "unit-1-friends-photos",
+  "revision": 1,
+  "output_namespace": "unit-1-lesson-v2",
+  "authorization": "2026-11-14: the user asked for A1 lesson 1.11 Friends and People to be built (\"build 1.11 Friends and People next\") and had approved the gap-lesson media in advance the same day (\"I preapprove all image and audios creation no need for me to reiew and approve on the fly\"). Ceiling US$3.00 for this revision. Gemini is the approved image tool (2026-09-23). Revision 1 is frozen: a changed prompt is a new revision in a new file, written before any render from it. Each base is inspected at phone sizes and at the centered 4:5 crop before its edit is sent, and every rejected output is reported with its cost.",
+  "image_settings": {
+    "provider": "google-gemini",
+    "model": "gemini-3-pro-image",
+    "aspect_ratio": "3:2",
+    "image_size": "2K",
+    "runtime_size": "1536x1024",
+    "runtime_format": "webp",
+    "n": 1
+  },
+  "production": {
+    "price_per_image_usd": "0.134",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing (checked 2026-09-24: Gemini 3 Pro Image, $0.134 per 1K/2K image)",
+    "planned_images": 14,
+    "expected_cost_usd": "1.95",
+    "requested_ceiling_usd": "3.00",
+    "no_automatic_retries": true,
+    "order": "Generate f01 (the two friends) and f07 (the person) first and inspect each at 900/360/250/180 px and at the centered 4:5 crop, because f02, f11 and f13 are edits of them; then the rest. A rejected output is reported with its cost; a redo needs a changed prompt in a new revision file."
+  },
+  "shared_prompts": {
+    "photo": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material, skin, fur and feather texture, soft natural daylight and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, numbers, logos or brand marks anywhere, including on clothing, collars, signs, books, balls and dishes. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.",
+    "safe_center": "Keep the main subject of the photo, from the top of the head down, inside the central 55 percent of the photo width, so a centered 4:5 crop keeps it whole; only expendable background reaches the left and right edges."
+  },
+  "assets": [
+    {
+      "id": "f01-friends",
+      "order": 1,
+      "lesson": "1.11",
+      "item": "Friends / They are friends. / The daughter and a friend are playing.",
+      "runtime_filename": "a1_photo_u1_friends_friends_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/girl.webp",
+        "sha256": "3cbaee986b59bf009ed1a60a397cc7b23cde937e1287cd222d3e6818b197f9a7",
+        "observed_description": "The family's girl, about seven, with long dark-brown hair tied half up, small stud earrings and a lilac short-sleeved T-shirt, stands smiling at the camera on a gravel garden path between beds of pink, blue and yellow flowers."
+      },
+      "prompt": "Image 1 shows the family's girl: about seven, long dark-brown hair tied half up, a lilac short-sleeved T-shirt. Keep her face, hair and T-shirt exactly. Create a new photograph on a sunny playground lawn with a wooden climbing frame softly blurred behind: the girl and her friend, a girl of the same age with very curly black hair in two round puffs, dark-brown skin and a bright yellow short-sleeved T-shirt PLAY together. They stand facing each other one step apart and throw a plain bright-red ball between them: the ball is in the air between their raised hands and both girls laugh with open smiles, clearly two friends having fun. Both faces are in three-quarter view, fully visible and sharp, and both girls are seen from head to knees inside the central 70 percent of the photo width. The two girls look clearly different from each other (hair, skin tone, T-shirt color), so they do not look like sisters. Only these two girls; no adults, no other children, no animals. Every visible hand has five natural fingers."
+    },
+    {
+      "id": "f02-friend",
+      "order": 2,
+      "lesson": "1.11",
+      "item": "A friend",
+      "runtime_filename": "a1_photo_u1_friends_friend_v1.webp",
+      "four_card": true,
+      "shared": [
+        "photo",
+        "safe_center"
+      ],
+      "reference": "f01-friends",
+      "prompt": "Image 1 shows two girls playing with a red ball. Use ONLY the girl with very curly black hair in two round puffs and the bright yellow T-shirt; keep her face, hair, skin tone and T-shirt exactly. The other girl is NOT in the new photo. Create a new photograph of her alone on the same sunny playground lawn: she stands facing the camera, smiling warmly, and waves hello with one raised open hand, like a friend greeting you. She is seen from head to knees, sharp, and fills at least 70 percent of the photo height. No ball, no toy, no other person and no animal. Her raised hand has five natural fingers."
+    },
+    {
+      "id": "f03-husband",
+      "order": 3,
+      "lesson": "1.11",
+      "item": "The husband / He is the husband.",
+      "runtime_filename": "a1_photo_u1_friends_husband_v1.webp",
+      "four_card": true,
+      "shared": [
+        "photo",
+        "safe_center"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/family_parents_3x2.webp",
+        "sha256": "7ec7dfb8f762125ea8efc1daebaff0899bb2bee4fe6b40b18d7276251514acc9",
+        "observed_description": "The family's father (about forty, short dark hair, short greying beard, blue button shirt with rolled sleeves over a grey T-shirt) and mother (about forty, long wavy brown hair, gold earrings, coral linen shirt) stand close together smiling at the camera in a bright living room with bookshelves and framed family photos."
+      },
+      "prompt": "Image 1 shows a married couple, the family's parents. Keep both faces, hair and clothes exactly. Create a new photograph in their bright living room in which THE MAN is clearly the subject: he stands in the center foreground facing the camera, in sharp focus, smiling, seen from head to waist, with his left hand resting flat on his chest so that the plain gold wedding ring on his ring finger is clearly visible. His wife stands one step behind his shoulder at one side, clearly OUT OF FOCUS but still recognisable, smiling at him, with one hand resting on his upper arm; a plain gold wedding ring is on her hand too. Nobody else is in the photo: no children. His visible hand has five natural fingers."
+    },
+    {
+      "id": "f04-wife",
+      "order": 4,
+      "lesson": "1.11",
+      "item": "The wife / She is the wife.",
+      "runtime_filename": "a1_photo_u1_friends_wife_v1.webp",
+      "four_card": true,
+      "shared": [
+        "photo",
+        "safe_center"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/family_parents_3x2.webp",
+        "sha256": "7ec7dfb8f762125ea8efc1daebaff0899bb2bee4fe6b40b18d7276251514acc9",
+        "observed_description": "The family's father (about forty, short dark hair, short greying beard, blue button shirt with rolled sleeves over a grey T-shirt) and mother (about forty, long wavy brown hair, gold earrings, coral linen shirt) stand close together smiling at the camera in a bright living room with bookshelves and framed family photos."
+      },
+      "prompt": "Image 1 shows a married couple, the family's parents. Keep both faces, hair and clothes exactly. Create a new photograph in their bright living room in which THE WOMAN is clearly the subject: she stands in the center foreground facing the camera, in sharp focus, smiling, seen from head to waist, with her left hand resting flat on her chest so that the plain gold wedding ring on her ring finger is clearly visible. Her husband stands one step behind her shoulder at one side, clearly OUT OF FOCUS but still recognisable, smiling at her, with one hand resting on her upper arm; a plain gold wedding ring is on his hand too. Nobody else is in the photo: no children. Her visible hand has five natural fingers."
+    },
+    {
+      "id": "f05-son",
+      "order": 5,
+      "lesson": "1.11",
+      "item": "The son / He is the son.",
+      "runtime_filename": "a1_photo_u1_friends_son_v1.webp",
+      "four_card": true,
+      "shared": [
+        "photo",
+        "safe_center"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/boy.webp",
+        "sha256": "c882743482d0d7b7aed75f959c05253ac508895376e93ce9de9dd13f4fa0207e",
+        "observed_description": "The family's boy, about nine, with short dark hair combed to the side and a blue short-sleeved button shirt, stands smiling at the camera in a sunny courtyard with terracotta walls and potted plants."
+      },
+      "prompt": "Image 1 shows the family's boy: about nine, short dark hair combed to the side, a blue short-sleeved button shirt. Keep his face, hair and shirt exactly. Create a new photograph in the family's bright living room in which THE BOY is clearly the subject: he stands in the center foreground facing the camera, in sharp focus, smiling, seen from head to waist. His two parents stand close behind him, one at each shoulder, both clearly OUT OF FOCUS but recognisable as his father and mother (the father: about forty, short dark hair, a short greying beard, a blue button shirt with rolled sleeves; the mother: about forty, long wavy brown hair, gold earrings, a coral linen shirt), each resting one hand on his shoulder and looking down at him with proud smiles. Exactly these three people; no other child. Every visible hand has five natural fingers."
+    },
+    {
+      "id": "f06-daughter",
+      "order": 6,
+      "lesson": "1.11",
+      "item": "The daughter / She is the daughter.",
+      "runtime_filename": "a1_photo_u1_friends_daughter_v1.webp",
+      "four_card": true,
+      "shared": [
+        "photo",
+        "safe_center"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/girl.webp",
+        "sha256": "3cbaee986b59bf009ed1a60a397cc7b23cde937e1287cd222d3e6818b197f9a7",
+        "observed_description": "The family's girl, about seven, with long dark-brown hair tied half up, small stud earrings and a lilac short-sleeved T-shirt, stands smiling at the camera on a gravel garden path between beds of pink, blue and yellow flowers."
+      },
+      "prompt": "Image 1 shows the family's girl: about seven, long dark-brown hair tied half up, a lilac short-sleeved T-shirt. Keep her face, hair and T-shirt exactly. Create a new photograph in the family's bright living room in which THE GIRL is clearly the subject: she stands in the center foreground facing the camera, in sharp focus, smiling, seen from head to waist. Her two parents stand close behind her, one at each shoulder, both clearly OUT OF FOCUS but recognisable as her father and mother (the father: about forty, short dark hair, a short greying beard, a blue button shirt with rolled sleeves; the mother: about forty, long wavy brown hair, gold earrings, a coral linen shirt), each resting one hand on her shoulder and looking down at her with proud smiles. Exactly these three people; no other child. Every visible hand has five natural fingers."
+    },
+    {
+      "id": "f07-person",
+      "order": 7,
+      "lesson": "1.11",
+      "item": "A person / The person is sitting.",
+      "runtime_filename": "a1_photo_u1_friends_person_v1.webp",
+      "four_card": true,
+      "shared": [
+        "photo",
+        "safe_center"
+      ],
+      "prompt": "One adult seen from BEHIND, sitting alone in the middle of a plain wooden park bench and looking at a calm lake in a green park on a mild day. The person wears a long beige coat and a grey knitted hat that covers all of the hair, with a dark scarf, so that it is impossible to tell whether it is a man or a woman: just a person. The back, shoulders and hat are sharp, the person is clearly SITTING with the bench fully visible, and the person and the bench fill at least 50 percent of the photo height. The face is not visible. There is nobody else anywhere in the photo, no animal, no bag and no bicycle."
+    },
+    {
+      "id": "f08-people",
+      "order": 8,
+      "lesson": "1.11",
+      "item": "People / The people are talking.",
+      "runtime_filename": "a1_photo_u1_friends_people_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo"
+      ],
+      "prompt": "Five adults of clearly different ages and looks stand together in a loose half-circle on a path in a green city park and TALK with each other: a woman of about twenty-five, a man of about thirty-five, a woman of about fifty, a man of about sixty and a woman of about seventy, in plain everyday clothes of different colors. Talking is unmistakable: two of them are speaking with open mouths and hand gestures while the others look at them, listen and smile. All five are standing, seen from head to knees, sharp, spread across the central 80 percent of the photo width; nobody looks at the camera. Exactly five adults: no children, no babies, no animals, no phones and no bags with writing. Every visible hand has five natural fingers."
+    },
+    {
+      "id": "f09-son-dog-running",
+      "order": 9,
+      "lesson": "1.11",
+      "item": "The son and the dog are running.",
+      "runtime_filename": "a1_photo_u1_friends_son_dog_running_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/boy.webp",
+        "sha256": "c882743482d0d7b7aed75f959c05253ac508895376e93ce9de9dd13f4fa0207e",
+        "observed_description": "The family's boy, about nine, with short dark hair combed to the side and a blue short-sleeved button shirt, stands smiling at the camera in a sunny courtyard with terracotta walls and potted plants."
+      },
+      "prompt": "Image 1 shows the family's boy: about nine, short dark hair combed to the side, a blue short-sleeved button shirt. Keep his face, hair and shirt exactly. Create a new photograph on a short green lawn in the family's sunny garden: the boy, in dark shorts and sneakers, and the family dog, a medium-size golden-tan mixed-breed dog with a white chest patch, floppy ears and a plain red collar, RUN side by side across the lawn, seen from the front-side. Both are caught in mid-stride: the boy with one knee high, arms pumping and a big smile, the dog with its legs stretched out, ears flying back and mouth open. Running is unmistakable for both. The boy and the dog are close together, whole and sharp inside the central 70 percent of the photo width, with a garden fence and bushes softly blurred behind. There is no ball, no stick, no toy and no leash: they are only running. Only this boy and this dog. Every visible hand has five natural fingers."
+    },
+    {
+      "id": "f10-daughter-cat-sleeping",
+      "order": 10,
+      "lesson": "1.11",
+      "item": "The daughter and the cat are sleeping.",
+      "runtime_filename": "a1_photo_u1_friends_daughter_cat_sleeping_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/girl.webp",
+        "sha256": "3cbaee986b59bf009ed1a60a397cc7b23cde937e1287cd222d3e6818b197f9a7",
+        "observed_description": "The family's girl, about seven, with long dark-brown hair tied half up, small stud earrings and a lilac short-sleeved T-shirt, stands smiling at the camera on a gravel garden path between beds of pink, blue and yellow flowers."
+      },
+      "prompt": "Image 1 shows the family's girl: about seven, long dark-brown hair tied half up, a lilac short-sleeved T-shirt. Keep her face, hair and T-shirt exactly. Create a new photograph in the family's bright living room in the daytime: the girl SLEEPS lying on her side on a cream sofa with her head on a plain cushion, both eyes fully closed, her face toward the camera, relaxed. The family cat, a grey tabby cat with dark stripes, a white chest, white front paws and a plain blue collar, SLEEPS curled up in a round ball against her stomach on the sofa, both of its eyes fully closed too. Sleeping is unmistakable for both. The camera is at sofa height; the girl's closed eyes and the whole cat are sharp and easy to see, and both are inside the central 75 percent of the photo width. Only this girl and this cat; no blanket covers the cat, no toys, no book and no phone. Every visible hand has five natural fingers."
+    },
+    {
+      "id": "f11-friends-rabbit-sitting",
+      "order": 11,
+      "lesson": "1.11",
+      "item": "The friends and the rabbit are sitting.",
+      "runtime_filename": "a1_photo_u1_friends_friends_rabbit_sitting_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo"
+      ],
+      "reference": "f01-friends",
+      "prompt": "Image 1 shows two girls who are friends: one with long dark-brown hair and a lilac T-shirt, one with very curly black hair in two round puffs and a bright yellow T-shirt. Keep both faces, hair, skin tones and T-shirts exactly. Create a new photograph in a bright family living room: the two girls SIT cross-legged side by side on a light beige rug, hands resting on their knees, calm and smiling, and the family rabbit, a white rabbit with light-brown patches and two long upright ears, SITS on the rug directly in front of them, between them. All three are still and clearly sitting; the girls look down at the rabbit. Seen from the front at their eye level, both girls whole from head to feet and the whole rabbit sharp, all inside the central 75 percent of the photo width. No ball, no toys and no food: nobody is playing or eating. Only these two girls and this one rabbit. Every visible hand has five natural fingers."
+    },
+    {
+      "id": "f12-husband-bird-eating",
+      "order": 12,
+      "lesson": "1.11",
+      "item": "The husband and the bird are eating.",
+      "runtime_filename": "a1_photo_u1_friends_husband_bird_eating_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/family_parents_3x2.webp",
+        "sha256": "7ec7dfb8f762125ea8efc1daebaff0899bb2bee4fe6b40b18d7276251514acc9",
+        "observed_description": "The family's father (about forty, short dark hair, short greying beard, blue button shirt with rolled sleeves over a grey T-shirt) and mother (about forty, long wavy brown hair, gold earrings, coral linen shirt) stand close together smiling at the camera in a bright living room with bookshelves and framed family photos."
+      },
+      "prompt": "Image 1 shows a married couple; use ONLY the man: about forty, short dark hair, a short greying beard, a blue button shirt with rolled sleeves. Keep his face, hair, beard and shirt exactly; the woman is NOT in the new photo. Create a new photograph at the wooden table in the family kitchen in the morning: the man sits at the table and EATS breakfast, lifting a fork with a piece of scrambled egg to his open mouth, a white plate of scrambled eggs and toast in front of him; a plain gold wedding ring is on his left hand. On the table beside his plate the family's pet bird, a small parakeet with a yellow head, a green body, black-and-yellow striped wings and a long dark-blue tail, stands at a small white dish full of seeds and EATS, its beak down in the seeds. Eating is unmistakable for both. The man is seen from head to waist in three-quarter view, his face and the fork sharp; the bird and its seed dish are sharp, large enough to see clearly and close to him, and everything is inside the central 75 percent of the photo width. There is no cup, no glass and no water dish: nobody is drinking. Only this man and this bird. Every visible hand has five natural fingers."
+    },
+    {
+      "id": "f13-person-pet",
+      "order": 13,
+      "lesson": "1.11",
+      "item": "A person and a pet",
+      "runtime_filename": "a1_photo_u1_friends_person_pet_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo"
+      ],
+      "reference": "f07-person",
+      "prompt": "Image 1 shows a person from behind on a park bench by a lake. Keep exactly the same person, long beige coat, grey knitted hat, dark scarf, bench, park and camera position. Create a new photograph that adds the person's pet: a medium-size golden-tan mixed-breed dog with a white chest patch, floppy ears and a plain red collar SITS on the ground close beside the bench, also seen from behind, looking at the lake, on a short red leash that the person holds in one gloved hand. The person is still seen only from behind, so it is impossible to tell whether it is a man or a woman. The person, the bench and the whole dog are sharp and inside the central 65 percent of the photo width. Exactly one person and one dog; nobody else and no other animal."
+    },
+    {
+      "id": "f14-people-pets",
+      "order": 14,
+      "lesson": "1.11",
+      "item": "People and pets",
+      "runtime_filename": "a1_photo_u1_friends_people_pets_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo"
+      ],
+      "prompt": "Three adults stand side by side on a path in a green city park, facing the camera and smiling, each with a pet: on the left a man of about thirty-five in a green jacket holds a red leash, and a medium-size golden-tan mixed-breed dog with a white chest patch, floppy ears and a plain red collar sits at his feet; in the middle a woman of about fifty in a blue sweater holds a grey tabby cat with dark stripes, a white chest, white front paws and a plain blue collar in her arms; on the right a woman of about seventy in a grey coat holds a white rabbit with light-brown patches and two long upright ears in her arms. The three people are seen from head to feet, sharp, with clear space between them, spread across the central 80 percent of the photo width, and each pet is fully visible and easy to recognise. Exactly three adults and exactly these three animals: no children, no other people in the background, no other animals. Every visible hand has five natural fingers."
+    }
+  ]
+}

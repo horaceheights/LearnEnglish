@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "cb16c19f-1566-4ee3-b78d-40ac29c5dc28",
+  "asset_id": "f09-son-dog-running",
+  "pack_sha256": "a26b24ef1159dec179d225a2ea3a082da56426eefaaab644e36d04ec5ee4302d",
+  "started_at": "2026-11-14T18:24:55.308163+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material, skin, fur and feather texture, soft natural daylight and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, numbers, logos or brand marks anywhere, including on clothing, collars, signs, books, balls and dishes. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.\n\nImage 1 shows the family's boy: about nine, short dark hair combed to the side, a blue short-sleeved button shirt. Keep his face, hair and shirt exactly. Create a new photograph on a short green lawn in the family's sunny garden: the boy, in dark shorts and sneakers, and the family dog, a medium-size golden-tan mixed-breed dog with a white chest patch, floppy ears and a plain red collar, RUN side by side across the lawn, seen from the front-side. Both are caught in mid-stride: the boy with one knee high, arms pumping and a big smile, the dog with its legs stretched out, ears flying back and mouth open. Running is unmistakable for both. The boy and the dog are close together, whole and sharp inside the central 70 percent of the photo width, with a garden fence and bushes softly blurred behind. There is no ball, no stick, no toy and no leash: they are only running. Only this boy and this dog. Every visible hand has five natural fingers.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/boy.webp",
+    "sha256": "c882743482d0d7b7aed75f959c05253ac508895376e93ce9de9dd13f4fa0207e"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "dqf4aqvYPNK-qtsP9ajVuQg",
+  "usage": {
+    "promptTokenCount": 615,
+    "candidatesTokenCount": 1359,
+    "totalTokenCount": 2188,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 357
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 214,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137798",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 615,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 214
+  },
+  "elapsed_seconds": 22.11,
+  "output": "output/imagegen/unit-1-lesson-v2/f09-son-dog-running.png",
+  "sha256": "8f35eda00d64de11ea667a06bc6d4d9a11b52d16913fafd1af46cd251a64bcde",
+  "byte_count": 6479844,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

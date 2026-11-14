@@ -66,6 +66,9 @@ const MEANINGS: Record<string, string> = {
   older: 'mayor', younger: 'menor',
   // A1 1.10 (2026-11-14): pets.
   dog: 'perro', cat: 'gato', bird: 'pájaro', rabbit: 'conejo', pet: 'mascota', pets: 'mascotas',
+  // A1 1.11 (2026-11-14): friends and people.
+  friend: 'amigo o amiga', friends: 'amigos', husband: 'esposo', wife: 'esposa', son: 'hijo', daughter: 'hija',
+  person: 'persona', people: 'personas',
   running: 'corriendo', walking: 'caminando', reading: 'leyendo', writing: 'escribiendo',
   eating: 'comiendo', drinking: 'bebiendo', cooking: 'cocinando', working: 'trabajando',
   studying: 'estudiando', playing: 'jugando', swimming: 'nadando', sleeping: 'durmiendo',

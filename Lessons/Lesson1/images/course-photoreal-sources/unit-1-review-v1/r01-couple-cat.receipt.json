@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "9dc8fba2-4893-4441-b06b-23df85a789a9",
+  "asset_id": "r01-couple-cat",
+  "pack_sha256": "1de2ee1abeb2b14b631660fd5309ebdd74a8bc04d032869069686e869658122c",
+  "started_at": "2026-11-14T19:00:53.945389+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material, skin, fur and feather texture, soft natural daylight and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, numbers, logos or brand marks anywhere, including on clothing, collars, signs, books, toys and dishes. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.\n\nImage 1 shows a married couple, the family's parents. Keep both faces, hair and clothes exactly. Create a new photograph in their bright living room: the husband and the wife SIT side by side on a grey sofa, turned toward each other, and TALK: he speaks with an open mouth and one hand raised in a small gesture while she looks at him and smiles; a plain gold wedding ring is visible on each of their left hands. Next to them on the same sofa the family cat, a grey tabby cat with dark stripes, a white chest, white front paws and a plain blue collar, SLEEPS curled in a round ball with both eyes fully closed. Talking is unmistakable for the couple and sleeping for the cat. The couple are seen from head to knees in three-quarter view, the cat is whole and sharp, and all three are inside the central 80 percent of the photo width. Nobody looks at the camera. Only these two adults and this one cat; no children, no cups, no food and no phone. Every visible hand has five natural fingers.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/family_parents_3x2.webp",
+    "sha256": "7ec7dfb8f762125ea8efc1daebaff0899bb2bee4fe6b40b18d7276251514acc9"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "5a_4arq2LKqlmtkPm_LCgAc",
+  "usage": {
+    "promptTokenCount": 615,
+    "candidatesTokenCount": 1355,
+    "totalTokenCount": 2145,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 357
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 175,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137330",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 615,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 175
+  },
+  "elapsed_seconds": 21.55,
+  "output": "output/imagegen/unit-1-review-v1/r01-couple-cat.png",
+  "sha256": "857bfceece59342bc1b0061c35abd30a7da6d1a41d251550ef1a50df603b4c7e",
+  "byte_count": 6753813,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}
