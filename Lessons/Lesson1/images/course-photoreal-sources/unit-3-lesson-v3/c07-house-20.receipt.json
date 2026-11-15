@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "1e385342-aea5-48d8-a471-c45e302c3d1b",
+  "asset_id": "c07-house-20",
+  "pack_sha256": "a3b05d6ddf957694b401f1f2ae08bbd4a1719a5d2ec4bc9b4e697db4e2e0f155",
+  "started_at": "2026-11-15T17:30:03.333225+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material, skin and fabric texture, soft natural daylight and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.\n\nThis is a precise edit of image 1: the result must look like the same photograph with one detail changed. Change only what the instruction names.\n\nImage 1 shows the front of a house with the number 12 beside its door, on a street that faces a park. Keep the photograph exactly as it is: the same house, door, street, park, light and framing. Change ONLY the house number: the plate now reads exactly 20 instead of 12, in the same large black numerals, perfectly sharp. Nothing else changes.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "output/imagegen/unit-3-lesson-v3/c05-house-12.png",
+    "sha256": "7a82d572ed332c398112959a62037256b62c13e9e507980823ae6d61fec2cf3b"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "HOz5aoOcK7PUz7IPj9qQiAY",
+  "usage": {
+    "promptTokenCount": 479,
+    "candidatesTokenCount": 1240,
+    "totalTokenCount": 1855,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 221
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 136,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.136590",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 479,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 136
+  },
+  "elapsed_seconds": 23.58,
+  "output": "output/imagegen/unit-3-lesson-v3/c07-house-20.png",
+  "sha256": "e27a1a823d9f6d02b069f86a09ce824f6b1ce9e9512e3cfb600e6673c5a8957f",
+  "byte_count": 7816082,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

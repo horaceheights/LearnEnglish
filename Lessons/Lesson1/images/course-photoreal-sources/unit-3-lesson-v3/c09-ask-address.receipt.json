@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "9751d5b2-8a5b-47da-bba1-7fd9ac1a1d17",
+  "asset_id": "c09-ask-address",
+  "pack_sha256": "a3b05d6ddf957694b401f1f2ae08bbd4a1719a5d2ec4bc9b4e697db4e2e0f155",
+  "started_at": "2026-11-15T17:27:44.726539+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material, skin and fabric texture, soft natural daylight and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.\n\nImage 1 shows Ana and Luis. Keep both faces, hair and clothes exactly: Luis is about thirty with short curly black hair and a navy T-shirt; Ana is about thirty with long wavy black hair and an olive-green shirt over a white top. Create a NEW photograph in a bright room: Luis stands on the left and holds a plain white envelope in one hand and a pen in the other, the pen tip resting on the blank front of the envelope, ready to write. He ASKS Ana a question: he looks at her with raised eyebrows and an open mouth, mid-question, as someone who needs her address to send a letter. Ana stands on the right and listens with a smile. Both are seen from the waist up, sharp. The envelope is completely blank. Exactly two people; no phones, and no readable letters, words or numbers anywhere. Every visible hand has five natural fingers.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1_photo_u4_yes_i_do_v1.webp",
+    "sha256": "4048c012a17d86caa4e3423983115e27170848e3675df5e42c979d1d85fb2396"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "kev5apfyDYjpz7IPl7rSmAY",
+  "usage": {
+    "promptTokenCount": 550,
+    "candidatesTokenCount": 1320,
+    "totalTokenCount": 2067,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 292
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 197,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137464",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 550,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 197
+  },
+  "elapsed_seconds": 22.62,
+  "output": "output/imagegen/unit-3-lesson-v3/c09-ask-address.png",
+  "sha256": "1cc8b91cf8551b8f24b612179453a590d6160a595323ffc7646e71fd339ee245",
+  "byte_count": 5064169,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

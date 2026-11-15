@@ -9,6 +9,8 @@ const DETERMINERS = set('a an the my your his her our their this that these thos
 const NUMBERS = set('one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen twenty');
 // A1 5.12 (2026-11-15): the tens from thirty to one hundred.
 for (const number of 'thirty forty fifty sixty seventy eighty ninety hundred'.split(' ')) NUMBERS.add(number);
+// A1 3.13 (2026-11-15): zero, and an address.
+NUMBERS.add('zero');
 const COLORS = set('red blue green yellow black white');
 const NOUNS = set('boy girl man woman baby babies child children adult adults brother brothers sister sisters father mother parents grandfather grandmother grandparents grandchildren family park restaurant hospital store house street bridge bus car cars bike book books pen pens chair chairs table phone phones bag bags kitchen bedroom room bed lamp door computer sofa apple apples banana grapes strawberry strawberries orange oranges egg eggs rice milk bread fish juice water chicken food breakfast lunch dinner tea coffee dollar dollars station pharmacy bank library train taxi head eyes mouth arms hands legs feet jacket shoes shirt dress skirt pants socks boots umbrella hat name job face teeth help bathroom music school work night morning afternoon evening day mexico canada ana luis sofia english tv monday tuesday wednesday thursday friday saturday sunday today');
 for (const noun of words('teacher doctor nurse driver cook farmer left right')) NOUNS.add(noun);
@@ -34,6 +36,7 @@ for (const noun of words('friend friends husband wife son daughter person people
 for (const noun of words('days week weekend month months year')) NOUNS.add(noun);
 // A1 5.11 (2026-11-14): buying things (The price is five dollars.).
 for (const noun of words('money price')) NOUNS.add(noun);
+for (const noun of words('address')) NOUNS.add(noun);
 const COMPOUND_NOUNS: Record<string, string> = { 'post office': 'oficina de correos', 'movie theater': 'cine', 'bus stop': 'parada de autobús', 'next stop': 'próxima parada' };
 const STATES = set('red blue green yellow black white happy sad tired hungry thirsty sunny rainy cold hot windy cloudy mexican spanish american canadian');
 // A1+ 1.1 (2026-11-10): what people look like, after "is" (Luis is tall.) or before a noun (an old man, long hair).
