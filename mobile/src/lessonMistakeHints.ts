@@ -80,6 +80,8 @@ const MEANINGS: Record<string, string> = {
   // A1 5.12 (2026-11-15): the tens from thirty to one hundred.
   thirty: 'treinta', forty: 'cuarenta', fifty: 'cincuenta', sixty: 'sesenta', seventy: 'setenta', eighty: 'ochenta',
   ninety: 'noventa', hundred: 'cien',
+  // A1 3.13 (2026-11-15): phone number and address.
+  zero: 'cero', address: 'dirección',
   running: 'corriendo', walking: 'caminando', reading: 'leyendo', writing: 'escribiendo',
   eating: 'comiendo', drinking: 'bebiendo', cooking: 'cocinando', working: 'trabajando',
   studying: 'estudiando', playing: 'jugando', swimming: 'nadando', sleeping: 'durmiendo',

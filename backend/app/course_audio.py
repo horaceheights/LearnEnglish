@@ -142,6 +142,9 @@ COURSE_SYLLABLES = {
     "eighty": 2,
     "ninety": 2,
     "hundred": 2,
+    # A1 3.13 Phone Number and Address (2026-11-15).
+    "zero": 2,
+    "address": 2,
     "evening": 2,
     "m": 1,  # Letter names in a.m./p.m.
     "p": 1,

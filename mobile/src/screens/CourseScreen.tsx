@@ -229,6 +229,11 @@ const VISUALS: Record<string, { image: string; description: string; color: strin
     description: 'Have, has, mine y yours.',
     color: '#e5eefb',
   },
+  'lesson-3-13-phone-address': {
+    image: 'a1_photo_u3_contact_phone_0142_v1.webp',
+    description: 'El número de teléfono y la dirección.',
+    color: '#e5eefb',
+  },
   'lesson-3-9-unit-3-review': {
     image: 'a1_scene_job-dialogue-driver_acd1aee.webp',
     description: 'Repaso de información personal.',
