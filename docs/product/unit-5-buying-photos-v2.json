@@ -1,0 +1,103 @@
+{
+  "schema_version": 1,
+  "pack": "unit-5-buying-photos",
+  "revision": 2,
+  "output_namespace": "unit-5-lesson-v4",
+  "authorization": "2026-11-14 and 2026-11-15: the user asked for A1 lesson 5.11 Buying Things to be built and chose a longer Unit 5 review (\"Same as 4.12 (Recommended)\"); gap-lesson media was approved in advance (\"I preapprove all image and audios creation no need for me to reiew and approve on the fly\"). Ceiling US$1.00 for this revision. Revision 1 stopped at s11-book-expensive: its one request was cut by a connection reset after the machine slept, so its cost is uncertain (at most US$0.14) and its receipt stays as recorded; revision 1 is not sent again. This revision words the two missing price edits anew and adds the review's two pen photos. Every rejected or uncertain output is reported with its cost.",
+  "image_settings": {
+    "provider": "google-gemini",
+    "model": "gemini-3-pro-image",
+    "aspect_ratio": "3:2",
+    "image_size": "2K",
+    "runtime_size": "1536x1024",
+    "runtime_format": "webp",
+    "n": 1
+  },
+  "production": {
+    "price_per_image_usd": "0.134",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing (checked 2026-09-24: Gemini 3 Pro Image, $0.134 per 1K/2K image)",
+    "planned_images": 4,
+    "expected_cost_usd": "0.55",
+    "requested_ceiling_usd": "1.00",
+    "no_automatic_retries": true,
+    "order": "Four independent edits of installed photos; every price is read back from the result."
+  },
+  "shared_prompts": {
+    "photo": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Full-bleed 3:2 landscape; no frames, padding, watermark or captions. The only writing is the price card or cards.",
+    "edit": "This is a precise edit of image 1: the result must look like the same photograph with one detail changed. Change only what the instruction names."
+  },
+  "assets": [
+    {
+      "id": "t01-book-expensive",
+      "order": 1,
+      "lesson": "5.11",
+      "item": "The book is expensive.",
+      "runtime_filename": "a1_photo_u5_buying_book_expensive_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo",
+        "edit"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1_photo_u5_buying_book_cheap_v1.webp",
+        "sha256": "c7a3b961e2432dacdf4dd79c170c89755479a776d5ab538a48bb039ae9826ed6",
+        "observed_description": "A closed hardcover book with a plain red cover stands on a wooden market counter with a white price card in front of it that reads $1; a blurred market is behind. No people or other writing."
+      },
+      "prompt": "Image 1 shows a red book on a market counter beside a white price card that reads $1. Keep the photograph exactly as it is: the same counter, background, light and framing, and the same white card in the same place. The book stays exactly the same. Change ONLY the writing on the price card: erase the 1 and write 20, so that the card reads exactly $20 in the same black marker handwriting, large and sharp. Nothing else changes."
+    },
+    {
+      "id": "t02-different-price",
+      "order": 2,
+      "lesson": "5.11",
+      "item": "The price is different.",
+      "runtime_filename": "a1_photo_u5_buying_different_price_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo",
+        "edit"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1_photo_u5_buying_same_price_v1.webp",
+        "sha256": "0380d3a7b0f9b5cbae97ef98cb19a28c13d6fe4f07309e23312c1b3c4ad0efba",
+        "observed_description": "On a wooden market counter a blue pen lies on the left and a red pen on the right, each in front of its own white price card; both cards read $3. A blurred market is behind. No people or other writing."
+      },
+      "prompt": "Image 1 shows a blue pen and a red pen on a market counter, each in front of its own white price card; both cards read $3. Keep the photograph exactly as it is: the same pens, counter, background, light and framing, and the same two cards in the same places. Change ONLY the writing on the RIGHT card, the one behind the red pen: erase the 3 and write 8, so that it reads exactly $8 in the same black marker handwriting, large and sharp. The LEFT card still reads $3. Nothing else changes."
+    },
+    {
+      "id": "t03-review-pen-cheap",
+      "order": 3,
+      "lesson": "5.12",
+      "item": "The pen is cheap.",
+      "runtime_filename": "a1_u5_review_gap_pen_cheap_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo",
+        "edit"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1_photo_u5_buying_same_price_v1.webp",
+        "sha256": "0380d3a7b0f9b5cbae97ef98cb19a28c13d6fe4f07309e23312c1b3c4ad0efba",
+        "observed_description": "On a wooden market counter a blue pen lies on the left and a red pen on the right, each in front of its own white price card; both cards read $3. A blurred market is behind. No people or other writing."
+      },
+      "prompt": "Image 1 shows a blue pen and a red pen on a market counter, each in front of its own white price card that reads $3. Keep the counter, the background, the light and the framing exactly. REMOVE the red pen and its card completely, so the right side of the counter is empty wood. Keep the blue pen where it is and change ONLY the writing on its card: erase the 3 and write 1, so that it reads exactly $1 in the same black marker handwriting, large and sharp. Exactly one pen and one card."
+    },
+    {
+      "id": "t04-review-pen-expensive",
+      "order": 4,
+      "lesson": "5.12",
+      "item": "The pen is expensive.",
+      "runtime_filename": "a1_u5_review_gap_pen_expensive_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo",
+        "edit"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1_photo_u5_buying_same_price_v1.webp",
+        "sha256": "0380d3a7b0f9b5cbae97ef98cb19a28c13d6fe4f07309e23312c1b3c4ad0efba",
+        "observed_description": "On a wooden market counter a blue pen lies on the left and a red pen on the right, each in front of its own white price card; both cards read $3. A blurred market is behind. No people or other writing."
+      },
+      "prompt": "Image 1 shows a blue pen and a red pen on a market counter, each in front of its own white price card that reads $3. Keep the counter, the background, the light and the framing exactly. REMOVE the red pen and its card completely, so the right side of the counter is empty wood. Keep the blue pen where it is and change ONLY the writing on its card: erase the 3 and write 20, so that it reads exactly $20 in the same black marker handwriting, large and sharp. Exactly one pen and one card."
+    }
+  ]
+}

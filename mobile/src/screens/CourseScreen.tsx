@@ -359,6 +359,11 @@ const VISUALS: Record<string, { image: string; description: string; color: strin
     description: 'Pide con Can I have...? y responde con cortesía.',
     color: '#ffe8c7',
   },
+  'lesson-5-11-buying-things': {
+    image: 'a1_photo_u5_buying_buy_bread_v1.webp',
+    description: 'Comprar, pagar, el precio, barato y caro.',
+    color: '#ffe8c7',
+  },
   'lesson-5-9-unit-5-review': {
     image: 'a1_scene_i-do-not-like-fish_25804e6.webp',
     description: 'Repaso de comida, compras y preferencias.',

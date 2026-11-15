@@ -30,6 +30,8 @@ for (const noun of words('dog cat bird rabbit pet pets')) NOUNS.add(noun);
 for (const noun of words('friend friends husband wife son daughter person people')) NOUNS.add(noun);
 // A1 4.12 (2026-11-14): the calendar (It is a week., There are twelve months in a year.).
 for (const noun of words('days week weekend month months year')) NOUNS.add(noun);
+// A1 5.11 (2026-11-14): buying things (The price is five dollars.).
+for (const noun of words('money price')) NOUNS.add(noun);
 const COMPOUND_NOUNS: Record<string, string> = { 'post office': 'oficina de correos', 'movie theater': 'cine', 'bus stop': 'parada de autobús', 'next stop': 'próxima parada' };
 const STATES = set('red blue green yellow black white happy sad tired hungry thirsty sunny rainy cold hot windy cloudy mexican spanish american canadian');
 // A1+ 1.1 (2026-11-10): what people look like, after "is" (Luis is tall.) or before a noun (an old man, long hair).
@@ -38,6 +40,8 @@ const DESCRIPTIONS = set('tall short old young long');
 for (const description of words('older younger')) DESCRIPTIONS.add(description);
 // A1 2.11 (2026-11-14): things after "is" (The car is new.) or before a noun (a big dog); the same / different.
 for (const description of words('big small new used same different')) DESCRIPTIONS.add(description);
+// A1 5.11 (2026-11-14): The bag is cheap. / The bag is expensive.
+for (const description of words('cheap expensive')) DESCRIPTIONS.add(description);
 for (const state of DESCRIPTIONS) STATES.add(state);
 const OWNERS = set('mine yours ours');
 const OWNER_MEANINGS: Record<string, string> = { mine: 'mío', yours: 'tuyo', ours: 'nuestro' };
@@ -55,6 +59,8 @@ for (const verb of words('drinks reads writes')) VERBS.add(verb);
 for (const verb of words('swim swims runs')) VERBS.add(verb);
 // A1 4.11 (2026-11-14): everyday verbs (I make breakfast., I see the bus.); "come" was already listed.
 for (const verb of words('make see use find give')) VERBS.add(verb);
+// A1 5.11 (2026-11-14): I buy bread. / I pay five dollars.
+for (const verb of words('buy pay')) VERBS.add(verb);
 // A word that is both a noun and a verb ("drinks", "work") is the noun right after an article or a
 // possessive (The drinks are on the table.) and the verb after its subject (Luis drinks coffee.).
 const NOUN_MARKERS = set('a an the my your his her our their');

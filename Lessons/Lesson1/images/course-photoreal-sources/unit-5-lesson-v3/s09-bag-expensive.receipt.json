@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "a6062d06-9831-4d5c-a65c-35f4559414b0",
+  "asset_id": "s09-bag-expensive",
+  "pack_sha256": "1be7f974d51fe47c2067eba1e8321468d6df9a257a7be814c99d626fb9f3d693",
+  "started_at": "2026-11-15T04:01:48.448786+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material, skin and fabric texture, soft natural daylight and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Nobody looks at the camera. Do not imitate earlier course photos.\n\nThis is a precise edit of image 1: the result must look like the same photograph with one detail changed. Change only what the instruction names.\n\nImage 1 shows a blue cloth bag on a market counter beside a white price card. Keep the photograph exactly as it is: the same bag, counter, background, light and framing, and the same white card in the same place. Change ONLY the writing on the price card: it now reads exactly $20, hand-written in the same black marker, large and sharp. Nothing else changes.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "output/imagegen/unit-5-lesson-v3/s08-bag-cheap.png",
+    "sha256": "763d49138d9ae6376311995f7b5b1263a08f1f1e8001efda83ffb95be1a9479b"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "rS75aqzPDpuVmtkPopXuwAg",
+  "usage": {
+    "promptTokenCount": 484,
+    "candidatesTokenCount": 1246,
+    "totalTokenCount": 1846,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 226
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 116,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.136360",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 484,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 116
+  },
+  "elapsed_seconds": 29.34,
+  "output": "output/imagegen/unit-5-lesson-v3/s09-bag-expensive.png",
+  "sha256": "3ec8b8d80e055bb477109af562a26f56d2928551388637773b112ec65e9379ac",
+  "byte_count": 6487756,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

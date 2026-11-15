@@ -1,0 +1,218 @@
+{
+  "schema_version": 1,
+  "pack": "unit-5-buying-photos",
+  "revision": 1,
+  "output_namespace": "unit-5-lesson-v3",
+  "authorization": "2026-11-14: the user asked for A1 lesson 5.11 Buying Things to be built (\"build 5.11 Buying Things next\") and had approved the gap-lesson media in advance the same day (\"I preapprove all image and audios creation no need for me to reiew and approve on the fly\"). Ceiling US$2.60 for this revision. Gemini is the approved image tool (2026-09-23). Prices appear as numerals on price cards, as in lesson 5.8. Revision 1 is frozen: a changed prompt is a new revision in a new file, and every rejected output is reported with its cost.",
+  "image_settings": {
+    "provider": "google-gemini",
+    "model": "gemini-3-pro-image",
+    "aspect_ratio": "3:2",
+    "image_size": "2K",
+    "runtime_size": "1536x1024",
+    "runtime_format": "webp",
+    "n": 1
+  },
+  "production": {
+    "price_per_image_usd": "0.134",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing (checked 2026-09-24: Gemini 3 Pro Image, $0.134 per 1K/2K image)",
+    "planned_images": 13,
+    "expected_cost_usd": "1.79",
+    "requested_ceiling_usd": "2.60",
+    "no_automatic_retries": true,
+    "order": "s08, s10 and s12 are inspected, price by price, before their edits s09, s11 and s13 are sent; the rest in any order. A rejected output is reported with its cost; a redo needs a changed prompt in a new revision file."
+  },
+  "shared_prompts": {
+    "photo": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material, skin and fabric texture, soft natural daylight and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Nobody looks at the camera. Do not imitate earlier course photos.",
+    "edit": "This is a precise edit of image 1: the result must look like the same photograph with one detail changed. Change only what the instruction names."
+  },
+  "assets": [
+    {
+      "id": "s01-money",
+      "order": 1,
+      "lesson": "5.11",
+      "item": "Money",
+      "runtime_filename": "a1_photo_u5_buying_money_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo"
+      ],
+      "prompt": "A close photograph of an open hand, palm up, over the rustic wooden counter of a covered market stall. The hand holds MONEY: three folded green banknotes and five silver and copper coins, clearly cash and nothing else. The banknotes are folded so that no portrait and no lettering is readable, and the coins show only plain blurred faces. The hand and the money are sharp and fill the middle of the photo; the market behind is softly blurred. Exactly one hand; no wallet, no phone, no card, no price card and no food. No readable letters, words or numbers anywhere. Every visible hand has five natural fingers."
+    },
+    {
+      "id": "s02-buy-bread",
+      "order": 2,
+      "lesson": "5.11",
+      "item": "Buy / I buy bread.",
+      "runtime_filename": "a1_photo_u5_buying_buy_bread_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1_u5_revision_price_bread_reply_v1.webp",
+        "sha256": "461a73f33dcc1d1a2f89cf47ae7478e39aad74adf521deec5e123d73c8f0297d",
+        "observed_description": "At a covered market stall a customer, a woman of about thirty with long wavy black hair, a mustard-yellow cardigan over a white top and a brown shoulder bag, stands on the left facing a seller, a man of about thirty with short dark hair, a dark-grey T-shirt and a green apron, who stands behind a rustic wooden counter with a round loaf of bread and a small white price card that reads $5."
+      },
+      "prompt": "Image 1 shows a customer and a seller at a covered market stall. Keep both people exactly: the customer is a woman of about thirty with long wavy black hair, a mustard-yellow cardigan over a white top and a brown shoulder bag; the seller is a man of about thirty with short dark hair, a dark-grey T-shirt and a green apron, behind the same rustic wooden counter in the same market. Create a NEW photograph at this stall: the customer BUYS bread. The seller holds out a round loaf of bread in a brown paper bag across the counter, and the customer takes it with one hand while her other hand holds out one folded green banknote toward the seller; the loaf and the banknote are both in the air between them, so the exchange of bread for money is unmistakable. Both smile. There is no price card and nothing else on the counter. Both people are seen from the waist up, sharp. Exactly two people. No readable letters, words or numbers anywhere; the banknote is folded so nothing on it is readable. Every visible hand has five natural fingers."
+    },
+    {
+      "id": "s03-buy-milk",
+      "order": 3,
+      "lesson": "5.11",
+      "item": "I buy milk.",
+      "runtime_filename": "a1_photo_u5_buying_buy_milk_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1_u5_revision_price_bread_reply_v1.webp",
+        "sha256": "461a73f33dcc1d1a2f89cf47ae7478e39aad74adf521deec5e123d73c8f0297d",
+        "observed_description": "At a covered market stall a customer, a woman of about thirty with long wavy black hair, a mustard-yellow cardigan over a white top and a brown shoulder bag, stands on the left facing a seller, a man of about thirty with short dark hair, a dark-grey T-shirt and a green apron, who stands behind a rustic wooden counter with a round loaf of bread and a small white price card that reads $5."
+      },
+      "prompt": "Image 1 shows a customer and a seller at a covered market stall. Keep both people exactly: the customer is a woman of about thirty with long wavy black hair, a mustard-yellow cardigan over a white top and a brown shoulder bag; the seller is a man of about thirty with short dark hair, a dark-grey T-shirt and a green apron, behind the same rustic wooden counter in the same market. Create a NEW photograph at this stall: the customer BUYS milk. The seller holds out one glass bottle of white milk across the counter, and the customer takes it with one hand while her other hand holds out one folded green banknote toward the seller; the bottle and the banknote are both in the air between them, so the exchange of milk for money is unmistakable. Both smile. There is no price card, no bread and nothing else on the counter. Both people are seen from the waist up, sharp. Exactly two people. No readable letters, words or numbers anywhere; the bottle has no label and the banknote is folded so nothing on it is readable. Every visible hand has five natural fingers."
+    },
+    {
+      "id": "s04-pay-five",
+      "order": 4,
+      "lesson": "5.11",
+      "item": "Pay / I pay five dollars. / I give the money to the man.",
+      "runtime_filename": "a1_photo_u5_buying_pay_five_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1_u5_revision_price_bread_reply_v1.webp",
+        "sha256": "461a73f33dcc1d1a2f89cf47ae7478e39aad74adf521deec5e123d73c8f0297d",
+        "observed_description": "At a covered market stall a customer, a woman of about thirty with long wavy black hair, a mustard-yellow cardigan over a white top and a brown shoulder bag, stands on the left facing a seller, a man of about thirty with short dark hair, a dark-grey T-shirt and a green apron, who stands behind a rustic wooden counter with a round loaf of bread and a small white price card that reads $5."
+      },
+      "prompt": "Image 1 shows a customer and a seller at a covered market stall. Keep both people exactly: the customer is a woman of about thirty with long wavy black hair, a mustard-yellow cardigan over a white top and a brown shoulder bag; the seller is a man of about thirty with short dark hair, a dark-grey T-shirt and a green apron, behind the same rustic wooden counter in the same market. Create a NEW photograph at this stall: the customer PAYS. On the counter are a round loaf of bread and, beside it, a small white price card standing on the counter, hand-written in black marker with a dollar sign and a numeral, large and sharp enough to read at a glance: it reads exactly $5. The customer reaches across the counter and puts folded green banknotes into the seller's open hand; his hand is open, palm up, to receive them, and both look at the money. Paying is unmistakable. She is not taking the bread. Both people are seen from the waist up, sharp, and the price card is fully visible. Exactly two people. The only writing in the photo is the price card; no other letters, words, numbers or signs are readable anywhere. Every visible hand has five natural fingers."
+    },
+    {
+      "id": "s05-pay-two",
+      "order": 5,
+      "lesson": "5.11",
+      "item": "I pay two dollars.",
+      "runtime_filename": "a1_photo_u5_buying_pay_two_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1_u5_revision_price_bread_reply_v1.webp",
+        "sha256": "461a73f33dcc1d1a2f89cf47ae7478e39aad74adf521deec5e123d73c8f0297d",
+        "observed_description": "At a covered market stall a customer, a woman of about thirty with long wavy black hair, a mustard-yellow cardigan over a white top and a brown shoulder bag, stands on the left facing a seller, a man of about thirty with short dark hair, a dark-grey T-shirt and a green apron, who stands behind a rustic wooden counter with a round loaf of bread and a small white price card that reads $5."
+      },
+      "prompt": "Image 1 shows a customer and a seller at a covered market stall. Keep both people exactly: the customer is a woman of about thirty with long wavy black hair, a mustard-yellow cardigan over a white top and a brown shoulder bag; the seller is a man of about thirty with short dark hair, a dark-grey T-shirt and a green apron, behind the same rustic wooden counter in the same market. Create a NEW photograph at this stall: the customer PAYS. On the counter are one glass bottle of white milk with no label and, beside it, a small white price card standing on the counter, hand-written in black marker with a dollar sign and a numeral, large and sharp enough to read at a glance: it reads exactly $2. The customer reaches across the counter and puts folded green banknotes into the seller's open hand; his hand is open, palm up, to receive them, and both look at the money. Paying is unmistakable. She is not taking the milk, and there is no bread. Both people are seen from the waist up, sharp, and the price card is fully visible. Exactly two people. The only writing in the photo is the price card; no other letters, words, numbers or signs are readable anywhere. Every visible hand has five natural fingers."
+    },
+    {
+      "id": "s06-find-money",
+      "order": 6,
+      "lesson": "5.11",
+      "item": "I find my money in my bag.",
+      "runtime_filename": "a1_photo_u5_buying_find_money_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1_u5_revision_price_bread_reply_v1.webp",
+        "sha256": "461a73f33dcc1d1a2f89cf47ae7478e39aad74adf521deec5e123d73c8f0297d",
+        "observed_description": "At a covered market stall a customer, a woman of about thirty with long wavy black hair, a mustard-yellow cardigan over a white top and a brown shoulder bag, stands on the left facing a seller, a man of about thirty with short dark hair, a dark-grey T-shirt and a green apron, who stands behind a rustic wooden counter with a round loaf of bread and a small white price card that reads $5."
+      },
+      "prompt": "Image 1 shows a customer and a seller at a covered market stall. Keep both people exactly: the customer is a woman of about thirty with long wavy black hair, a mustard-yellow cardigan over a white top and a brown shoulder bag; the seller is a man of about thirty with short dark hair, a dark-grey T-shirt and a green apron, behind the same rustic wooden counter in the same market. Create a NEW photograph at this stall: the customer FINDS her money in her bag. She stands at the counter, holds her brown shoulder bag open with one hand and with the other hand lifts a few folded green banknotes out of it, half of them still inside the bag; she looks down at the money with a relieved smile, as someone who has just found it. The seller waits behind the counter with empty hands. The counter is empty: no price card, no bread and no milk. The open bag, her hands and the banknotes are sharp and clearly visible. Exactly two people. No readable letters, words or numbers anywhere. Every visible hand has five natural fingers."
+    },
+    {
+      "id": "s07-price-tag",
+      "order": 7,
+      "lesson": "5.11",
+      "item": "The price",
+      "runtime_filename": "a1_photo_u5_buying_price_tag_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo"
+      ],
+      "prompt": "A close photograph of the rustic wooden counter of a covered market stall, softly blurred market behind. In the middle of the counter stands one round loaf of bread, whole and sharp, and right beside it a small white price card standing on the counter, hand-written in black marker with a dollar sign and a numeral, large and sharp enough to read at a glance: it reads exactly $5. The card is clearly the price of this one thing. No people, no hands and nothing else on the counter. The only writing in the photo is the price card; no other letters, words, numbers or signs are readable anywhere."
+    },
+    {
+      "id": "s08-bag-cheap",
+      "order": 8,
+      "lesson": "5.11",
+      "item": "Cheap / The bag is cheap.",
+      "runtime_filename": "a1_photo_u5_buying_bag_cheap_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo"
+      ],
+      "prompt": "A close photograph of the rustic wooden counter of a covered market stall, softly blurred market behind. In the middle of the counter stands one plain blue cloth tote bag standing upright, whole and sharp, and right beside it a small white price card standing on the counter, hand-written in black marker with a dollar sign and a numeral, large and sharp enough to read at a glance: it reads exactly $2. The card is clearly the price of this one thing. No people, no hands and nothing else on the counter. The only writing in the photo is the price card; no other letters, words, numbers or signs are readable anywhere."
+    },
+    {
+      "id": "s09-bag-expensive",
+      "order": 9,
+      "lesson": "5.11",
+      "item": "Expensive / The bag is expensive.",
+      "runtime_filename": "a1_photo_u5_buying_bag_expensive_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo",
+        "edit"
+      ],
+      "reference": "s08-bag-cheap",
+      "prompt": "Image 1 shows a blue cloth bag on a market counter beside a white price card. Keep the photograph exactly as it is: the same bag, counter, background, light and framing, and the same white card in the same place. Change ONLY the writing on the price card: it now reads exactly $20, hand-written in the same black marker, large and sharp. Nothing else changes."
+    },
+    {
+      "id": "s10-book-cheap",
+      "order": 10,
+      "lesson": "5.11",
+      "item": "The book is cheap.",
+      "runtime_filename": "a1_photo_u5_buying_book_cheap_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo"
+      ],
+      "prompt": "A close photograph of the rustic wooden counter of a covered market stall, softly blurred market behind. In the middle of the counter stands one closed hardcover book with a plain red cover and no title, standing upright, whole and sharp, and right beside it a small white price card standing on the counter, hand-written in black marker with a dollar sign and a numeral, large and sharp enough to read at a glance: it reads exactly $1. The card is clearly the price of this one thing. No people, no hands and nothing else on the counter. The only writing in the photo is the price card; no other letters, words, numbers or signs are readable anywhere."
+    },
+    {
+      "id": "s11-book-expensive",
+      "order": 11,
+      "lesson": "5.11",
+      "item": "The book is expensive.",
+      "runtime_filename": "a1_photo_u5_buying_book_expensive_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo",
+        "edit"
+      ],
+      "reference": "s10-book-cheap",
+      "prompt": "Image 1 shows a red book on a market counter beside a white price card. Keep the photograph exactly as it is: the same book, counter, background, light and framing, and the same white card in the same place. Change ONLY the writing on the price card: it now reads exactly $20, hand-written in the same black marker, large and sharp. Nothing else changes."
+    },
+    {
+      "id": "s12-same-price",
+      "order": 12,
+      "lesson": "5.11",
+      "item": "The price is the same.",
+      "runtime_filename": "a1_photo_u5_buying_same_price_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo"
+      ],
+      "prompt": "A close photograph of the rustic wooden counter of a covered market stall, softly blurred market behind. On the counter, side by side with a clear gap, are one blue pen on the left and one red pen on the right, each lying in front of its own small white price card standing behind it, hand-written in black marker, large and sharp. BOTH cards read exactly $3: the two prices are the same. Exactly two pens and two cards; no people, no hands and nothing else on the counter. The only writing in the photo is the two price cards."
+    },
+    {
+      "id": "s13-different-price",
+      "order": 13,
+      "lesson": "5.11",
+      "item": "The price is different.",
+      "runtime_filename": "a1_photo_u5_buying_different_price_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo",
+        "edit"
+      ],
+      "reference": "s12-same-price",
+      "prompt": "Image 1 shows two pens on a market counter, each with its own white price card. Keep the photograph exactly as it is: the same pens, counter, background, light and framing, and the same two cards in the same places. Change ONLY the writing on the RIGHT card: it now reads exactly $8, hand-written in the same black marker, large and sharp. The left card still reads $3. Nothing else changes."
+    }
+  ]
+}

@@ -50,7 +50,7 @@ const affectedLessons = new Set(speakCards.map(({ lessonId }) => lessonId));
 // 2026-10-08: the Unit 5 service revision adds two spoken thanks and the market acceptance gate.
 // 2026-10-11: Unit 6 grows from 83 to 132 spoken cards, retaining four final mission gates.
 // 2026-10-19: the approved Unit 7 allocation adds 17 spoken cards.
-assert.equal(speakCards.length, 739, 'The Speak inventory preserves every lesson, the approved Unit 7 revision and the 2026-11-14 coverage-gap lessons 1.10 (8 cards), 1.11 (7), 2.11 (8), 4.11 (8) and 4.12 (8) with their extended unit reviews (2 each, 1 for 4.12).');
+assert.equal(speakCards.length, 747, 'A1 5.11 Buying Things with its four review constructions moved the total to 747. The Speak inventory preserves every lesson, the approved Unit 7 revision and the 2026-11-14 coverage-gap lessons 1.10 (8 cards), 1.11 (7), 2.11 (8), 4.11 (8) and 4.12 (8) with their extended unit reviews (2 each, 1 for 4.12).');
 const timeSpeakCards = speakCards.filter(({ lessonId }) => lessonId === 'lesson-4-what-time-is-it');
 assert.equal(timeSpeakCards.length, 12);
 assert.deepEqual(

@@ -126,6 +126,13 @@ COURSE_SYLLABLES = {
     "month": 1,
     "months": 1,
     "year": 1,
+    # A1 5.11 Buying Things (2026-11-14).
+    "money": 2,
+    "buy": 1,
+    "pay": 1,
+    "price": 1,
+    "cheap": 1,
+    "expensive": 3,
     "evening": 2,
     "m": 1,  # Letter names in a.m./p.m.
     "p": 1,

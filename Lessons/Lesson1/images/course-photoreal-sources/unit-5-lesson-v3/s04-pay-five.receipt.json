@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "c05ae4f5-715d-4650-bc04-9b6440b6c188",
+  "asset_id": "s04-pay-five",
+  "pack_sha256": "1be7f974d51fe47c2067eba1e8321468d6df9a257a7be814c99d626fb9f3d693",
+  "started_at": "2026-11-15T03:58:37.421053+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material, skin and fabric texture, soft natural daylight and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Nobody looks at the camera. Do not imitate earlier course photos.\n\nImage 1 shows a customer and a seller at a covered market stall. Keep both people exactly: the customer is a woman of about thirty with long wavy black hair, a mustard-yellow cardigan over a white top and a brown shoulder bag; the seller is a man of about thirty with short dark hair, a dark-grey T-shirt and a green apron, behind the same rustic wooden counter in the same market. Create a NEW photograph at this stall: the customer PAYS. On the counter are a round loaf of bread and, beside it, a small white price card standing on the counter, hand-written in black marker with a dollar sign and a numeral, large and sharp enough to read at a glance: it reads exactly $5. The customer reaches across the counter and puts folded green banknotes into the seller's open hand; his hand is open, palm up, to receive them, and both look at the money. Paying is unmistakable. She is not taking the bread. Both people are seen from the waist up, sharp, and the price card is fully visible. Exactly two people. The only writing in the photo is the price card; no other letters, words, numbers or signs are readable anywhere. Every visible hand has five natural fingers.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1_u5_revision_price_bread_reply_v1.webp",
+    "sha256": "461a73f33dcc1d1a2f89cf47ae7478e39aad74adf521deec5e123d73c8f0297d"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "7S35aruFJ72VmtkP6sPtuQ8",
+  "usage": {
+    "promptTokenCount": 627,
+    "candidatesTokenCount": 1341,
+    "totalTokenCount": 2127,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 369
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 159,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137162",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 627,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 159
+  },
+  "elapsed_seconds": 21.78,
+  "output": "output/imagegen/unit-5-lesson-v3/s04-pay-five.png",
+  "sha256": "af150c09d758929097aa2831d4933c7097364fd5e51b43d38a45202227d3536a",
+  "byte_count": 5716259,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

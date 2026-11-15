@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "7aff3a5b-d6b5-4303-9771-e6b32675ec10",
+  "asset_id": "s03-buy-milk",
+  "pack_sha256": "1be7f974d51fe47c2067eba1e8321468d6df9a257a7be814c99d626fb9f3d693",
+  "started_at": "2026-11-15T03:58:08.673898+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material, skin and fabric texture, soft natural daylight and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Nobody looks at the camera. Do not imitate earlier course photos.\n\nImage 1 shows a customer and a seller at a covered market stall. Keep both people exactly: the customer is a woman of about thirty with long wavy black hair, a mustard-yellow cardigan over a white top and a brown shoulder bag; the seller is a man of about thirty with short dark hair, a dark-grey T-shirt and a green apron, behind the same rustic wooden counter in the same market. Create a NEW photograph at this stall: the customer BUYS milk. The seller holds out one glass bottle of white milk across the counter, and the customer takes it with one hand while her other hand holds out one folded green banknote toward the seller; the bottle and the banknote are both in the air between them, so the exchange of milk for money is unmistakable. Both smile. There is no price card, no bread and nothing else on the counter. Both people are seen from the waist up, sharp. Exactly two people. No readable letters, words or numbers anywhere; the bottle has no label and the banknote is folded so nothing on it is readable. Every visible hand has five natural fingers.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1_u5_revision_price_bread_reply_v1.webp",
+    "sha256": "461a73f33dcc1d1a2f89cf47ae7478e39aad74adf521deec5e123d73c8f0297d"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "0C35aqDvNJ-VmtkPg6vt0Q0",
+  "usage": {
+    "promptTokenCount": 596,
+    "candidatesTokenCount": 1342,
+    "totalTokenCount": 2152,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 338
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 214,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137760",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 596,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 214
+  },
+  "elapsed_seconds": 27.18,
+  "output": "output/imagegen/unit-5-lesson-v3/s03-buy-milk.png",
+  "sha256": "036591829e6244e18a1c5f362a4a5c0077822088476a85bf42b7421851aa4bab",
+  "byte_count": 5776136,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

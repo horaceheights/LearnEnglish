@@ -78,9 +78,11 @@ EXACT_ROLE_CHANGES = {}
 # 2026-11-14: coverage-gap lesson 4.11 Everyday Verbs adds 42 fields (Ana and the alternating
 # narrators) and the extended Unit 4 review seven for Luis (+49).
 # 2026-11-14: coverage-gap lesson 4.12 Tomorrow and the Week adds 26 narrator and Ana fields (+26).
-EXPECTED_EXPLICIT_ASSIGNMENT_COUNT = 2411
+# 2026-11-14: coverage-gap lesson 5.11 Buying Things (customer, seller and narrator fields).
+# 2026-11-14: coverage-gap lesson 5.11 Buying Things (customer, seller and narrator fields).
+EXPECTED_EXPLICIT_ASSIGNMENT_COUNT = 2449
 EXPECTED_FINAL_ASSIGNMENTS_SHA256 = (
-    "2dae8f9e85f7944f515e4444da9d7bacfda896305257921b9da8511341166331"
+    "9e6d77ff65cc09652b35aca81b9720c2a42d157bab96c3822710adaa681709f6"
 )
 
 
