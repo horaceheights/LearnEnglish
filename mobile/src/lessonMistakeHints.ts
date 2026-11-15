@@ -71,6 +71,8 @@ const MEANINGS: Record<string, string> = {
   person: 'persona', people: 'personas',
   // A1 2.11 (2026-11-14): big and small, new and used, same and different.
   big: 'grande', small: 'pequeño o pequeña', new: 'nuevo o nueva', used: 'usado o usada', same: 'igual', different: 'diferente',
+  // A1 4.11 (2026-11-14): everyday verbs.
+  make: 'hacer', see: 'ver', use: 'usar', find: 'encontrar', give: 'dar', come: 'venir',
   running: 'corriendo', walking: 'caminando', reading: 'leyendo', writing: 'escribiendo',
   eating: 'comiendo', drinking: 'bebiendo', cooking: 'cocinando', working: 'trabajando',
   studying: 'estudiando', playing: 'jugando', swimming: 'nadando', sleeping: 'durmiendo',

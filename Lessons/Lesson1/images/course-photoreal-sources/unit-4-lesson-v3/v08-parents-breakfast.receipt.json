@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "5c55f51f-1550-4778-8865-8cb8a7173c44",
+  "asset_id": "v08-parents-breakfast",
+  "pack_sha256": "faaa115e9dc42c4a93dcb543a1981d74a1d40b0a5146c2b7ccad2940a8f6f862",
+  "started_at": "2026-11-15T00:45:08.434964+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material, skin, fabric and fur texture, soft natural daylight and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, numbers, logos or brand marks anywhere, including on clothing, screens, books, vehicles, packaging and walls. A first-time learner must understand the action instantly on a small phone screen. Nobody looks at the camera unless the prompt says so. Do not imitate earlier course photos.\n\nImage 1 shows a married couple, the family's parents. Keep both faces, hair and clothes exactly. Create a NEW photograph in their bright home kitchen in the morning: the husband and the wife stand side by side at the kitchen counter and MAKE breakfast together. He holds the handle of a frying pan on a lit stove burner and stirs yellow scrambled eggs with a wooden spatula; she, next to him, cuts a loaf of bread into slices on a wooden board with a bread knife. Both look down at the food they are preparing and smile, and a plain gold wedding ring is visible on each of their left hands. Cooking together is unmistakable. Nobody eats or drinks: nothing is near their mouths and no table is set. Both are seen from the waist up, sharp, inside the central 80 percent of the photo width. Only these two adults; no children, no pets, no cups and no phone. Every visible hand has five natural fingers.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/family_parents_3x2.webp",
+    "sha256": "7ec7dfb8f762125ea8efc1daebaff0899bb2bee4fe6b40b18d7276251514acc9"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "lQD5arrFBMejqtsPmavR-Qs",
+  "usage": {
+    "promptTokenCount": 599,
+    "candidatesTokenCount": 1329,
+    "totalTokenCount": 2144,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 341
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 216,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137790",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 599,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 216
+  },
+  "elapsed_seconds": 21.41,
+  "output": "output/imagegen/unit-4-lesson-v3/v08-parents-breakfast.png",
+  "sha256": "0e9d216bdd1cc73b0f2beae156987a87241019c0372dfd9dfbf5964b44157fe0",
+  "byte_count": 6516355,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

@@ -192,13 +192,19 @@ ASSIGNMENT_GROUPS: dict[str, list[tuple[str, str, str]]] = {
         ('audio_speaker', 'luis', 'L2 L4 L6 L8 L10 L12 L14 R2 R3 R4 R5 R6 R8 R10 S2 S4 S5 S6 S7 S8 U2 U3 U6 U7'),
         ('audio_speaker', 'teacher', 'DL1 DL3 DA1 DA3 DS1 DS3 DU1 DU3'),
     ],
+    # 2026-11-14 coverage-gap lesson: Ana says her own lines and the narrators alternate; regenerated from the lesson.
+    "lesson-4-11-everyday-verbs": [
+        ('answer_audio_speaker', 'ana', 'R2 R4 R6 R10 U1 U2 U3 U4 U6 U7 U8'),
+        ('audio_speaker', 'ana', 'R1 R3 R5 R7 R11 A1 A2 A3 A4 A6 A7 A8 A9 S1 S2 S3 S4 S5 S6 S7 U1 U2 U3 U4 U6 U7 U8'),
+        ('audio_speaker', 'co-teacher', 'L2 L4 L6 R9 S8'),
+    ],
     "lesson-4-9-unit-4-review": [
         ('answer_audio_speaker', 'female-character', 'L7 R5 R8 R9 R10 A13 A15 S4 U3 U5 U7'),
-        ('answer_audio_speaker', 'male-character', 'R7 A12 A14 S3 U1 U4 U6 U8'),
+        ('answer_audio_speaker', 'male-character', 'R7 A12 A14 S3 U1 U4 U6 U8 U9'),
         ('answer_audio_speaker', 'teacher', 'U2'),
         ('audio_speaker', 'co-teacher', 'L2 L5 R2 R4 A1 A3 A5 A11'),
         ('audio_speaker', 'female-character', 'R5 U3 U5 U7'),
-        ('audio_speaker', 'male-character', 'L4 L6 R3 R6 A7 A8 A9 A10 S5 U1 U4 U6 U8'),
+        ('audio_speaker', 'male-character', 'L4 L6 R3 R6 R13 A7 A8 A9 A10 A21 A23 S5 S8 U1 U4 U6 U8 U9'),
         ('audio_speaker', 'teacher', 'U2'),
     ],
     # Unit 5 was rebuilt through the content engine on 2026-09-26: each brief names who says

@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "a3285452-2079-4933-94c8-8122ec7f3131",
+  "asset_id": "v09-children-computer",
+  "pack_sha256": "faaa115e9dc42c4a93dcb543a1981d74a1d40b0a5146c2b7ccad2940a8f6f862",
+  "started_at": "2026-11-15T00:45:31.726370+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material, skin, fabric and fur texture, soft natural daylight and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, numbers, logos or brand marks anywhere, including on clothing, screens, books, vehicles, packaging and walls. A first-time learner must understand the action instantly on a small phone screen. Nobody looks at the camera unless the prompt says so. Do not imitate earlier course photos.\n\nImage 1 shows the family's two children, a boy of about nine in a blue polo shirt and a girl of about seven in a lilac T-shirt. Keep both faces, hair and clothes exactly. Create a NEW photograph at a desk in a bright family room: the boy and his sister SIT side by side on two chairs at the desk and USE one desktop computer together. The boy's hands type on the keyboard and the girl's hand holds the mouse; both look at the monitor with interested smiles. The camera is in front of the desk and a little to the side, so we see both children's faces and hands and only the back and edge of the monitor, not its screen. Using the computer together is unmistakable. Both children, the keyboard, the mouse and the monitor are sharp, inside the central 80 percent of the photo width. Only these two children and one computer; no adults, no phone, no books, no toys and no food. Every visible hand has five natural fingers.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/family_children.webp",
+    "sha256": "6d7e789dc7f57c3c0f13ae2fafcb89396229d87d7420df443ad7f808f00e11dd"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "rAD5asCyF47oz7IPida7yQU",
+  "usage": {
+    "promptTokenCount": 614,
+    "candidatesTokenCount": 1312,
+    "totalTokenCount": 2158,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 356
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 232,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.138012",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 614,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 232
+  },
+  "elapsed_seconds": 21.76,
+  "output": "output/imagegen/unit-4-lesson-v3/v09-children-computer.png",
+  "sha256": "7bcab5498e9901048e3563b0251c14aa84a198abf90869dab2fba6e5e4a8267d",
+  "byte_count": 5309611,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

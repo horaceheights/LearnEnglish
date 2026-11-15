@@ -289,6 +289,11 @@ const VISUALS: Record<string, { image: string; description: string; color: strin
     description: 'Pregunta la hora y distingue las partes del día.',
     color: '#f1e4fa',
   },
+  'lesson-4-11-everyday-verbs': {
+    image: 'a1_photo_u4_verbs_make_breakfast_v1.webp',
+    description: 'Hacer, ver, usar, encontrar, dar y venir.',
+    color: '#f1e4fa',
+  },
   'lesson-4-9-unit-4-review': {
     image: 'a1_scene_bedroom_009e058.webp',
     description: 'Repaso del hogar y la vida diaria.',

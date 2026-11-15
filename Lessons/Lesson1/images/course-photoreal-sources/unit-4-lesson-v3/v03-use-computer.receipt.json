@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "7d611f21-2ba8-4e8d-8177-631f7500d103",
+  "asset_id": "v03-use-computer",
+  "pack_sha256": "faaa115e9dc42c4a93dcb543a1981d74a1d40b0a5146c2b7ccad2940a8f6f862",
+  "started_at": "2026-11-15T00:43:10.420127+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material, skin, fabric and fur texture, soft natural daylight and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, numbers, logos or brand marks anywhere, including on clothing, screens, books, vehicles, packaging and walls. A first-time learner must understand the action instantly on a small phone screen. Nobody looks at the camera unless the prompt says so. Do not imitate earlier course photos.\n\nKeep the person and the thing they act on whole inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them; only expendable background reaches the left and right edges.\n\nImage 1 shows Ana: about thirty, long wavy black hair, an olive-green button shirt open over a white top. Keep her face, hair and clothes exactly, and add blue jeans. Create a NEW photograph in a different place: a tidy desk by a plain wall in a bright room. Ana SITS at the desk and USES a desktop computer: both of her hands type on the keyboard and her eyes are on the monitor. The camera is in front of the desk and a little to the side, so we see Ana's face and hands and only the back and edge of the monitor, not its screen. A mouse lies beside the keyboard. Using the computer is unmistakable. Ana, the keyboard and the monitor are sharp. Exactly one person and one computer; no phone, no cup, no book and no papers on the desk. Every visible hand has five natural fingers.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1_scene_ana-breakfast_e7fbea5.webp",
+    "sha256": "3a528a586b056f0dea3cad8a1d1ca5effce502c1e990632486ff9daafaaee6cc"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "HgD5av2vNoGBmtkPq4mCKA",
+  "usage": {
+    "promptTokenCount": 631,
+    "candidatesTokenCount": 1342,
+    "totalTokenCount": 2196,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 373
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 223,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137938",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 631,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 223
+  },
+  "elapsed_seconds": 19.83,
+  "output": "output/imagegen/unit-4-lesson-v3/v03-use-computer.png",
+  "sha256": "a84f56952baa9224173c3ca45023898e57424e5efd3a30e37341440144938b79",
+  "byte_count": 5228774,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

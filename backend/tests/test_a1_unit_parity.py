@@ -31,11 +31,11 @@ class UnitParityTests(unittest.TestCase):
         for broken in ({"approved_on": "2026-11-14"}, {"reason": "x" * 60}, {"approved_on": "soon", "reason": "x" * 60}):
             with self.subTest(broken=broken), self.assertRaises(ValueError):
                 mission_deferral({**function, "mission_practice_deferred": broken})
-        # The only recorded deferral is the user's 2026-11-14 decision for A1 2.11 Big and Small.
+        # Each recorded deferral is a 2026-11-14 user decision for one coverage-gap lesson: 2.11 and 4.11.
         contracts = json.loads(CONTRACTS.read_text(encoding="utf-8"))
         recorded = {(unit, f["id"]) for unit, contract in contracts["units"].items()
                     for f in contract["functions"] if mission_deferral(f)}
-        self.assertEqual(recorded, {("2", "size-state-comparison")})
+        self.assertEqual(recorded, {("2", "size-state-comparison"), ("4", "everyday-verbs")})
         lessons = [json.loads(path.read_text(encoding="utf-8-sig"))
                    for path in sorted((CONTRACTS.parents[2] / "backend/lessons/unit_2").glob("*.yaml"))]
         result = audit(lessons, {**contracts, "units": {"2": contracts["units"]["2"]}}, CONTRACTS.parents[2] / "Lessons/Lesson1/images")

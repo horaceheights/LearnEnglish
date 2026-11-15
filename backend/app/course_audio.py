@@ -112,6 +112,11 @@ COURSE_SYLLABLES = {
     "used": 1,
     "same": 1,
     "different": 2,
+    # A1 4.11 Everyday Verbs (2026-11-14).
+    "make": 1,
+    "see": 1,
+    "use": 1,
+    "give": 1,
     "evening": 2,
     "m": 1,  # Letter names in a.m./p.m.
     "p": 1,

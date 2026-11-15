@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "992b7e96-dc35-4769-8dfd-2cb9ff330180",
+  "asset_id": "q01-give-bag",
+  "pack_sha256": "99cd8e05cb9821fefc0341aaa7e0478911dad651d553b2c7213e78e5aff4f4c2",
+  "started_at": "2026-11-15T00:49:17.371790+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material, skin, fabric and fur texture, soft natural daylight and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, numbers, logos or brand marks anywhere, including on clothing, bags, jars, packaging and walls. A first-time learner must understand the action instantly on a small phone screen. Nobody looks at the camera. Do not imitate earlier course photos.\n\nImage 1 shows the family's grandparents. Keep both faces, hair, glasses and clothes exactly. Create a NEW photograph in a bright hallway of the family home: the grandfather and the grandmother stand together on the LEFT, seen from the side, and GIVE one bag to their grandson, the family's boy: about nine, short dark hair combed to the side, a blue short-sleeved polo shirt, who stands on the RIGHT facing them. Together the grandparents hold out one plain green school backpack toward the boy, each with one hand on it, and the boy reaches out with both hands and already holds its straps; the backpack is exactly between them. All three smile and look at the backpack. Giving is unmistakable. All three are seen from head to knees, sharp, inside the central 85 percent of the photo width. Only these three people and one bag; no book, no box, no wrapping paper, no pets and no phone. Every visible hand has five natural fingers.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/family_grandparents_3x2.webp",
+    "sha256": "9f02732e724cb5ad23c054aba29bf783895c2a33d1d0274f43b89d1b63f3846b"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "jgH5aoEEwa3Psg-V9MH5BQ",
+  "usage": {
+    "promptTokenCount": 600,
+    "candidatesTokenCount": 1392,
+    "totalTokenCount": 2181,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 342
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 189,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137468",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 600,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 189
+  },
+  "elapsed_seconds": 28.38,
+  "output": "output/imagegen/unit-4-review-v9/q01-give-bag.png",
+  "sha256": "54cbd57a381c7ac4a9f4be21d0478d422c01ff8e8a563459018e0d23553f29d6",
+  "byte_count": 6097714,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

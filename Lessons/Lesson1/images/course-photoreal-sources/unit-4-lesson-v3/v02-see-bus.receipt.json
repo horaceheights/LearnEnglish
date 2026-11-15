@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "d7ef9e1b-2ef1-4b2b-b2c5-7d14f57d42d8",
+  "asset_id": "v02-see-bus",
+  "pack_sha256": "faaa115e9dc42c4a93dcb543a1981d74a1d40b0a5146c2b7ccad2940a8f6f862",
+  "started_at": "2026-11-15T00:42:44.192705+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material, skin, fabric and fur texture, soft natural daylight and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, numbers, logos or brand marks anywhere, including on clothing, screens, books, vehicles, packaging and walls. A first-time learner must understand the action instantly on a small phone screen. Nobody looks at the camera unless the prompt says so. Do not imitate earlier course photos.\n\nImage 1 shows Ana: about thirty, long wavy black hair, an olive-green button shirt open over a white top. Keep her face, hair and clothes exactly, and add blue jeans. Create a NEW photograph in a different place: a quiet city street on a clear day. Ana stands on the sidewalk in the LEFT third of the photo, seen from behind in three-quarter back view so the side of her face shows; she shades her eyes with one raised hand and LOOKS along the street. In the RIGHT half of the photo, in the direction she is looking, one large plain blue city bus drives toward her on the road, whole and sharp, with a blank destination sign. It is unmistakable that she sees the bus. Exactly one person and one bus; no other vehicles, no other people, no bus-stop sign with writing and no phone in her hand. Every visible hand has five natural fingers.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1_scene_ana-breakfast_e7fbea5.webp",
+    "sha256": "3a528a586b056f0dea3cad8a1d1ca5effce502c1e990632486ff9daafaaee6cc"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "BAD5aq7HLo2qqtsPoPaF4Ac",
+  "usage": {
+    "promptTokenCount": 592,
+    "candidatesTokenCount": 1317,
+    "totalTokenCount": 2119,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 334
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 210,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137704",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 592,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 210
+  },
+  "elapsed_seconds": 24.81,
+  "output": "output/imagegen/unit-4-lesson-v3/v02-see-bus.png",
+  "sha256": "b179bbe980ce644da06e107438e30a8ffe2f33c028a69e2ce3864788428c010b",
+  "byte_count": 4895727,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

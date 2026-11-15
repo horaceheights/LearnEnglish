@@ -1,0 +1,57 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "418e992b-638c-4c0f-a33b-8ed67830ebbb",
+  "asset_id": "v12-friends-come",
+  "pack_sha256": "faaa115e9dc42c4a93dcb543a1981d74a1d40b0a5146c2b7ccad2940a8f6f862",
+  "started_at": "2026-11-15T00:46:40.367022+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material, skin, fabric and fur texture, soft natural daylight and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, numbers, logos or brand marks anywhere, including on clothing, screens, books, vehicles, packaging and walls. A first-time learner must understand the action instantly on a small phone screen. Nobody looks at the camera unless the prompt says so. Do not imitate earlier course photos.\n\nThe view of a person standing inside their own home and looking out through the wide-open front door, from eye height. Two adult friends, a man of about thirty with short brown hair in a mustard sweater and a woman of about thirty with curly red hair in a denim jacket, are COMING to the house: they walk side by side up the short front path toward the open door and the camera, only two steps away from the doorstep, both smiling at the camera and each raising one hand in a friendly wave. The door frame and the edge of the open door are visible at the sides of the photo, with a doormat on the floor in front, so it is clear that they arrive at the viewer's house. A sunny front garden and a street are behind them. The viewer's own body is not visible. Exactly two people, seen whole from head to feet and sharp; no children, no pets, no gifts, no bags and no house number or writing anywhere. Every visible hand has five natural fingers.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "8AD5avilJt-2qtsPxY2smAc",
+  "usage": {
+    "promptTokenCount": 357,
+    "candidatesTokenCount": 1309,
+    "totalTokenCount": 1842,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 357
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 176,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.136826",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 357,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 176
+  },
+  "elapsed_seconds": 20.02,
+  "output": "output/imagegen/unit-4-lesson-v3/v12-friends-come.png",
+  "sha256": "ddf1edbc8452424e17d33ad552cca461349bf03473f9b834535943d681ec5b1f",
+  "byte_count": 6223462,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}
