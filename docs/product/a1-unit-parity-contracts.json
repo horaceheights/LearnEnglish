@@ -447,6 +447,19 @@
             "\\byes please\\b",
             "\\bno thank you\\b"
           ]
+        },
+        {
+          "id": "buying-things",
+          "taught_in": "5.11",
+          "patterns": [
+            "\\b(?:buy|pay)\\b",
+            "\\bprice\\b",
+            "\\b(?:cheap|expensive)\\b"
+          ],
+          "mission_practice_deferred": {
+            "approved_on": "2026-11-14",
+            "reason": "User decision (\"Same as 4.12\"): coverage-gap lesson 5.11 ships with the extended unit review; the unit mission does not practise its language yet. A mission beat is a separate follow-up task. This is not permission to skip mission practice for other functions."
+          }
         }
       ]
     },

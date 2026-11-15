@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "ba915466-5e31-4c03-8748-03e0fc65a98a",
+  "asset_id": "t02-different-price",
+  "pack_sha256": "e6713fb48dd19b486817758a5816c737d0150ae8af40f5a6ef392523f5abd0c1",
+  "started_at": "2026-11-15T15:04:04.685949+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Full-bleed 3:2 landscape; no frames, padding, watermark or captions. The only writing is the price card or cards.\n\nThis is a precise edit of image 1: the result must look like the same photograph with one detail changed. Change only what the instruction names.\n\nImage 1 shows a blue pen and a red pen on a market counter, each in front of its own white price card; both cards read $3. Keep the photograph exactly as it is: the same pens, counter, background, light and framing, and the same two cards in the same places. Change ONLY the writing on the RIGHT card, the one behind the red pen: erase the 3 and write 8, so that it reads exactly $8 in the same black marker handwriting, large and sharp. The LEFT card still reads $3. Nothing else changes.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1_photo_u5_buying_same_price_v1.webp",
+    "sha256": "0380d3a7b0f9b5cbae97ef98cb19a28c13d6fe4f07309e23312c1b3c4ad0efba"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "5cn5aqO3JsSsz7IPpqKs2Qk",
+  "usage": {
+    "promptTokenCount": 457,
+    "candidatesTokenCount": 1255,
+    "totalTokenCount": 1910,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 199
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 198,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137290",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 457,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 198
+  },
+  "elapsed_seconds": 24.68,
+  "output": "output/imagegen/unit-5-lesson-v4/t02-different-price.png",
+  "sha256": "da2d8f0157f615a2b3253806767cfdfe316274d1b2787e349103acd132d422ce",
+  "byte_count": 5718539,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

@@ -1,0 +1,57 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "a196d771-5713-4d9a-a75c-3d211f05f444",
+  "asset_id": "s10-book-cheap",
+  "pack_sha256": "1be7f974d51fe47c2067eba1e8321468d6df9a257a7be814c99d626fb9f3d693",
+  "started_at": "2026-11-15T04:00:30.053737+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material, skin and fabric texture, soft natural daylight and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Nobody looks at the camera. Do not imitate earlier course photos.\n\nA close photograph of the rustic wooden counter of a covered market stall, softly blurred market behind. In the middle of the counter stands one closed hardcover book with a plain red cover and no title, standing upright, whole and sharp, and right beside it a small white price card standing on the counter, hand-written in black marker with a dollar sign and a numeral, large and sharp enough to read at a glance: it reads exactly $1. The card is clearly the price of this one thing. No people, no hands and nothing else on the counter. The only writing in the photo is the price card; no other letters, words, numbers or signs are readable anywhere.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "XS75arnfOaT9qtsP5a6P8A4",
+  "usage": {
+    "promptTokenCount": 250,
+    "candidatesTokenCount": 1282,
+    "totalTokenCount": 1765,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 250
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 233,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137296",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 250,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 233
+  },
+  "elapsed_seconds": 20.0,
+  "output": "output/imagegen/unit-5-lesson-v3/s10-book-cheap.png",
+  "sha256": "faebbc489412dac17b1918ae2f7986dd7278c89ea0cacb7f6530066135a4d039",
+  "byte_count": 7198853,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

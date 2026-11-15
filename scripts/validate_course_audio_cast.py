@@ -280,7 +280,16 @@ ASSIGNMENT_GROUPS: dict[str, list[tuple[str, str, str]]] = {
         ('audio_speaker', 'female-character', 'L2 L4 R2 R8 R9 A1 A5 A6 A7 A8 A9 S1 S4 S5 S6 S9 U1 U4 U5 U6 U9'),
         ('audio_speaker', 'male-character', 'L1 L3 R4 R10 A2 A3 S2 S3 S7 S8 U2 U3 U7 U8'),
     ],
-    'lesson-5-9-unit-5-review': [
+    # 2026-11-14 coverage-gap lesson: each pictured speaker keeps their voice and the narrators alternate; regenerated from the lesson.
+    "lesson-5-11-buying-things": [
+        ('answer_audio_speaker', 'co-teacher', 'R10 U5 U7'),
+        ('answer_audio_speaker', 'female-character', 'R2 R4 R6 U1 U2'),
+        ('answer_audio_speaker', 'male-character', 'R8 U3 U4'),
+        ('audio_speaker', 'co-teacher', 'L2 L4 L6 A5 A7 A9 S7 U5 U7'),
+        ('audio_speaker', 'female-character', 'R1 R3 R5 R8 A1 A2 A3 A4 S2 S3 S4 S5 S6 U1 U2'),
+        ('audio_speaker', 'male-character', 'R7 U3 U4'),
+    ],
+    "lesson-5-9-unit-5-review": [
         ('answer_audio_speaker', 'female-character', 'R4 U2 U7'),
         ('answer_audio_speaker', 'male-character', 'R3 R10 R11 U4 U8'),
         ('audio_speaker', 'female-character', 'L5 L8 R3 R5 R10 N3 N9 N11 N14 N15 N17 N18 N19 S4 S5 S7 U2 U7'),

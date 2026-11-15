@@ -1,6 +1,6 @@
 # A1 Priority 1 gap lessons: detailed plan
 
-Date: 2026-11-14. Status: **plan for discussion**. 1.10 Pets, 1.11 Friends and People, 2.11 Big and Small, 4.11 Everyday Verbs and 4.12 Tomorrow and the Week are approved and built (2026-11-14; see the guardrails decision log for the later-reuse and mission status); nothing else here is approved. It details the Priority 1 group from [a1-gap-lessons-draft.md](a1-gap-lessons-draft.md).
+Date: 2026-11-14. Status: **plan for discussion**. 1.10 Pets, 1.11 Friends and People, 2.11 Big and Small, 4.11 Everyday Verbs, 4.12 Tomorrow and the Week and 5.11 Buying Things are approved and built (2026-11-14; see the guardrails decision log for the later-reuse and mission status); nothing else here is approved. It details the Priority 1 group from [a1-gap-lessons-draft.md](a1-gap-lessons-draft.md).
 
 ## 1. What changed from the draft
 

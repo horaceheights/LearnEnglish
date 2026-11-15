@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "40cedc52-0b89-4776-ae5e-3bb864b3aedb",
+  "asset_id": "t04-review-pen-expensive",
+  "pack_sha256": "e6713fb48dd19b486817758a5816c737d0150ae8af40f5a6ef392523f5abd0c1",
+  "started_at": "2026-11-15T15:04:58.263500+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Full-bleed 3:2 landscape; no frames, padding, watermark or captions. The only writing is the price card or cards.\n\nThis is a precise edit of image 1: the result must look like the same photograph with one detail changed. Change only what the instruction names.\n\nImage 1 shows a blue pen and a red pen on a market counter, each in front of its own white price card that reads $3. Keep the counter, the background, the light and the framing exactly. REMOVE the red pen and its card completely, so the right side of the counter is empty wood. Keep the blue pen where it is and change ONLY the writing on its card: erase the 3 and write 20, so that it reads exactly $20 in the same black marker handwriting, large and sharp. Exactly one pen and one card.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1_photo_u5_buying_same_price_v1.webp",
+    "sha256": "0380d3a7b0f9b5cbae97ef98cb19a28c13d6fe4f07309e23312c1b3c4ad0efba"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "G8r5as6NComhqtsP-KqbgAg",
+  "usage": {
+    "promptTokenCount": 457,
+    "candidatesTokenCount": 1263,
+    "totalTokenCount": 1878,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 199
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 158,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.136810",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 457,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 158
+  },
+  "elapsed_seconds": 22.77,
+  "output": "output/imagegen/unit-5-lesson-v4/t04-review-pen-expensive.png",
+  "sha256": "32e89fde539c89e0867a9f58719f28de5e4d0411391dcb0b08f4686222f80320",
+  "byte_count": 5706716,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

@@ -75,6 +75,8 @@ const MEANINGS: Record<string, string> = {
   make: 'hacer', see: 'ver', use: 'usar', find: 'encontrar', give: 'dar', come: 'venir',
   // A1 4.12 (2026-11-14): tomorrow and the week.
   now: 'ahora', tomorrow: 'mañana', days: 'días', week: 'semana', weekend: 'fin de semana', month: 'mes', months: 'meses', year: 'año',
+  // A1 5.11 (2026-11-14): buying things.
+  money: 'dinero', buy: 'comprar', pay: 'pagar', price: 'precio', cheap: 'barato o barata', expensive: 'caro o cara',
   running: 'corriendo', walking: 'caminando', reading: 'leyendo', writing: 'escribiendo',
   eating: 'comiendo', drinking: 'bebiendo', cooking: 'cocinando', working: 'trabajando',
   studying: 'estudiando', playing: 'jugando', swimming: 'nadando', sleeping: 'durmiendo',
