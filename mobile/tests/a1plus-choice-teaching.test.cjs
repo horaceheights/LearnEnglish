@@ -130,10 +130,11 @@ test('conversation decisions use ordinary contrast teaching and keep semantic im
 
 // A1 1.10 Pets (2026-11-14) added 31 outputs 1.11 Friends and People added 30 and the extended Unit 1 review 9; each time the earlier
 // outputs were proven byte-identical first. A1 2.11 Big and Small (2026-11-14) added 25 and the extended Unit 2 review 6, proven the same way.
-test('all 2470 established A1 ordinary wrong-choice outputs remain unchanged', () => {
+// A1 4.11 Everyday Verbs (2026-11-14) added 31 and the extended Unit 4 review 7, proven the same way.
+test('all 2508 established A1 ordinary wrong-choice outputs remain unchanged', () => {
   const course = JSON.parse(fs.readFileSync(path.join(__dirname, '../src/generated/a1-course.json'), 'utf8'));
   const results = course.flatMap(lesson => lesson.cards).filter(card => card.options.length >= 2 && !card.interaction_type?.startsWith('complete'))
     .flatMap(card => wrongOptions(card).map(option => [card.slide_id, option.id, lessonMistakeHint(card, option.id)]));
-  assert.equal(results.length, 2470);
+  assert.equal(results.length, 2508);
   assert.equal(crypto.createHash('sha256').update(JSON.stringify(results)).digest('hex'), fixture.a1BaselineSha256);
 });
