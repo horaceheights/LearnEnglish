@@ -1,6 +1,6 @@
 # A1 Priority 1 gap lessons: detailed plan
 
-Date: 2026-11-14. Status: **plan for discussion**. 1.10 Pets, 1.11 Friends and People and 2.11 Big and Small are approved and built (2026-11-14; see the guardrails decision log for the later-reuse and mission status); nothing else here is approved. It details the Priority 1 group from [a1-gap-lessons-draft.md](a1-gap-lessons-draft.md).
+Date: 2026-11-14. Status: **plan for discussion**. 1.10 Pets, 1.11 Friends and People, 2.11 Big and Small and 4.11 Everyday Verbs are approved and built (2026-11-14; see the guardrails decision log for the later-reuse and mission status); nothing else here is approved. It details the Priority 1 group from [a1-gap-lessons-draft.md](a1-gap-lessons-draft.md).
 
 ## 1. What changed from the draft
 
@@ -27,7 +27,7 @@ Each lesson goes at the end of its unit. The unit's review and mission move to t
 | 3.13 | The Alphabet A to M | letters A–M, letter | A letter. It is a B. |
 | 3.14 | The Alphabet N to Z | letters N–Z, spell, How do you spell it? | My name is Ana. How do you spell it? A-N-A. |
 | 3.15 | Phone Number and Address | zero, phone number, address, What is your phone number?, What is your address? | My phone number is 555-0142. My address is 12 Park Street. |
-| 4.11 | Everyday Verbs | come, give, make, see, use, find | I make breakfast. We see the bus. I find my phone under the bed. |
+| 4.11 | Everyday Verbs | come, give, make, see, use, find | I make breakfast. I see the bus. I find my phone under the bed. They give a book to the daughter. |
 | 4.12 | Tomorrow and the Week | now, tomorrow, week, weekend, month, months, year, days | Tomorrow is Tuesday. There are seven days in a week. I am eating now. |
 | 5.11 | Buying Things | money, buy, pay, price, cheap, expensive | I buy bread at the store. The apple is cheap. What is the price? |
 | 5.12 | Numbers 30 to 100 | thirty, forty, fifty, sixty, seventy, eighty, ninety, one hundred | It is forty dollars. She is sixty years old. |

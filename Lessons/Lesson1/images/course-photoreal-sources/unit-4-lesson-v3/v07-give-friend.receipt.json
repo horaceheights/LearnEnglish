@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "b1fc2f23-c322-46ee-9a46-3c882356a75a",
+  "asset_id": "v07-give-friend",
+  "pack_sha256": "faaa115e9dc42c4a93dcb543a1981d74a1d40b0a5146c2b7ccad2940a8f6f862",
+  "started_at": "2026-11-15T00:44:44.723500+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material, skin, fabric and fur texture, soft natural daylight and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, numbers, logos or brand marks anywhere, including on clothing, screens, books, vehicles, packaging and walls. A first-time learner must understand the action instantly on a small phone screen. Nobody looks at the camera unless the prompt says so. Do not imitate earlier course photos.\n\nImage 1 shows Ana: about thirty, long wavy black hair, an olive-green button shirt open over a white top. Keep her face, hair and clothes exactly, and add blue jeans. Create a NEW photograph in a different place: a bright living room. Ana stands facing the camera and GIVES a book to a friend: with both hands she holds out one closed plain blue book toward a woman who stands in the near foreground with her BACK to the camera, so we see only the back of the friend's head with short blond hair and her shoulders in a grey sweater, at the right edge of the photo. The friend's two hands reach forward and already touch the book, which is exactly between the two women at chest height. Ana smiles warmly at her friend. Giving is unmistakable, and Ana's face is the only face in the photo. Exactly two people and one book with a plain cover; no bag, no phone, no cups and no wrapping paper. Every visible hand has five natural fingers.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1_scene_ana-breakfast_e7fbea5.webp",
+    "sha256": "3a528a586b056f0dea3cad8a1d1ca5effce502c1e990632486ff9daafaaee6cc"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "fQD5avW1DbGKqtsPy7TBwQg",
+  "usage": {
+    "promptTokenCount": 613,
+    "candidatesTokenCount": 1324,
+    "totalTokenCount": 2138,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 355
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 201,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137638",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 613,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 201
+  },
+  "elapsed_seconds": 22.13,
+  "output": "output/imagegen/unit-4-lesson-v3/v07-give-friend.png",
+  "sha256": "d5a8ac9c655610647a136df8e8762edbaabaf8c24fc47f79645eab04d2219147",
+  "byte_count": 5538266,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

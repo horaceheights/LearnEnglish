@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "5056f98b-b837-4727-afd9-b20a807b7170",
+  "asset_id": "v11-come-home",
+  "pack_sha256": "faaa115e9dc42c4a93dcb543a1981d74a1d40b0a5146c2b7ccad2940a8f6f862",
+  "started_at": "2026-11-15T00:46:18.884292+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material, skin, fabric and fur texture, soft natural daylight and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, numbers, logos or brand marks anywhere, including on clothing, screens, books, vehicles, packaging and walls. A first-time learner must understand the action instantly on a small phone screen. Nobody looks at the camera unless the prompt says so. Do not imitate earlier course photos.\n\nKeep the person and the thing they act on whole inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them; only expendable background reaches the left and right edges.\n\nImage 1 shows Ana: about thirty, long wavy black hair, an olive-green button shirt open over a white top. Keep her face, hair and clothes exactly, and add blue jeans. Create a NEW photograph in a different place: the entrance hallway of a home, seen from INSIDE the home looking at the front door. The front door is wide open and Ana is COMING IN: she steps through the doorway toward the camera with one foot already over the threshold, one hand on the edge of the open door, a plain brown bag on her shoulder and a small bunch of keys in her other hand, smiling as someone who arrives home. Behind her through the doorway are a sunny front path and a street. Inside, a coat hook with one coat and a small doormat show that this is a home. Coming home is unmistakable. Ana is seen whole from head to feet, sharp. Exactly one person; no other people, no pets, no suitcase and no house number or writing anywhere. Every visible hand has five natural fingers.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1_scene_ana-breakfast_e7fbea5.webp",
+    "sha256": "3a528a586b056f0dea3cad8a1d1ca5effce502c1e990632486ff9daafaaee6cc"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "2wD5atH5HKn8qtsPityK4As",
+  "usage": {
+    "promptTokenCount": 662,
+    "candidatesTokenCount": 1339,
+    "totalTokenCount": 2205,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 404
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 204,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137772",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 662,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 204
+  },
+  "elapsed_seconds": 20.3,
+  "output": "output/imagegen/unit-4-lesson-v3/v11-come-home.png",
+  "sha256": "8a83beb09462a1a4356dafc944f95a03be5acf31c583dc585ca831f5f85b6ef7",
+  "byte_count": 5101919,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "f4d8379c-94e3-427f-8cdf-e6cdc4b1dca0",
+  "asset_id": "v01-make-breakfast",
+  "pack_sha256": "faaa115e9dc42c4a93dcb543a1981d74a1d40b0a5146c2b7ccad2940a8f6f862",
+  "started_at": "2026-11-15T00:42:18.160362+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material, skin, fabric and fur texture, soft natural daylight and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, numbers, logos or brand marks anywhere, including on clothing, screens, books, vehicles, packaging and walls. A first-time learner must understand the action instantly on a small phone screen. Nobody looks at the camera unless the prompt says so. Do not imitate earlier course photos.\n\nKeep the person and the thing they act on whole inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them; only expendable background reaches the left and right edges.\n\nImage 1 shows Ana: about thirty, long wavy black hair, an olive-green button shirt open over a white top. Keep her face, hair and clothes exactly, and add blue jeans. Create a NEW photograph in a different place: a bright home kitchen in the morning. Ana STANDS at the stove and MAKES breakfast: with one hand she holds the handle of a frying pan that sits on a lit burner, and with the other hand she stirs yellow scrambled eggs in the pan with a wooden spatula, looking down at the pan while a little steam rises. On the counter right beside the stove are an open carton with two brown eggs and a plate with two slices of bread. Cooking is unmistakable. She is NOT eating or drinking: nothing is near her mouth, and there is no cup, no table and no chair in the photo. Ana is seen from the waist up in three-quarter view, sharp, with the pan and her hands fully visible. Every visible hand has five natural fingers.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1_scene_ana-breakfast_e7fbea5.webp",
+    "sha256": "3a528a586b056f0dea3cad8a1d1ca5effce502c1e990632486ff9daafaaee6cc"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "6v_4atHiMqjqz7IP_8SQqQY",
+  "usage": {
+    "promptTokenCount": 653,
+    "candidatesTokenCount": 1317,
+    "totalTokenCount": 2157,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 395
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 187,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137550",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 653,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 187
+  },
+  "elapsed_seconds": 24.38,
+  "output": "output/imagegen/unit-4-lesson-v3/v01-make-breakfast.png",
+  "sha256": "4cb865b5502a2538e3c39cca1e11d1a3cb0447df9794372e4e241c63c08a70db",
+  "byte_count": 5193293,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

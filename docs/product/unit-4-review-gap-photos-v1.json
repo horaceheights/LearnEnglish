@@ -1,0 +1,98 @@
+{
+  "schema_version": 1,
+  "pack": "unit-4-review-gap-photos",
+  "revision": 1,
+  "output_namespace": "unit-4-review-v9",
+  "authorization": "2026-11-14: the user approved the same handling for 4.11 Everyday Verbs as for 2.11 (answer \"Same as 2.11 (Recommended)\"): a longer Unit 4 review that brings the six verbs back. Gap-lesson media was approved in advance the same day (\"I preapprove all image and audios creation no need for me to reiew and approve on the fly\"). Ceiling US$1.00 for this revision. Gemini is the approved image tool (2026-09-23). The review may not reuse a teaching lesson's photo, so the four scenes are fresh and use Luis and the grandparents instead of Ana and the parents. Revision 1 is frozen: a changed prompt is a new revision in a new file, and every rejected output is reported with its cost.",
+  "image_settings": {
+    "provider": "google-gemini",
+    "model": "gemini-3-pro-image",
+    "aspect_ratio": "3:2",
+    "image_size": "2K",
+    "runtime_size": "1536x1024",
+    "runtime_format": "webp",
+    "n": 1
+  },
+  "production": {
+    "price_per_image_usd": "0.134",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing (checked 2026-09-24: Gemini 3 Pro Image, $0.134 per 1K/2K image)",
+    "planned_images": 4,
+    "expected_cost_usd": "0.55",
+    "requested_ceiling_usd": "1.00",
+    "no_automatic_retries": true,
+    "order": "Four independent scenes in any order; each is inspected at 900/360/250/180 px. A rejected output is reported with its cost; a redo needs a changed prompt in a new revision file."
+  },
+  "shared_prompts": {
+    "photo": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material, skin, fabric and fur texture, soft natural daylight and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, numbers, logos or brand marks anywhere, including on clothing, bags, jars, packaging and walls. A first-time learner must understand the action instantly on a small phone screen. Nobody looks at the camera. Do not imitate earlier course photos."
+  },
+  "assets": [
+    {
+      "id": "q01-give-bag",
+      "order": 1,
+      "lesson": "4.12",
+      "item": "They give a bag to the boy.",
+      "runtime_filename": "a1_u4_review_gap_give_bag_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/family_grandparents_3x2.webp",
+        "sha256": "9f02732e724cb5ad23c054aba29bf783895c2a33d1d0274f43b89d1b63f3846b",
+        "observed_description": "The family's grandfather (grey hair, glasses, a green cardigan over a white shirt) and grandmother (short grey curly hair, a cream cardigan over a flowered blouse) sit close together on a patterned sofa and smile at the camera in a warm living room with framed photos."
+      },
+      "prompt": "Image 1 shows the family's grandparents. Keep both faces, hair, glasses and clothes exactly. Create a NEW photograph in a bright hallway of the family home: the grandfather and the grandmother stand together on the LEFT, seen from the side, and GIVE one bag to their grandson, the family's boy: about nine, short dark hair combed to the side, a blue short-sleeved polo shirt, who stands on the RIGHT facing them. Together the grandparents hold out one plain green school backpack toward the boy, each with one hand on it, and the boy reaches out with both hands and already holds its straps; the backpack is exactly between them. All three smile and look at the backpack. Giving is unmistakable. All three are seen from head to knees, sharp, inside the central 85 percent of the photo width. Only these three people and one bag; no book, no box, no wrapping paper, no pets and no phone. Every visible hand has five natural fingers."
+    },
+    {
+      "id": "q02-find-pen",
+      "order": 2,
+      "lesson": "4.12",
+      "item": "I find my pen under the chair.",
+      "runtime_filename": "a1_u4_review_gap_find_pen_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1_photo_u4_what_time_luis_v1.webp",
+        "sha256": "c8d16bdf6df5765052d5aa435043c39e9cc3a66b5875504a98c3c9f79857c221",
+        "observed_description": "Luis, a man of about thirty with short curly black hair, a dark jacket over a light-blue shirt, stands on a sunny sidewalk and points at his wrist while he talks to a woman with long dark hair who is seen from behind in the left foreground."
+      },
+      "prompt": "Image 1 shows Luis, the man who faces the camera: about thirty, short curly black hair, a dark jacket over a light-blue shirt. Keep his face, hair and clothes exactly and leave out the woman in the foreground. Create a NEW photograph in a different place: a bright dining room with a wooden floor. Luis KNEELS on the floor right beside one wooden dining chair, seen from the side. He bends down and with one hand picks up one bright-blue pen that lies on the floor directly UNDER THE CHAIR, between its four legs: his fingers already hold the pen, which is still under the seat. He looks at the pen with a happy, relieved smile, as someone who has just found a lost thing. The whole chair, the space under it, Luis's whole kneeling body and the pen are sharp and inside the photo, and the pen is large enough to recognise at a glance. Exactly one person, one chair and one pen; no table, no phone, no book, no bag, no pets and nothing else on the floor. Every visible hand has five natural fingers."
+    },
+    {
+      "id": "q03-see-cat",
+      "order": 3,
+      "lesson": "4.12",
+      "item": "I see the cat on the sofa.",
+      "runtime_filename": "a1_u4_review_gap_see_cat_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1_photo_u4_what_time_luis_v1.webp",
+        "sha256": "c8d16bdf6df5765052d5aa435043c39e9cc3a66b5875504a98c3c9f79857c221",
+        "observed_description": "Luis, a man of about thirty with short curly black hair, a dark jacket over a light-blue shirt, stands on a sunny sidewalk and points at his wrist while he talks to a woman with long dark hair who is seen from behind in the left foreground."
+      },
+      "prompt": "Image 1 shows Luis, the man who faces the camera: about thirty, short curly black hair, a dark jacket over a light-blue shirt. Keep his face, hair and clothes exactly and leave out the woman in the foreground. Create a NEW photograph in a different place: a bright living room. Luis stands on the LEFT, seen from the side, and LOOKS at a cat: he leans a little forward with his hands on his knees and smiles at a grey tabby cat with dark stripes, a white chest, white front paws and a plain blue collar, which lies ON a blue two-seat sofa on the RIGHT, on the seat cushion, looking back at him. Luis does not touch the cat or the sofa, and there is clear floor between them. It is unmistakable that he sees the cat and that the cat is on the sofa. Luis, the whole sofa and the cat are sharp and inside the photo. Exactly one person and one cat; no other animals, no table, no chair, no book, no phone and nothing else on the sofa. Every visible hand has five natural fingers."
+    },
+    {
+      "id": "q04-make-breakfast",
+      "order": 4,
+      "lesson": "4.12",
+      "item": "I make breakfast in the kitchen.",
+      "runtime_filename": "a1_u4_review_gap_make_breakfast_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1_photo_u4_what_time_luis_v1.webp",
+        "sha256": "c8d16bdf6df5765052d5aa435043c39e9cc3a66b5875504a98c3c9f79857c221",
+        "observed_description": "Luis, a man of about thirty with short curly black hair, a dark jacket over a light-blue shirt, stands on a sunny sidewalk and points at his wrist while he talks to a woman with long dark hair who is seen from behind in the left foreground."
+      },
+      "prompt": "Image 1 shows Luis, the man who faces the camera: about thirty, short curly black hair, a dark jacket over a light-blue shirt. Keep his face, hair and clothes exactly and leave out the woman in the foreground. Create a NEW photograph in a different place: a bright home kitchen in the morning, with cupboards, a sink and a window clearly showing that it is a kitchen. Luis has taken off his jacket and wears his light-blue shirt with rolled sleeves. He STANDS at the kitchen counter and MAKES breakfast: he spreads red jam on a slice of toast with a knife, and on the counter in front of him are a plate with two more slices of toast, an open jar of red jam with no label and a bowl of whole oranges. He looks down at the toast he is preparing. Making breakfast is unmistakable. He is NOT eating or drinking: nothing is near his mouth, and there is no cup, no table and no chair in the photo. Luis is seen from the waist up in three-quarter view, sharp, with his hands and the food fully visible. Exactly one person; no stove flame, no frying pan, no eggs, no pets and no phone. Every visible hand has five natural fingers."
+    }
+  ]
+}

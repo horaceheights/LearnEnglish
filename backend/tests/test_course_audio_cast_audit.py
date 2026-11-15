@@ -75,9 +75,11 @@ EXACT_ROLE_CHANGES = {}
 # its pictured speakers; M15's bag acceptance adds one female answer field.
 # Per-turn speakers are audited separately. These pin this reviewed snapshot,
 # not a cap on new content; exact deltas are in the matching QA inventory.
-EXPECTED_EXPLICIT_ASSIGNMENT_COUNT = 2336
+# 2026-11-14: coverage-gap lesson 4.11 Everyday Verbs adds 42 fields (Ana and the alternating
+# narrators) and the extended Unit 4 review seven for Luis (+49).
+EXPECTED_EXPLICIT_ASSIGNMENT_COUNT = 2385
 EXPECTED_FINAL_ASSIGNMENTS_SHA256 = (
-    "9e2c0ca9a8dae7e438f155c7a353513e1a09a1f4a2377f80c25da463e3cda572"
+    "f7e6048a37569b726b9512028f7f2a03b2e9a4f9ede961cfbfca524fffe2130b"
 )
 
 

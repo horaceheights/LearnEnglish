@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "edb58176-daab-4a74-96bd-503a52bca2f4",
+  "asset_id": "q02-find-pen",
+  "pack_sha256": "99cd8e05cb9821fefc0341aaa7e0478911dad651d553b2c7213e78e5aff4f4c2",
+  "started_at": "2026-11-15T00:49:47.320736+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material, skin, fabric and fur texture, soft natural daylight and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, numbers, logos or brand marks anywhere, including on clothing, bags, jars, packaging and walls. A first-time learner must understand the action instantly on a small phone screen. Nobody looks at the camera. Do not imitate earlier course photos.\n\nImage 1 shows Luis, the man who faces the camera: about thirty, short curly black hair, a dark jacket over a light-blue shirt. Keep his face, hair and clothes exactly and leave out the woman in the foreground. Create a NEW photograph in a different place: a bright dining room with a wooden floor. Luis KNEELS on the floor right beside one wooden dining chair, seen from the side. He bends down and with one hand picks up one bright-blue pen that lies on the floor directly UNDER THE CHAIR, between its four legs: his fingers already hold the pen, which is still under the seat. He looks at the pen with a happy, relieved smile, as someone who has just found a lost thing. The whole chair, the space under it, Luis's whole kneeling body and the pen are sharp and inside the photo, and the pen is large enough to recognise at a glance. Exactly one person, one chair and one pen; no table, no phone, no book, no bag, no pets and nothing else on the floor. Every visible hand has five natural fingers.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1_photo_u4_what_time_luis_v1.webp",
+    "sha256": "c8d16bdf6df5765052d5aa435043c39e9cc3a66b5875504a98c3c9f79857c221"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "qwH5atODNJbrz7IPuKzf2AU",
+  "usage": {
+    "promptTokenCount": 625,
+    "candidatesTokenCount": 1316,
+    "totalTokenCount": 2106,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 367
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 165,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137230",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 625,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 165
+  },
+  "elapsed_seconds": 25.5,
+  "output": "output/imagegen/unit-4-review-v9/q02-find-pen.png",
+  "sha256": "26037d7d937c0d6f4c387138a540f25e08ee6343f27c7be8fbb0abadad61b737",
+  "byte_count": 5014354,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "d9b913d0-b190-46a5-8a72-6bfd67eb6a74",
+  "asset_id": "q03-see-cat",
+  "pack_sha256": "99cd8e05cb9821fefc0341aaa7e0478911dad651d553b2c7213e78e5aff4f4c2",
+  "started_at": "2026-11-15T00:50:14.189892+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material, skin, fabric and fur texture, soft natural daylight and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, numbers, logos or brand marks anywhere, including on clothing, bags, jars, packaging and walls. A first-time learner must understand the action instantly on a small phone screen. Nobody looks at the camera. Do not imitate earlier course photos.\n\nImage 1 shows Luis, the man who faces the camera: about thirty, short curly black hair, a dark jacket over a light-blue shirt. Keep his face, hair and clothes exactly and leave out the woman in the foreground. Create a NEW photograph in a different place: a bright living room. Luis stands on the LEFT, seen from the side, and LOOKS at a cat: he leans a little forward with his hands on his knees and smiles at a grey tabby cat with dark stripes, a white chest, white front paws and a plain blue collar, which lies ON a blue two-seat sofa on the RIGHT, on the seat cushion, looking back at him. Luis does not touch the cat or the sofa, and there is clear floor between them. It is unmistakable that he sees the cat and that the cat is on the sofa. Luis, the whole sofa and the cat are sharp and inside the photo. Exactly one person and one cat; no other animals, no table, no chair, no book, no phone and nothing else on the sofa. Every visible hand has five natural fingers.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1_photo_u4_what_time_luis_v1.webp",
+    "sha256": "c8d16bdf6df5765052d5aa435043c39e9cc3a66b5875504a98c3c9f79857c221"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "xgH5aoKWLZ_Qz7IPxNbN-QU",
+  "usage": {
+    "promptTokenCount": 623,
+    "candidatesTokenCount": 1346,
+    "totalTokenCount": 2220,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 365
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 251,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.138258",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 623,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 251
+  },
+  "elapsed_seconds": 25.25,
+  "output": "output/imagegen/unit-4-review-v9/q03-see-cat.png",
+  "sha256": "d8e01e17bc004e7d3f95a1280e9ede5f4d09bd0a39e868ab6375542b72acfb42",
+  "byte_count": 6214476,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

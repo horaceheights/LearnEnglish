@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "a30be79d-7811-49cd-9616-b9d4129b64ed",
+  "asset_id": "v06-find-cat",
+  "pack_sha256": "faaa115e9dc42c4a93dcb543a1981d74a1d40b0a5146c2b7ccad2940a8f6f862",
+  "started_at": "2026-11-15T00:44:23.044398+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material, skin, fabric and fur texture, soft natural daylight and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, numbers, logos or brand marks anywhere, including on clothing, screens, books, vehicles, packaging and walls. A first-time learner must understand the action instantly on a small phone screen. Nobody looks at the camera unless the prompt says so. Do not imitate earlier course photos.\n\nImage 1 shows Ana: about thirty, long wavy black hair, an olive-green button shirt open over a white top. Keep her face, hair and clothes exactly, and add blue jeans. Create a NEW photograph in a different place: a bright dining room. Ana CROUCHES on the floor beside a wooden dining table with four legs and no tablecloth, seen from the side, bending her head down to look UNDER THE TABLE and pointing with one hand at a grey tabby cat with dark stripes, a white chest, white front paws and a plain blue collar, which sits upright on the floor directly under the middle of the table and looks back at her. Ana smiles with happy surprise, as someone who has just found the cat. The whole table, the cat under it and Ana's whole crouching body are sharp and inside the photo. Exactly one person and one cat; no chairs, no other animals, no food, and nothing on the table or the floor. Every visible hand has five natural fingers.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1_scene_ana-breakfast_e7fbea5.webp",
+    "sha256": "3a528a586b056f0dea3cad8a1d1ca5effce502c1e990632486ff9daafaaee6cc"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "ZwD5atexKd6KqtsP2KPygQI",
+  "usage": {
+    "promptTokenCount": 609,
+    "candidatesTokenCount": 1334,
+    "totalTokenCount": 2132,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 351
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 189,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137486",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 609,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 189
+  },
+  "elapsed_seconds": 19.97,
+  "output": "output/imagegen/unit-4-lesson-v3/v06-find-cat.png",
+  "sha256": "a54b54ef0acac4f4b4a45c80458d1b784f9ddc58b0a532610750d6897062786c",
+  "byte_count": 5365743,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

@@ -51,7 +51,8 @@ test('tap, arbitrary drop, outside drop, removal and repair share ordered valida
   // Unit 6's approved 14-lesson story rebuild adds 23 full constructions.
   // 2026-10-19: Unit 7's approved guided-to-independent progression adds 12.
   // 345 since 2026-11-14: A1 2.11 Big and Small has four and the extended Unit 2 review one more.
-  assert.equal(rollout.length, 345);
+  // 350 since 2026-11-14: A1 4.11 Everyday Verbs has four and the extended Unit 4 review one more.
+  assert.equal(rollout.length, 350);
   for (const card of [...pilots, ...rollout]) {
     let selected = api.sentenceSlots(card, []);
     const expected = card.correct_option_ids;

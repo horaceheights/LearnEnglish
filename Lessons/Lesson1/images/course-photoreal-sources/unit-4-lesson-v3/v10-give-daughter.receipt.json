@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "a94e839f-2eb6-43d2-aa62-a16e75ac6fa7",
+  "asset_id": "v10-give-daughter",
+  "pack_sha256": "faaa115e9dc42c4a93dcb543a1981d74a1d40b0a5146c2b7ccad2940a8f6f862",
+  "started_at": "2026-11-15T00:45:55.209950+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material, skin, fabric and fur texture, soft natural daylight and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, numbers, logos or brand marks anywhere, including on clothing, screens, books, vehicles, packaging and walls. A first-time learner must understand the action instantly on a small phone screen. Nobody looks at the camera unless the prompt says so. Do not imitate earlier course photos.\n\nImage 1 shows a married couple, the family's parents. Keep both faces, hair and clothes exactly. Create a NEW photograph in their bright living room: the father and the mother stand together on the LEFT, seen from the side, and GIVE one book to their daughter, the family's girl: about seven, long dark-brown hair in a ponytail, a lilac short-sleeved T-shirt, who stands on the RIGHT facing them. Together the parents hold out one closed plain bright-red book toward the girl, each parent with one hand on it, and the girl reaches up with both hands and already touches the book, which is exactly between them. All three smile and look at the book. Giving is unmistakable. All three are seen from head to knees, sharp, inside the central 85 percent of the photo width. Only these three people and one book with a plain cover; no other children, no pets, no wrapping paper, no bag and no phone. Every visible hand has five natural fingers.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/family_parents_3x2.webp",
+    "sha256": "7ec7dfb8f762125ea8efc1daebaff0899bb2bee4fe6b40b18d7276251514acc9"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "wwD5avb-MIGBmtkPq4mCKA",
+  "usage": {
+    "promptTokenCount": 615,
+    "candidatesTokenCount": 1353,
+    "totalTokenCount": 2181,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 357
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 213,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137786",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 615,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 213
+  },
+  "elapsed_seconds": 21.47,
+  "output": "output/imagegen/unit-4-lesson-v3/v10-give-daughter.png",
+  "sha256": "731eb1dcc1c55a270da6ba5402695a2b744ed8a32261ca861723d70d09167534",
+  "byte_count": 6083168,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}
