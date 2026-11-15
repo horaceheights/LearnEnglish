@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "7f32167e-50d0-4f88-a582-5254a46c8fe0",
+  "asset_id": "k06-red-pencil",
+  "pack_sha256": "33e0b7c50abd57b85c4b306efd28f90151271e1007ae1313af8a28b021f7965b",
+  "started_at": "2026-11-15T17:57:08.573241+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material, skin, wood and fabric texture, soft natural daylight and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.\n\nThis is a precise edit of image 1: the result must look like the same photograph with one detail changed. Change only what the instruction names.\n\nImage 1 shows one yellow wooden pencil lying on a light-gray table. Keep the photograph exactly as it is: the same pencil shape, position, point, metal band, eraser, table, light and framing. Change ONLY the paint color of the pencil's body: it is now bright RED instead of yellow, plain and unprinted. Nothing else changes.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "output/imagegen/unit-2-lesson-v8/k05-pencil.png",
+    "sha256": "23e8889e7cf0d9947af546bd77d38dcdd0f5394b92cdb5fabfaec4970b93999f"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "dfL5au-FEpuVmtkPopXuwAg",
+  "usage": {
+    "promptTokenCount": 472,
+    "candidatesTokenCount": 1246,
+    "totalTokenCount": 1858,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 214
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 140,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.136624",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 472,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 140
+  },
+  "elapsed_seconds": 25.31,
+  "output": "output/imagegen/unit-2-lesson-v8/k06-red-pencil.png",
+  "sha256": "e174b92c6e86b7e887748a1a472f234262f965e65ac6cdbf44d24788f5cf722a",
+  "byte_count": 4234245,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

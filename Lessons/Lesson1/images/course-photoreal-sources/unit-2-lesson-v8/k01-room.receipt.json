@@ -1,0 +1,57 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "e7be1c98-26df-4788-8b6d-1056f13253dd",
+  "asset_id": "k01-room",
+  "pack_sha256": "33e0b7c50abd57b85c4b306efd28f90151271e1007ae1313af8a28b021f7965b",
+  "started_at": "2026-11-15T17:53:10.807744+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material, skin, wood and fabric texture, soft natural daylight and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.\n\nAn EMPTY classroom in a school, seen from the back of the room. Four tidy rows of small one-person student desks with chairs fill the room and all face a large, completely blank white board on the front wall; one bigger desk stands at the front beside the board. Big windows on the left let in daylight. There are NO people at all. The board is clean and blank, the walls are bare, and nothing lies on the desks: no posters, maps, clocks, books or screens. No letters, words, numbers, logos or brand marks anywhere.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "h_H5ap6eCfqFz7IPi_2_mAk",
+  "usage": {
+    "promptTokenCount": 224,
+    "candidatesTokenCount": 1275,
+    "totalTokenCount": 1872,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 224
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 373,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.138924",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 224,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 373
+  },
+  "elapsed_seconds": 21.66,
+  "output": "output/imagegen/unit-2-lesson-v8/k01-room.png",
+  "sha256": "2630b6326889e835d01e28b9fba0e02ab1b3989dc326a0f50c21fab81827c1a1",
+  "byte_count": 5739083,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

@@ -28,6 +28,8 @@ for (const noun of words('aunt uncle cousin')) NOUNS.add(noun);
 for (const noun of words('hair beard')) NOUNS.add(noun);
 // A1 1.10 (2026-11-14): pets.
 for (const noun of words('dog cat bird rabbit pet pets')) NOUNS.add(noun);
+// A1 2.12 (2026-11-15): in the classroom.
+for (const noun of words('classroom class student desk pencil paper notebook')) NOUNS.add(noun);
 // A1 1.11 (2026-11-14): friends and people.
 for (const noun of words('friend friends husband wife son daughter person people')) NOUNS.add(noun);
 // A1 4.12 (2026-11-14): the calendar (It is a week., There are twelve months in a year.).

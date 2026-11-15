@@ -1,0 +1,57 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "7650777d-d59e-40e9-b2dd-535c9a95aa91",
+  "asset_id": "k05-pencil",
+  "pack_sha256": "33e0b7c50abd57b85c4b306efd28f90151271e1007ae1313af8a28b021f7965b",
+  "started_at": "2026-11-15T17:54:43.818562+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material, skin, wood and fabric texture, soft natural daylight and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.\n\nKeep the main subject of the photo whole inside the central 55 percent of the photo width, so a centered 4:5 crop keeps it whole; only expendable background reaches the left and right edges.\n\nONE pencil, alone. A classic wooden pencil painted bright YELLOW along its whole body, with a sharpened wood-and-graphite point at one end and a silver metal band with a small pink eraser at the other end, lies diagonally on a plain, clean, light-gray table, photographed from directly above. The pencil is large: it runs across the central half of the photo. Its yellow body is plain and unprinted. Nothing else is on the table: no pen, no paper, no sharpener, no shavings. No letters, words, numbers, logos or brand marks anywhere.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "4_H5ar-3OtqIqtsPoJmxiQg",
+  "usage": {
+    "promptTokenCount": 273,
+    "candidatesTokenCount": 1297,
+    "totalTokenCount": 1747,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 273
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 177,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.136670",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 273,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 177
+  },
+  "elapsed_seconds": 21.81,
+  "output": "output/imagegen/unit-2-lesson-v8/k05-pencil.png",
+  "sha256": "23e8889e7cf0d9947af546bd77d38dcdd0f5394b92cdb5fabfaec4970b93999f",
+  "byte_count": 4586953,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

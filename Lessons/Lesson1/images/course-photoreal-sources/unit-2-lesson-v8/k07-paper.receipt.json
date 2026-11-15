@@ -1,0 +1,57 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "d146389a-a92d-4a3f-ba6e-fd09ca55729a",
+  "asset_id": "k07-paper",
+  "pack_sha256": "33e0b7c50abd57b85c4b306efd28f90151271e1007ae1313af8a28b021f7965b",
+  "started_at": "2026-11-15T17:55:06.990238+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material, skin, wood and fabric texture, soft natural daylight and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.\n\nKeep the main subject of the photo whole inside the central 55 percent of the photo width, so a centered 4:5 crop keeps it whole; only expendable background reaches the left and right edges.\n\nPAPER. A neat stack of about twenty blank, bright WHITE sheets of paper lies in the middle of a dark-brown wooden table, photographed from above at a slight angle; the top sheet is slightly turned so that the separate thin sheets and their edges are clearly visible, and one corner of the top sheet curls up a little. Every sheet is completely blank. Nothing else is on the table: no pen, no pencil, no notebook, no book, no envelope, no printer. No letters, words, numbers, logos or brand marks anywhere.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "-_H5av6iD7Sgz7IPs7uCsAk",
+  "usage": {
+    "promptTokenCount": 263,
+    "candidatesTokenCount": 1255,
+    "totalTokenCount": 1831,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 263
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 313,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.138282",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 263,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 313
+  },
+  "elapsed_seconds": 21.38,
+  "output": "output/imagegen/unit-2-lesson-v8/k07-paper.png",
+  "sha256": "e1f7556ca18ee9a8fc4e4a59f70668f0ea8fa1c963c1d76688c792371a34e0c1",
+  "byte_count": 6101899,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}
