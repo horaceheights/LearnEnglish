@@ -19,6 +19,9 @@ for (const noun of words('home window clothes')) NOUNS.add(noun);
 NOUNS.add('shower');
 // Unit 5 (2026-09-26): fruit and food words that its constructions name.
 for (const noun of words('fruit pear pears bananas drinks')) NOUNS.add(noun);
+// A1 5.13 and 5.14 (2026-11-15): more food, and things at the table.
+for (const noun of words('meat cheese vegetables potato tomato salad soup sandwich')) NOUNS.add(noun);
+for (const noun of words('cup glass bottle plate salt sugar cake')) NOUNS.add(noun);
 // Unit 7 (2026-09-27): the body word its constructions name.
 NOUNS.add('ears');
 // Expanded body, weather and activity vocabulary uses the same nominal rules.

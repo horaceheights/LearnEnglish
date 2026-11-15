@@ -1,0 +1,57 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "c0cfc60b-1fea-40b9-936f-45528cc6e998",
+  "asset_id": "f08-sandwich",
+  "pack_sha256": "55ab894b50b0f5d238212992d248d66a261fb665c556c2590213563113e2237b",
+  "started_at": "2026-11-15T19:29:09.088916+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real food, glass, ceramic and fabric texture, soft natural daylight and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.\n\nKeep the main subject of the photo whole inside the central 55 percent of the photo width, so a centered 4:5 crop keeps it whole; only expendable background reaches the left and right edges.\n\nONE SANDWICH. A single sandwich made with two slices of bread, with ham, cheese and lettuce visible between them, cut once diagonally with the two halves leaning together, on a plain white plate on a plain light wooden table, photographed from a little above. The food is the only subject: it is sharp, large and in the middle of the photo. Nothing else is on the table: no cutlery, no glass, no napkin, no other food, no hands, no people. No letters, words, numbers, logos, labels or brand marks anywhere.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "BQj6atLUB9-cz7IPjPWRiQY",
+  "usage": {
+    "promptTokenCount": 267,
+    "candidatesTokenCount": 1279,
+    "totalTokenCount": 1727,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 267
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 181,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.136706",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 267,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 181
+  },
+  "elapsed_seconds": 24.68,
+  "output": "output/imagegen/unit-5-lesson-v8/f08-sandwich.png",
+  "sha256": "eb96ae90f2dcee43d2a838f39eb9947531440a8d8e62aade9d6f1eecf76d4f49",
+  "byte_count": 5432656,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

@@ -107,6 +107,11 @@ const MEANINGS: Record<string, string> = {
   'after that': 'después de eso', finally: 'por último',
   apple: 'manzana', apples: 'manzanas', banana: 'plátano', grapes: 'uvas', strawberry: 'fresa',
   bread: 'pan', egg: 'huevo', eggs: 'huevos', rice: 'arroz', milk: 'leche', fish: 'pescado',
+  // A1 5.13 (2026-11-15): more food.
+  meat: 'carne', cheese: 'queso', vegetables: 'verduras', potato: 'papa', tomato: 'tomate', salad: 'ensalada', soup: 'sopa',
+  sandwich: 'sándwich',
+  // A1 5.14 (2026-11-15): at the table.
+  cup: 'taza', glass: 'vaso', bottle: 'botella', plate: 'plato', salt: 'sal', sugar: 'azúcar', cake: 'pastel', of: 'de',
   juice: 'jugo', water: 'agua', breakfast: 'desayuno', lunch: 'almuerzo', dinner: 'cena',
   drink: 'beber', coffee: 'café', tea: 'té', chicken: 'pollo',
   bananas: 'plátanos', oranges: 'naranjas', strawberries: 'fresas', pears: 'peras',
