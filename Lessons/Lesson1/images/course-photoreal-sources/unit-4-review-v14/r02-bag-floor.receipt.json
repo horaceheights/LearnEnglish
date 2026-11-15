@@ -1,0 +1,57 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "995479fc-da58-4652-90ca-7c062147a5fe",
+  "asset_id": "r02-bag-floor",
+  "pack_sha256": "2382f93292d714a578ae65a2b0c416372d6144c81e044ef432d05ce55cb634ee",
+  "started_at": "2026-11-15T19:20:09.167016+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material and fur texture, soft natural daylight and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.\n\nA bag ON THE FLOOR. One plain dark-green backpack stands upright on a floor of gray tiles in an empty hallway, in the middle of the photo, seen from standing height looking down at an angle. Around it there is only bare floor; a strip of plain white wall is visible at the top edge. No table, no chair, no rug, no other object, no people. No letters, words, numbers, logos or brand marks anywhere.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "6QX6auKQDt3-qtsP6tGBgAc",
+  "usage": {
+    "promptTokenCount": 197,
+    "candidatesTokenCount": 1243,
+    "totalTokenCount": 1639,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 197
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 199,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.136782",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 197,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 199
+  },
+  "elapsed_seconds": 20.58,
+  "output": "output/imagegen/unit-4-review-v14/r02-bag-floor.png",
+  "sha256": "7f57690e059ebf6fe0a301389c627e8b76600cb4e2b070fd5ee0ab0dd2a39b55",
+  "byte_count": 5671551,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

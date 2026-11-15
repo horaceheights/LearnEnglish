@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "be71cccd-c824-45e7-b811-c085d04e29a6",
+  "asset_id": "b01-birthday",
+  "pack_sha256": "55cf90ec3126f130be2fd1d5cdcc0fb169f84f1f0db27ce2c53ebdfbd1d2edbc",
+  "started_at": "2026-11-15T19:09:00.000568+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real skin, fabric and food texture, soft natural light and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, watermark or captions.\n\nImage 1 shows Ana: about thirty, long wavy black hair, an olive-green button shirt open over a white top. Keep her face, hair and clothes exactly. Create a NEW photograph of her BIRTHDAY at home: Ana sits at a table in a bright living room, smiling widely at a round birthday cake with white frosting and several thin lit candles that stands on the table right in front of her; she leans toward it, about to blow out the candles. Three plain colored balloons (red, yellow, blue) float behind her and a plain paper party hat is on her head. The cake, the flames and Ana's face are sharp and fill the middle of the photo. Exactly one person. The candles are plain thin candles, NOT number-shaped. No letters, words or numbers anywhere: no banner, no card, no writing on the cake, balloons or hat. Every visible hand has five natural fingers.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1_scene_ana-breakfast_e7fbea5.webp",
+    "sha256": "3a528a586b056f0dea3cad8a1d1ca5effce502c1e990632486ff9daafaaee6cc"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "TAP6aq_xGYapqtsP_ZbswQ0",
+  "usage": {
+    "promptTokenCount": 525,
+    "candidatesTokenCount": 1320,
+    "totalTokenCount": 2064,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 267
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 219,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137678",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 525,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 219
+  },
+  "elapsed_seconds": 20.94,
+  "output": "output/imagegen/unit-4-lesson-v13/b01-birthday.png",
+  "sha256": "77525b78600d7674775c0c2376eaec836f43f4079c44430b07f89bf90cbb69d9",
+  "byte_count": 5174403,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

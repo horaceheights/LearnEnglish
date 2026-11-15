@@ -1,0 +1,57 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "169adf92-7d87-405e-86fc-594c85a6b5a8",
+  "asset_id": "r01-dog-stairs",
+  "pack_sha256": "2382f93292d714a578ae65a2b0c416372d6144c81e044ef432d05ce55cb634ee",
+  "started_at": "2026-11-15T19:19:42.823495+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material and fur texture, soft natural daylight and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.\n\nA dog ON THE STAIRS. An adult dog with a short golden-tan coat and a plain red collar sits on the third step of a straight indoor staircase with gray carpeted steps, a white handrail and plain pale walls, seen from the foot of the stairs; several empty steps are visible above the dog. The dog is sharp and looks toward the camera. Exactly one dog; no people, no other animals, no objects on the steps. No letters, words, numbers, logos or brand marks anywhere.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "zgX6aquQLpbrz7IPuKzf2AU",
+  "usage": {
+    "promptTokenCount": 210,
+    "candidatesTokenCount": 1265,
+    "totalTokenCount": 1882,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 210
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 407,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.139304",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 210,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 407
+  },
+  "elapsed_seconds": 25.62,
+  "output": "output/imagegen/unit-4-review-v14/r01-dog-stairs.png",
+  "sha256": "71cd67c1555c6f27dcd1a0e4c1878364a4130aacf03729fc1002b2d0e303ce7e",
+  "byte_count": 6631018,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

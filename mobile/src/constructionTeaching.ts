@@ -34,6 +34,12 @@ for (const noun of words('dog cat bird rabbit pet pets')) NOUNS.add(noun);
 for (const noun of words('friend friends husband wife son daughter person people')) NOUNS.add(noun);
 // A1 4.12 (2026-11-14): the calendar (It is a week., There are twelve months in a year.).
 for (const noun of words('days week weekend month months year')) NOUNS.add(noun);
+// A1 4.13 (2026-11-15): the first six months, used like the day names (It is March.).
+for (const noun of words('january february march april may june')) NOUNS.add(noun);
+// A1 4.14 (2026-11-15): the last six months, and birthday (My birthday is in July.).
+for (const noun of words('july august september october november december birthday')) NOUNS.add(noun);
+// A1 4.15 (2026-11-15): more at home.
+for (const noun of words('apartment garden floor wall stairs roof toilet key')) NOUNS.add(noun);
 // A1 5.11 (2026-11-14): buying things (The price is five dollars.).
 for (const noun of words('money price')) NOUNS.add(noun);
 for (const noun of words('address')) NOUNS.add(noun);

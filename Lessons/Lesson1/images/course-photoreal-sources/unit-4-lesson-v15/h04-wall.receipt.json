@@ -1,0 +1,57 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "17cb1f03-d0b2-4d53-aef9-17e4e98814ab",
+  "asset_id": "h04-wall",
+  "pack_sha256": "67df6514c2027fefe818f055f9716db191486e4f166711ede0c6a1d730cb51a4",
+  "started_at": "2026-11-15T19:15:57.093249+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material and fur texture, soft natural daylight and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.\n\nA WALL. One plain red-brick wall photographed straight on, filling the whole photo from edge to edge, with a thin strip of gray pavement along the bottom. It is only a wall: NO door, NO window, no gate, no plants, no posters, no graffiti, no people. No letters, words, numbers, logos or brand marks anywhere.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "7QT6avfWCpLVz7IPyIiyyQc",
+  "usage": {
+    "promptTokenCount": 178,
+    "candidatesTokenCount": 1239,
+    "totalTokenCount": 1596,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 178
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 179,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.136504",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 178,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 179
+  },
+  "elapsed_seconds": 25.9,
+  "output": "output/imagegen/unit-4-lesson-v15/h04-wall.png",
+  "sha256": "116c97a125c444024eb5d0ea2ae4ac666988943e52c9c0e96562171bbafced64",
+  "byte_count": 9850487,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}
