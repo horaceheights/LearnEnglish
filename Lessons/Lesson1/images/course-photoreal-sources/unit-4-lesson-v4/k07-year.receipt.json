@@ -1,0 +1,57 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "243d7db9-960f-4242-b0ff-72f775224192",
+  "asset_id": "k07-year",
+  "pack_sha256": "f3a18d2af99f6caf20743abdeb44767d990c3bf22508ed837c5a735c72ebf397",
+  "started_at": "2026-11-15T02:23:18.945453+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "One real photograph of a classroom whiteboard calendar for a Spanish-speaking adult beginner learning English. Photorealistic board, frame and marker ink; NOT an illustration, 3D render, screenshot or app UI. Full-bleed 3:2 landscape; no extra frames, padding, watermark or captions. The only writing is the calendar's own numbers: no letters, no words, no day names and no month names anywhere.\n\nA photograph, taken straight on, of a wooden-framed whiteboard YEAR planner that fills the photo, in the same plain style as a classroom whiteboard calendar: a light wooden frame, a clean white board and neat black hand-printed marker. At the top centre is the header 2023. Below it, thin black marker lines divide the board into TWELVE equal boxes in three rows of four. Each box holds only its month number, written large and clear in its top left corner: the first row 1, 2, 3, 4; the second row 5, 6, 7, 8; the third row 9, 10, 11, 12. Under each number, inside the same box, is a small faint grid of tiny empty squares, five rows of seven, that stands for the days of that month and contains no digits. Exactly twelve boxes and exactly the numbers 1 to 12, each once and in order, plus the header 2023. No letters, no words, no month names, no other numbers, no drawings, no pen marks and no magnets.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "lxf5avskqqWa2Q-b8sKABw",
+  "usage": {
+    "promptTokenCount": 327,
+    "candidatesTokenCount": 1391,
+    "totalTokenCount": 1976,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 327
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 258,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137750",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 327,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 258
+  },
+  "elapsed_seconds": 21.24,
+  "output": "output/imagegen/unit-4-lesson-v4/k07-year.png",
+  "sha256": "de7fdafad3ce7910ebec07074b12555fff61422c25d84b11dfbbb4fbbbb31ed7",
+  "byte_count": 5665526,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

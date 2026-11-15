@@ -28,6 +28,8 @@ for (const noun of words('hair beard')) NOUNS.add(noun);
 for (const noun of words('dog cat bird rabbit pet pets')) NOUNS.add(noun);
 // A1 1.11 (2026-11-14): friends and people.
 for (const noun of words('friend friends husband wife son daughter person people')) NOUNS.add(noun);
+// A1 4.12 (2026-11-14): the calendar (It is a week., There are twelve months in a year.).
+for (const noun of words('days week weekend month months year')) NOUNS.add(noun);
 const COMPOUND_NOUNS: Record<string, string> = { 'post office': 'oficina de correos', 'movie theater': 'cine', 'bus stop': 'parada de autobús', 'next stop': 'próxima parada' };
 const STATES = set('red blue green yellow black white happy sad tired hungry thirsty sunny rainy cold hot windy cloudy mexican spanish american canadian');
 // A1+ 1.1 (2026-11-10): what people look like, after "is" (Luis is tall.) or before a noun (an old man, long hair).

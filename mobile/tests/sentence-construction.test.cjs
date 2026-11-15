@@ -52,7 +52,8 @@ test('tap, arbitrary drop, outside drop, removal and repair share ordered valida
   // 2026-10-19: Unit 7's approved guided-to-independent progression adds 12.
   // 345 since 2026-11-14: A1 2.11 Big and Small has four and the extended Unit 2 review one more.
   // 350 since 2026-11-14: A1 4.11 Everyday Verbs has four and the extended Unit 4 review one more.
-  assert.equal(rollout.length, 350);
+  // 355 since 2026-11-14: A1 4.12 Tomorrow and the Week has four and the extended Unit 4 review one more.
+  assert.equal(rollout.length, 355);
   for (const card of [...pilots, ...rollout]) {
     let selected = api.sentenceSlots(card, []);
     const expected = card.correct_option_ids;

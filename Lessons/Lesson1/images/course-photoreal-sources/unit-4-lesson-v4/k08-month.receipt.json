@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "d0110048-f2b0-4b12-a6d4-61cd7f34d2bd",
+  "asset_id": "k08-month",
+  "pack_sha256": "f3a18d2af99f6caf20743abdeb44767d990c3bf22508ed837c5a735c72ebf397",
+  "started_at": "2026-11-15T02:24:07.972709+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "One real photograph of a classroom whiteboard calendar for a Spanish-speaking adult beginner learning English. Photorealistic board, frame and marker ink; NOT an illustration, 3D render, screenshot or app UI. Full-bleed 3:2 landscape; no extra frames, padding, watermark or captions. The only writing is the calendar's own numbers: no letters, no words, no day names and no month names anywhere.\n\nThis is a precise edit of image 1: the result must look like the same photograph after someone drew on the board with a pen. Change only what the instruction names.\n\nImage 1 is a photograph of a whiteboard year planner with twelve numbered month boxes. Keep the photograph exactly as it is: the same framing, board, frame, header, lines, numbers and small grids. Do not move, redraw, add or remove any number. Add only this, drawn by hand with a dark-blue whiteboard pen, with slightly uneven ink: ONE loop around the single box number 5, enclosing that whole box with its number and its small grid: a freehand loop, slightly asymmetric, with a small overlapping end stroke, not a perfect geometric shape. The loop encloses exactly one month box and no other. No other mark.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "output/imagegen/unit-4-lesson-v4/k07-year.png",
+    "sha256": "de7fdafad3ce7910ebec07074b12555fff61422c25d84b11dfbbb4fbbbb31ed7"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "yBf5aoyhMZ6VmtkP8quM2Qg",
+  "usage": {
+    "promptTokenCount": 515,
+    "candidatesTokenCount": 1265,
+    "totalTokenCount": 1965,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 257
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 185,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137250",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 515,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 185
+  },
+  "elapsed_seconds": 26.72,
+  "output": "output/imagegen/unit-4-lesson-v4/k08-month.png",
+  "sha256": "2480ca1cac4e2d08165775a37f704f9a1a9bf5ce92fd50c863b61067d86a08b3",
+  "byte_count": 5168738,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

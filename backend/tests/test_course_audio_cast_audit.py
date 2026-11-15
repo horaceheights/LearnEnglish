@@ -77,9 +77,10 @@ EXACT_ROLE_CHANGES = {}
 # not a cap on new content; exact deltas are in the matching QA inventory.
 # 2026-11-14: coverage-gap lesson 4.11 Everyday Verbs adds 42 fields (Ana and the alternating
 # narrators) and the extended Unit 4 review seven for Luis (+49).
-EXPECTED_EXPLICIT_ASSIGNMENT_COUNT = 2385
+# 2026-11-14: coverage-gap lesson 4.12 Tomorrow and the Week adds 26 narrator and Ana fields (+26).
+EXPECTED_EXPLICIT_ASSIGNMENT_COUNT = 2411
 EXPECTED_FINAL_ASSIGNMENTS_SHA256 = (
-    "f7e6048a37569b726b9512028f7f2a03b2e9a4f9ede961cfbfca524fffe2130b"
+    "2dae8f9e85f7944f515e4444da9d7bacfda896305257921b9da8511341166331"
 )
 
 

@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "pack": "unit-4-review-calendar-photos",
+  "revision": 1,
+  "output_namespace": "unit-4-review-v10",
+  "authorization": "2026-11-14: the user approved the same handling for 4.12 Tomorrow and the Week as for 4.11 (answer 'Same as 4.11 (Recommended)'): the Unit 4 review grows again to bring the words back. Gap-lesson media was approved in advance the same day. Ceiling US$0.60 for this revision. Gemini is the approved image tool (2026-09-23). The review may not reuse a teaching lesson's photo, so the week and the weekend are marked on other rows of the approved 4.9 calendar. Revision 1 is frozen; every rejected output is reported with its cost.",
+  "image_settings": {
+    "provider": "google-gemini",
+    "model": "gemini-3-pro-image",
+    "aspect_ratio": "3:2",
+    "image_size": "2K",
+    "runtime_size": "1536x1024",
+    "runtime_format": "webp",
+    "n": 1
+  },
+  "production": {
+    "price_per_image_usd": "0.134",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing (checked 2026-09-24: Gemini 3 Pro Image, $0.134 per 1K/2K image)",
+    "planned_images": 2,
+    "expected_cost_usd": "0.28",
+    "requested_ceiling_usd": "0.60",
+    "no_automatic_retries": true,
+    "order": "Two independent edits; every date is checked against the base board."
+  },
+  "shared_prompts": {
+    "calendar": "One real photograph of a classroom whiteboard calendar for a Spanish-speaking adult beginner learning English. Photorealistic board, frame and marker ink; NOT an illustration, 3D render, screenshot or app UI. Full-bleed 3:2 landscape; no extra frames, padding, watermark or captions. The only writing is the calendar's own numbers: no letters, no words, no day names and no month names anywhere.",
+    "edit": "This is a precise edit of image 1: the result must look like the same photograph after someone drew on the board with a pen. Change only what the instruction names."
+  },
+  "assets": [
+    {
+      "id": "w01-week-row-three",
+      "order": 1,
+      "lesson": "4.13",
+      "item": "It is a week.",
+      "runtime_filename": "a1_u4_review_gap_week_row_three_v1.webp",
+      "four_card": false,
+      "shared": [
+        "calendar",
+        "edit"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1_photo_u4_days_week_board_unmarked_v1.webp",
+        "sha256": "21a475814ad1530bae01643f21baf8ebecf28e770b256abe50c4297d96f517fc",
+        "observed_description": "The approved 4.9 calendar with no marks: a wooden-framed whiteboard month calendar photographed straight on: the header 05 / 2023 in black marker, and a grid of seven columns and five rows with the dates 1 to 31, where each box of the first row (1 to 7) also holds a small drawing (houses, a school and trees)."
+      },
+      "prompt": "Image 1 is a photograph of a whiteboard month calendar. Keep the photograph exactly as it is: the same framing, the same board and wooden frame, the header, every date number from 1 to 31 in the same place, every small drawing and every existing mark. Do not move, redraw, add or remove any number. Add only this, drawn by hand with the same dark-blue whiteboard pen, with slightly uneven ink like real handwriting: ONE long loop around the whole THIRD ROW of the grid, enclosing all seven boxes 15, 16, 17, 18, 19, 20 and 21: a freehand loop, slightly asymmetric, with a small overlapping end stroke, not a perfect geometric shape. The loop encloses exactly these seven boxes, one whole week, and no box of the second or fourth row. No other mark."
+    },
+    {
+      "id": "w02-weekend-row-two",
+      "order": 2,
+      "lesson": "4.13",
+      "item": "It is the weekend.",
+      "runtime_filename": "a1_u4_review_gap_weekend_row_two_v1.webp",
+      "four_card": false,
+      "shared": [
+        "calendar",
+        "edit"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1_photo_u4_days_week_board_unmarked_v1.webp",
+        "sha256": "21a475814ad1530bae01643f21baf8ebecf28e770b256abe50c4297d96f517fc",
+        "observed_description": "The approved 4.9 calendar with no marks: a wooden-framed whiteboard month calendar photographed straight on: the header 05 / 2023 in black marker, and a grid of seven columns and five rows with the dates 1 to 31, where each box of the first row (1 to 7) also holds a small drawing (houses, a school and trees)."
+      },
+      "prompt": "Image 1 is a photograph of a whiteboard month calendar. Keep the photograph exactly as it is: the same framing, the same board and wooden frame, the header, every date number from 1 to 31 in the same place, every small drawing and every existing mark. Do not move, redraw, add or remove any number. Add only this, drawn by hand with the same dark-blue whiteboard pen, with slightly uneven ink like real handwriting: ONE loop around the last TWO boxes of the SECOND row together, box 13 and box 14: a freehand loop, slightly asymmetric, with a small overlapping end stroke, not a perfect geometric shape. The loop encloses exactly these two boxes, a weekend, and no other box. No other mark."
+    }
+  ]
+}

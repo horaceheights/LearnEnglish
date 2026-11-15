@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "ad6f95b7-b421-49ef-94d3-8f4992993eb6",
+  "asset_id": "k04-tomorrow-tuesday",
+  "pack_sha256": "f3a18d2af99f6caf20743abdeb44767d990c3bf22508ed837c5a735c72ebf397",
+  "started_at": "2026-11-15T02:22:13.626573+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "One real photograph of a classroom whiteboard calendar for a Spanish-speaking adult beginner learning English. Photorealistic board, frame and marker ink; NOT an illustration, 3D render, screenshot or app UI. Full-bleed 3:2 landscape; no extra frames, padding, watermark or captions. The only writing is the calendar's own numbers: no letters, no words, no day names and no month names anywhere.\n\nThis is a precise edit of image 1: the result must look like the same photograph after someone drew on the board with a pen. Change only what the instruction names.\n\nImage 1 is a photograph of a whiteboard month calendar. Keep the photograph exactly as it is: the same framing, the same board and wooden frame, the header, every date number from 1 to 31 in the same place, every small drawing and every existing mark. Do not move, redraw, add or remove any number. Add only this, drawn by hand with the same dark-blue whiteboard pen, with slightly uneven ink like real handwriting: one short, thick, curved ARROW that starts on the right edge of the existing blue loop around box 1 and points into the next box, box 2, with a clear arrowhead that ends inside box 2 beside its number. The arrow says: after the looped day comes this day. Do not draw a loop around box 2 and do not add any other mark.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1_photo_u4_days_week_board_monday_v1.webp",
+    "sha256": "3bd66f07f619f823b8f8cdf5ab5a6e64421f608ae15534c54d551e9be3499799"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "VRf5ar3gNZ6gz7IPxpa58AU",
+  "usage": {
+    "promptTokenCount": 552,
+    "candidatesTokenCount": 1283,
+    "totalTokenCount": 2040,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 294
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 205,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137564",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 552,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 205
+  },
+  "elapsed_seconds": 21.99,
+  "output": "output/imagegen/unit-4-lesson-v4/k04-tomorrow-tuesday.png",
+  "sha256": "3bc8720611f44ab3cc9f9c267509a1a0976663fa7eb224cb26bc0e1d235bcc9c",
+  "byte_count": 3789167,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}
