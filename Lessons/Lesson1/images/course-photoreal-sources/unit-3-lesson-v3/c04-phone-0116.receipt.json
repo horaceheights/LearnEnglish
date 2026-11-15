@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "10bdcd57-7a9f-478c-941b-be800c357e40",
+  "asset_id": "c04-phone-0116",
+  "pack_sha256": "a3b05d6ddf957694b401f1f2ae08bbd4a1719a5d2ec4bc9b4e697db4e2e0f155",
+  "started_at": "2026-11-15T17:29:11.012524+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material, skin and fabric texture, soft natural daylight and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.\n\nThis is a precise edit of image 1: the result must look like the same photograph with one detail changed. Change only what the instruction names.\n\nImage 1 shows a woman holding up a phone whose screen shows a phone number. Keep the photograph exactly as it is: the same woman, hand, phone, room, light and framing. Change ONLY the digits on the phone screen: the number now reads exactly 555-0116 instead of 555-0142, in the same large black digits, perfectly sharp. Nothing else changes.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "output/imagegen/unit-3-lesson-v3/c02-phone-0142.png",
+    "sha256": "596b1024e47aeb4b5eeaa150b08a1f2fe33aa0623b39697b87e342ca679a3608"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "5-v5aqHCNYWFz7IPuOa1uAk",
+  "usage": {
+    "promptTokenCount": 484,
+    "candidatesTokenCount": 1247,
+    "totalTokenCount": 1875,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 226
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 144,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.136696",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 484,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 144
+  },
+  "elapsed_seconds": 22.66,
+  "output": "output/imagegen/unit-3-lesson-v3/c04-phone-0116.png",
+  "sha256": "40f858c0fb2b4da7e15fc11d184bc3c24740ccdd0cc4f3200be3367827c0345e",
+  "byte_count": 4585614,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

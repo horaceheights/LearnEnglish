@@ -1,0 +1,287 @@
+{
+  "brief_version": 1,
+  "captions": false,
+  "narrators": [
+    "teacher",
+    "co-teacher"
+  ],
+  "note": "Coverage gap lesson (2026-11-15, user request \"build 3.13 Phone Number and Address next\"). No spelling: the alphabet lessons stay deferred (2026-09-23). Phone numbers are said digit by digit and shown as numerals on a phone; the address is a house number on Park Street, shown by the numeral on the door of a house that faces a park, so no written street name appears in a picture. Source: docs/planning/a1-priority-1-lessons-plan.md.",
+  "target": "backend/lessons/unit_3/lesson-3-13-phone-number-and-address.yaml",
+  "lesson": {
+    "id": "lesson-3-13-phone-address",
+    "title": "3.13 Phone Number and Address",
+    "level": "Beginner A1",
+    "unit_id": "unit-3",
+    "unit_title": "Unit 3: Me and Other People",
+    "unit_outcome": "Use tightly supported exchanges to greet people and give a name, age, origin and job, ask and answer yes/no questions with be, and describe who owns things.",
+    "lesson_id": "lesson-3",
+    "lesson_title": "Unit 3: Me and Other People",
+    "sub_lesson_id": "3.13",
+    "sub_lesson_title": "Phone Number and Address",
+    "goal": "Say zero, give a phone number digit by digit, and give an address with a house number.",
+    "vocabulary": [
+      "zero",
+      "phone number",
+      "address",
+      "What is your phone number?",
+      "What is your address?"
+    ],
+    "review_vocabulary": [
+      "what",
+      "is",
+      "your",
+      "my",
+      "it",
+      "number",
+      "one",
+      "two",
+      "four",
+      "five",
+      "six",
+      "seven",
+      "twelve",
+      "fifteen",
+      "twenty",
+      "park",
+      "street"
+    ],
+    "grammar_function": "What is your phone number? It is + digits; What is your address? It is + house number + Park Street; My address is + house number + Park Street; It is number zero.",
+    "prerequisite": "2.1 park; 2.2 street; 2.6-2.7 numbers and What number is it?; 3.1 What is your name?; 3.5-3.6 twelve to twenty; 3.10 my, your.",
+    "speaking_outcome": "Ask What is your phone number? and What is your address?, and answer with a number and with a house number on Park Street.",
+    "content_revision": 1
+  },
+  "layout": {
+    "Recognize": 11,
+    "Listen": 9,
+    "Speak": 9,
+    "Use": 8
+  },
+  "stage_sequences": {
+    "Use": [
+      "What is your address?",
+      "It is number zero.",
+      "This is my address.",
+      "What is your address?",
+      "It is number zero.",
+      "This is my address.",
+      "What is your address?",
+      "This is my address."
+    ]
+  },
+  "items": [
+    {
+      "text": "Zero",
+      "es": "Cero",
+      "image": "/lesson-assets/a1_photo_u3_contact_card_0_v1.webp",
+      "kind": "contact-word",
+      "choices": false
+    },
+    {
+      "text": "A phone number",
+      "es": "Un número de teléfono",
+      "image": "/lesson-assets/a1_photo_u3_contact_phone_0142_v1.webp",
+      "kind": "contact-word",
+      "choices": false,
+      "form": "word"
+    },
+    {
+      "text": "An address",
+      "es": "Una dirección",
+      "image": "/lesson-assets/a1_photo_u3_contact_house_12_v1.webp",
+      "kind": "contact-word",
+      "choices": false,
+      "form": "word"
+    },
+    {
+      "text": "What is your phone number?",
+      "es": "¿Cuál es tu número de teléfono?",
+      "image": "/lesson-assets/a1_photo_u3_contact_ask_phone_v1.webp",
+      "kind": "contact-question",
+      "image_choices": false,
+      "speaker": "luis"
+    },
+    {
+      "text": "What is your address?",
+      "es": "¿Cuál es tu dirección?",
+      "image": "/lesson-assets/a1_photo_u3_contact_ask_address_v1.webp",
+      "kind": "contact-question",
+      "image_choices": false,
+      "speaker": "luis"
+    },
+    {
+      "text": "It is number zero.",
+      "es": "Es el número cero.",
+      "image": "/lesson-assets/a1_photo_u3_contact_card_0_v1.webp",
+      "kind": "number-it",
+      "learn": false,
+      "prefer": [
+        "It is number ten.",
+        "It is number one."
+      ],
+      "question": "What number is it?",
+      "question_es": "¿Qué número es?"
+    },
+    {
+      "text": "It is five five five, zero one four two.",
+      "es": "Es el cinco cinco cinco, cero uno cuatro dos.",
+      "image": "/lesson-assets/a1_photo_u3_contact_phone_0142_v1.webp",
+      "kind": "phone-reply",
+      "learn": false,
+      "prefer": [
+        "It is five five five, zero one seven zero."
+      ],
+      "four_card": false,
+      "use": false,
+      "speaker": "ana",
+      "question": "What is your phone number?",
+      "question_es": "¿Cuál es tu número de teléfono?",
+      "question_speaker": "luis"
+    },
+    {
+      "text": "It is five five five, zero one seven zero.",
+      "es": "Es el cinco cinco cinco, cero uno siete cero.",
+      "image": "/lesson-assets/a1_photo_u3_contact_phone_0170_v1.webp",
+      "kind": "phone-reply",
+      "learn": false,
+      "prefer": [
+        "It is five five five, zero one one six."
+      ],
+      "four_card": false,
+      "use": false,
+      "speaker": "ana",
+      "question": "What is your phone number?",
+      "question_es": "¿Cuál es tu número de teléfono?",
+      "question_speaker": "luis"
+    },
+    {
+      "text": "It is five five five, zero one one six.",
+      "es": "Es el cinco cinco cinco, cero uno uno seis.",
+      "image": "/lesson-assets/a1_photo_u3_contact_phone_0116_v1.webp",
+      "kind": "phone-reply",
+      "learn": false,
+      "prefer": [
+        "It is five five five, zero one four two."
+      ],
+      "four_card": false,
+      "use": false,
+      "speaker": "ana",
+      "question": "What is your phone number?",
+      "question_es": "¿Cuál es tu número de teléfono?",
+      "question_speaker": "luis"
+    },
+    {
+      "text": "It is twelve Park Street.",
+      "es": "Es la calle Park número doce.",
+      "image": "/lesson-assets/a1_photo_u3_contact_house_12_v1.webp",
+      "kind": "address-reply",
+      "learn": false,
+      "prefer": [
+        "It is fifteen Park Street."
+      ],
+      "four_card": false,
+      "use": false,
+      "speaker": "ana",
+      "question": "What is your address?",
+      "question_es": "¿Cuál es tu dirección?",
+      "question_speaker": "luis"
+    },
+    {
+      "text": "It is fifteen Park Street.",
+      "es": "Es la calle Park número quince.",
+      "image": "/lesson-assets/a1_photo_u3_contact_house_15_v1.webp",
+      "kind": "address-reply",
+      "learn": false,
+      "prefer": [
+        "It is twenty Park Street."
+      ],
+      "four_card": false,
+      "use": false,
+      "speaker": "ana",
+      "question": "What is your address?",
+      "question_es": "¿Cuál es tu dirección?",
+      "question_speaker": "luis"
+    },
+    {
+      "text": "It is twenty Park Street.",
+      "es": "Es la calle Park número veinte.",
+      "image": "/lesson-assets/a1_photo_u3_contact_house_20_v1.webp",
+      "kind": "address-reply",
+      "learn": false,
+      "prefer": [
+        "It is twelve Park Street."
+      ],
+      "four_card": false,
+      "use": false,
+      "speaker": "ana",
+      "question": "What is your address?",
+      "question_es": "¿Cuál es tu dirección?",
+      "question_speaker": "luis"
+    },
+    {
+      "text": "My address is twelve Park Street.",
+      "es": "Mi dirección es la calle Park número doce.",
+      "image": "/lesson-assets/a1_photo_u3_contact_house_12_v1.webp",
+      "kind": "my-address",
+      "learn": false,
+      "prefer": [
+        "My address is fifteen Park Street."
+      ],
+      "four_card": false,
+      "image_choices": false,
+      "use": false,
+      "speaker": "ana"
+    },
+    {
+      "text": "This is my address.",
+      "es": "Esta es mi dirección.",
+      "image": "/lesson-assets/a1_photo_u3_contact_house_12_v1.webp",
+      "kind": "this-my",
+      "learn": false,
+      "prefer": [
+        "This is my phone."
+      ],
+      "four_card": false,
+      "image_choices": false,
+      "speaker": "ana"
+    }
+  ],
+  "pool": [
+    {
+      "text": "This is my phone.",
+      "es": "",
+      "kind": "this-my"
+    },
+    {
+      "text": "This is my bag.",
+      "es": "",
+      "kind": "this-my"
+    },
+    {
+      "text": "What is your name?",
+      "es": "",
+      "kind": "contact-question"
+    },
+    {
+      "text": "It is number ten.",
+      "es": "",
+      "image": "/lesson-assets/a1_photo_number_card_10_v1.webp",
+      "kind": "number-it"
+    },
+    {
+      "text": "It is number one.",
+      "es": "",
+      "image": "/lesson-assets/a1_photo_number_card_01_v1.webp",
+      "kind": "number-it"
+    },
+    {
+      "text": "My address is fifteen Park Street.",
+      "es": "",
+      "kind": "my-address"
+    },
+    {
+      "text": "My address is twenty Park Street.",
+      "es": "",
+      "kind": "my-address"
+    }
+  ]
+}

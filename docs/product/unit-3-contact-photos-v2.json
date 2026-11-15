@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "pack": "unit-3-contact-photos",
+  "revision": 2,
+  "output_namespace": "unit-3-lesson-v4",
+  "authorization": "2026-11-15: the user asked for A1 lesson 3.13 Phone Number and Address to be built and had approved the gap-lesson media in advance. Ceiling US$0.40 for this revision. Revision 1's phone-question photo was rejected because the two people did not look like Luis and Ana; this revision remakes it as an edit of the inspected address-question photo, so the faces stay the same. Every rejected output is reported with its cost.",
+  "image_settings": {
+    "provider": "google-gemini",
+    "model": "gemini-3-pro-image",
+    "aspect_ratio": "3:2",
+    "image_size": "2K",
+    "runtime_size": "1536x1024",
+    "runtime_format": "webp",
+    "n": 1
+  },
+  "production": {
+    "price_per_image_usd": "0.134",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing (checked 2026-09-24: Gemini 3 Pro Image, $0.134 per 1K/2K image)",
+    "planned_images": 1,
+    "expected_cost_usd": "0.14",
+    "requested_ceiling_usd": "0.40",
+    "no_automatic_retries": true,
+    "order": "One edit; both faces are compared with the reference."
+  },
+  "shared_prompts": {
+    "photo": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Full-bleed 3:2 landscape; no frames, padding, watermark or captions. No readable letters, words or numbers anywhere.",
+    "edit": "This is a precise edit of image 1: the result must look like the same photograph with one detail changed. Change only what the instruction names."
+  },
+  "assets": [
+    {
+      "id": "d01-ask-phone",
+      "order": 1,
+      "lesson": "3.13",
+      "item": "What is your phone number?",
+      "runtime_filename": "a1_photo_u3_contact_ask_phone_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo",
+        "edit"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1_photo_u3_contact_ask_address_v1.webp",
+        "sha256": "e79f2d3afa3c73ae1a88d718b6c1deb0d68fc36030579380d218b8c865926716",
+        "observed_description": "In a bright room Luis (short dark hair, navy T-shirt) holds a blank white envelope and a pen ready to write and asks Ana a question, eyebrows raised and mouth open; Ana (long wavy black hair, olive-green shirt over a white top) stands on the right and listens with a smile. Two people; the envelope is blank; no writing."
+      },
+      "prompt": "Image 1 shows a man holding a blank envelope and a pen while he asks a woman a question. Keep the photograph exactly as it is: the same two people with the same faces, hair and clothes, the same room, light and framing, and the woman exactly as she is. Change ONLY what the man holds: REMOVE the envelope and the pen, and instead he holds one black smartphone upright in one hand at chest height, its screen turned toward himself and away from the camera, with the index finger of his other hand ready to tap the screen, as someone about to save a phone number. He still looks at the woman with raised eyebrows and an open mouth, mid-question. No envelope, no pen and no readable writing anywhere. Every visible hand has five natural fingers."
+    }
+  ]
+}

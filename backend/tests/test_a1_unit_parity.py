@@ -36,7 +36,8 @@ class UnitParityTests(unittest.TestCase):
         recorded = {(unit, f["id"]) for unit, contract in contracts["units"].items()
                     for f in contract["functions"] if mission_deferral(f)}
         self.assertEqual(recorded, {("2", "size-state-comparison"), ("4", "everyday-verbs"), ("4", "tomorrow-and-the-week"),
-                                    ("5", "buying-things"), ("5", "tens")})
+                                    ("5", "buying-things"), ("5", "tens"),
+                                    ("3", "contact-details")})
         lessons = [json.loads(path.read_text(encoding="utf-8-sig"))
                    for path in sorted((CONTRACTS.parents[2] / "backend/lessons/unit_2").glob("*.yaml"))]
         result = audit(lessons, {**contracts, "units": {"2": contracts["units"]["2"]}}, CONTRACTS.parents[2] / "Lessons/Lesson1/images")

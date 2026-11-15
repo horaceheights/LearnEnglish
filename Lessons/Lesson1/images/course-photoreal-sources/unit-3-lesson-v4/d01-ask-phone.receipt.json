@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "402b6f8f-0ffc-4fd6-b9d4-35c475dd46eb",
+  "asset_id": "d01-ask-phone",
+  "pack_sha256": "3c58eca084b9ca5184102fc98b5d3e1966d335149e4cb6b858fdd98a9e0b8106",
+  "started_at": "2026-11-15T17:30:32.219212+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Full-bleed 3:2 landscape; no frames, padding, watermark or captions. No readable letters, words or numbers anywhere.\n\nThis is a precise edit of image 1: the result must look like the same photograph with one detail changed. Change only what the instruction names.\n\nImage 1 shows a man holding a blank envelope and a pen while he asks a woman a question. Keep the photograph exactly as it is: the same two people with the same faces, hair and clothes, the same room, light and framing, and the woman exactly as she is. Change ONLY what the man holds: REMOVE the envelope and the pen, and instead he holds one black smartphone upright in one hand at chest height, its screen turned toward himself and away from the camera, with the index finger of his other hand ready to tap the screen, as someone about to save a phone number. He still looks at the woman with raised eyebrows and an open mouth, mid-question. No envelope, no pen and no readable writing anywhere. Every visible hand has five natural fingers.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1_photo_u3_contact_ask_address_v1.webp",
+    "sha256": "e79f2d3afa3c73ae1a88d718b6c1deb0d68fc36030579380d218b8c865926716"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "OOz5aua5LLO_qtsP__SoyAg",
+  "usage": {
+    "promptTokenCount": 498,
+    "candidatesTokenCount": 1288,
+    "totalTokenCount": 1981,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 240
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 195,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137336",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 498,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 195
+  },
+  "elapsed_seconds": 22.56,
+  "output": "output/imagegen/unit-3-lesson-v4/d01-ask-phone.png",
+  "sha256": "b5b9d6a32dedfec5794c24192a0d9419ea39c7858160ae45e05731612398725f",
+  "byte_count": 4821476,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

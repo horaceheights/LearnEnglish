@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "d6d57e9a-f7c7-4c37-ba6e-331e005c1005",
+  "asset_id": "y01-review-house-8",
+  "pack_sha256": "0b2c007a480aa55d14e7d687767b7c0399fe0beeca267ac08b9246d1084dc834",
+  "started_at": "2026-11-15T17:31:36.739394+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Full-bleed 3:2 landscape; no frames, padding, watermark or captions. The only writing is the house number.\n\nThis is a precise edit of image 1: the result must look like the same photograph with one detail changed. Change only what the instruction names.\n\nImage 1 shows the front of a house with the number 12 beside its door, on a street that faces a park. Keep the photograph exactly as it is: the same house, street, park, light and framing. Change ONLY two things: the house number plate now reads exactly 8, one single large black numeral, perfectly sharp; and the front door is now painted bright red instead of blue. Nothing else changes.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1_photo_u3_contact_house_12_v1.webp",
+    "sha256": "270af4d4f02e9de0a6092446b5f9f2cca87af15b5466334f4d36834182be29d5"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "eez5au-8IN-cz7IPjPWRiQY",
+  "usage": {
+    "promptTokenCount": 426,
+    "candidatesTokenCount": 1269,
+    "totalTokenCount": 1830,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 168
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 135,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.136472",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 426,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 135
+  },
+  "elapsed_seconds": 22.72,
+  "output": "output/imagegen/unit-3-review-v5/y01-review-house-8.png",
+  "sha256": "09637adc485f8ce033be8fd68eb578b14c97176d2ef3e25747378084851473e1",
+  "byte_count": 7750441,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}
