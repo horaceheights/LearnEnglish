@@ -62,7 +62,7 @@ def compile_lesson(base: dict, pack: dict) -> dict:
                 remap_images(item)
     remap_images(lesson)
     cards = {card["slide_id"]: card for card in lesson["cards"]}
-    if len(cards) not in (32, 48, 56):
+    if len(cards) not in (32, 48, 56, 64):
         raise ValueError("Unexpected independent review revision; reconcile before authoring.")
     # Retain the old IDs for existing cards so their history stays traceable.
     def teach(identifier, text, translation, asset):
@@ -235,16 +235,54 @@ def compile_lesson(base: dict, pack: dict) -> dict:
                    "audio_text": "It is a small table.", "answer_audio_text": "It is a small table.",
                    "prompt_image_url": gap("small_table"), "spanish_translation": "Es una mesa pequeña.",
                    "pedagogy_note": "word-order selection", "translation": "Es una mesa pequeña.", "correct_option_ids": gap_ids}
+    # 2026-11-15: Lesson 2.12 In the Classroom adds eight words; under the standing rule for gap lessons the
+    # review brings each back: five heard sentences with written choices, one spoken line and two constructions
+    # on three fresh photos (docs/product/unit-2-review-classroom-photos-v1.json and -v2.json).
+    room = lambda name: f"a1_u2_review_gap_{name}_v1.webp"
+    room_note = "Brings back the 2.12 In the Classroom words; all options already taught."
+    for identifier, text, translated, choices in (
+        ("N22", "Is it a pen or a pencil?", "¿Es un bolígrafo o un lápiz?",
+         ("Is it a book or a notebook?", "Is it a pen or a pencil?")),
+        ("N23", "It is a classroom.", "Es un salón de clases.", ("It is a class.", "It is a classroom.", "It is a school.")),
+        ("N24", "It is a class.", "Es una clase.", ("It is a class.", "It is a classroom.")),
+        ("N25", "She is a student.", "Ella es estudiante.", ("She is a child.", "She is a student.")),
+        ("N26", "It is a desk.", "Es un pupitre.", ("It is a table.", "It is a chair.", "It is a desk.")),
+    ):
+        cards[identifier] = {"slide_id": identifier, "stage": "Listen", "interaction_type": f"a2t{len(choices)}",
+                             "prompt": "Listen and choose.", "audio_text": text, "answer_audio_text": None,
+                             "correct_option_id": key(text), "prompt_image_url": "", "spanish_translation": translated,
+                             "pedagogy_note": room_note,
+                             "options": [{"id": key(option), "label": option, "image_url": ""} for option in choices]}
+    cards["S9"] = {"slide_id": "S9", "interaction_type": "repeat", "prompt": "It is a blue pencil.", "stage": "Speak",
+                   "correct_option_id": key("It is a blue pencil.") + "-1",
+                   "options": [{"id": key("It is a blue pencil.") + "-1", "image_url": room("blue_pencil"),
+                                "label": "It is a blue pencil."}],
+                   "audio_text": "It is a blue pencil.", "answer_audio_text": None, "prompt_image_url": "",
+                   "spanish_translation": "Es un lápiz azul.", "pedagogy_note": room_note}
+    for identifier, text, translated, name in (
+        ("U10", "It is a red notebook.", "Es un cuaderno rojo.", "red_notebook"),
+        ("U11", "The paper is yellow.", "El papel es amarillo.", "yellow_paper"),
+    ):
+        room_words = text.rstrip(".").split()
+        room_ids = [f"word-{i + 1}" for i in range(len(room_words))]
+        cards[identifier] = {"slide_id": identifier, "interaction_type": "complete-sentence",
+                             "prompt": " ".join("___" for _ in room_words) + ".", "stage": "Use", "correct_option_id": "word-1",
+                             "options": [{"id": i, "label": word, "image_url": ""} for i, word in zip(room_ids, room_words)],
+                             "audio_text": text, "answer_audio_text": text, "prompt_image_url": room(name),
+                             "spanish_translation": translated, "pedagogy_note": "word-order selection",
+                             "translation": translated, "correct_option_ids": room_ids}
     # Same ordered stations across modalities: surroundings -> object identity
     # -> pointing near/far -> quantity/color -> final number check (Listen).
     order = ["L1", "L5", "L2", "L6", "L4", "L7", "L3", "L8"]
     order += [f"R{i}" for i in range(1, 11)]
-    order += ["N1", "N11", "N12", "N13", "N14", "N15", "N2", "N16", "N17", "N18", "N3", "N4", "N6", "N5", "N7", "N8", "N9", "N10", "N19", "N20", "N21"]
-    order += [f"S{i}" for i in range(1, 9)] + [f"U{i}" for i in range(1, 10)]
+    order += ["N1", "N11", "N12", "N13", "N14", "N15", "N2", "N16", "N17", "N18", "N3", "N4", "N6", "N5", "N7", "N8", "N9", "N10", "N19", "N20", "N21",
+              "N22", "N23", "N24", "N25", "N26"]
+    order += [f"S{i}" for i in range(1, 10)] + [f"U{i}" for i in range(1, 12)]
     lesson["cards"] = [cards[key] for key in order]
     lesson["content_revision"] = 1
     lesson["goal"] = ("Review Unit 2 through fresh surroundings, object identification, true near/far contrasts, quantities, colors and "
-                      "big/small, new/used and same/different pairs, then recognize the final numbers by ear. No new language.")
+                      "big/small, new/used and same/different pairs and the classroom words, then recognize the final numbers by ear. "
+                      "No new language.")
     from scripts.course_contract import is_foundation
     lesson["review_vocabulary"] = sorted(set(word for value in lessons(ROOT).values()
                                                if value.get("unit_id") == "unit-2" and is_foundation(value)
