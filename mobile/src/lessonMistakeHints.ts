@@ -69,6 +69,8 @@ const MEANINGS: Record<string, string> = {
   // A1 1.11 (2026-11-14): friends and people.
   friend: 'amigo o amiga', friends: 'amigos', husband: 'esposo', wife: 'esposa', son: 'hijo', daughter: 'hija',
   person: 'persona', people: 'personas',
+  // A1 2.11 (2026-11-14): big and small, new and used, same and different.
+  big: 'grande', small: 'pequeño o pequeña', new: 'nuevo o nueva', used: 'usado o usada', same: 'igual', different: 'diferente',
   running: 'corriendo', walking: 'caminando', reading: 'leyendo', writing: 'escribiendo',
   eating: 'comiendo', drinking: 'bebiendo', cooking: 'cocinando', working: 'trabajando',
   studying: 'estudiando', playing: 'jugando', swimming: 'nadando', sleeping: 'durmiendo',

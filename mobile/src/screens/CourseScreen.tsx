@@ -154,6 +154,11 @@ const VISUALS: Record<string, { image: string; description: string; color: strin
     description: 'Estos y esos: varias cosas cerca y lejos.',
     color: '#dff4ef',
   },
+  'lesson-2-11-big-small': {
+    image: 'a1_photo_u2_bigsmall_big_dog_v1.webp',
+    description: 'Grande y pequeño, nuevo y usado, igual y diferente.',
+    color: '#dff4ef',
+  },
   'lesson-2-9-unit-2-review': {
     image: 'a1_scene_five-black-phones_734dda6.webp',
     description: 'Repaso de lugares, objetos, números, colores, estos y esos.',

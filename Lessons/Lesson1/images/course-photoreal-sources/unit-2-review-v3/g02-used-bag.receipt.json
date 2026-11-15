@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "5b025df2-1886-414c-84d6-956cddf24f72",
+  "asset_id": "g02-used-bag",
+  "pack_sha256": "0056831e3a0472ee709e227e73a34f5ed1cc134aca091dfeb95f524f250c2860",
+  "started_at": "2026-11-14T22:34:58.155780+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material, fabric, paper and wood texture, soft natural daylight and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, numbers, logos or brand marks anywhere, including on bags, books, furniture and walls. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.\n\nThis is a precise edit of image 1: the result must look like a second photograph taken from the same spot a moment later, with the same framing, perspective, lens and light, and with every kept object in the same place at the same size. Change only what the instruction names.\n\nImage 1 shows a brand-new green backpack. Keep the same backpack model, the same green color family, the same position and size in the frame, and the same table, wall and camera position. Show the SAME backpack many years later as a clearly USED bag. Its fabric is faded and unevenly sun-bleached to a pale dull green; it sags and has lost its crisp shape; there are several dark dirt stains and scuff marks; the edges and the bottom corners are frayed with loose threads; the front pocket has one hand-sewn square brown patch; the zipper is dull and its pull is replaced by a short knotted string; the top handle is worn thin. The wear is obvious at a glance even when the photo is very small. It is an ordinary used bag that still works: it is closed, not torn open, not empty or crushed flat, and nothing spills out of it. Exactly one bag and nothing else on the table; no people, no labels and no other objects.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "output/imagegen/unit-2-review-v3/g01-new-bag.png",
+    "sha256": "34bef9669bbb06845b099f94124037764d59266043cf8c4a347995f1492af539"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "EeL4aoPWOLPUz7IPj9qQiAY",
+  "usage": {
+    "promptTokenCount": 656,
+    "candidatesTokenCount": 1317,
+    "totalTokenCount": 2173,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 398
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 200,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137712",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 656,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 200
+  },
+  "elapsed_seconds": 23.01,
+  "output": "output/imagegen/unit-2-review-v3/g02-used-bag.png",
+  "sha256": "baf06f683ea8ba679d0638b8d5f8abc08679e6776fcfb0f1e6c1339db1c753cb",
+  "byte_count": 5380002,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

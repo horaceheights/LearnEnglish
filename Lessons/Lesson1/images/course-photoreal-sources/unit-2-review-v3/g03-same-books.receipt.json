@@ -1,0 +1,57 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "41618963-5687-4318-9c50-a1007b805f34",
+  "asset_id": "g03-same-books",
+  "pack_sha256": "0056831e3a0472ee709e227e73a34f5ed1cc134aca091dfeb95f524f250c2860",
+  "started_at": "2026-11-14T22:33:50.809589+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material, fabric, paper and wood texture, soft natural daylight and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, numbers, logos or brand marks anywhere, including on bags, books, furniture and walls. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.\n\nTwo IDENTICAL books. Two closed hardcover books stand upright side by side on a light wooden table in front of a plain pale wall, front covers facing the camera, with a clear gap of one hand's width between them. They are exact twins: the same plain bright-red cover, the same height, the same width and the same thickness. A viewer sees at a glance that the two books are the same. The covers are completely plain, with no title, picture, line or mark. Both books are whole and sharp, and together they fill the central 60 percent of the photo width. Exactly two books and nothing else on the table; no people, no pens, no bookmarks and no other objects.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "zeH4at6eK_Gtz7IPsreBiQI",
+  "usage": {
+    "promptTokenCount": 278,
+    "candidatesTokenCount": 1305,
+    "totalTokenCount": 1782,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 278
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 199,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.136944",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 278,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 199
+  },
+  "elapsed_seconds": 21.81,
+  "output": "output/imagegen/unit-2-review-v3/g03-same-books.png",
+  "sha256": "9a7378410648ecf8836c2260045aac6afff74038d30fda9ab45779a5714db2b3",
+  "byte_count": 5914586,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

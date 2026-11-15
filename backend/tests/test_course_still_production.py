@@ -6,7 +6,7 @@ from decimal import Decimal
 from pathlib import Path
 
 from scripts.render_course_stills import ROOT, cost_from_usage, load_pack, multipart, validate_budget, finalize_saved_image
-from scripts.audit_a1_unit_parity import CONTRACTS, function_coverage
+from scripts.audit_a1_unit_parity import CONTRACTS, function_coverage, mission_functions
 
 
 class CourseStillProductionTests(unittest.TestCase):
@@ -71,7 +71,10 @@ class CourseStillProductionTests(unittest.TestCase):
         # Since the 2026-09-24 reuse pass the installed mission carries clues the original
         # pack predates (these/those, which one); coverage is checked on the live lesson.
         mission = json.loads((ROOT / "backend/lessons/unit_2/lesson-2-10-around-me-mission.yaml").read_text(encoding="utf-8"))
-        self.assertFalse(any(value["missing_patterns"] for value in function_coverage(mission, functions).values()))
+        # A function with a dated, user-approved mission deferral (2.11 Big and Small, 2026-11-14) is reported by
+        # the parity audit and not required of the mission yet.
+        self.assertFalse(any(value["missing_patterns"]
+                             for value in function_coverage(mission, mission_functions(functions)).values()))
         assessed = " ".join(cue["text"] for card in cards for cue in card["mission_game"]["cues"])
         for unintroduced in ("waiting", "bench", "there are", "have", "want"):
             self.assertNotIn(unintroduced, assessed.casefold())

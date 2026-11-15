@@ -4,7 +4,8 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from scripts.audit_a1_unit_parity import CONTRACTS, audit, function_coverage, review_reuse, successful_language
+from scripts.audit_a1_unit_parity import (CONTRACTS, audit, function_coverage, mission_deferral, mission_functions,
+                                          review_reuse, successful_language)
 from backend.app.data import LESSONS
 from scripts.course_contract import is_foundation
 
@@ -21,6 +22,25 @@ class UnitParityTests(unittest.TestCase):
                 self.assertTrue(foundations and foundations <= taught)
                 ids = [function["id"] for function in contract["functions"]]
                 self.assertEqual(len(ids), len(set(ids)))
+
+    def test_a_mission_deferral_needs_a_dated_reason_and_stays_reported(self):
+        function = {"id": "size", "taught_in": "2.11", "patterns": [r"\bbig\b"]}
+        deferred = {**function, "mission_practice_deferred": {
+            "approved_on": "2026-11-14", "reason": "User decision: the mission beat is a separate follow-up task."}}
+        self.assertEqual(mission_functions([function, deferred]), [function])
+        for broken in ({"approved_on": "2026-11-14"}, {"reason": "x" * 60}, {"approved_on": "soon", "reason": "x" * 60}):
+            with self.subTest(broken=broken), self.assertRaises(ValueError):
+                mission_deferral({**function, "mission_practice_deferred": broken})
+        # The only recorded deferral is the user's 2026-11-14 decision for A1 2.11 Big and Small.
+        contracts = json.loads(CONTRACTS.read_text(encoding="utf-8"))
+        recorded = {(unit, f["id"]) for unit, contract in contracts["units"].items()
+                    for f in contract["functions"] if mission_deferral(f)}
+        self.assertEqual(recorded, {("2", "size-state-comparison")})
+        lessons = [json.loads(path.read_text(encoding="utf-8-sig"))
+                   for path in sorted((CONTRACTS.parents[2] / "backend/lessons/unit_2").glob("*.yaml"))]
+        result = audit(lessons, {**contracts, "units": {"2": contracts["units"]["2"]}}, CONTRACTS.parents[2] / "Lessons/Lesson1/images")
+        self.assertEqual(result["units"]["2"]["mission_practice_deferred"], ["size-state-comparison"])
+        self.assertTrue(result["units"]["2"]["ready"], result["units"]["2"]["gaps"])
 
     def test_metadata_and_distractors_cannot_claim_successful_practice(self):
         lesson = {

@@ -1,6 +1,6 @@
 # A1 Priority 1 gap lessons: detailed plan
 
-Date: 2026-11-14. Status: **plan for discussion**. 1.10 Pets and 1.11 Friends and People are approved and built (2026-11-14; see the guardrails decision log for the later-reuse status); nothing else here is approved. It details the Priority 1 group from [a1-gap-lessons-draft.md](a1-gap-lessons-draft.md).
+Date: 2026-11-14. Status: **plan for discussion**. 1.10 Pets, 1.11 Friends and People and 2.11 Big and Small are approved and built (2026-11-14; see the guardrails decision log for the later-reuse and mission status); nothing else here is approved. It details the Priority 1 group from [a1-gap-lessons-draft.md](a1-gap-lessons-draft.md).
 
 ## 1. What changed from the draft
 
@@ -23,7 +23,7 @@ Each lesson goes at the end of its unit. The unit's review and mission move to t
 |---|---|---|---|
 | 1.10 | Pets | pet, pets, dog, cat, bird, rabbit | The dog is running. The cat is sleeping. They are pets. |
 | 1.11 | Friends and People | friend, friends, husband, wife, son, daughter, person, people | They are friends. Who is she? She is the daughter. The people are talking. |
-| 2.11 | Big and Small | big, small, new, old, same, different | A big dog. The car is new. Two small red books. These pens are the same. |
+| 2.11 | Big and Small | big, small, new, used, same, different | It is a big dog. The car is new. It is a small red bag. The bags are the same. |
 | 3.13 | The Alphabet A to M | letters A–M, letter | A letter. It is a B. |
 | 3.14 | The Alphabet N to Z | letters N–Z, spell, How do you spell it? | My name is Ana. How do you spell it? A-N-A. |
 | 3.15 | Phone Number and Address | zero, phone number, address, What is your phone number?, What is your address? | My phone number is 555-0142. My address is 12 Park Street. |
@@ -58,7 +58,7 @@ So five unit reviews must grow to include the new words. Two lessons still need 
 
 1. **Alphabet: conflicts with an earlier decision.** On 2026-09-23 the user deferred spelling and the alphabet because they stress adult beginners. Lessons 3.13 and 3.14 therefore stay out of the build unless the user reverses that decision; 3.15 Phone Number and Address would then drop its spelling line and become 3.13. If they are ever built, two lessons of 14 and 15 items need an approved exception to the 8-item limit (the largest so far is 11, lesson 7.1), or four lessons of 6–7 letters each.
 2. **Speaking single letters.** Pronunciation scoring may not tell `B` from `D` or `P`. This needs a quick test in the app before the alphabet lessons are written. If it fails, Speak can use spelled names (`A-N-A`) instead of single letters.
-3. **`old` in A1 2.11.** A1+ 1.1 teaches `old` and `young` for people and is already in Preview. If A1 teaches `old` for things, A1+ 1.1 treats it as known. The alternative is to drop `old` and teach only `new` here.
+3. **`old` in A1 2.11: decided 2026-11-14.** The user chose `used` and `new` for things, so A1 does not teach `old`; it stays with A1+ 1.1 for people. 4.11 plans the verb `use`; its brief must keep the verb apart from the adjective `used`.
 4. **Reviews.** Reviews are capped at 48–54 cards. Adding the new words means either replacing existing review cards or approving longer reviews.
 5. **Missions.** Leaving the five missions untouched is possible, except for the two lessons in section 3 that need one more home.
 6. **A1+ Unit 1.** New A1 1.10 and 1.11 create A1+ 1.10 and 1.11 under the same-number rule. The A1+ Unit 1 rebuild is in progress in another session and would need to know.

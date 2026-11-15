@@ -56,6 +56,25 @@ def function_coverage(lesson: dict[str, Any], functions: list[dict[str, Any]]) -
     } for function in functions}
 
 
+def mission_deferral(function: dict[str, Any]) -> dict[str, str] | None:
+    """A user-approved, dated decision that the unit mission does not practise a function yet.
+
+    Only an explicit record counts: the approval date and a reason of real length. The
+    deferral is reported with the unit, so the missing mission practice stays visible.
+    """
+    record = function.get("mission_practice_deferred")
+    if not isinstance(record, dict):
+        return None
+    if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", str(record.get("approved_on", ""))) or len(str(record.get("reason", ""))) < 40:
+        raise ValueError(f"{function.get('id')}: a mission deferral needs approved_on (YYYY-MM-DD) and a reason.")
+    return record
+
+
+def mission_functions(functions: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    """The functions the unit mission must practise on its successful path."""
+    return [function for function in functions if mission_deferral(function) is None]
+
+
 def referenced_images(lesson: dict[str, Any]) -> set[str]:
     images: set[str] = set()
     for card in lesson.get("cards", []):
@@ -118,7 +137,9 @@ def audit(lessons: list[dict[str, Any]], contracts: dict[str, Any], image_root: 
             if len(turns) != 1 or not turns[0].get("image_url") or turns[0]["image_url"] == response:
                 gaps.append(f"{card.get('slide_id')}: needs a distinct question-view and response-view.")
         coverage = function_coverage(mission, contract["functions"])
-        missing_functions = [key for key, value in coverage.items() if value["missing_patterns"]]
+        required = {function["id"] for function in mission_functions(contract["functions"])}
+        deferred = sorted(key for key, value in coverage.items() if key not in required and value["missing_patterns"])
+        missing_functions = [key for key, value in coverage.items() if key in required and value["missing_patterns"]]
         if missing_functions:
             gaps.append("Missing successful-path practice: " + ", ".join(missing_functions))
         for function in contract["functions"]:
@@ -150,7 +171,7 @@ def audit(lessons: list[dict[str, Any]], contracts: dict[str, Any], image_root: 
         output["units"][unit] = {
             "ready": not gaps, "gaps": gaps, "mission_beats": len(cards),
             "listening_decisions": decisions, "voice_gates": len(voices),
-            "function_coverage": coverage, "review_media": reuse,
+            "function_coverage": coverage, "mission_practice_deferred": deferred, "review_media": reuse,
             "review_vocabulary": {"exact_retrieved": len(retrieved), "declared": len(vocabulary),
                                   "unmatched": sorted(vocabulary - retrieved)},
         }

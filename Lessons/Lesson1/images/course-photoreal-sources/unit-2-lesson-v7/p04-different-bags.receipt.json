@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "121adea9-612b-4520-a4fc-def66b734b1d",
+  "asset_id": "p04-different-bags",
+  "pack_sha256": "74297fb8e9a80f3f3e7b3e0c024cfc302ba9a3ff4c7c0e2e1b655bdc29a4e18b",
+  "started_at": "2026-11-14T22:24:18.782900+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material, fabric, metal and fur texture, soft natural daylight and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, numbers, logos or brand marks anywhere, including on clothing, collars, bags, vehicles, plates and walls. A first-time learner must understand the picture instantly on a small phone screen.\n\nThis is a precise edit of image 1: the result must look like a second photograph taken from the same spot a moment later, with the same framing, perspective, lens and light, and with every kept object in the same place at the same size. Change only what the instruction names.\n\nImage 1 shows two identical blue backpacks side by side on a table. Keep the LEFT blue backpack, the table, the wall, the light and the camera position exactly as they are. REPLACE the RIGHT backpack with a clearly DIFFERENT bag standing in the same place: one small bright-yellow backpack with a rounded top, a buckled front flap and two brown leather straps, about two thirds as tall as the blue one. A viewer sees at a glance that the two bags are different in color, size and shape. Both bags are whole and sharp with a clear gap between them. Exactly two bags and nothing else on the table; no people, no books, no bottles, no labels and no key rings.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1_photo_u2_bigsmall_same_bags_v1.webp",
+    "sha256": "02dc1821040bae0372a1016101af268b4b8e779837f14d1d1e809719d1eede69"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "kd_4aovGN8Gtz7IPlfTB-QU",
+  "usage": {
+    "promptTokenCount": 590,
+    "candidatesTokenCount": 1305,
+    "totalTokenCount": 2073,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 332
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 178,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137316",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 590,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 178
+  },
+  "elapsed_seconds": 20.76,
+  "output": "output/imagegen/unit-2-lesson-v7/p04-different-bags.png",
+  "sha256": "0a2a92802d57dd31d2a00566498d3d66cc8ee217e4c99607d3bacfbff7967e1a",
+  "byte_count": 5775639,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

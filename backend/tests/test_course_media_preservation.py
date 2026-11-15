@@ -139,9 +139,9 @@ class MediaPreservationTests(unittest.TestCase):
         original = deepcopy(base)
         result = compile_lesson(base, pack)
         self.assertEqual(base, original)
-        self.assertEqual(len(result["cards"]), 48)
+        self.assertEqual(len(result["cards"]), 56)  # 2026-11-14: eight cards bring back the 2.11 Big and Small words
         self.assertEqual([card["stage"] for card in result["cards"]],
-                         ["Learn"] * 8 + ["Recognize"] * 8 + ["Listen"] * 18 + ["Speak"] * 6 + ["Use"] * 8)
+                         ["Learn"] * 8 + ["Recognize"] * 10 + ["Listen"] * 21 + ["Speak"] * 8 + ["Use"] * 9)
         by_id = {card["slide_id"]: card for card in result["cards"]}
         for key, suffix in (("R5", "chair"), ("N3", "bag"), ("N4", "chair")):
             self.assertEqual({opt["id"] for opt in by_id[key]["options"]}, {"near-" + suffix, "far-" + suffix})
@@ -162,7 +162,7 @@ class MediaPreservationTests(unittest.TestCase):
         foundations = [lesson for lesson in lessons(ROOT).values()
                        if lesson["sub_lesson_id"].startswith("2.") and is_foundation(lesson)]
         vocabulary = {normalize(word) for lesson in foundations for word in lesson.get("vocabulary", [])}
-        self.assertEqual(len(vocabulary), 48)  # 2026-09-24: number (2.6), color (2.8), these, those, which one (2.10)
+        self.assertEqual(len(vocabulary), 54)  # 2026-09-24: number, color, these, those, which one; 2026-11-14: the six 2.11 words
         missing = {word for word in vocabulary if not any(re.search(r"\b" + re.escape(word) + r"\b", line) for line in lines)}
         self.assertEqual(missing, set())
         self.assertEqual(compile_lesson(result, pack), result)

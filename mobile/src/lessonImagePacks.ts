@@ -70,6 +70,7 @@ export const LESSON_IMAGE_PACKS: Record<string, number> = {
   '38-1': require('../assets/lesson-image-packs/lesson-images-38-1.bin'),
   '39-0': require('../assets/lesson-image-packs/lesson-images-39-0.bin'),
   '3a-0': require('../assets/lesson-image-packs/lesson-images-3a-0.bin'),
+  '3a-1': require('../assets/lesson-image-packs/lesson-images-3a-1.bin'),
   '3b-0': require('../assets/lesson-image-packs/lesson-images-3b-0.bin'),
   '3c-0': require('../assets/lesson-image-packs/lesson-images-3c-0.bin'),
   '3d-0': require('../assets/lesson-image-packs/lesson-images-3d-0.bin'),

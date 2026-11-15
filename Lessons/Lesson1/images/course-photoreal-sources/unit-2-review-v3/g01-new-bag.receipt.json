@@ -1,0 +1,57 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "c357049c-aa14-4fce-a64c-37a530e4bf6a",
+  "asset_id": "g01-new-bag",
+  "pack_sha256": "0056831e3a0472ee709e227e73a34f5ed1cc134aca091dfeb95f524f250c2860",
+  "started_at": "2026-11-14T22:33:30.526211+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material, fabric, paper and wood texture, soft natural daylight and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, numbers, logos or brand marks anywhere, including on bags, books, furniture and walls. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.\n\nOne brand-NEW backpack. A green school backpack stands upright, alone, in the middle of a light wooden table in front of a plain pale wall, facing the camera, and fills about half of the photo height. Everything on it is perfect and fresh from the shop: bright, even, saturated green fabric, a full crisp shape, straight clean seams, shiny silver zippers and a clean green top handle; not one stain, crease, loose thread, patch or mark. The whole backpack is one plain green with no other color. Exactly one bag and nothing else on the table; no people, no price tag, no labels, no key rings and no other objects.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "ueH4auL6D9jqz7IPu5mVsAc",
+  "usage": {
+    "promptTokenCount": 267,
+    "candidatesTokenCount": 1287,
+    "totalTokenCount": 1757,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 267
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 203,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.136970",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 267,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 203
+  },
+  "elapsed_seconds": 19.31,
+  "output": "output/imagegen/unit-2-review-v3/g01-new-bag.png",
+  "sha256": "34bef9669bbb06845b099f94124037764d59266043cf8c4a347995f1492af539",
+  "byte_count": 5677056,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

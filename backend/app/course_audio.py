@@ -105,6 +105,13 @@ COURSE_SYLLABLES = {
     "son": 1,
     "daughter": 2,
     "person": 2,
+    # A1 2.11 Big and Small (2026-11-14).
+    "big": 1,
+    "small": 1,
+    "new": 1,
+    "used": 1,
+    "same": 1,
+    "different": 2,
     "evening": 2,
     "m": 1,  # Letter names in a.m./p.m.
     "p": 1,

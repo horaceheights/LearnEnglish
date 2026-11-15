@@ -1,20 +1,21 @@
 {
   "id": "lesson-2-9-unit-2-review",
-  "title": "2.11 Unit 2 Review",
+  "title": "2.12 Unit 2 Review",
   "level": "Beginner A1",
   "unit_id": "unit-2",
   "unit_title": "Unit 2: Places, Objects, Numbers, and Colors",
   "unit_outcome": "Recognize common surroundings and identify, count, and describe concrete objects without using untaught location language.",
   "lesson_id": "lesson-2",
   "lesson_title": "Unit 2: Places, Objects, Numbers, and Colors",
-  "sub_lesson_id": "2.11",
+  "sub_lesson_id": "2.12",
   "sub_lesson_title": "Unit 2 Review",
-  "goal": "Review Unit 2 through fresh surroundings, object identification, true near/far contrasts, quantities and colors, then recognize the final numbers by ear. No new language.",
+  "goal": "Review Unit 2 through fresh surroundings, object identification, true near/far contrasts, quantities, colors and big/small, new/used and same/different pairs, then recognize the final numbers by ear. No new language.",
   "vocabulary": [],
   "review_vocabulary": [
     "What is it?",
     "bag",
     "bags",
+    "big",
     "bike",
     "black",
     "blue",
@@ -26,6 +27,7 @@
     "cars",
     "chair",
     "color",
+    "different",
     "eight",
     "five",
     "four",
@@ -33,6 +35,7 @@
     "hospital",
     "house",
     "it",
+    "new",
     "nine",
     "number",
     "one",
@@ -43,9 +46,11 @@
     "phones",
     "red",
     "restaurant",
+    "same",
     "school",
     "seven",
     "six",
+    "small",
     "store",
     "street",
     "table",
@@ -56,13 +61,14 @@
     "those",
     "three",
     "two",
+    "used",
     "what",
     "which one",
     "white",
     "yellow"
   ],
   "grammar_function": "Mixed What is it?, It is..., This/That is..., and number-color-noun phrases.",
-  "prerequisite": "2.1-2.8 complete.",
+  "prerequisite": "2.1-2.11 complete.",
   "speaking_outcome": "Repeat six representative Unit 2 utterances across identity, demonstrative, and description functions.",
   "purposeful_review_slides": [
     "R1",
@@ -74,7 +80,7 @@
     "U3",
     "U7"
   ],
-  "content_revision": 3,
+  "content_revision": 4,
   "cards": [
     {
       "slide_id": "L1",
@@ -880,6 +886,102 @@
       ]
     },
     {
+      "slide_id": "R9",
+      "interaction_type": "i2t2",
+      "prompt": "",
+      "stage": "Recognize",
+      "correct_option_id": "the-bag-is-used",
+      "options": [
+        {
+          "id": "the-bag-is-new",
+          "image_url": "",
+          "label": "The bag is new."
+        },
+        {
+          "id": "the-bag-is-used",
+          "image_url": "",
+          "label": "The bag is used."
+        }
+      ],
+      "audio_text": "",
+      "answer_audio_text": "The bag is used.",
+      "prompt_image_url": "/lesson-assets/a1_u2_review_v3_used_bag.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "pedagogy_note": "Brings back the 2.11 Big and Small words on a fresh review photo; only the described quality changes between the options.",
+      "audio_speaker": null,
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-2-9-unit-2-review-c017-answer-8c5e22d744bed7ed812e",
+          "purpose": "answer",
+          "text": "The bag is used.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_u2_review_v3_used_bag.webp",
+          "semantic_role": "answer",
+          "speaker_role": "answer",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "R10",
+      "interaction_type": "t2i2",
+      "prompt": "The books are different.",
+      "stage": "Recognize",
+      "correct_option_id": "different-books",
+      "options": [
+        {
+          "id": "different-books",
+          "image_url": "/lesson-assets/a1_u2_review_v3_different_books.webp",
+          "label": null
+        },
+        {
+          "id": "same-books",
+          "image_url": "/lesson-assets/a1_u2_review_v3_same_books.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "The books are different.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Los libros son diferentes.",
+      "pedagogy_note": "Brings back the 2.11 Big and Small words on a fresh review photo; only the described quality changes between the options.",
+      "audio_speaker": null,
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-2-9-unit-2-review-c018-prompt-c50f0d9ac8cd90ae35f4",
+          "purpose": "prompt",
+          "text": "The books are different.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_u2_review_v3_different_books.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-2-9-unit-2-review-c018-answer-ce3f732497dd962089cb",
+          "purpose": "answer",
+          "text": "The books are different.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_u2_review_v3_different_books.webp",
+          "semantic_role": "answer",
+          "speaker_role": "answer",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
       "slide_id": "N1",
       "interaction_type": "a2i2",
       "prompt": "Listen and choose.",
@@ -908,7 +1010,7 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-2-9-unit-2-review-c017-prompt-7dd2b0690aa26b24505e",
+          "id": "lesson-2-9-unit-2-review-c019-prompt-f7101da77b196f1d1bbd",
           "purpose": "prompt",
           "text": "It is a school.",
           "mode": "prompt",
@@ -920,7 +1022,7 @@
           "revision": 1
         },
         {
-          "id": "lesson-2-9-unit-2-review-c017-answer-d34c9147331ce9137a62",
+          "id": "lesson-2-9-unit-2-review-c019-answer-5533b35ad5718a894a0d",
           "purpose": "answer",
           "text": "It is a school.",
           "mode": "prompt",
@@ -967,7 +1069,7 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-2-9-unit-2-review-c018-prompt-daca1032c5d47c6fc462",
+          "id": "lesson-2-9-unit-2-review-c020-prompt-209f7c6ed2f5f948fe7d",
           "purpose": "prompt",
           "text": "It is a store.",
           "mode": "prompt",
@@ -979,7 +1081,7 @@
           "revision": 1
         },
         {
-          "id": "lesson-2-9-unit-2-review-c018-answer-c4c07fcea69d8a0d3e12",
+          "id": "lesson-2-9-unit-2-review-c020-answer-301d108ecff7f7d20be2",
           "purpose": "answer",
           "text": "It is a store.",
           "mode": "prompt",
@@ -1026,7 +1128,7 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-2-9-unit-2-review-c019-prompt-fd490a7d5e63b6708bd8",
+          "id": "lesson-2-9-unit-2-review-c021-prompt-750cc34d10f79a3883a7",
           "purpose": "prompt",
           "text": "It is a house.",
           "mode": "prompt",
@@ -1038,7 +1140,7 @@
           "revision": 1
         },
         {
-          "id": "lesson-2-9-unit-2-review-c019-answer-145c0222cca846868b58",
+          "id": "lesson-2-9-unit-2-review-c021-answer-90c03a1ee2189c0cc5ed",
           "purpose": "answer",
           "text": "It is a house.",
           "mode": "prompt",
@@ -1085,7 +1187,7 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-2-9-unit-2-review-c020-prompt-ad853df6eb668454bcbf",
+          "id": "lesson-2-9-unit-2-review-c022-prompt-c20f4a63acfb1390a518",
           "purpose": "prompt",
           "text": "It is a restaurant.",
           "mode": "prompt",
@@ -1097,7 +1199,7 @@
           "revision": 1
         },
         {
-          "id": "lesson-2-9-unit-2-review-c020-answer-e212135924c4e1ff2219",
+          "id": "lesson-2-9-unit-2-review-c022-answer-ec57bd6311ddc10316da",
           "purpose": "answer",
           "text": "It is a restaurant.",
           "mode": "prompt",
@@ -1144,7 +1246,7 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-2-9-unit-2-review-c021-prompt-16034d1c6c65325a02fb",
+          "id": "lesson-2-9-unit-2-review-c023-prompt-dd432832e310cfdd99b6",
           "purpose": "prompt",
           "text": "It is a hospital.",
           "mode": "prompt",
@@ -1156,7 +1258,7 @@
           "revision": 1
         },
         {
-          "id": "lesson-2-9-unit-2-review-c021-answer-09a9347e4cb8994f3ac5",
+          "id": "lesson-2-9-unit-2-review-c023-answer-76c45ba4d7e60dfd00fa",
           "purpose": "answer",
           "text": "It is a hospital.",
           "mode": "prompt",
@@ -1203,7 +1305,7 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-2-9-unit-2-review-c022-prompt-2eea37431ec3903307c7",
+          "id": "lesson-2-9-unit-2-review-c024-prompt-f90b558c8227fa3e39e7",
           "purpose": "prompt",
           "text": "It is a street.",
           "mode": "prompt",
@@ -1215,7 +1317,7 @@
           "revision": 1
         },
         {
-          "id": "lesson-2-9-unit-2-review-c022-answer-2bc0a27efdd0f53d6d9e",
+          "id": "lesson-2-9-unit-2-review-c024-answer-734065a0493f09696c52",
           "purpose": "answer",
           "text": "It is a street.",
           "mode": "prompt",
@@ -1257,7 +1359,7 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-2-9-unit-2-review-c023-prompt-e4ba31051e4b6d67646f",
+          "id": "lesson-2-9-unit-2-review-c025-prompt-625318db7725f5aa8d17",
           "purpose": "prompt",
           "text": "It is a bus.",
           "mode": "prompt",
@@ -1269,7 +1371,7 @@
           "revision": 1
         },
         {
-          "id": "lesson-2-9-unit-2-review-c023-answer-95b74813c662ef34d909",
+          "id": "lesson-2-9-unit-2-review-c025-answer-78616396e910536d75a8",
           "purpose": "answer",
           "text": "It is a bus.",
           "mode": "prompt",
@@ -1316,7 +1418,7 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-2-9-unit-2-review-c024-prompt-14aefbcbc524c5029ed9",
+          "id": "lesson-2-9-unit-2-review-c026-prompt-c530caa8a284158403a3",
           "purpose": "prompt",
           "text": "It is a bike.",
           "mode": "prompt",
@@ -1328,7 +1430,7 @@
           "revision": 1
         },
         {
-          "id": "lesson-2-9-unit-2-review-c024-answer-af78ed5cf7aa77fa30c0",
+          "id": "lesson-2-9-unit-2-review-c026-answer-f37c1c5b4b025ad816dc",
           "purpose": "answer",
           "text": "It is a bike.",
           "mode": "prompt",
@@ -1375,7 +1477,7 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-2-9-unit-2-review-c025-prompt-fe9227977318b2c48505",
+          "id": "lesson-2-9-unit-2-review-c027-prompt-1a76caa3f200abfdc652",
           "purpose": "prompt",
           "text": "It is a pen.",
           "mode": "prompt",
@@ -1387,7 +1489,7 @@
           "revision": 1
         },
         {
-          "id": "lesson-2-9-unit-2-review-c025-answer-e944b2ae1bb26c7f4453",
+          "id": "lesson-2-9-unit-2-review-c027-answer-1c4d340657890db6b5db",
           "purpose": "answer",
           "text": "It is a pen.",
           "mode": "prompt",
@@ -1434,7 +1536,7 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-2-9-unit-2-review-c026-prompt-680ceed8577f7c417670",
+          "id": "lesson-2-9-unit-2-review-c028-prompt-04b7103b85d6380edaf3",
           "purpose": "prompt",
           "text": "It is a table.",
           "mode": "prompt",
@@ -1446,7 +1548,7 @@
           "revision": 1
         },
         {
-          "id": "lesson-2-9-unit-2-review-c026-answer-d3915ce9cb66da9cea72",
+          "id": "lesson-2-9-unit-2-review-c028-answer-57cd2b5df60b5726dc70",
           "purpose": "answer",
           "text": "It is a table.",
           "mode": "prompt",
@@ -1488,7 +1590,7 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-2-9-unit-2-review-c027-prompt-4e023bb31715385e5e43",
+          "id": "lesson-2-9-unit-2-review-c029-prompt-675ebae1eac8df35d2f4",
           "purpose": "prompt",
           "text": "This is a bag.",
           "mode": "prompt",
@@ -1500,7 +1602,7 @@
           "revision": 1
         },
         {
-          "id": "lesson-2-9-unit-2-review-c027-answer-ce117b78961826f391c7",
+          "id": "lesson-2-9-unit-2-review-c029-answer-dcd460cab573512c22ba",
           "purpose": "answer",
           "text": "This is a bag.",
           "mode": "prompt",
@@ -1542,7 +1644,7 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-2-9-unit-2-review-c028-prompt-274e793fc1d57a677498",
+          "id": "lesson-2-9-unit-2-review-c030-prompt-d67b195d8210fcdc7ed6",
           "purpose": "prompt",
           "text": "That is a chair.",
           "mode": "prompt",
@@ -1554,7 +1656,7 @@
           "revision": 1
         },
         {
-          "id": "lesson-2-9-unit-2-review-c028-answer-a1dc2c1ec9a1a380773f",
+          "id": "lesson-2-9-unit-2-review-c030-answer-7b5cad8b877e8ba07ff2",
           "purpose": "answer",
           "text": "That is a chair.",
           "mode": "prompt",
@@ -1596,7 +1698,7 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-2-9-unit-2-review-c029-prompt-13099570361f4f9594e6",
+          "id": "lesson-2-9-unit-2-review-c031-prompt-904b1d7580952e4487d2",
           "purpose": "prompt",
           "text": "These are bags.",
           "mode": "prompt",
@@ -1608,7 +1710,7 @@
           "revision": 1
         },
         {
-          "id": "lesson-2-9-unit-2-review-c029-answer-a1b464fa3648e5b9b75d",
+          "id": "lesson-2-9-unit-2-review-c031-answer-81f54564148684e0271d",
           "purpose": "answer",
           "text": "These are bags.",
           "mode": "prompt",
@@ -1655,7 +1757,7 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-2-9-unit-2-review-c030-prompt-cffdc2aa99273ae9ae10",
+          "id": "lesson-2-9-unit-2-review-c032-prompt-f85c1158b62bf8ce572f",
           "purpose": "prompt",
           "text": "Which one? The red one.",
           "mode": "prompt",
@@ -1667,7 +1769,7 @@
           "revision": 1
         },
         {
-          "id": "lesson-2-9-unit-2-review-c030-answer-8f11e149fd1ce3e7a68e",
+          "id": "lesson-2-9-unit-2-review-c032-answer-6ac0a642c34514c5f1bb",
           "purpose": "answer",
           "text": "The red one.",
           "mode": "prompt",
@@ -1709,7 +1811,7 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-2-9-unit-2-review-c031-prompt-45096a2d127b155d7be5",
+          "id": "lesson-2-9-unit-2-review-c033-prompt-41cfdc6e7d880ed8ed7b",
           "purpose": "prompt",
           "text": "It is number seven.",
           "mode": "prompt",
@@ -1721,7 +1823,7 @@
           "revision": 1
         },
         {
-          "id": "lesson-2-9-unit-2-review-c031-answer-52c007e4e9ea0f311f82",
+          "id": "lesson-2-9-unit-2-review-c033-answer-8dfcf6b2b85ce47be57a",
           "purpose": "answer",
           "text": "It is number seven.",
           "mode": "prompt",
@@ -1768,7 +1870,7 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-2-9-unit-2-review-c032-prompt-6d31107ed11b07a96465",
+          "id": "lesson-2-9-unit-2-review-c034-prompt-fe3bdb0308a0c50ac7e8",
           "purpose": "prompt",
           "text": "Those are phones.",
           "mode": "prompt",
@@ -1780,7 +1882,7 @@
           "revision": 1
         },
         {
-          "id": "lesson-2-9-unit-2-review-c032-answer-8758ec9931f08cf191ef",
+          "id": "lesson-2-9-unit-2-review-c034-answer-2795edeca5afffd9c470",
           "purpose": "answer",
           "text": "Those are phones.",
           "mode": "prompt",
@@ -1827,7 +1929,7 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-2-9-unit-2-review-c033-prompt-1c5360ff7c0651305142",
+          "id": "lesson-2-9-unit-2-review-c035-prompt-bf7db317146dd7d77720",
           "purpose": "prompt",
           "text": "Nine",
           "mode": "prompt",
@@ -1839,7 +1941,7 @@
           "revision": 1
         },
         {
-          "id": "lesson-2-9-unit-2-review-c033-answer-f6fae68901fed91d0066",
+          "id": "lesson-2-9-unit-2-review-c035-answer-f042a127c3b50dcd3d4e",
           "purpose": "answer",
           "text": "Nine",
           "mode": "prompt",
@@ -1886,7 +1988,7 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-2-9-unit-2-review-c034-prompt-165433ac50f2ea7415e6",
+          "id": "lesson-2-9-unit-2-review-c036-prompt-988e9bf2bb6aecb93979",
           "purpose": "prompt",
           "text": "Ten",
           "mode": "prompt",
@@ -1898,12 +2000,179 @@
           "revision": 1
         },
         {
-          "id": "lesson-2-9-unit-2-review-c034-answer-030f3f9f60ba3e9d1f09",
+          "id": "lesson-2-9-unit-2-review-c036-answer-ecde9daa91e618eef66b",
           "purpose": "answer",
           "text": "Ten",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "text-only:ac5a09b37ecddc56be5c",
+          "semantic_role": "answer",
+          "speaker_role": "answer",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "N19",
+      "interaction_type": "a2t3",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "it-is-a-small-table",
+      "options": [
+        {
+          "id": "it-is-a-big-table",
+          "image_url": "",
+          "label": "It is a big table."
+        },
+        {
+          "id": "it-is-a-small-table",
+          "image_url": "",
+          "label": "It is a small table."
+        },
+        {
+          "id": "it-is-a-small-chair",
+          "image_url": "",
+          "label": "It is a small chair."
+        }
+      ],
+      "audio_text": "It is a small table.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Es una mesa peque\u00f1a.",
+      "pedagogy_note": "Audio-to-written-English check of Lesson 2.11; all options already taught.",
+      "audio_speaker": null,
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-2-9-unit-2-review-c037-prompt-22e20ba06a8bc140fc87",
+          "purpose": "prompt",
+          "text": "It is a small table.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "text-only:bae911d20f5855c2b74f",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-2-9-unit-2-review-c037-answer-17274112e1dbcdefae8a",
+          "purpose": "answer",
+          "text": "It is a small table.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "text-only:bae911d20f5855c2b74f",
+          "semantic_role": "answer",
+          "speaker_role": "answer",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "N20",
+      "interaction_type": "a2i2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "new-bag",
+      "options": [
+        {
+          "id": "used-bag",
+          "image_url": "/lesson-assets/a1_u2_review_v3_used_bag.webp",
+          "label": null
+        },
+        {
+          "id": "new-bag",
+          "image_url": "/lesson-assets/a1_u2_review_v3_new_bag.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "The bag is new.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "La bolsa es nueva.",
+      "pedagogy_note": "Brings back the 2.11 Big and Small words on a fresh review photo; only the described quality changes between the options.",
+      "audio_speaker": null,
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-2-9-unit-2-review-c038-prompt-4dd38f60404d8bd4914b",
+          "purpose": "prompt",
+          "text": "The bag is new.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_u2_review_v3_new_bag.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-2-9-unit-2-review-c038-answer-e053d241da5320eb4280",
+          "purpose": "answer",
+          "text": "The bag is new.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_u2_review_v3_new_bag.webp",
+          "semantic_role": "answer",
+          "speaker_role": "answer",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "N21",
+      "interaction_type": "a2i2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "same-books",
+      "options": [
+        {
+          "id": "different-books",
+          "image_url": "/lesson-assets/a1_u2_review_v3_different_books.webp",
+          "label": null
+        },
+        {
+          "id": "same-books",
+          "image_url": "/lesson-assets/a1_u2_review_v3_same_books.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "The books are the same.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Los libros son iguales.",
+      "pedagogy_note": "Brings back the 2.11 Big and Small words on a fresh review photo; only the described quality changes between the options.",
+      "audio_speaker": null,
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-2-9-unit-2-review-c039-prompt-89736661f2372c29476a",
+          "purpose": "prompt",
+          "text": "The books are the same.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_u2_review_v3_same_books.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-2-9-unit-2-review-c039-answer-c863580ffa811c08e13c",
+          "purpose": "answer",
+          "text": "The books are the same.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_u2_review_v3_same_books.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1935,7 +2204,7 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-2-9-unit-2-review-c035-prompt-4553c2d1f179d239ccc8",
+          "id": "lesson-2-9-unit-2-review-c040-prompt-f63ec1d3ad6f271df915",
           "purpose": "prompt",
           "text": "It is a park.",
           "mode": "pronunciation_slow",
@@ -1947,7 +2216,7 @@
           "revision": 1
         },
         {
-          "id": "lesson-2-9-unit-2-review-c035-answer-b741681c4cb8e4c9c346",
+          "id": "lesson-2-9-unit-2-review-c040-answer-6c5a289d6792fe7b136d",
           "purpose": "answer",
           "text": "It is a park.",
           "mode": "prompt",
@@ -1984,7 +2253,7 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-2-9-unit-2-review-c036-prompt-cea7936c28ab08d43afe",
+          "id": "lesson-2-9-unit-2-review-c041-prompt-cbd159e2641767d02089",
           "purpose": "prompt",
           "text": "What is it? It is a phone.",
           "mode": "pronunciation_slow",
@@ -1996,7 +2265,7 @@
           "revision": 1
         },
         {
-          "id": "lesson-2-9-unit-2-review-c036-answer-cbe0b346e3500171f437",
+          "id": "lesson-2-9-unit-2-review-c041-answer-7797049633fec76445d5",
           "purpose": "answer",
           "text": "What is it? It is a phone.",
           "mode": "prompt",
@@ -2033,7 +2302,7 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-2-9-unit-2-review-c037-prompt-b4bfd07aa4b2793f9fde",
+          "id": "lesson-2-9-unit-2-review-c042-prompt-95378ba58dec0ab81044",
           "purpose": "prompt",
           "text": "This is a bag.",
           "mode": "pronunciation_slow",
@@ -2045,7 +2314,7 @@
           "revision": 1
         },
         {
-          "id": "lesson-2-9-unit-2-review-c037-answer-822d29f8a0ad36d4a82d",
+          "id": "lesson-2-9-unit-2-review-c042-answer-8ab5e61261181faa8fbf",
           "purpose": "answer",
           "text": "This is a bag.",
           "mode": "prompt",
@@ -2082,7 +2351,7 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-2-9-unit-2-review-c038-prompt-a22d5cce938c8c96b3e6",
+          "id": "lesson-2-9-unit-2-review-c043-prompt-4c218f8f21f9a737f919",
           "purpose": "prompt",
           "text": "That is a chair.",
           "mode": "pronunciation_slow",
@@ -2094,7 +2363,7 @@
           "revision": 1
         },
         {
-          "id": "lesson-2-9-unit-2-review-c038-answer-9409d96dcdd94a9882c2",
+          "id": "lesson-2-9-unit-2-review-c043-answer-7bbb49e1fa16b135701e",
           "purpose": "answer",
           "text": "That is a chair.",
           "mode": "prompt",
@@ -2131,7 +2400,7 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-2-9-unit-2-review-c039-prompt-f143f705a61aec000545",
+          "id": "lesson-2-9-unit-2-review-c044-prompt-915ac29ecdfb6ef1f484",
           "purpose": "prompt",
           "text": "What color is it? It is red.",
           "mode": "pronunciation_slow",
@@ -2143,7 +2412,7 @@
           "revision": 1
         },
         {
-          "id": "lesson-2-9-unit-2-review-c039-answer-1568bddabe88e3a0a964",
+          "id": "lesson-2-9-unit-2-review-c044-answer-941fa4bad104f09258f2",
           "purpose": "answer",
           "text": "What color is it? It is red.",
           "mode": "prompt",
@@ -2180,7 +2449,7 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-2-9-unit-2-review-c040-prompt-f2f271c1d4168894748a",
+          "id": "lesson-2-9-unit-2-review-c045-prompt-c3748ccdaf4f16f50e95",
           "purpose": "prompt",
           "text": "What number is it? It is number eight.",
           "mode": "pronunciation_slow",
@@ -2192,12 +2461,110 @@
           "revision": 1
         },
         {
-          "id": "lesson-2-9-unit-2-review-c040-answer-143e8cc3c6f4aad43972",
+          "id": "lesson-2-9-unit-2-review-c045-answer-b10f6fbd6590a440d5f1",
           "purpose": "answer",
           "text": "What number is it? It is number eight.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_u2_review_v2_bus_number_8.webp",
+          "semantic_role": "answer",
+          "speaker_role": "answer",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "S7",
+      "interaction_type": "repeat",
+      "prompt": "It is a big table.",
+      "stage": "Speak",
+      "correct_option_id": "it-is-a-big-table-1",
+      "options": [
+        {
+          "id": "it-is-a-big-table-1",
+          "image_url": "/lesson-assets/a1_u2_review_v3_big_table.webp",
+          "label": "It is a big table."
+        }
+      ],
+      "audio_text": "It is a big table.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Es una mesa grande.",
+      "pedagogy_note": "Brings back the 2.11 Big and Small words on a fresh review photo; only the described quality changes between the options.",
+      "audio_speaker": null,
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-2-9-unit-2-review-c046-prompt-7c2e951799eb363061cb",
+          "purpose": "prompt",
+          "text": "It is a big table.",
+          "mode": "pronunciation_slow",
+          "variant": "split-ing",
+          "image_ref": "/lesson-assets/a1_u2_review_v3_big_table.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-2-9-unit-2-review-c046-answer-04ef09efa6c253677cd6",
+          "purpose": "answer",
+          "text": "It is a big table.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_u2_review_v3_big_table.webp",
+          "semantic_role": "answer",
+          "speaker_role": "answer",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "S8",
+      "interaction_type": "repeat",
+      "prompt": "The books are different.",
+      "stage": "Speak",
+      "correct_option_id": "the-books-are-different-1",
+      "options": [
+        {
+          "id": "the-books-are-different-1",
+          "image_url": "/lesson-assets/a1_u2_review_v3_different_books.webp",
+          "label": "The books are different."
+        }
+      ],
+      "audio_text": "The books are different.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Los libros son diferentes.",
+      "pedagogy_note": "Brings back the 2.11 Big and Small words on a fresh review photo; only the described quality changes between the options.",
+      "audio_speaker": null,
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-2-9-unit-2-review-c047-prompt-0f52b38b0a249b67deac",
+          "purpose": "prompt",
+          "text": "The books are different.",
+          "mode": "pronunciation_slow",
+          "variant": "split-ing",
+          "image_ref": "/lesson-assets/a1_u2_review_v3_different_books.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-2-9-unit-2-review-c047-answer-d09b0e02c575ee2fc25e",
+          "purpose": "answer",
+          "text": "The books are different.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_u2_review_v3_different_books.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -2238,7 +2605,7 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-2-9-unit-2-review-c041-prompt-488fac9f7bb2a2fdbacf",
+          "id": "lesson-2-9-unit-2-review-c048-prompt-62976d442a0e289872e4",
           "purpose": "prompt",
           "text": "What is it?",
           "mode": "prompt",
@@ -2250,7 +2617,7 @@
           "revision": 1
         },
         {
-          "id": "lesson-2-9-unit-2-review-c041-answer-1e9b03cbd294c0c80ecd",
+          "id": "lesson-2-9-unit-2-review-c048-answer-fa80b0b5d5a11215edbd",
           "purpose": "answer",
           "text": "What is it?",
           "mode": "prompt",
@@ -2296,7 +2663,7 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-2-9-unit-2-review-c042-prompt-281b34e45cda0780ddf5",
+          "id": "lesson-2-9-unit-2-review-c049-prompt-5903624e8a5710b34728",
           "purpose": "prompt",
           "text": "This is a bag.",
           "mode": "prompt",
@@ -2308,7 +2675,7 @@
           "revision": 1
         },
         {
-          "id": "lesson-2-9-unit-2-review-c042-answer-8ab5e61261181faa8fbf",
+          "id": "lesson-2-9-unit-2-review-c049-answer-9c6c44cfc60be60d6e32",
           "purpose": "answer",
           "text": "This is a bag.",
           "mode": "prompt",
@@ -2354,7 +2721,7 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-2-9-unit-2-review-c043-prompt-c32713058d4f2453861d",
+          "id": "lesson-2-9-unit-2-review-c050-prompt-302c693ca2f2c97c8f49",
           "purpose": "prompt",
           "text": "That is a chair.",
           "mode": "prompt",
@@ -2366,7 +2733,7 @@
           "revision": 1
         },
         {
-          "id": "lesson-2-9-unit-2-review-c043-answer-7bbb49e1fa16b135701e",
+          "id": "lesson-2-9-unit-2-review-c050-answer-08785e840a0b8d8cd449",
           "purpose": "answer",
           "text": "That is a chair.",
           "mode": "prompt",
@@ -2412,7 +2779,7 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-2-9-unit-2-review-c044-prompt-ec0d4df1185517496318",
+          "id": "lesson-2-9-unit-2-review-c051-prompt-97c57fef15f1a9ccb57e",
           "purpose": "prompt",
           "text": "Three green books",
           "mode": "prompt",
@@ -2424,7 +2791,7 @@
           "revision": 1
         },
         {
-          "id": "lesson-2-9-unit-2-review-c044-answer-464f09b185c161a3bfc3",
+          "id": "lesson-2-9-unit-2-review-c051-answer-5031f48291a89b4d1ed0",
           "purpose": "answer",
           "text": "Three green books",
           "mode": "prompt",
@@ -2476,7 +2843,7 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-2-9-unit-2-review-c045-prompt-c5977bf3b7f56611bd8b",
+          "id": "lesson-2-9-unit-2-review-c052-prompt-000363089a630d5cc2a2",
           "purpose": "prompt",
           "text": "Four yellow pens",
           "mode": "prompt",
@@ -2488,7 +2855,7 @@
           "revision": 1
         },
         {
-          "id": "lesson-2-9-unit-2-review-c045-answer-6f246fe13c4fd997039f",
+          "id": "lesson-2-9-unit-2-review-c052-answer-498efe6e32fd210cb9df",
           "purpose": "answer",
           "text": "Four yellow pens",
           "mode": "prompt",
@@ -2540,7 +2907,7 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-2-9-unit-2-review-c046-prompt-69385ae5ee91b50e8fb9",
+          "id": "lesson-2-9-unit-2-review-c053-prompt-2728db9b30ede16fdda3",
           "purpose": "prompt",
           "text": "Five black phones",
           "mode": "prompt",
@@ -2552,7 +2919,7 @@
           "revision": 1
         },
         {
-          "id": "lesson-2-9-unit-2-review-c046-answer-9fd19e7d1b9f2345cec9",
+          "id": "lesson-2-9-unit-2-review-c053-answer-fd2380158399f49ff604",
           "purpose": "answer",
           "text": "Five black phones",
           "mode": "prompt",
@@ -2604,7 +2971,7 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-2-9-unit-2-review-c047-prompt-2e2e610afc1f0915ea6c",
+          "id": "lesson-2-9-unit-2-review-c054-prompt-fe0166b81e955ab95248",
           "purpose": "prompt",
           "text": "One red car",
           "mode": "prompt",
@@ -2616,7 +2983,7 @@
           "revision": 1
         },
         {
-          "id": "lesson-2-9-unit-2-review-c047-answer-697bd1f57c8787fecdd2",
+          "id": "lesson-2-9-unit-2-review-c054-answer-9b54d87d4dcd30a2aa48",
           "purpose": "answer",
           "text": "One red car",
           "mode": "prompt",
@@ -2668,7 +3035,7 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-2-9-unit-2-review-c048-prompt-c37f5c7d93c650a3accf",
+          "id": "lesson-2-9-unit-2-review-c055-prompt-3a31a722fdf7c05a540f",
           "purpose": "prompt",
           "text": "Six white bags",
           "mode": "prompt",
@@ -2680,12 +3047,88 @@
           "revision": 1
         },
         {
-          "id": "lesson-2-9-unit-2-review-c048-answer-21d6ba2c56624c179cde",
+          "id": "lesson-2-9-unit-2-review-c055-answer-66a1410ddddcc6370d8d",
           "purpose": "answer",
           "text": "Six white bags",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_u2_review_v1_white_bags.webp",
+          "semantic_role": "answer",
+          "speaker_role": "answer",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "U9",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "word-1",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4",
+        "word-5"
+      ],
+      "options": [
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "It"
+        },
+        {
+          "id": "word-2",
+          "image_url": "",
+          "label": "is"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "a"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "small"
+        },
+        {
+          "id": "word-5",
+          "image_url": "",
+          "label": "table"
+        }
+      ],
+      "audio_text": "It is a small table.",
+      "answer_audio_text": "It is a small table.",
+      "prompt_image_url": "/lesson-assets/a1_u2_review_v3_small_table.webp",
+      "spanish_translation": "Es una mesa peque\u00f1a.",
+      "pedagogy_note": "word-order selection",
+      "audio_speaker": null,
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-2-9-unit-2-review-c056-prompt-c2839519e37245c7eeb3",
+          "purpose": "prompt",
+          "text": "It is a small table.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_u2_review_v3_small_table.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-2-9-unit-2-review-c056-answer-0698c1f6d9c0f48d3b79",
+          "purpose": "answer",
+          "text": "It is a small table.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_u2_review_v3_small_table.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",

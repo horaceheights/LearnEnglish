@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "fac3bac2-f328-4133-a76c-bc4d2d5cfa18",
+  "asset_id": "p06-small-red-bag",
+  "pack_sha256": "74297fb8e9a80f3f3e7b3e0c024cfc302ba9a3ff4c7c0e2e1b655bdc29a4e18b",
+  "started_at": "2026-11-14T22:25:04.109316+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material, fabric, metal and fur texture, soft natural daylight and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, numbers, logos or brand marks anywhere, including on clothing, collars, bags, vehicles, plates and walls. A first-time learner must understand the picture instantly on a small phone screen.\n\nThis is a precise edit of image 1: the result must look like a second photograph taken from the same spot a moment later, with the same framing, perspective, lens and light, and with every kept object in the same place at the same size. Change only what the instruction names.\n\nImage 1 shows a very big red backpack standing beside a wooden chair. Keep the hallway, the floor, the walls, the light, the camera position and the wooden chair exactly as they are, with the chair in the same place and at the same size in the frame. REMOVE the big backpack completely and put a very SMALL red backpack in its place: one tiny, plain bright-red backpack with red straps, of the size made for a small child, standing upright on the floor right beside the chair and facing the camera. The little backpack is tiny next to the chair: its top is clearly LOWER than the chair's seat, at about half the height of the seat, and it is much narrower than the chair. The whole backpack is one plain bright red with no other color, picture or pattern on it, and it is sharp and easy to recognise as a backpack. Exactly one bag and one chair; no people, no animals, no other bags, no shoes, no coats and nothing on the chair.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1_photo_u2_bigsmall_big_red_bag_v1.webp",
+    "sha256": "411f17c5722a84183fa2405e6a1af4caa1a71dd4fc1de78bfe6dd7a3e854dfb0"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "v9_4av3JFdyLmtkPrKCGoAc",
+  "usage": {
+    "promptTokenCount": 654,
+    "candidatesTokenCount": 1286,
+    "totalTokenCount": 2118,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 396
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 178,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137444",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 654,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 178
+  },
+  "elapsed_seconds": 19.65,
+  "output": "output/imagegen/unit-2-lesson-v7/p06-small-red-bag.png",
+  "sha256": "1ba40b9c183647c7c3b70d8112b0b27f8715b00ae49483d38314ae5f39b3d8de",
+  "byte_count": 4159967,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}
