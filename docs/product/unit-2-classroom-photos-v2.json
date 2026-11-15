@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "pack": "unit-2-classroom-photos-b",
+  "revision": 1,
+  "output_namespace": "unit-2-lesson-v10",
+  "authorization": "2026-11-15: the user asked for A1 lesson 2.12 In the Classroom to be built (\"build 2.12 next\", clarified as In the Classroom, then \"biuild the whole plan, none stop\") and had approved the gap-lesson media in advance (\"I preapprove all image and audios creation no need for me to reiew and approve on the fly\"). One more photo, so that the new word or has a Learn picture (a choice between two new things). Ceiling US$0.30 for this revision. Gemini is the approved image tool (2026-09-23). Revision 1 is frozen: a changed prompt is a new revision in a new file, and every rejected output is reported with its cost.",
+  "image_settings": {
+    "provider": "google-gemini",
+    "model": "gemini-3-pro-image",
+    "aspect_ratio": "3:2",
+    "image_size": "2K",
+    "runtime_size": "1536x1024",
+    "runtime_format": "webp",
+    "n": 1
+  },
+  "production": {
+    "price_per_image_usd": "0.134",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing (checked 2026-09-24: Gemini 3 Pro Image, $0.134 per 1K/2K image)",
+    "planned_images": 1,
+    "expected_cost_usd": "0.14",
+    "requested_ceiling_usd": "0.30",
+    "no_automatic_retries": true,
+    "order": "One photo. A rejected output is reported with its cost; a redo needs a changed prompt in a new revision file."
+  },
+  "shared_prompts": {
+    "photo": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material, skin, wood and fabric texture, soft natural daylight and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.",
+    "safe_center": "Keep the main subject of the photo whole inside the central 55 percent of the photo width, so a centered 4:5 crop keeps it whole; only expendable background reaches the left and right edges.",
+    "edit": "This is a precise edit of image 1: the result must look like the same photograph with one detail changed. Change only what the instruction names."
+  },
+  "assets": [
+    {
+      "id": "q01-choose",
+      "order": 1,
+      "lesson": "2.12",
+      "item": "A pencil or a notebook",
+      "runtime_filename": "a1_photo_u2_classroom_choose_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo"
+      ],
+      "prompt": "A CHOICE between two things. On a plain, clean, light-gray table, photographed from directly above, lie two objects far apart: on the LEFT one yellow wooden pencil with a pink eraser, and on the RIGHT one closed spiral notebook with a plain bright-blue cover. Between them, in the exact middle of the photo, one adult hand reaches in from the bottom edge with the palm up and the fingers open in a clear 'which one?' gesture: the hand touches neither object and is the same distance from both. The pencil, the hand and the notebook are all sharp and large, each clearly separate. Nothing else is on the table: no pen, no paper, no book. No letters, words, numbers, logos or brand marks anywhere. The hand has five natural fingers."
+    }
+  ]
+}

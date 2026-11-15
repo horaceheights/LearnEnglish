@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "pack": "unit-2-review-classroom-photos",
+  "revision": 1,
+  "output_namespace": "unit-2-review-v4",
+  "authorization": "2026-11-15: the Unit 2 review is extended for the coverage-gap lesson 2.12 In the Classroom under the user's standing rule for gap lessons (\"Yes, standing rule (Recommended)\") and the advance media approval (\"I preapprove all image and audios creation no need for me to reiew and approve on the fly\"). Ceiling US$0.60 for this revision. Gemini is the approved image tool (2026-09-23). Revision 1 is frozen.",
+  "image_settings": {
+    "provider": "google-gemini",
+    "model": "gemini-3-pro-image",
+    "aspect_ratio": "3:2",
+    "image_size": "2K",
+    "runtime_size": "1536x1024",
+    "runtime_format": "webp",
+    "n": 1
+  },
+  "production": {
+    "price_per_image_usd": "0.134",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing (checked 2026-09-24: Gemini 3 Pro Image, $0.134 per 1K/2K image)",
+    "planned_images": 2,
+    "expected_cost_usd": "0.27",
+    "requested_ceiling_usd": "0.60",
+    "no_automatic_retries": true,
+    "order": "Two independent edits. A rejected output is reported with its cost; a redo needs a changed prompt in a new revision file."
+  },
+  "shared_prompts": {
+    "photo": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail and soft natural daylight; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, watermark or captions. No letters, words, numbers, logos or brand marks anywhere.",
+    "edit": "This is a precise edit of image 1: the result must look like the same photograph with one detail changed. Change only what the instruction names."
+  },
+  "assets": [
+    {
+      "id": "v01-review-blue-pencil",
+      "order": 1,
+      "lesson": "2.13",
+      "item": "It is a blue pencil.",
+      "runtime_filename": "a1_u2_review_gap_blue_pencil_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo",
+        "edit"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1_photo_u2_classroom_pencil_v1.webp",
+        "sha256": "60567cfe7cbb2c62ac09b85a3c1f85ba0e30ba45d5ade67dfcfc9ee63d32c7f4",
+        "observed_description": "One yellow wooden pencil with a sharpened point, a silver metal band and a pink eraser lies diagonally on a plain light-gray table, seen from above. Nothing else is on the table."
+      },
+      "prompt": "Image 1 shows one yellow wooden pencil lying on a light-gray table. Keep the photograph exactly as it is: the same pencil shape, position, point, metal band, eraser, table, light and framing. Change ONLY the paint color of the pencil's body: it is now bright BLUE instead of yellow, plain and unprinted. Nothing else changes."
+    },
+    {
+      "id": "v02-review-red-notebook",
+      "order": 2,
+      "lesson": "2.13",
+      "item": "It is a red notebook.",
+      "runtime_filename": "a1_u2_review_gap_red_notebook_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo",
+        "edit"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1_photo_u2_classroom_notebook_v1.webp",
+        "sha256": "cc8788edc9af8b13704aa331da69e8262842e319fa1897f33a4dd69cc6045de6",
+        "observed_description": "One closed spiral notebook with a plain bright-blue cover and a silver spiral along its left edge lies on a light-gray table, seen from above at a slight angle. Nothing else is on the table."
+      },
+      "prompt": "Image 1 shows one closed spiral notebook with a blue cover on a light-gray table. Keep the photograph exactly as it is: the same notebook shape, position, spiral, pages, table, light and framing. Change ONLY the color of the cover: it is now bright RED instead of blue, plain. Nothing else changes."
+    }
+  ]
+}

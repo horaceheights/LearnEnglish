@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "e4347aee-8acb-4a43-ba8f-26edcab2e83a",
+  "asset_id": "v02-review-red-notebook",
+  "pack_sha256": "51ac0c59ce012121fafd93bb1bde9db19a4b08218c0b873a91d167e9da73ebeb",
+  "started_at": "2026-11-15T17:59:22.425825+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail and soft natural daylight; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, watermark or captions. No letters, words, numbers, logos or brand marks anywhere.\n\nThis is a precise edit of image 1: the result must look like the same photograph with one detail changed. Change only what the instruction names.\n\nImage 1 shows one closed spiral notebook with a blue cover on a light-gray table. Keep the photograph exactly as it is: the same notebook shape, position, spiral, pages, table, light and framing. Change ONLY the color of the cover: it is now bright RED instead of blue, plain. Nothing else changes.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1_photo_u2_classroom_notebook_v1.webp",
+    "sha256": "cc8788edc9af8b13704aa331da69e8262842e319fa1897f33a4dd69cc6045de6"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "-vL5aoP3M7qgz7IP-PDj4Ag",
+  "usage": {
+    "promptTokenCount": 437,
+    "candidatesTokenCount": 1230,
+    "totalTokenCount": 1803,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 179
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 136,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.136506",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 437,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 136
+  },
+  "elapsed_seconds": 23.9,
+  "output": "output/imagegen/unit-2-review-v4/v02-review-red-notebook.png",
+  "sha256": "21ef7345e32ed4e1f38d601a4e947ef258ab197e78941fbe22ec64a32b49bcfe",
+  "byte_count": 4762448,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

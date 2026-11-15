@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "51bfe831-4079-4897-8cd0-2114346e2f3a",
+  "asset_id": "w01-review-yellow-paper",
+  "pack_sha256": "0679be934bbc59afd060408d2a019b95e212d41f6f9c91a0d41f1dc5f1fe64c6",
+  "started_at": "2026-11-15T18:03:51.795616+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail and soft natural daylight; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, watermark or captions. No letters, words, numbers, logos or brand marks anywhere.\n\nThis is a precise edit of image 1: the result must look like the same photograph with one detail changed. Change only what the instruction names.\n\nImage 1 shows a stack of blank white sheets of paper on a dark wooden table. Keep the photograph exactly as it is: the same stack, the same turned sheets and curled corner, the same table, light and framing. Change ONLY the color of the paper: every sheet is now bright YELLOW instead of white, still completely blank. Nothing else changes.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1_photo_u2_classroom_paper_v1.webp",
+    "sha256": "3388f3ceee4e45b3b85853788e080e2980c82a1d6f54d5ab7692d7768d94436e"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "CPT5ar2uCOyI6dkPlu-B2Ac",
+  "usage": {
+    "promptTokenCount": 442,
+    "candidatesTokenCount": 1251,
+    "totalTokenCount": 1826,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 184
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 133,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.136480",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 442,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 133
+  },
+  "elapsed_seconds": 20.31,
+  "output": "output/imagegen/unit-2-review-v5/w01-review-yellow-paper.png",
+  "sha256": "30dec70eebe55055be24995aeef6c5afac5e679679bb03d85d85f5b83d788d49",
+  "byte_count": 5793076,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}
