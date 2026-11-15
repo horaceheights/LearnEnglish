@@ -1,0 +1,179 @@
+{
+  "schema_version": 1,
+  "pack": "unit-4-calendar-photos",
+  "revision": 1,
+  "output_namespace": "unit-4-lesson-v4",
+  "authorization": "2026-11-14: the user asked for A1 lesson 4.12 Tomorrow and the Week to be built (\"build 4.12 Tomorrow and the Week next\") and had approved the gap-lesson media in advance the same day (\"I preapprove all image and audios creation no need for me to reiew and approve on the fly\"). Ceiling US$2.00 for this revision. Gemini is the approved image tool (2026-09-23). Six photos are edits of the approved 4.9 whiteboard calendar and keep its rules: numbers only, no written day or month names, and dark-blue freehand pen marks. Revision 1 is frozen: a changed prompt is a new revision in a new file, and every rejected output is reported with its cost.",
+  "image_settings": {
+    "provider": "google-gemini",
+    "model": "gemini-3-pro-image",
+    "aspect_ratio": "3:2",
+    "image_size": "2K",
+    "runtime_size": "1536x1024",
+    "runtime_format": "webp",
+    "n": 1
+  },
+  "production": {
+    "price_per_image_usd": "0.134",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing (checked 2026-09-24: Gemini 3 Pro Image, $0.134 per 1K/2K image)",
+    "planned_images": 9,
+    "expected_cost_usd": "1.24",
+    "requested_ceiling_usd": "2.00",
+    "no_automatic_retries": true,
+    "order": "k01-k06 are independent edits of installed 4.9 boards. k07 is generated and inspected, number by number, before k08 and k09 edit it. Every date and month number is checked against its base. A rejected output is reported with its cost; a redo needs a changed prompt in a new revision file."
+  },
+  "shared_prompts": {
+    "calendar": "One real photograph of a classroom whiteboard calendar for a Spanish-speaking adult beginner learning English. Photorealistic board, frame and marker ink; NOT an illustration, 3D render, screenshot or app UI. Full-bleed 3:2 landscape; no extra frames, padding, watermark or captions. The only writing is the calendar's own numbers: no letters, no words, no day names and no month names anywhere.",
+    "edit": "This is a precise edit of image 1: the result must look like the same photograph after someone drew on the board with a pen. Change only what the instruction names."
+  },
+  "assets": [
+    {
+      "id": "k01-week",
+      "order": 1,
+      "lesson": "4.12",
+      "item": "A week / It is a week. / There are seven days in a week.",
+      "runtime_filename": "a1_photo_u4_calendar_week_v1.webp",
+      "four_card": false,
+      "shared": [
+        "calendar",
+        "edit"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1_photo_u4_days_week_board_unmarked_v1.webp",
+        "sha256": "21a475814ad1530bae01643f21baf8ebecf28e770b256abe50c4297d96f517fc",
+        "observed_description": "The approved 4.9 calendar with no marks: a wooden-framed whiteboard month calendar photographed straight on: the header 05 / 2023 in black marker, and a grid of seven columns and five rows with the dates 1 to 31, where each box of the first row (1 to 7) also holds a small drawing (houses, a school and trees)."
+      },
+      "prompt": "Image 1 is a photograph of a whiteboard month calendar. Keep the photograph exactly as it is: the same framing, the same board and wooden frame, the header, every date number from 1 to 31 in the same place, every small drawing and every existing mark. Do not move, redraw, add or remove any number. Add only this, drawn by hand with the same dark-blue whiteboard pen, with slightly uneven ink like real handwriting: ONE long loop around the whole FIRST ROW of the grid, enclosing all seven boxes 1, 2, 3, 4, 5, 6 and 7 together with their small drawings: a freehand loop, slightly asymmetric, with a small overlapping end stroke, not a perfect geometric shape. The loop encloses exactly these seven boxes, one whole week, and no box of the second row. No other mark."
+    },
+    {
+      "id": "k02-days",
+      "order": 2,
+      "lesson": "4.12",
+      "item": "Days",
+      "runtime_filename": "a1_photo_u4_calendar_days_v1.webp",
+      "four_card": false,
+      "shared": [
+        "calendar",
+        "edit"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1_photo_u4_days_week_board_unmarked_v1.webp",
+        "sha256": "21a475814ad1530bae01643f21baf8ebecf28e770b256abe50c4297d96f517fc",
+        "observed_description": "The approved 4.9 calendar with no marks: a wooden-framed whiteboard month calendar photographed straight on: the header 05 / 2023 in black marker, and a grid of seven columns and five rows with the dates 1 to 31, where each box of the first row (1 to 7) also holds a small drawing (houses, a school and trees)."
+      },
+      "prompt": "Image 1 is a photograph of a whiteboard month calendar. Keep the photograph exactly as it is: the same framing, the same board and wooden frame, the header, every date number from 1 to 31 in the same place, every small drawing and every existing mark. Do not move, redraw, add or remove any number. Add only this, drawn by hand with the same dark-blue whiteboard pen, with slightly uneven ink like real handwriting: THREE separate small loops in the first row: one around box 2, one around box 3 and one around box 4, each enclosing that single box with its number and its small drawing: each is a freehand loop, slightly asymmetric, with a small overlapping end stroke, not a perfect geometric shape. The three loops do not touch each other. They mark three separate days. No other mark."
+    },
+    {
+      "id": "k03-weekend",
+      "order": 3,
+      "lesson": "4.12",
+      "item": "The weekend / It is the weekend.",
+      "runtime_filename": "a1_photo_u4_calendar_weekend_v1.webp",
+      "four_card": false,
+      "shared": [
+        "calendar",
+        "edit"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1_photo_u4_days_week_board_unmarked_v1.webp",
+        "sha256": "21a475814ad1530bae01643f21baf8ebecf28e770b256abe50c4297d96f517fc",
+        "observed_description": "The approved 4.9 calendar with no marks: a wooden-framed whiteboard month calendar photographed straight on: the header 05 / 2023 in black marker, and a grid of seven columns and five rows with the dates 1 to 31, where each box of the first row (1 to 7) also holds a small drawing (houses, a school and trees)."
+      },
+      "prompt": "Image 1 is a photograph of a whiteboard month calendar. Keep the photograph exactly as it is: the same framing, the same board and wooden frame, the header, every date number from 1 to 31 in the same place, every small drawing and every existing mark. Do not move, redraw, add or remove any number. Add only this, drawn by hand with the same dark-blue whiteboard pen, with slightly uneven ink like real handwriting: ONE loop around the last TWO boxes of the first row together, box 6 and box 7, with their small drawings: a freehand loop, slightly asymmetric, with a small overlapping end stroke, not a perfect geometric shape. The loop encloses exactly these two boxes, the weekend, and no other box. No other mark."
+    },
+    {
+      "id": "k04-tomorrow-tuesday",
+      "order": 4,
+      "lesson": "4.12",
+      "item": "Tomorrow / Tomorrow is Tuesday.",
+      "runtime_filename": "a1_photo_u4_calendar_tomorrow_tuesday_v1.webp",
+      "four_card": false,
+      "shared": [
+        "calendar",
+        "edit"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1_photo_u4_days_week_board_monday_v1.webp",
+        "sha256": "3bd66f07f619f823b8f8cdf5ab5a6e64421f608ae15534c54d551e9be3499799",
+        "observed_description": "The approved 4.9 calendar with a blue freehand pen loop around box 1: a wooden-framed whiteboard month calendar photographed straight on: the header 05 / 2023 in black marker, and a grid of seven columns and five rows with the dates 1 to 31, where each box of the first row (1 to 7) also holds a small drawing (houses, a school and trees)."
+      },
+      "prompt": "Image 1 is a photograph of a whiteboard month calendar. Keep the photograph exactly as it is: the same framing, the same board and wooden frame, the header, every date number from 1 to 31 in the same place, every small drawing and every existing mark. Do not move, redraw, add or remove any number. Add only this, drawn by hand with the same dark-blue whiteboard pen, with slightly uneven ink like real handwriting: one short, thick, curved ARROW that starts on the right edge of the existing blue loop around box 1 and points into the next box, box 2, with a clear arrowhead that ends inside box 2 beside its number. The arrow says: after the looped day comes this day. Do not draw a loop around box 2 and do not add any other mark."
+    },
+    {
+      "id": "k05-tomorrow-thursday",
+      "order": 5,
+      "lesson": "4.12",
+      "item": "Tomorrow is Thursday.",
+      "runtime_filename": "a1_photo_u4_calendar_tomorrow_thursday_v1.webp",
+      "four_card": false,
+      "shared": [
+        "calendar",
+        "edit"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1_photo_u4_days_week_board_wednesday_v1.webp",
+        "sha256": "38de31593d83d1198cfacf45d63b50a56c2585581cabcedeb0266eaecb1b4c6d",
+        "observed_description": "The approved 4.9 calendar with a blue freehand pen loop around box 3: a wooden-framed whiteboard month calendar photographed straight on: the header 05 / 2023 in black marker, and a grid of seven columns and five rows with the dates 1 to 31, where each box of the first row (1 to 7) also holds a small drawing (houses, a school and trees)."
+      },
+      "prompt": "Image 1 is a photograph of a whiteboard month calendar. Keep the photograph exactly as it is: the same framing, the same board and wooden frame, the header, every date number from 1 to 31 in the same place, every small drawing and every existing mark. Do not move, redraw, add or remove any number. Add only this, drawn by hand with the same dark-blue whiteboard pen, with slightly uneven ink like real handwriting: one short, thick, curved ARROW that starts on the right edge of the existing blue loop around box 3 and points into the next box, box 4, with a clear arrowhead that ends inside box 4 beside its number. The arrow says: after the looped day comes this day. Do not draw a loop around box 4 and do not add any other mark."
+    },
+    {
+      "id": "k06-tomorrow-saturday",
+      "order": 6,
+      "lesson": "4.12",
+      "item": "Tomorrow is Saturday.",
+      "runtime_filename": "a1_photo_u4_calendar_tomorrow_saturday_v1.webp",
+      "four_card": false,
+      "shared": [
+        "calendar",
+        "edit"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1_photo_u4_days_week_board_friday_v1.webp",
+        "sha256": "9e8f9b731a8021beee9207a4601472ea748711760cc11aec86fdb42c43e1ec6c",
+        "observed_description": "The approved 4.9 calendar with a blue freehand pen loop around box 5: a wooden-framed whiteboard month calendar photographed straight on: the header 05 / 2023 in black marker, and a grid of seven columns and five rows with the dates 1 to 31, where each box of the first row (1 to 7) also holds a small drawing (houses, a school and trees)."
+      },
+      "prompt": "Image 1 is a photograph of a whiteboard month calendar. Keep the photograph exactly as it is: the same framing, the same board and wooden frame, the header, every date number from 1 to 31 in the same place, every small drawing and every existing mark. Do not move, redraw, add or remove any number. Add only this, drawn by hand with the same dark-blue whiteboard pen, with slightly uneven ink like real handwriting: one short, thick, curved ARROW that starts on the right edge of the existing blue loop around box 5 and points into the next box, box 6, with a clear arrowhead that ends inside box 6 beside its number. The arrow says: after the looped day comes this day. Do not draw a loop around box 6 and do not add any other mark."
+    },
+    {
+      "id": "k07-year",
+      "order": 7,
+      "lesson": "4.12",
+      "item": "A year / It is a year. / There are twelve months in a year.",
+      "runtime_filename": "a1_photo_u4_calendar_year_v1.webp",
+      "four_card": false,
+      "shared": [
+        "calendar"
+      ],
+      "prompt": "A photograph, taken straight on, of a wooden-framed whiteboard YEAR planner that fills the photo, in the same plain style as a classroom whiteboard calendar: a light wooden frame, a clean white board and neat black hand-printed marker. At the top centre is the header 2023. Below it, thin black marker lines divide the board into TWELVE equal boxes in three rows of four. Each box holds only its month number, written large and clear in its top left corner: the first row 1, 2, 3, 4; the second row 5, 6, 7, 8; the third row 9, 10, 11, 12. Under each number, inside the same box, is a small faint grid of tiny empty squares, five rows of seven, that stands for the days of that month and contains no digits. Exactly twelve boxes and exactly the numbers 1 to 12, each once and in order, plus the header 2023. No letters, no words, no month names, no other numbers, no drawings, no pen marks and no magnets."
+    },
+    {
+      "id": "k08-month",
+      "order": 8,
+      "lesson": "4.12",
+      "item": "A month / It is a month.",
+      "runtime_filename": "a1_photo_u4_calendar_month_v1.webp",
+      "four_card": false,
+      "shared": [
+        "calendar",
+        "edit"
+      ],
+      "reference": "k07-year",
+      "prompt": "Image 1 is a photograph of a whiteboard year planner with twelve numbered month boxes. Keep the photograph exactly as it is: the same framing, board, frame, header, lines, numbers and small grids. Do not move, redraw, add or remove any number. Add only this, drawn by hand with a dark-blue whiteboard pen, with slightly uneven ink: ONE loop around the single box number 5, enclosing that whole box with its number and its small grid: a freehand loop, slightly asymmetric, with a small overlapping end stroke, not a perfect geometric shape. The loop encloses exactly one month box and no other. No other mark."
+    },
+    {
+      "id": "k09-months",
+      "order": 9,
+      "lesson": "4.12",
+      "item": "Months",
+      "runtime_filename": "a1_photo_u4_calendar_months_v1.webp",
+      "four_card": false,
+      "shared": [
+        "calendar",
+        "edit"
+      ],
+      "reference": "k07-year",
+      "prompt": "Image 1 is a photograph of a whiteboard year planner with twelve numbered month boxes. Keep the photograph exactly as it is: the same framing, board, frame, header, lines, numbers and small grids. Do not move, redraw, add or remove any number. Add only this, drawn by hand with a dark-blue whiteboard pen, with slightly uneven ink: THREE separate loops, one around box number 2, one around box number 3 and one around box number 4, each enclosing that single whole box with its number and its small grid: each is a freehand loop, slightly asymmetric, with a small overlapping end stroke, not a perfect geometric shape. The three loops do not touch each other. They mark three separate months. No other mark."
+    }
+  ]
+}

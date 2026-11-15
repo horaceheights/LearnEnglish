@@ -294,6 +294,11 @@ const VISUALS: Record<string, { image: string; description: string; color: strin
     description: 'Hacer, ver, usar, encontrar, dar y venir.',
     color: '#f1e4fa',
   },
+  'lesson-4-12-tomorrow-week': {
+    image: 'a1_photo_u4_calendar_week_v1.webp',
+    description: 'Mañana, la semana, el mes y el año.',
+    color: '#f1e4fa',
+  },
   'lesson-4-9-unit-4-review': {
     image: 'a1_scene_bedroom_009e058.webp',
     description: 'Repaso del hogar y la vida diaria.',

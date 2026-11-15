@@ -117,6 +117,15 @@ COURSE_SYLLABLES = {
     "see": 1,
     "use": 1,
     "give": 1,
+    # A1 4.12 Tomorrow and the Week (2026-11-14).
+    "now": 1,
+    "tomorrow": 3,
+    "days": 1,
+    "week": 1,
+    "weekend": 2,
+    "month": 1,
+    "months": 1,
+    "year": 1,
     "evening": 2,
     "m": 1,  # Letter names in a.m./p.m.
     "p": 1,

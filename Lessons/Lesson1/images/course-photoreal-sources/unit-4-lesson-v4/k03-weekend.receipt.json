@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "2acab11f-53f0-43fe-a8ad-aa8d747e255b",
+  "asset_id": "k03-weekend",
+  "pack_sha256": "f3a18d2af99f6caf20743abdeb44767d990c3bf22508ed837c5a735c72ebf397",
+  "started_at": "2026-11-15T02:21:52.928433+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "One real photograph of a classroom whiteboard calendar for a Spanish-speaking adult beginner learning English. Photorealistic board, frame and marker ink; NOT an illustration, 3D render, screenshot or app UI. Full-bleed 3:2 landscape; no extra frames, padding, watermark or captions. The only writing is the calendar's own numbers: no letters, no words, no day names and no month names anywhere.\n\nThis is a precise edit of image 1: the result must look like the same photograph after someone drew on the board with a pen. Change only what the instruction names.\n\nImage 1 is a photograph of a whiteboard month calendar. Keep the photograph exactly as it is: the same framing, the same board and wooden frame, the header, every date number from 1 to 31 in the same place, every small drawing and every existing mark. Do not move, redraw, add or remove any number. Add only this, drawn by hand with the same dark-blue whiteboard pen, with slightly uneven ink like real handwriting: ONE loop around the last TWO boxes of the first row together, box 6 and box 7, with their small drawings: a freehand loop, slightly asymmetric, with a small overlapping end stroke, not a perfect geometric shape. The loop encloses exactly these two boxes, the weekend, and no other box. No other mark.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1_photo_u4_days_week_board_unmarked_v1.webp",
+    "sha256": "21a475814ad1530bae01643f21baf8ebecf28e770b256abe50c4297d96f517fc"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "QRf5asqUBN3-qtsP6tGBgAc",
+  "usage": {
+    "promptTokenCount": 543,
+    "candidatesTokenCount": 1292,
+    "totalTokenCount": 2002,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 285
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 167,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137090",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 543,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 167
+  },
+  "elapsed_seconds": 19.23,
+  "output": "output/imagegen/unit-4-lesson-v4/k03-weekend.png",
+  "sha256": "d300a5b47a853a6ec0902cc85bb990a0b00f453027bb20da755b062b4457a2fd",
+  "byte_count": 3870144,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

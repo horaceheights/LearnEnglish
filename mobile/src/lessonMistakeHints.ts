@@ -73,6 +73,8 @@ const MEANINGS: Record<string, string> = {
   big: 'grande', small: 'pequeño o pequeña', new: 'nuevo o nueva', used: 'usado o usada', same: 'igual', different: 'diferente',
   // A1 4.11 (2026-11-14): everyday verbs.
   make: 'hacer', see: 'ver', use: 'usar', find: 'encontrar', give: 'dar', come: 'venir',
+  // A1 4.12 (2026-11-14): tomorrow and the week.
+  now: 'ahora', tomorrow: 'mañana', days: 'días', week: 'semana', weekend: 'fin de semana', month: 'mes', months: 'meses', year: 'año',
   running: 'corriendo', walking: 'caminando', reading: 'leyendo', writing: 'escribiendo',
   eating: 'comiendo', drinking: 'bebiendo', cooking: 'cocinando', working: 'trabajando',
   studying: 'estudiando', playing: 'jugando', swimming: 'nadando', sleeping: 'durmiendo',

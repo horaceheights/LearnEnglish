@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "496c2f70-52d0-4ec2-b20f-0407a8921c5c",
+  "asset_id": "k09-months",
+  "pack_sha256": "f3a18d2af99f6caf20743abdeb44767d990c3bf22508ed837c5a735c72ebf397",
+  "started_at": "2026-11-15T02:24:36.603542+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "One real photograph of a classroom whiteboard calendar for a Spanish-speaking adult beginner learning English. Photorealistic board, frame and marker ink; NOT an illustration, 3D render, screenshot or app UI. Full-bleed 3:2 landscape; no extra frames, padding, watermark or captions. The only writing is the calendar's own numbers: no letters, no words, no day names and no month names anywhere.\n\nThis is a precise edit of image 1: the result must look like the same photograph after someone drew on the board with a pen. Change only what the instruction names.\n\nImage 1 is a photograph of a whiteboard year planner with twelve numbered month boxes. Keep the photograph exactly as it is: the same framing, board, frame, header, lines, numbers and small grids. Do not move, redraw, add or remove any number. Add only this, drawn by hand with a dark-blue whiteboard pen, with slightly uneven ink: THREE separate loops, one around box number 2, one around box number 3 and one around box number 4, each enclosing that single whole box with its number and its small grid: each is a freehand loop, slightly asymmetric, with a small overlapping end stroke, not a perfect geometric shape. The three loops do not touch each other. They mark three separate months. No other mark.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "output/imagegen/unit-4-lesson-v4/k07-year.png",
+    "sha256": "de7fdafad3ce7910ebec07074b12555fff61422c25d84b11dfbbb4fbbbb31ed7"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "5Rf5arD3IvyVmtkP-M2NiQg",
+  "usage": {
+    "promptTokenCount": 537,
+    "candidatesTokenCount": 1303,
+    "totalTokenCount": 2028,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 279
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 188,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137330",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 537,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 188
+  },
+  "elapsed_seconds": 22.24,
+  "output": "output/imagegen/unit-4-lesson-v4/k09-months.png",
+  "sha256": "f7e26bce0eb9d6cb411604b84efb2f6aa0d2a373e1767187f80bdf3499c9317a",
+  "byte_count": 5263859,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}
