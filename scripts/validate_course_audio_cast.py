@@ -289,6 +289,11 @@ ASSIGNMENT_GROUPS: dict[str, list[tuple[str, str, str]]] = {
         ('audio_speaker', 'female-character', 'R1 R3 R5 R8 A1 A2 A3 A4 S2 S3 S4 S5 S6 U1 U2'),
         ('audio_speaker', 'male-character', 'R7 U3 U4'),
     ],
+    # 2026-11-14 coverage-gap lesson: each pictured speaker keeps their voice and the narrators alternate; regenerated from the lesson.
+    "lesson-5-12-numbers-30-100": [
+        ('answer_audio_speaker', 'co-teacher', 'R2 R4 R6 R8 R10 U2 U4 U6 U8'),
+        ('audio_speaker', 'co-teacher', 'L2 L4 L6 L8 R2 R4 R6 R8 R10 A2 A4 A6 A8 S2 S4 S6 S8 U2 U4 U6 U8'),
+    ],
     "lesson-5-9-unit-5-review": [
         ('answer_audio_speaker', 'female-character', 'R4 U2 U7'),
         ('answer_audio_speaker', 'male-character', 'R3 R10 R11 U4 U8'),

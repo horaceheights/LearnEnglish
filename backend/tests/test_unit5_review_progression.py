@@ -100,12 +100,12 @@ class UnitFiveReviewTests(unittest.TestCase):
                 self.assertIn(phrase, text, stage)
 
     def test_review_and_mission_retrieve_revised_functions(self):
-        for number in ("5.12", "5.13"):  # 2026-11-14: 5.11 Buying Things moved the review and mission up one
+        for number in ("5.13", "5.14"):  # 2026-11-14/15: 5.11 Buying Things and 5.12 Numbers 30 to 100 each moved the review and mission up one
             text = " ".join(successful_text(c) for c in LESSONS[number]["cards"])
             for phrase in ("Me too.", "Me neither.", "I do not want milk.", "I do not need juice.",
                            "Can I have coffee and eggs, please?", "Thank you."):
                 self.assertIn(phrase, text, number)
-        mission = LESSONS["5.13"]["cards"]
+        mission = LESSONS["5.14"]["cards"]
         self.assertEqual(len(mission), 20)
         self.assertEqual(sum(c["mission_game"]["kind"] == "voice-gate" for c in mission), 10)
         self.assertEqual([c["slide_id"] for c in mission],
@@ -140,7 +140,7 @@ class UnitFiveReviewTests(unittest.TestCase):
                 self.assertTrue(any(expected_error in error for error in errors), errors)
 
     def test_price_cues_hit_their_own_physical_tag(self):
-        card = next(c for c in LESSONS["5.13"]["cards"] if c["slide_id"] == "M13")
+        card = next(c for c in LESSONS["5.14"]["cards"] if c["slide_id"] == "M13")
         self.assertIn("mission_price_board", card["prompt_image_url"])
         game = card["mission_game"]
         targets = {target["id"]: target for target in game["targets"]}

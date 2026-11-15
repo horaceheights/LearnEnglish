@@ -364,6 +364,11 @@ const VISUALS: Record<string, { image: string; description: string; color: strin
     description: 'Comprar, pagar, el precio, barato y caro.',
     color: '#ffe8c7',
   },
+  'lesson-5-12-numbers-30-100': {
+    image: 'a1_photo_u5_tens_card_50_v1.webp',
+    description: 'Los números del treinta al cien.',
+    color: '#ffe8c7',
+  },
   'lesson-5-9-unit-5-review': {
     image: 'a1_scene_i-do-not-like-fish_25804e6.webp',
     description: 'Repaso de comida, compras y preferencias.',

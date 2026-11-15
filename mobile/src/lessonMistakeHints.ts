@@ -77,6 +77,9 @@ const MEANINGS: Record<string, string> = {
   now: 'ahora', tomorrow: 'mañana', days: 'días', week: 'semana', weekend: 'fin de semana', month: 'mes', months: 'meses', year: 'año',
   // A1 5.11 (2026-11-14): buying things.
   money: 'dinero', buy: 'comprar', pay: 'pagar', price: 'precio', cheap: 'barato o barata', expensive: 'caro o cara',
+  // A1 5.12 (2026-11-15): the tens from thirty to one hundred.
+  thirty: 'treinta', forty: 'cuarenta', fifty: 'cincuenta', sixty: 'sesenta', seventy: 'setenta', eighty: 'ochenta',
+  ninety: 'noventa', hundred: 'cien',
   running: 'corriendo', walking: 'caminando', reading: 'leyendo', writing: 'escribiendo',
   eating: 'comiendo', drinking: 'bebiendo', cooking: 'cocinando', working: 'trabajando',
   studying: 'estudiando', playing: 'jugando', swimming: 'nadando', sleeping: 'durmiendo',

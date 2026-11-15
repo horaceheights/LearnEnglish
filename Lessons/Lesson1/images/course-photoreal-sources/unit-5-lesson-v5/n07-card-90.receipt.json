@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "423311b7-46ce-4221-ba07-e870a62fdff9",
+  "asset_id": "n07-card-90",
+  "pack_sha256": "06f4c5d33d4cd7e83e7c9d276e8c9de7978f62e38db7a9dbe87986b6872e035a",
+  "started_at": "2026-11-15T16:26:52.673427+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material, skin and fabric texture, soft natural daylight and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must read the number instantly on a small phone screen. Do not imitate earlier course photos.\n\nImage 1 shows a person holding up a numeral card at a community-center registration desk. Create a NEW photograph in the same community center, with the same kind of framing, but with a DIFFERENT person and a different card: a man of about sixty-five with white hair, a white moustache and a brown jacket stands in the middle of the photo, faces the camera with a friendly smile and holds up ONE rectangular teal card with both hands at chest height. The card shows only the numeral 90, printed very large in white, bold and perfectly sharp: exactly the digits of 90 and nothing else. The person is seen from the waist up and the whole card is inside the central 55 percent of the photo width, unobstructed by fingers. The registration desk with a seated staff member is softly blurred behind. No other readable letters, words or numbers anywhere: no name badge text, no posters with writing and no other cards. Every visible hand has five natural fingers.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1_scene_n20_b3be26c.webp",
+    "sha256": "30fb94d0ba221be385bfdefa7e51850d4827b18e7fc9421d1f9c8112a4e64d2d"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "Td35arioHqn8qtsPityK4As",
+  "usage": {
+    "promptTokenCount": 564,
+    "candidatesTokenCount": 1326,
+    "totalTokenCount": 2098,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 306
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 208,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137624",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 564,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 208
+  },
+  "elapsed_seconds": 23.1,
+  "output": "output/imagegen/unit-5-lesson-v5/n07-card-90.png",
+  "sha256": "c8b9de2a0a51974ed30aea648c0a040e8dccf967206b22f06cff39c1f18b14e8",
+  "byte_count": 5775876,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

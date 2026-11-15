@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "pack": "unit-5-tens-review-photos",
+  "revision": 1,
+  "output_namespace": "unit-5-review-v5",
+  "authorization": "2026-11-15: the user asked for the whole gap-lesson plan to be built (\"biuild the whole plan, none stop\") under the standing rule of a longer unit review, and had approved the gap-lesson media in advance. Ceiling US$0.60 for this revision. Gemini is the approved image tool (2026-09-23). The review may not reuse a teaching lesson's photo, so two new price cards are edited onto the 5.11 book photo. Revision 1 is frozen; every rejected output is reported with its cost.",
+  "image_settings": {
+    "provider": "google-gemini",
+    "model": "gemini-3-pro-image",
+    "aspect_ratio": "3:2",
+    "image_size": "2K",
+    "runtime_size": "1536x1024",
+    "runtime_format": "webp",
+    "n": 1
+  },
+  "production": {
+    "price_per_image_usd": "0.134",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing (checked 2026-09-24: Gemini 3 Pro Image, $0.134 per 1K/2K image)",
+    "planned_images": 2,
+    "expected_cost_usd": "0.28",
+    "requested_ceiling_usd": "0.60",
+    "no_automatic_retries": true,
+    "order": "Two independent edits; each price is read back from the result."
+  },
+  "shared_prompts": {
+    "photo": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Full-bleed 3:2 landscape; no frames, padding, watermark or captions. The only writing is the price card.",
+    "edit": "This is a precise edit of image 1: the result must look like the same photograph with one detail changed. Change only what the instruction names."
+  },
+  "assets": [
+    {
+      "id": "x01-review-price-40",
+      "order": 1,
+      "lesson": "5.13",
+      "item": "The price is 40 dollars.",
+      "runtime_filename": "a1_u5_review_gap_price_40_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo",
+        "edit"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1_photo_u5_buying_book_cheap_v1.webp",
+        "sha256": "c7a3b961e2432dacdf4dd79c170c89755479a776d5ab538a48bb039ae9826ed6",
+        "observed_description": "A closed hardcover book with a plain red cover stands on a wooden market counter with a white price card in front of it that reads $1; a blurred market is behind. No people or other writing."
+      },
+      "prompt": "Image 1 shows a red book on a market counter beside a white price card that reads $1. Keep the photograph exactly as it is: the same book, counter, background, light and framing, and the same white card in the same place. Change ONLY the writing on the price card: erase the 1 and write 40, so that the card reads exactly $40 in the same black marker handwriting, large and sharp, with every digit fully inside the card. Nothing else changes."
+    },
+    {
+      "id": "x02-review-price-70",
+      "order": 2,
+      "lesson": "5.13",
+      "item": "The price is 70 dollars.",
+      "runtime_filename": "a1_u5_review_gap_price_70_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo",
+        "edit"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1_photo_u5_buying_book_cheap_v1.webp",
+        "sha256": "c7a3b961e2432dacdf4dd79c170c89755479a776d5ab538a48bb039ae9826ed6",
+        "observed_description": "A closed hardcover book with a plain red cover stands on a wooden market counter with a white price card in front of it that reads $1; a blurred market is behind. No people or other writing."
+      },
+      "prompt": "Image 1 shows a red book on a market counter beside a white price card that reads $1. Keep the photograph exactly as it is: the same book, counter, background, light and framing, and the same white card in the same place. Change ONLY the writing on the price card: erase the 1 and write 70, so that the card reads exactly $70 in the same black marker handwriting, large and sharp, with every digit fully inside the card. Nothing else changes."
+    }
+  ]
+}

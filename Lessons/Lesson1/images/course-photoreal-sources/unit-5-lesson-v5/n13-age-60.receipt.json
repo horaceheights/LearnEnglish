@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "e33e25b9-fde0-4325-8a88-40a7587c2624",
+  "asset_id": "n13-age-60",
+  "pack_sha256": "06f4c5d33d4cd7e83e7c9d276e8c9de7978f62e38db7a9dbe87986b6872e035a",
+  "started_at": "2026-11-15T16:29:15.997419+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material, skin and fabric texture, soft natural daylight and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must read the number instantly on a small phone screen. Do not imitate earlier course photos.\n\nImage 1 shows the family's grandparents. Keep the GRANDMOTHER exactly: her face, short grey curly hair, cream cardigan and flowered blouse; leave the grandfather out. Create a NEW photograph at a dining table in a warm family home: the grandmother sits alone at the table, smiling, behind a round white birthday cake on a plate. On top of the cake stand exactly TWO large numeral candles, bright blue, side by side: a 6 on the left and a 0 on the right, so they read 60. Both candles are lit, upright, large and perfectly sharp, and nothing hides them. She looks at the cake with a happy smile. She is seen from the waist up, sharp, in the middle of the photo, with the cake and both candles fully visible in front of her. Exactly one person; no other candles, no balloons with numbers, no cards, no gifts with writing and no other readable letters or numbers anywhere. Every visible hand has five natural fingers.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/family_grandparents_3x2.webp",
+    "sha256": "9f02732e724cb5ad23c054aba29bf783895c2a33d1d0274f43b89d1b63f3846b"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "3N35apHoKIjpz7IPl7rSmAY",
+  "usage": {
+    "promptTokenCount": 570,
+    "candidatesTokenCount": 1332,
+    "totalTokenCount": 2112,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 312
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 210,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137660",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 570,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 210
+  },
+  "elapsed_seconds": 27.21,
+  "output": "output/imagegen/unit-5-lesson-v5/n13-age-60.png",
+  "sha256": "08d5c33926c9d73c130e6be2eb37946fcf488733b9f037104c9bd4721b171c20",
+  "byte_count": 6310694,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}
