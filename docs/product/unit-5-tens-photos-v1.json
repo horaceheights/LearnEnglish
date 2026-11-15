@@ -1,0 +1,270 @@
+{
+  "schema_version": 1,
+  "pack": "unit-5-tens-photos",
+  "revision": 1,
+  "output_namespace": "unit-5-lesson-v5",
+  "authorization": "2026-11-15: the user asked for A1 lesson 5.12 Numbers 30 to 100 to be built (\"build 5.12 Numbers 30 to 100 next\", then \"biuild the whole plan, none stop\") and had approved the gap-lesson media in advance (\"I preapprove all image and audios creation no need for me to reiew and approve on the fly\"). Ceiling US$2.80 for this revision. Gemini is the approved image tool (2026-09-23). New numbers are introduced on a numeral card held by one person, the approved number-teaching pattern (2026-09-19). Revision 1 is frozen: a changed prompt is a new revision in a new file, and every rejected output is reported with its cost.",
+  "image_settings": {
+    "provider": "google-gemini",
+    "model": "gemini-3-pro-image",
+    "aspect_ratio": "3:2",
+    "image_size": "2K",
+    "runtime_size": "1536x1024",
+    "runtime_format": "webp",
+    "n": 1
+  },
+  "production": {
+    "price_per_image_usd": "0.134",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing (checked 2026-09-24: Gemini 3 Pro Image, $0.134 per 1K/2K image)",
+    "planned_images": 14,
+    "expected_cost_usd": "1.93",
+    "requested_ceiling_usd": "2.80",
+    "no_automatic_retries": true,
+    "order": "n13 is inspected before n14 edits it; the rest in any order. Every numeral is read back from the result. A rejected output is reported with its cost; a redo needs a changed prompt in a new revision file."
+  },
+  "shared_prompts": {
+    "photo": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material, skin and fabric texture, soft natural daylight and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must read the number instantly on a small phone screen. Do not imitate earlier course photos.",
+    "edit": "This is a precise edit of image 1: the result must look like the same photograph with one detail changed. Change only what the instruction names."
+  },
+  "assets": [
+    {
+      "id": "n01-card-30",
+      "order": 1,
+      "lesson": "5.12",
+      "item": "The numeral 30",
+      "runtime_filename": "a1_photo_u5_tens_card_30_v1.webp",
+      "four_card": true,
+      "shared": [
+        "photo"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1_scene_n20_b3be26c.webp",
+        "sha256": "30fb94d0ba221be385bfdefa7e51850d4827b18e7fc9421d1f9c8112a4e64d2d",
+        "observed_description": "At a community-center registration desk a smiling woman with long braids, a grey cardigan and a purple top holds up a dark-green card with the large white numeral 20 in both hands; behind her a staff member sits at the wooden counter and two people stand at the entrance."
+      },
+      "prompt": "Image 1 shows a person holding up a numeral card at a community-center registration desk. Create a NEW photograph in the same community center, with the same kind of framing, but with a DIFFERENT person and a different card: a man of about fifty with short grey hair and a navy sweater stands in the middle of the photo, faces the camera with a friendly smile and holds up ONE rectangular bright yellow card with both hands at chest height. The card shows only the numeral 30, printed very large in black, bold and perfectly sharp: exactly the digits of 30 and nothing else. The person is seen from the waist up and the whole card is inside the central 55 percent of the photo width, unobstructed by fingers. The registration desk with a seated staff member is softly blurred behind. No other readable letters, words or numbers anywhere: no name badge text, no posters with writing and no other cards. Every visible hand has five natural fingers."
+    },
+    {
+      "id": "n02-card-40",
+      "order": 2,
+      "lesson": "5.12",
+      "item": "The numeral 40",
+      "runtime_filename": "a1_photo_u5_tens_card_40_v1.webp",
+      "four_card": true,
+      "shared": [
+        "photo"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1_scene_n20_b3be26c.webp",
+        "sha256": "30fb94d0ba221be385bfdefa7e51850d4827b18e7fc9421d1f9c8112a4e64d2d",
+        "observed_description": "At a community-center registration desk a smiling woman with long braids, a grey cardigan and a purple top holds up a dark-green card with the large white numeral 20 in both hands; behind her a staff member sits at the wooden counter and two people stand at the entrance."
+      },
+      "prompt": "Image 1 shows a person holding up a numeral card at a community-center registration desk. Create a NEW photograph in the same community center, with the same kind of framing, but with a DIFFERENT person and a different card: a woman of about thirty with short curly red hair and a denim jacket stands in the middle of the photo, faces the camera with a friendly smile and holds up ONE rectangular bright orange card with both hands at chest height. The card shows only the numeral 40, printed very large in white, bold and perfectly sharp: exactly the digits of 40 and nothing else. The person is seen from the waist up and the whole card is inside the central 55 percent of the photo width, unobstructed by fingers. The registration desk with a seated staff member is softly blurred behind. No other readable letters, words or numbers anywhere: no name badge text, no posters with writing and no other cards. Every visible hand has five natural fingers."
+    },
+    {
+      "id": "n03-card-50",
+      "order": 3,
+      "lesson": "5.12",
+      "item": "The numeral 50",
+      "runtime_filename": "a1_photo_u5_tens_card_50_v1.webp",
+      "four_card": true,
+      "shared": [
+        "photo"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1_scene_n20_b3be26c.webp",
+        "sha256": "30fb94d0ba221be385bfdefa7e51850d4827b18e7fc9421d1f9c8112a4e64d2d",
+        "observed_description": "At a community-center registration desk a smiling woman with long braids, a grey cardigan and a purple top holds up a dark-green card with the large white numeral 20 in both hands; behind her a staff member sits at the wooden counter and two people stand at the entrance."
+      },
+      "prompt": "Image 1 shows a person holding up a numeral card at a community-center registration desk. Create a NEW photograph in the same community center, with the same kind of framing, but with a DIFFERENT person and a different card: a man of about twenty-five with a short black beard and a light-grey hoodie stands in the middle of the photo, faces the camera with a friendly smile and holds up ONE rectangular royal blue card with both hands at chest height. The card shows only the numeral 50, printed very large in white, bold and perfectly sharp: exactly the digits of 50 and nothing else. The person is seen from the waist up and the whole card is inside the central 55 percent of the photo width, unobstructed by fingers. The registration desk with a seated staff member is softly blurred behind. No other readable letters, words or numbers anywhere: no name badge text, no posters with writing and no other cards. Every visible hand has five natural fingers."
+    },
+    {
+      "id": "n04-card-60",
+      "order": 4,
+      "lesson": "5.12",
+      "item": "The numeral 60",
+      "runtime_filename": "a1_photo_u5_tens_card_60_v1.webp",
+      "four_card": true,
+      "shared": [
+        "photo"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1_scene_n20_b3be26c.webp",
+        "sha256": "30fb94d0ba221be385bfdefa7e51850d4827b18e7fc9421d1f9c8112a4e64d2d",
+        "observed_description": "At a community-center registration desk a smiling woman with long braids, a grey cardigan and a purple top holds up a dark-green card with the large white numeral 20 in both hands; behind her a staff member sits at the wooden counter and two people stand at the entrance."
+      },
+      "prompt": "Image 1 shows a person holding up a numeral card at a community-center registration desk. Create a NEW photograph in the same community center, with the same kind of framing, but with a DIFFERENT person and a different card: a woman of about sixty with silver hair in a bun and a burgundy cardigan stands in the middle of the photo, faces the camera with a friendly smile and holds up ONE rectangular white card with both hands at chest height. The card shows only the numeral 60, printed very large in black, bold and perfectly sharp: exactly the digits of 60 and nothing else. The person is seen from the waist up and the whole card is inside the central 55 percent of the photo width, unobstructed by fingers. The registration desk with a seated staff member is softly blurred behind. No other readable letters, words or numbers anywhere: no name badge text, no posters with writing and no other cards. Every visible hand has five natural fingers."
+    },
+    {
+      "id": "n05-card-70",
+      "order": 5,
+      "lesson": "5.12",
+      "item": "The numeral 70",
+      "runtime_filename": "a1_photo_u5_tens_card_70_v1.webp",
+      "four_card": true,
+      "shared": [
+        "photo"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1_scene_n20_b3be26c.webp",
+        "sha256": "30fb94d0ba221be385bfdefa7e51850d4827b18e7fc9421d1f9c8112a4e64d2d",
+        "observed_description": "At a community-center registration desk a smiling woman with long braids, a grey cardigan and a purple top holds up a dark-green card with the large white numeral 20 in both hands; behind her a staff member sits at the wooden counter and two people stand at the entrance."
+      },
+      "prompt": "Image 1 shows a person holding up a numeral card at a community-center registration desk. Create a NEW photograph in the same community center, with the same kind of framing, but with a DIFFERENT person and a different card: a man of about forty with a shaved head, glasses and a mustard shirt stands in the middle of the photo, faces the camera with a friendly smile and holds up ONE rectangular purple card with both hands at chest height. The card shows only the numeral 70, printed very large in white, bold and perfectly sharp: exactly the digits of 70 and nothing else. The person is seen from the waist up and the whole card is inside the central 55 percent of the photo width, unobstructed by fingers. The registration desk with a seated staff member is softly blurred behind. No other readable letters, words or numbers anywhere: no name badge text, no posters with writing and no other cards. Every visible hand has five natural fingers."
+    },
+    {
+      "id": "n06-card-80",
+      "order": 6,
+      "lesson": "5.12",
+      "item": "The numeral 80",
+      "runtime_filename": "a1_photo_u5_tens_card_80_v1.webp",
+      "four_card": true,
+      "shared": [
+        "photo"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1_scene_n20_b3be26c.webp",
+        "sha256": "30fb94d0ba221be385bfdefa7e51850d4827b18e7fc9421d1f9c8112a4e64d2d",
+        "observed_description": "At a community-center registration desk a smiling woman with long braids, a grey cardigan and a purple top holds up a dark-green card with the large white numeral 20 in both hands; behind her a staff member sits at the wooden counter and two people stand at the entrance."
+      },
+      "prompt": "Image 1 shows a person holding up a numeral card at a community-center registration desk. Create a NEW photograph in the same community center, with the same kind of framing, but with a DIFFERENT person and a different card: a woman of about twenty with long straight black hair and a white blouse stands in the middle of the photo, faces the camera with a friendly smile and holds up ONE rectangular red card with both hands at chest height. The card shows only the numeral 80, printed very large in white, bold and perfectly sharp: exactly the digits of 80 and nothing else. The person is seen from the waist up and the whole card is inside the central 55 percent of the photo width, unobstructed by fingers. The registration desk with a seated staff member is softly blurred behind. No other readable letters, words or numbers anywhere: no name badge text, no posters with writing and no other cards. Every visible hand has five natural fingers."
+    },
+    {
+      "id": "n07-card-90",
+      "order": 7,
+      "lesson": "5.12",
+      "item": "The numeral 90",
+      "runtime_filename": "a1_photo_u5_tens_card_90_v1.webp",
+      "four_card": true,
+      "shared": [
+        "photo"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1_scene_n20_b3be26c.webp",
+        "sha256": "30fb94d0ba221be385bfdefa7e51850d4827b18e7fc9421d1f9c8112a4e64d2d",
+        "observed_description": "At a community-center registration desk a smiling woman with long braids, a grey cardigan and a purple top holds up a dark-green card with the large white numeral 20 in both hands; behind her a staff member sits at the wooden counter and two people stand at the entrance."
+      },
+      "prompt": "Image 1 shows a person holding up a numeral card at a community-center registration desk. Create a NEW photograph in the same community center, with the same kind of framing, but with a DIFFERENT person and a different card: a man of about sixty-five with white hair, a white moustache and a brown jacket stands in the middle of the photo, faces the camera with a friendly smile and holds up ONE rectangular teal card with both hands at chest height. The card shows only the numeral 90, printed very large in white, bold and perfectly sharp: exactly the digits of 90 and nothing else. The person is seen from the waist up and the whole card is inside the central 55 percent of the photo width, unobstructed by fingers. The registration desk with a seated staff member is softly blurred behind. No other readable letters, words or numbers anywhere: no name badge text, no posters with writing and no other cards. Every visible hand has five natural fingers."
+    },
+    {
+      "id": "n08-card-100",
+      "order": 8,
+      "lesson": "5.12",
+      "item": "The numeral 100",
+      "runtime_filename": "a1_photo_u5_tens_card_100_v1.webp",
+      "four_card": true,
+      "shared": [
+        "photo"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1_scene_n20_b3be26c.webp",
+        "sha256": "30fb94d0ba221be385bfdefa7e51850d4827b18e7fc9421d1f9c8112a4e64d2d",
+        "observed_description": "At a community-center registration desk a smiling woman with long braids, a grey cardigan and a purple top holds up a dark-green card with the large white numeral 20 in both hands; behind her a staff member sits at the wooden counter and two people stand at the entrance."
+      },
+      "prompt": "Image 1 shows a person holding up a numeral card at a community-center registration desk. Create a NEW photograph in the same community center, with the same kind of framing, but with a DIFFERENT person and a different card: a woman of about forty-five with shoulder-length blond hair and a green sweater stands in the middle of the photo, faces the camera with a friendly smile and holds up ONE rectangular black card with both hands at chest height. The card shows only the numeral 100, printed very large in white, bold and perfectly sharp: exactly the digits of 100 and nothing else. The person is seen from the waist up and the whole card is inside the central 55 percent of the photo width, unobstructed by fingers. The registration desk with a seated staff member is softly blurred behind. No other readable letters, words or numbers anywhere: no name badge text, no posters with writing and no other cards. Every visible hand has five natural fingers."
+    },
+    {
+      "id": "n09-price-30",
+      "order": 9,
+      "lesson": "5.12",
+      "item": "The price is 30 dollars.",
+      "runtime_filename": "a1_photo_u5_tens_price_30_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo",
+        "edit"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1_photo_u5_buying_bag_cheap_v1.webp",
+        "sha256": "7016ffadfbe7425c6ec7c6d758eb7a6040c5d699530882c9eb872ee6a7508ea9",
+        "observed_description": "A plain blue cloth tote bag stands on a wooden market counter with a white price card in front of it that reads $2; a blurred market is behind. No people or other writing."
+      },
+      "prompt": "Image 1 shows a blue cloth bag on a market counter beside a white price card that reads $2. Keep the photograph exactly as it is: the same bag, counter, background, light and framing, and the same white card in the same place. Change ONLY the writing on the price card: erase the 2 and write 30, so that the card reads exactly $30 in the same black marker handwriting, large and sharp, with every digit fully inside the card. Nothing else changes."
+    },
+    {
+      "id": "n10-price-50",
+      "order": 10,
+      "lesson": "5.12",
+      "item": "The price is 50 dollars.",
+      "runtime_filename": "a1_photo_u5_tens_price_50_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo",
+        "edit"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1_photo_u5_buying_bag_cheap_v1.webp",
+        "sha256": "7016ffadfbe7425c6ec7c6d758eb7a6040c5d699530882c9eb872ee6a7508ea9",
+        "observed_description": "A plain blue cloth tote bag stands on a wooden market counter with a white price card in front of it that reads $2; a blurred market is behind. No people or other writing."
+      },
+      "prompt": "Image 1 shows a blue cloth bag on a market counter beside a white price card that reads $2. Keep the photograph exactly as it is: the same bag, counter, background, light and framing, and the same white card in the same place. Change ONLY the writing on the price card: erase the 2 and write 50, so that the card reads exactly $50 in the same black marker handwriting, large and sharp, with every digit fully inside the card. Nothing else changes."
+    },
+    {
+      "id": "n11-price-90",
+      "order": 11,
+      "lesson": "5.12",
+      "item": "The price is 90 dollars.",
+      "runtime_filename": "a1_photo_u5_tens_price_90_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo",
+        "edit"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1_photo_u5_buying_bag_cheap_v1.webp",
+        "sha256": "7016ffadfbe7425c6ec7c6d758eb7a6040c5d699530882c9eb872ee6a7508ea9",
+        "observed_description": "A plain blue cloth tote bag stands on a wooden market counter with a white price card in front of it that reads $2; a blurred market is behind. No people or other writing."
+      },
+      "prompt": "Image 1 shows a blue cloth bag on a market counter beside a white price card that reads $2. Keep the photograph exactly as it is: the same bag, counter, background, light and framing, and the same white card in the same place. Change ONLY the writing on the price card: erase the 2 and write 90, so that the card reads exactly $90 in the same black marker handwriting, large and sharp, with every digit fully inside the card. Nothing else changes."
+    },
+    {
+      "id": "n12-price-100",
+      "order": 12,
+      "lesson": "5.12",
+      "item": "The price is 100 dollars.",
+      "runtime_filename": "a1_photo_u5_tens_price_100_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo",
+        "edit"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1_photo_u5_buying_bag_cheap_v1.webp",
+        "sha256": "7016ffadfbe7425c6ec7c6d758eb7a6040c5d699530882c9eb872ee6a7508ea9",
+        "observed_description": "A plain blue cloth tote bag stands on a wooden market counter with a white price card in front of it that reads $2; a blurred market is behind. No people or other writing."
+      },
+      "prompt": "Image 1 shows a blue cloth bag on a market counter beside a white price card that reads $2. Keep the photograph exactly as it is: the same bag, counter, background, light and framing, and the same white card in the same place. Change ONLY the writing on the price card: erase the 2 and write 100, so that the card reads exactly $100 in the same black marker handwriting, large and sharp, with every digit fully inside the card. Nothing else changes."
+    },
+    {
+      "id": "n13-age-60",
+      "order": 13,
+      "lesson": "5.12",
+      "item": "She is sixty years old.",
+      "runtime_filename": "a1_photo_u5_tens_age_60_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/family_grandparents_3x2.webp",
+        "sha256": "9f02732e724cb5ad23c054aba29bf783895c2a33d1d0274f43b89d1b63f3846b",
+        "observed_description": "The family's grandfather (grey hair, glasses, a green cardigan over a white shirt) and grandmother (short grey curly hair, a cream cardigan over a flowered blouse) sit close together on a patterned sofa and smile at the camera in a warm living room with framed photos."
+      },
+      "prompt": "Image 1 shows the family's grandparents. Keep the GRANDMOTHER exactly: her face, short grey curly hair, cream cardigan and flowered blouse; leave the grandfather out. Create a NEW photograph at a dining table in a warm family home: the grandmother sits alone at the table, smiling, behind a round white birthday cake on a plate. On top of the cake stand exactly TWO large numeral candles, bright blue, side by side: a 6 on the left and a 0 on the right, so they read 60. Both candles are lit, upright, large and perfectly sharp, and nothing hides them. She looks at the cake with a happy smile. She is seen from the waist up, sharp, in the middle of the photo, with the cake and both candles fully visible in front of her. Exactly one person; no other candles, no balloons with numbers, no cards, no gifts with writing and no other readable letters or numbers anywhere. Every visible hand has five natural fingers."
+    },
+    {
+      "id": "n14-age-80",
+      "order": 14,
+      "lesson": "5.12",
+      "item": "She is eighty years old.",
+      "runtime_filename": "a1_photo_u5_tens_age_80_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo",
+        "edit"
+      ],
+      "reference": "n13-age-60",
+      "prompt": "Image 1 shows a grandmother at a table behind a birthday cake with two blue numeral candles that read 60. Keep the photograph exactly as it is: the same woman, clothes, table, cake, room, light and framing. Change ONLY the left candle: the 6 becomes an 8 of the same blue color, size and style, lit and upright, so that the two candles read 80. The right candle stays a 0. Nothing else changes."
+    }
+  ]
+}

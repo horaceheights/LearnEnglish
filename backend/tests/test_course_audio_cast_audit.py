@@ -80,9 +80,10 @@ EXACT_ROLE_CHANGES = {}
 # 2026-11-14: coverage-gap lesson 4.12 Tomorrow and the Week adds 26 narrator and Ana fields (+26).
 # 2026-11-14: coverage-gap lesson 5.11 Buying Things (customer, seller and narrator fields).
 # 2026-11-14: coverage-gap lesson 5.11 Buying Things (customer, seller and narrator fields).
-EXPECTED_EXPLICIT_ASSIGNMENT_COUNT = 2449
+# 2026-11-15: coverage-gap lesson 5.12 Numbers 30 to 100 (narrator fields).
+EXPECTED_EXPLICIT_ASSIGNMENT_COUNT = 2479
 EXPECTED_FINAL_ASSIGNMENTS_SHA256 = (
-    "9e6d77ff65cc09652b35aca81b9720c2a42d157bab96c3822710adaa681709f6"
+    "5cbfeffa98b4a0a39bec6bc17883f3674afd6c23cfc7d5e89d5a54faff320ce1"
 )
 
 

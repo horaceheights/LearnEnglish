@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "4c10b804-81bc-4a35-86e8-423cbdb7383a",
+  "asset_id": "n09-price-30",
+  "pack_sha256": "06f4c5d33d4cd7e83e7c9d276e8c9de7978f62e38db7a9dbe87986b6872e035a",
+  "started_at": "2026-11-15T16:27:45.004452+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material, skin and fabric texture, soft natural daylight and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must read the number instantly on a small phone screen. Do not imitate earlier course photos.\n\nThis is a precise edit of image 1: the result must look like the same photograph with one detail changed. Change only what the instruction names.\n\nImage 1 shows a blue cloth bag on a market counter beside a white price card that reads $2. Keep the photograph exactly as it is: the same bag, counter, background, light and framing, and the same white card in the same place. Change ONLY the writing on the price card: erase the 2 and write 30, so that the card reads exactly $30 in the same black marker handwriting, large and sharp, with every digit fully inside the card. Nothing else changes.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1_photo_u5_buying_bag_cheap_v1.webp",
+    "sha256": "7016ffadfbe7425c6ec7c6d758eb7a6040c5d699530882c9eb872ee6a7508ea9"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "gd35avfhKv25qtsPnrSB6As",
+  "usage": {
+    "promptTokenCount": 499,
+    "candidatesTokenCount": 1245,
+    "totalTokenCount": 1891,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 241
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 147,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.136762",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 499,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 147
+  },
+  "elapsed_seconds": 20.76,
+  "output": "output/imagegen/unit-5-lesson-v5/n09-price-30.png",
+  "sha256": "40d9fa3a6b5e8c5b2dc29996651b0280130593ee21a7489a1cddb417ee95a1b4",
+  "byte_count": 6289502,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

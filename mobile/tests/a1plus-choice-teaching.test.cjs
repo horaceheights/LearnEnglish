@@ -133,10 +133,12 @@ test('conversation decisions use ordinary contrast teaching and keep semantic im
 // A1 4.11 Everyday Verbs (2026-11-14) added 31 and the extended Unit 4 review 7, proven the same way.
 // A1 4.12 Tomorrow and the Week (2026-11-14) added 27 and the extended Unit 4 review 11, proven the same way.
 // A1 5.11 Buying Things with its four review constructions moved the total to 2572; the earlier outputs were proven byte-identical first.
-test('all 2572 established A1 ordinary wrong-choice outputs remain unchanged', () => {
+// A1 5.12 Numbers 30 to 100 with its two review constructions moved the total to 2598; the earlier outputs were proven byte-identical first.
+// A1 5.12 Numbers 30 to 100 with its two review constructions moved the total to 2598; the earlier outputs were proven byte-identical first.
+test('all 2598 established A1 ordinary wrong-choice outputs remain unchanged', () => {
   const course = JSON.parse(fs.readFileSync(path.join(__dirname, '../src/generated/a1-course.json'), 'utf8'));
   const results = course.flatMap(lesson => lesson.cards).filter(card => card.options.length >= 2 && !card.interaction_type?.startsWith('complete'))
     .flatMap(card => wrongOptions(card).map(option => [card.slide_id, option.id, lessonMistakeHint(card, option.id)]));
-  assert.equal(results.length, 2572);
+  assert.equal(results.length, 2598);
   assert.equal(crypto.createHash('sha256').update(JSON.stringify(results)).digest('hex'), fixture.a1BaselineSha256);
 });

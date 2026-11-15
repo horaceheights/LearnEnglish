@@ -133,6 +133,15 @@ COURSE_SYLLABLES = {
     "price": 1,
     "cheap": 1,
     "expensive": 3,
+    # A1 5.12 Numbers 30 to 100 (2026-11-15).
+    "thirty": 2,
+    "forty": 2,
+    "fifty": 2,
+    "sixty": 2,
+    "seventy": 3,
+    "eighty": 2,
+    "ninety": 2,
+    "hundred": 2,
     "evening": 2,
     "m": 1,  # Letter names in a.m./p.m.
     "p": 1,

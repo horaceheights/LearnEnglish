@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "db4ba865-15ba-46cb-bba7-cd7941186039",
+  "asset_id": "x01-review-price-40",
+  "pack_sha256": "a0c454699facc96602f71b792a178025fef5666f93ee2c7d133cfc89de3edbc6",
+  "started_at": "2026-11-15T16:30:51.233635+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Full-bleed 3:2 landscape; no frames, padding, watermark or captions. The only writing is the price card.\n\nThis is a precise edit of image 1: the result must look like the same photograph with one detail changed. Change only what the instruction names.\n\nImage 1 shows a red book on a market counter beside a white price card that reads $1. Keep the photograph exactly as it is: the same book, counter, background, light and framing, and the same white card in the same place. Change ONLY the writing on the price card: erase the 1 and write 40, so that the card reads exactly $40 in the same black marker handwriting, large and sharp, with every digit fully inside the card. Nothing else changes.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1_photo_u5_buying_book_cheap_v1.webp",
+    "sha256": "c7a3b961e2432dacdf4dd79c170c89755479a776d5ab538a48bb039ae9826ed6"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "O975apryOaSVmtkPz9HtkAc",
+  "usage": {
+    "promptTokenCount": 440,
+    "candidatesTokenCount": 1232,
+    "totalTokenCount": 1826,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 182
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 154,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.136728",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 440,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 154
+  },
+  "elapsed_seconds": 21.47,
+  "output": "output/imagegen/unit-5-review-v5/x01-review-price-40.png",
+  "sha256": "d4d87b797e4ca176fec534cec309232a04fde00bab0358a25c1bcf1494be6a5a",
+  "byte_count": 6713130,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}
