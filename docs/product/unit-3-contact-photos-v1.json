@@ -1,0 +1,167 @@
+{
+  "schema_version": 1,
+  "pack": "unit-3-contact-photos",
+  "revision": 1,
+  "output_namespace": "unit-3-lesson-v3",
+  "authorization": "2026-11-15: the user asked for A1 lesson 3.13 Phone Number and Address to be built (\"build 3.13 Phone Number and Address next\", then \"biuild the whole plan, none stop\") and had approved the gap-lesson media in advance (\"I preapprove all image and audios creation no need for me to reiew and approve on the fly\"). Ceiling US$2.00 for this revision. Gemini is the approved image tool (2026-09-23). Numerals appear only as the taught content: a numeral card, a phone number on a screen and a house number. Revision 1 is frozen: a changed prompt is a new revision in a new file, and every rejected output is reported with its cost.",
+  "image_settings": {
+    "provider": "google-gemini",
+    "model": "gemini-3-pro-image",
+    "aspect_ratio": "3:2",
+    "image_size": "2K",
+    "runtime_size": "1536x1024",
+    "runtime_format": "webp",
+    "n": 1
+  },
+  "production": {
+    "price_per_image_usd": "0.134",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing (checked 2026-09-24: Gemini 3 Pro Image, $0.134 per 1K/2K image)",
+    "planned_images": 9,
+    "expected_cost_usd": "1.24",
+    "requested_ceiling_usd": "2.00",
+    "no_automatic_retries": true,
+    "order": "c02 and c05 are inspected, digit by digit, before their edits are sent; the rest in any order. A rejected output is reported with its cost; a redo needs a changed prompt in a new revision file."
+  },
+  "shared_prompts": {
+    "photo": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material, skin and fabric texture, soft natural daylight and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.",
+    "edit": "This is a precise edit of image 1: the result must look like the same photograph with one detail changed. Change only what the instruction names."
+  },
+  "assets": [
+    {
+      "id": "c01-card-0",
+      "order": 1,
+      "lesson": "3.13",
+      "item": "Zero / It is number zero.",
+      "runtime_filename": "a1_photo_u3_contact_card_0_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1_scene_n20_b3be26c.webp",
+        "sha256": "30fb94d0ba221be385bfdefa7e51850d4827b18e7fc9421d1f9c8112a4e64d2d",
+        "observed_description": "At a community-center registration desk a smiling woman with long braids, a grey cardigan and a purple top holds up a dark-green card with the large white numeral 20 in both hands; behind her a staff member sits at the wooden counter and two people stand at the entrance."
+      },
+      "prompt": "Image 1 shows a person holding up a numeral card at a community-center registration desk. Create a NEW photograph in the same community center, with the same kind of framing, but with a DIFFERENT person and a different card: a man of about thirty-five with short brown hair and a light-blue shirt stands in the middle of the photo, faces the camera with a friendly smile and holds up ONE rectangular bright-green card with both hands at chest height. The card shows only the numeral 0, printed very large in white, bold and perfectly sharp: one single digit, a zero, and nothing else. The person is seen from the waist up and the whole card is inside the central 55 percent of the photo width, unobstructed by fingers. The registration desk with a seated staff member is softly blurred behind. No other readable letters, words or numbers anywhere. Every visible hand has five natural fingers."
+    },
+    {
+      "id": "c02-phone-0142",
+      "order": 2,
+      "lesson": "3.13",
+      "item": "A phone number / It is five five five, zero one four two.",
+      "runtime_filename": "a1_photo_u3_contact_phone_0142_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1_scene_ana-breakfast_e7fbea5.webp",
+        "sha256": "3a528a586b056f0dea3cad8a1d1ca5effce502c1e990632486ff9daafaaee6cc",
+        "observed_description": "Ana, a woman of about thirty with long wavy black hair, an olive-green button shirt open over a white top, sits at a wooden kitchen table holding a cup of coffee and a slice of toast and smiles, in a bright kitchen with a white stove and a window with potted plants."
+      },
+      "prompt": "Image 1 shows Ana: about thirty, long wavy black hair, an olive-green button shirt open over a white top. Keep her face, hair and clothes exactly. Create a NEW photograph in a bright room: Ana stands on the left half of the photo, smiling, and holds up her smartphone in one hand with its screen turned toward the camera, large in the right half of the photo. The screen is plain white and shows only a small green telephone-handset icon at the top and, below it, one phone number in very large black digits: exactly 555-0142. The digits fill most of the screen width, are perfectly sharp and nothing covers them. There is no name, no letter, no word, no clock and no other number on the screen or anywhere else in the photo. Ana is seen from the waist up; her face and the whole phone are sharp. Every visible hand has five natural fingers."
+    },
+    {
+      "id": "c03-phone-0170",
+      "order": 3,
+      "lesson": "3.13",
+      "item": "It is five five five, zero one seven zero.",
+      "runtime_filename": "a1_photo_u3_contact_phone_0170_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo",
+        "edit"
+      ],
+      "reference": "c02-phone-0142",
+      "prompt": "Image 1 shows a woman holding up a phone whose screen shows a phone number. Keep the photograph exactly as it is: the same woman, hand, phone, room, light and framing. Change ONLY the digits on the phone screen: the number now reads exactly 555-0170 instead of 555-0142, in the same large black digits, perfectly sharp. Nothing else changes."
+    },
+    {
+      "id": "c04-phone-0116",
+      "order": 4,
+      "lesson": "3.13",
+      "item": "It is five five five, zero one one six.",
+      "runtime_filename": "a1_photo_u3_contact_phone_0116_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo",
+        "edit"
+      ],
+      "reference": "c02-phone-0142",
+      "prompt": "Image 1 shows a woman holding up a phone whose screen shows a phone number. Keep the photograph exactly as it is: the same woman, hand, phone, room, light and framing. Change ONLY the digits on the phone screen: the number now reads exactly 555-0116 instead of 555-0142, in the same large black digits, perfectly sharp. Nothing else changes."
+    },
+    {
+      "id": "c05-house-12",
+      "order": 5,
+      "lesson": "3.13",
+      "item": "An address / It is twelve Park Street. / My address is twelve Park Street.",
+      "runtime_filename": "a1_photo_u3_contact_house_12_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo"
+      ],
+      "prompt": "A street that runs along a green park. On the LEFT half of the photo is the front of a small, tidy family house with pale walls and a blue front door; on the wall right beside the door hangs one white number plate with the house number 12 in very large black numerals, perfectly sharp and easy to read. In front of the house is the sidewalk and the street, and on the RIGHT half of the photo, across the street, is a public park with green lawns, trees and a path, clearly a park. The house number, the street and the park are all sharp and visible together, so the picture shows where this house is. No people, no cars, no street sign, no mailbox with writing and no other letters, words or numbers anywhere: the only writing is the number 12."
+    },
+    {
+      "id": "c06-house-15",
+      "order": 6,
+      "lesson": "3.13",
+      "item": "It is fifteen Park Street.",
+      "runtime_filename": "a1_photo_u3_contact_house_15_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo",
+        "edit"
+      ],
+      "reference": "c05-house-12",
+      "prompt": "Image 1 shows the front of a house with the number 12 beside its door, on a street that faces a park. Keep the photograph exactly as it is: the same house, door, street, park, light and framing. Change ONLY the house number: the plate now reads exactly 15 instead of 12, in the same large black numerals, perfectly sharp. Nothing else changes."
+    },
+    {
+      "id": "c07-house-20",
+      "order": 7,
+      "lesson": "3.13",
+      "item": "It is twenty Park Street.",
+      "runtime_filename": "a1_photo_u3_contact_house_20_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo",
+        "edit"
+      ],
+      "reference": "c05-house-12",
+      "prompt": "Image 1 shows the front of a house with the number 12 beside its door, on a street that faces a park. Keep the photograph exactly as it is: the same house, door, street, park, light and framing. Change ONLY the house number: the plate now reads exactly 20 instead of 12, in the same large black numerals, perfectly sharp. Nothing else changes."
+    },
+    {
+      "id": "c08-ask-phone",
+      "order": 8,
+      "lesson": "3.13",
+      "item": "What is your phone number?",
+      "runtime_filename": "a1_photo_u3_contact_ask_phone_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1_photo_u4_yes_i_do_v1.webp",
+        "sha256": "4048c012a17d86caa4e3423983115e27170848e3675df5e42c979d1d85fb2396",
+        "observed_description": "At a small round table outside a café Ana (about thirty, long wavy black hair, an olive-green shirt over a white top) gives a thumbs-up and smiles at Luis (about thirty, short curly black hair, a navy T-shirt), who talks with an open hand; two white cups are on the table."
+      },
+      "prompt": "Image 1 shows Ana and Luis. Keep both faces, hair and clothes exactly: Luis is about thirty with short curly black hair and a navy T-shirt; Ana is about thirty with long wavy black hair and an olive-green shirt over a white top. Create a NEW photograph in a bright room: Luis stands on the left, holds his own smartphone in one hand with his thumb ready over the screen, and ASKS Ana a question: he looks at her with raised eyebrows and an open mouth, mid-question, and points with his free hand at his phone, as someone who wants to save her phone number. Ana stands on the right, listens and takes her own phone out of her pocket. Both are seen from the waist up, sharp. The screens of both phones are turned away from the camera. Exactly two people; no readable letters, words or numbers anywhere. Every visible hand has five natural fingers."
+    },
+    {
+      "id": "c09-ask-address",
+      "order": 9,
+      "lesson": "3.13",
+      "item": "What is your address?",
+      "runtime_filename": "a1_photo_u3_contact_ask_address_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1_photo_u4_yes_i_do_v1.webp",
+        "sha256": "4048c012a17d86caa4e3423983115e27170848e3675df5e42c979d1d85fb2396",
+        "observed_description": "At a small round table outside a café Ana (about thirty, long wavy black hair, an olive-green shirt over a white top) gives a thumbs-up and smiles at Luis (about thirty, short curly black hair, a navy T-shirt), who talks with an open hand; two white cups are on the table."
+      },
+      "prompt": "Image 1 shows Ana and Luis. Keep both faces, hair and clothes exactly: Luis is about thirty with short curly black hair and a navy T-shirt; Ana is about thirty with long wavy black hair and an olive-green shirt over a white top. Create a NEW photograph in a bright room: Luis stands on the left and holds a plain white envelope in one hand and a pen in the other, the pen tip resting on the blank front of the envelope, ready to write. He ASKS Ana a question: he looks at her with raised eyebrows and an open mouth, mid-question, as someone who needs her address to send a letter. Ana stands on the right and listens with a smile. Both are seen from the waist up, sharp. The envelope is completely blank. Exactly two people; no phones, and no readable letters, words or numbers anywhere. Every visible hand has five natural fingers."
+    }
+  ]
+}

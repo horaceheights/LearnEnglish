@@ -142,6 +142,9 @@ COURSE_SYLLABLES = {
     "eighty": 2,
     "ninety": 2,
     "hundred": 2,
+    # A1 3.13 Phone Number and Address (2026-11-15).
+    "zero": 2,
+    "address": 2,
     "evening": 2,
     "m": 1,  # Letter names in a.m./p.m.
     "p": 1,
@@ -213,6 +216,14 @@ COURSE_SYLLABLES = {
     "parents": 2,
     "park": 1,
     "pen": 1,
+    # A1 2.12 In the Classroom (2026-11-15); student is already listed.
+    "classroom": 2,
+    "class": 1,
+    "desk": 1,
+    "pencil": 2,
+    "paper": 2,
+    "notebook": 2,
+    "or": 1,
     "pens": 1,
     "phone": 1,
     "phones": 1,

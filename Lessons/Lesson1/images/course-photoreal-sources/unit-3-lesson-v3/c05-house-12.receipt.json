@@ -1,0 +1,57 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "1082e6fa-6a8a-4172-8bb6-2bf7a469334a",
+  "asset_id": "c05-house-12",
+  "pack_sha256": "a3b05d6ddf957694b401f1f2ae08bbd4a1719a5d2ec4bc9b4e697db4e2e0f155",
+  "started_at": "2026-11-15T17:26:56.991709+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material, skin and fabric texture, soft natural daylight and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.\n\nA street that runs along a green park. On the LEFT half of the photo is the front of a small, tidy family house with pale walls and a blue front door; on the wall right beside the door hangs one white number plate with the house number 12 in very large black numerals, perfectly sharp and easy to read. In front of the house is the sidewalk and the street, and on the RIGHT half of the photo, across the street, is a public park with green lawns, trees and a path, clearly a park. The house number, the street and the park are all sharp and visible together, so the picture shows where this house is. No people, no cars, no street sign, no mailbox with writing and no other letters, words or numbers anywhere: the only writing is the number 12.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "Yev5at31DYL0z7IP9JT2sAc",
+  "usage": {
+    "promptTokenCount": 275,
+    "candidatesTokenCount": 1316,
+    "totalTokenCount": 1787,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 275
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 196,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.136902",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 275,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 196
+  },
+  "elapsed_seconds": 21.55,
+  "output": "output/imagegen/unit-3-lesson-v3/c05-house-12.png",
+  "sha256": "7a82d572ed332c398112959a62037256b62c13e9e507980823ae6d61fec2cf3b",
+  "byte_count": 8347052,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

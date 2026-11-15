@@ -56,7 +56,9 @@ test('tap, arbitrary drop, outside drop, removal and repair share ordered valida
   // 363 since 2026-11-14/15: A1 5.11 Buying Things with its four review constructions.
   // 369 since 2026-11-14/15: A1 5.12 Numbers 30 to 100 with its two review constructions.
   // 369 since 2026-11-14/15: A1 5.12 Numbers 30 to 100 with its two review constructions.
-  assert.equal(rollout.length, 369);
+  // 375 since 2026-11-14/15: A1 3.13 Phone Number and Address with its two review constructions.
+  // 381 since 2026-11-14/15: A1 2.12 In the Classroom with its eight review cards.
+  assert.equal(rollout.length, 381);
   for (const card of [...pilots, ...rollout]) {
     let selected = api.sentenceSlots(card, []);
     const expected = card.correct_option_ids;

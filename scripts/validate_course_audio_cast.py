@@ -26,6 +26,13 @@ ASSIGNMENT_GROUPS: dict[str, list[tuple[str, str, str]]] = {
     # Unit 3 was rebuilt through the content engine on 2026-09-25: each brief names who says
     # every line, neutral narration alternates the teacher and the male-teacher narrator,
     # and these pins are regenerated from the installed lessons.
+    # 2026-11-14 coverage-gap lesson: each pictured speaker keeps their voice and the narrators alternate; regenerated from the lesson.
+    "lesson-2-12-in-the-classroom": [
+        ('answer_audio_speaker', 'co-teacher', 'R5 R7 U1 U3 U5 U7'),
+        ('answer_audio_speaker', 'luis', 'R1'),
+        ('audio_speaker', 'co-teacher', 'L2 L4 L6 L8 R3 R9 A2 A4 A6 A8 S2 S4 S7 U1 U3 U5 U7'),
+        ('audio_speaker', 'luis', 'R2 R4 A1 S5'),
+    ],
     "lesson-3-1-greetings-and-names": [
         ("audio_speaker", "ana", "L1 L2 L5 R1 R2 R10 R11 A1 A2 A4 A6 A10 S1 S2 U2 U5"),
         ("audio_speaker", "luis", "L3 L4 R3 R5 R7 A3 A5 A7 S3 S4 S5 U1 U3 U4 U6"),
@@ -115,19 +122,28 @@ ASSIGNMENT_GROUPS: dict[str, list[tuple[str, str, str]]] = {
         ('answer_audio_speaker', 'luis', 'R6 U5'),
         ('answer_audio_speaker', 'male-character', 'R8 U7 U8'),
     ],
+    # 2026-11-14 coverage-gap lesson: each pictured speaker keeps their voice and the narrators alternate; regenerated from the lesson.
+    "lesson-3-13-phone-address": [
+        ('answer_audio_speaker', 'ana', 'R4 R6 R8 R10 R11 U3 U6 U8'),
+        ('answer_audio_speaker', 'co-teacher', 'U5'),
+        ('answer_audio_speaker', 'luis', 'R1 R2 U1 U4 U7'),
+        ('audio_speaker', 'ana', 'R5 R7 R9 A4 A5 A6 A7 A8 A9 S6 S7 S8 S9 U3 U6 U8'),
+        ('audio_speaker', 'co-teacher', 'L2 R3 S1 S5 U5'),
+        ('audio_speaker', 'luis', 'L4 L5 R4 R6 R8 A1 A2 S3 S4 U1 U4 U7'),
+    ],
     "lesson-3-9-unit-3-review": [
-        ('audio_speaker', 'male-character', 'L1 L2 R1 R3 R4 R10 N1 N2 S1 U1 U3'),
+        ('answer_audio_speaker', 'ana', 'R1 R8 U6'),
+        ('answer_audio_speaker', 'co-teacher', 'R9'),
+        ('answer_audio_speaker', 'female-character', 'R7 U7'),
+        ('answer_audio_speaker', 'luis', 'R2 U5 U8'),
+        ('answer_audio_speaker', 'male-character', 'U3'),
+        ('answer_audio_speaker', 'sofia', 'R3'),
         ('audio_speaker', 'ana', 'L3 L5 L6 L7 S2 U6'),
+        ('audio_speaker', 'co-teacher', 'R5 N4 N6 N8 N10 N12 N14 N16 N18 N20 S6'),
         ('audio_speaker', 'female-character', 'L4 U7'),
         ('audio_speaker', 'luis', 'L8 S3 U5 U8'),
-        ('answer_audio_speaker', 'ana', 'R1 R8 U6'),
-        ('answer_audio_speaker', 'luis', 'R2 U5 U8'),
-        ('answer_audio_speaker', 'sofia', 'R3'),
-        ('audio_speaker', 'co-teacher', 'R5 N4 N6 N8 N10 N12 N14 N16 N18 N20 S6'),
-        ('answer_audio_speaker', 'female-character', 'R7 U7'),
-        ('answer_audio_speaker', 'co-teacher', 'R9'),
+        ('audio_speaker', 'male-character', 'L1 L2 R1 R3 R4 R10 N1 N2 S1 U1 U3'),
         ('audio_speaker', 'sofia', 'S4'),
-        ('answer_audio_speaker', 'male-character', 'U3'),
     ],
     # Unit 4 was rebuilt through the content engine on 2026-09-26 (briefs in
     # docs/product/content-briefs/unit-4/): each pictured person says their own lines,

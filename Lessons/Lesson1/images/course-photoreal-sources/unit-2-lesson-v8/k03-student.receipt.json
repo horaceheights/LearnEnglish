@@ -1,0 +1,57 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "10117be1-ec64-4ac8-a9c3-9e132a62e5a7",
+  "asset_id": "k03-student",
+  "pack_sha256": "33e0b7c50abd57b85c4b306efd28f90151271e1007ae1313af8a28b021f7965b",
+  "started_at": "2026-11-15T17:54:00.333890+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material, skin, wood and fabric texture, soft natural daylight and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.\n\nKeep the main subject of the photo whole inside the central 55 percent of the photo width, so a centered 4:5 crop keeps it whole; only expendable background reaches the left and right edges.\n\nONE student. A young woman of about twenty with straight shoulder-length brown hair, a plain mustard-yellow sweater and a plain dark-gray backpack on both shoulders stands in the middle of a bright school corridor and smiles at the camera. She holds two thick closed textbooks with plain covers against her chest with both arms. She is seen from the knees up and is sharp; behind her the corridor with plain closed classroom doors is softly blurred. Exactly one person; no desks, no tables and no chairs. No letters, words, numbers, logos or brand marks anywhere. Every visible hand has five natural fingers.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "uPH5asDJGomhqtsP-KqbgAg",
+  "usage": {
+    "promptTokenCount": 275,
+    "candidatesTokenCount": 1283,
+    "totalTokenCount": 1773,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 275
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 215,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137130",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 275,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 215
+  },
+  "elapsed_seconds": 19.61,
+  "output": "output/imagegen/unit-2-lesson-v8/k03-student.png",
+  "sha256": "44c995df17403474002bfe14f153fb30b89010b31f65bce33a632925227b72fb",
+  "byte_count": 5872101,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

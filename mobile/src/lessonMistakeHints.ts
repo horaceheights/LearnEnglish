@@ -80,6 +80,8 @@ const MEANINGS: Record<string, string> = {
   // A1 5.12 (2026-11-15): the tens from thirty to one hundred.
   thirty: 'treinta', forty: 'cuarenta', fifty: 'cincuenta', sixty: 'sesenta', seventy: 'setenta', eighty: 'ochenta',
   ninety: 'noventa', hundred: 'cien',
+  // A1 3.13 (2026-11-15): phone number and address.
+  zero: 'cero', address: 'dirección',
   running: 'corriendo', walking: 'caminando', reading: 'leyendo', writing: 'escribiendo',
   eating: 'comiendo', drinking: 'bebiendo', cooking: 'cocinando', working: 'trabajando',
   studying: 'estudiando', playing: 'jugando', swimming: 'nadando', sleeping: 'durmiendo',
@@ -96,6 +98,9 @@ const MEANINGS: Record<string, string> = {
   hospital: 'hospital', street: 'calle', bridge: 'puente', bus: 'autobús', car: 'automóvil',
   bike: 'bicicleta', book: 'libro', books: 'libros', pen: 'bolígrafo', pens: 'bolígrafos',
   phone: 'teléfono', phones: 'teléfonos', bag: 'bolsa', bags: 'bolsas', chair: 'silla', table: 'mesa', cars: 'automóviles',
+  // A1 2.12 (2026-11-15): in the classroom.
+  classroom: 'salón de clases', class: 'clase', student: 'estudiante', desk: 'pupitre', pencil: 'lápiz', paper: 'papel',
+  notebook: 'cuaderno', or: 'o',
   bed: 'cama', bedroom: 'dormitorio', kitchen: 'cocina', 'living room': 'sala', 'dining room': 'comedor',
   computer: 'computadora', door: 'puerta', lamp: 'lámpara', doctor: 'médico', nurse: 'enfermero o enfermera',
   teacher: 'profesor o profesora', driver: 'conductor', farmer: 'agricultor', job: 'trabajo', name: 'nombre',

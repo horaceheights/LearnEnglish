@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "pack": "unit-2-review-classroom-photos-b",
+  "revision": 1,
+  "output_namespace": "unit-2-review-v5",
+  "authorization": "2026-11-15: the Unit 2 review is extended for the coverage-gap lesson 2.12 In the Classroom under the user's standing rule for gap lessons (\"Yes, standing rule (Recommended)\") and the advance media approval (\"I preapprove all image and audios creation no need for me to reiew and approve on the fly\"). A third review photo, so that paper also returns in the review. Ceiling US$0.30 for this revision. Gemini is the approved image tool (2026-09-23). Revision 1 is frozen.",
+  "image_settings": {
+    "provider": "google-gemini",
+    "model": "gemini-3-pro-image",
+    "aspect_ratio": "3:2",
+    "image_size": "2K",
+    "runtime_size": "1536x1024",
+    "runtime_format": "webp",
+    "n": 1
+  },
+  "production": {
+    "price_per_image_usd": "0.134",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing (checked 2026-09-24: Gemini 3 Pro Image, $0.134 per 1K/2K image)",
+    "planned_images": 1,
+    "expected_cost_usd": "0.14",
+    "requested_ceiling_usd": "0.30",
+    "no_automatic_retries": true,
+    "order": "One edit. A rejected output is reported with its cost; a redo needs a changed prompt in a new revision file."
+  },
+  "shared_prompts": {
+    "photo": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail and soft natural daylight; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, watermark or captions. No letters, words, numbers, logos or brand marks anywhere.",
+    "edit": "This is a precise edit of image 1: the result must look like the same photograph with one detail changed. Change only what the instruction names."
+  },
+  "assets": [
+    {
+      "id": "w01-review-yellow-paper",
+      "order": 1,
+      "lesson": "2.13",
+      "item": "The paper is yellow.",
+      "runtime_filename": "a1_u2_review_gap_yellow_paper_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo",
+        "edit"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1_photo_u2_classroom_paper_v1.webp",
+        "sha256": "3388f3ceee4e45b3b85853788e080e2980c82a1d6f54d5ab7692d7768d94436e",
+        "observed_description": "A stack of blank white sheets of paper lies on a dark-brown wooden table, the top sheets slightly turned and one corner curled up, seen from above. Nothing else is on the table."
+      },
+      "prompt": "Image 1 shows a stack of blank white sheets of paper on a dark wooden table. Keep the photograph exactly as it is: the same stack, the same turned sheets and curled corner, the same table, light and framing. Change ONLY the color of the paper: every sheet is now bright YELLOW instead of white, still completely blank. Nothing else changes."
+    }
+  ]
+}

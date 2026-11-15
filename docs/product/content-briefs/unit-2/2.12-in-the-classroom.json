@@ -1,0 +1,408 @@
+{
+  "brief_version": 1,
+  "captions": false,
+  "narrators": [
+    "teacher",
+    "co-teacher"
+  ],
+  "note": "Coverage gap lesson (2026-11-15, user request \"build 2.12 next\", clarified as In the Classroom, then \"biuild the whole plan, none stop\"). The words are practised on the Unit 2 frames the learner already has: It is a + noun (2.4), color before the noun (2.8) and the 1.x sentence She is a + noun. `or` is taught in a choice question about one object (Is it a pen or a pencil?) answered with It is a pencil. `teacher` is a Unit 3 word and is not used. Source: docs/planning/a1-gap-lessons-draft.md.",
+  "target": "backend/lessons/unit_2/lesson-2-12-in-the-classroom.yaml",
+  "lesson": {
+    "id": "lesson-2-12-in-the-classroom",
+    "title": "2.12 In the Classroom",
+    "level": "Beginner A1",
+    "unit_id": "unit-2",
+    "unit_title": "Unit 2: Places, Objects, Numbers, and Colors",
+    "unit_outcome": "Recognize common surroundings and identify, count, and describe concrete objects without using untaught location language.",
+    "lesson_id": "lesson-2",
+    "lesson_title": "Unit 2: Places, Objects, Numbers, and Colors",
+    "sub_lesson_id": "2.12",
+    "sub_lesson_title": "In the Classroom",
+    "goal": "Name the classroom, the class, a student and four classroom things, and answer a choice question with or.",
+    "vocabulary": [
+      "classroom",
+      "class",
+      "student",
+      "desk",
+      "pencil",
+      "paper",
+      "notebook",
+      "or"
+    ],
+    "review_vocabulary": [
+      "it",
+      "is",
+      "a",
+      "the",
+      "she",
+      "pen",
+      "book",
+      "table",
+      "school",
+      "yellow",
+      "red",
+      "blue",
+      "green",
+      "white"
+    ],
+    "grammar_function": "It is a + classroom noun; Is it a + noun + or a + noun? It is a + noun; It is a + color + noun; She is a student; The paper is + color.",
+    "prerequisite": "1.x She is a + noun; 2.1 school; 2.3 book, pen, table; 2.4 It is a + noun; 2.7 colors; 2.8 It is a + color + noun; 2.11 The + noun + is + description.",
+    "speaking_outcome": "Say It is a pencil., It is a blue notebook. and She is a student., and ask Is it a pen or a pencil?",
+    "content_revision": 1
+  },
+  "layout": {
+    "Recognize": 10,
+    "Listen": 8,
+    "Speak": 8,
+    "Use": 8
+  },
+  "stage_sequences": {
+    "Speak": [
+      "A classroom",
+      "A class",
+      "A student",
+      "A notebook",
+      "Is it a pen or a pencil?",
+      "It is a pencil.",
+      "It is a desk.",
+      "The paper is white."
+    ]
+  },
+  "items": [
+    {
+      "text": "A classroom",
+      "es": "Un salón de clases",
+      "image": "/lesson-assets/a1_photo_u2_classroom_room_v1.webp",
+      "kind": "classroom-word",
+      "choices": false,
+      "form": "word"
+    },
+    {
+      "text": "A class",
+      "es": "Una clase",
+      "image": "/lesson-assets/a1_photo_u2_classroom_class_v1.webp",
+      "kind": "classroom-word",
+      "choices": false,
+      "form": "word",
+      "image_choices": false
+    },
+    {
+      "text": "A student",
+      "es": "Un estudiante",
+      "image": "/lesson-assets/a1_photo_u2_classroom_student_v1.webp",
+      "kind": "classroom-word",
+      "choices": false,
+      "form": "word"
+    },
+    {
+      "text": "A desk",
+      "es": "Un pupitre",
+      "image": "/lesson-assets/a1_photo_u2_classroom_desk_v1.webp",
+      "kind": "classroom-word",
+      "choices": false,
+      "form": "word"
+    },
+    {
+      "text": "A pencil",
+      "es": "Un lápiz",
+      "image": "/lesson-assets/a1_photo_u2_classroom_pencil_v1.webp",
+      "kind": "classroom-word",
+      "choices": false,
+      "form": "word",
+      "four_card": false
+    },
+    {
+      "text": "Paper",
+      "es": "Papel",
+      "image": "/lesson-assets/a1_photo_u2_classroom_paper_v1.webp",
+      "kind": "classroom-word",
+      "choices": false
+    },
+    {
+      "text": "A notebook",
+      "es": "Un cuaderno",
+      "image": "/lesson-assets/a1_photo_u2_classroom_notebook_v1.webp",
+      "kind": "classroom-word",
+      "choices": false,
+      "form": "word"
+    },
+    {
+      "text": "A pencil or a notebook",
+      "es": "Un lápiz o un cuaderno",
+      "image": "/lesson-assets/a1_photo_u2_classroom_choose_v1.webp",
+      "kind": "classroom-word",
+      "choices": false,
+      "form": "word",
+      "image_choices": false,
+      "four_card": false,
+      "use": false
+    },
+    {
+      "text": "Is it a pen or a pencil?",
+      "es": "¿Es un bolígrafo o un lápiz?",
+      "image": "/lesson-assets/a1_photo_u2_classroom_ask_v1.webp",
+      "kind": "or-question",
+      "learn": false,
+      "image_choices": false,
+      "four_card": false,
+      "use": false,
+      "speaker": "luis",
+      "prefer": [
+        "Is it a book or a notebook?",
+        "Is it a table or a desk?"
+      ]
+    },
+    {
+      "text": "It is a pencil.",
+      "es": "Es un lápiz.",
+      "image": "/lesson-assets/a1_photo_u2_classroom_pencil_v1.webp",
+      "kind": "identify",
+      "learn": false,
+      "prefer": [
+        "It is a pen."
+      ],
+      "four_card": false,
+      "question": "Is it a pen or a pencil?",
+      "question_es": "¿Es un bolígrafo o un lápiz?",
+      "question_speaker": "luis"
+    },
+    {
+      "text": "It is a pen.",
+      "es": "Es un bolígrafo.",
+      "image": "/lesson-assets/a1_pen.webp",
+      "kind": "identify",
+      "learn": false,
+      "prefer": [
+        "It is a pencil."
+      ],
+      "question": "Is it a pen or a pencil?",
+      "question_es": "¿Es un bolígrafo o un lápiz?",
+      "question_speaker": "luis"
+    },
+    {
+      "text": "It is a notebook.",
+      "es": "Es un cuaderno.",
+      "image": "/lesson-assets/a1_photo_u2_classroom_notebook_v1.webp",
+      "kind": "identify",
+      "learn": false,
+      "prefer": [
+        "It is a book."
+      ],
+      "question": "Is it a book or a notebook?",
+      "question_es": "¿Es un libro o un cuaderno?",
+      "question_speaker": "luis"
+    },
+    {
+      "text": "It is a book.",
+      "es": "Es un libro.",
+      "image": "/lesson-assets/a1_book.webp",
+      "kind": "identify",
+      "learn": false,
+      "prefer": [
+        "It is a notebook."
+      ],
+      "question": "Is it a book or a notebook?",
+      "question_es": "¿Es un libro o un cuaderno?",
+      "question_speaker": "luis"
+    },
+    {
+      "text": "It is a desk.",
+      "es": "Es un pupitre.",
+      "image": "/lesson-assets/a1_photo_u2_classroom_desk_v1.webp",
+      "kind": "identify",
+      "learn": false,
+      "prefer": [
+        "It is a table."
+      ],
+      "question": "Is it a table or a desk?",
+      "question_es": "¿Es una mesa o un pupitre?",
+      "question_speaker": "luis"
+    },
+    {
+      "text": "It is a classroom.",
+      "es": "Es un salón de clases.",
+      "image": "/lesson-assets/a1_photo_u2_classroom_room_v1.webp",
+      "kind": "identify-place",
+      "learn": false,
+      "prefer": [
+        "It is a class.",
+        "It is a school."
+      ],
+      "image_choices": false,
+      "four_card": false
+    },
+    {
+      "text": "It is a class.",
+      "es": "Es una clase.",
+      "image": "/lesson-assets/a1_photo_u2_classroom_class_v1.webp",
+      "kind": "identify-place",
+      "learn": false,
+      "prefer": [
+        "It is a classroom."
+      ],
+      "image_choices": false,
+      "four_card": false
+    },
+    {
+      "text": "She is a student.",
+      "es": "Ella es estudiante.",
+      "image": "/lesson-assets/a1_photo_u2_classroom_student_v1.webp",
+      "kind": "identify-person",
+      "learn": false,
+      "prefer": [
+        "She is a child."
+      ],
+      "four_card": false,
+      "image_choices": false
+    },
+    {
+      "text": "It is a yellow pencil.",
+      "es": "Es un lápiz amarillo.",
+      "image": "/lesson-assets/a1_photo_u2_classroom_pencil_v1.webp",
+      "kind": "color",
+      "learn": false,
+      "prefer": [
+        "It is a red pencil.",
+        "It is a yellow pen."
+      ],
+      "blanks": [
+        "yellow",
+        "pencil"
+      ],
+      "four_card": false,
+      "avoid": [
+        "It is a blue notebook.",
+        "It is a green notebook."
+      ]
+    },
+    {
+      "text": "It is a red pencil.",
+      "es": "Es un lápiz rojo.",
+      "image": "/lesson-assets/a1_photo_u2_classroom_red_pencil_v1.webp",
+      "kind": "color",
+      "learn": false,
+      "prefer": [
+        "It is a yellow pencil.",
+        "It is a red pen."
+      ],
+      "blanks": [
+        "red",
+        "pencil"
+      ],
+      "four_card": false,
+      "avoid": [
+        "It is a blue notebook.",
+        "It is a green notebook."
+      ]
+    },
+    {
+      "text": "It is a blue notebook.",
+      "es": "Es un cuaderno azul.",
+      "image": "/lesson-assets/a1_photo_u2_classroom_notebook_v1.webp",
+      "kind": "color",
+      "learn": false,
+      "prefer": [
+        "It is a green notebook.",
+        "It is a blue book."
+      ],
+      "blanks": [
+        "blue",
+        "notebook"
+      ],
+      "avoid": [
+        "It is a yellow pencil.",
+        "It is a red pencil."
+      ]
+    },
+    {
+      "text": "It is a green notebook.",
+      "es": "Es un cuaderno verde.",
+      "image": "/lesson-assets/a1_photo_u2_classroom_green_notebook_v1.webp",
+      "kind": "color",
+      "learn": false,
+      "prefer": [
+        "It is a blue notebook.",
+        "It is a green book."
+      ],
+      "blanks": [
+        "green",
+        "notebook"
+      ],
+      "avoid": [
+        "It is a yellow pencil.",
+        "It is a red pencil."
+      ]
+    },
+    {
+      "text": "The paper is white.",
+      "es": "El papel es blanco.",
+      "image": "/lesson-assets/a1_photo_u2_classroom_paper_v1.webp",
+      "kind": "state",
+      "learn": false,
+      "prefer": [
+        "The paper is yellow.",
+        "The paper is blue."
+      ],
+      "four_card": false,
+      "image_choices": false
+    }
+  ],
+  "pool": [
+    {
+      "text": "Is it a book or a notebook?",
+      "es": "",
+      "kind": "or-question"
+    },
+    {
+      "text": "Is it a table or a desk?",
+      "es": "",
+      "kind": "or-question"
+    },
+    {
+      "text": "It is a table.",
+      "es": "",
+      "image": "/lesson-assets/a1_photo_u2_white_table_v1.webp",
+      "kind": "identify"
+    },
+    {
+      "text": "It is a school.",
+      "es": "",
+      "kind": "identify-place"
+    },
+    {
+      "text": "She is a child.",
+      "es": "",
+      "kind": "identify-person"
+    },
+    {
+      "text": "It is a yellow pen.",
+      "es": "",
+      "kind": "color"
+    },
+    {
+      "text": "It is a red pen.",
+      "es": "",
+      "kind": "color"
+    },
+    {
+      "text": "It is a blue book.",
+      "es": "",
+      "kind": "color"
+    },
+    {
+      "text": "It is a green book.",
+      "es": "",
+      "kind": "color"
+    },
+    {
+      "text": "The paper is yellow.",
+      "es": "",
+      "kind": "state"
+    },
+    {
+      "text": "The paper is blue.",
+      "es": "",
+      "kind": "state"
+    }
+  ]
+}
