@@ -36,6 +36,8 @@ for (const noun of words('days week weekend month months year')) NOUNS.add(noun)
 for (const noun of words('money price')) NOUNS.add(noun);
 const COMPOUND_NOUNS: Record<string, string> = { 'post office': 'oficina de correos', 'movie theater': 'cine', 'bus stop': 'parada de autobús', 'next stop': 'próxima parada' };
 const STATES = set('red blue green yellow black white happy sad tired hungry thirsty sunny rainy cold hot windy cloudy mexican spanish american canadian');
+// A1 2.13 (2026-11-15): four more colors, before a noun (a brown dog) and after "is" (It is brown.).
+for (const color of words('brown pink purple gray')) { COLORS.add(color); STATES.add(color); }
 // A1+ 1.1 (2026-11-10): what people look like, after "is" (Luis is tall.) or before a noun (an old man, long hair).
 const DESCRIPTIONS = set('tall short old young long');
 // A1+ 1.5 (2026-11-11): brothers and sisters before a noun (an older sister, my younger brother).

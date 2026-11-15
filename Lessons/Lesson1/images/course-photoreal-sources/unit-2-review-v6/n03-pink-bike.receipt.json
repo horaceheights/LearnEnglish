@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "23ed72c3-34c7-4cba-a0b4-5ac4e75a6472",
+  "asset_id": "n03-pink-bike",
+  "pack_sha256": "e7326666d204705addd5de556aae5350d559601fd9529f19c2bd01519a6a8a4d",
+  "started_at": "2026-11-15T18:13:45.423039+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material and fur texture, soft natural daylight and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must name the color instantly on a small phone screen. Do not imitate earlier course photos.\n\nThis is a precise edit of image 1: the result must look like the same photograph with one detail changed. Change only what the instruction names.\n\nImage 1 shows one bicycle with a blue frame. Keep the photograph exactly as it is: the same bicycle, position, tires, seat, path, wall, light and framing. Change ONLY the color of the frame: it is now solid bright rose PINK instead of blue. The tires and the seat stay black. Nothing else changes.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1_photo_u2_blue_bike_v1.webp",
+    "sha256": "0496b786e9c243fc1689f2304c95d19aca71a5689dbbf2564c7e621228371e9d"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "Wfb5aoy5NN-2qtsPxY2smAc",
+  "usage": {
+    "promptTokenCount": 462,
+    "candidatesTokenCount": 1240,
+    "totalTokenCount": 1844,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 204
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 142,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.136628",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 462,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 142
+  },
+  "elapsed_seconds": 21.24,
+  "output": "output/imagegen/unit-2-review-v6/n03-pink-bike.png",
+  "sha256": "da619866aa773015c8ffa8b4b958e8b81ff2486bcb7c2ac52c4820aa36fbc295",
+  "byte_count": 5788972,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}
