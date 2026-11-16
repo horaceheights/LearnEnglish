@@ -23,6 +23,11 @@ for (const noun of words('fruit pear pears bananas drinks')) NOUNS.add(noun);
 NOUNS.add('ears');
 // Expanded body, weather and activity vocabulary uses the same nominal rules.
 for (const noun of words('nose fingers toes coat sweater scarf gloves shorts weather photos football')) NOUNS.add(noun);
+// A1 7.10 to 7.13 (2026-11-15): seasons, outdoors, animals, sports and music.
+for (const noun of words('spring summer fall winter sun rain snow')) NOUNS.add(noun);
+for (const noun of words('tree flower river sea beach mountain lake sky')) NOUNS.add(noun);
+for (const noun of words('cow horse sheep pig lion elephant snake monkey')) NOUNS.add(noun);
+for (const noun of words('sport ball team game tennis song guitar')) NOUNS.add(noun);
 for (const noun of words('mall supermarket airplane boat hotel office museum theater stop airport corner ticket')) NOUNS.add(noun);
 // A1+ 1.4 (2026-11-04): the extended family.
 for (const noun of words('aunt uncle cousin')) NOUNS.add(noun);
@@ -49,12 +54,16 @@ for (const description of words('older younger')) DESCRIPTIONS.add(description);
 for (const description of words('big small new used same different')) DESCRIPTIONS.add(description);
 // A1 5.11 (2026-11-14): The bag is cheap. / The bag is expensive.
 for (const description of words('cheap expensive')) DESCRIPTIONS.add(description);
+// A1 7.9 (2026-11-15): how someone is (I am fine.) and how something is (The apple is good.); 7.10: It is warm.
+for (const description of words('good bad great fine sick angry afraid warm')) DESCRIPTIONS.add(description);
 for (const state of DESCRIPTIONS) STATES.add(state);
 const OWNERS = set('mine yours ours');
 const OWNER_MEANINGS: Record<string, string> = { mine: 'mío', yours: 'tuyo', ours: 'nuestro' };
 const PRONOUNS = set('i you he she it we they this that these those there');
 const VERBS = set('am is are have has like want wants need needs do work works study wake get eat wash brush come go goes sleep drink walk play watch can cannot leaves arrives open close clean run take');
 for (const verb of words('speak speaks')) VERBS.add(verb);
+// A1 7.13 (2026-11-15): I sing. / They sing.
+for (const verb of words('sing')) VERBS.add(verb);
 for (const verb of words('leave arrive start starts finish finishes studies meet put')) VERBS.add(verb);
 // A1+ 1.2 (2026-10-29): the he/she forms of A1 routine verbs.
 for (const verb of words('wakes gets eats brushes')) VERBS.add(verb);

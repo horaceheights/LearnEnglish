@@ -537,6 +537,12 @@ COURSE_SYLLABLES.update({
     "twenty": 2,
     "two": 1,
     "umbrella": 3,
+    # A1 7.9 to 7.13 gap lessons (2026-11-15); good and warm are already listed.
+    "bad": 1, "great": 1, "fine": 1, "sick": 1, "angry": 2, "afraid": 2,
+    "spring": 1, "summer": 2, "fall": 1, "winter": 2, "sun": 1, "rain": 1, "snow": 1,
+    "tree": 1, "flower": 2, "river": 2, "sea": 1, "beach": 1, "mountain": 2, "lake": 1, "sky": 1,
+    "cow": 1, "horse": 1, "sheep": 1, "pig": 1, "lion": 2, "elephant": 3, "snake": 1, "monkey": 2,
+    "sport": 1, "ball": 1, "team": 1, "game": 1, "tennis": 2, "sing": 1, "song": 1, "guitar": 2,
     "under": 2,
     "understand": 3,
     "united": 3,
