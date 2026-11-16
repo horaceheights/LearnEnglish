@@ -1,0 +1,127 @@
+{
+  "schema_version": 1,
+  "pack": "unit-5-review-food-table-photos",
+  "revision": 1,
+  "output_namespace": "unit-5-review-v8",
+  "authorization": "2026-11-15: review photos that bring back the 5.13 More Food and 5.14 At the Table words in the Unit 5 review, under the standing rule for gap lessons. The user asked for every remaining gap lesson to be built (\"biuild the whole plan, none stop\") and had approved the gap-lesson media in advance (\"I preapprove all image and audios creation no need for me to reiew and approve on the fly\"). Ceiling US$1.60 for this revision. Gemini is the approved image tool (2026-09-23). Revision 1 is frozen: a changed prompt is a new revision in a new file, and every rejected output is reported with its cost.",
+  "image_settings": {
+    "provider": "google-gemini",
+    "model": "gemini-3-pro-image",
+    "aspect_ratio": "3:2",
+    "image_size": "2K",
+    "runtime_size": "1536x1024",
+    "runtime_format": "webp",
+    "n": 1
+  },
+  "production": {
+    "price_per_image_usd": "0.134",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing (checked 2026-09-24: Gemini 3 Pro Image, $0.134 per 1K/2K image)",
+    "planned_images": 8,
+    "expected_cost_usd": "1.07",
+    "requested_ceiling_usd": "1.60",
+    "no_automatic_retries": true,
+    "order": "Independent photos in any order. A rejected output is reported with its cost; a redo needs a changed prompt in a new revision file."
+  },
+  "shared_prompts": {
+    "photo": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real food, glass, ceramic and fabric texture, soft natural daylight and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.",
+    "safe_center": "Keep the main subject of the photo whole inside the central 55 percent of the photo width, so a centered 4:5 crop keeps it whole; only expendable background reaches the left and right edges."
+  },
+  "assets": [
+    {
+      "id": "g01-meat-vegetables",
+      "order": 1,
+      "lesson": "5.15",
+      "item": "I eat meat and vegetables for dinner.",
+      "runtime_filename": "a1_u5_review_gap_meat_vegetables_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo"
+      ],
+      "prompt": "A DINNER plate of meat and vegetables. One white plate holds one grilled steak on the left half and a clear portion of cooked vegetables (carrots, broccoli and green beans) on the right half; a lit candle in a plain holder and a dark window behind the table show that it is evening on a dark wooden table, photographed from a little above. Everything named is sharp and clearly separate. Nothing else is on the table: no cutlery, no napkin, no other food, no hands, no people. No letters, words, numbers, logos, labels or brand marks anywhere."
+    },
+    {
+      "id": "g02-sandwich-soup",
+      "order": 2,
+      "lesson": "5.15",
+      "item": "I want a sandwich and soup.",
+      "runtime_filename": "a1_u5_review_gap_sandwich_soup_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo"
+      ],
+      "prompt": "A sandwich AND soup. On the left a white plate with one sandwich cut in two halves; on the right, beside it, a white bowl of hot orange soup with a little steam on a dark wooden table, photographed from a little above. Everything named is sharp and clearly separate. Nothing else is on the table: no cutlery, no napkin, no other food, no hands, no people. No letters, words, numbers, logos, labels or brand marks anywhere."
+    },
+    {
+      "id": "g03-cheese-salad",
+      "order": 3,
+      "lesson": "5.15",
+      "item": "I like cheese and salad.",
+      "runtime_filename": "a1_u5_review_gap_cheese_salad_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo"
+      ],
+      "prompt": "Cheese AND salad. On the left a small wooden board with one wedge of pale-yellow cheese; on the right, beside it, a white bowl of mixed green salad on a dark wooden table, photographed from a little above. Everything named is sharp and clearly separate. Nothing else is on the table: no cutlery, no napkin, no other food, no hands, no people. No letters, words, numbers, logos, labels or brand marks anywhere."
+    },
+    {
+      "id": "g04-potato-tomato",
+      "order": 4,
+      "lesson": "5.15",
+      "item": "I need a potato and a tomato.",
+      "runtime_filename": "a1_u5_review_gap_potato_tomato_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo"
+      ],
+      "prompt": "ONE potato AND ONE tomato. A single raw brown potato on the left and a single ripe red tomato on the right lie side by side directly on the table, a hand-width apart on a dark wooden table, photographed from a little above. Everything named is sharp and clearly separate. Nothing else is on the table: no cutlery, no napkin, no other food, no hands, no people. No letters, words, numbers, logos, labels or brand marks anywhere."
+    },
+    {
+      "id": "g05-salt-sugar",
+      "order": 5,
+      "lesson": "5.15",
+      "item": "The salt is next to the sugar.",
+      "runtime_filename": "a1_u5_review_gap_salt_sugar_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo"
+      ],
+      "prompt": "Salt NEXT TO sugar. On the left a small glass salt shaker with a metal top full of white salt; on the right, right beside it and almost touching, a small white bowl heaped with white sugar cubes on a dark wooden table, photographed from a little above. Everything named is sharp and clearly separate. Nothing else is on the table: no cutlery, no napkin, no other food, no hands, no people. No letters, words, numbers, logos, labels or brand marks anywhere."
+    },
+    {
+      "id": "g06-cake-plate",
+      "order": 6,
+      "lesson": "5.15",
+      "item": "The cake is on the plate.",
+      "runtime_filename": "a1_u5_review_gap_cake_plate_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo"
+      ],
+      "prompt": "A cake ON a plate. One small whole round chocolate cake with chocolate frosting sits in the middle of one large plain white dinner plate that lies directly on the table; the white rim of the plate is clearly visible all around the cake on a dark wooden table, photographed from a little above. Everything named is sharp and clearly separate. Nothing else is on the table: no cutlery, no napkin, no other food, no hands, no people. No letters, words, numbers, logos, labels or brand marks anywhere."
+    },
+    {
+      "id": "g07-glass-bottle",
+      "order": 7,
+      "lesson": "5.15",
+      "item": "The glass is next to the bottle.",
+      "runtime_filename": "a1_u5_review_gap_glass_bottle_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo"
+      ],
+      "prompt": "A glass NEXT TO a bottle. On the left one plain, clear, empty drinking glass; on the right, right beside it and almost touching, one plain clear glass bottle with a metal cap and no label on a dark wooden table, photographed from a little above. Everything named is sharp and clearly separate. Nothing else is on the table: no cutlery, no napkin, no other food, no hands, no people. No letters, words, numbers, logos, labels or brand marks anywhere."
+    },
+    {
+      "id": "g08-cup-plate",
+      "order": 8,
+      "lesson": "5.15",
+      "item": "The cup is on the plate.",
+      "runtime_filename": "a1_u5_review_gap_cup_plate_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo"
+      ],
+      "prompt": "A cup ON a plate. One plain white ceramic cup with a handle, empty, stands in the middle of one large plain blue dinner plate that lies directly on the table; the blue rim of the plate is clearly visible all around the cup on a dark wooden table, photographed from a little above. Everything named is sharp and clearly separate. Nothing else is on the table: no cutlery, no napkin, no other food, no hands, no people. No letters, words, numbers, logos, labels or brand marks anywhere."
+    }
+  ]
+}

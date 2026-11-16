@@ -84,9 +84,13 @@ EXACT_ROLE_CHANGES = {}
 # 2026-11-15: coverage-gap lesson 3.13 Phone Number and Address (Ana, Luis and narrator fields).
 # 2026-11-15: coverage-gap lesson 2.12 In the Classroom (Luis and narrator fields).
 # 2026-11-15: coverage-gap lesson 2.12 In the Classroom (Luis and narrator fields).
-EXPECTED_EXPLICIT_ASSIGNMENT_COUNT = 2554
+# 2026-11-15: coverage-gap lesson 2.13 More Colors (narrator fields).
+# 2026-11-15: coverage-gap lessons 4.13 to 4.15 (months, birthday and more at home; Ana, Luis and narrator fields).
+# 2026-11-15: coverage-gap lessons 5.13 More Food and 5.14 At the Table (Ana and narrator fields).
+# 2026-11-15: coverage-gap lessons 5.13 More Food and 5.14 At the Table (Ana and narrator fields).
+EXPECTED_EXPLICIT_ASSIGNMENT_COUNT = 2720
 EXPECTED_FINAL_ASSIGNMENTS_SHA256 = (
-    "889a72a5ffc25735279287e1cbf1abb155811c054b541e2dd3ab50ae94ad1549"
+    "916c7554cb85b450631ab0623a6867a532db6235aa6c94474a14cc528542aa12"
 )
 
 

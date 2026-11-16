@@ -1,0 +1,57 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "96e52d59-cac6-45ac-9526-48209d615e74",
+  "asset_id": "h11-cat-roof",
+  "pack_sha256": "67df6514c2027fefe818f055f9716db191486e4f166711ede0c6a1d730cb51a4",
+  "started_at": "2026-11-15T19:18:39.824803+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material and fur texture, soft natural daylight and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.\n\nA cat ON THE ROOF. An adult gray tabby cat with a white chest and a plain blue collar sits calmly on the red tiles of the pitched roof of a small family house, near the ridge, seen from the garden below on a clear day. The roof fills the upper half of the photo against a plain blue sky and the top of the house's pale wall is below it; the cat is small against the roof but sharp and clearly a cat. Exactly one cat; no people, no birds, no other animals. No letters, words, numbers, logos or brand marks anywhere.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "jwX6apXAL4Sgz7IP4MvlkQk",
+  "usage": {
+    "promptTokenCount": 225,
+    "candidatesTokenCount": 1263,
+    "totalTokenCount": 1751,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 225
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 263,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137606",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 225,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 263
+  },
+  "elapsed_seconds": 19.93,
+  "output": "output/imagegen/unit-4-lesson-v15/h11-cat-roof.png",
+  "sha256": "071b601ced2057f42a9de1d0ce0430e42ad86c612f9586baa97d24410828fb8b",
+  "byte_count": 6026480,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

@@ -1,0 +1,186 @@
+{
+  "schema_version": 1,
+  "pack": "unit-5-morefood-photos",
+  "revision": 1,
+  "output_namespace": "unit-5-lesson-v8",
+  "authorization": "2026-11-15: photos for A1 lesson 5.13 More Food. The user asked for every remaining gap lesson to be built (\"biuild the whole plan, none stop\") and had approved the gap-lesson media in advance (\"I preapprove all image and audios creation no need for me to reiew and approve on the fly\"). Ceiling US$2.00 for this revision. Gemini is the approved image tool (2026-09-23). Revision 1 is frozen: a changed prompt is a new revision in a new file, and every rejected output is reported with its cost.",
+  "image_settings": {
+    "provider": "google-gemini",
+    "model": "gemini-3-pro-image",
+    "aspect_ratio": "3:2",
+    "image_size": "2K",
+    "runtime_size": "1536x1024",
+    "runtime_format": "webp",
+    "n": 1
+  },
+  "production": {
+    "price_per_image_usd": "0.134",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing (checked 2026-09-24: Gemini 3 Pro Image, $0.134 per 1K/2K image)",
+    "planned_images": 11,
+    "expected_cost_usd": "1.47",
+    "requested_ceiling_usd": "2.00",
+    "no_automatic_retries": true,
+    "order": "Independent photos in any order. A rejected output is reported with its cost; a redo needs a changed prompt in a new revision file."
+  },
+  "shared_prompts": {
+    "photo": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real food, glass, ceramic and fabric texture, soft natural daylight and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.",
+    "safe_center": "Keep the main subject of the photo whole inside the central 55 percent of the photo width, so a centered 4:5 crop keeps it whole; only expendable background reaches the left and right edges."
+  },
+  "assets": [
+    {
+      "id": "f01-meat",
+      "order": 1,
+      "lesson": "5.13",
+      "item": "Meat / It is meat.",
+      "runtime_filename": "a1_photo_u5_morefood_meat_v1.webp",
+      "four_card": true,
+      "shared": [
+        "photo",
+        "safe_center"
+      ],
+      "prompt": "MEAT. One thick grilled beef steak, browned with grill marks, lies alone on a plain white plate on a plain light wooden table, photographed from a little above. The food is the only subject: it is sharp, large and in the middle of the photo. Nothing else is on the table: no cutlery, no glass, no napkin, no other food, no hands, no people. No letters, words, numbers, logos, labels or brand marks anywhere."
+    },
+    {
+      "id": "f02-cheese",
+      "order": 2,
+      "lesson": "5.13",
+      "item": "Cheese / It is cheese.",
+      "runtime_filename": "a1_photo_u5_morefood_cheese_v1.webp",
+      "four_card": true,
+      "shared": [
+        "photo",
+        "safe_center"
+      ],
+      "prompt": "CHEESE. One large wedge of pale-yellow cheese with a few holes, with two slices cut from it lying beside it, on a small plain wooden board on a plain light wooden table, photographed from a little above. The food is the only subject: it is sharp, large and in the middle of the photo. Nothing else is on the table: no cutlery, no glass, no napkin, no other food, no hands, no people. No letters, words, numbers, logos, labels or brand marks anywhere."
+    },
+    {
+      "id": "f03-vegetables",
+      "order": 3,
+      "lesson": "5.13",
+      "item": "Vegetables / They are vegetables.",
+      "runtime_filename": "a1_photo_u5_morefood_vegetables_v1.webp",
+      "four_card": true,
+      "shared": [
+        "photo",
+        "safe_center"
+      ],
+      "prompt": "VEGETABLES. A plain wicker basket full of several different fresh vegetables clearly visible together: carrots, a head of broccoli, a zucchini, a red bell pepper, an onion and green beans. There is NO fruit in the basket on a plain light wooden table, photographed from a little above. The food is the only subject: it is sharp, large and in the middle of the photo. Nothing else is on the table: no cutlery, no glass, no napkin, no other food, no hands, no people. No letters, words, numbers, logos, labels or brand marks anywhere."
+    },
+    {
+      "id": "f04-potato",
+      "order": 4,
+      "lesson": "5.13",
+      "item": "A potato / It is a potato.",
+      "runtime_filename": "a1_photo_u5_morefood_potato_v1.webp",
+      "four_card": true,
+      "shared": [
+        "photo",
+        "safe_center"
+      ],
+      "prompt": "ONE POTATO. A single raw, whole brown potato with its skin on lies alone directly on the table on a plain light wooden table, photographed from a little above. The food is the only subject: it is sharp, large and in the middle of the photo. Nothing else is on the table: no cutlery, no glass, no napkin, no other food, no hands, no people. No letters, words, numbers, logos, labels or brand marks anywhere."
+    },
+    {
+      "id": "f05-tomato",
+      "order": 5,
+      "lesson": "5.13",
+      "item": "A tomato / It is a tomato.",
+      "runtime_filename": "a1_photo_u5_morefood_tomato_v1.webp",
+      "four_card": true,
+      "shared": [
+        "photo",
+        "safe_center"
+      ],
+      "prompt": "ONE TOMATO. A single ripe, whole red tomato with its small green stem lies alone directly on the table on a plain light wooden table, photographed from a little above. The food is the only subject: it is sharp, large and in the middle of the photo. Nothing else is on the table: no cutlery, no glass, no napkin, no other food, no hands, no people. No letters, words, numbers, logos, labels or brand marks anywhere."
+    },
+    {
+      "id": "f06-salad",
+      "order": 6,
+      "lesson": "5.13",
+      "item": "Salad / It is salad.",
+      "runtime_filename": "a1_photo_u5_morefood_salad_v1.webp",
+      "four_card": true,
+      "shared": [
+        "photo",
+        "safe_center"
+      ],
+      "prompt": "SALAD. One plain white bowl full of fresh mixed green salad: lettuce leaves, slices of cucumber and a few small pieces of red tomato, clearly a salad on a plain light wooden table, photographed from a little above. The food is the only subject: it is sharp, large and in the middle of the photo. Nothing else is on the table: no cutlery, no glass, no napkin, no other food, no hands, no people. No letters, words, numbers, logos, labels or brand marks anywhere."
+    },
+    {
+      "id": "f07-soup",
+      "order": 7,
+      "lesson": "5.13",
+      "item": "Soup / It is soup.",
+      "runtime_filename": "a1_photo_u5_morefood_soup_v1.webp",
+      "four_card": true,
+      "shared": [
+        "photo",
+        "safe_center"
+      ],
+      "prompt": "SOUP. One plain white deep bowl full of hot orange-colored vegetable soup with a little steam rising from it and one spoon resting in the bowl on a plain light wooden table, photographed from a little above. The food is the only subject: it is sharp, large and in the middle of the photo. Nothing else is on the table: no cutlery, no glass, no napkin, no other food, no hands, no people. No letters, words, numbers, logos, labels or brand marks anywhere."
+    },
+    {
+      "id": "f08-sandwich",
+      "order": 8,
+      "lesson": "5.13",
+      "item": "A sandwich / It is a sandwich.",
+      "runtime_filename": "a1_photo_u5_morefood_sandwich_v1.webp",
+      "four_card": true,
+      "shared": [
+        "photo",
+        "safe_center"
+      ],
+      "prompt": "ONE SANDWICH. A single sandwich made with two slices of bread, with ham, cheese and lettuce visible between them, cut once diagonally with the two halves leaning together, on a plain white plate on a plain light wooden table, photographed from a little above. The food is the only subject: it is sharp, large and in the middle of the photo. Nothing else is on the table: no cutlery, no glass, no napkin, no other food, no hands, no people. No letters, words, numbers, logos, labels or brand marks anywhere."
+    },
+    {
+      "id": "f09-ana-soup",
+      "order": 9,
+      "lesson": "5.13",
+      "item": "I like soup.",
+      "runtime_filename": "a1_photo_u5_morefood_ana_likes_soup_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1_scene_ana-breakfast_e7fbea5.webp",
+        "sha256": "3a528a586b056f0dea3cad8a1d1ca5effce502c1e990632486ff9daafaaee6cc",
+        "observed_description": "Ana, a woman of about thirty with long wavy black hair, an olive-green button shirt open over a white top, sits at a wooden kitchen table holding a cup of coffee and a slice of toast and smiles, in a bright kitchen."
+      },
+      "prompt": "Image 1 shows Ana: about thirty, long wavy black hair, an olive-green button shirt open over a white top. Keep her face, hair and clothes exactly. Create a NEW photograph: Ana sits at a wooden table in a bright kitchen with a white bowl of hot orange soup in front of her; she holds a full spoon just above the bowl and smiles broadly with obvious pleasure, eyes on the soup: she clearly LIKES it. She is seen from the waist up; her face and the bowl are sharp. Exactly one person; nothing else on the table. No letters, words, numbers, logos, labels or brand marks anywhere. Every visible hand has five natural fingers."
+    },
+    {
+      "id": "f10-luis-sandwich",
+      "order": 10,
+      "lesson": "5.13",
+      "item": "He wants a sandwich.",
+      "runtime_filename": "a1_photo_u5_morefood_luis_wants_sandwich_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1_luis.webp",
+        "sha256": "3e8cab7135c3f06e9f8fde506992787a422fc05331cef89be21516428800d89c",
+        "observed_description": "Luis, a man of about thirty with short curly black hair, in a navy T-shirt, in a head-and-shoulders portrait."
+      },
+      "prompt": "Image 1 shows Luis: about thirty, short curly black hair, a navy T-shirt. Keep his face, hair and clothes exactly. Create a NEW photograph: Luis stands at a café counter and points with one finger at ONE sandwich on a plain white plate that stands alone on the counter in front of him, looking at it with a hungry, eager smile: he clearly WANTS that sandwich. He is seen from the waist up; his face, his pointing hand and the sandwich are sharp. Exactly one person; no other food on the counter, no menu board, no price signs. No letters, words, numbers, logos, labels or brand marks anywhere. Every visible hand has five natural fingers."
+    },
+    {
+      "id": "f11-ana-salad",
+      "order": 11,
+      "lesson": "5.13",
+      "item": "I eat salad for lunch.",
+      "runtime_filename": "a1_photo_u5_morefood_ana_eats_salad_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1_scene_ana-breakfast_e7fbea5.webp",
+        "sha256": "3a528a586b056f0dea3cad8a1d1ca5effce502c1e990632486ff9daafaaee6cc",
+        "observed_description": "Ana, a woman of about thirty with long wavy black hair, an olive-green button shirt open over a white top, sits at a wooden kitchen table holding a cup of coffee and a slice of toast and smiles, in a bright kitchen."
+      },
+      "prompt": "Image 1 shows Ana: about thirty, long wavy black hair, an olive-green button shirt open over a white top. Keep her face, hair and clothes exactly. Create a NEW photograph at midday: Ana sits at a table by a sunny window and EATS salad: she lifts a fork with green lettuce to her open mouth from a white bowl of mixed green salad in front of her. Bright midday sunlight comes through the window. She is seen from the waist up; her face, the fork and the bowl are sharp. Exactly one person; only the salad bowl is on the table. No letters, words, numbers, logos, labels or brand marks anywhere. Every visible hand has five natural fingers."
+    }
+  ]
+}

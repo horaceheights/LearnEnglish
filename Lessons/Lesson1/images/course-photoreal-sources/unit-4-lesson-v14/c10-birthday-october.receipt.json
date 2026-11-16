@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "4589fd8a-3653-4887-a539-418f777bf08d",
+  "asset_id": "c10-birthday-october",
+  "pack_sha256": "cdf487be996dd6c9a45546b7d9b57edb0d879dd2816c3b40a1a69811be6294d8",
+  "started_at": "2026-11-15T19:11:17.747452+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. A real photograph of a whiteboard for a Spanish-speaking adult beginner learning English. The board shows only numbers and, where the instruction says so, one small drawing: no month names, no day names, no letters and no words anywhere, in any language. Full-bleed 3:2 landscape; no frames added, no padding, watermark or captions.\n\nThis is a precise edit of image 1: the result must look like the same photograph with one mark added. Change only what the instruction names.\n\nImage 1 is a photograph of a whiteboard year planner with twelve numbered boxes. Keep the photograph exactly as it is: the same framing, the same board and wooden frame, the year at the top, every box number from 1 to 12 in the same place and every small grid of day squares. Do not move, redraw, add or remove any number. Add only this: inside box 10 (the second box of the bottom row), one small, simple, colorful hand-drawn BIRTHDAY CAKE in marker (a pink cake with three lit candles), about a third of the box high, placed in the empty right part of the box so that it does not cover the number 10; and ONE freehand dark-blue pen loop around the whole of box 10, enclosing its number and the cake. No other box has a drawing or a loop. The cake drawing is a picture only: a plain pink shape with three candles and NOTHING written on it or beside it. There are no letters, labels or words anywhere on the board, in any language; the only writing is the year and the box numbers that are already there.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1_photo_u4_calendar_year_v1.webp",
+    "sha256": "f2cd9002d202468996c0774657225989ada8c64a3b25cd188472e49f3ac3d2d7"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "1QP6aonTOqn8qtsPityK4As",
+  "usage": {
+    "promptTokenCount": 608,
+    "candidatesTokenCount": 1310,
+    "totalTokenCount": 2105,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 350
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 187,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137460",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 608,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 187
+  },
+  "elapsed_seconds": 20.09,
+  "output": "output/imagegen/unit-4-lesson-v14/c10-birthday-october.png",
+  "sha256": "18f83466eba591cbf8f891786d70ee910b29250f7dd7e4030222f480247f84e3",
+  "byte_count": 4939824,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

@@ -1,0 +1,57 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "831879c9-b664-4a48-bd1c-e8f67a79b4bb",
+  "asset_id": "g04-potato-tomato",
+  "pack_sha256": "74ccde478ed2f6167349378db089a917b006263675a4b5a0baf1189519c2b682",
+  "started_at": "2026-11-15T19:54:20.002287+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real food, glass, ceramic and fabric texture, soft natural daylight and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.\n\nONE potato AND ONE tomato. A single raw brown potato on the left and a single ripe red tomato on the right lie side by side directly on the table, a hand-width apart on a dark wooden table, photographed from a little above. Everything named is sharp and clearly separate. Nothing else is on the table: no cutlery, no napkin, no other food, no hands, no people. No letters, words, numbers, logos, labels or brand marks anywhere.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "7A36aqQBnqDPsg_GlrnwBQ",
+  "usage": {
+    "promptTokenCount": 204,
+    "candidatesTokenCount": 1267,
+    "totalTokenCount": 1652,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 204
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 181,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.136580",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 204,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 181
+  },
+  "elapsed_seconds": 21.09,
+  "output": "output/imagegen/unit-5-review-v8/g04-potato-tomato.png",
+  "sha256": "ed1813dbadb160a6044be086376a713b72893dcbcaaa6c63f33cd4bc4f97975b",
+  "byte_count": 6072965,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

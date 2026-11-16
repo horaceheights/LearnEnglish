@@ -1,0 +1,57 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "ba3e2c34-c759-45b8-b725-d1644de1d5c8",
+  "asset_id": "h02-garden",
+  "pack_sha256": "67df6514c2027fefe818f055f9716db191486e4f166711ede0c6a1d730cb51a4",
+  "started_at": "2026-11-15T19:15:12.098091+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material and fur texture, soft natural daylight and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.\n\nA home GARDEN behind a house on a sunny day. A small private back garden seen from the back door: a neat green lawn, beds of colorful flowers and a few vegetable plants along a wooden fence, one small tree and a short stone path. A corner of the house wall is visible at the left edge, so it is clearly the garden of a home, NOT a public park: there are no benches, playgrounds, lampposts or wide paths. No people, no animals. No letters, words, numbers, logos or brand marks anywhere.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "wAT6aqPrD_Gtz7IPsreBiQI",
+  "usage": {
+    "promptTokenCount": 217,
+    "candidatesTokenCount": 1295,
+    "totalTokenCount": 1742,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 217
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 230,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137194",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 217,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 230
+  },
+  "elapsed_seconds": 21.34,
+  "output": "output/imagegen/unit-4-lesson-v15/h02-garden.png",
+  "sha256": "235a2b4bc533c190dc12a790b9fe8df3b31267adf32aaaa1167eb1b8d9b7904a",
+  "byte_count": 8496248,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

@@ -1,0 +1,57 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "b878d494-e077-4367-9e7a-dc9e231f0230",
+  "asset_id": "f04-potato",
+  "pack_sha256": "55ab894b50b0f5d238212992d248d66a261fb665c556c2590213563113e2237b",
+  "started_at": "2026-11-15T19:27:38.485338+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real food, glass, ceramic and fabric texture, soft natural daylight and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.\n\nKeep the main subject of the photo whole inside the central 55 percent of the photo width, so a centered 4:5 crop keeps it whole; only expendable background reaches the left and right edges.\n\nONE POTATO. A single raw, whole brown potato with its skin on lies alone directly on the table on a plain light wooden table, photographed from a little above. The food is the only subject: it is sharp, large and in the middle of the photo. Nothing else is on the table: no cutlery, no glass, no napkin, no other food, no hands, no people. No letters, words, numbers, logos, labels or brand marks anywhere.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "qgf6atTxIY7oz7IP2NW7yQU",
+  "usage": {
+    "promptTokenCount": 248,
+    "candidatesTokenCount": 1254,
+    "totalTokenCount": 1657,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 248
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 155,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.136356",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 248,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 155
+  },
+  "elapsed_seconds": 20.8,
+  "output": "output/imagegen/unit-5-lesson-v8/f04-potato.png",
+  "sha256": "6a1a044283735d6e970fcb3aecd4c46b9a269613262a4eb09230801f4f6c5843",
+  "byte_count": 5589193,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

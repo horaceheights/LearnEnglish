@@ -28,14 +28,19 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 from scripts.audit_course_media_preservation import IMAGE_ROOTS  # noqa: E402
 from scripts.render_course_stills import digest, pack_output_directory  # noqa: E402
-from scripts.render_gemini_stills import FLASH_MODEL, full_prompt, load_pack  # noqa: E402
+from scripts.render_gemini_stills import full_prompt, load_pack  # noqa: E402
 
 REGISTRY = ROOT / "docs/product/a1-reviewed-photoreal-media.json"
 SOURCES = ROOT / "Lessons/Lesson1/images/course-photoreal-sources"
 RUNTIME = (1536, 1024)
 
 
-def runtime_webp(source: Path, enlarge: bool = False) -> bytes:
+# The smallest centered 3:2 crop the installer accepts: a Gemini 2.5 Flash Image output (about 1248x832) is
+# enlarged by about a quarter to the runtime size; anything smaller is refused.
+MINIMUM_HEIGHT = 800
+
+
+def runtime_webp(source: Path) -> bytes:
     with Image.open(source) as image:
         image = image.convert("RGB")
         width, height = image.size
@@ -45,9 +50,7 @@ def runtime_webp(source: Path, enlarge: bool = False) -> bytes:
         else:
             crop = round(width * 2 / 3)
             box = (0, (height - crop) // 2, width, (height - crop) // 2 + crop)
-        # A 2K Pro output is reduced to the runtime size. A Gemini 2.5 Flash output (about 1248x832) is enlarged
-        # to it instead (user direction 2026-11-15, to cut cost); anything else smaller is refused.
-        if min(box[2] - box[0], box[3] - box[1]) < (800 if enlarge else RUNTIME[1]):
+        if min(box[2] - box[0], box[3] - box[1]) < MINIMUM_HEIGHT:
             raise ValueError(f"{source.name} is smaller than the runtime size.")
         buffer = io.BytesIO()
         image.crop(box).resize(RUNTIME, Image.LANCZOS).save(buffer, "WEBP", quality=92, method=6)
@@ -84,7 +87,7 @@ def install(pack_path: Path, asset_ids: list[str], root: Path = ROOT, name_prefi
                 or review.get("crop_review") != "inspected-3x2-and-centered-4x5"
                 or len(review.get("observed_description", "")) < 35):
             raise ValueError(f"{asset_id}: a current usable visual review is required.")
-        pixels = runtime_webp(source, enlarge=pack["image_settings"]["model"] == FLASH_MODEL)
+        pixels = runtime_webp(source)
         name = runtime_name(asset, pixels, name_prefix)
         for folder in IMAGE_ROOTS:
             path = root / folder / name

@@ -42,19 +42,33 @@ IMAGE_TOKENS_PER_IMAGE = 1120
 IMAGE_PRICE = Decimal("0.134")
 INPUT_PER_TOKEN = Decimal("2.00") / 1_000_000
 TEXT_OUT_PER_TOKEN = Decimal("12.00") / 1_000_000
-# 2026-11-15 user direction: "lets continue creating images but reduce using Gemini 2.5 Flash instead of pro".
-# Gemini 2.5 Flash Image returns one image of about 1K (1248x832 at 3:2), which the installer enlarges to the
-# 1536x1024 runtime size. Checked 2026-11-15: $0.039 per image (1,290 image tokens at $30 per million output
-# tokens), $0.30 per million input tokens.
+
+# 2026-11-16 user decision ("Yes, use Flash"): simple object, animal and scenery photos may use the cheaper
+# Gemini 2.5 Flash Image; people and precise edits stay on the Pro model. A pack chooses by its image_settings.
+# Checked 2026-11-16: $0.039 per output image (1,290 image tokens at $30 per million), $0.30 per million input
+# tokens. It returns about 1248x832 pixels, which the installer enlarges to the runtime size.
 FLASH_MODEL = "gemini-2.5-flash-image"
 FLASH_SETTINGS = {**SETTINGS, "model": FLASH_MODEL, "image_size": "1K"}
-PRICES = {
-    MODEL: (IMAGE_PRICE, IMAGE_TOKENS_PER_IMAGE, INPUT_PER_TOKEN, TEXT_OUT_PER_TOKEN, "2026-09-24"),
-    FLASH_MODEL: (Decimal("0.039"), 1290, Decimal("0.30") / 1_000_000, Decimal("30.00") / 1_000_000, "2026-11-15"),
+PROFILES = {
+    MODEL: {"settings": SETTINGS, "image_config": {"aspectRatio": "3:2", "imageSize": "2K"},
+            "image_tokens": IMAGE_TOKENS_PER_IMAGE, "image_price": IMAGE_PRICE, "input_per_token": INPUT_PER_TOKEN,
+            "text_out_per_token": TEXT_OUT_PER_TOKEN, "checked": "2026-09-24"},
+    FLASH_MODEL: {"settings": FLASH_SETTINGS, "image_config": {"aspectRatio": "3:2"},
+                  "image_tokens": 1290, "image_price": Decimal("0.0387"), "input_per_token": Decimal("0.30") / 1_000_000,
+                  "text_out_per_token": Decimal("30.00") / 1_000_000, "checked": "2026-11-16"},
 }
 
 
-def endpoint_for(model: str) -> str:
+def pack_model(pack: dict) -> str:
+    """The approved model a pack declares; anything else is refused."""
+    settings = pack.get("image_settings")
+    for model, profile in PROFILES.items():
+        if settings == profile["settings"]:
+            return model
+    raise ValueError("Only the approved Gemini models, 3:2 size and one-image configuration are allowed.")
+
+
+def endpoint(model: str) -> str:
     return f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent"
 
 
@@ -67,20 +81,18 @@ def cost_from_usage(usage: dict | None, model: str = MODEL) -> dict:
     if type(image_tokens) is not int:
         return {"usd": None, "reason": "Image token count missing; cost is unknown."}
     text_tokens = int(details.get("TEXT") or 0) + int(usage.get("thoughtsTokenCount") or 0)
-    image_price, tokens_per_image, input_per_token, text_out_per_token, checked = PRICES[model]
-    usd = (image_price * Decimal(image_tokens) / tokens_per_image
-           + input_per_token * usage["promptTokenCount"] + text_out_per_token * text_tokens)
+    profile = PROFILES[model]
+    usd = (profile["image_price"] * Decimal(image_tokens) / profile["image_tokens"]
+           + profile["input_per_token"] * usage["promptTokenCount"] + profile["text_out_per_token"] * text_tokens)
     return {"usd": str(usd.quantize(Decimal("0.000001"))), "price_source": PRICE_SOURCE,
-            "basis": f"Reported usage at list prices checked {checked}; before tax, not an invoice.",
+            "basis": f"Reported usage at list prices checked {profile['checked']}; before tax, not an invoice.",
             "input_tokens": usage["promptTokenCount"], "image_output_tokens": image_tokens,
             "text_and_thinking_output_tokens": text_tokens}
 
 
 def load_pack(path: Path) -> dict:
     pack = json.loads(path.read_text(encoding="utf-8"))
-    if pack.get("image_settings") not in (SETTINGS, FLASH_SETTINGS):
-        raise ValueError("Only the approved Gemini models (Pro at 3:2 2K, or 2.5 Flash at 3:2 1K) and one-image "
-                         "configuration are allowed.")
+    pack_model(pack)
     ids = [item["id"] for item in pack["assets"]]
     if len(set(ids)) != len(ids) or any(not re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", item) for item in ids):
         raise ValueError("Asset IDs must be unique safe filenames.")
@@ -116,8 +128,8 @@ def reference_image(pack: dict, asset: dict, output_dir: Path, root: Path = ROOT
     return reference
 
 
-def urllib_transport(body: bytes, key: str, endpoint: str = ENDPOINT):
-    request = urllib.request.Request(endpoint, data=body, method="POST",
+def urllib_transport(body: bytes, key: str, url: str = ENDPOINT):
+    request = urllib.request.Request(url, data=body, method="POST",
                                      headers={"Content-Type": "application/json", "x-goog-api-key": key})
     try:
         with urllib.request.urlopen(request, timeout=360) as response:
@@ -143,10 +155,7 @@ def render(pack_path: Path, asset_id: str, *, execute: bool, ceiling: Decimal | 
     if output.exists() or receipt.exists():
         raise ValueError("Asset already attempted; do not overwrite or retry it.")
     prompt = full_prompt(pack, asset)
-    model = pack["image_settings"]["model"]
-    endpoint = endpoint_for(model)
-    if model != MODEL and transport is urllib_transport:
-        transport = lambda body, key: urllib_transport(body, key, endpoint)  # noqa: E731
+    model = pack_model(pack)
     plan = {"asset_id": asset_id, "model": model, "prompt": prompt,
             "reference": asset.get("reference") or (asset.get("reference_file") or {}).get("path")}
     if not execute:
@@ -172,11 +181,10 @@ def render(pack_path: Path, asset_id: str, *, execute: bool, ceiling: Decimal | 
     parts.append({"text": prompt})
     body = {"contents": [{"role": "user", "parts": parts}],
             "generationConfig": {"responseModalities": ["IMAGE"],
-                                 "imageConfig": {"aspectRatio": "3:2", "imageSize": "2K"} if model == MODEL
-                                 else {"aspectRatio": "3:2"}}}
+                                 "imageConfig": dict(PROFILES[model]["image_config"])}}
     record = {"status": "prepared", "generation_requests_sent": 0, "automatic_retries": 0,
               "client_request_id": str(uuid4()), "asset_id": asset_id, "pack_sha256": digest(pack_path),
-              "started_at": datetime.now(timezone.utc).isoformat(), "endpoint": endpoint,
+              "started_at": datetime.now(timezone.utc).isoformat(), "endpoint": endpoint(model),
               "request": {"model": model, "prompt": prompt, "image_config": body["generationConfig"]["imageConfig"]},
               "reference": None if reference is None else {"path": reference.relative_to(root).as_posix()
                                                            if reference.is_relative_to(root) else str(reference),
@@ -193,7 +201,11 @@ def render(pack_path: Path, asset_id: str, *, execute: bool, ceiling: Decimal | 
         # Mark before sending: a timeout must never authorize a second charge.
         record.update(status="in_flight", generation_requests_sent=1)
         save()
-        status, headers, payload = transport(json.dumps(body).encode(), key)
+        # The default transport posts to the pack's model; an injected one keeps its two-argument form.
+        if transport is urllib_transport:
+            status, headers, payload = transport(json.dumps(body).encode(), key, endpoint(model))
+        else:
+            status, headers, payload = transport(json.dumps(body).encode(), key)
         record["provider_response_id"] = payload.get("responseId")
         if status >= 300:
             error = payload.get("error") or {}

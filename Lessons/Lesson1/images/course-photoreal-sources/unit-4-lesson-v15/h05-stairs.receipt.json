@@ -1,0 +1,57 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "be74f43e-4732-4ef4-8321-79179c480e01",
+  "asset_id": "h05-stairs",
+  "pack_sha256": "67df6514c2027fefe818f055f9716db191486e4f166711ede0c6a1d730cb51a4",
+  "started_at": "2026-11-15T19:16:24.206269+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material and fur texture, soft natural daylight and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.\n\nKeep the main subject of the photo whole inside the central 55 percent of the photo width, so a centered 4:5 crop keeps it whole; only expendable background reaches the left and right edges.\n\nThe STAIRS inside a home. One straight indoor wooden staircase of about twelve steps with a simple wooden handrail goes up from the bottom center of the photo to the upper floor, seen from the foot of the stairs. Plain white walls on both sides. The steps are empty: no people, no animals, no shoes, no objects, no pictures on the walls. No letters, words, numbers, logos or brand marks anywhere.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "CAX6auGzCq3oz7IP1pGAmQM",
+  "usage": {
+    "promptTokenCount": 237,
+    "candidatesTokenCount": 1265,
+    "totalTokenCount": 1765,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 237
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 263,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137630",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 237,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 263
+  },
+  "elapsed_seconds": 21.66,
+  "output": "output/imagegen/unit-4-lesson-v15/h05-stairs.png",
+  "sha256": "311e26dc4971a0af07efc72eea44058521a070b78c43cf8f10f68ee649622361",
+  "byte_count": 5223917,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

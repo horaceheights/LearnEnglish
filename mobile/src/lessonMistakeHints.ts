@@ -75,6 +75,14 @@ const MEANINGS: Record<string, string> = {
   make: 'hacer', see: 'ver', use: 'usar', find: 'encontrar', give: 'dar', come: 'venir',
   // A1 4.12 (2026-11-14): tomorrow and the week.
   now: 'ahora', tomorrow: 'mañana', days: 'días', week: 'semana', weekend: 'fin de semana', month: 'mes', months: 'meses', year: 'año',
+  // A1 4.13 (2026-11-15): the first six months.
+  january: 'enero', february: 'febrero', march: 'marzo', april: 'abril', may: 'mayo', june: 'junio',
+  // A1 4.14 (2026-11-15): the last six months, and birthday.
+  july: 'julio', august: 'agosto', september: 'septiembre', october: 'octubre', november: 'noviembre', december: 'diciembre',
+  birthday: 'cumpleaños',
+  // A1 4.15 (2026-11-15): more at home.
+  apartment: 'apartamento', garden: 'jardín', floor: 'piso', wall: 'pared', stairs: 'escaleras', roof: 'techo',
+  toilet: 'inodoro', key: 'llave',
   // A1 5.11 (2026-11-14): buying things.
   money: 'dinero', buy: 'comprar', pay: 'pagar', price: 'precio', cheap: 'barato o barata', expensive: 'caro o cara',
   // A1 5.12 (2026-11-15): the tens from thirty to one hundred.
@@ -87,6 +95,8 @@ const MEANINGS: Record<string, string> = {
   studying: 'estudiando', playing: 'jugando', swimming: 'nadando', sleeping: 'durmiendo',
   sitting: 'sentado', talking: 'hablando',
   red: 'rojo', blue: 'azul', green: 'verde', yellow: 'amarillo', black: 'negro', white: 'blanco',
+  // A1 2.13 (2026-11-15): four more colors, and very.
+  brown: 'marrón', pink: 'rosa', purple: 'morado', gray: 'gris', very: 'muy',
   this: 'este, cerca', that: 'ese, lejos', these: 'estos, cerca', those: 'esos, lejos',
   one: 'uno', two: 'dos', three: 'tres', four: 'cuatro', five: 'cinco', six: 'seis', seven: 'siete',
   eight: 'ocho', nine: 'nueve', ten: 'diez', eleven: 'once', twelve: 'doce', thirteen: 'trece',
@@ -110,6 +120,11 @@ const MEANINGS: Record<string, string> = {
   'after that': 'después de eso', finally: 'por último',
   apple: 'manzana', apples: 'manzanas', banana: 'plátano', grapes: 'uvas', strawberry: 'fresa',
   bread: 'pan', egg: 'huevo', eggs: 'huevos', rice: 'arroz', milk: 'leche', fish: 'pescado',
+  // A1 5.13 (2026-11-15): more food.
+  meat: 'carne', cheese: 'queso', vegetables: 'verduras', potato: 'papa', tomato: 'tomate', salad: 'ensalada', soup: 'sopa',
+  sandwich: 'sándwich',
+  // A1 5.14 (2026-11-15): at the table.
+  cup: 'taza', glass: 'vaso', bottle: 'botella', plate: 'plato', salt: 'sal', sugar: 'azúcar', cake: 'pastel', of: 'de',
   juice: 'jugo', water: 'agua', breakfast: 'desayuno', lunch: 'almuerzo', dinner: 'cena',
   drink: 'beber', coffee: 'café', tea: 'té', chicken: 'pollo',
   bananas: 'plátanos', oranges: 'naranjas', strawberries: 'fresas', pears: 'peras',

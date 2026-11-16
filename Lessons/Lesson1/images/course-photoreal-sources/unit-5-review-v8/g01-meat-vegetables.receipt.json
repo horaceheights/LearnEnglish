@@ -1,0 +1,57 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "2d187231-bae2-41bc-af82-7fb59fd9e616",
+  "asset_id": "g01-meat-vegetables",
+  "pack_sha256": "74ccde478ed2f6167349378db089a917b006263675a4b5a0baf1189519c2b682",
+  "started_at": "2026-11-15T19:53:15.604497+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real food, glass, ceramic and fabric texture, soft natural daylight and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.\n\nA DINNER plate of meat and vegetables. One white plate holds one grilled steak on the left half and a clear portion of cooked vegetables (carrots, broccoli and green beans) on the right half; a lit candle in a plain holder and a dark window behind the table show that it is evening on a dark wooden table, photographed from a little above. Everything named is sharp and clearly separate. Nothing else is on the table: no cutlery, no napkin, no other food, no hands, no people. No letters, words, numbers, logos, labels or brand marks anywhere.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "qw36apiPJtWsqtsPkffXiAs",
+  "usage": {
+    "promptTokenCount": 227,
+    "candidatesTokenCount": 1287,
+    "totalTokenCount": 1730,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 227
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 216,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137046",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 227,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 216
+  },
+  "elapsed_seconds": 21.14,
+  "output": "output/imagegen/unit-5-review-v8/g01-meat-vegetables.png",
+  "sha256": "eeb8c915694d9e30c35192d8bbb3ba18bb8cc51e79e924a15c8db5c90dd5d673",
+  "byte_count": 5616913,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

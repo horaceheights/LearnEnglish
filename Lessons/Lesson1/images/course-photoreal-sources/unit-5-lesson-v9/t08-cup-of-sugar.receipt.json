@@ -1,0 +1,57 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "ae6fdcc0-1f79-4d1e-933a-b41ad0a2568b",
+  "asset_id": "t08-cup-of-sugar",
+  "pack_sha256": "b178a9b91f7d85970b75045326630d978c749fef1628bd2e35993c570139e721",
+  "started_at": "2026-11-15T19:50:57.104906+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real food, glass, ceramic and fabric texture, soft natural daylight and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.\n\nKeep the main subject of the photo whole inside the central 55 percent of the photo width, so a centered 4:5 crop keeps it whole; only expendable background reaches the left and right edges.\n\nA CUP OF SUGAR. A single plain white ceramic cup with a handle, filled to the brim with white granulated sugar that forms a small heap above the rim, with a few grains spilled beside it, stands alone directly on a plain light wooden table, photographed from a little above. It is the only subject: sharp, large and in the middle of the photo. Nothing else is on the table: no cutlery, no napkin, no food, no hands, no people. No letters, words, numbers, logos, labels or brand marks anywhere.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "IQ36aoCTBsDAz7IPx6_6oA8",
+  "usage": {
+    "promptTokenCount": 264,
+    "candidatesTokenCount": 1261,
+    "totalTokenCount": 1703,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 264
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 178,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.136664",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 264,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 178
+  },
+  "elapsed_seconds": 19.32,
+  "output": "output/imagegen/unit-5-lesson-v9/t08-cup-of-sugar.png",
+  "sha256": "dde8cab2c3095e3732c9c91b1000a3502a9e3dcc46ff4e64a663804c38c876f6",
+  "byte_count": 4845676,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}
