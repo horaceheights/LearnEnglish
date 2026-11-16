@@ -38,7 +38,8 @@ class UnitParityTests(unittest.TestCase):
         self.assertEqual(recorded, {("2", "size-state-comparison"), ("4", "everyday-verbs"), ("4", "tomorrow-and-the-week"),
                                     ("5", "buying-things"), ("5", "tens"),
                                     ("3", "contact-details"), ("2", "classroom-words"), ("2", "more-colors"),
-                                    ("4", "months-first"), ("4", "months-second"), ("4", "more-at-home")})
+                                    ("4", "months-first"), ("4", "months-second"), ("4", "more-at-home"),
+                                    ("5", "more-food"), ("5", "at-the-table")})
         lessons = [json.loads(path.read_text(encoding="utf-8-sig"))
                    for path in sorted((CONTRACTS.parents[2] / "backend/lessons/unit_2").glob("*.yaml"))]
         result = audit(lessons, {**contracts, "units": {"2": contracts["units"]["2"]}}, CONTRACTS.parents[2] / "Lessons/Lesson1/images")
