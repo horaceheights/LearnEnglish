@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "pack": "unit-4-review-months-january-june-photos",
+  "revision": 1,
+  "output_namespace": "unit-4-review-v12",
+  "authorization": "2026-11-15: review photos that bring back the 4.13 month names in the Unit 4 review, under the standing rule for gap lessons. The user asked for every remaining gap lesson to be built (\"biuild the whole plan, none stop\") and had approved the gap-lesson media in advance (\"I preapprove all image and audios creation no need for me to reiew and approve on the fly\"). Ceiling US$0.80 for this revision. Gemini is the approved image tool (2026-09-23). The photos follow the approved calendar convention (2026-10-01): numbers only, a blue pen loop, no written names. Revision 1 is frozen: a changed prompt is a new revision in a new file, and every rejected output is reported with its cost.",
+  "image_settings": {
+    "provider": "google-gemini",
+    "model": "gemini-3-pro-image",
+    "aspect_ratio": "3:2",
+    "image_size": "2K",
+    "runtime_size": "1536x1024",
+    "runtime_format": "webp",
+    "n": 1
+  },
+  "production": {
+    "price_per_image_usd": "0.134",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing (checked 2026-09-24: Gemini 3 Pro Image, $0.134 per 1K/2K image)",
+    "planned_images": 3,
+    "expected_cost_usd": "0.40",
+    "requested_ceiling_usd": "0.80",
+    "no_automatic_retries": true,
+    "order": "Independent edits of the unmarked year planner, in any order; each is checked box by box. A rejected output is reported with its cost; a redo needs a changed prompt in a new revision file."
+  },
+  "shared_prompts": {
+    "calendar": "Use case: photorealistic-natural. A real photograph of a whiteboard for a Spanish-speaking adult beginner learning English. The board shows only numbers: no month names, no day names, no letters and no words anywhere, in any language. Full-bleed 3:2 landscape; no frames added, no padding, watermark or captions.",
+    "edit": "This is a precise edit of image 1: the result must look like the same photograph with one mark added. Change only what the instruction names."
+  },
+  "assets": [
+    {
+      "id": "z03-review-march",
+      "order": 1,
+      "lesson": "4.16",
+      "item": "It is March.",
+      "runtime_filename": "a1_u4_review_gap_month_03_march_v1.webp",
+      "four_card": false,
+      "shared": [
+        "calendar",
+        "edit"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1_photo_u4_calendar_year_v1.webp",
+        "sha256": "f2cd9002d202468996c0774657225989ada8c64a3b25cd188472e49f3ac3d2d7",
+        "observed_description": "The approved 4.12 year planner with no marks: a wooden-framed whiteboard year planner photographed straight on: the year 2023 handwritten in black marker at the top, and a grid of twelve boxes in three rows of four, numbered 1 to 12 in black marker (1 2 3 4 in the top row, 5 6 7 8 in the middle row, 9 10 11 12 in the bottom row), each box holding small faint grids of day squares."
+      },
+      "prompt": "Image 1 is a photograph of a whiteboard year planner with twelve numbered boxes. Keep the photograph exactly as it is: the same framing, the same board and wooden frame, the year at the top, every box number from 1 to 12 in the same place and every small grid of day squares. Do not move, redraw, add or remove any number. Add only this, drawn by hand with a dark-blue whiteboard pen, with slightly uneven ink like real handwriting: ONE freehand loop around the whole of box 3 (the third box of the top row), enclosing its number 3 and its day squares, slightly asymmetric with a small overlapping end stroke. Also add one adult hand that reaches in from the right edge of the photo and holds a dark-blue whiteboard marker whose tip touches the end of that loop, as if it has just drawn it; the hand and marker do not cover any box number. No other box is looped: exactly one blue loop on the board. The hand has five natural fingers."
+    },
+    {
+      "id": "z05-review-may",
+      "order": 2,
+      "lesson": "4.16",
+      "item": "It is May.",
+      "runtime_filename": "a1_u4_review_gap_month_05_may_v1.webp",
+      "four_card": false,
+      "shared": [
+        "calendar",
+        "edit"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1_photo_u4_calendar_year_v1.webp",
+        "sha256": "f2cd9002d202468996c0774657225989ada8c64a3b25cd188472e49f3ac3d2d7",
+        "observed_description": "The approved 4.12 year planner with no marks: a wooden-framed whiteboard year planner photographed straight on: the year 2023 handwritten in black marker at the top, and a grid of twelve boxes in three rows of four, numbered 1 to 12 in black marker (1 2 3 4 in the top row, 5 6 7 8 in the middle row, 9 10 11 12 in the bottom row), each box holding small faint grids of day squares."
+      },
+      "prompt": "Image 1 is a photograph of a whiteboard year planner with twelve numbered boxes. Keep the photograph exactly as it is: the same framing, the same board and wooden frame, the year at the top, every box number from 1 to 12 in the same place and every small grid of day squares. Do not move, redraw, add or remove any number. Add only this, drawn by hand with a dark-blue whiteboard pen, with slightly uneven ink like real handwriting: ONE freehand loop around the whole of box 5 (the first box of the middle row), enclosing its number 5 and its day squares, slightly asymmetric with a small overlapping end stroke. Also add one adult hand that reaches in from the right edge of the photo and holds a dark-blue whiteboard marker whose tip touches the end of that loop, as if it has just drawn it; the hand and marker do not cover any box number. No other box is looped: exactly one blue loop on the board. The hand has five natural fingers."
+    },
+    {
+      "id": "z06-review-june",
+      "order": 3,
+      "lesson": "4.16",
+      "item": "It is June.",
+      "runtime_filename": "a1_u4_review_gap_month_06_june_v1.webp",
+      "four_card": false,
+      "shared": [
+        "calendar",
+        "edit"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1_photo_u4_calendar_year_v1.webp",
+        "sha256": "f2cd9002d202468996c0774657225989ada8c64a3b25cd188472e49f3ac3d2d7",
+        "observed_description": "The approved 4.12 year planner with no marks: a wooden-framed whiteboard year planner photographed straight on: the year 2023 handwritten in black marker at the top, and a grid of twelve boxes in three rows of four, numbered 1 to 12 in black marker (1 2 3 4 in the top row, 5 6 7 8 in the middle row, 9 10 11 12 in the bottom row), each box holding small faint grids of day squares."
+      },
+      "prompt": "Image 1 is a photograph of a whiteboard year planner with twelve numbered boxes. Keep the photograph exactly as it is: the same framing, the same board and wooden frame, the year at the top, every box number from 1 to 12 in the same place and every small grid of day squares. Do not move, redraw, add or remove any number. Add only this, drawn by hand with a dark-blue whiteboard pen, with slightly uneven ink like real handwriting: ONE freehand loop around the whole of box 6 (the second box of the middle row), enclosing its number 6 and its day squares, slightly asymmetric with a small overlapping end stroke. Also add one adult hand that reaches in from the right edge of the photo and holds a dark-blue whiteboard marker whose tip touches the end of that loop, as if it has just drawn it; the hand and marker do not cover any box number. No other box is looped: exactly one blue loop on the board. The hand has five natural fingers."
+    }
+  ]
+}

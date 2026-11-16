@@ -1,0 +1,57 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "b47debb4-2e51-47a1-b09c-aff36f829b38",
+  "asset_id": "h10-key-table",
+  "pack_sha256": "67df6514c2027fefe818f055f9716db191486e4f166711ede0c6a1d730cb51a4",
+  "started_at": "2026-11-15T19:18:17.842024+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material and fur texture, soft natural daylight and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.\n\nKeep the main subject of the photo whole inside the central 55 percent of the photo width, so a centered 4:5 crop keeps it whole; only expendable background reaches the left and right edges.\n\nA key ON THE TABLE. One ordinary silver metal house key on a plain metal ring lies in the middle of the top of a small plain wooden table that stands on a light wooden floor in front of a plain white wall. The camera is a little above table height, so the whole table top, the four legs and the floor under the table are all visible: the key is clearly on the table and the floor under the table is empty. The key is close enough to be clearly a key. Nothing else is on the table; no chairs, no other objects, no people. No letters, words, numbers, logos or brand marks anywhere.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "eQX6ataIOe2JqtsPxPGLyQk",
+  "usage": {
+    "promptTokenCount": 279,
+    "candidatesTokenCount": 1268,
+    "totalTokenCount": 1815,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 279
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 268,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137774",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 279,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 268
+  },
+  "elapsed_seconds": 20.74,
+  "output": "output/imagegen/unit-4-lesson-v15/h10-key-table.png",
+  "sha256": "91c847df656a2d15f039f475871b6bed200bb9e3cfab4a595b98a93055ff3851",
+  "byte_count": 5148915,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

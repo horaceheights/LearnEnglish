@@ -1,0 +1,57 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "c481f039-8293-4b73-afc5-f624dda06b92",
+  "asset_id": "h12-cat-stairs",
+  "pack_sha256": "67df6514c2027fefe818f055f9716db191486e4f166711ede0c6a1d730cb51a4",
+  "started_at": "2026-11-15T19:19:00.828353+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material and fur texture, soft natural daylight and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.\n\nKeep the main subject of the photo whole inside the central 55 percent of the photo width, so a centered 4:5 crop keeps it whole; only expendable background reaches the left and right edges.\n\nA cat ON THE STAIRS. An adult gray tabby cat with a white chest and a plain blue collar sits on the middle step of a straight indoor wooden staircase with a simple wooden handrail and plain white walls, seen from the foot of the stairs; several empty steps are visible below and above the cat. The cat is sharp and looks toward the camera. Exactly one cat; no people, no other animals, no objects on the steps. No letters, words, numbers, logos or brand marks anywhere.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "pQX6avAzgMHPsg-Su97gBw",
+  "usage": {
+    "promptTokenCount": 252,
+    "candidatesTokenCount": 1309,
+    "totalTokenCount": 1746,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 252
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 185,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.136724",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 252,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 185
+  },
+  "elapsed_seconds": 19.76,
+  "output": "output/imagegen/unit-4-lesson-v15/h12-cat-stairs.png",
+  "sha256": "aab6d3c36f64680e776db2ab57216e13bbcd23e3b14347ee432eb7cbf7224a9a",
+  "byte_count": 5869829,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

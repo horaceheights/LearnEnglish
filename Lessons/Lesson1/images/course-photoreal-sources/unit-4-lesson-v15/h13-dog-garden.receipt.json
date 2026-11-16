@@ -1,0 +1,57 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "f6789a9f-ad47-4e2d-88d6-48230439e86e",
+  "asset_id": "h13-dog-garden",
+  "pack_sha256": "67df6514c2027fefe818f055f9716db191486e4f166711ede0c6a1d730cb51a4",
+  "started_at": "2026-11-15T19:19:21.295260+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material and fur texture, soft natural daylight and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.\n\nKeep the main subject of the photo whole inside the central 55 percent of the photo width, so a centered 4:5 crop keeps it whole; only expendable background reaches the left and right edges.\n\nA dog IN THE GARDEN. An adult dog with a short golden-tan coat and a plain red collar stands on the green lawn of a small private back garden with beds of colorful flowers along a wooden fence and one small tree; a corner of the house wall is visible at the left edge, so it is clearly the garden of a home, not a park. The whole dog is sharp, in side view, in the middle of the photo. Exactly one dog; no people, no other animals, no toys. No letters, words, numbers, logos or brand marks anywhere.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "uQX6aumcFrO_qtsP__SoyAg",
+  "usage": {
+    "promptTokenCount": 267,
+    "candidatesTokenCount": 1231,
+    "totalTokenCount": 1751,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 267
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 253,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137570",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 267,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 253
+  },
+  "elapsed_seconds": 20.8,
+  "output": "output/imagegen/unit-4-lesson-v15/h13-dog-garden.png",
+  "sha256": "beaa70d60ddb3e5ec7277b6efd7fdfddc4881168c2960f10ac67d665dfc4b975",
+  "byte_count": 7492330,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

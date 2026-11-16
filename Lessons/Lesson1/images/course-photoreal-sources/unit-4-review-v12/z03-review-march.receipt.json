@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "f43b06a4-7d9c-4432-b6dc-688f55c5f98b",
+  "asset_id": "z03-review-march",
+  "pack_sha256": "2744e61caaaae076bf204f525d59d30353df1fbec18116e4fd9af049369142b6",
+  "started_at": "2026-11-15T19:03:36.817657+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. A real photograph of a whiteboard for a Spanish-speaking adult beginner learning English. The board shows only numbers: no month names, no day names, no letters and no words anywhere, in any language. Full-bleed 3:2 landscape; no frames added, no padding, watermark or captions.\n\nThis is a precise edit of image 1: the result must look like the same photograph with one mark added. Change only what the instruction names.\n\nImage 1 is a photograph of a whiteboard year planner with twelve numbered boxes. Keep the photograph exactly as it is: the same framing, the same board and wooden frame, the year at the top, every box number from 1 to 12 in the same place and every small grid of day squares. Do not move, redraw, add or remove any number. Add only this, drawn by hand with a dark-blue whiteboard pen, with slightly uneven ink like real handwriting: ONE freehand loop around the whole of box 3 (the third box of the top row), enclosing its number 3 and its day squares, slightly asymmetric with a small overlapping end stroke. Also add one adult hand that reaches in from the right edge of the photo and holds a dark-blue whiteboard marker whose tip touches the end of that loop, as if it has just drawn it; the hand and marker do not cover any box number. No other box is looped: exactly one blue loop on the board. The hand has five natural fingers.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1_photo_u4_calendar_year_v1.webp",
+    "sha256": "f2cd9002d202468996c0774657225989ada8c64a3b25cd188472e49f3ac3d2d7"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "CQL6asX_DN-2qtsPxY2smAc",
+  "usage": {
+    "promptTokenCount": 569,
+    "candidatesTokenCount": 1309,
+    "totalTokenCount": 2016,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 311
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 138,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.136794",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 569,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 138
+  },
+  "elapsed_seconds": 20.95,
+  "output": "output/imagegen/unit-4-review-v12/z03-review-march.png",
+  "sha256": "88714200d95ee590a96ccb7f7bab92d92ac6c11b58a46485b5561577de8898f6",
+  "byte_count": 5271856,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

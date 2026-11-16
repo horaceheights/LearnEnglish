@@ -225,6 +225,25 @@ ASSIGNMENT_GROUPS: dict[str, list[tuple[str, str, str]]] = {
         ('audio_speaker', 'ana', 'L1 R9 S7'),
         ('audio_speaker', 'co-teacher', 'L3 L5 L7 R1 R3 R5 A2 A4 A6 A8 S2 S4 S6 U1 U3 U5 U7'),
     ],
+    # 2026-11-14 coverage-gap lesson: each pictured speaker keeps their voice and the narrators alternate; regenerated from the lesson.
+    "lesson-4-13-months-january-to-june": [
+        ('answer_audio_speaker', 'co-teacher', 'R2 R4 R6 R8 R10 U2 U4 U6 U8'),
+        ('audio_speaker', 'co-teacher', 'L2 L4 L6 R2 R4 R6 R8 R10 A2 A4 A6 A8 S2 S4 S6 S8 U2 U4 U6 U8'),
+    ],
+    # 2026-11-14 coverage-gap lesson: each pictured speaker keeps their voice and the narrators alternate; regenerated from the lesson.
+    "lesson-4-14-months-july-to-december": [
+        ('answer_audio_speaker', 'ana', 'U5 U7'),
+        ('answer_audio_speaker', 'co-teacher', 'R10 U1 U3 U8'),
+        ('answer_audio_speaker', 'luis', 'R8 U6'),
+        ('audio_speaker', 'ana', 'R7 R9 A7 A9 S6 S8 U5 U7'),
+        ('audio_speaker', 'co-teacher', 'L2 L4 L6 R1 R3 R5 R10 A2 A4 A6 S2 S4 U1 U3 U8'),
+        ('audio_speaker', 'luis', 'A8 S7 U6'),
+    ],
+    # 2026-11-14 coverage-gap lesson: each pictured speaker keeps their voice and the narrators alternate; regenerated from the lesson.
+    "lesson-4-15-more-at-home": [
+        ('answer_audio_speaker', 'co-teacher', 'R2 R4 R6 R8 R10 U2 U4 U6 U8'),
+        ('audio_speaker', 'co-teacher', 'L2 L4 L6 L8 A2 A4 A6 A8 S2 S4 S6 S8 U2 U4 U6 U8'),
+    ],
     "lesson-4-9-unit-4-review": [
         ('answer_audio_speaker', 'female-character', 'L7 R5 R8 R9 R10 A13 A15 S4 U3 U5 U7'),
         ('answer_audio_speaker', 'male-character', 'R7 A12 A14 S3 U1 U4 U6 U8 U9'),
@@ -314,6 +333,18 @@ ASSIGNMENT_GROUPS: dict[str, list[tuple[str, str, str]]] = {
     "lesson-5-12-numbers-30-100": [
         ('answer_audio_speaker', 'co-teacher', 'R2 R4 R6 R8 R10 U2 U4 U6 U8'),
         ('audio_speaker', 'co-teacher', 'L2 L4 L6 L8 R2 R4 R6 R8 R10 A2 A4 A6 A8 S2 S4 S6 S8 U2 U4 U6 U8'),
+    ],
+    # 2026-11-14 coverage-gap lesson: each pictured speaker keeps their voice and the narrators alternate; regenerated from the lesson.
+    "lesson-5-13-more-food": [
+        ('answer_audio_speaker', 'ana', 'R9 R10 U6 U8'),
+        ('answer_audio_speaker', 'co-teacher', 'R2 R4 R6 R8 U2 U4 U7'),
+        ('audio_speaker', 'ana', 'S7 S8 U6 U8'),
+        ('audio_speaker', 'co-teacher', 'L2 L4 L6 L8 A2 A4 A6 A8 S2 S4 S6 U2 U4 U7'),
+    ],
+    # 2026-11-14 coverage-gap lesson: each pictured speaker keeps their voice and the narrators alternate; regenerated from the lesson.
+    "lesson-5-14-at-the-table": [
+        ('answer_audio_speaker', 'co-teacher', 'R2 R4 R6 R8 R10 U2 U4 U6 U8'),
+        ('audio_speaker', 'co-teacher', 'L2 L4 L6 L8 A2 A4 A6 A8 S2 S4 S6 S8 U2 U4 U6 U8'),
     ],
     "lesson-5-9-unit-5-review": [
         ('answer_audio_speaker', 'female-character', 'R4 U2 U7'),

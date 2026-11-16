@@ -1,0 +1,57 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "c2116127-0482-47f3-866c-afdc125a63e1",
+  "asset_id": "h01-apartment",
+  "pack_sha256": "67df6514c2027fefe818f055f9716db191486e4f166711ede0c6a1d730cb51a4",
+  "started_at": "2026-11-15T19:14:39.123207+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material and fur texture, soft natural daylight and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.\n\nAn APARTMENT building seen from the street on a clear day. One plain modern five-storey residential building with pale walls fills the middle of the photo: five rows of identical windows and small balconies, one above the other, with a shared glass entrance door at street level. Some balconies have a plant or a chair, showing that many families live there. It is clearly a building of many homes, NOT a single family house, an office, a shop or a hotel. A sidewalk and a little sky frame it. No people, no cars. No letters, words, numbers, logos or brand marks anywhere.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "nwT6apy1DdyLmtkPrKCGoAc",
+  "usage": {
+    "promptTokenCount": 229,
+    "candidatesTokenCount": 1295,
+    "totalTokenCount": 1801,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 229
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 277,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137782",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 229,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 277
+  },
+  "elapsed_seconds": 31.9,
+  "output": "output/imagegen/unit-4-lesson-v15/h01-apartment.png",
+  "sha256": "806755e19b6b939989ee78b5653d9dc0e9460b84f13c2f8d02f67b438c5dcfb9",
+  "byte_count": 5544894,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

@@ -314,6 +314,21 @@ const VISUALS: Record<string, { image: string; description: string; color: strin
     description: 'Mañana, la semana, el mes y el año.',
     color: '#f1e4fa',
   },
+  'lesson-4-13-months-january-to-june': {
+    image: 'a1_photo_u4_month_03_march_v1.webp',
+    description: 'Los meses: de enero a junio.',
+    color: '#e3f1fb',
+  },
+  'lesson-4-14-months-july-to-december': {
+    image: 'a1_photo_u4_birthday_ana_v1.webp',
+    description: 'Los meses: de julio a diciembre, y el cumpleaños.',
+    color: '#fbe9e3',
+  },
+  'lesson-4-15-more-at-home': {
+    image: 'a1_photo_u4_morehome_garden_v1.webp',
+    description: 'Más partes y cosas de la casa.',
+    color: '#e6f5e1',
+  },
   'lesson-4-9-unit-4-review': {
     image: 'a1_scene_bedroom_009e058.webp',
     description: 'Repaso del hogar y la vida diaria.',
@@ -383,6 +398,16 @@ const VISUALS: Record<string, { image: string; description: string; color: strin
     image: 'a1_photo_u5_tens_card_50_v1.webp',
     description: 'Los números del treinta al cien.',
     color: '#ffe8c7',
+  },
+  'lesson-5-13-more-food': {
+    image: 'a1_photo_u5_morefood_sandwich_v1.webp',
+    description: 'Más comida: carne, queso, verduras y más.',
+    color: '#fdebd3',
+  },
+  'lesson-5-14-at-the-table': {
+    image: 'a1_photo_u5_table_cup_of_tea_v1.webp',
+    description: 'En la mesa: taza, vaso, botella y plato.',
+    color: '#e3eefb',
   },
   'lesson-5-9-unit-5-review': {
     image: 'a1_scene_i-do-not-like-fish_25804e6.webp',

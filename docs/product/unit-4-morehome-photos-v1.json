@@ -1,0 +1,194 @@
+{
+  "schema_version": 1,
+  "pack": "unit-4-morehome-photos",
+  "revision": 1,
+  "output_namespace": "unit-4-lesson-v15",
+  "authorization": "2026-11-15: photos for A1 lesson 4.15 More at Home. The user asked for every remaining gap lesson to be built (\"biuild the whole plan, none stop\") and had approved the gap-lesson media in advance (\"I preapprove all image and audios creation no need for me to reiew and approve on the fly\"). Ceiling US$2.40 for this revision. Gemini is the approved image tool (2026-09-23). Revision 1 is frozen: a changed prompt is a new revision in a new file, and every rejected output is reported with its cost.",
+  "image_settings": {
+    "provider": "google-gemini",
+    "model": "gemini-3-pro-image",
+    "aspect_ratio": "3:2",
+    "image_size": "2K",
+    "runtime_size": "1536x1024",
+    "runtime_format": "webp",
+    "n": 1
+  },
+  "production": {
+    "price_per_image_usd": "0.134",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing (checked 2026-09-24: Gemini 3 Pro Image, $0.134 per 1K/2K image)",
+    "planned_images": 13,
+    "expected_cost_usd": "1.74",
+    "requested_ceiling_usd": "2.40",
+    "no_automatic_retries": true,
+    "order": "Independent photos in any order. A rejected output is reported with its cost; a redo needs a changed prompt in a new revision file."
+  },
+  "shared_prompts": {
+    "photo": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material and fur texture, soft natural daylight and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.",
+    "safe_center": "Keep the main subject of the photo whole inside the central 55 percent of the photo width, so a centered 4:5 crop keeps it whole; only expendable background reaches the left and right edges."
+  },
+  "assets": [
+    {
+      "id": "h01-apartment",
+      "order": 1,
+      "lesson": "4.15",
+      "item": "An apartment / It is an apartment.",
+      "runtime_filename": "a1_photo_u4_morehome_apartment_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo"
+      ],
+      "prompt": "An APARTMENT building seen from the street on a clear day. One plain modern five-storey residential building with pale walls fills the middle of the photo: five rows of identical windows and small balconies, one above the other, with a shared glass entrance door at street level. Some balconies have a plant or a chair, showing that many families live there. It is clearly a building of many homes, NOT a single family house, an office, a shop or a hotel. A sidewalk and a little sky frame it. No people, no cars. No letters, words, numbers, logos or brand marks anywhere."
+    },
+    {
+      "id": "h02-garden",
+      "order": 2,
+      "lesson": "4.15",
+      "item": "A garden / It is a garden.",
+      "runtime_filename": "a1_photo_u4_morehome_garden_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo"
+      ],
+      "prompt": "A home GARDEN behind a house on a sunny day. A small private back garden seen from the back door: a neat green lawn, beds of colorful flowers and a few vegetable plants along a wooden fence, one small tree and a short stone path. A corner of the house wall is visible at the left edge, so it is clearly the garden of a home, NOT a public park: there are no benches, playgrounds, lampposts or wide paths. No people, no animals. No letters, words, numbers, logos or brand marks anywhere."
+    },
+    {
+      "id": "h03-floor",
+      "order": 3,
+      "lesson": "4.15",
+      "item": "The floor",
+      "runtime_filename": "a1_photo_u4_morehome_floor_v1.webp",
+      "four_card": true,
+      "shared": [
+        "photo"
+      ],
+      "prompt": "The FLOOR of an empty room. The camera looks down at a slight angle across a wide, clean floor of light wooden boards that fills almost the whole photo; only a thin strip of plain white wall with a white baseboard runs along the top edge. The room is completely empty: no furniture, no rug, no objects, no people. Daylight from one side shows the grain of the boards. No letters, words, numbers, logos or brand marks anywhere."
+    },
+    {
+      "id": "h04-wall",
+      "order": 4,
+      "lesson": "4.15",
+      "item": "A wall / It is a wall.",
+      "runtime_filename": "a1_photo_u4_morehome_wall_v1.webp",
+      "four_card": true,
+      "shared": [
+        "photo"
+      ],
+      "prompt": "A WALL. One plain red-brick wall photographed straight on, filling the whole photo from edge to edge, with a thin strip of gray pavement along the bottom. It is only a wall: NO door, NO window, no gate, no plants, no posters, no graffiti, no people. No letters, words, numbers, logos or brand marks anywhere."
+    },
+    {
+      "id": "h05-stairs",
+      "order": 5,
+      "lesson": "4.15",
+      "item": "The stairs",
+      "runtime_filename": "a1_photo_u4_morehome_stairs_v1.webp",
+      "four_card": true,
+      "shared": [
+        "photo",
+        "safe_center"
+      ],
+      "prompt": "The STAIRS inside a home. One straight indoor wooden staircase of about twelve steps with a simple wooden handrail goes up from the bottom center of the photo to the upper floor, seen from the foot of the stairs. Plain white walls on both sides. The steps are empty: no people, no animals, no shoes, no objects, no pictures on the walls. No letters, words, numbers, logos or brand marks anywhere."
+    },
+    {
+      "id": "h06-roof",
+      "order": 6,
+      "lesson": "4.15",
+      "item": "The roof",
+      "runtime_filename": "a1_photo_u4_morehome_roof_v1.webp",
+      "four_card": true,
+      "shared": [
+        "photo"
+      ],
+      "prompt": "The ROOF of a house. Seen from a little below on a clear day: the large red-tiled pitched roof of a small family house fills the upper two thirds of the photo against a plain blue sky, with one brick chimney; only the top strip of the house's pale wall is visible below it. The roof is the subject. Nothing is on the roof: no people, no animals, no antenna, no solar panels. No letters, words, numbers, logos or brand marks anywhere."
+    },
+    {
+      "id": "h07-toilet",
+      "order": 7,
+      "lesson": "4.15",
+      "item": "A toilet / The toilet is in the bathroom.",
+      "runtime_filename": "a1_photo_u4_morehome_toilet_v1.webp",
+      "four_card": true,
+      "shared": [
+        "photo",
+        "safe_center"
+      ],
+      "prompt": "A TOILET in a home bathroom. One clean white ceramic toilet with its lid closed stands in the middle of the photo against a wall of plain white tiles, on a light tiled floor; the edge of a white sink is just visible at the left edge and a roll of toilet paper hangs on the wall, so the room is clearly a bathroom. The toilet is the subject, sharp and large. No people, no bathtub in front, no products with labels. No letters, words, numbers, logos or brand marks anywhere."
+    },
+    {
+      "id": "h08-key",
+      "order": 8,
+      "lesson": "4.15",
+      "item": "A key / It is a key.",
+      "runtime_filename": "a1_photo_u4_morehome_key_v1.webp",
+      "four_card": true,
+      "shared": [
+        "photo",
+        "safe_center"
+      ],
+      "prompt": "A KEY. One ordinary silver metal house key on a plain metal ring lies alone on a plain, clean, light-gray surface, photographed from directly above and very close, so the key fills the central third of the photo and every tooth is sharp. Nothing else is in the photo: no other keys, no key fob, no lock, no hand. No letters, words, numbers, logos or brand marks anywhere."
+    },
+    {
+      "id": "h09-key-floor",
+      "order": 9,
+      "lesson": "4.15",
+      "item": "The key is on the floor.",
+      "runtime_filename": "a1_photo_u4_morehome_key_floor_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo",
+        "safe_center"
+      ],
+      "prompt": "A key ON THE FLOOR. One ordinary silver metal house key on a plain metal ring lies on a floor of light wooden boards in an empty room, in the middle of the photo, photographed from standing height looking down at an angle, close enough that the key is clearly a key. Around it there is only bare floor; a thin strip of white wall with a baseboard is visible at the top edge. No table, no chair, no rug, no other object, no people. No letters, words, numbers, logos or brand marks anywhere."
+    },
+    {
+      "id": "h10-key-table",
+      "order": 10,
+      "lesson": "4.15",
+      "item": "The key is on the table.",
+      "runtime_filename": "a1_photo_u4_morehome_key_table_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo",
+        "safe_center"
+      ],
+      "prompt": "A key ON THE TABLE. One ordinary silver metal house key on a plain metal ring lies in the middle of the top of a small plain wooden table that stands on a light wooden floor in front of a plain white wall. The camera is a little above table height, so the whole table top, the four legs and the floor under the table are all visible: the key is clearly on the table and the floor under the table is empty. The key is close enough to be clearly a key. Nothing else is on the table; no chairs, no other objects, no people. No letters, words, numbers, logos or brand marks anywhere."
+    },
+    {
+      "id": "h11-cat-roof",
+      "order": 11,
+      "lesson": "4.15",
+      "item": "The cat is on the roof.",
+      "runtime_filename": "a1_photo_u4_morehome_cat_roof_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo"
+      ],
+      "prompt": "A cat ON THE ROOF. An adult gray tabby cat with a white chest and a plain blue collar sits calmly on the red tiles of the pitched roof of a small family house, near the ridge, seen from the garden below on a clear day. The roof fills the upper half of the photo against a plain blue sky and the top of the house's pale wall is below it; the cat is small against the roof but sharp and clearly a cat. Exactly one cat; no people, no birds, no other animals. No letters, words, numbers, logos or brand marks anywhere."
+    },
+    {
+      "id": "h12-cat-stairs",
+      "order": 12,
+      "lesson": "4.15",
+      "item": "The cat is on the stairs.",
+      "runtime_filename": "a1_photo_u4_morehome_cat_stairs_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo",
+        "safe_center"
+      ],
+      "prompt": "A cat ON THE STAIRS. An adult gray tabby cat with a white chest and a plain blue collar sits on the middle step of a straight indoor wooden staircase with a simple wooden handrail and plain white walls, seen from the foot of the stairs; several empty steps are visible below and above the cat. The cat is sharp and looks toward the camera. Exactly one cat; no people, no other animals, no objects on the steps. No letters, words, numbers, logos or brand marks anywhere."
+    },
+    {
+      "id": "h13-dog-garden",
+      "order": 13,
+      "lesson": "4.15",
+      "item": "The dog is in the garden.",
+      "runtime_filename": "a1_photo_u4_morehome_dog_garden_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo",
+        "safe_center"
+      ],
+      "prompt": "A dog IN THE GARDEN. An adult dog with a short golden-tan coat and a plain red collar stands on the green lawn of a small private back garden with beds of colorful flowers along a wooden fence and one small tree; a corner of the house wall is visible at the left edge, so it is clearly the garden of a home, not a park. The whole dog is sharp, in side view, in the middle of the photo. Exactly one dog; no people, no other animals, no toys. No letters, words, numbers, logos or brand marks anywhere."
+    }
+  ]
+}
