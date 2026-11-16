@@ -1,0 +1,104 @@
+{
+  "schema_version": 1,
+  "pack": "unit-6-city-views-flash-photos",
+  "revision": 1,
+  "output_namespace": "unit-6-lesson-v3",
+  "authorization": "2026-11-16: scenery photos for A1 lesson 6.13 In the City. The user asked for every remaining gap lesson to be built (\"biuild the whole plan, none stop\"), approved the gap-lesson media in advance (\"I preapprove all image and audios creation no need for me to reiew and approve on the fly\") and decided the image model by photo type (\"Yes, use Flash\"): Gemini 2.5 Flash Image for simple object, animal and scenery photos, Gemini 3 Pro Image for people and precise edits. Ceiling US$0.53 for this revision. Revision 1 is frozen: a changed prompt is a new revision in a new file, and every rejected output is reported with its cost.",
+  "image_settings": {
+    "provider": "google-gemini",
+    "model": "gemini-2.5-flash-image",
+    "aspect_ratio": "3:2",
+    "image_size": "1K",
+    "runtime_size": "1536x1024",
+    "runtime_format": "webp",
+    "n": 1
+  },
+  "production": {
+    "price_per_image_usd": "0.0387",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing (checked 2026-11-16: Gemini 2.5 Flash Image, about $0.039 per image)",
+    "planned_images": 6,
+    "expected_cost_usd": "0.23",
+    "requested_ceiling_usd": "0.53",
+    "no_automatic_retries": true,
+    "order": "Independent photos in any order. A rejected output is reported with its cost; a redo needs a changed prompt in a new revision file."
+  },
+  "shared_prompts": {
+    "photo": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real skin, fabric, building and landscape texture, natural light and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.",
+    "safe_center": "Keep the main subject of the photo whole inside the central 55 percent of the photo width, so a centered 4:5 crop keeps it whole; only expendable background reaches the left and right edges."
+  },
+  "assets": [
+    {
+      "id": "c01-city",
+      "order": 1,
+      "lesson": "6.13",
+      "item": "A city / It is a city.",
+      "runtime_filename": "a1_photo_u6_city_city_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo"
+      ],
+      "prompt": "A CITY. A big modern city seen from a hill: dozens of tall glass and concrete towers stand close together, with wide busy avenues between them, under a clear sky. It is plainly a very large city: tall buildings from edge to edge, no countryside. No readable signs. It is the only subject and fills the photo. No letters, words, numbers, logos, badges with writing or brand marks anywhere."
+    },
+    {
+      "id": "c02-town",
+      "order": 2,
+      "lesson": "6.13",
+      "item": "A town / It is a town.",
+      "runtime_filename": "a1_photo_u6_city_town_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo"
+      ],
+      "prompt": "A SMALL TOWN. A small quiet town seen from a low hill: about thirty low houses with red tile roofs stand around one small central square with a fountain, and green fields and hills begin right behind the last houses. No tall buildings at all. It is plainly a small town, not a city. It is the only subject and fills the photo. No letters, words, numbers, logos, badges with writing or brand marks anywhere."
+    },
+    {
+      "id": "c03-road",
+      "order": 3,
+      "lesson": "6.13",
+      "item": "A road / It is a road.",
+      "runtime_filename": "a1_photo_u6_city_road_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo"
+      ],
+      "prompt": "A ROAD. One long, straight, empty gray asphalt road with a white dashed centre line runs from the bottom of the photo to the horizon through flat green fields under a blue sky. No cars, no people, no houses, no road signs. It is the only subject and fills the photo. No letters, words, numbers, logos, badges with writing or brand marks anywhere."
+    },
+    {
+      "id": "c04-market",
+      "order": 4,
+      "lesson": "6.13",
+      "item": "A market / It is a market.",
+      "runtime_filename": "a1_photo_u6_city_market_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo"
+      ],
+      "prompt": "A MARKET. An open-air street market: rows of wooden stalls under plain colored awnings, piled with fresh fruit and vegetables in crates, with several shoppers seen small from behind walking between the stalls. It is plainly an outdoor market, not a supermarket: no shelves, no carts, no price tags, no signs. It is the only subject and fills the photo. No letters, words, numbers, logos, badges with writing or brand marks anywhere."
+    },
+    {
+      "id": "c05-building",
+      "order": 5,
+      "lesson": "6.13",
+      "item": "A building / It is a building.",
+      "runtime_filename": "a1_photo_u6_city_building_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo"
+      ],
+      "prompt": "ONE BUILDING. A single modern office building of about ten floors, with rows of identical windows, stands alone against a clear blue sky, the whole building visible from the ground to the roof, with a little empty sidewalk in front. No signs, no other buildings, no people. It is the only subject and fills the photo. No letters, words, numbers, logos, badges with writing or brand marks anywhere."
+    },
+    {
+      "id": "c06-map",
+      "order": 6,
+      "lesson": "6.13",
+      "item": "A map / It is a map.",
+      "runtime_filename": "a1_photo_u6_city_map_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo",
+        "safe_center"
+      ],
+      "prompt": "A MAP. One paper street map lies unfolded flat on a wooden table, seen from above, sharp and large: a web of white and yellow streets, green park areas and a blue river, with visible fold creases. The map is completely unlabeled: no street names, no place names, no legend, no compass letters, no numbers. No people, no hands, no phone, no pen. It is the only subject and fills the photo. No letters, words, numbers, logos, badges with writing or brand marks anywhere."
+    }
+  ]
+}

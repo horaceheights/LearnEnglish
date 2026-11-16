@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "pack": "unit-6-city-people-photos",
+  "revision": 1,
+  "output_namespace": "unit-6-lesson-v4",
+  "authorization": "2026-11-16: photos of people for A1 lesson 6.13 In the City. The user asked for every remaining gap lesson to be built (\"biuild the whole plan, none stop\"), approved the gap-lesson media in advance (\"I preapprove all image and audios creation no need for me to reiew and approve on the fly\") and decided the image model by photo type (\"Yes, use Flash\"): Gemini 2.5 Flash Image for simple object, animal and scenery photos, Gemini 3 Pro Image for people and precise edits. Ceiling US$0.70 for this revision. Revision 1 is frozen: a changed prompt is a new revision in a new file, and every rejected output is reported with its cost.",
+  "image_settings": {
+    "provider": "google-gemini",
+    "model": "gemini-3-pro-image",
+    "aspect_ratio": "3:2",
+    "image_size": "2K",
+    "runtime_size": "1536x1024",
+    "runtime_format": "webp",
+    "n": 1
+  },
+  "production": {
+    "price_per_image_usd": "0.134",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing (checked 2026-09-24: Gemini 3 Pro Image, $0.134 per 1K/2K image)",
+    "planned_images": 3,
+    "expected_cost_usd": "0.40",
+    "requested_ceiling_usd": "0.70",
+    "no_automatic_retries": true,
+    "order": "Independent photos in any order. A rejected output is reported with its cost; a redo needs a changed prompt in a new revision file."
+  },
+  "shared_prompts": {
+    "photo": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real skin, fabric, building and landscape texture, natural light and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.",
+    "safe_center": "Keep the main subject of the photo whole inside the central 55 percent of the photo width, so a centered 4:5 crop keeps it whole; only expendable background reaches the left and right edges."
+  },
+  "assets": [
+    {
+      "id": "d01-luis-drives",
+      "order": 1,
+      "lesson": "6.13",
+      "item": "Drive / I drive a car.",
+      "runtime_filename": "a1_photo_u6_city_luis_drives_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1_luis.webp",
+        "sha256": "3e8cab7135c3f06e9f8fde506992787a422fc05331cef89be21516428800d89c",
+        "observed_description": "Luis, a man of about thirty with short curly black hair, in a navy T-shirt, in a head-and-shoulders portrait."
+      },
+      "prompt": "Image 1 shows Luis: about thirty, short curly black hair, a navy T-shirt. Keep his face, hair and clothes exactly. Create a NEW photograph: Luis DRIVES a car. He sits in the driver's seat with his seat belt on and both hands on the steering wheel, looking ahead at the road through the windshield; he is seen from the front passenger seat, so his face in profile, the steering wheel and the road ahead through the windshield are all plainly visible. The car is moving along a street in daylight. Exactly one person; no phone. No letters, words, numbers, logos, badges with writing or brand marks anywhere. Every visible hand has five natural fingers."
+    },
+    {
+      "id": "d02-visit-museum",
+      "order": 2,
+      "lesson": "6.13",
+      "item": "Visit / They visit the museum.",
+      "runtime_filename": "a1_photo_u6_city_visit_museum_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo"
+      ],
+      "prompt": "THEY VISIT THE MUSEUM. A man and a woman of about forty, visitors with a small backpack and a light jacket over an arm, stand side by side in a bright museum hall and look together at a large framed landscape painting on the wall; a marble statue on a plinth and more framed paintings are in the hall behind them. They are seen from the side and a little behind, so the two visitors and the art are both plain. Exactly two people. No letters, words, numbers, logos, badges with writing or brand marks anywhere. Every visible hand has five natural fingers."
+    },
+    {
+      "id": "d03-visit-market",
+      "order": 3,
+      "lesson": "6.13",
+      "item": "They visit the market.",
+      "runtime_filename": "a1_photo_u6_city_visit_market_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo"
+      ],
+      "prompt": "THEY VISIT THE MARKET. The same kind of pair of visitors, a man and a woman of about forty with a small backpack, walk side by side between the wooden fruit and vegetable stalls of an open-air street market and look at the fruit; the woman points at a crate of oranges. Stalls with plain awnings fill both sides. Exactly two people in the foreground; any stall keepers are small and blurred behind. No price tags, no signs. No letters, words, numbers, logos, badges with writing or brand marks anywhere. Every visible hand has five natural fingers."
+    }
+  ]
+}

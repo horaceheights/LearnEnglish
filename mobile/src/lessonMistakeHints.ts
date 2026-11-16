@@ -161,6 +161,12 @@ const MEANINGS: Record<string, string> = {
   // A1 7.13 (2026-11-15): sports and music.
   sport: 'deporte', ball: 'pelota', team: 'equipo', game: 'partido', tennis: 'tenis', sing: 'cantar', song: 'canción',
   guitar: 'guitarra',
+  // A1 3.14 (2026-11-16): more jobs.
+  waiter: 'mesero', 'police officer': 'policía', artist: 'artista', singer: 'cantante', worker: 'trabajador',
+  mechanic: 'mecánico o mecánica',
+  // A1 6.13 (2026-11-16): in the city.
+  city: 'ciudad', town: 'pueblo', road: 'carretera', market: 'mercado', building: 'edificio', map: 'mapa',
+  drive: 'manejar', visit: 'visitar',
   weather: 'tiempo atmosférico', fast: 'rápido', speak: 'hablar',
   draw: 'dibujar', paint: 'pintar', dance: 'bailar', 'ride a bike': 'andar en bicicleta',
   'take photos': 'tomar fotos', 'play football': 'jugar al fútbol',

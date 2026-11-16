@@ -586,6 +586,9 @@ COURSE_SYLLABLES.update({
     "tree": 1, "flower": 2, "river": 2, "sea": 1, "beach": 1, "mountain": 2, "lake": 1, "sky": 1,
     "cow": 1, "horse": 1, "sheep": 1, "pig": 1, "lion": 2, "elephant": 3, "snake": 1, "monkey": 2,
     "sport": 1, "ball": 1, "team": 1, "game": 1, "tennis": 2, "sing": 1, "song": 1, "guitar": 2,
+    # A1 3.14 More Jobs and 6.13 In the City (2026-11-16).
+    "waiter": 2, "police": 2, "officer": 3, "artist": 2, "singer": 2, "worker": 2, "mechanic": 3,
+    "city": 2, "town": 1, "road": 1, "market": 2, "building": 2, "map": 1, "drive": 1, "visit": 2,
     "under": 2,
     "understand": 3,
     "united": 3,

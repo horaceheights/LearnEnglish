@@ -31,6 +31,9 @@ for (const noun of words('spring summer fall winter sun rain snow')) NOUNS.add(n
 for (const noun of words('tree flower river sea beach mountain lake sky')) NOUNS.add(noun);
 for (const noun of words('cow horse sheep pig lion elephant snake monkey')) NOUNS.add(noun);
 for (const noun of words('sport ball team game tennis song guitar')) NOUNS.add(noun);
+// A1 3.14 and 6.13 (2026-11-16): more jobs; in the city.
+for (const noun of words('waiter officer artist singer worker mechanic')) NOUNS.add(noun);
+for (const noun of words('city town road market building map')) NOUNS.add(noun);
 for (const noun of words('mall supermarket airplane boat hotel office museum theater stop airport corner ticket')) NOUNS.add(noun);
 // A1+ 1.4 (2026-11-04): the extended family.
 for (const noun of words('aunt uncle cousin')) NOUNS.add(noun);
@@ -53,7 +56,7 @@ for (const noun of words('apartment garden floor wall stairs roof toilet key')) 
 // A1 5.11 (2026-11-14): buying things (The price is five dollars.).
 for (const noun of words('money price')) NOUNS.add(noun);
 for (const noun of words('address')) NOUNS.add(noun);
-const COMPOUND_NOUNS: Record<string, string> = { 'post office': 'oficina de correos', 'movie theater': 'cine', 'bus stop': 'parada de autobús', 'next stop': 'próxima parada' };
+const COMPOUND_NOUNS: Record<string, string> = { 'post office': 'oficina de correos', 'movie theater': 'cine', 'bus stop': 'parada de autobús', 'next stop': 'próxima parada', 'police officer': 'policía' };
 const STATES = set('red blue green yellow black white happy sad tired hungry thirsty sunny rainy cold hot windy cloudy mexican spanish american canadian');
 // A1 2.13 (2026-11-15): four more colors, before a noun (a brown dog) and after "is" (It is brown.).
 for (const color of words('brown pink purple gray')) { COLORS.add(color); STATES.add(color); }
@@ -75,6 +78,8 @@ const VERBS = set('am is are have has like want wants need needs do work works s
 for (const verb of words('speak speaks')) VERBS.add(verb);
 // A1 7.13 (2026-11-15): I sing. / They sing.
 for (const verb of words('sing')) VERBS.add(verb);
+// A1 6.13 (2026-11-16): I drive a car. / They visit the museum.
+for (const verb of words('drive visit')) VERBS.add(verb);
 for (const verb of words('leave arrive start starts finish finishes studies meet put')) VERBS.add(verb);
 // A1+ 1.2 (2026-10-29): the he/she forms of A1 routine verbs.
 for (const verb of words('wakes gets eats brushes')) VERBS.add(verb);
