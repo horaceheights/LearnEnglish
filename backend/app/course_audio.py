@@ -224,6 +224,11 @@ COURSE_SYLLABLES = {
     "paper": 2,
     "notebook": 2,
     "or": 1,
+    # A1 2.13 More Colors (2026-11-15); very is already listed.
+    "brown": 1,
+    "pink": 1,
+    "purple": 2,
+    "gray": 1,
     "pens": 1,
     "phone": 1,
     "phones": 1,

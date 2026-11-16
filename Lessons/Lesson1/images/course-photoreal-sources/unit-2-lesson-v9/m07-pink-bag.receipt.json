@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "ec4810fc-39e1-421e-80a9-bc69d42b1cfd",
+  "asset_id": "m07-pink-bag",
+  "pack_sha256": "687fc565b3d964cd8f84db911f199d396456eae05c46b0f04b3bdcafa05a9387",
+  "started_at": "2026-11-15T18:11:31.516655+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material and fur texture, soft natural daylight and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must name the color instantly on a small phone screen. Do not imitate earlier course photos.\n\nThis is a precise edit of image 1: the result must look like the same photograph with one detail changed. Change only what the instruction names.\n\nImage 1 shows one yellow backpack. Keep the photograph exactly as it is: the same backpack, shape, position, floor, wall, light and framing. Change ONLY the color of the backpack: it is now solid bright rose PINK instead of yellow, fabric, straps and zipper tape alike. Nothing else changes.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1_photo_u2_yellow_bag_v1.webp",
+    "sha256": "6a34253255248b4ab51e0e2342c001fbccbbc09ecfe6624940f63792796c7910"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "0_X5av6zN9rVz7IP5pS-4Qc",
+  "usage": {
+    "promptTokenCount": 457,
+    "candidatesTokenCount": 1235,
+    "totalTokenCount": 1856,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 199
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 164,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.136882",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 457,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 164
+  },
+  "elapsed_seconds": 21.08,
+  "output": "output/imagegen/unit-2-lesson-v9/m07-pink-bag.png",
+  "sha256": "cb1189086095a1c48fa47b6d547e2e3d28c3d0808dcff7ffd92558df6494ec3e",
+  "byte_count": 4286276,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

@@ -62,7 +62,7 @@ def compile_lesson(base: dict, pack: dict) -> dict:
                 remap_images(item)
     remap_images(lesson)
     cards = {card["slide_id"]: card for card in lesson["cards"]}
-    if len(cards) not in (32, 48, 56, 64):
+    if len(cards) not in (32, 48, 56, 64, 69):
         raise ValueError("Unexpected independent review revision; reconcile before authoring.")
     # Retain the old IDs for existing cards so their history stays traceable.
     def teach(identifier, text, translation, asset):
@@ -271,17 +271,41 @@ def compile_lesson(base: dict, pack: dict) -> dict:
                              "audio_text": text, "answer_audio_text": text, "prompt_image_url": room(name),
                              "spanish_translation": translated, "pedagogy_note": "word-order selection",
                              "translation": translated, "correct_option_ids": room_ids}
+    # 2026-11-15: Lesson 2.13 More Colors adds brown, pink, purple, gray and very; under the standing rule for
+    # gap lessons the review brings each back: one heard sentence with written choices and four constructions
+    # on four fresh recolored photos (docs/product/unit-2-review-morecolors-photos-v1.json).
+    cards["N27"] = {"slide_id": "N27", "stage": "Listen", "interaction_type": "a2t2", "prompt": "Listen and choose.",
+                    "audio_text": "It is a very big dog.", "answer_audio_text": None,
+                    "correct_option_id": key("It is a very big dog."), "prompt_image_url": "",
+                    "spanish_translation": "Es un perro muy grande.",
+                    "pedagogy_note": "Brings back very from Lesson 2.13 More Colors; all options already taught.",
+                    "options": [{"id": key(option), "label": option, "image_url": ""}
+                                for option in ("It is a very small dog.", "It is a very big dog.")]}
+    for identifier, text, translated, name in (
+        ("U12", "It is a brown chair.", "Es una silla marrón.", "brown_chair"),
+        ("U13", "It is a purple bag.", "Es una bolsa morada.", "purple_bag"),
+        ("U14", "It is a pink bike.", "Es una bicicleta rosa.", "pink_bike"),
+        ("U15", "It is a gray car.", "Es un automóvil gris.", "gray_car"),
+    ):
+        color_words = text.rstrip(".").split()
+        color_ids = [f"word-{i + 1}" for i in range(len(color_words))]
+        cards[identifier] = {"slide_id": identifier, "interaction_type": "complete-sentence",
+                             "prompt": " ".join("___" for _ in color_words) + ".", "stage": "Use", "correct_option_id": "word-1",
+                             "options": [{"id": i, "label": word, "image_url": ""} for i, word in zip(color_ids, color_words)],
+                             "audio_text": text, "answer_audio_text": text, "prompt_image_url": room(name),
+                             "spanish_translation": translated, "pedagogy_note": "word-order selection",
+                             "translation": translated, "correct_option_ids": color_ids}
     # Same ordered stations across modalities: surroundings -> object identity
     # -> pointing near/far -> quantity/color -> final number check (Listen).
     order = ["L1", "L5", "L2", "L6", "L4", "L7", "L3", "L8"]
     order += [f"R{i}" for i in range(1, 11)]
     order += ["N1", "N11", "N12", "N13", "N14", "N15", "N2", "N16", "N17", "N18", "N3", "N4", "N6", "N5", "N7", "N8", "N9", "N10", "N19", "N20", "N21",
-              "N22", "N23", "N24", "N25", "N26"]
-    order += [f"S{i}" for i in range(1, 10)] + [f"U{i}" for i in range(1, 12)]
+              "N22", "N23", "N24", "N25", "N26", "N27"]
+    order += [f"S{i}" for i in range(1, 10)] + [f"U{i}" for i in range(1, 16)]
     lesson["cards"] = [cards[key] for key in order]
     lesson["content_revision"] = 1
     lesson["goal"] = ("Review Unit 2 through fresh surroundings, object identification, true near/far contrasts, quantities, colors and "
-                      "big/small, new/used and same/different pairs and the classroom words, then recognize the final numbers by ear. "
+                      "big/small, new/used and same/different pairs, the classroom words and four more colors, then recognize the final numbers by ear. "
                       "No new language.")
     from scripts.course_contract import is_foundation
     lesson["review_vocabulary"] = sorted(set(word for value in lessons(ROOT).values()

@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "e7db3359-a47a-446f-9b38-6acfaa51b553",
+  "asset_id": "m04-gray",
+  "pack_sha256": "687fc565b3d964cd8f84db911f199d396456eae05c46b0f04b3bdcafa05a9387",
+  "started_at": "2026-11-15T18:10:27.909213+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material and fur texture, soft natural daylight and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must name the color instantly on a small phone screen. Do not imitate earlier course photos.\n\nThis is a precise edit of image 1: the result must look like the same photograph with one detail changed. Change only what the instruction names.\n\nImage 1 shows one solid blue disc on a plain light-grey background. Keep the photograph exactly as it is: the same disc shape, size, position, matte surface, soft shadow, background, light and framing. Change ONLY the color of the disc: it is now solid GRAY instead of blue, a clear neutral medium-dark gray, plainly darker than the light background, not black and not blue. Nothing else changes.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1_photo_u2_color_blue_v1.webp",
+    "sha256": "d750c11af0d27839aaa29c77845339af2ed2b33199fdac9b3370b34b6ec86f85"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "lPX5asCNBe7rz7IPxvCluQc",
+  "usage": {
+    "promptTokenCount": 481,
+    "candidatesTokenCount": 1249,
+    "totalTokenCount": 1857,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 223
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 127,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.136486",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 481,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 127
+  },
+  "elapsed_seconds": 19.22,
+  "output": "output/imagegen/unit-2-lesson-v9/m04-gray.png",
+  "sha256": "c6ff2de108302c498ed75221943f106c95c95cbb582cf06f989ecd6667078d88",
+  "byte_count": 3800866,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

@@ -1,0 +1,57 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "bdd25283-59b3-44cd-9ff5-ff094ecafb4a",
+  "asset_id": "m05-brown-dog",
+  "pack_sha256": "687fc565b3d964cd8f84db911f199d396456eae05c46b0f04b3bdcafa05a9387",
+  "started_at": "2026-11-15T18:10:48.463306+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material and fur texture, soft natural daylight and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must name the color instantly on a small phone screen. Do not imitate earlier course photos.\n\nKeep the main subject of the photo whole inside the central 55 percent of the photo width, so a centered 4:5 crop keeps it whole; only expendable background reaches the left and right edges.\n\nONE BROWN dog. An adult Labrador with a short, solid dark chocolate-BROWN coat sits upright on a plain light wooden floor in front of a plain white wall, turned three-quarters toward the camera, calm, mouth closed. Its whole coat is the same rich brown, with no white, black or tan patches, and it wears no collar. The whole dog is sharp, large and inside the central half of the photo. Exactly one dog; no people, no other animals, no furniture, no toys, no rug. No letters, words, numbers, logos or brand marks anywhere.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "qPX5auKhKKGvqtsPler1uQg",
+  "usage": {
+    "promptTokenCount": 269,
+    "candidatesTokenCount": 1263,
+    "totalTokenCount": 1784,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 269
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 252,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137562",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 269,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 252
+  },
+  "elapsed_seconds": 19.76,
+  "output": "output/imagegen/unit-2-lesson-v9/m05-brown-dog.png",
+  "sha256": "2de8a62e261cd56da8b21d03952f2b1e1c70c7455089ee8a6cfc0433e6a55d56",
+  "byte_count": 5142671,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

@@ -87,6 +87,8 @@ const MEANINGS: Record<string, string> = {
   studying: 'estudiando', playing: 'jugando', swimming: 'nadando', sleeping: 'durmiendo',
   sitting: 'sentado', talking: 'hablando',
   red: 'rojo', blue: 'azul', green: 'verde', yellow: 'amarillo', black: 'negro', white: 'blanco',
+  // A1 2.13 (2026-11-15): four more colors, and very.
+  brown: 'marrón', pink: 'rosa', purple: 'morado', gray: 'gris', very: 'muy',
   this: 'este, cerca', that: 'ese, lejos', these: 'estos, cerca', those: 'esos, lejos',
   one: 'uno', two: 'dos', three: 'tres', four: 'cuatro', five: 'cinco', six: 'seis', seven: 'siete',
   eight: 'ocho', nine: 'nueve', ten: 'diez', eleven: 'once', twelve: 'doce', thirteen: 'trece',
