@@ -1,0 +1,57 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "17e990d5-9ae0-4d4b-9368-e9c87622841c",
+  "asset_id": "h03-floor",
+  "pack_sha256": "67df6514c2027fefe818f055f9716db191486e4f166711ede0c6a1d730cb51a4",
+  "started_at": "2026-11-15T19:15:34.552493+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material and fur texture, soft natural daylight and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.\n\nThe FLOOR of an empty room. The camera looks down at a slight angle across a wide, clean floor of light wooden boards that fills almost the whole photo; only a thin strip of plain white wall with a white baseboard runs along the top edge. The room is completely empty: no furniture, no rug, no objects, no people. Daylight from one side shows the grain of the boards. No letters, words, numbers, logos or brand marks anywhere.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "1gT6apHmKNefqtsPzuOToAE",
+  "usage": {
+    "promptTokenCount": 198,
+    "candidatesTokenCount": 1234,
+    "totalTokenCount": 1704,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 198
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 272,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137660",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 198,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 272
+  },
+  "elapsed_seconds": 21.45,
+  "output": "output/imagegen/unit-4-lesson-v15/h03-floor.png",
+  "sha256": "5d5ddd5b86d66515a2d7c4d0870cdc662f16a2183876da63b6d44cb5d98d996e",
+  "byte_count": 5787662,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

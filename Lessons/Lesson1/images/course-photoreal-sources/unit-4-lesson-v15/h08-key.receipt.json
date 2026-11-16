@@ -1,0 +1,57 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "da99d2d9-16d5-4f2f-9b0a-3802d601ab69",
+  "asset_id": "h08-key",
+  "pack_sha256": "67df6514c2027fefe818f055f9716db191486e4f166711ede0c6a1d730cb51a4",
+  "started_at": "2026-11-15T19:17:31.629848+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material and fur texture, soft natural daylight and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.\n\nKeep the main subject of the photo whole inside the central 55 percent of the photo width, so a centered 4:5 crop keeps it whole; only expendable background reaches the left and right edges.\n\nA KEY. One ordinary silver metal house key on a plain metal ring lies alone on a plain, clean, light-gray surface, photographed from directly above and very close, so the key fills the central third of the photo and every tooth is sharp. Nothing else is in the photo: no other keys, no key fob, no lock, no hand. No letters, words, numbers, logos or brand marks anywhere.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "SwX6asXkIvTUz7IP4dH3iAY",
+  "usage": {
+    "promptTokenCount": 234,
+    "candidatesTokenCount": 1226,
+    "totalTokenCount": 1747,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 234
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 287,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137912",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 234,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 287
+  },
+  "elapsed_seconds": 21.76,
+  "output": "output/imagegen/unit-4-lesson-v15/h08-key.png",
+  "sha256": "ff35ff5c7c04da9d0a7916e2a02ce56086aaf0f808c37ff4b2e2ebd5487ed1a1",
+  "byte_count": 6190476,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

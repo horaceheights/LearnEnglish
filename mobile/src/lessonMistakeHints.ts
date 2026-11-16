@@ -75,6 +75,14 @@ const MEANINGS: Record<string, string> = {
   make: 'hacer', see: 'ver', use: 'usar', find: 'encontrar', give: 'dar', come: 'venir',
   // A1 4.12 (2026-11-14): tomorrow and the week.
   now: 'ahora', tomorrow: 'mañana', days: 'días', week: 'semana', weekend: 'fin de semana', month: 'mes', months: 'meses', year: 'año',
+  // A1 4.13 (2026-11-15): the first six months.
+  january: 'enero', february: 'febrero', march: 'marzo', april: 'abril', may: 'mayo', june: 'junio',
+  // A1 4.14 (2026-11-15): the last six months, and birthday.
+  july: 'julio', august: 'agosto', september: 'septiembre', october: 'octubre', november: 'noviembre', december: 'diciembre',
+  birthday: 'cumpleaños',
+  // A1 4.15 (2026-11-15): more at home.
+  apartment: 'apartamento', garden: 'jardín', floor: 'piso', wall: 'pared', stairs: 'escaleras', roof: 'techo',
+  toilet: 'inodoro', key: 'llave',
   // A1 5.11 (2026-11-14): buying things.
   money: 'dinero', buy: 'comprar', pay: 'pagar', price: 'precio', cheap: 'barato o barata', expensive: 'caro o cara',
   // A1 5.12 (2026-11-15): the tens from thirty to one hundred.

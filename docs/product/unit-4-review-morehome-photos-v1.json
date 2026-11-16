@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "pack": "unit-4-review-morehome-photos",
+  "revision": 1,
+  "output_namespace": "unit-4-review-v14",
+  "authorization": "2026-11-15: review photos that bring back the 4.15 More at Home words in the Unit 4 review, under the standing rule for gap lessons. The user asked for every remaining gap lesson to be built (\"biuild the whole plan, none stop\") and had approved the gap-lesson media in advance (\"I preapprove all image and audios creation no need for me to reiew and approve on the fly\"). Ceiling US$0.80 for this revision. Gemini is the approved image tool (2026-09-23). Revision 1 is frozen: a changed prompt is a new revision in a new file, and every rejected output is reported with its cost.",
+  "image_settings": {
+    "provider": "google-gemini",
+    "model": "gemini-3-pro-image",
+    "aspect_ratio": "3:2",
+    "image_size": "2K",
+    "runtime_size": "1536x1024",
+    "runtime_format": "webp",
+    "n": 1
+  },
+  "production": {
+    "price_per_image_usd": "0.134",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing (checked 2026-09-24: Gemini 3 Pro Image, $0.134 per 1K/2K image)",
+    "planned_images": 3,
+    "expected_cost_usd": "0.40",
+    "requested_ceiling_usd": "0.80",
+    "no_automatic_retries": true,
+    "order": "Independent photos in any order. A rejected output is reported with its cost; a redo needs a changed prompt in a new revision file."
+  },
+  "shared_prompts": {
+    "photo": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material and fur texture, soft natural daylight and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.",
+    "safe_center": "Keep the main subject of the photo whole inside the central 55 percent of the photo width, so a centered 4:5 crop keeps it whole; only expendable background reaches the left and right edges."
+  },
+  "assets": [
+    {
+      "id": "r01-dog-stairs",
+      "order": 1,
+      "lesson": "4.16",
+      "item": "The dog is on the stairs.",
+      "runtime_filename": "a1_u4_review_gap_dog_stairs_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo"
+      ],
+      "prompt": "A dog ON THE STAIRS. An adult dog with a short golden-tan coat and a plain red collar sits on the third step of a straight indoor staircase with gray carpeted steps, a white handrail and plain pale walls, seen from the foot of the stairs; several empty steps are visible above the dog. The dog is sharp and looks toward the camera. Exactly one dog; no people, no other animals, no objects on the steps. No letters, words, numbers, logos or brand marks anywhere."
+    },
+    {
+      "id": "r02-bag-floor",
+      "order": 2,
+      "lesson": "4.16",
+      "item": "The bag is on the floor.",
+      "runtime_filename": "a1_u4_review_gap_bag_floor_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo"
+      ],
+      "prompt": "A bag ON THE FLOOR. One plain dark-green backpack stands upright on a floor of gray tiles in an empty hallway, in the middle of the photo, seen from standing height looking down at an angle. Around it there is only bare floor; a strip of plain white wall is visible at the top edge. No table, no chair, no rug, no other object, no people. No letters, words, numbers, logos or brand marks anywhere."
+    },
+    {
+      "id": "r03-key-sofa",
+      "order": 3,
+      "lesson": "4.16",
+      "item": "The key is on the sofa.",
+      "runtime_filename": "a1_u4_review_gap_key_sofa_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo"
+      ],
+      "prompt": "A key ON THE SOFA. One ordinary silver metal house key on a plain metal ring lies in the middle of the seat cushion of a plain light-gray two-seat sofa that stands against a plain white wall on a wooden floor. The camera is close and a little above the seat, so the key is large enough to be clearly a key and the sofa's backrest and armrests are clearly visible around it. Nothing else is on the sofa: no cushions, no blanket, no phone, no people. No letters, words, numbers, logos or brand marks anywhere."
+    }
+  ]
+}
