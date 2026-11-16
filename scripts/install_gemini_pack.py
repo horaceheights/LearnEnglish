@@ -35,6 +35,11 @@ SOURCES = ROOT / "Lessons/Lesson1/images/course-photoreal-sources"
 RUNTIME = (1536, 1024)
 
 
+# The smallest centered 3:2 crop the installer accepts: a Gemini 2.5 Flash Image output (about 1248x832) is
+# enlarged by about a quarter to the runtime size; anything smaller is refused.
+MINIMUM_HEIGHT = 800
+
+
 def runtime_webp(source: Path) -> bytes:
     with Image.open(source) as image:
         image = image.convert("RGB")
@@ -45,7 +50,7 @@ def runtime_webp(source: Path) -> bytes:
         else:
             crop = round(width * 2 / 3)
             box = (0, (height - crop) // 2, width, (height - crop) // 2 + crop)
-        if min(box[2] - box[0], box[3] - box[1]) < RUNTIME[1]:
+        if min(box[2] - box[0], box[3] - box[1]) < MINIMUM_HEIGHT:
             raise ValueError(f"{source.name} is smaller than the runtime size.")
         buffer = io.BytesIO()
         image.crop(box).resize(RUNTIME, Image.LANCZOS).save(buffer, "WEBP", quality=92, method=6)
