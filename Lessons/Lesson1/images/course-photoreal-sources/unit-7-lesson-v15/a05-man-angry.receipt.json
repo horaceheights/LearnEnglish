@@ -1,0 +1,57 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "ea64a07f-403c-4943-9d29-cb9b72624ee2",
+  "asset_id": "a05-man-angry",
+  "pack_sha256": "6fdded03ac22ecebbab14a7741c301501ba5eb69c29fd7ca6893489b0d906089",
+  "started_at": "2026-11-16T01:20:23.080399+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real skin, fur, fabric and landscape texture, natural light and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.\n\nAn ANGRY man. A man of about forty with short black hair and a plain gray shirt stands with his arms tightly crossed, his eyebrows pulled down hard, his jaw clenched and his mouth pressed into a frown, glaring at the camera. He is clearly angry: not sad, not tired. Exactly one person, seen from the waist up, sharp, in a plain bright room with nothing distracting behind. No letters, words, numbers, logos or brand marks anywhere. Every visible hand has five natural fingers.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "V1r6asKUKqqlmtkPm_LCgAc",
+  "usage": {
+    "promptTokenCount": 211,
+    "candidatesTokenCount": 1259,
+    "totalTokenCount": 1787,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 211
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 317,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.138226",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 211,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 317
+  },
+  "elapsed_seconds": 23.76,
+  "output": "output/imagegen/unit-7-lesson-v15/a05-man-angry.png",
+  "sha256": "05a050c9801b885610f89d6ba2396f2af81afaa6ab15e434c0a296808f2f4c55",
+  "byte_count": 5224674,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

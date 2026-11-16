@@ -1,0 +1,57 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "3bd3b29b-b321-4eb1-9268-830d5fd3d959",
+  "asset_id": "p04-game",
+  "pack_sha256": "2310ac1ff881de00724864e3bb7c7a584536fd9c9c07a52bf37432726320dada",
+  "started_at": "2026-11-16T15:05:18.960338+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real skin, fur, fabric and landscape texture, natural light and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.\n\nA GAME in progress. Two teams play a football match on a grass field, seen from the side line: players in plain red shirts and players in plain blue shirts run after the ball in the middle of the photo, one red player kicking it, with a goal visible at the far end and a few spectators blurred behind. It is clearly a match between two teams. The shirts are completely plain. No letters, words, numbers, logos or brand marks anywhere.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "rxv7arSELMbrz7IPqsDQ8AI",
+  "usage": {
+    "promptTokenCount": 201,
+    "candidatesTokenCount": 1311,
+    "totalTokenCount": 1853,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 201
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 341,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.138494",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 201,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 341
+  },
+  "elapsed_seconds": 24.54,
+  "output": "output/imagegen/unit-7-lesson-v23/p04-game.png",
+  "sha256": "350f22fd29fc19cd01f0b14415af599453f8d8b287fd02e3b4c2855449331655",
+  "byte_count": 7107226,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

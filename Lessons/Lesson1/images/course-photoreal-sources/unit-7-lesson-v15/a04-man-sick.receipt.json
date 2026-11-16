@@ -1,0 +1,57 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "3988065a-502f-4a81-ae3a-2ad35e24e934",
+  "asset_id": "a04-man-sick",
+  "pack_sha256": "6fdded03ac22ecebbab14a7741c301501ba5eb69c29fd7ca6893489b0d906089",
+  "started_at": "2026-11-16T01:19:59.862009+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real skin, fur, fabric and landscape texture, natural light and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.\n\nA SICK man. A man of about fifty with gray hair sits on a sofa wrapped in a thick blanket, looking weak and unwell with a red nose; he blows his nose into a white tissue and holds a steaming mug in the other hand. A thermometer and a box of plain tissues lie on the low table in front of him. Exactly one person; he is clearly ill. No letters, words, numbers, logos or brand marks anywhere. Every visible hand has five natural fingers.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "QFr6ava5HfqFz7IPi_2_mAk",
+  "usage": {
+    "promptTokenCount": 206,
+    "candidatesTokenCount": 1275,
+    "totalTokenCount": 1784,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 206
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 303,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.138048",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 206,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 303
+  },
+  "elapsed_seconds": 22.35,
+  "output": "output/imagegen/unit-7-lesson-v15/a04-man-sick.png",
+  "sha256": "c85b2e0207bf81a40215c488c51bba39b83c57584f59fc229c1adb50e5f996eb",
+  "byte_count": 6808758,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

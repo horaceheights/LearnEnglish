@@ -1,0 +1,55 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "b5006df7-0e21-4c18-a55a-2c0fd343e7a9",
+  "asset_id": "c02-town",
+  "pack_sha256": "a1440c0646bca778f43c563acfd04ad0309ec94582cf6921384d476bb5687e13",
+  "started_at": "2026-11-16T15:03:49.887758+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real skin, fabric, building and landscape texture, natural light and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.\n\nA SMALL TOWN. A small quiet town seen from a low hill: about thirty low houses with red tile roofs stand around one small central square with a fountain, and green fields and hills begin right behind the last houses. No tall buildings at all. It is plainly a small town, not a city. It is the only subject and fills the photo. No letters, words, numbers, logos, badges with writing or brand marks anywhere.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "Vhv7apP5J63zqtsP6eTqgAU",
+  "usage": {
+    "promptTokenCount": 196,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1486,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 196
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038759",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 196,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 6.67,
+  "output": "output/imagegen/unit-6-lesson-v3/c02-town.png",
+  "sha256": "75352eeaa5a08375966269376f8348ac74b2fc9066af6e9c786f6d01fe6a85cf",
+  "byte_count": 2340453,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}

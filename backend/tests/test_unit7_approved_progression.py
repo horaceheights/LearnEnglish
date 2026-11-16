@@ -14,20 +14,24 @@ LESSONS = {d['sub_lesson_id']: d for p in (ROOT / 'backend/lessons/unit_7').glob
 
 class Unit7ApprovedProgressionTests(unittest.TestCase):
     def test_complete_approved_allocation_is_reproducible_and_versioned(self):
-        allocations = [55, 49, 42, 44, 45, 54, 42, 48, 74, 19]
-        self.assertEqual(set(LESSONS), {f'7.{n}' for n in range(1, 11)})
+        # 2026-11-16: the coverage-gap lessons 7.9 to 7.13 moved the review to 7.14 and the mission to 7.15.
+        # Their approved plans keep their file names (7.9 and 7.10); the review gained five construction cards.
+        allocations = [55, 49, 42, 44, 45, 54, 42, 48, 79, 19]
+        numbers = [f'7.{n}' for n in range(1, 9)] + ['7.14', '7.15']
+        self.assertEqual(set(LESSONS), {f'7.{n}' for n in range(1, 16)})
         for n, count in enumerate(allocations, 1):
-            lesson = LESSONS[f'7.{n}']
+            lesson = LESSONS[numbers[n - 1]]
             plan = json.loads((PLANS / f'7.{n}.plan.json').read_text(encoding='utf-8'))
-            with self.subTest(lesson=f'7.{n}'):
+            with self.subTest(lesson=numbers[n - 1]):
                 self.assertFalse(plan['draft'])
                 self.assertEqual(compose_lesson(plan), lesson)
                 self.assertEqual(len(lesson['cards']), count)
                 self.assertGreaterEqual(lesson['content_revision'], 4 if n == 6 else 3)
 
     def test_unit_practices_sixty_targets_and_review_retrieves_each(self):
-        review = LESSONS['7.9']
-        self.assertEqual(len(review['review_vocabulary']), 60)
+        review = LESSONS['7.14']
+        # Sixty approved targets plus one word from each of the five gap lessons (afraid, winter, flower, horse, tennis).
+        self.assertEqual(len(review['review_vocabulary']), 65)
         for term in review['review_vocabulary']:
             pattern = term_pattern(term)
             practiced = [c for lesson in LESSONS.values() for c in lesson['cards']
@@ -59,7 +63,7 @@ class Unit7ApprovedProgressionTests(unittest.TestCase):
         self.assertIn('please speak slowly', card_evidence(cards['L5']))
 
     def test_mission_preserves_story_order_and_unscored_outcomes(self):
-        cards = LESSONS['7.10']['cards']
+        cards = LESSONS['7.15']['cards']
         listening = [c for c in cards if c['mission_game']['kind'] != 'voice-gate']
         gates = [c for c in cards if c['mission_game']['kind'] == 'voice-gate']
         self.assertEqual((len(listening), len(gates)), (15, 4))
@@ -79,9 +83,9 @@ class Unit7ApprovedProgressionTests(unittest.TestCase):
         cases = [
             ('7.8', 'A2', r'repit|repet|despacio|lentamente'),
             ('7.8', 'A3', r'museo|hospital'),
-            ('7.9', 'A22', r'autob[uú]s|tren'),
-            ('7.9', 'A28', r'parque|estaci[oó]n'),
-            ('7.10', 'M10', r'despacio|r[aá]pido|izquierda|derecha'),
+            ('7.14', 'A22', r'autob[uú]s|tren'),
+            ('7.14', 'A28', r'parque|estaci[oó]n'),
+            ('7.15', 'M10', r'despacio|r[aá]pido|izquierda|derecha'),
         ]
         for number, slide, answer_cues in cases:
             card = next(c for c in LESSONS[number]['cards'] if c['slide_id'] == slide)

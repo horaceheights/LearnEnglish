@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "fac57159-3b73-4f68-9420-1885cdd85536",
+  "asset_id": "a02-great",
+  "pack_sha256": "6fdded03ac22ecebbab14a7741c301501ba5eb69c29fd7ca6893489b0d906089",
+  "started_at": "2026-11-16T01:19:05.138236+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real skin, fur, fabric and landscape texture, natural light and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.\n\nImage 1 shows Luis: about thirty, short curly black hair, a navy T-shirt. Keep his face, hair and clothes exactly. Create a NEW photograph: Luis is overjoyed: he raises both fists high above his head in triumph, with a huge open-mouthed smile and bright eyes, looking at the camera, full of energy. Exactly one person, seen from the waist up, sharp, in a plain bright room with nothing distracting behind. No letters, words, numbers, logos or brand marks anywhere. Every visible hand has five natural fingers.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1_luis.webp",
+    "sha256": "3e8cab7135c3f06e9f8fde506992787a422fc05331cef89be21516428800d89c"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "CVr6auyUO9Xoz7IPgOmC-AU",
+  "usage": {
+    "promptTokenCount": 479,
+    "candidatesTokenCount": 1286,
+    "totalTokenCount": 1952,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 221
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 187,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137202",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 479,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 187
+  },
+  "elapsed_seconds": 26.83,
+  "output": "output/imagegen/unit-7-lesson-v15/a02-great.png",
+  "sha256": "ca3ee315ef1783fe42867dbf0f77e3a8ff70abd0fbfcfa31bcfb4122a60ab3ee",
+  "byte_count": 4712316,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

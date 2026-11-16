@@ -1,0 +1,57 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "bbc8a0b6-2f09-44dd-bd2b-d174a2fa83ba",
+  "asset_id": "s06-rain",
+  "pack_sha256": "4589eeb19ed5e37db1a70cc08a6a4a76b61a250ca09b13af1e00677789c78ca7",
+  "started_at": "2026-11-16T01:21:58.762254+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real skin, fur, fabric and landscape texture, natural light and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.\n\nRAIN. Heavy rain falls in clearly visible streaks onto a gray city street; drops splash in the puddles on the pavement and water runs along the curb, under a dark gray sky. The falling rain itself is the subject and is sharp. No people, no umbrellas, no cars. No letters, words, numbers, logos or brand marks anywhere.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "t1r6aqbSFYW_qtsP642diQc",
+  "usage": {
+    "promptTokenCount": 178,
+    "candidatesTokenCount": 1245,
+    "totalTokenCount": 1657,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 178
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 234,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137164",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 178,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 234
+  },
+  "elapsed_seconds": 21.36,
+  "output": "output/imagegen/unit-7-lesson-v11/s06-rain.png",
+  "sha256": "694f5fb9249724ac662eba3f388645b5e8d80450ced5a283a5d160ef80fd9803",
+  "byte_count": 6800185,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

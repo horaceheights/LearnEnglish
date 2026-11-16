@@ -1,0 +1,57 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "6e363244-e71f-4213-91d4-fa75b4a1d27b",
+  "asset_id": "n01-cow",
+  "pack_sha256": "99c44e80fbb853af4e2fb74f67984064e360eecc3d9f08842dcb8f5c82d12c3b",
+  "started_at": "2026-11-16T01:26:22.779615+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real skin, fur, fabric and landscape texture, natural light and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.\n\nONE COW EATING. A black-and-white dairy cow stands in side view in a green field with her head lowered to the ground, tearing and eating grass, with grass visibly in her mouth. The whole animal is sharp and large in the middle of the photo. Exactly one animal; no people, no other animals. No letters, words, numbers, logos or brand marks anywhere.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "v1v6atiiGOiHqtsPgLuhkAg",
+  "usage": {
+    "promptTokenCount": 187,
+    "candidatesTokenCount": 1230,
+    "totalTokenCount": 1712,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 187
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 295,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137914",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 187,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 295
+  },
+  "elapsed_seconds": 22.23,
+  "output": "output/imagegen/unit-7-lesson-v13/n01-cow.png",
+  "sha256": "fd51aefbef82c02d724ba8c6672c99021cd55929f4f5dbd4c6f007828abed247",
+  "byte_count": 6852221,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

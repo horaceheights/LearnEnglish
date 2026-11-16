@@ -1,0 +1,57 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "3ea4f50d-1c3b-4427-ad4e-1d2e47aaba8c",
+  "asset_id": "a07-woman-afraid",
+  "pack_sha256": "6fdded03ac22ecebbab14a7741c301501ba5eb69c29fd7ca6893489b0d906089",
+  "started_at": "2026-11-16T01:21:10.974564+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real skin, fur, fabric and landscape texture, natural light and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.\n\nAn AFRAID woman. A woman of about twenty-five with curly dark hair and a plain blue shirt shrinks back with her eyes wide open and her eyebrows raised, her mouth open in a gasp and both hands raised in front of her chest with open palms, looking at something off-camera to the side that frightens her. She is clearly frightened: not angry, not surprised with joy. Exactly one person, seen from the waist up, sharp, in a plain bright room with nothing distracting behind. No letters, words, numbers, logos or brand marks anywhere. Every visible hand has five natural fingers.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "h1r6arPTJKn8qtsPityK4As",
+  "usage": {
+    "promptTokenCount": 231,
+    "candidatesTokenCount": 1275,
+    "totalTokenCount": 1823,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 231
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 317,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.138266",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 231,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 317
+  },
+  "elapsed_seconds": 23.96,
+  "output": "output/imagegen/unit-7-lesson-v15/a07-woman-afraid.png",
+  "sha256": "144a2f58d26112efd59c8ca36b92cd2fe2966da0b0ce873db2ff01a38e490d96",
+  "byte_count": 5254050,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

@@ -1,0 +1,57 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "f2cbb55e-df42-401f-9a4b-11426c869e84",
+  "asset_id": "o02-flower",
+  "pack_sha256": "3abbd916145151993c173babcefb6bfe1ab816863b4eb7e3ed1db9911e5f00c9",
+  "started_at": "2026-11-16T01:23:34.535523+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real skin, fur, fabric and landscape texture, natural light and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.\n\nONE FLOWER. A single large bright YELLOW flower with a green stem and two leaves grows alone from dark soil, photographed close up against a soft plain green background. It is the only subject and fills the photo. No people, no animals, no boats, no buildings. No letters, words, numbers, logos or brand marks anywhere.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "F1v6av2nCceFz7IPyrvFsQk",
+  "usage": {
+    "promptTokenCount": 176,
+    "candidatesTokenCount": 1223,
+    "totalTokenCount": 1591,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 176
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 192,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.136656",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 176,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 192
+  },
+  "elapsed_seconds": 23.23,
+  "output": "output/imagegen/unit-7-lesson-v12/o02-flower.png",
+  "sha256": "1c45b252687da6e09463535ba823d65a55474f2e8b8a84ac505aedde612c4028",
+  "byte_count": 6356556,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

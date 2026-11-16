@@ -1,0 +1,55 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "8b86b3ce-6a69-42ae-9459-d79efe822834",
+  "asset_id": "c01-city",
+  "pack_sha256": "b9d969ba69b3edd9028029fa02876c5101fcc9e1d3cd0472ec610c3258cce1a1",
+  "started_at": "2026-11-16T15:05:04.651046+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real skin, fabric, building and landscape texture, natural light and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.\n\nA CITY. A big modern city seen from high above, as from a rooftop: dozens of tall glass and concrete towers stand close together, with wide busy avenues between them, under a clear sky. It is plainly a very large city: tall buildings from edge to edge, no countryside. No readable signs. No people, no hands, no phone and no camera anywhere in the frame: only the city and the sky. It is the only subject and fills the photo. No letters, words, numbers, logos, badges with writing or brand marks anywhere.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "oRv7aq7NDpuZqtsP_YPh6QQ",
+  "usage": {
+    "promptTokenCount": 220,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1510,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 220
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038766",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 220,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 5.68,
+  "output": "output/imagegen/unit-6-lesson-v5/c01-city.png",
+  "sha256": "81f6f54be82f5595138c9aae562a06071b8365bfd902b9f0ba0598dc2cdec894",
+  "byte_count": 2336686,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}

@@ -1,0 +1,128 @@
+{
+  "schema_version": 1,
+  "pack": "unit-7-animals-photos",
+  "revision": 2,
+  "output_namespace": "unit-7-lesson-v13",
+  "authorization": "2026-11-15: photos for A1 lesson 7.12 Farm and Wild Animals. The user asked for every remaining gap lesson to be built (\"biuild the whole plan, none stop\") and had approved the gap-lesson media in advance (\"I preapprove all image and audios creation no need for me to reiew and approve on the fly\"). Ceiling US$1.52 for this revision. Gemini is the approved image tool (2026-09-23). Revision 1 sent one request per pack on 2026-11-15 and every one was refused with HTTP 402 (the image account had no credit), so nothing was generated; revision 2 repeats the same prompts in new namespaces. Revision 2 is frozen: a changed prompt is a new revision in a new file, and every rejected output is reported with its cost.",
+  "image_settings": {
+    "provider": "google-gemini",
+    "model": "gemini-3-pro-image",
+    "aspect_ratio": "3:2",
+    "image_size": "2K",
+    "runtime_size": "1536x1024",
+    "runtime_format": "webp",
+    "n": 1
+  },
+  "production": {
+    "price_per_image_usd": "0.134",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing (checked 2026-09-24: Gemini 3 Pro Image, $0.134 per 1K/2K image)",
+    "planned_images": 8,
+    "expected_cost_usd": "1.07",
+    "requested_ceiling_usd": "1.52",
+    "no_automatic_retries": true,
+    "order": "Independent photos in any order; an edit is sent after its base photo is inspected. A rejected output is reported with its cost; a redo needs a changed prompt in a new revision file."
+  },
+  "shared_prompts": {
+    "photo": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real skin, fur, fabric and landscape texture, natural light and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.",
+    "safe_center": "Keep the main subject of the photo whole inside the central 55 percent of the photo width, so a centered 4:5 crop keeps it whole; only expendable background reaches the left and right edges.",
+    "edit": "This is an edit of image 1: the result must look like the same place photographed from the same spot. Change only what the instruction names."
+  },
+  "assets": [
+    {
+      "id": "n01-cow",
+      "order": 1,
+      "lesson": "7.12",
+      "item": "A cow / It is a cow. / The cow is eating.",
+      "runtime_filename": "a1_photo_u7_animals_cow_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo"
+      ],
+      "prompt": "ONE COW EATING. A black-and-white dairy cow stands in side view in a green field with her head lowered to the ground, tearing and eating grass, with grass visibly in her mouth. The whole animal is sharp and large in the middle of the photo. Exactly one animal; no people, no other animals. No letters, words, numbers, logos or brand marks anywhere."
+    },
+    {
+      "id": "n02-horse",
+      "order": 2,
+      "lesson": "7.12",
+      "item": "A horse / It is a horse. / The horse is running.",
+      "runtime_filename": "a1_photo_u7_animals_horse_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo"
+      ],
+      "prompt": "ONE HORSE RUNNING. A brown horse with a black mane gallops fast across a green field in side view, all four legs in mid-stride off the ground, mane and tail flying. The whole animal is sharp and large in the middle of the photo. Exactly one animal; no people, no other animals. No letters, words, numbers, logos or brand marks anywhere."
+    },
+    {
+      "id": "n03-sheep",
+      "order": 3,
+      "lesson": "7.12",
+      "item": "A sheep / It is a sheep.",
+      "runtime_filename": "a1_photo_u7_animals_sheep_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo"
+      ],
+      "prompt": "ONE SHEEP. A white woolly sheep stands still in side view on green grass, looking toward the camera. The whole animal is sharp and large in the middle of the photo. Exactly one animal; no people, no other animals. No letters, words, numbers, logos or brand marks anywhere."
+    },
+    {
+      "id": "n04-pig",
+      "order": 4,
+      "lesson": "7.12",
+      "item": "A pig / It is a pig.",
+      "runtime_filename": "a1_photo_u7_animals_pig_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo"
+      ],
+      "prompt": "ONE PIG. A pink farm pig with a curly tail stands still in side view on clean straw in a farmyard, looking toward the camera. The whole animal is sharp and large in the middle of the photo. Exactly one animal; no people, no other animals. No letters, words, numbers, logos or brand marks anywhere."
+    },
+    {
+      "id": "n05-lion",
+      "order": 5,
+      "lesson": "7.12",
+      "item": "A lion / It is a lion. / The lion is sleeping.",
+      "runtime_filename": "a1_photo_u7_animals_lion_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo"
+      ],
+      "prompt": "ONE LION SLEEPING. A male lion with a large golden mane lies flat on dry grass in the shade, fast asleep: his eyes are closed and his head rests on his front paws. The whole animal is sharp and large in the middle of the photo. Exactly one animal; no people, no other animals. No letters, words, numbers, logos or brand marks anywhere."
+    },
+    {
+      "id": "n06-elephant",
+      "order": 6,
+      "lesson": "7.12",
+      "item": "An elephant / It is an elephant. / The elephant is drinking.",
+      "runtime_filename": "a1_photo_u7_animals_elephant_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo"
+      ],
+      "prompt": "ONE ELEPHANT DRINKING. A gray African elephant stands in side view at the edge of a waterhole and drinks: the tip of its trunk is curled into its open mouth, with water dripping from it. The whole animal is sharp and large in the middle of the photo. Exactly one animal; no people, no other animals. No letters, words, numbers, logos or brand marks anywhere."
+    },
+    {
+      "id": "n07-snake",
+      "order": 7,
+      "lesson": "7.12",
+      "item": "A snake / It is a snake.",
+      "runtime_filename": "a1_photo_u7_animals_snake_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo"
+      ],
+      "prompt": "ONE SNAKE. A green snake lies stretched in a clear S-shape on bare pale sand, seen from above at an angle, its head raised a little. The whole animal is sharp and large in the middle of the photo. Exactly one animal; no people, no other animals. No letters, words, numbers, logos or brand marks anywhere."
+    },
+    {
+      "id": "n08-monkey",
+      "order": 8,
+      "lesson": "7.12",
+      "item": "A monkey / It is a monkey.",
+      "runtime_filename": "a1_photo_u7_animals_monkey_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo"
+      ],
+      "prompt": "ONE MONKEY. A small brown monkey with a long tail sits upright on a thick tree branch, looking toward the camera, with green leaves softly blurred behind. The whole animal is sharp and large in the middle of the photo. Exactly one animal; no people, no other animals. No letters, words, numbers, logos or brand marks anywhere."
+    }
+  ]
+}

@@ -69,7 +69,7 @@ class PossessionProgressionTests(unittest.TestCase):
     def test_review_and_mission_retrieve_ours_and_explicit_phone(self):
         review = read('backend/lessons/unit_3/lesson-3-9-unit-3-review.yaml')
         mission = read('backend/lessons/unit_3/lesson-3-10-introduction-mission.yaml')
-        self.assertEqual(len(review['cards']), 56)  # 2026-11-15: two address cards appended for 3.13
+        self.assertEqual(len(review['cards']), 58)  # 2026-11-15: two address cards for 3.13; 2026-11-16: two job cards for 3.14
         self.assertEqual(len(mission['cards']), 14)
         self.assertEqual(sum(c.get('mission_game', {}).get('kind') == 'voice-gate' for c in mission['cards']), 5)
         for lesson in [review, mission]:

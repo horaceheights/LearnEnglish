@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "a2cdac0b-290c-4e36-ae5f-9fc7f7531519",
+  "asset_id": "s02-spring",
+  "pack_sha256": "524434a70c5ca47eeaca507a5ccd525035dbdf3af7a8a83a65ab03858fbb3258",
+  "started_at": "2026-11-16T15:06:55.628257+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real skin, fur, fabric and landscape texture, natural light and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.\n\nThis is an edit of image 1: the result must look like the same place photographed from the same spot. Change only what the instruction names.\n\nImage 1 shows a tree on a grassy hill in a park in summer. Keep the same tree, hill, bench, path and framing. Change the season to SPRING: the tree is covered in pink and white blossom with only a few small fresh light-green leaves, yellow and purple spring flowers grow in the fresh green grass, and the light is soft and mild. Remove the picnic blanket and the hat. No people. No letters, words, numbers, logos or brand marks anywhere.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1_photo_u7_seasons_summer_v1.webp",
+    "sha256": "1cac21d37bc84ee58dbb175d27087e47a2387274ce0de7b684e3a0ce5c1097ca"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "EBz7asfWJ9fFqtsP17GamQM",
+  "usage": {
+    "promptTokenCount": 496,
+    "candidatesTokenCount": 1276,
+    "totalTokenCount": 1939,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 238
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 167,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.136996",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 496,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 167
+  },
+  "elapsed_seconds": 24.15,
+  "output": "output/imagegen/unit-7-lesson-v20/s02-spring.png",
+  "sha256": "8e1cdcad68f9079fc31835e806a128fdf1221e999bdd61f8bc46b6af4b3f7a02",
+  "byte_count": 8408703,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

@@ -147,6 +147,26 @@ const MEANINGS: Record<string, string> = {
   mouth: 'boca', hands: 'manos', legs: 'piernas', feet: 'pies', ears: 'orejas', arms: 'brazos',
   nose: 'nariz', fingers: 'dedos de las manos', toes: 'dedos de los pies',
   coat: 'abrigo', sweater: 'suéter', scarf: 'bufanda', gloves: 'guantes', shorts: 'pantalones cortos',
+  // A1 7.9 (2026-11-15): good and bad days. good has no entry: one would change the reviewed Good morning feedback.
+  bad: 'malo o mala', great: 'muy bien', fine: 'bien', sick: 'enfermo o enferma',
+  angry: 'enojado o enojada', afraid: 'con miedo',
+  // A1 7.10 (2026-11-15): seasons.
+  spring: 'primavera', summer: 'verano', fall: 'otoño', winter: 'invierno', sun: 'sol', snow: 'nieve',
+  warm: 'templado',
+  // A1 7.11 (2026-11-15): outdoors.
+  tree: 'árbol', flower: 'flor', river: 'río', sea: 'mar', beach: 'playa', mountain: 'montaña', lake: 'lago', sky: 'cielo',
+  // A1 7.12 (2026-11-15): farm and wild animals.
+  cow: 'vaca', horse: 'caballo', sheep: 'oveja', pig: 'cerdo', lion: 'león', elephant: 'elefante', snake: 'serpiente',
+  monkey: 'mono',
+  // A1 7.13 (2026-11-15): sports and music.
+  sport: 'deporte', ball: 'pelota', team: 'equipo', game: 'partido', tennis: 'tenis', sing: 'cantar', song: 'canción',
+  guitar: 'guitarra',
+  // A1 3.14 (2026-11-16): more jobs.
+  waiter: 'mesero', 'police officer': 'policía', artist: 'artista', singer: 'cantante', worker: 'trabajador',
+  mechanic: 'mecánico o mecánica',
+  // A1 6.13 (2026-11-16): in the city.
+  city: 'ciudad', town: 'pueblo', road: 'carretera', market: 'mercado', building: 'edificio', map: 'mapa',
+  drive: 'manejar', visit: 'visitar',
   weather: 'tiempo atmosférico', fast: 'rápido', speak: 'hablar',
   draw: 'dibujar', paint: 'pintar', dance: 'bailar', 'ride a bike': 'andar en bicicleta',
   'take photos': 'tomar fotos', 'play football': 'jugar al fútbol',
@@ -182,7 +202,8 @@ const MEANINGS: Record<string, string> = {
   '1': 'uno', '2': 'dos', '3': 'tres', '4': 'cuatro', '5': 'cinco',
   '6': 'seis', '7': 'siete', '8': 'ocho', '9': 'nueve', '10': 'diez', '11': 'once', '12': 'doce',
   mon: 'lunes', tue: 'martes', wed: 'miércoles', thu: 'jueves',
-  fri: 'viernes', sat: 'sábado', sun: 'domingo',
+  // sun is the 7.10 word (sol); no lesson shows the weekday abbreviation Sun.
+  fri: 'viernes', sat: 'sábado',
   night: 'noche', pair: 'dos personas', only: 'sin girar', then: 'después',
   crossing: 'cruce', crosses: 'cruza', stops: 'se detiene',
   allowed: 'permitido', blocked: 'bloqueado',

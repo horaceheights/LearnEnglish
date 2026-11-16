@@ -1,0 +1,57 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "ad25942a-b6c9-432d-8ac0-6a7d0f41441a",
+  "asset_id": "n05-lion",
+  "pack_sha256": "99c44e80fbb853af4e2fb74f67984064e360eecc3d9f08842dcb8f5c82d12c3b",
+  "started_at": "2026-11-16T01:28:00.408000+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real skin, fur, fabric and landscape texture, natural light and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.\n\nONE LION SLEEPING. A male lion with a large golden mane lies flat on dry grass in the shade, fast asleep: his eyes are closed and his head rests on his front paws. The whole animal is sharp and large in the middle of the photo. Exactly one animal; no people, no other animals. No letters, words, numbers, logos or brand marks anywhere.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "IVz6atz1A_Gtz7IPsreBiQI",
+  "usage": {
+    "promptTokenCount": 186,
+    "candidatesTokenCount": 1264,
+    "totalTokenCount": 1673,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 186
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 223,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137048",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 186,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 223
+  },
+  "elapsed_seconds": 24.33,
+  "output": "output/imagegen/unit-7-lesson-v13/n05-lion.png",
+  "sha256": "6a9225c2e4e4652058e6b62d08aa62587cbd2b39b7cffaef5dfe77a387248651",
+  "byte_count": 7718015,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

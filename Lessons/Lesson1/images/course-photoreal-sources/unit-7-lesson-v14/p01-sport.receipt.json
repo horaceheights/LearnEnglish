@@ -1,0 +1,57 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "a8b4d1f1-2313-42c4-8e82-477e7e7811e0",
+  "asset_id": "p01-sport",
+  "pack_sha256": "4ffd6b6e0dc0a6256b0db9c1e83a2b0f4f4ee7c2e42d69002610583bbb6e7859",
+  "started_at": "2026-11-16T01:29:40.386065+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real skin, fur, fabric and landscape texture, natural light and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.\n\nSPORT. Equipment for several different sports lies neatly together on green grass, seen from above: a black-and-white football, an orange basketball, a tennis racket with a yellow tennis ball, a pair of running shoes and a plain whistle on a cord. It clearly means sport in general. No people. No letters, words, numbers, logos or brand marks anywhere.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "hVz6aro6qOnPsg_yspbpBQ",
+  "usage": {
+    "promptTokenCount": 183,
+    "candidatesTokenCount": 1271,
+    "totalTokenCount": 1733,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 183
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 279,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137714",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 183,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 279
+  },
+  "elapsed_seconds": 22.71,
+  "output": "output/imagegen/unit-7-lesson-v14/p01-sport.png",
+  "sha256": "c2f1da9106e79c010f1ee191c0c2aeacdf313445fa96d3529352051606ae6d29",
+  "byte_count": 10115562,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

@@ -1,0 +1,57 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "628dbaf0-76d4-4512-83c7-83bed03006b8",
+  "asset_id": "j06-mechanic",
+  "pack_sha256": "9b79c0a80c77bb3c906658f0b8b8f01d90393eaf147bfdb72c814f13707f37bf",
+  "started_at": "2026-11-16T15:10:57.974318+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real skin, fabric, building and landscape texture, natural light and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.\n\nA MECHANIC. A woman of about thirty with her hair in a ponytail, in dark-blue work overalls with a little grease on them, stands in a car repair garage beside a car with its hood open; she holds a large wrench in one hand and leans over the engine, looking at the camera with a small smile. Tools hang on the wall behind. The overalls are completely plain. Exactly one person, whole upper body sharp and large in the middle of the photo; the workplace behind is plain to read but not crowded. No letters, words, numbers, logos, badges with writing or brand marks anywhere. Every visible hand has five natural fingers.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "Ah37ar_2LKeez7IPue_XgAM",
+  "usage": {
+    "promptTokenCount": 240,
+    "candidatesTokenCount": 1285,
+    "totalTokenCount": 1710,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 240
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 185,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.136700",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 240,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 185
+  },
+  "elapsed_seconds": 21.41,
+  "output": "output/imagegen/unit-3-lesson-v5/j06-mechanic.png",
+  "sha256": "bd50f867da713dcfd6310cbae086453c64d2d98d4e661030c04cf2b74e6db0f7",
+  "byte_count": 6499856,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

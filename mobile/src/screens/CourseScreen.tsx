@@ -244,6 +244,11 @@ const VISUALS: Record<string, { image: string; description: string; color: strin
     description: 'El número de teléfono y la dirección.',
     color: '#e5eefb',
   },
+  'lesson-3-14-more-jobs': {
+    image: 'a1_photo_u3_jobs_artist_v1.webp',
+    description: 'Más trabajos: mesero, policía, artista y mecánica.',
+    color: '#e5eefb',
+  },
   'lesson-3-9-unit-3-review': {
     image: 'a1_scene_job-dialogue-driver_acd1aee.webp',
     description: 'Repaso de información personal.',
@@ -479,6 +484,11 @@ const VISUALS: Record<string, { image: string; description: string; color: strin
     description: 'Pregunta a qué hora sale y llega el transporte.',
     color: '#dff4ef',
   },
+  'lesson-6-13-in-the-city': {
+    image: 'a1_photo_u6_city_city_v1.webp',
+    description: 'En la ciudad: ciudad, pueblo, mercado y mapa.',
+    color: '#dff4ef',
+  },
   'lesson-6-9-unit-6-review': {
     image: 'a1_photo_u6_story_review_boat_on_v1.webp',
     description: 'Une lo aprendido en tres viajes nuevos por la ciudad.',
@@ -527,6 +537,31 @@ const VISUALS: Record<string, { image: string; description: string; color: strin
   'lesson-7-8-help-and-important-phrases': {
     image: 'a1_scene_i-do-not-understand_d56b045.webp',
     description: 'Frases importantes para pedir ayuda.',
+    color: '#f1e4fa',
+  },
+  'lesson-7-9-more-feelings': {
+    image: 'a1_photo_u7_feelings_luis_great_v1.webp',
+    description: 'Más sentimientos: bien, enfermo, enojado y con miedo.',
+    color: '#f1e4fa',
+  },
+  'lesson-7-11-outdoors': {
+    image: 'a1_photo_u7_outdoors_mountain_v1.webp',
+    description: 'Al aire libre: árbol, río, mar y montaña.',
+    color: '#f1e4fa',
+  },
+  'lesson-7-12-farm-and-wild-animals': {
+    image: 'a1_photo_u7_animals_elephant_v1.webp',
+    description: 'Animales de granja y animales salvajes.',
+    color: '#f1e4fa',
+  },
+  'lesson-7-13-sports-and-music': {
+    image: 'a1_photo_u7_sports_sport_v1.webp',
+    description: 'Deportes y música: pelota, equipo y guitarra.',
+    color: '#f1e4fa',
+  },
+  'lesson-7-10-seasons': {
+    image: 'a1_photo_u7_seasons_summer_v1.webp',
+    description: 'Las estaciones, el sol, la lluvia y la nieve.',
     color: '#f1e4fa',
   },
   'lesson-7-9-complete-a1-review': {

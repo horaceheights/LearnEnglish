@@ -1,0 +1,57 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "7b038c9b-7921-4d75-bc6e-4fecde7ac629",
+  "asset_id": "p09-they-sing",
+  "pack_sha256": "2310ac1ff881de00724864e3bb7c7a584536fd9c9c07a52bf37432726320dada",
+  "started_at": "2026-11-16T15:06:33.038589+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real skin, fur, fabric and landscape texture, natural light and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.\n\nTHEY SING. Three adults, two women and a man, stand close together side by side in a plain bright room and sing together: all three have their mouths wide open in song, each holding an open plain folder in front of their chest. Seen from the waist up. Exactly three people; no instruments, no microphone. No letters, words, numbers, logos or brand marks anywhere. Every visible hand has five natural fingers.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "-Rv7aryJMZbrz7IPy5jI-QI",
+  "usage": {
+    "promptTokenCount": 195,
+    "candidatesTokenCount": 1262,
+    "totalTokenCount": 1705,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 195
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 248,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137366",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 195,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 248
+  },
+  "elapsed_seconds": 21.59,
+  "output": "output/imagegen/unit-7-lesson-v23/p09-they-sing.png",
+  "sha256": "45c4352bdd560714f69c18c27c98e662ac9ea93910be619d78f9ea8ba15968a7",
+  "byte_count": 5768823,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

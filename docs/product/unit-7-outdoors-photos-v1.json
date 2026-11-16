@@ -1,0 +1,128 @@
+{
+  "schema_version": 1,
+  "pack": "unit-7-outdoors-photos",
+  "revision": 1,
+  "output_namespace": "unit-7-lesson-v7",
+  "authorization": "2026-11-15: photos for A1 lesson 7.11 Outdoors. The user asked for every remaining gap lesson to be built (\"biuild the whole plan, none stop\") and had approved the gap-lesson media in advance (\"I preapprove all image and audios creation no need for me to reiew and approve on the fly\"). Ceiling US$1.52 for this revision. Gemini is the approved image tool (2026-09-23). Revision 1 is frozen: a changed prompt is a new revision in a new file, and every rejected output is reported with its cost.",
+  "image_settings": {
+    "provider": "google-gemini",
+    "model": "gemini-3-pro-image",
+    "aspect_ratio": "3:2",
+    "image_size": "2K",
+    "runtime_size": "1536x1024",
+    "runtime_format": "webp",
+    "n": 1
+  },
+  "production": {
+    "price_per_image_usd": "0.134",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing (checked 2026-09-24: Gemini 3 Pro Image, $0.134 per 1K/2K image)",
+    "planned_images": 8,
+    "expected_cost_usd": "1.07",
+    "requested_ceiling_usd": "1.52",
+    "no_automatic_retries": true,
+    "order": "Independent photos in any order; an edit is sent after its base photo is inspected. A rejected output is reported with its cost; a redo needs a changed prompt in a new revision file."
+  },
+  "shared_prompts": {
+    "photo": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real skin, fur, fabric and landscape texture, natural light and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.",
+    "safe_center": "Keep the main subject of the photo whole inside the central 55 percent of the photo width, so a centered 4:5 crop keeps it whole; only expendable background reaches the left and right edges.",
+    "edit": "This is an edit of image 1: the result must look like the same place photographed from the same spot. Change only what the instruction names."
+  },
+  "assets": [
+    {
+      "id": "o01-tree",
+      "order": 1,
+      "lesson": "7.11",
+      "item": "A tree / It is a tree. / The tree is green.",
+      "runtime_filename": "a1_photo_u7_outdoors_tree_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo"
+      ],
+      "prompt": "ONE TREE. A single large tree with a thick brown trunk and a round crown full of bright GREEN leaves stands alone in the middle of a flat green meadow under a pale sky. It is the only subject and fills the photo. No people, no animals, no boats, no buildings. No letters, words, numbers, logos or brand marks anywhere."
+    },
+    {
+      "id": "o02-flower",
+      "order": 2,
+      "lesson": "7.11",
+      "item": "A flower / It is a flower. / The flower is yellow.",
+      "runtime_filename": "a1_photo_u7_outdoors_flower_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo"
+      ],
+      "prompt": "ONE FLOWER. A single large bright YELLOW flower with a green stem and two leaves grows alone from dark soil, photographed close up against a soft plain green background. It is the only subject and fills the photo. No people, no animals, no boats, no buildings. No letters, words, numbers, logos or brand marks anywhere."
+    },
+    {
+      "id": "o03-river",
+      "order": 3,
+      "lesson": "7.11",
+      "item": "A river / It is a river.",
+      "runtime_filename": "a1_photo_u7_outdoors_river_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo"
+      ],
+      "prompt": "A RIVER. A wide river of flowing water winds from the foreground into the distance between two green grassy banks with a few bushes; the moving current is visible. It is clearly a river: long and narrow with two banks, not a lake or the sea. It is the only subject and fills the photo. No people, no animals, no boats, no buildings. No letters, words, numbers, logos or brand marks anywhere."
+    },
+    {
+      "id": "o04-sea",
+      "order": 4,
+      "lesson": "7.11",
+      "item": "The sea / It is the sea. / The sea is blue.",
+      "runtime_filename": "a1_photo_u7_outdoors_sea_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo"
+      ],
+      "prompt": "THE SEA. Open deep-BLUE sea fills the photo to a straight horizon under a clear sky, with long rolling waves and white foam on their crests. There is no land, no beach and no rocks: only the sea and the sky. It is the only subject and fills the photo. No people, no animals, no boats, no buildings. No letters, words, numbers, logos or brand marks anywhere."
+    },
+    {
+      "id": "o05-beach",
+      "order": 5,
+      "lesson": "7.11",
+      "item": "The beach / It is the beach.",
+      "runtime_filename": "a1_photo_u7_outdoors_beach_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo"
+      ],
+      "prompt": "THE BEACH. A wide beach of pale golden sand fills the foreground and middle of the photo, with small waves washing onto the sand at the far edge and one closed beach umbrella and a towel on the sand. The sand is the subject. It is the only subject and fills the photo. No people, no animals, no boats, no buildings. No letters, words, numbers, logos or brand marks anywhere."
+    },
+    {
+      "id": "o06-mountain",
+      "order": 6,
+      "lesson": "7.11",
+      "item": "A mountain / It is a mountain.",
+      "runtime_filename": "a1_photo_u7_outdoors_mountain_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo"
+      ],
+      "prompt": "ONE MOUNTAIN. A single high, pointed, rocky mountain with a snow-covered peak rises alone above a green valley against a clear blue sky and fills most of the photo. It is the only subject and fills the photo. No people, no animals, no boats, no buildings. No letters, words, numbers, logos or brand marks anywhere."
+    },
+    {
+      "id": "o07-lake",
+      "order": 7,
+      "lesson": "7.11",
+      "item": "A lake / It is a lake.",
+      "runtime_filename": "a1_photo_u7_outdoors_lake_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo"
+      ],
+      "prompt": "A LAKE. One calm, round lake of still water lies in the middle of the photo, completely surrounded by green forest on all sides, seen from a hill above so that the whole shoreline is visible; the trees are mirrored in the still water. It is clearly a lake: closed all around, not a river or the sea. It is the only subject and fills the photo. No people, no animals, no boats, no buildings. No letters, words, numbers, logos or brand marks anywhere."
+    },
+    {
+      "id": "o08-sky",
+      "order": 8,
+      "lesson": "7.11",
+      "item": "The sky / It is the sky. / The sky is blue.",
+      "runtime_filename": "a1_photo_u7_outdoors_sky_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo"
+      ],
+      "prompt": "THE SKY. A wide clear BLUE sky with a few small white clouds fills almost the whole photo; only a very thin strip of distant flat green land runs along the bottom edge. It is the only subject and fills the photo. No people, no animals, no boats, no buildings. No letters, words, numbers, logos or brand marks anywhere."
+    }
+  ]
+}

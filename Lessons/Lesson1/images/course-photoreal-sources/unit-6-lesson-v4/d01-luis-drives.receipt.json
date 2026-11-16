@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "157d243c-899b-41d8-bc23-2bf8edd6e070",
+  "asset_id": "d01-luis-drives",
+  "pack_sha256": "eb05ce4bb24429ed3a83fb1bc6458b67e055a4842c86ba161555a7fbc0e58c9d",
+  "started_at": "2026-11-16T15:12:08.683177+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real skin, fabric, building and landscape texture, natural light and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.\n\nImage 1 shows Luis: about thirty, short curly black hair, a navy T-shirt. Keep his face, hair and clothes exactly. Create a NEW photograph: Luis DRIVES a car. He sits in the driver's seat with his seat belt on and both hands on the steering wheel, looking ahead at the road through the windshield; he is seen from the front passenger seat, so his face in profile, the steering wheel and the road ahead through the windshield are all plainly visible. The car is moving along a street in daylight. Exactly one person; no phone. No letters, words, numbers, logos, badges with writing or brand marks anywhere. Every visible hand has five natural fingers.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1_luis.webp",
+    "sha256": "3e8cab7135c3f06e9f8fde506992787a422fc05331cef89be21516428800d89c"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "SR37aqnKKPGwqtsPuIXqyAI",
+  "usage": {
+    "promptTokenCount": 508,
+    "candidatesTokenCount": 1292,
+    "totalTokenCount": 1968,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 250
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 168,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137032",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 508,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 168
+  },
+  "elapsed_seconds": 21.7,
+  "output": "output/imagegen/unit-6-lesson-v4/d01-luis-drives.png",
+  "sha256": "843f714b10cd02e392232df86f38f0152b4ccd1abf6750515c4b9e9d9b50adae",
+  "byte_count": 5315716,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

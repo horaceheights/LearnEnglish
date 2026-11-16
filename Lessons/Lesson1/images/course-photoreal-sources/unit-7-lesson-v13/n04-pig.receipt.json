@@ -1,0 +1,57 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "62896d7a-4ae9-42f6-ae4a-612daacd9bf4",
+  "asset_id": "n04-pig",
+  "pack_sha256": "99c44e80fbb853af4e2fb74f67984064e360eecc3d9f08842dcb8f5c82d12c3b",
+  "started_at": "2026-11-16T01:27:36.417831+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real skin, fur, fabric and landscape texture, natural light and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.\n\nONE PIG. A pink farm pig with a curly tail stands still in side view on clean straw in a farmyard, looking toward the camera. The whole animal is sharp and large in the middle of the photo. Exactly one animal; no people, no other animals. No letters, words, numbers, logos or brand marks anywhere.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "CVz6avaaCIGBmtkPq4mCKA",
+  "usage": {
+    "promptTokenCount": 176,
+    "candidatesTokenCount": 1254,
+    "totalTokenCount": 1647,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 176
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 217,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.136956",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 176,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 217
+  },
+  "elapsed_seconds": 21.68,
+  "output": "output/imagegen/unit-7-lesson-v13/n04-pig.png",
+  "sha256": "a6d99b8395816b6ce23d417a4f6e0456110116377acd555f951291db73e40a94",
+  "byte_count": 8185709,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

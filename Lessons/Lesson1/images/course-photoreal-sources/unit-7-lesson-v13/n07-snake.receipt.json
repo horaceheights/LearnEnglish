@@ -1,0 +1,57 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "b67d88b1-1b13-465d-b87a-b6cd069fe529",
+  "asset_id": "n07-snake",
+  "pack_sha256": "99c44e80fbb853af4e2fb74f67984064e360eecc3d9f08842dcb8f5c82d12c3b",
+  "started_at": "2026-11-16T01:28:53.600757+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real skin, fur, fabric and landscape texture, natural light and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.\n\nONE SNAKE. A green snake lies stretched in a clear S-shape on bare pale sand, seen from above at an angle, its head raised a little. The whole animal is sharp and large in the middle of the photo. Exactly one animal; no people, no other animals. No letters, words, numbers, logos or brand marks anywhere.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "Vlz6auzpDrqgz7IP-PDj4Ag",
+  "usage": {
+    "promptTokenCount": 179,
+    "candidatesTokenCount": 1253,
+    "totalTokenCount": 1757,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 179
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 325,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.138258",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 179,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 325
+  },
+  "elapsed_seconds": 21.13,
+  "output": "output/imagegen/unit-7-lesson-v13/n07-snake.png",
+  "sha256": "90f3a5e7e1330012d012bd8368bef0645f7447c47ac3546a64c2a9e9e0207b80",
+  "byte_count": 6278962,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

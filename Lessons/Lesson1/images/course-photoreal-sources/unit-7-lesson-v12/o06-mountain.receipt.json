@@ -1,0 +1,57 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "0c69a84d-5d1e-4c06-884e-482f442506b2",
+  "asset_id": "o06-mountain",
+  "pack_sha256": "3abbd916145151993c173babcefb6bfe1ab816863b4eb7e3ed1db9911e5f00c9",
+  "started_at": "2026-11-16T01:25:10.496029+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real skin, fur, fabric and landscape texture, natural light and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.\n\nONE MOUNTAIN. A single high, pointed, rocky mountain with a snow-covered peak rises alone above a green valley against a clear blue sky and fills most of the photo. It is the only subject and fills the photo. No people, no animals, no boats, no buildings. No letters, words, numbers, logos or brand marks anywhere.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "d1v6as-UBqif6dkPtuCbkAk",
+  "usage": {
+    "promptTokenCount": 180,
+    "candidatesTokenCount": 1227,
+    "totalTokenCount": 1629,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 180
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 222,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137024",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 180,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 222
+  },
+  "elapsed_seconds": 22.27,
+  "output": "output/imagegen/unit-7-lesson-v12/o06-mountain.png",
+  "sha256": "10bf6e87cf2b057b1f41efbf35a3f88a7836891c42ba3862dc77794ce0cd9d8a",
+  "byte_count": 7806340,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

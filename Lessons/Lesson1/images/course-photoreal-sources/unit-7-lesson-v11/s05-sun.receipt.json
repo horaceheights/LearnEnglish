@@ -1,0 +1,57 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "78cf5677-8233-48d6-8050-664dbb259248",
+  "asset_id": "s05-sun",
+  "pack_sha256": "4589eeb19ed5e37db1a70cc08a6a4a76b61a250ca09b13af1e00677789c78ca7",
+  "started_at": "2026-11-16T01:21:35.742487+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real skin, fur, fabric and landscape texture, natural light and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.\n\nTHE SUN. The bright round yellow-white sun shines high in a clear deep-blue sky and fills the upper middle of the photo, with soft rays around it; a thin strip of green treetops along the bottom edge gives scale. No clouds, no birds, no planes. No letters, words, numbers, logos or brand marks anywhere.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "oFr6aqacFvqFz7IPi_2_mAk",
+  "usage": {
+    "promptTokenCount": 177,
+    "candidatesTokenCount": 1255,
+    "totalTokenCount": 1790,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 177
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 358,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.138650",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 177,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 358
+  },
+  "elapsed_seconds": 22.19,
+  "output": "output/imagegen/unit-7-lesson-v11/s05-sun.png",
+  "sha256": "365b62b2cc59ad948d0eeae3b35d0b6f6bdc1acff1d6b4dfd9bfa56ca4ddf5b5",
+  "byte_count": 5140488,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

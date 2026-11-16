@@ -1,0 +1,97 @@
+{
+  "schema_version": 1,
+  "pack": "unit-7-sports-people-photos",
+  "revision": 2,
+  "output_namespace": "unit-7-lesson-v23",
+  "authorization": "2026-11-16: the user decided the image model by photo type (\"Yes, use Flash\"): Gemini 2.5 Flash Image for simple object, animal and scenery photos, Gemini 3 Pro Image for people and precise edits; the gap-lesson media was approved in advance (\"I preapprove all image and audios creation no need for me to reiew and approve on the fly\"). The prompts are those of unit-7-sports-photos-v2.json, whose earlier requests were refused for lack of credit before any of these photos was made. Ceiling US$0.97 for this revision. Revision 1 is frozen: a changed prompt is a new revision in a new file, and every rejected output is reported with its cost. Revision 1 sent one request on 2026-11-16 that was refused with HTTP 429 (the image project had reached its monthly spending cap), so nothing was generated; revision 2 repeats the same prompts in a new namespace.",
+  "image_settings": {
+    "provider": "google-gemini",
+    "model": "gemini-3-pro-image",
+    "aspect_ratio": "3:2",
+    "image_size": "2K",
+    "runtime_size": "1536x1024",
+    "runtime_format": "webp",
+    "n": 1
+  },
+  "production": {
+    "price_per_image_usd": "0.134",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing (checked 2026-09-24: Gemini 3 Pro Image, $0.134 per 1K/2K image)",
+    "planned_images": 5,
+    "expected_cost_usd": "0.67",
+    "requested_ceiling_usd": "0.97",
+    "no_automatic_retries": true,
+    "order": "Independent photos in any order; an edit is sent after its base photo is inspected. A rejected output is reported with its cost; a redo needs a changed prompt in a new revision file."
+  },
+  "shared_prompts": {
+    "photo": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real skin, fur, fabric and landscape texture, natural light and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.",
+    "safe_center": "Keep the main subject of the photo whole inside the central 55 percent of the photo width, so a centered 4:5 crop keeps it whole; only expendable background reaches the left and right edges.",
+    "edit": "This is an edit of image 1: the result must look like the same place photographed from the same spot. Change only what the instruction names."
+  },
+  "assets": [
+    {
+      "id": "p03-team",
+      "order": 1,
+      "lesson": "7.13",
+      "item": "A team / They are a team.",
+      "runtime_filename": "a1_photo_u7_sports_team_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo"
+      ],
+      "prompt": "A TEAM. Eight adult players in identical plain yellow shirts and blue shorts pose together for a team photo on a grass field: four stand in a row behind and four kneel in front, arms around each other's shoulders, all smiling at the camera, with one ball on the grass in front of them. The shirts are completely plain. No letters, words, numbers, logos or brand marks anywhere. Every visible hand has five natural fingers."
+    },
+    {
+      "id": "p04-game",
+      "order": 2,
+      "lesson": "7.13",
+      "item": "A game / It is a game.",
+      "runtime_filename": "a1_photo_u7_sports_game_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo"
+      ],
+      "prompt": "A GAME in progress. Two teams play a football match on a grass field, seen from the side line: players in plain red shirts and players in plain blue shirts run after the ball in the middle of the photo, one red player kicking it, with a goal visible at the far end and a few spectators blurred behind. It is clearly a match between two teams. The shirts are completely plain. No letters, words, numbers, logos or brand marks anywhere."
+    },
+    {
+      "id": "p05-tennis",
+      "order": 3,
+      "lesson": "7.13",
+      "item": "Tennis / They play tennis.",
+      "runtime_filename": "a1_photo_u7_sports_tennis_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo"
+      ],
+      "prompt": "TENNIS. Two adults play tennis on an outdoor court, seen from behind one of them: the near player, a woman in white, swings her racket at the yellow ball, and the far player, a man in white, waits on the other side of the net. The net, both rackets and the ball are clearly visible. Exactly two people; plain clothes. No letters, words, numbers, logos or brand marks anywhere."
+    },
+    {
+      "id": "p06-sing",
+      "order": 4,
+      "lesson": "7.13",
+      "item": "Sing / I sing a song. / I like to sing.",
+      "runtime_filename": "a1_photo_u7_sports_ana_sings_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1_scene_ana-breakfast_e7fbea5.webp",
+        "sha256": "3a528a586b056f0dea3cad8a1d1ca5effce502c1e990632486ff9daafaaee6cc",
+        "observed_description": "Ana, a woman of about thirty with long wavy black hair, an olive-green button shirt open over a white top, sits at a wooden kitchen table holding a cup of coffee and a slice of toast and smiles, in a bright kitchen."
+      },
+      "prompt": "Image 1 shows Ana: about thirty, long wavy black hair, an olive-green button shirt open over a white top. Keep her face, hair and clothes exactly. Create a NEW photograph: Ana SINGS: she stands at a microphone on a stand, holds it with one hand, her mouth wide open in song and her eyes half closed with feeling, her other hand raised. She is seen from the waist up in a plain room. Exactly one person; no instruments, no audience. No letters, words, numbers, logos or brand marks anywhere. Every visible hand has five natural fingers."
+    },
+    {
+      "id": "p09-they-sing",
+      "order": 5,
+      "lesson": "7.13",
+      "item": "They sing.",
+      "runtime_filename": "a1_photo_u7_sports_they_sing_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo"
+      ],
+      "prompt": "THEY SING. Three adults, two women and a man, stand close together side by side in a plain bright room and sing together: all three have their mouths wide open in song, each holding an open plain folder in front of their chest. Seen from the waist up. Exactly three people; no instruments, no microphone. No letters, words, numbers, logos or brand marks anywhere. Every visible hand has five natural fingers."
+    }
+  ]
+}

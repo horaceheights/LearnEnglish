@@ -1,0 +1,57 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "e433a92f-9cf7-4266-b22e-196aeadd3f2c",
+  "asset_id": "a06-woman-angry",
+  "pack_sha256": "6fdded03ac22ecebbab14a7741c301501ba5eb69c29fd7ca6893489b0d906089",
+  "started_at": "2026-11-16T01:20:48.213349+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real skin, fur, fabric and landscape texture, natural light and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.\n\nAn ANGRY woman. A woman of about thirty with blond hair in a ponytail and a plain red sweater stands with both fists on her hips, her eyebrows pulled down hard and her mouth open as if shouting, glaring at the camera. She is clearly angry: not sad, not afraid. Exactly one person, seen from the waist up, sharp, in a plain bright room with nothing distracting behind. No letters, words, numbers, logos or brand marks anywhere. Every visible hand has five natural fingers.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "cFr6asOWNIapqtsP_ZbswQ0",
+  "usage": {
+    "promptTokenCount": 210,
+    "candidatesTokenCount": 1269,
+    "totalTokenCount": 1769,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 210
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 290,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137900",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 210,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 290
+  },
+  "elapsed_seconds": 21.63,
+  "output": "output/imagegen/unit-7-lesson-v15/a06-woman-angry.png",
+  "sha256": "0ef045dd1745c10b574e4fe1b20df06ac283d4de8585e7786ef9f289463055bf",
+  "byte_count": 5134905,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

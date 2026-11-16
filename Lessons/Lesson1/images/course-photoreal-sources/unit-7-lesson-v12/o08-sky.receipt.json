@@ -1,0 +1,57 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "2b5ff602-1d90-4310-b974-c6472072c910",
+  "asset_id": "o08-sky",
+  "pack_sha256": "3abbd916145151993c173babcefb6bfe1ab816863b4eb7e3ed1db9911e5f00c9",
+  "started_at": "2026-11-16T01:25:56.031485+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real skin, fur, fabric and landscape texture, natural light and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.\n\nTHE SKY. A wide clear BLUE sky with a few small white clouds fills almost the whole photo; only a very thin strip of distant flat green land runs along the bottom edge. It is the only subject and fills the photo. No people, no animals, no boats, no buildings. No letters, words, numbers, logos or brand marks anywhere.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "pFv6arPBJqScz7IPkoe3wAc",
+  "usage": {
+    "promptTokenCount": 179,
+    "candidatesTokenCount": 1229,
+    "totalTokenCount": 1583,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 179
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 175,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.136458",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 179,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 175
+  },
+  "elapsed_seconds": 25.93,
+  "output": "output/imagegen/unit-7-lesson-v12/o08-sky.png",
+  "sha256": "b6be6bf00cfdbc605acb210c87d626a37672a5a5709d2c99dae7948336b1e364",
+  "byte_count": 4414843,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

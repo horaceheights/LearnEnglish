@@ -1,0 +1,57 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "153b9f52-fb9a-4641-98af-ff48105abcc6",
+  "asset_id": "s07-snow",
+  "pack_sha256": "4589eeb19ed5e37db1a70cc08a6a4a76b61a250ca09b13af1e00677789c78ca7",
+  "started_at": "2026-11-16T01:22:20.927268+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real skin, fur, fabric and landscape texture, natural light and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.\n\nSNOW. Large white snowflakes fall thickly and clearly visible in the air over a quiet street where deep, clean white snow covers the ground, a fence and the roofs. The snow is the subject. No people, no cars, no snowman. No letters, words, numbers, logos or brand marks anywhere.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "zVr6arq3GO3pz7IP85zkgAc",
+  "usage": {
+    "promptTokenCount": 170,
+    "candidatesTokenCount": 1234,
+    "totalTokenCount": 1644,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 170
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 240,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137220",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 170,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 240
+  },
+  "elapsed_seconds": 26.13,
+  "output": "output/imagegen/unit-7-lesson-v11/s07-snow.png",
+  "sha256": "918c8b8a8ee676498c17233ab25d7f5c1794497e61c2037e1529f7800e02cec8",
+  "byte_count": 5990381,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

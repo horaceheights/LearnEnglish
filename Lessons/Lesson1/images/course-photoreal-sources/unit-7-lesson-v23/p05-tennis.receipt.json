@@ -1,0 +1,57 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "3ee1eefc-b2e2-491e-a00a-21c9a5e997f5",
+  "asset_id": "p05-tennis",
+  "pack_sha256": "2310ac1ff881de00724864e3bb7c7a584536fd9c9c07a52bf37432726320dada",
+  "started_at": "2026-11-16T15:05:44.422424+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real skin, fur, fabric and landscape texture, natural light and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.\n\nTENNIS. Two adults play tennis on an outdoor court, seen from behind one of them: the near player, a woman in white, swings her racket at the yellow ball, and the far player, a man in white, waits on the other side of the net. The net, both rackets and the ball are clearly visible. Exactly two people; plain clothes. No letters, words, numbers, logos or brand marks anywhere.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "yRv7apqaB4yhz7IP27ar4QQ",
+  "usage": {
+    "promptTokenCount": 196,
+    "candidatesTokenCount": 1263,
+    "totalTokenCount": 1649,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 196
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 190,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.136672",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 196,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 190
+  },
+  "elapsed_seconds": 22.62,
+  "output": "output/imagegen/unit-7-lesson-v23/p05-tennis.png",
+  "sha256": "f9310be72abefa300628145c3c1804b208648f970d46e8f74ba74c6830ea7f0b",
+  "byte_count": 6127505,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

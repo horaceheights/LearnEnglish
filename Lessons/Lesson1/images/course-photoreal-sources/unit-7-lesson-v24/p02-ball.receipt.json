@@ -1,0 +1,55 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "cdebf3cf-9045-4cf8-9ade-cda8720a7376",
+  "asset_id": "p02-ball",
+  "pack_sha256": "4161b19f3541d25eb92e57b3fc33664a0bbb6aa3a3dee1c878c71e4954c6436a",
+  "started_at": "2026-11-16T15:02:53.246903+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real skin, fur, fabric and landscape texture, natural light and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.\n\nKeep the main subject of the photo whole inside the central 55 percent of the photo width, so a centered 4:5 crop keeps it whole; only expendable background reaches the left and right edges.\n\nONE BALL. A single plain bright-red rubber ball lies alone on short green grass, sharp and large in the middle of the photo. Nothing else: no people, no goal, no other balls. No letters, words, numbers, logos or brand marks anywhere.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "HRv7ap7RPIOhqtsP-KCv8AQ",
+  "usage": {
+    "promptTokenCount": 206,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1496,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 206
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038762",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 206,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 6.3,
+  "output": "output/imagegen/unit-7-lesson-v24/p02-ball.png",
+  "sha256": "4d300ee004a611087f0bae43683cf742f79cfbf013004190bc0b78c7673e4e8e",
+  "byte_count": 1561802,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}

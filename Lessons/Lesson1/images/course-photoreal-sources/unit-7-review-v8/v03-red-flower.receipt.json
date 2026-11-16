@@ -1,0 +1,55 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "b432266d-4d9c-42a4-a155-8950c3e47cd2",
+  "asset_id": "v03-red-flower",
+  "pack_sha256": "ea639ca8c0b4e8a46397518dc978d066007fb487d1bb6993450c451ebda1ef10",
+  "started_at": "2026-11-16T15:03:29.473763+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real skin, fur, fabric and landscape texture, natural light and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.\n\nONE FLOWER. A single large bright RED flower with a green stem grows alone in a plain clay pot on a wooden table, photographed close up against a soft plain pale background. Nothing else. No letters, words, numbers, logos or brand marks anywhere.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "Qhv7apisDaWGz7IPo4SBiAI",
+  "usage": {
+    "promptTokenCount": 160,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1450,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 160
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038748",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 160,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 5.28,
+  "output": "output/imagegen/unit-7-review-v8/v03-red-flower.png",
+  "sha256": "19aa7da1f34dfff561d8fec0b8189184df57b793c74e3f02ecd68a46ba76a840",
+  "byte_count": 1221928,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}
