@@ -1,0 +1,57 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "7483306a-2636-4a68-80d9-6fc248fc5cda",
+  "asset_id": "v01-man-afraid",
+  "pack_sha256": "24e3d3b4e76223111a81805cd386b5411414308f700583165b058331cbf82843",
+  "started_at": "2026-11-16T15:08:07.984358+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real skin, fur, fabric and landscape texture, natural light and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.\n\nAn AFRAID man. A man of about sixty with white hair and a plain green sweater shrinks back with his eyes wide open, his eyebrows raised and his mouth open in a gasp, both hands raised with open palms, looking at something off-camera that frightens him. He is clearly frightened. Exactly one person, seen from the waist up, sharp, in a plain bright room with nothing distracting behind. No letters, words, numbers, logos or brand marks anywhere. Every visible hand has five natural fingers.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "WBz7asjpKYyhz7IP27ar4QQ",
+  "usage": {
+    "promptTokenCount": 212,
+    "candidatesTokenCount": 1254,
+    "totalTokenCount": 1691,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 212
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 225,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137124",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 212,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 225
+  },
+  "elapsed_seconds": 22.47,
+  "output": "output/imagegen/unit-7-review-v9/v01-man-afraid.png",
+  "sha256": "1aafe63e0f9851dd1f6b1d806390f92cacb9f0ca4adc3170434a02edffcb0941",
+  "byte_count": 6107137,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

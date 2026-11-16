@@ -1,0 +1,55 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "6ac773d4-7579-435b-89e0-866faae8a3f4",
+  "asset_id": "w01-night-city",
+  "pack_sha256": "c5b93537cd77272e1bc0f4b2baec4b9683820fc39fe855b56465421d12d6449f",
+  "started_at": "2026-11-16T15:04:42.553948+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real skin, fabric, building and landscape texture, natural light and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.\n\nA CITY in the evening. A big city seen from across a river at dusk: a long skyline of tall towers with lit windows, mirrored in the water. It is plainly a very large city. No readable signs. It is the only subject and fills the photo. No letters, words, numbers, logos, badges with writing or brand marks anywhere.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "ixv7auuiCOPVz7IP_9WIsAI",
+  "usage": {
+    "promptTokenCount": 179,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1469,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 179
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038754",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 179,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 6.24,
+  "output": "output/imagegen/unit-6-review-v2/w01-night-city.png",
+  "sha256": "5fa5f79ffdbf7553d13333a22404f70c8088fdec4a85e2fb0f161a87ffc5ba8f",
+  "byte_count": 1725460,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}

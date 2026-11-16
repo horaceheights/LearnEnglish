@@ -1,0 +1,57 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "8852a840-38bf-48ae-8a90-d6ba94be72df",
+  "asset_id": "j05-worker",
+  "pack_sha256": "9b79c0a80c77bb3c906658f0b8b8f01d90393eaf147bfdb72c814f13707f37bf",
+  "started_at": "2026-11-16T15:10:34.915675+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real skin, fabric, building and landscape texture, natural light and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.\n\nA WORKER. A man of about forty-five with a short beard stands on a building site in a yellow hard hat, an orange high-visibility vest over a work shirt and thick work gloves, holding a shovel upright beside him; a half-built brick wall and a wheelbarrow are behind him. He looks at the camera. The helmet and the vest are completely plain. Exactly one person, whole upper body sharp and large in the middle of the photo; the workplace behind is plain to read but not crowded. No letters, words, numbers, logos, badges with writing or brand marks anywhere. Every visible hand has five natural fingers.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "6xz7avusJ7m_qtsPvcaB6Qc",
+  "usage": {
+    "promptTokenCount": 238,
+    "candidatesTokenCount": 1276,
+    "totalTokenCount": 1757,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 238
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 243,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137392",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 238,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 243
+  },
+  "elapsed_seconds": 22.13,
+  "output": "output/imagegen/unit-3-lesson-v5/j05-worker.png",
+  "sha256": "1296fe39205d3b65bf2061ee7bf824cdd2bf9fdeeff570c5b9fbe9a9a875e48a",
+  "byte_count": 6051373,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

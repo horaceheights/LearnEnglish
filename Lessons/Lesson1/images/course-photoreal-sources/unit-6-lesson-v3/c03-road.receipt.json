@@ -1,0 +1,55 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "e95e8a65-43a7-4120-b211-755a3d7e1c6b",
+  "asset_id": "c03-road",
+  "pack_sha256": "a1440c0646bca778f43c563acfd04ad0309ec94582cf6921384d476bb5687e13",
+  "started_at": "2026-11-16T15:03:57.243132+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real skin, fabric, building and landscape texture, natural light and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.\n\nA ROAD. One long, straight, empty gray asphalt road with a white dashed centre line runs from the bottom of the photo to the horizon through flat green fields under a blue sky. No cars, no people, no houses, no road signs. It is the only subject and fills the photo. No letters, words, numbers, logos, badges with writing or brand marks anywhere.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "XRv7aubQNf7dqtsPztCzoAM",
+  "usage": {
+    "promptTokenCount": 185,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1475,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 185
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038756",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 185,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 5.76,
+  "output": "output/imagegen/unit-6-lesson-v3/c03-road.png",
+  "sha256": "3b7ec73a14cb9f534a94c44dc6709e53263f6c0ad00492439c735c455c9b4e9d",
+  "byte_count": 1826250,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}

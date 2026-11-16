@@ -1,0 +1,55 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "ab6ac352-dbb3-4ca2-b0f0-f162688ab7fd",
+  "asset_id": "v02-winter-street",
+  "pack_sha256": "ea639ca8c0b4e8a46397518dc978d066007fb487d1bb6993450c451ebda1ef10",
+  "started_at": "2026-11-16T15:03:22.615467+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real skin, fur, fabric and landscape texture, natural light and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.\n\nWINTER in a town. A quiet street of small houses under deep white snow: snow on the roofs, on the bare trees and on the ground, with icicles on a roof edge, under a pale gray sky. No people, no cars. No letters, words, numbers, logos or brand marks anywhere.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "Oxv7aqr7E__ZqtsPheaBoQM",
+  "usage": {
+    "promptTokenCount": 172,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1462,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 172
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038752",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 172,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 6.21,
+  "output": "output/imagegen/unit-7-review-v8/v02-winter-street.png",
+  "sha256": "329302d304f6aa4ff95fab2dead19e6db5f60c5b303ddca2f6df8e3a070e1e23",
+  "byte_count": 1852813,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}

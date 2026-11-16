@@ -1,0 +1,57 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "32ff8a69-fe81-4bce-8801-a99e53fb74dc",
+  "asset_id": "j03-artist",
+  "pack_sha256": "9b79c0a80c77bb3c906658f0b8b8f01d90393eaf147bfdb72c814f13707f37bf",
+  "started_at": "2026-11-16T15:09:48.663123+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real skin, fabric, building and landscape texture, natural light and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.\n\nAN ARTIST. A woman of about forty with gray-streaked hair tied back, in a paint-stained apron, stands at a wooden easel in a bright studio and paints a colorful landscape on the canvas with a brush in one hand and a wooden palette of paints in the other. She is plainly a painter at work. Exactly one person, whole upper body sharp and large in the middle of the photo; the workplace behind is plain to read but not crowded. No letters, words, numbers, logos, badges with writing or brand marks anywhere. Every visible hand has five natural fingers.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "vRz7arClGZLtz7IP2oOqoQI",
+  "usage": {
+    "promptTokenCount": 227,
+    "candidatesTokenCount": 1279,
+    "totalTokenCount": 1774,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 227
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 268,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137670",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 227,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 268
+  },
+  "elapsed_seconds": 22.14,
+  "output": "output/imagegen/unit-3-lesson-v5/j03-artist.png",
+  "sha256": "2cb8dbf5cb4d517194163610a61f7891b652791a61ebf89c0679bb1c5ab4c510",
+  "byte_count": 6401654,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

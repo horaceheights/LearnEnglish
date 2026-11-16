@@ -1,0 +1,57 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "85495d11-a091-42e4-aaa0-8d588e9c4070",
+  "asset_id": "k02-man-artist",
+  "pack_sha256": "441c0cdd4edef5462535a7902d6d766250b3c39873eb446232a38bc8811cf8bf",
+  "started_at": "2026-11-16T15:11:43.877195+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real skin, fabric, building and landscape texture, natural light and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.\n\nAN ARTIST. A man of about sixty with white hair and round glasses, in a paint-stained shirt, sits at an easel by a window and paints a bowl of fruit on the canvas with a brush, a palette of paints in his other hand. He is plainly a painter at work. Exactly one person, whole upper body sharp and large in the middle of the photo; the workplace behind is plain to read but not crowded. No letters, words, numbers, logos, badges with writing or brand marks anywhere. Every visible hand has five natural fingers.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "MB37auy4KPvkqtsP_JzL-AU",
+  "usage": {
+    "promptTokenCount": 221,
+    "candidatesTokenCount": 1311,
+    "totalTokenCount": 1913,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 221
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 381,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.139014",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 221,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 381
+  },
+  "elapsed_seconds": 22.92,
+  "output": "output/imagegen/unit-3-review-v6/k02-man-artist.png",
+  "sha256": "4a86906f702303ab04ee9bbeb5700d2e455f07125091840052d34dc15df46e59",
+  "byte_count": 6079171,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

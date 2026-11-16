@@ -1,0 +1,55 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "caad48e5-7c42-4f76-93be-9ec56f1ea858",
+  "asset_id": "c06-map",
+  "pack_sha256": "a1440c0646bca778f43c563acfd04ad0309ec94582cf6921384d476bb5687e13",
+  "started_at": "2026-11-16T15:04:34.082139+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real skin, fabric, building and landscape texture, natural light and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.\n\nKeep the main subject of the photo whole inside the central 55 percent of the photo width, so a centered 4:5 crop keeps it whole; only expendable background reaches the left and right edges.\n\nA MAP. One paper street map lies unfolded flat on a wooden table, seen from above, sharp and large: a web of white and yellow streets, green park areas and a blue river, with visible fold creases. The map is completely unlabeled: no street names, no place names, no legend, no compass letters, no numbers. No people, no hands, no phone, no pen. It is the only subject and fills the photo. No letters, words, numbers, logos, badges with writing or brand marks anywhere.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "ghv7aoXLKY2iqtsPwcKo0AU",
+  "usage": {
+    "promptTokenCount": 259,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1549,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 259
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038778",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 259,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 7.98,
+  "output": "output/imagegen/unit-6-lesson-v3/c06-map.png",
+  "sha256": "8810e3e45f888adaa348ac8cf745c165f699c0ca16ed5cdebd5bb93e08e7ce70",
+  "byte_count": 2365429,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}

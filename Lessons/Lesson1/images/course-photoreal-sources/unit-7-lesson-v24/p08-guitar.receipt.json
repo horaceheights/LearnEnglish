@@ -1,0 +1,55 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "a037c5ed-a5ba-4138-8f89-42436dd6b743",
+  "asset_id": "p08-guitar",
+  "pack_sha256": "4161b19f3541d25eb92e57b3fc33664a0bbb6aa3a3dee1c878c71e4954c6436a",
+  "started_at": "2026-11-16T15:03:15.774934+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real skin, fur, fabric and landscape texture, natural light and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.\n\nKeep the main subject of the photo whole inside the central 55 percent of the photo width, so a centered 4:5 crop keeps it whole; only expendable background reaches the left and right edges.\n\nONE GUITAR. A single classical acoustic guitar of light wood with six strings stands upright on a simple stand in front of a plain pale wall, the whole guitar sharp and large in the middle of the photo. No people, no other instruments. No letters, words, numbers, logos or brand marks anywhere.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "NBv7aumdHtq2qtsP_dfnmQI",
+  "usage": {
+    "promptTokenCount": 214,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1504,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 214
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038764",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 214,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 6.4,
+  "output": "output/imagegen/unit-7-lesson-v24/p08-guitar.png",
+  "sha256": "797fbbe10c62218d4d6ac570f7a819a44cb8df2598a371c55ef531c25bc5215f",
+  "byte_count": 1388890,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}

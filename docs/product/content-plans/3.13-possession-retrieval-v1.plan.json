@@ -2,14 +2,14 @@
   "plan_version": 1,
   "lesson": {
     "id": "lesson-3-9-unit-3-review",
-    "title": "3.14 Unit 3 Review",
+    "title": "3.15 Unit 3 Review",
     "level": "Beginner A1",
     "unit_id": "unit-3",
     "unit_title": "Unit 3: Me and Other People",
     "unit_outcome": "Use tightly supported exchanges to greet people and give a name, age, origin and job, ask and answer yes/no questions with be, and describe who owns things.",
     "lesson_id": "lesson-3",
     "lesson_title": "Unit 3: Me and Other People",
-    "sub_lesson_id": "3.14",
+    "sub_lesson_id": "3.15",
     "sub_lesson_title": "Unit 3 Review",
     "goal": "Review Unit 3 through fresh scenes: greetings and names, speaker perspective and current action, yes/no questions, ages, countries and nationalities, jobs, and possession with my/your/his/her, our/their and yours. No new language.",
     "vocabulary": [],
@@ -74,10 +74,12 @@
       "ours",
       "zero",
       "phone number",
-      "address"
+      "address",
+      "waiter",
+      "artist"
     ],
     "grammar_function": "Hello/Good morning/Goodbye; What is your name? My name is...; I am/you are/we are; What are you doing? I am + -ing; How old are you? I am ... years old; Where are you from? I am from... / I am + nationality; What is your job? I am a...; he/she is; my/your/his/her; have/has. Is she cooking? Yes, she is.; our/their; It is yours. Name objects explicitly; That house is ours. Is this phone yours? Yes, this phone is mine.",
-    "prerequisite": "3.1-3.13 complete.",
+    "prerequisite": "3.1-3.13 complete; 3.14: six more jobs.",
     "speaking_outcome": "Say six Unit 3 lines aloud across greeting, identity, age, current action, job and possession.",
     "purposeful_review_slides": [
       "L1",
@@ -95,9 +97,11 @@
       "S7",
       "U9",
       "U10",
-      "U11"
+      "U11",
+      "U12",
+      "U13"
     ],
-    "content_revision": 5
+    "content_revision": 6
   },
   "cards": [
     {
@@ -1744,6 +1748,116 @@
       ],
       "audio_speaker": "ana",
       "answer_audio_speaker": "ana"
+    },
+    {
+      "recipe": "complete",
+      "slide_id": "U12",
+      "stage": "Use",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___.",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4"
+      ],
+      "options": [
+        {
+          "id": "word-2",
+          "image_url": "",
+          "label": "is"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "waiter"
+        },
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "She"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "a"
+        }
+      ],
+      "answer_audio_text": "She is a waiter.",
+      "prompt_image_url": "/lesson-assets/a1_u3_review_gap_woman_waiter_v1.webp",
+      "spanish_translation": "Ella es mesera.",
+      "pedagogy_note": "Use: She is a waiter.",
+      "mirror_translation": true,
+      "field_order": [
+        "slide_id",
+        "stage",
+        "interaction_type",
+        "prompt",
+        "correct_option_id",
+        "correct_option_ids",
+        "options",
+        "audio_text",
+        "answer_audio_text",
+        "prompt_image_url",
+        "spanish_translation",
+        "translation",
+        "pedagogy_note"
+      ]
+    },
+    {
+      "recipe": "complete",
+      "slide_id": "U13",
+      "stage": "Use",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___.",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4"
+      ],
+      "options": [
+        {
+          "id": "word-2",
+          "image_url": "",
+          "label": "is"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "artist"
+        },
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "He"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "an"
+        }
+      ],
+      "answer_audio_text": "He is an artist.",
+      "prompt_image_url": "/lesson-assets/a1_u3_review_gap_man_artist_v1.webp",
+      "spanish_translation": "Él es artista.",
+      "pedagogy_note": "Use: He is an artist.",
+      "mirror_translation": true,
+      "field_order": [
+        "slide_id",
+        "stage",
+        "interaction_type",
+        "prompt",
+        "correct_option_id",
+        "correct_option_ids",
+        "options",
+        "audio_text",
+        "answer_audio_text",
+        "prompt_image_url",
+        "spanish_translation",
+        "translation",
+        "pedagogy_note"
+      ]
     }
   ],
   "field_order": [
@@ -1769,6 +1883,6 @@
   ],
   "source": {
     "path": "backend/lessons/unit_3/lesson-3-9-unit-3-review.yaml",
-    "sha256": "271e7090397bb57328e25cb27286a21f171d2fb85dce1b44dce963e626792053"
+    "sha256": "b74c2829daeb883d1c51f062c2b03909ffea733ef5b1652ff1a6ae37a7631f17"
   }
 }

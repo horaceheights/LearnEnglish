@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "pack": "unit-7-sports-objects-flash-photos",
+  "revision": 4,
+  "output_namespace": "unit-7-lesson-v24",
+  "authorization": "2026-11-16: the user decided the image model by photo type (\"Yes, use Flash\"): Gemini 2.5 Flash Image for simple object, animal and scenery photos, Gemini 3 Pro Image for people and precise edits; the gap-lesson media was approved in advance (\"I preapprove all image and audios creation no need for me to reiew and approve on the fly\"). The prompts are those of unit-7-sports-photos-v2.json, whose earlier requests were refused for lack of credit before any of these photos was made. Ceiling US$0.42 for this revision. Revision 1 is frozen: a changed prompt is a new revision in a new file, and every rejected output is reported with its cost. Revision 1 sent one request (the ball) on 2026-11-16 and it was refused with HTTP 429 (image quota), so nothing was generated; revision 2 repeats the same prompts in a new namespace after the user confirmed the quota was back (\"Yes, go\", 2026-11-16). Revision 2 sent one request on 2026-11-16 that was refused with HTTP 429 (the image project had reached its monthly spending cap), so nothing was generated; revision 3 repeats the same prompts in a new namespace. Revision 3 sent one request on 2026-11-16 that was again refused with HTTP 429 (the cap was still in force), so nothing was generated; revision 4 repeats the same prompts in a new namespace.",
+  "image_settings": {
+    "provider": "google-gemini",
+    "model": "gemini-2.5-flash-image",
+    "aspect_ratio": "3:2",
+    "image_size": "1K",
+    "runtime_size": "1536x1024",
+    "runtime_format": "webp",
+    "n": 1
+  },
+  "production": {
+    "price_per_image_usd": "0.0387",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing (checked 2026-11-16: Gemini 2.5 Flash Image, about $0.039 per image)",
+    "planned_images": 3,
+    "expected_cost_usd": "0.12",
+    "requested_ceiling_usd": "0.42",
+    "no_automatic_retries": true,
+    "order": "Independent photos in any order; an edit is sent after its base photo is inspected. A rejected output is reported with its cost; a redo needs a changed prompt in a new revision file."
+  },
+  "shared_prompts": {
+    "photo": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real skin, fur, fabric and landscape texture, natural light and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.",
+    "safe_center": "Keep the main subject of the photo whole inside the central 55 percent of the photo width, so a centered 4:5 crop keeps it whole; only expendable background reaches the left and right edges.",
+    "edit": "This is an edit of image 1: the result must look like the same place photographed from the same spot. Change only what the instruction names."
+  },
+  "assets": [
+    {
+      "id": "p02-ball",
+      "order": 1,
+      "lesson": "7.13",
+      "item": "A ball / It is a ball.",
+      "runtime_filename": "a1_photo_u7_sports_ball_v1.webp",
+      "four_card": true,
+      "shared": [
+        "photo",
+        "safe_center"
+      ],
+      "prompt": "ONE BALL. A single plain bright-red rubber ball lies alone on short green grass, sharp and large in the middle of the photo. Nothing else: no people, no goal, no other balls. No letters, words, numbers, logos or brand marks anywhere."
+    },
+    {
+      "id": "p07-song",
+      "order": 2,
+      "lesson": "7.13",
+      "item": "A song",
+      "runtime_filename": "a1_photo_u7_sports_song_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo"
+      ],
+      "prompt": "A SONG. One open music book stands on a black music stand, both pages filled with printed musical notes on staves, sharp and large in the middle of the photo; a microphone on a stand is beside it. The pages show ONLY musical notes and staff lines: no title, no lyrics, no letters, no words and no numbers anywhere. No people."
+    },
+    {
+      "id": "p08-guitar",
+      "order": 3,
+      "lesson": "7.13",
+      "item": "A guitar / It is a guitar.",
+      "runtime_filename": "a1_photo_u7_sports_guitar_v1.webp",
+      "four_card": true,
+      "shared": [
+        "photo",
+        "safe_center"
+      ],
+      "prompt": "ONE GUITAR. A single classical acoustic guitar of light wood with six strings stands upright on a simple stand in front of a plain pale wall, the whole guitar sharp and large in the middle of the photo. No people, no other instruments. No letters, words, numbers, logos or brand marks anywhere."
+    }
+  ]
+}

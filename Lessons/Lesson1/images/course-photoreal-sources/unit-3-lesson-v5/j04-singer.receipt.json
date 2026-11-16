@@ -1,0 +1,57 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "0e3ba97a-91c6-4be6-b59b-5ceceaff27ae",
+  "asset_id": "j04-singer",
+  "pack_sha256": "9b79c0a80c77bb3c906658f0b8b8f01d90393eaf147bfdb72c814f13707f37bf",
+  "started_at": "2026-11-16T15:10:11.795325+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real skin, fabric, building and landscape texture, natural light and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.\n\nA SINGER. A man of about twenty-five with short black hair, in a dark jacket, stands on a small stage under warm stage lights and sings into a microphone on a stand, holding it with one hand, his mouth wide open in song and his other hand raised. A dark curtain is behind him. He holds no instrument: he is plainly a singer. Exactly one person, whole upper body sharp and large in the middle of the photo; the workplace behind is plain to read but not crowded. No letters, words, numbers, logos, badges with writing or brand marks anywhere. Every visible hand has five natural fingers.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "1Bz7arroIumeqtsPm9-V-QU",
+  "usage": {
+    "promptTokenCount": 236,
+    "candidatesTokenCount": 1269,
+    "totalTokenCount": 1775,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 236
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 270,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137712",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 236,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 270
+  },
+  "elapsed_seconds": 22.26,
+  "output": "output/imagegen/unit-3-lesson-v5/j04-singer.png",
+  "sha256": "918432fc727bd80d622acf74f6b73b6011c6a491400ec364bc7d627155e1e296",
+  "byte_count": 6499667,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}
