@@ -42,9 +42,23 @@ IMAGE_TOKENS_PER_IMAGE = 1120
 IMAGE_PRICE = Decimal("0.134")
 INPUT_PER_TOKEN = Decimal("2.00") / 1_000_000
 TEXT_OUT_PER_TOKEN = Decimal("12.00") / 1_000_000
+# 2026-11-15 user direction: "lets continue creating images but reduce using Gemini 2.5 Flash instead of pro".
+# Gemini 2.5 Flash Image returns one image of about 1K (1248x832 at 3:2), which the installer enlarges to the
+# 1536x1024 runtime size. Checked 2026-11-15: $0.039 per image (1,290 image tokens at $30 per million output
+# tokens), $0.30 per million input tokens.
+FLASH_MODEL = "gemini-2.5-flash-image"
+FLASH_SETTINGS = {**SETTINGS, "model": FLASH_MODEL, "image_size": "1K"}
+PRICES = {
+    MODEL: (IMAGE_PRICE, IMAGE_TOKENS_PER_IMAGE, INPUT_PER_TOKEN, TEXT_OUT_PER_TOKEN, "2026-09-24"),
+    FLASH_MODEL: (Decimal("0.039"), 1290, Decimal("0.30") / 1_000_000, Decimal("30.00") / 1_000_000, "2026-11-15"),
+}
 
 
-def cost_from_usage(usage: dict | None) -> dict:
+def endpoint_for(model: str) -> str:
+    return f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent"
+
+
+def cost_from_usage(usage: dict | None, model: str = MODEL) -> dict:
     """Estimate the charge from reported usage at list prices; never guess missing counts."""
     if not isinstance(usage, dict) or type(usage.get("promptTokenCount")) is not int:
         return {"usd": None, "reason": "Provider usage missing; reconcile before continuing."}
@@ -53,18 +67,20 @@ def cost_from_usage(usage: dict | None) -> dict:
     if type(image_tokens) is not int:
         return {"usd": None, "reason": "Image token count missing; cost is unknown."}
     text_tokens = int(details.get("TEXT") or 0) + int(usage.get("thoughtsTokenCount") or 0)
-    usd = (IMAGE_PRICE * Decimal(image_tokens) / IMAGE_TOKENS_PER_IMAGE
-           + INPUT_PER_TOKEN * usage["promptTokenCount"] + TEXT_OUT_PER_TOKEN * text_tokens)
+    image_price, tokens_per_image, input_per_token, text_out_per_token, checked = PRICES[model]
+    usd = (image_price * Decimal(image_tokens) / tokens_per_image
+           + input_per_token * usage["promptTokenCount"] + text_out_per_token * text_tokens)
     return {"usd": str(usd.quantize(Decimal("0.000001"))), "price_source": PRICE_SOURCE,
-            "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+            "basis": f"Reported usage at list prices checked {checked}; before tax, not an invoice.",
             "input_tokens": usage["promptTokenCount"], "image_output_tokens": image_tokens,
             "text_and_thinking_output_tokens": text_tokens}
 
 
 def load_pack(path: Path) -> dict:
     pack = json.loads(path.read_text(encoding="utf-8"))
-    if pack.get("image_settings") != SETTINGS:
-        raise ValueError("Only the approved Gemini model, 3:2 2K size and one-image configuration are allowed.")
+    if pack.get("image_settings") not in (SETTINGS, FLASH_SETTINGS):
+        raise ValueError("Only the approved Gemini models (Pro at 3:2 2K, or 2.5 Flash at 3:2 1K) and one-image "
+                         "configuration are allowed.")
     ids = [item["id"] for item in pack["assets"]]
     if len(set(ids)) != len(ids) or any(not re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", item) for item in ids):
         raise ValueError("Asset IDs must be unique safe filenames.")
@@ -100,8 +116,8 @@ def reference_image(pack: dict, asset: dict, output_dir: Path, root: Path = ROOT
     return reference
 
 
-def urllib_transport(body: bytes, key: str):
-    request = urllib.request.Request(ENDPOINT, data=body, method="POST",
+def urllib_transport(body: bytes, key: str, endpoint: str = ENDPOINT):
+    request = urllib.request.Request(endpoint, data=body, method="POST",
                                      headers={"Content-Type": "application/json", "x-goog-api-key": key})
     try:
         with urllib.request.urlopen(request, timeout=360) as response:
@@ -127,7 +143,11 @@ def render(pack_path: Path, asset_id: str, *, execute: bool, ceiling: Decimal | 
     if output.exists() or receipt.exists():
         raise ValueError("Asset already attempted; do not overwrite or retry it.")
     prompt = full_prompt(pack, asset)
-    plan = {"asset_id": asset_id, "model": MODEL, "prompt": prompt,
+    model = pack["image_settings"]["model"]
+    endpoint = endpoint_for(model)
+    if model != MODEL and transport is urllib_transport:
+        transport = lambda body, key: urllib_transport(body, key, endpoint)  # noqa: E731
+    plan = {"asset_id": asset_id, "model": model, "prompt": prompt,
             "reference": asset.get("reference") or (asset.get("reference_file") or {}).get("path")}
     if not execute:
         return {"dry_run": True, **plan}
@@ -152,11 +172,12 @@ def render(pack_path: Path, asset_id: str, *, execute: bool, ceiling: Decimal | 
     parts.append({"text": prompt})
     body = {"contents": [{"role": "user", "parts": parts}],
             "generationConfig": {"responseModalities": ["IMAGE"],
-                                 "imageConfig": {"aspectRatio": "3:2", "imageSize": "2K"}}}
+                                 "imageConfig": {"aspectRatio": "3:2", "imageSize": "2K"} if model == MODEL
+                                 else {"aspectRatio": "3:2"}}}
     record = {"status": "prepared", "generation_requests_sent": 0, "automatic_retries": 0,
               "client_request_id": str(uuid4()), "asset_id": asset_id, "pack_sha256": digest(pack_path),
-              "started_at": datetime.now(timezone.utc).isoformat(), "endpoint": ENDPOINT,
-              "request": {"model": MODEL, "prompt": prompt, "image_config": body["generationConfig"]["imageConfig"]},
+              "started_at": datetime.now(timezone.utc).isoformat(), "endpoint": endpoint,
+              "request": {"model": model, "prompt": prompt, "image_config": body["generationConfig"]["imageConfig"]},
               "reference": None if reference is None else {"path": reference.relative_to(root).as_posix()
                                                            if reference.is_relative_to(root) else str(reference),
                                                            "sha256": digest(reference)},
@@ -180,7 +201,7 @@ def render(pack_path: Path, asset_id: str, *, execute: bool, ceiling: Decimal | 
             record["provider_error"] = {"http_status": status, "status": error.get("status"), "code": error.get("code")}
             raise RuntimeError("Image provider rejected the request; inspect the sanitized receipt.")
         record.update(status="response_received", usage=payload.get("usageMetadata"),
-                      cost=cost_from_usage(payload.get("usageMetadata")),
+                      cost=cost_from_usage(payload.get("usageMetadata"), model),
                       elapsed_seconds=round(time.monotonic() - started, 2))
         save()
         candidate = (payload.get("candidates") or [{}])[0]
