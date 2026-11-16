@@ -1,0 +1,57 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "3959d8c3-a638-402e-ae44-fab6353e459e",
+  "asset_id": "o03-river",
+  "pack_sha256": "3abbd916145151993c173babcefb6bfe1ab816863b4eb7e3ed1db9911e5f00c9",
+  "started_at": "2026-11-16T01:23:58.830618+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real skin, fur, fabric and landscape texture, natural light and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.\n\nA RIVER. A wide river of flowing water winds from the foreground into the distance between two green grassy banks with a few bushes; the moving current is visible. It is clearly a river: long and narrow with two banks, not a lake or the sea. It is the only subject and fills the photo. No people, no animals, no boats, no buildings. No letters, words, numbers, logos or brand marks anywhere.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "L1v6arPUGq3oz7IP1pGAmQM",
+  "usage": {
+    "promptTokenCount": 195,
+    "candidatesTokenCount": 1237,
+    "totalTokenCount": 1671,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 195
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 239,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137258",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 195,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 239
+  },
+  "elapsed_seconds": 25.7,
+  "output": "output/imagegen/unit-7-lesson-v12/o03-river.png",
+  "sha256": "456e4d6bcf732402a6424af3d8f05eaefa3c5467978069cf07cf0973f5a7a71c",
+  "byte_count": 8227355,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

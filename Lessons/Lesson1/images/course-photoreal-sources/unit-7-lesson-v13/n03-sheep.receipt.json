@@ -1,0 +1,57 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "844b2204-3f25-47aa-8796-a6272919554b",
+  "asset_id": "n03-sheep",
+  "pack_sha256": "99c44e80fbb853af4e2fb74f67984064e360eecc3d9f08842dcb8f5c82d12c3b",
+  "started_at": "2026-11-16T01:27:07.896799+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real skin, fur, fabric and landscape texture, natural light and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.\n\nONE SHEEP. A white woolly sheep stands still in side view on green grass, looking toward the camera. The whole animal is sharp and large in the middle of the photo. Exactly one animal; no people, no other animals. No letters, words, numbers, logos or brand marks anywhere.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "7Fv6avTbHtfpz7IPzKLjqQc",
+  "usage": {
+    "promptTokenCount": 169,
+    "candidatesTokenCount": 1267,
+    "totalTokenCount": 1557,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 169
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 121,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.135790",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 169,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 121
+  },
+  "elapsed_seconds": 26.44,
+  "output": "output/imagegen/unit-7-lesson-v13/n03-sheep.png",
+  "sha256": "f592ab7c09cb6f265a0fc22d7d03aa28ace30d4ddd4b1317cabbeb5c357f80e7",
+  "byte_count": 7366727,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

@@ -1,0 +1,57 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "69dabdba-24a5-4ab0-8922-e78b7552f7f2",
+  "asset_id": "s01-summer",
+  "pack_sha256": "4589eeb19ed5e37db1a70cc08a6a4a76b61a250ca09b13af1e00677789c78ca7",
+  "started_at": "2026-11-16T01:17:59.394789+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real skin, fur, fabric and landscape texture, natural light and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.\n\nSUMMER. The same view of one large old tree standing alone on a grassy hill in a park, with a wooden bench beside it and a path in front, photographed from the same place: the tree is full of dense dark-green leaves, the grass is green and dry, the sky is deep blue with a strong high sun and sharp short shadows; a red picnic blanket with a straw hat lies on the grass in the shade. It is plainly a hot summer day. No people. No letters, words, numbers, logos or brand marks anywhere.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "yFn6ap-nA4qI6dkP4JH68Ac",
+  "usage": {
+    "promptTokenCount": 220,
+    "candidatesTokenCount": 1274,
+    "totalTokenCount": 1876,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 220
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 382,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.139024",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 220,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 382
+  },
+  "elapsed_seconds": 26.58,
+  "output": "output/imagegen/unit-7-lesson-v11/s01-summer.png",
+  "sha256": "37afaf4e7fbb11581ab8682f6f830fc7848c51eb93bb5ba777f0e753a570fafb",
+  "byte_count": 7516772,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

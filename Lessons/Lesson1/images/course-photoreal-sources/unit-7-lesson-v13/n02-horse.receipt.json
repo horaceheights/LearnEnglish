@@ -1,0 +1,57 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "7756f888-0dfc-4115-a5cb-c2f5a2cf2220",
+  "asset_id": "n02-horse",
+  "pack_sha256": "99c44e80fbb853af4e2fb74f67984064e360eecc3d9f08842dcb8f5c82d12c3b",
+  "started_at": "2026-11-16T01:26:45.937738+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real skin, fur, fabric and landscape texture, natural light and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.\n\nONE HORSE RUNNING. A brown horse with a black mane gallops fast across a green field in side view, all four legs in mid-stride off the ground, mane and tail flying. The whole animal is sharp and large in the middle of the photo. Exactly one animal; no people, no other animals. No letters, words, numbers, logos or brand marks anywhere.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "1lv6asy_IaScz7IPkoe3wAc",
+  "usage": {
+    "promptTokenCount": 186,
+    "candidatesTokenCount": 1239,
+    "totalTokenCount": 1653,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 186
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 228,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137108",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 186,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 228
+  },
+  "elapsed_seconds": 21.19,
+  "output": "output/imagegen/unit-7-lesson-v13/n02-horse.png",
+  "sha256": "9489f1e06fc89294505ace7e06f3cf59a82af13afc0e4ab1e0ebad238b7ad931",
+  "byte_count": 6613882,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

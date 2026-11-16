@@ -1,0 +1,57 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "162410a0-ea71-425a-875d-3f8d497bb0b6",
+  "asset_id": "o05-beach",
+  "pack_sha256": "3abbd916145151993c173babcefb6bfe1ab816863b4eb7e3ed1db9911e5f00c9",
+  "started_at": "2026-11-16T01:24:48.126045+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real skin, fur, fabric and landscape texture, natural light and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.\n\nTHE BEACH. A wide beach of pale golden sand fills the foreground and middle of the photo, with small waves washing onto the sand at the far edge and one closed beach umbrella and a towel on the sand. The sand is the subject. It is the only subject and fills the photo. No people, no animals, no boats, no buildings. No letters, words, numbers, logos or brand marks anywhere.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "YFv6aqCpLo7oz7IP2NW7yQU",
+  "usage": {
+    "promptTokenCount": 191,
+    "candidatesTokenCount": 1281,
+    "totalTokenCount": 1801,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 191
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 329,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.138330",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 191,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 329
+  },
+  "elapsed_seconds": 21.4,
+  "output": "output/imagegen/unit-7-lesson-v12/o05-beach.png",
+  "sha256": "997e2bbd370f2fad6220e1f33906b0d7d7b7e11ebc561a23ef2bba0d96fc8f9c",
+  "byte_count": 7592335,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}
