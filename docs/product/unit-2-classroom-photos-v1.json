@@ -1,0 +1,167 @@
+{
+  "schema_version": 1,
+  "pack": "unit-2-classroom-photos",
+  "revision": 1,
+  "output_namespace": "unit-2-lesson-v8",
+  "authorization": "2026-11-15: the user asked for A1 lesson 2.12 In the Classroom to be built (\"build 2.12 next\", clarified as In the Classroom, then \"biuild the whole plan, none stop\") and had approved the gap-lesson media in advance (\"I preapprove all image and audios creation no need for me to reiew and approve on the fly\"). Ceiling US$2.00 for this revision. Gemini is the approved image tool (2026-09-23). Revision 1 is frozen: a changed prompt is a new revision in a new file, and every rejected output is reported with its cost.",
+  "image_settings": {
+    "provider": "google-gemini",
+    "model": "gemini-3-pro-image",
+    "aspect_ratio": "3:2",
+    "image_size": "2K",
+    "runtime_size": "1536x1024",
+    "runtime_format": "webp",
+    "n": 1
+  },
+  "production": {
+    "price_per_image_usd": "0.134",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing (checked 2026-09-24: Gemini 3 Pro Image, $0.134 per 1K/2K image)",
+    "planned_images": 10,
+    "expected_cost_usd": "1.34",
+    "requested_ceiling_usd": "2.00",
+    "no_automatic_retries": true,
+    "order": "k05 and k08 are inspected before their color edits are sent; the rest in any order. A rejected output is reported with its cost; a redo needs a changed prompt in a new revision file."
+  },
+  "shared_prompts": {
+    "photo": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material, skin, wood and fabric texture, soft natural daylight and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.",
+    "safe_center": "Keep the main subject of the photo whole inside the central 55 percent of the photo width, so a centered 4:5 crop keeps it whole; only expendable background reaches the left and right edges.",
+    "edit": "This is a precise edit of image 1: the result must look like the same photograph with one detail changed. Change only what the instruction names."
+  },
+  "assets": [
+    {
+      "id": "k01-room",
+      "order": 1,
+      "lesson": "2.12",
+      "item": "A classroom / It is a classroom.",
+      "runtime_filename": "a1_photo_u2_classroom_room_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo"
+      ],
+      "prompt": "An EMPTY classroom in a school, seen from the back of the room. Four tidy rows of small one-person student desks with chairs fill the room and all face a large, completely blank white board on the front wall; one bigger desk stands at the front beside the board. Big windows on the left let in daylight. There are NO people at all. The board is clean and blank, the walls are bare, and nothing lies on the desks: no posters, maps, clocks, books or screens. No letters, words, numbers, logos or brand marks anywhere."
+    },
+    {
+      "id": "k02-class",
+      "order": 2,
+      "lesson": "2.12",
+      "item": "A class / It is a class.",
+      "runtime_filename": "a1_photo_u2_classroom_class_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo"
+      ],
+      "prompt": "A CLASS of adults during a lesson, the people are the subject. Seen from the side at eye level: six adult students of different ages sit close together at two rows of desks in the middle of the photo, all looking toward a woman who stands at the front on the right and speaks to them with an open hand; two of the students have a raised hand. The students' faces and the standing woman are sharp and fill most of the photo; the room behind them is soft and plain. The board behind the woman is completely blank. Open notebooks lie on the desks but nothing on them is readable. No letters, words, numbers, logos or brand marks anywhere. Every visible hand has five natural fingers."
+    },
+    {
+      "id": "k03-student",
+      "order": 3,
+      "lesson": "2.12",
+      "item": "A student / She is a student.",
+      "runtime_filename": "a1_photo_u2_classroom_student_v1.webp",
+      "four_card": true,
+      "shared": [
+        "photo",
+        "safe_center"
+      ],
+      "prompt": "ONE student. A young woman of about twenty with straight shoulder-length brown hair, a plain mustard-yellow sweater and a plain dark-gray backpack on both shoulders stands in the middle of a bright school corridor and smiles at the camera. She holds two thick closed textbooks with plain covers against her chest with both arms. She is seen from the knees up and is sharp; behind her the corridor with plain closed classroom doors is softly blurred. Exactly one person; no desks, no tables and no chairs. No letters, words, numbers, logos or brand marks anywhere. Every visible hand has five natural fingers."
+    },
+    {
+      "id": "k04-desk",
+      "order": 4,
+      "lesson": "2.12",
+      "item": "A desk / It is a desk.",
+      "runtime_filename": "a1_photo_u2_classroom_desk_v1.webp",
+      "four_card": true,
+      "shared": [
+        "photo",
+        "safe_center"
+      ],
+      "prompt": "ONE student desk, alone. A small one-person school desk with a rectangular light-wood top, a shallow open shelf under the top and four gray metal legs stands on a plain light floor in front of a plain pale wall, seen from the front at a slight angle from above so the top and the legs are both clear. The desk top is completely empty. There is NO chair and no other furniture; no people, no bags, no books, nothing on the floor. The whole desk is sharp and large. No letters, words, numbers, logos or brand marks anywhere."
+    },
+    {
+      "id": "k05-pencil",
+      "order": 5,
+      "lesson": "2.12",
+      "item": "A pencil / It is a pencil. / It is a yellow pencil.",
+      "runtime_filename": "a1_photo_u2_classroom_pencil_v1.webp",
+      "four_card": true,
+      "shared": [
+        "photo",
+        "safe_center"
+      ],
+      "prompt": "ONE pencil, alone. A classic wooden pencil painted bright YELLOW along its whole body, with a sharpened wood-and-graphite point at one end and a silver metal band with a small pink eraser at the other end, lies diagonally on a plain, clean, light-gray table, photographed from directly above. The pencil is large: it runs across the central half of the photo. Its yellow body is plain and unprinted. Nothing else is on the table: no pen, no paper, no sharpener, no shavings. No letters, words, numbers, logos or brand marks anywhere."
+    },
+    {
+      "id": "k06-red-pencil",
+      "order": 6,
+      "lesson": "2.12",
+      "item": "It is a red pencil.",
+      "runtime_filename": "a1_photo_u2_classroom_red_pencil_v1.webp",
+      "four_card": true,
+      "shared": [
+        "photo",
+        "edit"
+      ],
+      "reference": "k05-pencil",
+      "prompt": "Image 1 shows one yellow wooden pencil lying on a light-gray table. Keep the photograph exactly as it is: the same pencil shape, position, point, metal band, eraser, table, light and framing. Change ONLY the paint color of the pencil's body: it is now bright RED instead of yellow, plain and unprinted. Nothing else changes."
+    },
+    {
+      "id": "k07-paper",
+      "order": 7,
+      "lesson": "2.12",
+      "item": "Paper / The paper is white.",
+      "runtime_filename": "a1_photo_u2_classroom_paper_v1.webp",
+      "four_card": true,
+      "shared": [
+        "photo",
+        "safe_center"
+      ],
+      "prompt": "PAPER. A neat stack of about twenty blank, bright WHITE sheets of paper lies in the middle of a dark-brown wooden table, photographed from above at a slight angle; the top sheet is slightly turned so that the separate thin sheets and their edges are clearly visible, and one corner of the top sheet curls up a little. Every sheet is completely blank. Nothing else is on the table: no pen, no pencil, no notebook, no book, no envelope, no printer. No letters, words, numbers, logos or brand marks anywhere."
+    },
+    {
+      "id": "k08-notebook",
+      "order": 8,
+      "lesson": "2.12",
+      "item": "A notebook / It is a notebook. / It is a blue notebook.",
+      "runtime_filename": "a1_photo_u2_classroom_notebook_v1.webp",
+      "four_card": true,
+      "shared": [
+        "photo",
+        "safe_center"
+      ],
+      "prompt": "ONE notebook, alone. A closed spiral-bound school notebook with a plain bright BLUE cover and a silver metal spiral along its left edge lies on a plain, clean, light-gray table, photographed from above at a slight angle so the spiral rings and the edges of the white pages are clearly visible. The cover is plain: no label, no lines, no picture. The notebook is large and sharp. Nothing else is on the table: no pen, no pencil, no book, no loose paper. No letters, words, numbers, logos or brand marks anywhere."
+    },
+    {
+      "id": "k09-green-notebook",
+      "order": 9,
+      "lesson": "2.12",
+      "item": "It is a green notebook.",
+      "runtime_filename": "a1_photo_u2_classroom_green_notebook_v1.webp",
+      "four_card": true,
+      "shared": [
+        "photo",
+        "edit"
+      ],
+      "reference": "k08-notebook",
+      "prompt": "Image 1 shows one closed spiral notebook with a blue cover on a light-gray table. Keep the photograph exactly as it is: the same notebook shape, position, spiral, pages, table, light and framing. Change ONLY the color of the cover: it is now bright GREEN instead of blue, plain. Nothing else changes."
+    },
+    {
+      "id": "k10-ask",
+      "order": 10,
+      "lesson": "2.12",
+      "item": "Is it a pen or a pencil?",
+      "runtime_filename": "a1_photo_u2_classroom_ask_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo",
+        "edit"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1_photo_u3_contact_ask_address_v1.webp",
+        "sha256": "e79f2d3afa3c73ae1a88d718b6c1deb0d68fc36030579380d218b8c865926716",
+        "observed_description": "In a bright room Luis (about thirty, short curly black hair, a navy T-shirt) stands on the left holding a blank white envelope and a pen and asks a question with raised eyebrows and an open mouth; Ana (about thirty, long wavy black hair, an olive-green shirt over a white top) stands on the right and listens with a smile."
+      },
+      "prompt": "Image 1 shows Luis on the left and Ana on the right in a bright room. Keep the photograph as it is: the same two people with the same faces, hair and clothes, the same room, light and framing, and Luis still asks Ana a question with raised eyebrows and an open mouth while Ana listens. Change ONLY what Luis holds: the envelope and the pen are gone, and instead he holds up ONE yellow wooden pencil with a pink eraser in one hand, upright between himself and Ana at chest height, clearly visible against the plain background; his other hand is open, palm up, in a questioning gesture. Exactly two people; no envelope, no pen, no paper. No letters, words, numbers, logos or brand marks anywhere. Every visible hand has five natural fingers."
+    }
+  ]
+}

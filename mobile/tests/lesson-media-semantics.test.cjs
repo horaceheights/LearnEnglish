@@ -443,11 +443,11 @@ const requiredUnitTwoReplacementsByLesson = new Map([
     ],
   ],
   [
-    '2.12',
+    '2.14', // the Unit 2 review; moved up by the 2026-11-15 gap lessons 2.12 In the Classroom and 2.13 More Colors
     ['a1_u2_review_v1_white_bags.webp'],
   ],
   [
-    '2.13',
+    '2.15', // the Unit 2 mission
     [
       'a1_u2_meeting_v4_places.webp',
       'a1_u2_meeting_v4_transport.webp',

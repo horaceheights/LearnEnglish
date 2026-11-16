@@ -1,0 +1,104 @@
+{
+  "schema_version": 1,
+  "pack": "unit-2-review-morecolors-photos",
+  "revision": 1,
+  "output_namespace": "unit-2-review-v6",
+  "authorization": "2026-11-15: review photos that bring back the 2.13 More Colors words in the Unit 2 review, under the standing rule for gap lessons. The user asked for it (\"build 2.13 More Colors next\", then \"biuild the whole plan, none stop\") and had approved the gap-lesson media in advance (\"I preapprove all image and audios creation no need for me to reiew and approve on the fly\"). Ceiling US$0.80 for this revision. Gemini is the approved image tool (2026-09-23). New colors are introduced on the same plain disc as the 2.7 colors (2026-09-24 direction). Revision 1 is frozen: a changed prompt is a new revision in a new file, and every rejected output is reported with its cost.",
+  "image_settings": {
+    "provider": "google-gemini",
+    "model": "gemini-3-pro-image",
+    "aspect_ratio": "3:2",
+    "image_size": "2K",
+    "runtime_size": "1536x1024",
+    "runtime_format": "webp",
+    "n": 1
+  },
+  "production": {
+    "price_per_image_usd": "0.134",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing (checked 2026-09-24: Gemini 3 Pro Image, $0.134 per 1K/2K image)",
+    "planned_images": 4,
+    "expected_cost_usd": "0.54",
+    "requested_ceiling_usd": "0.80",
+    "no_automatic_retries": true,
+    "order": "Independent photos and edits in any order. A rejected output is reported with its cost; a redo needs a changed prompt in a new revision file."
+  },
+  "shared_prompts": {
+    "photo": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material and fur texture, soft natural daylight and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must name the color instantly on a small phone screen. Do not imitate earlier course photos.",
+    "safe_center": "Keep the main subject of the photo whole inside the central 55 percent of the photo width, so a centered 4:5 crop keeps it whole; only expendable background reaches the left and right edges.",
+    "edit": "This is a precise edit of image 1: the result must look like the same photograph with one detail changed. Change only what the instruction names."
+  },
+  "assets": [
+    {
+      "id": "n01-brown-chair",
+      "order": 1,
+      "lesson": "2.13 review",
+      "item": "It is a brown chair.",
+      "runtime_filename": "a1_u2_review_gap_brown_chair_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo",
+        "edit"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1_photo_u2_green_chair_v1.webp",
+        "sha256": "34a7351d134e44e96fb9ddb95e691685a8c16af7c739db69388c9f9e26889194",
+        "observed_description": "One wooden chair painted solid green stands alone on a light wooden floor in front of a plain pale wall."
+      },
+      "prompt": "Image 1 shows one green wooden chair. Keep the photograph exactly as it is: the same wooden chair, shape, position, floor, wall, light and framing. Change ONLY the color of the wooden chair: it is now solid chocolate BROWN paint instead of green, every painted part alike. Nothing else changes."
+    },
+    {
+      "id": "n02-purple-bag",
+      "order": 2,
+      "lesson": "2.13 review",
+      "item": "It is a purple bag.",
+      "runtime_filename": "a1_u2_review_gap_purple_bag_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo",
+        "edit"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1_photo_u2_yellow_bag_v1.webp",
+        "sha256": "6a34253255248b4ab51e0e2342c001fbccbbc09ecfe6624940f63792796c7910",
+        "observed_description": "One bright-yellow backpack stands upright alone on a plain light-grey floor in front of a plain light-grey wall."
+      },
+      "prompt": "Image 1 shows one yellow backpack. Keep the photograph exactly as it is: the same backpack, shape, position, floor, wall, light and framing. Change ONLY the color of the backpack: it is now solid strong violet PURPLE instead of yellow, fabric, straps and zipper tape alike. Nothing else changes."
+    },
+    {
+      "id": "n03-pink-bike",
+      "order": 3,
+      "lesson": "2.13 review",
+      "item": "It is a pink bike.",
+      "runtime_filename": "a1_u2_review_gap_pink_bike_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo",
+        "edit"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1_photo_u2_blue_bike_v1.webp",
+        "sha256": "0496b786e9c243fc1689f2304c95d19aca71a5689dbbf2564c7e621228371e9d",
+        "observed_description": "One bicycle with a solid bright-blue frame, black tires and a black seat stands alone in side view on a light-grey path in front of a plain pale-beige wall."
+      },
+      "prompt": "Image 1 shows one bicycle with a blue frame. Keep the photograph exactly as it is: the same bicycle, position, tires, seat, path, wall, light and framing. Change ONLY the color of the frame: it is now solid bright rose PINK instead of blue. The tires and the seat stay black. Nothing else changes."
+    },
+    {
+      "id": "n04-gray-car",
+      "order": 4,
+      "lesson": "2.13 review",
+      "item": "It is a gray car.",
+      "runtime_filename": "a1_u2_review_gap_gray_car_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo",
+        "edit"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1_photo_u2_black_car_v1.webp",
+        "sha256": "718e7e524f2e9e794761a9b72e66aa4a5fce1fe9041bae797bf234a2c7e68378",
+        "observed_description": "One black car stands alone in a plain setting, seen from the side and front."
+      },
+      "prompt": "Image 1 shows one black car. Keep the photograph exactly as it is: the same car, position, wheels, windows, setting, light and framing. Change ONLY the paint color of the car's body: it is now a plain solid medium GRAY instead of black, clearly gray and clearly not black, not silver-white and not blue. Nothing else changes."
+    }
+  ]
+}

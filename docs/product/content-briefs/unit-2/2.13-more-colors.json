@@ -1,0 +1,339 @@
+{
+  "brief_version": 1,
+  "captions": false,
+  "narrators": [
+    "teacher",
+    "co-teacher"
+  ],
+  "note": "Coverage gap lesson (2026-11-15, user request \"build 2.13 More Colors next\", then \"biuild the whole plan, none stop\"). The four colors follow the 2.7 pattern (2026-09-24 direction): a plain disc on Learn, then What color is it? and color before the noun on known things (dog, cat, bag, chair). `very` is practised on the 2.11 size photos. Source: docs/planning/a1-gap-lessons-draft.md.",
+  "target": "backend/lessons/unit_2/lesson-2-13-more-colors.yaml",
+  "lesson": {
+    "id": "lesson-2-13-more-colors",
+    "title": "2.13 More Colors",
+    "level": "Beginner A1",
+    "unit_id": "unit-2",
+    "unit_title": "Unit 2: Places, Objects, Numbers, and Colors",
+    "unit_outcome": "Recognize common surroundings and identify, count, and describe concrete objects without using untaught location language.",
+    "lesson_id": "lesson-2",
+    "lesson_title": "Unit 2: Places, Objects, Numbers, and Colors",
+    "sub_lesson_id": "2.13",
+    "sub_lesson_title": "More Colors",
+    "goal": "Name four more colors, describe a known thing with them, and say that something is very big or very small.",
+    "vocabulary": [
+      "brown",
+      "pink",
+      "purple",
+      "gray",
+      "very"
+    ],
+    "review_vocabulary": [
+      "it",
+      "is",
+      "a",
+      "what",
+      "color",
+      "dog",
+      "cat",
+      "bag",
+      "chair",
+      "house",
+      "big",
+      "small"
+    ],
+    "grammar_function": "It is + color; What color is it? It is + color; It is a + color + noun; It is a very + big/small + noun.",
+    "prerequisite": "1.10 dog, cat; 2.1 house; 2.3 bag, chair; 2.7 colors and What color is it?; 2.8 It is a + color + noun; 2.11 big, small.",
+    "speaking_outcome": "Say It is brown., It is a pink bag. and It is a very big dog. about a picture.",
+    "content_revision": 1
+  },
+  "layout": {
+    "Recognize": 10,
+    "Listen": 9,
+    "Speak": 8,
+    "Use": 8
+  },
+  "stage_sequences": {
+    "Speak": [
+      "It is brown.",
+      "It is pink.",
+      "It is purple.",
+      "It is gray.",
+      "It is a very big dog.",
+      "It is a very small house.",
+      "It is a pink bag.",
+      "It is a gray cat."
+    ],
+    "Use": [
+      "It is brown.",
+      "It is gray.",
+      "It is pink.",
+      "It is purple.",
+      "It is a brown dog.",
+      "It is a gray cat.",
+      "It is a pink bag.",
+      "It is a purple chair."
+    ]
+  },
+  "items": [
+    {
+      "text": "Brown",
+      "es": "Marrón (café)",
+      "image": "/lesson-assets/a1_photo_u2_morecolors_brown_v1.webp",
+      "kind": "color-word",
+      "choices": false
+    },
+    {
+      "text": "Pink",
+      "es": "Rosa",
+      "image": "/lesson-assets/a1_photo_u2_morecolors_pink_v1.webp",
+      "kind": "color-word",
+      "choices": false
+    },
+    {
+      "text": "Purple",
+      "es": "Morado",
+      "image": "/lesson-assets/a1_photo_u2_morecolors_purple_v1.webp",
+      "kind": "color-word",
+      "choices": false
+    },
+    {
+      "text": "Gray",
+      "es": "Gris",
+      "image": "/lesson-assets/a1_photo_u2_morecolors_gray_v1.webp",
+      "kind": "color-word",
+      "choices": false
+    },
+    {
+      "text": "Very",
+      "es": "Muy",
+      "image": "/lesson-assets/a1_photo_u2_bigsmall_big_dog_v1.webp",
+      "kind": "very-word",
+      "choices": false
+    },
+    {
+      "text": "It is brown.",
+      "es": "Es marrón.",
+      "image": "/lesson-assets/a1_photo_u2_morecolors_brown_dog_v1.webp",
+      "kind": "color-it",
+      "learn": false,
+      "prefer": [
+        "It is gray.",
+        "It is pink."
+      ],
+      "question": "What color is it?",
+      "question_es": "¿De qué color es?"
+    },
+    {
+      "text": "It is gray.",
+      "es": "Es gris.",
+      "image": "/lesson-assets/a1_photo_u2_morecolors_gray_cat_v1.webp",
+      "kind": "color-it",
+      "learn": false,
+      "prefer": [
+        "It is pink.",
+        "It is purple."
+      ],
+      "question": "What color is it?",
+      "question_es": "¿De qué color es?"
+    },
+    {
+      "text": "It is pink.",
+      "es": "Es rosa.",
+      "image": "/lesson-assets/a1_photo_u2_morecolors_pink_bag_v1.webp",
+      "kind": "color-it",
+      "learn": false,
+      "prefer": [
+        "It is purple.",
+        "It is brown."
+      ],
+      "question": "What color is it?",
+      "question_es": "¿De qué color es?"
+    },
+    {
+      "text": "It is purple.",
+      "es": "Es morada.",
+      "image": "/lesson-assets/a1_photo_u2_morecolors_purple_chair_v1.webp",
+      "kind": "color-it",
+      "learn": false,
+      "prefer": [
+        "It is brown.",
+        "It is gray."
+      ],
+      "question": "What color is it?",
+      "question_es": "¿De qué color es?"
+    },
+    {
+      "text": "It is a brown dog.",
+      "es": "Es un perro marrón.",
+      "image": "/lesson-assets/a1_photo_u2_morecolors_brown_dog_v1.webp",
+      "kind": "color-noun",
+      "learn": false,
+      "prefer": [
+        "It is a gray dog.",
+        "It is a brown cat."
+      ],
+      "image_choices": false,
+      "four_card": false,
+      "blanks": [
+        "brown",
+        "dog"
+      ]
+    },
+    {
+      "text": "It is a gray cat.",
+      "es": "Es un gato gris.",
+      "image": "/lesson-assets/a1_photo_u2_morecolors_gray_cat_v1.webp",
+      "kind": "color-noun",
+      "learn": false,
+      "prefer": [
+        "It is a pink cat.",
+        "It is a gray bag."
+      ],
+      "image_choices": false,
+      "four_card": false,
+      "blanks": [
+        "gray",
+        "cat"
+      ]
+    },
+    {
+      "text": "It is a pink bag.",
+      "es": "Es una bolsa rosa.",
+      "image": "/lesson-assets/a1_photo_u2_morecolors_pink_bag_v1.webp",
+      "kind": "color-noun",
+      "learn": false,
+      "prefer": [
+        "It is a purple bag.",
+        "It is a pink chair."
+      ],
+      "image_choices": false,
+      "four_card": false,
+      "blanks": [
+        "pink",
+        "bag"
+      ]
+    },
+    {
+      "text": "It is a purple chair.",
+      "es": "Es una silla morada.",
+      "image": "/lesson-assets/a1_photo_u2_morecolors_purple_chair_v1.webp",
+      "kind": "color-noun",
+      "learn": false,
+      "prefer": [
+        "It is a brown chair.",
+        "It is a purple dog."
+      ],
+      "image_choices": false,
+      "four_card": false,
+      "blanks": [
+        "purple",
+        "chair"
+      ]
+    },
+    {
+      "text": "It is a very big dog.",
+      "es": "Es un perro muy grande.",
+      "image": "/lesson-assets/a1_photo_u2_bigsmall_big_dog_v1.webp",
+      "kind": "very-size",
+      "learn": false,
+      "prefer": [
+        "It is a very small dog."
+      ],
+      "avoid": [
+        "It is a very big house.",
+        "It is a very small house."
+      ],
+      "four_card": false,
+      "use": false
+    },
+    {
+      "text": "It is a very small dog.",
+      "es": "Es un perro muy pequeño.",
+      "image": "/lesson-assets/a1_photo_u2_bigsmall_small_dog_v1.webp",
+      "kind": "very-size",
+      "learn": false,
+      "prefer": [
+        "It is a very big dog."
+      ],
+      "avoid": [
+        "It is a very big house.",
+        "It is a very small house."
+      ],
+      "four_card": false,
+      "use": false
+    },
+    {
+      "text": "It is a very big house.",
+      "es": "Es una casa muy grande.",
+      "image": "/lesson-assets/a1_photo_u2_bigsmall_big_house_v1.webp",
+      "kind": "very-size",
+      "learn": false,
+      "prefer": [
+        "It is a very small house."
+      ],
+      "avoid": [
+        "It is a very big dog.",
+        "It is a very small dog."
+      ],
+      "four_card": false,
+      "use": false
+    },
+    {
+      "text": "It is a very small house.",
+      "es": "Es una casa muy pequeña.",
+      "image": "/lesson-assets/a1_photo_u2_bigsmall_small_house_v1.webp",
+      "kind": "very-size",
+      "learn": false,
+      "prefer": [
+        "It is a very big house."
+      ],
+      "avoid": [
+        "It is a very big dog.",
+        "It is a very small dog."
+      ],
+      "four_card": false,
+      "use": false
+    }
+  ],
+  "pool": [
+    {
+      "text": "It is a gray dog.",
+      "es": "",
+      "kind": "color-noun"
+    },
+    {
+      "text": "It is a brown cat.",
+      "es": "",
+      "kind": "color-noun"
+    },
+    {
+      "text": "It is a pink cat.",
+      "es": "",
+      "kind": "color-noun"
+    },
+    {
+      "text": "It is a gray bag.",
+      "es": "",
+      "kind": "color-noun"
+    },
+    {
+      "text": "It is a purple bag.",
+      "es": "",
+      "kind": "color-noun"
+    },
+    {
+      "text": "It is a pink chair.",
+      "es": "",
+      "kind": "color-noun"
+    },
+    {
+      "text": "It is a brown chair.",
+      "es": "",
+      "kind": "color-noun"
+    },
+    {
+      "text": "It is a purple dog.",
+      "es": "",
+      "kind": "color-noun"
+    }
+  ]
+}

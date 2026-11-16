@@ -1,0 +1,57 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "f41bd383-e6c9-4487-b654-717d83a6ffa5",
+  "asset_id": "k08-notebook",
+  "pack_sha256": "33e0b7c50abd57b85c4b306efd28f90151271e1007ae1313af8a28b021f7965b",
+  "started_at": "2026-11-15T17:55:29.631963+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material, skin, wood and fabric texture, soft natural daylight and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.\n\nKeep the main subject of the photo whole inside the central 55 percent of the photo width, so a centered 4:5 crop keeps it whole; only expendable background reaches the left and right edges.\n\nONE notebook, alone. A closed spiral-bound school notebook with a plain bright BLUE cover and a silver metal spiral along its left edge lies on a plain, clean, light-gray table, photographed from above at a slight angle so the spiral rings and the edges of the white pages are clearly visible. The cover is plain: no label, no lines, no picture. The notebook is large and sharp. Nothing else is on the table: no pen, no pencil, no book, no loose paper. No letters, words, numbers, logos or brand marks anywhere.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "EfL5avzoNsWGz7IP74zUwAk",
+  "usage": {
+    "promptTokenCount": 268,
+    "candidatesTokenCount": 1243,
+    "totalTokenCount": 1782,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 268
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 271,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137788",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 268,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 271
+  },
+  "elapsed_seconds": 22.18,
+  "output": "output/imagegen/unit-2-lesson-v8/k08-notebook.png",
+  "sha256": "a8f7d37fc61821ba7bda1e61ea48f58c49fcbd2364827bfa2570d6327f9715a9",
+  "byte_count": 5392255,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

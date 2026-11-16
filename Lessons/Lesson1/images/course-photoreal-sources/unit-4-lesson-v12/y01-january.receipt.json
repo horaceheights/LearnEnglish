@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "55857ca3-e245-4936-b86f-a7fceff7e73f",
+  "asset_id": "y01-january",
+  "pack_sha256": "770b08d84ef879178a32e85f1c8974ebddbce5706758ff238aab74a5df9f9482",
+  "started_at": "2026-11-15T19:00:39.151056+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. A real photograph of a whiteboard for a Spanish-speaking adult beginner learning English. The board shows only numbers: no month names, no day names, no letters and no words anywhere, in any language. Full-bleed 3:2 landscape; no frames added, no padding, watermark or captions.\n\nThis is a precise edit of image 1: the result must look like the same photograph with one mark added. Change only what the instruction names.\n\nImage 1 is a photograph of a whiteboard year planner with twelve numbered boxes. Keep the photograph exactly as it is: the same framing, the same board and wooden frame, the year at the top, every box number from 1 to 12 in the same place and every small grid of day squares. Do not move, redraw, add or remove any number. Add only this, drawn by hand with a dark-blue whiteboard pen, with slightly uneven ink like real handwriting: ONE freehand loop around the whole of box 1 (the first box of the top row), enclosing its number 1 and its day squares; the loop is slightly asymmetric with a small overlapping end stroke, not a perfect geometric shape. No other box is looped and there is no other new mark: exactly one blue loop on the board.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1_photo_u4_calendar_year_v1.webp",
+    "sha256": "f2cd9002d202468996c0774657225989ada8c64a3b25cd188472e49f3ac3d2d7"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "VwH6avfeJLvrz7IP1fa-yQc",
+  "usage": {
+    "promptTokenCount": 527,
+    "candidatesTokenCount": 1280,
+    "totalTokenCount": 2003,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 269
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 196,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137406",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 527,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 196
+  },
+  "elapsed_seconds": 20.88,
+  "output": "output/imagegen/unit-4-lesson-v12/y01-january.png",
+  "sha256": "78aa904ec3f00c20cdb56601576849989ee323e134d98c6cdc8565fe9a31da90",
+  "byte_count": 4971428,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

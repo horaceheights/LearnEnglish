@@ -159,6 +159,16 @@ const VISUALS: Record<string, { image: string; description: string; color: strin
     description: 'Grande y pequeño, nuevo y usado, igual y diferente.',
     color: '#dff4ef',
   },
+  'lesson-2-12-in-the-classroom': {
+    image: 'a1_photo_u2_classroom_room_v1.webp',
+    description: 'El salón de clases y sus cosas.',
+    color: '#fdeccf',
+  },
+  'lesson-2-13-more-colors': {
+    image: 'a1_photo_u2_morecolors_purple_v1.webp',
+    description: 'Más colores, y muy grande o muy pequeño.',
+    color: '#efe3fb',
+  },
   'lesson-2-9-unit-2-review': {
     image: 'a1_scene_five-black-phones_734dda6.webp',
     description: 'Repaso de lugares, objetos, números, colores, estos y esos.',
@@ -303,6 +313,21 @@ const VISUALS: Record<string, { image: string; description: string; color: strin
     image: 'a1_photo_u4_calendar_week_v1.webp',
     description: 'Mañana, la semana, el mes y el año.',
     color: '#f1e4fa',
+  },
+  'lesson-4-13-months-january-to-june': {
+    image: 'a1_photo_u4_month_03_march_v1.webp',
+    description: 'Los meses: de enero a junio.',
+    color: '#e3f1fb',
+  },
+  'lesson-4-14-months-july-to-december': {
+    image: 'a1_photo_u4_birthday_ana_v1.webp',
+    description: 'Los meses: de julio a diciembre, y el cumpleaños.',
+    color: '#fbe9e3',
+  },
+  'lesson-4-15-more-at-home': {
+    image: 'a1_photo_u4_morehome_garden_v1.webp',
+    description: 'Más partes y cosas de la casa.',
+    color: '#e6f5e1',
   },
   'lesson-4-9-unit-4-review': {
     image: 'a1_scene_bedroom_009e058.webp',

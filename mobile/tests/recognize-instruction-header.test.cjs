@@ -44,7 +44,7 @@ const affectedLessons = new Set(emptyRecognizeCards.map(({ lessonId }) => lesson
 // 196 since the Unit 2 rebuild: the 40-card extensions add one each and Numbers 1-5 / 6-10 have five each.
 assert.equal(
   emptyRecognizeCards.length,
-  411, // A1 3.13 Phone Number and Address with its two review constructions. A1 5.11 Buying Things with its four review constructions. 2026-11-14: A1 4.12 Tomorrow and the Week adds 5 and the extended Unit 4 review 1. 2026-11-14: A1 4.11 Everyday Verbs adds 5. 2026-11-14: A1 2.11 Big and Small adds 5 and the extended Unit 2 review 1. 2026-10-19: Unit 7's approved preference/activity cues replace 19 empty prompts; 2026-11-14: A1 1.10 Pets adds 5 and 1.11 Friends and People adds 5; the extended Unit 1 review adds 1.
+  431, // A1 4.13 to 4.15 (months and more at home) with sixteen review cards. A1 2.13 More Colors with its five review cards. A1 2.12 In the Classroom with its eight review cards. A1 3.13 Phone Number and Address with its two review constructions. A1 5.11 Buying Things with its four review constructions. 2026-11-14: A1 4.12 Tomorrow and the Week adds 5 and the extended Unit 4 review 1. 2026-11-14: A1 4.11 Everyday Verbs adds 5. 2026-11-14: A1 2.11 Big and Small adds 5 and the extended Unit 2 review 1. 2026-10-19: Unit 7's approved preference/activity cues replace 19 empty prompts; 2026-11-14: A1 1.10 Pets adds 5 and 1.11 Friends and People adds 5; the extended Unit 1 review adds 1.
   // 2026-10-07 clarification: 12 reverse cards return to the Lesson 1.1 instruction (+12).
   // 2026-10-05: four approved 4.10 day foundations (DR1–DR4) joined the shared empty-prompt choices.
   // 2026-10-03: time questions brought the inventory to 359; approved Unit 4 question/heard cues previously brought it to 362.
@@ -56,7 +56,7 @@ assert.equal(
 );
 assert.equal(
   affectedLessons.size,
-  77, // A1 3.13 Phone Number and Address with its two review constructions. A1 5.11 Buying Things with its four review constructions joins. 2026-11-14: 4.12 Tomorrow and the Week joins. 2026-10-19: three Unit 7 lessons now use explicit written preference/activity cues; 2026-11-14: A1 1.10 Pets, 1.11 Friends and People, 2.11 Big and Small and 4.11 Everyday Verbs join.
+  81, // A1 4.13 to 4.15 (months and more at home) with sixteen review cards. A1 4.13 to 4.15 (months and more at home) with sixteen review cards. A1 2.13 More Colors with its five review cards. A1 2.12 In the Classroom with its eight review cards. A1 3.13 Phone Number and Address with its two review constructions. A1 5.11 Buying Things with its four review constructions joins. 2026-11-14: 4.12 Tomorrow and the Week joins. 2026-10-19: three Unit 7 lessons now use explicit written preference/activity cues; 2026-11-14: A1 1.10 Pets, 1.11 Friends and People, 2.11 Big and Small and 4.11 Everyday Verbs join.
   // 2026-10-01: rebuilt Unit 4 context cards carry explicit instructions/questions.
   // 3.3 now uses explicit questions and audio-choice instructions instead of an empty prompt.
   // the Unit 1 rebuild adds Lesson 1.5; the Unit 2 rebuild adds 2.4, the new 2.7 and the new 2.10;

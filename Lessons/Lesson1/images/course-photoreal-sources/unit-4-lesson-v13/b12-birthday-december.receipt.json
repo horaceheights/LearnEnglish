@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "6a2aa801-62ca-43c8-8b37-ac6ba8a2b7c4",
+  "asset_id": "b12-birthday-december",
+  "pack_sha256": "55cf90ec3126f130be2fd1d5cdcc0fb169f84f1f0db27ce2c53ebdfbd1d2edbc",
+  "started_at": "2026-11-15T19:10:07.479106+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. A real photograph of a whiteboard for a Spanish-speaking adult beginner learning English. The board shows only numbers and, where the instruction says so, one small drawing: no month names, no day names, no letters and no words anywhere, in any language. Full-bleed 3:2 landscape; no frames added, no padding, watermark or captions.\n\nThis is a precise edit of image 1: the result must look like the same photograph with one mark added. Change only what the instruction names.\n\nImage 1 is a photograph of a whiteboard year planner with twelve numbered boxes. Keep the photograph exactly as it is: the same framing, the same board and wooden frame, the year at the top, every box number from 1 to 12 in the same place and every small grid of day squares. Do not move, redraw, add or remove any number. Add only this: inside box 12 (the fourth box of the bottom row), one small, simple, colorful hand-drawn BIRTHDAY CAKE in marker (a pink cake with three lit candles), about a third of the box high, placed in the empty right part of the box so that it does not cover the number 12; and ONE freehand dark-blue pen loop around the whole of box 12, enclosing its number and the cake. No other box has a drawing or a loop. No letters or words anywhere.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1_photo_u4_calendar_year_v1.webp",
+    "sha256": "f2cd9002d202468996c0774657225989ada8c64a3b25cd188472e49f3ac3d2d7"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "jwP6asWSKMD4qtsP76qGkAc",
+  "usage": {
+    "promptTokenCount": 558,
+    "candidatesTokenCount": 1327,
+    "totalTokenCount": 2075,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 300
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 190,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137396",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 558,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 190
+  },
+  "elapsed_seconds": 21.26,
+  "output": "output/imagegen/unit-4-lesson-v13/b12-birthday-december.png",
+  "sha256": "e49f055305cf1f5d90eeec98db0a3891f3dcb725c3d50aa7680974d234c3f563",
+  "byte_count": 4849041,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

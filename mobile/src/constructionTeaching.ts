@@ -33,15 +33,25 @@ for (const noun of words('aunt uncle cousin')) NOUNS.add(noun);
 for (const noun of words('hair beard')) NOUNS.add(noun);
 // A1 1.10 (2026-11-14): pets.
 for (const noun of words('dog cat bird rabbit pet pets')) NOUNS.add(noun);
+// A1 2.12 (2026-11-15): in the classroom.
+for (const noun of words('classroom class student desk pencil paper notebook')) NOUNS.add(noun);
 // A1 1.11 (2026-11-14): friends and people.
 for (const noun of words('friend friends husband wife son daughter person people')) NOUNS.add(noun);
 // A1 4.12 (2026-11-14): the calendar (It is a week., There are twelve months in a year.).
 for (const noun of words('days week weekend month months year')) NOUNS.add(noun);
+// A1 4.13 (2026-11-15): the first six months, used like the day names (It is March.).
+for (const noun of words('january february march april may june')) NOUNS.add(noun);
+// A1 4.14 (2026-11-15): the last six months, and birthday (My birthday is in July.).
+for (const noun of words('july august september october november december birthday')) NOUNS.add(noun);
+// A1 4.15 (2026-11-15): more at home.
+for (const noun of words('apartment garden floor wall stairs roof toilet key')) NOUNS.add(noun);
 // A1 5.11 (2026-11-14): buying things (The price is five dollars.).
 for (const noun of words('money price')) NOUNS.add(noun);
 for (const noun of words('address')) NOUNS.add(noun);
 const COMPOUND_NOUNS: Record<string, string> = { 'post office': 'oficina de correos', 'movie theater': 'cine', 'bus stop': 'parada de autobús', 'next stop': 'próxima parada' };
 const STATES = set('red blue green yellow black white happy sad tired hungry thirsty sunny rainy cold hot windy cloudy mexican spanish american canadian');
+// A1 2.13 (2026-11-15): four more colors, before a noun (a brown dog) and after "is" (It is brown.).
+for (const color of words('brown pink purple gray')) { COLORS.add(color); STATES.add(color); }
 // A1+ 1.1 (2026-11-10): what people look like, after "is" (Luis is tall.) or before a noun (an old man, long hair).
 const DESCRIPTIONS = set('tall short old young long');
 // A1+ 1.5 (2026-11-11): brothers and sisters before a noun (an older sister, my younger brother).

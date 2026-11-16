@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "f0c95fab-f4ee-4733-a9ef-9c9ba7e959ae",
+  "asset_id": "n02-purple-bag",
+  "pack_sha256": "e7326666d204705addd5de556aae5350d559601fd9529f19c2bd01519a6a8a4d",
+  "started_at": "2026-11-15T18:13:24.958543+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material and fur texture, soft natural daylight and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must name the color instantly on a small phone screen. Do not imitate earlier course photos.\n\nThis is a precise edit of image 1: the result must look like the same photograph with one detail changed. Change only what the instruction names.\n\nImage 1 shows one yellow backpack. Keep the photograph exactly as it is: the same backpack, shape, position, floor, wall, light and framing. Change ONLY the color of the backpack: it is now solid strong violet PURPLE instead of yellow, fabric, straps and zipper tape alike. Nothing else changes.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1_photo_u2_yellow_bag_v1.webp",
+    "sha256": "6a34253255248b4ab51e0e2342c001fbccbbc09ecfe6624940f63792796c7910"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "Rfb5apbpEJ-VmtkPg6vt0Q0",
+  "usage": {
+    "promptTokenCount": 458,
+    "candidatesTokenCount": 1254,
+    "totalTokenCount": 1864,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 200
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 152,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.136740",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 458,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 152
+  },
+  "elapsed_seconds": 19.46,
+  "output": "output/imagegen/unit-2-review-v6/n02-purple-bag.png",
+  "sha256": "731219c479befae8860177787b2fd3cfec0cd0595eb1c73d2b14e8a49e8379f3",
+  "byte_count": 4416339,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}
