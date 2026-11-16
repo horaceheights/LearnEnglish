@@ -70,7 +70,8 @@ class Unit6JourneyCharacterTests(unittest.TestCase):
     def test_corrections_preserve_the_approved_card_allocation(self):
         for number in range(1, 14):
             plan = json.loads((PLANS / f"6.{number}.plan.json").read_text(encoding="utf-8"))
-            self.assertEqual(54 if number == 13 else 42, len(compose_lesson(plan)["cards"]))
+            # 2026-11-16: the review plan (6.13.plan.json, now lesson 6.14) gained two construction cards for In the City.
+            self.assertEqual(56 if number == 13 else 42, len(compose_lesson(plan)["cards"]))
 
     def test_departure_images_keep_the_exact_reviewed_direction_corrections(self):
         review = json.loads((PLANS / "schedule-direction-review.json").read_text(encoding="utf-8"))

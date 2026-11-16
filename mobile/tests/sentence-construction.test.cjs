@@ -61,7 +61,8 @@ test('tap, arbitrary drop, outside drop, removal and repair share ordered valida
   // 389 since 2026-11-14/15: A1 2.13 More Colors with its five review cards.
   // 405 since 2026-11-14/15: A1 4.13 to 4.15 (months and more at home) with sixteen review cards.
   // 421 since 2026-11-14/15: A1 5.13 More Food and 5.14 At the Table with eight review constructions.
-  assert.equal(rollout.length, 421);
+  // 458 since 2026-11-14/15: The last seven gap lessons (3.14, 6.13, 7.9 to 7.13).
+  assert.equal(rollout.length, 458);
   for (const card of [...pilots, ...rollout]) {
     let selected = api.sentenceSlots(card, []);
     const expected = card.correct_option_ids;

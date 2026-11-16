@@ -622,6 +622,8 @@ COURSE_SYLLABLES.update({
 
 ING_PRONUNCIATION_NOTES = {
     "going": "'going' /ˈɡoʊ.ɪŋ/",
+    "spring": "'spring' /sprɪŋ/",
+    "sing": "'sing' /sɪŋ/",
     "evening": "'evening' /ˈiːv.nɪŋ/; stress the first syllable, keep the ending brief",
     "building": "'building' /ˈbɪl.dɪŋ/",
     "cooking": "'cooking' /ˈkʊk.ɪŋ/",
