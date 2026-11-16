@@ -1,0 +1,92 @@
+{
+  "schema_version": 1,
+  "pack": "unit-7-review-gap-photos",
+  "revision": 2,
+  "output_namespace": "unit-7-review-v6",
+  "authorization": "2026-11-15: review photos that bring back words of the five Unit 7 gap lessons in the Unit 7 review, under the standing rule. The user asked for every remaining gap lesson to be built (\"biuild the whole plan, none stop\") and had approved the gap-lesson media in advance (\"I preapprove all image and audios creation no need for me to reiew and approve on the fly\"). Ceiling US$1.12 for this revision. Gemini is the approved image tool (2026-09-23). Revision 1 sent one request per pack on 2026-11-15 and every one was refused with HTTP 402 (the image account had no credit), so nothing was generated; revision 2 repeats the same prompts in new namespaces. Revision 2 is frozen: a changed prompt is a new revision in a new file, and every rejected output is reported with its cost.",
+  "image_settings": {
+    "provider": "google-gemini",
+    "model": "gemini-3-pro-image",
+    "aspect_ratio": "3:2",
+    "image_size": "2K",
+    "runtime_size": "1536x1024",
+    "runtime_format": "webp",
+    "n": 1
+  },
+  "production": {
+    "price_per_image_usd": "0.134",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing (checked 2026-09-24: Gemini 3 Pro Image, $0.134 per 1K/2K image)",
+    "planned_images": 5,
+    "expected_cost_usd": "0.67",
+    "requested_ceiling_usd": "1.12",
+    "no_automatic_retries": true,
+    "order": "Independent photos in any order; an edit is sent after its base photo is inspected. A rejected output is reported with its cost; a redo needs a changed prompt in a new revision file."
+  },
+  "shared_prompts": {
+    "photo": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real skin, fur, fabric and landscape texture, natural light and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.",
+    "safe_center": "Keep the main subject of the photo whole inside the central 55 percent of the photo width, so a centered 4:5 crop keeps it whole; only expendable background reaches the left and right edges.",
+    "edit": "This is an edit of image 1: the result must look like the same place photographed from the same spot. Change only what the instruction names."
+  },
+  "assets": [
+    {
+      "id": "v01-man-afraid",
+      "order": 1,
+      "lesson": "7.14",
+      "item": "He is afraid.",
+      "runtime_filename": "a1_u7_review_gap_man_afraid_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo"
+      ],
+      "prompt": "An AFRAID man. A man of about sixty with white hair and a plain green sweater shrinks back with his eyes wide open, his eyebrows raised and his mouth open in a gasp, both hands raised with open palms, looking at something off-camera that frightens him. He is clearly frightened. Exactly one person, seen from the waist up, sharp, in a plain bright room with nothing distracting behind. No letters, words, numbers, logos or brand marks anywhere. Every visible hand has five natural fingers."
+    },
+    {
+      "id": "v02-winter-street",
+      "order": 2,
+      "lesson": "7.14",
+      "item": "It is winter.",
+      "runtime_filename": "a1_u7_review_gap_winter_street_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo"
+      ],
+      "prompt": "WINTER in a town. A quiet street of small houses under deep white snow: snow on the roofs, on the bare trees and on the ground, with icicles on a roof edge, under a pale gray sky. No people, no cars. No letters, words, numbers, logos or brand marks anywhere."
+    },
+    {
+      "id": "v03-red-flower",
+      "order": 3,
+      "lesson": "7.14",
+      "item": "The flower is red.",
+      "runtime_filename": "a1_u7_review_gap_red_flower_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo"
+      ],
+      "prompt": "ONE FLOWER. A single large bright RED flower with a green stem grows alone in a plain clay pot on a wooden table, photographed close up against a soft plain pale background. Nothing else. No letters, words, numbers, logos or brand marks anywhere."
+    },
+    {
+      "id": "v04-horse-eating",
+      "order": 4,
+      "lesson": "7.14",
+      "item": "The horse is eating.",
+      "runtime_filename": "a1_u7_review_gap_horse_eating_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo"
+      ],
+      "prompt": "ONE HORSE EATING. A white horse stands in side view in a green field with its head lowered to the ground, eating grass, with grass visibly in its mouth. Exactly one animal; no people. No letters, words, numbers, logos or brand marks anywhere."
+    },
+    {
+      "id": "v05-boys-tennis",
+      "order": 5,
+      "lesson": "7.14",
+      "item": "They play tennis.",
+      "runtime_filename": "a1_u7_review_gap_boys_tennis_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo"
+      ],
+      "prompt": "TENNIS. Two teenage boys in plain blue shirts play tennis on an indoor court, seen from the side: one hits the yellow ball with his racket and the other waits across the net. The net, both rackets and the ball are clearly visible. Exactly two people. No letters, words, numbers, logos or brand marks anywhere."
+    }
+  ]
+}

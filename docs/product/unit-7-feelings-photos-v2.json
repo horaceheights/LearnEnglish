@@ -1,0 +1,126 @@
+{
+  "schema_version": 1,
+  "pack": "unit-7-feelings-photos",
+  "revision": 2,
+  "output_namespace": "unit-7-lesson-v10",
+  "authorization": "2026-11-15: photos for A1 lesson 7.9 More Feelings. The user asked for every remaining gap lesson to be built (\"biuild the whole plan, none stop\") and had approved the gap-lesson media in advance (\"I preapprove all image and audios creation no need for me to reiew and approve on the fly\"). Ceiling US$1.39 for this revision. Gemini is the approved image tool (2026-09-23). Revision 1 sent one request per pack on 2026-11-15 and every one was refused with HTTP 402 (the image account had no credit), so nothing was generated; revision 2 repeats the same prompts in new namespaces. Revision 2 is frozen: a changed prompt is a new revision in a new file, and every rejected output is reported with its cost.",
+  "image_settings": {
+    "provider": "google-gemini",
+    "model": "gemini-3-pro-image",
+    "aspect_ratio": "3:2",
+    "image_size": "2K",
+    "runtime_size": "1536x1024",
+    "runtime_format": "webp",
+    "n": 1
+  },
+  "production": {
+    "price_per_image_usd": "0.134",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing (checked 2026-09-24: Gemini 3 Pro Image, $0.134 per 1K/2K image)",
+    "planned_images": 7,
+    "expected_cost_usd": "0.94",
+    "requested_ceiling_usd": "1.39",
+    "no_automatic_retries": true,
+    "order": "Independent photos in any order; an edit is sent after its base photo is inspected. A rejected output is reported with its cost; a redo needs a changed prompt in a new revision file."
+  },
+  "shared_prompts": {
+    "photo": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real skin, fur, fabric and landscape texture, natural light and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.",
+    "safe_center": "Keep the main subject of the photo whole inside the central 55 percent of the photo width, so a centered 4:5 crop keeps it whole; only expendable background reaches the left and right edges.",
+    "edit": "This is an edit of image 1: the result must look like the same place photographed from the same spot. Change only what the instruction names."
+  },
+  "assets": [
+    {
+      "id": "a01-fine",
+      "order": 1,
+      "lesson": "7.9",
+      "item": "Fine / I am fine.",
+      "runtime_filename": "a1_photo_u7_feelings_ana_fine_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1_scene_ana-breakfast_e7fbea5.webp",
+        "sha256": "3a528a586b056f0dea3cad8a1d1ca5effce502c1e990632486ff9daafaaee6cc",
+        "observed_description": "Ana, a woman of about thirty with long wavy black hair, an olive-green button shirt open over a white top, sits at a wooden kitchen table holding a cup of coffee and a slice of toast and smiles, in a bright kitchen."
+      },
+      "prompt": "Image 1 shows Ana: about thirty, long wavy black hair, an olive-green button shirt open over a white top. Keep her face, hair and clothes exactly. Create a NEW photograph: Ana stands relaxed, looks at the camera with a calm, small, friendly smile and makes the OK sign with one hand (thumb and forefinger in a circle). She looks well and calm: not excited, not ill. Exactly one person, seen from the waist up, sharp, in a plain bright room with nothing distracting behind. No letters, words, numbers, logos or brand marks anywhere. Every visible hand has five natural fingers."
+    },
+    {
+      "id": "a02-great",
+      "order": 2,
+      "lesson": "7.9",
+      "item": "Great / I am great.",
+      "runtime_filename": "a1_photo_u7_feelings_luis_great_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1_luis.webp",
+        "sha256": "3e8cab7135c3f06e9f8fde506992787a422fc05331cef89be21516428800d89c",
+        "observed_description": "Luis, a man of about thirty with short curly black hair, in a navy T-shirt, in a head-and-shoulders portrait."
+      },
+      "prompt": "Image 1 shows Luis: about thirty, short curly black hair, a navy T-shirt. Keep his face, hair and clothes exactly. Create a NEW photograph: Luis is overjoyed: he raises both fists high above his head in triumph, with a huge open-mouthed smile and bright eyes, looking at the camera, full of energy. Exactly one person, seen from the waist up, sharp, in a plain bright room with nothing distracting behind. No letters, words, numbers, logos or brand marks anywhere. Every visible hand has five natural fingers."
+    },
+    {
+      "id": "a03-woman-sick",
+      "order": 3,
+      "lesson": "7.9",
+      "item": "Sick / She is sick.",
+      "runtime_filename": "a1_photo_u7_feelings_woman_sick_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo"
+      ],
+      "prompt": "A SICK woman. A woman of about forty with short brown hair lies in bed under a blanket, propped on a pillow, looking weak and unwell with a red nose and tired eyes; she holds a white tissue to her nose with one hand and a thermometer is in her mouth. A glass of water and a box of plain tissues stand on the bedside table. Exactly one person; she is clearly ill, not just sleepy. No letters, words, numbers, logos or brand marks anywhere. Every visible hand has five natural fingers."
+    },
+    {
+      "id": "a04-man-sick",
+      "order": 4,
+      "lesson": "7.9",
+      "item": "He is sick.",
+      "runtime_filename": "a1_photo_u7_feelings_man_sick_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo"
+      ],
+      "prompt": "A SICK man. A man of about fifty with gray hair sits on a sofa wrapped in a thick blanket, looking weak and unwell with a red nose; he blows his nose into a white tissue and holds a steaming mug in the other hand. A thermometer and a box of plain tissues lie on the low table in front of him. Exactly one person; he is clearly ill. No letters, words, numbers, logos or brand marks anywhere. Every visible hand has five natural fingers."
+    },
+    {
+      "id": "a05-man-angry",
+      "order": 5,
+      "lesson": "7.9",
+      "item": "Angry / He is angry.",
+      "runtime_filename": "a1_photo_u7_feelings_man_angry_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo"
+      ],
+      "prompt": "An ANGRY man. A man of about forty with short black hair and a plain gray shirt stands with his arms tightly crossed, his eyebrows pulled down hard, his jaw clenched and his mouth pressed into a frown, glaring at the camera. He is clearly angry: not sad, not tired. Exactly one person, seen from the waist up, sharp, in a plain bright room with nothing distracting behind. No letters, words, numbers, logos or brand marks anywhere. Every visible hand has five natural fingers."
+    },
+    {
+      "id": "a06-woman-angry",
+      "order": 6,
+      "lesson": "7.9",
+      "item": "She is angry.",
+      "runtime_filename": "a1_photo_u7_feelings_woman_angry_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo"
+      ],
+      "prompt": "An ANGRY woman. A woman of about thirty with blond hair in a ponytail and a plain red sweater stands with both fists on her hips, her eyebrows pulled down hard and her mouth open as if shouting, glaring at the camera. She is clearly angry: not sad, not afraid. Exactly one person, seen from the waist up, sharp, in a plain bright room with nothing distracting behind. No letters, words, numbers, logos or brand marks anywhere. Every visible hand has five natural fingers."
+    },
+    {
+      "id": "a07-woman-afraid",
+      "order": 7,
+      "lesson": "7.9",
+      "item": "Afraid / She is afraid.",
+      "runtime_filename": "a1_photo_u7_feelings_woman_afraid_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo"
+      ],
+      "prompt": "An AFRAID woman. A woman of about twenty-five with curly dark hair and a plain blue shirt shrinks back with her eyes wide open and her eyebrows raised, her mouth open in a gasp and both hands raised in front of her chest with open palms, looking at something off-camera to the side that frightens her. She is clearly frightened: not angry, not surprised with joy. Exactly one person, seen from the waist up, sharp, in a plain bright room with nothing distracting behind. No letters, words, numbers, logos or brand marks anywhere. Every visible hand has five natural fingers."
+    }
+  ]
+}
