@@ -56,7 +56,7 @@ assert.equal(
 );
 assert.equal(
   affectedLessons.size,
-  82, // A1 4.13 to 4.15 (months and more at home) with sixteen review cards. A1 2.13 More Colors with its five review cards. A1 2.12 In the Classroom with its eight review cards. A1 3.13 Phone Number and Address with its two review constructions. A1 5.11 Buying Things with its four review constructions joins. 2026-11-14: 4.12 Tomorrow and the Week joins. 2026-10-19: three Unit 7 lessons now use explicit written preference/activity cues; 2026-11-14: A1 1.10 Pets, 1.11 Friends and People, 2.11 Big and Small and 4.11 Everyday Verbs join.
+  81, // A1 4.13 to 4.15 (months and more at home) with sixteen review cards. A1 4.13 to 4.15 (months and more at home) with sixteen review cards. A1 2.13 More Colors with its five review cards. A1 2.12 In the Classroom with its eight review cards. A1 3.13 Phone Number and Address with its two review constructions. A1 5.11 Buying Things with its four review constructions joins. 2026-11-14: 4.12 Tomorrow and the Week joins. 2026-10-19: three Unit 7 lessons now use explicit written preference/activity cues; 2026-11-14: A1 1.10 Pets, 1.11 Friends and People, 2.11 Big and Small and 4.11 Everyday Verbs join.
   // 2026-10-01: rebuilt Unit 4 context cards carry explicit instructions/questions.
   // 3.3 now uses explicit questions and audio-choice instructions instead of an empty prompt.
   // the Unit 1 rebuild adds Lesson 1.5; the Unit 2 rebuild adds 2.4, the new 2.7 and the new 2.10;
