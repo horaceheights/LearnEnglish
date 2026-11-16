@@ -37,11 +37,11 @@ class UnitParityTests(unittest.TestCase):
                     for f in contract["functions"] if mission_deferral(f)}
         self.assertEqual(recorded, {("2", "size-state-comparison"), ("4", "everyday-verbs"), ("4", "tomorrow-and-the-week"),
                                     ("5", "buying-things"), ("5", "tens"),
-                                    ("3", "contact-details")})
+                                    ("3", "contact-details"), ("2", "classroom-words"), ("2", "more-colors")})
         lessons = [json.loads(path.read_text(encoding="utf-8-sig"))
                    for path in sorted((CONTRACTS.parents[2] / "backend/lessons/unit_2").glob("*.yaml"))]
         result = audit(lessons, {**contracts, "units": {"2": contracts["units"]["2"]}}, CONTRACTS.parents[2] / "Lessons/Lesson1/images")
-        self.assertEqual(result["units"]["2"]["mission_practice_deferred"], ["size-state-comparison"])
+        self.assertEqual(result["units"]["2"]["mission_practice_deferred"], ["classroom-words", "more-colors", "size-state-comparison"])
         self.assertTrue(result["units"]["2"]["ready"], result["units"]["2"]["gaps"])
 
     def test_metadata_and_distractors_cannot_claim_successful_practice(self):

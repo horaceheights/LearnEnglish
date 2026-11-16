@@ -95,6 +95,8 @@ const MEANINGS: Record<string, string> = {
   studying: 'estudiando', playing: 'jugando', swimming: 'nadando', sleeping: 'durmiendo',
   sitting: 'sentado', talking: 'hablando',
   red: 'rojo', blue: 'azul', green: 'verde', yellow: 'amarillo', black: 'negro', white: 'blanco',
+  // A1 2.13 (2026-11-15): four more colors, and very.
+  brown: 'marrón', pink: 'rosa', purple: 'morado', gray: 'gris', very: 'muy',
   this: 'este, cerca', that: 'ese, lejos', these: 'estos, cerca', those: 'esos, lejos',
   one: 'uno', two: 'dos', three: 'tres', four: 'cuatro', five: 'cinco', six: 'seis', seven: 'siete',
   eight: 'ocho', nine: 'nueve', ten: 'diez', eleven: 'once', twelve: 'doce', thirteen: 'trece',
@@ -104,6 +106,9 @@ const MEANINGS: Record<string, string> = {
   hospital: 'hospital', street: 'calle', bridge: 'puente', bus: 'autobús', car: 'automóvil',
   bike: 'bicicleta', book: 'libro', books: 'libros', pen: 'bolígrafo', pens: 'bolígrafos',
   phone: 'teléfono', phones: 'teléfonos', bag: 'bolsa', bags: 'bolsas', chair: 'silla', table: 'mesa', cars: 'automóviles',
+  // A1 2.12 (2026-11-15): in the classroom.
+  classroom: 'salón de clases', class: 'clase', student: 'estudiante', desk: 'pupitre', pencil: 'lápiz', paper: 'papel',
+  notebook: 'cuaderno', or: 'o',
   bed: 'cama', bedroom: 'dormitorio', kitchen: 'cocina', 'living room': 'sala', 'dining room': 'comedor',
   computer: 'computadora', door: 'puerta', lamp: 'lámpara', doctor: 'médico', nurse: 'enfermero o enfermera',
   teacher: 'profesor o profesora', driver: 'conductor', farmer: 'agricultor', job: 'trabajo', name: 'nombre',

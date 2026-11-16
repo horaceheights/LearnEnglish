@@ -1,0 +1,57 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "0f7cb6c9-4c33-494f-8baf-3133b56d9e2a",
+  "asset_id": "k02-class",
+  "pack_sha256": "33e0b7c50abd57b85c4b306efd28f90151271e1007ae1313af8a28b021f7965b",
+  "started_at": "2026-11-15T17:53:33.741858+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material, skin, wood and fabric texture, soft natural daylight and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.\n\nA CLASS of adults during a lesson, the people are the subject. Seen from the side at eye level: six adult students of different ages sit close together at two rows of desks in the middle of the photo, all looking toward a woman who stands at the front on the right and speaks to them with an open hand; two of the students have a raised hand. The students' faces and the standing woman are sharp and fill most of the photo; the room behind them is soft and plain. The board behind the woman is completely blank. Open notebooks lie on the desks but nothing on them is readable. No letters, words, numbers, logos or brand marks anywhere. Every visible hand has five natural fingers.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "nvH5avlAwa3Psg-V9MH5BQ",
+  "usage": {
+    "promptTokenCount": 252,
+    "candidatesTokenCount": 1295,
+    "totalTokenCount": 1734,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 252
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 187,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.136748",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 252,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 187
+  },
+  "elapsed_seconds": 25.39,
+  "output": "output/imagegen/unit-2-lesson-v8/k02-class.png",
+  "sha256": "901be44d84f6f4a6210d53f0dc30df1999e7616fce91adfc7bcda35f9f3e0f12",
+  "byte_count": 5924855,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

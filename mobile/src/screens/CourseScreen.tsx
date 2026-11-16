@@ -159,6 +159,16 @@ const VISUALS: Record<string, { image: string; description: string; color: strin
     description: 'Grande y pequeño, nuevo y usado, igual y diferente.',
     color: '#dff4ef',
   },
+  'lesson-2-12-in-the-classroom': {
+    image: 'a1_photo_u2_classroom_room_v1.webp',
+    description: 'El salón de clases y sus cosas.',
+    color: '#fdeccf',
+  },
+  'lesson-2-13-more-colors': {
+    image: 'a1_photo_u2_morecolors_purple_v1.webp',
+    description: 'Más colores, y muy grande o muy pequeño.',
+    color: '#efe3fb',
+  },
   'lesson-2-9-unit-2-review': {
     image: 'a1_scene_five-black-phones_734dda6.webp',
     description: 'Repaso de lugares, objetos, números, colores, estos y esos.',
