@@ -138,10 +138,11 @@ test('conversation decisions use ordinary contrast teaching and keep semantic im
 // A1 3.13 Phone Number and Address with its two review constructions moved the total to 2629; the earlier outputs were proven byte-identical first.
 // A1 2.12 In the Classroom with its eight review cards moved the total to 2659; the earlier outputs were proven byte-identical first.
 // A1 2.13 More Colors with its five review cards moved the total to 2685; the earlier outputs were proven byte-identical first.
-test('all 2685 established A1 ordinary wrong-choice outputs remain unchanged', () => {
+// A1 4.13 to 4.15 (months and more at home) with sixteen review cards moved the total to 2783; the earlier outputs were proven byte-identical first.
+test('all 2783 established A1 ordinary wrong-choice outputs remain unchanged', () => {
   const course = JSON.parse(fs.readFileSync(path.join(__dirname, '../src/generated/a1-course.json'), 'utf8'));
   const results = course.flatMap(lesson => lesson.cards).filter(card => card.options.length >= 2 && !card.interaction_type?.startsWith('complete'))
     .flatMap(card => wrongOptions(card).map(option => [card.slide_id, option.id, lessonMistakeHint(card, option.id)]));
-  assert.equal(results.length, 2685);
+  assert.equal(results.length, 2783);
   assert.equal(crypto.createHash('sha256').update(JSON.stringify(results)).digest('hex'), fixture.a1BaselineSha256);
 });
