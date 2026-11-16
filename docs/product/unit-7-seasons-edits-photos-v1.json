@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "pack": "unit-7-seasons-edits-photos",
+  "revision": 1,
+  "output_namespace": "unit-7-lesson-v20",
+  "authorization": "2026-11-16: the user decided the image model by photo type (\"Yes, use Flash\"): Gemini 2.5 Flash Image for simple object, animal and scenery photos, Gemini 3 Pro Image for people and precise edits; the gap-lesson media was approved in advance (\"I preapprove all image and audios creation no need for me to reiew and approve on the fly\"). The prompts are those of unit-7-seasons-photos-v2.json, whose earlier requests were refused for lack of credit before any of these photos was made. Ceiling US$0.70 for this revision. Revision 1 is frozen: a changed prompt is a new revision in a new file, and every rejected output is reported with its cost.",
+  "image_settings": {
+    "provider": "google-gemini",
+    "model": "gemini-3-pro-image",
+    "aspect_ratio": "3:2",
+    "image_size": "2K",
+    "runtime_size": "1536x1024",
+    "runtime_format": "webp",
+    "n": 1
+  },
+  "production": {
+    "price_per_image_usd": "0.134",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing (checked 2026-09-24: Gemini 3 Pro Image, $0.134 per 1K/2K image)",
+    "planned_images": 3,
+    "expected_cost_usd": "0.40",
+    "requested_ceiling_usd": "0.70",
+    "no_automatic_retries": true,
+    "order": "Independent photos in any order; an edit is sent after its base photo is inspected. A rejected output is reported with its cost; a redo needs a changed prompt in a new revision file."
+  },
+  "shared_prompts": {
+    "photo": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real skin, fur, fabric and landscape texture, natural light and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.",
+    "safe_center": "Keep the main subject of the photo whole inside the central 55 percent of the photo width, so a centered 4:5 crop keeps it whole; only expendable background reaches the left and right edges.",
+    "edit": "This is an edit of image 1: the result must look like the same place photographed from the same spot. Change only what the instruction names."
+  },
+  "assets": [
+    {
+      "id": "s02-spring",
+      "order": 1,
+      "lesson": "7.10",
+      "item": "Spring / It is spring.",
+      "runtime_filename": "a1_photo_u7_seasons_spring_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo",
+        "edit"
+      ],
+      "prompt": "Image 1 shows a tree on a grassy hill in a park in summer. Keep the same tree, hill, bench, path and framing. Change the season to SPRING: the tree is covered in pink and white blossom with only a few small fresh light-green leaves, yellow and purple spring flowers grow in the fresh green grass, and the light is soft and mild. Remove the picnic blanket and the hat. No people. No letters, words, numbers, logos or brand marks anywhere.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1_photo_u7_seasons_summer_v1.webp",
+        "sha256": "1cac21d37bc84ee58dbb175d27087e47a2387274ce0de7b684e3a0ce5c1097ca",
+        "observed_description": "One large tree full of dense dark-green leaves on a dry grassy hill under a deep-blue sky, with a wooden bench in its shade, a path in front and a red picnic blanket with a straw hat on the grass. No people."
+      }
+    },
+    {
+      "id": "s03-fall",
+      "order": 2,
+      "lesson": "7.10",
+      "item": "Fall / It is fall.",
+      "runtime_filename": "a1_photo_u7_seasons_fall_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo",
+        "edit"
+      ],
+      "prompt": "Image 1 shows a tree on a grassy hill in a park in summer. Keep the same tree, hill, bench, path and framing. Change the season to FALL (autumn): every leaf on the tree is orange, red and yellow, many leaves are falling through the air and a thick carpet of fallen orange leaves covers the grass and the bench; the sky is pale and the light is low and golden. Remove the picnic blanket and the hat. No people. No letters, words, numbers, logos or brand marks anywhere.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1_photo_u7_seasons_summer_v1.webp",
+        "sha256": "1cac21d37bc84ee58dbb175d27087e47a2387274ce0de7b684e3a0ce5c1097ca",
+        "observed_description": "One large tree full of dense dark-green leaves on a dry grassy hill under a deep-blue sky, with a wooden bench in its shade, a path in front and a red picnic blanket with a straw hat on the grass. No people."
+      }
+    },
+    {
+      "id": "s04-winter",
+      "order": 3,
+      "lesson": "7.10",
+      "item": "Winter / It is winter.",
+      "runtime_filename": "a1_photo_u7_seasons_winter_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo",
+        "edit"
+      ],
+      "prompt": "Image 1 shows a tree on a grassy hill in a park in summer. Keep the same tree, hill, bench, path and framing. Change the season to WINTER: the tree is completely bare, with no leaves, and its branches carry snow; deep white snow covers the hill, the bench and the path; the sky is pale gray. Remove the picnic blanket and the hat. No people. No letters, words, numbers, logos or brand marks anywhere.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1_photo_u7_seasons_summer_v1.webp",
+        "sha256": "1cac21d37bc84ee58dbb175d27087e47a2387274ce0de7b684e3a0ce5c1097ca",
+        "observed_description": "One large tree full of dense dark-green leaves on a dry grassy hill under a deep-blue sky, with a wooden bench in its shade, a path in front and a red picnic blanket with a straw hat on the grass. No people."
+      }
+    }
+  ]
+}
