@@ -1,0 +1,57 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "a6e2798d-71b8-42fd-9dd7-a8869ed6706f",
+  "asset_id": "t02-glass",
+  "pack_sha256": "b178a9b91f7d85970b75045326630d978c749fef1628bd2e35993c570139e721",
+  "started_at": "2026-11-15T19:48:49.185864+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real food, glass, ceramic and fabric texture, soft natural daylight and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.\n\nKeep the main subject of the photo whole inside the central 55 percent of the photo width, so a centered 4:5 crop keeps it whole; only expendable background reaches the left and right edges.\n\nONE GLASS. A single plain, clear drinking glass with straight sides and no handle, completely EMPTY, stands alone directly on a plain light wooden table, photographed from a little above. It is the only subject: sharp, large and in the middle of the photo. Nothing else is on the table: no cutlery, no napkin, no food, no hands, no people. No letters, words, numbers, logos, labels or brand marks anywhere.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "oQz6asiEC_Csz7IPv5yCqAw",
+  "usage": {
+    "promptTokenCount": 243,
+    "candidatesTokenCount": 1256,
+    "totalTokenCount": 1671,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 243
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 172,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.136550",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 243,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 172
+  },
+  "elapsed_seconds": 21.45,
+  "output": "output/imagegen/unit-5-lesson-v9/t02-glass.png",
+  "sha256": "461093a9f74b3753fd095a77cde46e1b5a26c391f45c39792f6be5011270783c",
+  "byte_count": 5088430,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

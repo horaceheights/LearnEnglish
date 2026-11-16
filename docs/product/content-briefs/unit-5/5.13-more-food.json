@@ -1,0 +1,338 @@
+{
+  "brief_version": 1,
+  "captions": false,
+  "narrators": [
+    "teacher",
+    "co-teacher"
+  ],
+  "note": "Coverage gap lesson (2026-11-15, user request \"biuild the whole plan, none stop\"). Eight more foods, practised on the Unit 5 frames the learner already has: It is + food (5.2), It is a + thing and They are + things (5.1), I like (5.5), and He wants (5.6). Source: docs/planning/a1-gap-lessons-draft.md.",
+  "target": "backend/lessons/unit_5/lesson-5-13-more-food.yaml",
+  "lesson": {
+    "id": "lesson-5-13-more-food",
+    "title": "5.13 More Food",
+    "level": "Beginner A1",
+    "unit_id": "unit-5",
+    "unit_title": "Unit 5: Food, Drinks, and Shopping",
+    "unit_outcome": "Name fruit, food and drinks, say what you like, want and need, ask how many and how much, and order politely at a café.",
+    "lesson_id": "lesson-5",
+    "lesson_title": "Unit 5: Food, Drinks, and Shopping",
+    "sub_lesson_id": "5.13",
+    "sub_lesson_title": "More Food",
+    "goal": "Name eight more foods and say what you like and want.",
+    "vocabulary": [
+      "meat",
+      "cheese",
+      "vegetables",
+      "potato",
+      "tomato",
+      "salad",
+      "soup",
+      "sandwich"
+    ],
+    "review_vocabulary": [
+      "it",
+      "is",
+      "a",
+      "they",
+      "are",
+      "I",
+      "like",
+      "he",
+      "wants"
+    ],
+    "grammar_function": "It is + food; It is a + food; They are vegetables; I like + food; He wants a + food.",
+    "prerequisite": "5.1 It is a + fruit, They are grapes; 5.2 It is + food; 5.5 I like; 5.6 He wants.",
+    "speaking_outcome": "Say It is soup., I like soup., I like salad. and He wants a sandwich.",
+    "content_revision": 1
+  },
+  "layout": {
+    "Recognize": 10,
+    "Listen": 8,
+    "Speak": 8,
+    "Use": 8
+  },
+  "stage_sequences": {
+    "Speak": [
+      "A potato",
+      "A tomato",
+      "A sandwich",
+      "It is meat.",
+      "It is cheese.",
+      "They are vegetables.",
+      "I like soup.",
+      "I like salad."
+    ],
+    "Use": [
+      "It is meat.",
+      "It is cheese.",
+      "It is a potato.",
+      "It is a tomato.",
+      "They are vegetables.",
+      "I like soup.",
+      "He wants a sandwich.",
+      "I like salad."
+    ]
+  },
+  "items": [
+    {
+      "text": "Meat",
+      "es": "Carne",
+      "image": "/lesson-assets/a1_photo_u5_morefood_meat_v1.webp",
+      "kind": "new-word",
+      "choices": false
+    },
+    {
+      "text": "Cheese",
+      "es": "Queso",
+      "image": "/lesson-assets/a1_photo_u5_morefood_cheese_v1.webp",
+      "kind": "new-word",
+      "choices": false
+    },
+    {
+      "text": "Vegetables",
+      "es": "Verduras",
+      "image": "/lesson-assets/a1_photo_u5_morefood_vegetables_v1.webp",
+      "kind": "new-word",
+      "choices": false
+    },
+    {
+      "text": "A potato",
+      "es": "Una papa",
+      "image": "/lesson-assets/a1_photo_u5_morefood_potato_v1.webp",
+      "kind": "new-word",
+      "choices": false,
+      "form": "word"
+    },
+    {
+      "text": "A tomato",
+      "es": "Un tomate",
+      "image": "/lesson-assets/a1_photo_u5_morefood_tomato_v1.webp",
+      "kind": "new-word",
+      "choices": false,
+      "form": "word",
+      "four_card": false
+    },
+    {
+      "text": "Salad",
+      "es": "Ensalada",
+      "image": "/lesson-assets/a1_photo_u5_morefood_salad_v1.webp",
+      "kind": "new-word",
+      "choices": false
+    },
+    {
+      "text": "Soup",
+      "es": "Sopa",
+      "image": "/lesson-assets/a1_photo_u5_morefood_soup_v1.webp",
+      "kind": "new-word",
+      "choices": false
+    },
+    {
+      "text": "A sandwich",
+      "es": "Un sándwich",
+      "image": "/lesson-assets/a1_photo_u5_morefood_sandwich_v1.webp",
+      "kind": "new-word",
+      "choices": false,
+      "form": "word"
+    },
+    {
+      "text": "It is meat.",
+      "es": "Es carne.",
+      "image": "/lesson-assets/a1_photo_u5_morefood_meat_v1.webp",
+      "kind": "food-mass",
+      "learn": false,
+      "prefer": [
+        "It is cheese.",
+        "It is fish."
+      ],
+      "image_choices": false
+    },
+    {
+      "text": "It is cheese.",
+      "es": "Es queso.",
+      "image": "/lesson-assets/a1_photo_u5_morefood_cheese_v1.webp",
+      "kind": "food-mass",
+      "learn": false,
+      "prefer": [
+        "It is meat.",
+        "It is bread."
+      ],
+      "image_choices": false
+    },
+    {
+      "text": "It is salad.",
+      "es": "Es ensalada.",
+      "image": "/lesson-assets/a1_photo_u5_morefood_salad_v1.webp",
+      "kind": "food-mass",
+      "learn": false,
+      "prefer": [
+        "It is soup.",
+        "It is rice."
+      ],
+      "image_choices": false
+    },
+    {
+      "text": "It is soup.",
+      "es": "Es sopa.",
+      "image": "/lesson-assets/a1_photo_u5_morefood_soup_v1.webp",
+      "kind": "food-mass",
+      "learn": false,
+      "prefer": [
+        "It is salad.",
+        "It is rice."
+      ],
+      "image_choices": false
+    },
+    {
+      "text": "It is a potato.",
+      "es": "Es una papa.",
+      "image": "/lesson-assets/a1_photo_u5_morefood_potato_v1.webp",
+      "kind": "food-count",
+      "learn": false,
+      "prefer": [
+        "It is a tomato.",
+        "It is a pear."
+      ],
+      "image_choices": false
+    },
+    {
+      "text": "It is a tomato.",
+      "es": "Es un tomate.",
+      "image": "/lesson-assets/a1_photo_u5_morefood_tomato_v1.webp",
+      "kind": "food-count",
+      "learn": false,
+      "prefer": [
+        "It is a potato.",
+        "It is a strawberry."
+      ],
+      "four_card": false,
+      "image_choices": false
+    },
+    {
+      "text": "It is a sandwich.",
+      "es": "Es un sándwich.",
+      "image": "/lesson-assets/a1_photo_u5_morefood_sandwich_v1.webp",
+      "kind": "food-count",
+      "learn": false,
+      "prefer": [
+        "It is a potato.",
+        "It is a banana."
+      ],
+      "image_choices": false
+    },
+    {
+      "text": "They are vegetables.",
+      "es": "Son verduras.",
+      "image": "/lesson-assets/a1_photo_u5_morefood_vegetables_v1.webp",
+      "kind": "food-plural",
+      "learn": false,
+      "prefer": [
+        "They are grapes.",
+        "They are apples."
+      ],
+      "image_choices": false
+    },
+    {
+      "text": "I like soup.",
+      "es": "Me gusta la sopa.",
+      "image": "/lesson-assets/a1_photo_u5_morefood_ana_likes_soup_v1.webp",
+      "kind": "likes",
+      "learn": false,
+      "prefer": [
+        "I like salad.",
+        "I like cheese."
+      ],
+      "four_card": false,
+      "speaker": "ana",
+      "image_choices": false
+    },
+    {
+      "text": "I like salad.",
+      "es": "Me gusta la ensalada.",
+      "image": "/lesson-assets/a1_photo_u5_morefood_ana_eats_salad_v1.webp",
+      "kind": "likes",
+      "learn": false,
+      "prefer": [
+        "I like soup.",
+        "I like meat."
+      ],
+      "four_card": false,
+      "speaker": "ana",
+      "image_choices": false
+    },
+    {
+      "text": "He wants a sandwich.",
+      "es": "Él quiere un sándwich.",
+      "image": "/lesson-assets/a1_photo_u5_morefood_luis_wants_sandwich_v1.webp",
+      "kind": "wants",
+      "learn": false,
+      "prefer": [
+        "He wants a potato.",
+        "He wants bread."
+      ],
+      "four_card": false,
+      "image_choices": false
+    }
+  ],
+  "pool": [
+    {
+      "text": "It is fish.",
+      "es": "",
+      "kind": "food-mass"
+    },
+    {
+      "text": "It is bread.",
+      "es": "",
+      "kind": "food-mass"
+    },
+    {
+      "text": "It is rice.",
+      "es": "",
+      "kind": "food-mass"
+    },
+    {
+      "text": "It is a pear.",
+      "es": "",
+      "kind": "food-count"
+    },
+    {
+      "text": "It is a strawberry.",
+      "es": "",
+      "kind": "food-count"
+    },
+    {
+      "text": "It is a banana.",
+      "es": "",
+      "kind": "food-count"
+    },
+    {
+      "text": "They are grapes.",
+      "es": "",
+      "kind": "food-plural"
+    },
+    {
+      "text": "They are apples.",
+      "es": "",
+      "kind": "food-plural"
+    },
+    {
+      "text": "I like cheese.",
+      "es": "",
+      "kind": "likes"
+    },
+    {
+      "text": "I like meat.",
+      "es": "",
+      "kind": "likes"
+    },
+    {
+      "text": "He wants a potato.",
+      "es": "",
+      "kind": "wants"
+    },
+    {
+      "text": "He wants bread.",
+      "es": "",
+      "kind": "wants"
+    }
+  ]
+}

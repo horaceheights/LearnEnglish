@@ -1,0 +1,187 @@
+{
+  "schema_version": 1,
+  "pack": "unit-5-table-photos",
+  "revision": 1,
+  "output_namespace": "unit-5-lesson-v9",
+  "authorization": "2026-11-15: photos for A1 lesson 5.14 At the Table. The user asked for every remaining gap lesson to be built (\"biuild the whole plan, none stop\") and had approved the gap-lesson media in advance (\"I preapprove all image and audios creation no need for me to reiew and approve on the fly\"). Ceiling US$2.20 for this revision. Gemini is the approved image tool (2026-09-23). Revision 1 is frozen: a changed prompt is a new revision in a new file, and every rejected output is reported with its cost.",
+  "image_settings": {
+    "provider": "google-gemini",
+    "model": "gemini-3-pro-image",
+    "aspect_ratio": "3:2",
+    "image_size": "2K",
+    "runtime_size": "1536x1024",
+    "runtime_format": "webp",
+    "n": 1
+  },
+  "production": {
+    "price_per_image_usd": "0.134",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing (checked 2026-09-24: Gemini 3 Pro Image, $0.134 per 1K/2K image)",
+    "planned_images": 12,
+    "expected_cost_usd": "1.61",
+    "requested_ceiling_usd": "2.20",
+    "no_automatic_retries": true,
+    "order": "Independent photos in any order. A rejected output is reported with its cost; a redo needs a changed prompt in a new revision file."
+  },
+  "shared_prompts": {
+    "photo": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real food, glass, ceramic and fabric texture, soft natural daylight and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.",
+    "safe_center": "Keep the main subject of the photo whole inside the central 55 percent of the photo width, so a centered 4:5 crop keeps it whole; only expendable background reaches the left and right edges."
+  },
+  "assets": [
+    {
+      "id": "t01-cup",
+      "order": 1,
+      "lesson": "5.14",
+      "item": "A cup / It is a cup.",
+      "runtime_filename": "a1_photo_u5_table_cup_v1.webp",
+      "four_card": true,
+      "shared": [
+        "photo",
+        "safe_center"
+      ],
+      "prompt": "ONE CUP. A single plain white ceramic cup with a handle, completely EMPTY, stands alone directly on a plain light wooden table, photographed from a little above. It is the only subject: sharp, large and in the middle of the photo. Nothing else is on the table: no cutlery, no napkin, no food, no hands, no people. No letters, words, numbers, logos, labels or brand marks anywhere."
+    },
+    {
+      "id": "t02-glass",
+      "order": 2,
+      "lesson": "5.14",
+      "item": "A glass / It is a glass.",
+      "runtime_filename": "a1_photo_u5_table_glass_v1.webp",
+      "four_card": true,
+      "shared": [
+        "photo",
+        "safe_center"
+      ],
+      "prompt": "ONE GLASS. A single plain, clear drinking glass with straight sides and no handle, completely EMPTY, stands alone directly on a plain light wooden table, photographed from a little above. It is the only subject: sharp, large and in the middle of the photo. Nothing else is on the table: no cutlery, no napkin, no food, no hands, no people. No letters, words, numbers, logos, labels or brand marks anywhere."
+    },
+    {
+      "id": "t03-bottle",
+      "order": 3,
+      "lesson": "5.14",
+      "item": "A bottle / It is a bottle.",
+      "runtime_filename": "a1_photo_u5_table_bottle_v1.webp",
+      "four_card": true,
+      "shared": [
+        "photo",
+        "safe_center"
+      ],
+      "prompt": "ONE BOTTLE. A single plain, clear glass bottle with a narrow neck and a simple metal cap, completely EMPTY and with no label at all, stands alone directly on a plain light wooden table, photographed from a little above. It is the only subject: sharp, large and in the middle of the photo. Nothing else is on the table: no cutlery, no napkin, no food, no hands, no people. No letters, words, numbers, logos, labels or brand marks anywhere."
+    },
+    {
+      "id": "t04-plate",
+      "order": 4,
+      "lesson": "5.14",
+      "item": "A plate / It is a plate.",
+      "runtime_filename": "a1_photo_u5_table_plate_v1.webp",
+      "four_card": true,
+      "shared": [
+        "photo",
+        "safe_center"
+      ],
+      "prompt": "ONE PLATE. A single plain white round dinner plate, completely EMPTY and clean, lies alone directly on a plain light wooden table, photographed from a little above. It is the only subject: sharp, large and in the middle of the photo. Nothing else is on the table: no cutlery, no napkin, no food, no hands, no people. No letters, words, numbers, logos, labels or brand marks anywhere."
+    },
+    {
+      "id": "t05-salt",
+      "order": 5,
+      "lesson": "5.14",
+      "item": "Salt / It is salt.",
+      "runtime_filename": "a1_photo_u5_table_salt_v1.webp",
+      "four_card": true,
+      "shared": [
+        "photo",
+        "safe_center"
+      ],
+      "prompt": "SALT. A small plain glass salt shaker with a metal top full of white salt stands beside a small heap of white salt grains poured directly on a plain light wooden table, photographed from a little above. It is the only subject: sharp, large and in the middle of the photo. Nothing else is on the table: no cutlery, no napkin, no food, no hands, no people. No letters, words, numbers, logos, labels or brand marks anywhere."
+    },
+    {
+      "id": "t06-sugar",
+      "order": 6,
+      "lesson": "5.14",
+      "item": "Sugar / It is sugar.",
+      "runtime_filename": "a1_photo_u5_table_sugar_v1.webp",
+      "four_card": true,
+      "shared": [
+        "photo",
+        "safe_center"
+      ],
+      "prompt": "SUGAR. A small plain white bowl heaped with white sugar CUBES, with three more sugar cubes lying beside the bowl directly on a plain light wooden table, photographed from a little above. It is the only subject: sharp, large and in the middle of the photo. Nothing else is on the table: no cutlery, no napkin, no food, no hands, no people. No letters, words, numbers, logos, labels or brand marks anywhere."
+    },
+    {
+      "id": "t07-cake",
+      "order": 7,
+      "lesson": "5.14",
+      "item": "A cake / It is a cake.",
+      "runtime_filename": "a1_photo_u5_table_cake_v1.webp",
+      "four_card": true,
+      "shared": [
+        "photo",
+        "safe_center"
+      ],
+      "prompt": "ONE CAKE. A single whole round chocolate cake with chocolate frosting, with no candles and no decorations, stands on a plain white cake stand on a plain light wooden table, photographed from a little above. It is the only subject: sharp, large and in the middle of the photo. Nothing else is on the table: no cutlery, no napkin, no food, no hands, no people. No letters, words, numbers, logos, labels or brand marks anywhere."
+    },
+    {
+      "id": "t08-cup-of-sugar",
+      "order": 8,
+      "lesson": "5.14",
+      "item": "A cup of sugar",
+      "runtime_filename": "a1_photo_u5_table_cup_of_sugar_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo",
+        "safe_center"
+      ],
+      "prompt": "A CUP OF SUGAR. A single plain white ceramic cup with a handle, filled to the brim with white granulated sugar that forms a small heap above the rim, with a few grains spilled beside it, stands alone directly on a plain light wooden table, photographed from a little above. It is the only subject: sharp, large and in the middle of the photo. Nothing else is on the table: no cutlery, no napkin, no food, no hands, no people. No letters, words, numbers, logos, labels or brand marks anywhere."
+    },
+    {
+      "id": "t09-glass-of-water",
+      "order": 9,
+      "lesson": "5.14",
+      "item": "A glass of water",
+      "runtime_filename": "a1_photo_u5_table_glass_of_water_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo",
+        "safe_center"
+      ],
+      "prompt": "A GLASS OF WATER. A single plain, clear drinking glass with straight sides, filled almost to the top with clear water, stands alone directly on a plain light wooden table, photographed from a little above. It is the only subject: sharp, large and in the middle of the photo. Nothing else is on the table: no cutlery, no napkin, no food, no hands, no people. No letters, words, numbers, logos, labels or brand marks anywhere."
+    },
+    {
+      "id": "t10-cup-of-tea",
+      "order": 10,
+      "lesson": "5.14",
+      "item": "A cup of tea",
+      "runtime_filename": "a1_photo_u5_table_cup_of_tea_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo",
+        "safe_center"
+      ],
+      "prompt": "A CUP OF TEA. A single plain white ceramic cup with a handle, full of amber-brown tea, with the string and paper tag of a tea bag hanging over the rim (the tag is plain and blank), stands on a white saucer on a plain light wooden table, photographed from a little above. It is the only subject: sharp, large and in the middle of the photo. Nothing else is on the table: no cutlery, no napkin, no food, no hands, no people. No letters, words, numbers, logos, labels or brand marks anywhere."
+    },
+    {
+      "id": "t11-bottle-of-milk",
+      "order": 11,
+      "lesson": "5.14",
+      "item": "A bottle of milk",
+      "runtime_filename": "a1_photo_u5_table_bottle_of_milk_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo",
+        "safe_center"
+      ],
+      "prompt": "A BOTTLE OF MILK. A single plain, clear glass bottle with a narrow neck and a simple metal cap, full of white milk and with no label at all, stands alone directly on a plain light wooden table, photographed from a little above. It is the only subject: sharp, large and in the middle of the photo. Nothing else is on the table: no cutlery, no napkin, no food, no hands, no people. No letters, words, numbers, logos, labels or brand marks anywhere."
+    },
+    {
+      "id": "t12-plate-of-rice",
+      "order": 12,
+      "lesson": "5.14",
+      "item": "A plate of rice",
+      "runtime_filename": "a1_photo_u5_table_plate_of_rice_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo",
+        "safe_center"
+      ],
+      "prompt": "A PLATE OF RICE. A single plain white round plate with a generous heap of plain white cooked rice in the middle lies alone directly on a plain light wooden table, photographed from a little above. It is the only subject: sharp, large and in the middle of the photo. Nothing else is on the table: no cutlery, no napkin, no food, no hands, no people. No letters, words, numbers, logos, labels or brand marks anywhere."
+    }
+  ]
+}

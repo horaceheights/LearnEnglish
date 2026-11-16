@@ -399,6 +399,16 @@ const VISUALS: Record<string, { image: string; description: string; color: strin
     description: 'Los números del treinta al cien.',
     color: '#ffe8c7',
   },
+  'lesson-5-13-more-food': {
+    image: 'a1_photo_u5_morefood_sandwich_v1.webp',
+    description: 'Más comida: carne, queso, verduras y más.',
+    color: '#fdebd3',
+  },
+  'lesson-5-14-at-the-table': {
+    image: 'a1_photo_u5_table_cup_of_tea_v1.webp',
+    description: 'En la mesa: taza, vaso, botella y plato.',
+    color: '#e3eefb',
+  },
   'lesson-5-9-unit-5-review': {
     image: 'a1_scene_i-do-not-like-fish_25804e6.webp',
     description: 'Repaso de comida, compras y preferencias.',

@@ -1,0 +1,57 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "59f4c1e0-300c-4643-837e-c57355eb7f59",
+  "asset_id": "g06-cake-plate",
+  "pack_sha256": "74ccde478ed2f6167349378db089a917b006263675a4b5a0baf1189519c2b682",
+  "started_at": "2026-11-15T19:55:07.003035+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real food, glass, ceramic and fabric texture, soft natural daylight and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.\n\nA cake ON a plate. One small whole round chocolate cake with chocolate frosting sits in the middle of one large plain white dinner plate that lies directly on the table; the white rim of the plate is clearly visible all around the cake on a dark wooden table, photographed from a little above. Everything named is sharp and clearly separate. Nothing else is on the table: no cutlery, no napkin, no other food, no hands, no people. No letters, words, numbers, logos, labels or brand marks anywhere.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "Gg76apXmPKqlmtkPm_LCgAc",
+  "usage": {
+    "promptTokenCount": 213,
+    "candidatesTokenCount": 1268,
+    "totalTokenCount": 1680,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 213
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 199,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.136814",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 213,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 199
+  },
+  "elapsed_seconds": 20.22,
+  "output": "output/imagegen/unit-5-review-v8/g06-cake-plate.png",
+  "sha256": "df852cd0e54c87c25c6a81c5adbe0e3702f8e99c655c4410f3be485cb046020b",
+  "byte_count": 5798468,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

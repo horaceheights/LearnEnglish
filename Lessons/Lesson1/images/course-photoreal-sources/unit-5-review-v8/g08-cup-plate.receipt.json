@@ -1,0 +1,57 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "833db7a7-4783-44d9-85da-32899fd263bc",
+  "asset_id": "g08-cup-plate",
+  "pack_sha256": "74ccde478ed2f6167349378db089a917b006263675a4b5a0baf1189519c2b682",
+  "started_at": "2026-11-15T19:55:49.799739+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real food, glass, ceramic and fabric texture, soft natural daylight and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.\n\nA cup ON a plate. One plain white ceramic cup with a handle, empty, stands in the middle of one large plain blue dinner plate that lies directly on the table; the blue rim of the plate is clearly visible all around the cup on a dark wooden table, photographed from a little above. Everything named is sharp and clearly separate. Nothing else is on the table: no cutlery, no napkin, no other food, no hands, no people. No letters, words, numbers, logos, labels or brand marks anywhere.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "RQ76asebMJXQz7IPv9bu-QU",
+  "usage": {
+    "promptTokenCount": 215,
+    "candidatesTokenCount": 1265,
+    "totalTokenCount": 1727,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 215
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 247,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137394",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 215,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 247
+  },
+  "elapsed_seconds": 23.61,
+  "output": "output/imagegen/unit-5-review-v8/g08-cup-plate.png",
+  "sha256": "0c74887ed48d26d8771acca00c9833ab1b2e97814d5fd87e817deb00c9fceaf8",
+  "byte_count": 5500441,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

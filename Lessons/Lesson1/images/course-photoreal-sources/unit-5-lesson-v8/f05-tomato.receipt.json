@@ -1,0 +1,57 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "96f8987c-52fb-44b6-b04d-494a806963bb",
+  "asset_id": "f05-tomato",
+  "pack_sha256": "55ab894b50b0f5d238212992d248d66a261fb665c556c2590213563113e2237b",
+  "started_at": "2026-11-15T19:28:00.049749+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real food, glass, ceramic and fabric texture, soft natural daylight and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.\n\nKeep the main subject of the photo whole inside the central 55 percent of the photo width, so a centered 4:5 crop keeps it whole; only expendable background reaches the left and right edges.\n\nONE TOMATO. A single ripe, whole red tomato with its small green stem lies alone directly on the table on a plain light wooden table, photographed from a little above. The food is the only subject: it is sharp, large and in the middle of the photo. Nothing else is on the table: no cutlery, no glass, no napkin, no other food, no hands, no people. No letters, words, numbers, logos, labels or brand marks anywhere.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "vwf6arfhOrPUz7IPj9qQiAY",
+  "usage": {
+    "promptTokenCount": 249,
+    "candidatesTokenCount": 1250,
+    "totalTokenCount": 1803,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 249
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 304,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.138146",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 249,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 304
+  },
+  "elapsed_seconds": 20.04,
+  "output": "output/imagegen/unit-5-lesson-v8/f05-tomato.png",
+  "sha256": "48528d62dcc3ad03a02d4f13ec62baae7e991bd0f9190ee5c18b852506a8d528",
+  "byte_count": 5479837,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

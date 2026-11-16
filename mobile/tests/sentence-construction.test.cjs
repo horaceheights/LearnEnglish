@@ -60,7 +60,8 @@ test('tap, arbitrary drop, outside drop, removal and repair share ordered valida
   // 381 since 2026-11-14/15: A1 2.12 In the Classroom with its eight review cards.
   // 389 since 2026-11-14/15: A1 2.13 More Colors with its five review cards.
   // 405 since 2026-11-14/15: A1 4.13 to 4.15 (months and more at home) with sixteen review cards.
-  assert.equal(rollout.length, 405);
+  // 421 since 2026-11-14/15: A1 5.13 More Food and 5.14 At the Table with eight review constructions.
+  assert.equal(rollout.length, 421);
   for (const card of [...pilots, ...rollout]) {
     let selected = api.sentenceSlots(card, []);
     const expected = card.correct_option_ids;
