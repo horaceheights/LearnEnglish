@@ -1,0 +1,55 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "53feb30a-e41e-4162-9ee3-4acc42bad2e6",
+  "asset_id": "m101-pets",
+  "pack_sha256": "b706ec25e6f311a3dc2518e6535014aa14b3e708442c7dd474c58b4c3bf895db",
+  "started_at": "2026-11-17T14:54:28.598145+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English, used as a 'listen and find' game scene: the learner hears a sentence and taps the matching subject. Natural everyday photographic detail, natural light and correct perspective; NOT an illustration, 3D render, cartoon, collage or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. Every subject named below must be instantly recognizable on a small phone screen. Do not imitate earlier course photos.\n\nFOUR PETS IN A FAMILY GARDEN during a party (no people). From left to right: a brown dog RUNNING across the lawn, all four legs in motion; a cat SLEEPING curled up with closed eyes on the cushion of a garden chair; a white rabbit EATING a lettuce leaf on the grass; a small bird DRINKING from a low stone bird bath, its beak in the water. Party balloons and a long table with a tablecloth far behind, out of focus. Exactly four subjects, spread evenly across the whole width of the photo, each clearly separated from the others by open space, none overlapping or hidden, each large and sharp. Eye-level view, the whole of every subject visible. No letters, words, logos or brand marks anywhere.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "o2r8asDMJOfAqtsP7OT_mAM",
+  "usage": {
+    "promptTokenCount": 273,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1563,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 273
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038782",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 273,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 6.43,
+  "output": "output/imagegen/unit-1-mission-v11/m101-pets.png",
+  "sha256": "e2d6385d6d1ea673dafbbed9fd586cf9eb2c445736df50ad135cc2c11ea3f003",
+  "byte_count": 1572736,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}

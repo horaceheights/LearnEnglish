@@ -223,8 +223,14 @@ UNIT_ONE_FOUNDATION_LESSON_IDS = (
     "lesson-7-is-are-not",
     "lesson-8-who",
 )
+# 2026-11-17: the coverage-gap lessons after the foundation. The final mission may use
+# their words (M18A/M18B practise them), but only Lessons 1.1-1.9 must all be retrieved.
+UNIT_ONE_GAP_LESSON_IDS = (
+    "lesson-1-10-pets",
+    "lesson-1-11-friends-people",
+)
 MISSION_CARD_COUNTS = {
-    "lesson-10-family-mission": 22,
+    "lesson-10-family-mission": 24,  # 22 before the 2026-11-17 gap-lesson beats
     "lesson-3-10-introduction-mission": 16,  # 14 before the 2026-11-17 gap-lesson beats
     "lesson-4-10-my-day-mission": 20,  # 17 before the 2026-11-17 gap-lesson beats
     "lesson-5-10-cafe-mission": 24,  # 20 before the 2026-11-17 gap-lesson beats
@@ -233,6 +239,11 @@ MISSION_CARD_COUNTS = {
 # New meal beats retain the identities of every already-shipped Unit 5 card.
 # This pins the approved revision's order, not a cap on future mission coverage.
 MISSION_SLIDE_SEQUENCE = {
+    # 2026-11-17: the 1.10 pets and 1.11 friends beats keep every shipped Unit 1 ID
+    # (and its beat-numbered image names) by taking suffixes before the voice gates.
+    "lesson-10-family-mission": (
+        [f"M{index:02d}" for index in range(1, 19)] + ["M18A", "M18B"] + [f"M{index:02d}" for index in range(19, 23)]
+    ),
     "lesson-5-10-cafe-mission": (
         [f"M{index:02d}" for index in range(1, 13)]
         + ["M12L", "M12D"]
@@ -325,6 +336,7 @@ MISSION_KIND_SEQUENCE = {
         "action-hunt", "action-hunt", "action-hunt",
         "action-hunt", "action-hunt", "action-hunt",
         "contrast-hunt", "contrast-hunt", "contrast-hunt",
+        "crowd-search", "crowd-search",  # 2026-11-17: 1.10 pets, 1.11 friends
         "voice-gate", "voice-gate", "voice-gate", "voice-gate",
     ],
     "lesson-3-10-introduction-mission": [
@@ -363,6 +375,7 @@ MISSION_CHAPTER_SEQUENCE = {
         + ["connect-the-family"] * 6
         + ["follow-the-actions"] * 6
         + ["repair-the-clues"] * 3
+        + ["pets-and-friends"] * 2
         + ["welcome-everyone"] * 4
     ),
     "lesson-3-10-introduction-mission": (
@@ -914,11 +927,12 @@ def validate_mission_contracts(lessons=None) -> list[str]:
                 f"{invalid_hero_names}."
             )
         if lesson.id == "lesson-10-family-mission":
+            # The prefix is the beat's slide ID (M18A -> 18a), so suffixed beats never rename shipped stills.
             incorrectly_ordered_heroes = [
                 hero
-                for index, hero in enumerate(heroes, 1)
+                for card, hero in zip(lesson.cards, heroes)
                 if hero and not re.fullmatch(
-                    rf"a1_u1_reunion_{index:02d}_[a-z0-9_]+\.webp",
+                    rf"a1_u1_reunion_{re.escape(str(card.slide_id or '')[1:].lower())}_[a-z0-9_]+\.webp",
                     hero,
                 )
             ]
@@ -981,9 +995,9 @@ def validate_mission_contracts(lessons=None) -> list[str]:
 
         if lesson.id != "lesson-10-family-mission":
             continue
-        if lesson.content_revision != 6:
+        if lesson.content_revision != 7:
             errors.append(
-                f"{lesson.id} voice-game mission must declare content_revision 6."
+                f"{lesson.id} voice-game mission must declare content_revision 7."
             )
         if str(getattr(mission, "title", "") or "") != "¡Todos a la celebración!":
             errors.append(
@@ -1001,7 +1015,7 @@ def validate_mission_contracts(lessons=None) -> list[str]:
             str(getattr(getattr(card, "mission_game", None), "tutorial_mode", "") or "")
             for card in lesson.cards
         ]
-        if tutorial_modes != ["guided-no-fail", *("" for _ in range(21))]:
+        if tutorial_modes != ["guided-no-fail", *("" for _ in range(len(lesson.cards) - 1))]:
             errors.append(
                 f"{lesson.id} must use one guided-no-fail tutorial on M01 only."
             )
@@ -1027,16 +1041,21 @@ def validate_mission_contracts(lessons=None) -> list[str]:
             for word in lesson_catalog[source_id].vocabulary
         ]
         introduced = set(introduced_order)
+        allowed = introduced | {
+            str(word).strip().lower()
+            for source_id in UNIT_ONE_GAP_LESSON_IDS
+            for word in lesson_catalog[source_id].vocabulary
+        }
         if len(introduced_order) != 46 or len(introduced) != 46:
             errors.append(
                 "Unit 1 foundation Lessons 1.1-1.9 must declare exactly 46 unique vocabulary "
                 "targets before the final mission."
             )
         review_targets = [str(word).strip().lower() for word in lesson.review_vocabulary]
-        if len(review_targets) != len(set(review_targets)) or set(review_targets) != introduced:
+        if len(review_targets) != len(set(review_targets)) or set(review_targets) != allowed:
             errors.append(
-                f"{lesson.id} review_vocabulary must be the exact 46-item union from "
-                "foundation Lessons 1.1-1.9."
+                f"{lesson.id} review_vocabulary must be the exact union of foundation Lessons "
+                "1.1-1.9 and gap Lessons 1.10-1.11."
             )
 
         successful_tokens: set[str] = set()
@@ -1052,7 +1071,7 @@ def validate_mission_contracts(lessons=None) -> list[str]:
                 f"{lesson.id} does not retrieve these Unit 1 targets on the successful "
                 f"path: {missing_gold}."
             )
-        unintroduced = sorted(authored_tokens - introduced)
+        unintroduced = sorted(authored_tokens - allowed)
         if unintroduced:
             errors.append(
                 f"{lesson.id} contains unintroduced assessed/distractor English: {unintroduced}."

@@ -168,7 +168,7 @@ class PersistentCardAudioTests(unittest.TestCase):
                     self.assertNotEqual(card.options[0].image_url, card.audio_turns[0].image_url)
                 self.assertEqual(expected, prompt_turns)
 
-        grandmother_card = mission.cards[19]
+        grandmother_card = mission.cards[21]
         cues = [
             asset
             for asset in grandmother_card.audio_assets

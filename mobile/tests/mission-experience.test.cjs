@@ -164,9 +164,11 @@ assert.deepEqual(
     { cardIndexes: [3, 4, 5, 6, 7, 8], label: 'Descubre la familia' },
     { cardIndexes: [9, 10, 11, 12, 13, 14], label: 'Sigue las acciones' },
     { cardIndexes: [15, 16, 17], label: 'Encuentra la verdad' },
-    { cardIndexes: [18, 19, 20, 21], label: 'Recibe a todos' },
+    // 2026-11-17: the 1.10 pets and 1.11 friends beats (M18A, M18B).
+    { cardIndexes: [18, 19], label: 'Mascotas y amigos' },
+    { cardIndexes: [20, 21, 22, 23], label: 'Recibe a todos' },
   ],
-  'Engine QA must expose all five authored mission chapters in story order with global card indexes.',
+  'Engine QA must expose all six authored mission chapters in story order with global card indexes.',
 );
 
 console.log('Mission experience helper checks passed.');

@@ -1,0 +1,55 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "426ac235-efd2-4128-af14-e09b01977702",
+  "asset_id": "m102-friends",
+  "pack_sha256": "78e197589607cdf93b56558a8ef2f02c424e7d7a2fd5facecf559a151bf08a32",
+  "started_at": "2026-11-17T22:35:51.707411+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English, used as a 'listen and find' game scene: the learner hears a sentence and taps the matching subject. Natural everyday photographic detail, natural light and correct perspective; NOT an illustration, 3D render, cartoon, collage or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. Every subject named below must be instantly recognizable on a small phone screen. Do not imitate earlier course photos.\n\nONE WIDE PHOTO OF A FAMILY GARDEN PARTY on one sunny lawn, balloons and a long table far behind. Exactly six people and one dog, spread naturally across the lawn from left to right: a HUSBAND AND WIFE of about forty, both wearing wedding rings, standing close together and TALKING face to face; an older man SITTING alone on a wooden garden bench; a boy of about ten RUNNING across the grass next to a running brown dog; two girls of about eight PLAYING together with a hoop. Nobody else is in the photo. Every person is fully visible and plain at phone size. This is ONE single continuous photograph taken with one camera from one position: NOT a collage, NOT a grid, NOT side-by-side panels, no seams or dividing lines; the same lawn and the same background run continuously behind every person, and the people stand at slightly different distances from the camera like in a real scene. No letters, words, logos or brand marks anywhere. Every visible hand has five natural fingers.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "xdb8asfGK9CGz7IP94zNkAI",
+  "usage": {
+    "promptTokenCount": 326,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1616,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 326
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038798",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 326,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 7.57,
+  "output": "output/imagegen/unit-1-mission-v15/m102-friends.png",
+  "sha256": "15a49304142521e083db9b1badbb2e3ec0ab26683d5d1d1b6af80be50282d0e8",
+  "byte_count": 2425680,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}

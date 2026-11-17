@@ -20,7 +20,7 @@ Live lessons have moved on from their builders. For example, `node scripts/build
 | Every mission beat has a Spanish instruction and at least one target | `validate_lesson_cards.py` (`instruction_es`), `test_mission_schema.py` |
 | Mission targets are at least 0.12 × 0.16 of the scene | `validate_lesson_cards.py`, `lesson-mission-contract.test.cjs` |
 | Mission hero stills are fresh and unique | `validate_lesson_cards.py`, `test_mission_schema.py`, `lesson-media-semantics.test.cjs` |
-| The Lesson 1.10 contract: 22 beats, M01–M22, chapter order, mechanics | `test_lesson_structure.py`, `lesson-mission-contract.test.cjs` |
+| The Lesson 1.10 contract: 24 beats, M01–M22 plus M18A/M18B (2026-11-17), chapter order, mechanics | `test_lesson_structure.py`, `lesson-mission-contract.test.cjs` |
 | The mission's successful path covers the unit's language and adds none | `audit_a1_unit_parity.py`; `audit_content_practice.py` untaught-word rule |
 | Lesson and review lengths | `content-standards.json` via `audit_content_practice.py`. This supersedes the builders' fixed counts (1.5 = 43, 1.8 = 50, 1.9 = 54, 3.9 = 8/8/18/6/8, Unit 2 = 30–40). |
 

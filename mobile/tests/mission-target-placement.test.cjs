@@ -29,6 +29,8 @@ const VERIFIED_IMAGE_SHA256 = {
   M16: ['a1_u1_reunion_16_not_eating_v2.webp', '439305ddd4efa2c9fbd21ce8ea5e97967f8747160bd3304d73ff1faaaaf09156'],
   M17: ['a1_u1_reunion_17_not_reading.webp', 'fd26ff80779249181a82251748cb89fc6024bfbf93bcbd0d3ed0f867bb710514'],
   M18: ['a1_u1_reunion_18_not_running.webp', '14255acdb5e0139909fff8b41aaec47436b7f5643a3c0b415d17505301446612'],
+  M18A: ['a1_u1_reunion_18a_pets.webp', '562e8ae0a49143410887b905cc8e77d56ee645c5bf41143caf46c318bd721393'],
+  M18B: ['a1_u1_reunion_18b_friends.webp', 'b6f420e47bb75fa8b7132cef2ad955ae2c0db2c949401b01b36ca5b60e1cd0ed'],
 };
 
 // Every centre below was read off the shipped artwork by eye on 2026-09-07 and
@@ -166,6 +168,20 @@ const VERIFIED_CENTRES = {
       'running': [0.37, 0.49],
       'talking': [0.60, 0.47],
       'playing': [0.84, 0.55],
+    },
+    // a1_u1_reunion_18a_pets.webp (2026-11-17 gap beat; centres read off the Flash photo on a 0.05 grid)
+    M18A: {
+      'pets-1': [0.20, 0.64],
+      'pets-2': [0.47, 0.72],
+      'pets-3': [0.68, 0.72],
+      'pets-4': [0.86, 0.64],
+    },
+    // a1_u1_reunion_18b_friends.webp (2026-11-17 gap beat; centres read off the Flash photo on a 0.05 grid)
+    M18B: {
+      'friends-1': [0.16, 0.53],
+      'friends-2': [0.35, 0.54],
+      'friends-3': [0.60, 0.59],
+      'friends-4': [0.87, 0.53],
     },
 };
 
