@@ -1,0 +1,57 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "31ea1bb0-cbdd-43e2-80ac-2affb709bc4b",
+  "asset_id": "m705-park-fun",
+  "pack_sha256": "69c49bc501997d8657b9d029de3b18dc02eebdf366318338dc45a3526a38eb1b",
+  "started_at": "2026-11-17T14:59:03.649825+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English, used as a 'listen and find' game scene: the learner hears a sentence and taps the matching subject. Natural everyday photographic detail, natural light and correct perspective; NOT an illustration, 3D render, cartoon, collage or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. Every subject named below must be instantly recognizable on a small phone screen. Do not imitate earlier course photos.\n\nA SUNNY PARK with four separate things from left to right: (1) two adults PLAYING TENNIS on a small court, a net between them and a yellow ball in the air; (2) three friends standing together SINGING with their mouths wide open; (3) one big red BALL lying alone on the grass; (4) one acoustic GUITAR leaning alone against an empty park bench. Each in its own quarter of the photo with clear grass between them. No letters, words, logos or brand marks anywhere. Every visible hand has five natural fingers.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "tmv8asjDHuPVz7IP_NWIsAI",
+  "usage": {
+    "promptTokenCount": 232,
+    "candidatesTokenCount": 1900,
+    "totalTokenCount": 2357,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 232
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 225,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137164",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 232,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 225
+  },
+  "elapsed_seconds": 54.33,
+  "output": "output/imagegen/unit-7-mission-v12/m705-park-fun.png",
+  "sha256": "bbb34322bcd3bb0613fe81a7536489567b35598c8263ada6658776d77a9ce19f",
+  "byte_count": 7498299,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

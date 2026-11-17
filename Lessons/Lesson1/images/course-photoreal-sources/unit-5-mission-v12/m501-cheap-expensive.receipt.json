@@ -1,0 +1,57 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "86d0a2d0-eb12-48f7-b4eb-76c4fa54be6a",
+  "asset_id": "m501-cheap-expensive",
+  "pack_sha256": "2321f62a99f1cd0b7e82e3b40d03a5ae702060fc9e6b645ae15ef303927b9044",
+  "started_at": "2026-11-17T14:57:27.177517+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English, used as a 'listen and find' game scene: the learner hears a sentence and taps the matching subject. Natural everyday photographic detail, natural light and correct perspective; NOT an illustration, 3D render, cartoon, collage or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. Every subject named below must be instantly recognizable on a small phone screen. Do not imitate earlier course photos.\n\nA MARKET STALL TABLE seen straight on, with four items standing in a row, each with a white price tag on a string: from left to right a plain cloth BAG with a tag reading $5; a fine leather BAG with a tag reading $90; a thin worn paperback BOOK with a tag reading $2; a thick new hardcover BOOK with a tag reading $80. The four price tags are the ONLY writing in the photo and the digits are large and correct; the book covers are plain with no title. No people. Exactly four subjects, spread evenly across the whole width of the photo, each clearly separated from the others by open space, none overlapping or hidden, each large and sharp. Eye-level view, the whole of every subject visible. Every visible hand has five natural fingers.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "Vmv8ao-xBpKZqtsPqoK6uQU",
+  "usage": {
+    "promptTokenCount": 280,
+    "candidatesTokenCount": 1354,
+    "totalTokenCount": 1817,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 280
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 183,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.136756",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 280,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 183
+  },
+  "elapsed_seconds": 22.14,
+  "output": "output/imagegen/unit-5-mission-v12/m501-cheap-expensive.png",
+  "sha256": "e9650ce4ceadf28602bee92d7bad134db79f4de4dff39c5256a283b55c894027",
+  "byte_count": 5730416,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

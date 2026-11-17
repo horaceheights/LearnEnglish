@@ -1,0 +1,55 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "7148f446-2c7a-4653-bfe0-d233ae4416b9",
+  "asset_id": "m702-seasons",
+  "pack_sha256": "4214512fc065bf31693445702c2e0fe84e4d633a1b4a7ea2d301472d5211836d",
+  "started_at": "2026-11-17T14:58:20.437293+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English, used as a 'listen and find' game scene: the learner hears a sentence and taps the matching subject. Natural everyday photographic detail, natural light and correct perspective; NOT an illustration, 3D render, cartoon, collage or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. Every subject named below must be instantly recognizable on a small phone screen. Do not imitate earlier course photos.\n\nFOUR FRAMED PHOTOGRAPHS hanging in one row on a plain white gallery wall, each the same large tree on a hill, seen from the same place: from left to right the tree in SPRING (pink and white blossom), in SUMMER (full dark-green leaves, blue sky), in FALL (orange and red leaves, leaves on the ground) and in WINTER (bare branches, deep snow). Four equal frames with clear wall between them, seen straight on. No letters, words, logos or brand marks anywhere.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "i2v8aoeREunpz7IP3vPGgQM",
+  "usage": {
+    "promptTokenCount": 221,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1511,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 221
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038766",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 221,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 6.38,
+  "output": "output/imagegen/unit-7-mission-v11/m702-seasons.png",
+  "sha256": "0cadf854ba61fb9d7e69099ae14b640609568fe4db9d51632b2e41eb5933c906",
+  "byte_count": 1385140,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}

@@ -1,0 +1,57 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "4e1a0b3f-288f-4f89-a5da-e551d889e363",
+  "asset_id": "m302-jobs",
+  "pack_sha256": "0f33368e53c20c3b13e8cec4fc276745f8e41e5710560e28cfc76f6122c66c21",
+  "started_at": "2026-11-17T14:55:42.938286+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English, used as a 'listen and find' game scene: the learner hears a sentence and taps the matching subject. Natural everyday photographic detail, natural light and correct perspective; NOT an illustration, 3D render, cartoon, collage or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. Every subject named below must be instantly recognizable on a small phone screen. Do not imitate earlier course photos.\n\nA FESTIVE EVENING DINNER in a garden with string lights and long tables. Four people, from left to right, each in their own quarter: (1) a male WAITER in a white shirt, black vest and long black apron carrying a tray of plates; (2) a female POLICE OFFICER in a plain dark-blue uniform and peaked cap standing by the gate; (3) a female ARTIST in a paint-stained apron painting on a canvas on an easel; (4) a male SINGER singing into a microphone on a stand. Each person's job is obvious at once. The uniform, badge, apron and canvas carry no writing. No letters, words, logos or brand marks anywhere. Every visible hand has five natural fingers.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "7Wr8aou8Ms3Sz7IP3-25uAI",
+  "usage": {
+    "promptTokenCount": 271,
+    "candidatesTokenCount": 1431,
+    "totalTokenCount": 1919,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 271
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 217,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137146",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 271,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 217
+  },
+  "elapsed_seconds": 25.69,
+  "output": "output/imagegen/unit-3-mission-v12/m302-jobs.png",
+  "sha256": "65f9e17bdb7d01492e2fbd59a6817ddcc725e72bb619ea8451f046a4035422d0",
+  "byte_count": 7449099,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

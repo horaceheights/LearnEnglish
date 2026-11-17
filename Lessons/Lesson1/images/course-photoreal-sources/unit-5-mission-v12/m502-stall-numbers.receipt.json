@@ -1,0 +1,57 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "199d89d6-3b2d-4462-a4b2-afa39a9189da",
+  "asset_id": "m502-stall-numbers",
+  "pack_sha256": "2321f62a99f1cd0b7e82e3b40d03a5ae702060fc9e6b645ae15ef303927b9044",
+  "started_at": "2026-11-17T14:57:49.978287+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English, used as a 'listen and find' game scene: the learner hears a sentence and taps the matching subject. Natural everyday photographic detail, natural light and correct perspective; NOT an illustration, 3D render, cartoon, collage or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. Every subject named below must be instantly recognizable on a small phone screen. Do not imitate earlier course photos.\n\nFOUR MARKET STALLS side by side under colored awnings, seen straight on, each selling fruit and vegetables, each with one big white board hanging at the front showing its stall number: from left to right 30, 40, 60 and 80. The four numbers are large, clear and correct and are the ONLY writing in the photo. No people in front of the stalls. Exactly four subjects, spread evenly across the whole width of the photo, each clearly separated from the others by open space, none overlapping or hidden, each large and sharp. Eye-level view, the whole of every subject visible. Every visible hand has five natural fingers.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "bGv8apDaMrPoz7IP4fLbiQM",
+  "usage": {
+    "promptTokenCount": 254,
+    "candidatesTokenCount": 1320,
+    "totalTokenCount": 1765,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 254
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 191,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.136800",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 254,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 191
+  },
+  "elapsed_seconds": 22.9,
+  "output": "output/imagegen/unit-5-mission-v12/m502-stall-numbers.png",
+  "sha256": "29375e382149911c5313bb9ab6b5a7e67cbfbf1a9272f09a862931cdcda9ae02",
+  "byte_count": 6094902,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

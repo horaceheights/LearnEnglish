@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "pack": "unit-3-mission-gap-pro-photos",
+  "revision": 1,
+  "output_namespace": "unit-3-mission-v12",
+  "authorization": "2026-11-17: mission scenes for the A1 coverage-gap lessons. The user asked to \"add the missions for the new lessons\", approved the gap-lesson media in advance (\"I preapprove all image and audios creation no need for me to reiew and approve on the fly\") and chose the image model by photo type (\"Yes, use Flash\"): Gemini 2.5 Flash Image for objects, animals and scenery, Gemini 3 Pro Image for people, numerals and edits. Ceiling US$0.67 for this revision. Revision 1 is frozen: a changed prompt is a new revision in a new file, and every rejected output is reported with its cost.",
+  "image_settings": {
+    "provider": "google-gemini",
+    "model": "gemini-3-pro-image",
+    "aspect_ratio": "3:2",
+    "image_size": "2K",
+    "runtime_size": "1536x1024",
+    "runtime_format": "webp",
+    "n": 1
+  },
+  "production": {
+    "price_per_image_usd": "0.134",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing (checked 2026-09-24: Gemini 3 Pro Image, $0.134 per 1K/2K image)",
+    "planned_images": 2,
+    "expected_cost_usd": "0.27",
+    "requested_ceiling_usd": "0.67",
+    "no_automatic_retries": true,
+    "order": "Independent photos in any order. A rejected output is reported with its cost; a redo needs a changed prompt in a new revision file."
+  },
+  "shared_prompts": {
+    "photo": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English, used as a 'listen and find' game scene: the learner hears a sentence and taps the matching subject. Natural everyday photographic detail, natural light and correct perspective; NOT an illustration, 3D render, cartoon, collage or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. Every subject named below must be instantly recognizable on a small phone screen. Do not imitate earlier course photos.",
+    "edit": "This is an edit of image 1: the result must look like the same photograph. Change only what the instruction names."
+  },
+  "assets": [
+    {
+      "id": "m301-addresses",
+      "order": 1,
+      "lesson": "3.16",
+      "item": "It is eleven Park Street. / It is twelve Park Street. / It is fifteen Park Street. / It is twenty Park Street.",
+      "runtime_filename": "a1_u3_mission_gap_addresses_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo"
+      ],
+      "prompt": "FOUR FRONT DOORS side by side along one quiet street, seen straight on, each door a different color (blue, green, red, yellow) with a big brass house number on the door: from left to right the numbers are 11, 12, 15 and 20. The digits are large, clear and correct; these four numbers are the ONLY writing anywhere in the photo: no street sign, no name plate, no letters. Evening light, a small lamp beside each door. No people. Exactly four subjects, spread evenly across the whole width of the photo, each clearly separated from the others by open space, none overlapping or hidden, each large and sharp. Eye-level view, the whole of every subject visible. Every visible hand has five natural fingers."
+    },
+    {
+      "id": "m302-jobs",
+      "order": 2,
+      "lesson": "3.16",
+      "item": "He is a waiter. / She is a police officer. / She is an artist. / He is a singer.",
+      "runtime_filename": "a1_u3_mission_gap_jobs_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo"
+      ],
+      "prompt": "A FESTIVE EVENING DINNER in a garden with string lights and long tables. Four people, from left to right, each in their own quarter: (1) a male WAITER in a white shirt, black vest and long black apron carrying a tray of plates; (2) a female POLICE OFFICER in a plain dark-blue uniform and peaked cap standing by the gate; (3) a female ARTIST in a paint-stained apron painting on a canvas on an easel; (4) a male SINGER singing into a microphone on a stand. Each person's job is obvious at once. The uniform, badge, apron and canvas carry no writing. No letters, words, logos or brand marks anywhere. Every visible hand has five natural fingers."
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "341531a7-1f80-4100-82ea-d0c3359ac7f3",
+  "asset_id": "m503-lunch",
+  "pack_sha256": "bd2d8b347c6ea8f9faf58cfbf8c0e7e17190c5b25d1a0a545b2e8b74dc03a67e",
+  "started_at": "2026-11-17T14:57:13.818216+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English, used as a 'listen and find' game scene: the learner hears a sentence and taps the matching subject. Natural everyday photographic detail, natural light and correct perspective; NOT an illustration, 3D render, cartoon, collage or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. Every subject named below must be instantly recognizable on a small phone screen. Do not imitate earlier course photos.\n\nA CAFE TABLE seen from above, with four separate dishes in a row from left to right, well apart: a bowl of hot tomato SOUP; one SANDWICH on a small board; a bowl of green leaf SALAD; a wedge of yellow CHEESE on a small board. Nothing else on the table. Exactly four subjects, spread evenly across the whole width of the photo, each clearly separated from the others by open space, none overlapping or hidden, each large and sharp. Eye-level view, the whole of every subject visible. No letters, words, logos or brand marks anywhere.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "SGv8atz6MaShz7IP79ew0AQ",
+  "usage": {
+    "promptTokenCount": 238,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1528,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 238
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038771",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 238,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 6.57,
+  "output": "output/imagegen/unit-5-mission-v11/m503-lunch.png",
+  "sha256": "675cdd93a8df656041796419f564b70b56b60ff4d71df910e4f66a9a255eeaf4",
+  "byte_count": 1680168,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}

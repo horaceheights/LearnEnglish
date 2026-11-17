@@ -30,10 +30,11 @@ class ScreenshotBatchTests(unittest.TestCase):
     def test_independent_mission_answers_have_no_artificial_sequence(self):
         mission = LESSONS["lesson-4-10-my-day-mission"]
         expected = {
-            "M11": "Yes, I do. We wash our clothes.",
-            "M12": "No, I do not. They clean the table.",
-            "M16": "Yes, I do. I open the door.",
-            "M17": "Yes, I do. I close the door.",
+            # 2026-11-17: three gap-lesson beats before the closing chapter moved these up three.
+            "M14": "Yes, I do. We wash our clothes.",
+            "M15": "No, I do not. They clean the table.",
+            "M19": "Yes, I do. I open the door.",
+            "M20": "Yes, I do. I close the door.",
         }
         for card in mission.cards:
             if card.slide_id in expected:

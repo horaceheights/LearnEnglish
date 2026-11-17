@@ -35,18 +35,13 @@ class UnitParityTests(unittest.TestCase):
         contracts = json.loads(CONTRACTS.read_text(encoding="utf-8"))
         recorded = {(unit, f["id"]) for unit, contract in contracts["units"].items()
                     for f in contract["functions"] if mission_deferral(f)}
-        self.assertEqual(recorded, {("2", "size-state-comparison"), ("4", "everyday-verbs"), ("4", "tomorrow-and-the-week"),
-                                    ("5", "buying-things"), ("5", "tens"),
-                                    ("3", "contact-details"), ("2", "classroom-words"), ("2", "more-colors"),
-                                    ("4", "months-first"), ("4", "months-second"), ("4", "more-at-home"),
-                                    ("5", "more-food"), ("5", "at-the-table"),
-                                    # 2026-11-16: the last seven gap lessons.
-                                    ("3", "more-jobs"), ("6", "in-the-city"), ("7", "more-feelings"), ("7", "seasons"),
-                                    ("7", "outdoors"), ("7", "farm-and-wild-animals"), ("7", "sports-and-music")})
+        # 2026-11-17: the missions practise the other gap lessons; four still wait for a remade scene.
+        self.assertEqual(recorded, {("2", "size-state-comparison"), ("3", "contact-details"),
+                                    ("7", "more-feelings"), ("7", "farm-and-wild-animals")})
         lessons = [json.loads(path.read_text(encoding="utf-8-sig"))
                    for path in sorted((CONTRACTS.parents[2] / "backend/lessons/unit_2").glob("*.yaml"))]
         result = audit(lessons, {**contracts, "units": {"2": contracts["units"]["2"]}}, CONTRACTS.parents[2] / "Lessons/Lesson1/images")
-        self.assertEqual(result["units"]["2"]["mission_practice_deferred"], ["classroom-words", "more-colors", "size-state-comparison"])
+        self.assertEqual(result["units"]["2"]["mission_practice_deferred"], ["size-state-comparison"])
         self.assertTrue(result["units"]["2"]["ready"], result["units"]["2"]["gaps"])
 
     def test_metadata_and_distractors_cannot_claim_successful_practice(self):

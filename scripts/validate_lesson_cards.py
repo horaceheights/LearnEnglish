@@ -225,10 +225,10 @@ UNIT_ONE_FOUNDATION_LESSON_IDS = (
 )
 MISSION_CARD_COUNTS = {
     "lesson-10-family-mission": 22,
-    "lesson-3-10-introduction-mission": 14,
-    "lesson-4-10-my-day-mission": 17,
-    "lesson-5-10-cafe-mission": 20,
-    "lesson-6-10-town-mission": 14,
+    "lesson-3-10-introduction-mission": 15,  # 14 before the 2026-11-17 gap-lesson beats
+    "lesson-4-10-my-day-mission": 20,  # 17 before the 2026-11-17 gap-lesson beats
+    "lesson-5-10-cafe-mission": 24,  # 20 before the 2026-11-17 gap-lesson beats
+    "lesson-6-10-town-mission": 15,  # 14 before the 2026-11-17 gap-lesson beats
 }
 # New meal beats retain the identities of every already-shipped Unit 5 card.
 # This pins the approved revision's order, not a cap on future mission coverage.
@@ -236,7 +236,10 @@ MISSION_SLIDE_SEQUENCE = {
     "lesson-5-10-cafe-mission": (
         [f"M{index:02d}" for index in range(1, 13)]
         + ["M12L", "M12D"]
-        + [f"M{index:02d}" for index in range(13, 19)]
+        + [f"M{index:02d}" for index in range(13, 16)]
+        # 2026-11-17: four gap-lesson beats (5.11-5.14) keep every shipped ID by taking suffixes.
+        + ["M15A", "M15B", "M15C", "M15D"]
+        + [f"M{index:02d}" for index in range(16, 19)]
     ),
 }
 MISSION_REQUIRED_INTERACTIONS = {
@@ -269,13 +272,14 @@ MISSION_REQUIRED_INTERACTIONS = {
 MISSION_HERO_PREFIXES = {
     "lesson-10-family-mission": "a1_u1_reunion_",
     # The 2026-09-25 rebuild added the Is it yours? gate on two a1_u3_dinner_v2_ edits.
-    "lesson-3-10-introduction-mission": ("a1_u3_dinner_v1_", "a1_u3_dinner_v2_"),
+    "lesson-3-10-introduction-mission": ("a1_u3_dinner_v1_", "a1_u3_dinner_v2_", "a1_u3_mission_gap_"),
     # Approved family-visit reconstruction owns fresh mission-only v2 views.
-    "lesson-4-10-my-day-mission": "a1_u4_home_v2_",
+    "lesson-4-10-my-day-mission": ("a1_u4_home_v2_", "a1_u4_mission_gap_"),
     "lesson-5-10-cafe-mission": (
-        "a1_u5_market_v1_", "a1_u5_revision_mission_", "a1_u5_sequence_mission_",
+        "a1_u5_market_v1_", "a1_u5_revision_mission_", "a1_u5_sequence_mission_", "a1_u5_mission_gap_",
     ),
-    "lesson-6-10-town-mission": "a1_photo_u6_story_mission_",
+    # 2026-11-17: each gap-lesson beat owns one new mission-only a1_uN_mission_gap_ scene.
+    "lesson-6-10-town-mission": ("a1_photo_u6_story_mission_", "a1_u6_mission_gap_"),
 }
 MISSION_REQUIRED_KINDS = {
     "lesson-10-family-mission": frozenset({
@@ -326,11 +330,13 @@ MISSION_KIND_SEQUENCE = {
     "lesson-3-10-introduction-mission": [
         "guided-search", "crowd-search", "crowd-search", "crowd-search",
         "action-hunt", "crowd-search", "crowd-search", "crowd-search", "contrast-hunt",
+        "crowd-search",  # 2026-11-17: 3.14 More Jobs
         "voice-gate", "voice-gate", "voice-gate", "voice-gate", "voice-gate",
     ],
     "lesson-4-10-my-day-mission": [
         "guided-search", "crowd-search", "contrast-hunt", "crowd-search",
         "action-hunt", "action-hunt", "action-hunt", "contrast-hunt",
+        "crowd-search", "crowd-search", "crowd-search",  # 2026-11-17: 4.11, 4.13-4.14, 4.15
         "voice-gate", "voice-gate", "voice-gate", "voice-gate", "voice-gate",
         "voice-gate", "voice-gate", "voice-gate", "voice-gate",
     ],
@@ -340,12 +346,14 @@ MISSION_KIND_SEQUENCE = {
         "action-hunt", "voice-gate", "crowd-search", "voice-gate",
         "crowd-search", "crowd-search", "crowd-search",
         "crowd-search", "voice-gate", "voice-gate",
+        "crowd-search", "crowd-search", "crowd-search", "crowd-search",  # 2026-11-17: 5.11-5.14
         "voice-gate", "voice-gate", "voice-gate",
     ],
     "lesson-6-10-town-mission": [
         "contrast-hunt", "crowd-search", "crowd-search", "contrast-hunt",
         "contrast-hunt", "contrast-hunt", "crowd-search", "crowd-search",
         "contrast-hunt", "contrast-hunt",
+        "crowd-search",  # 2026-11-17: 6.13 In the City
         "voice-gate", "voice-gate", "voice-gate", "voice-gate",
     ],
 }
@@ -358,18 +366,18 @@ MISSION_CHAPTER_SEQUENCE = {
         + ["welcome-everyone"] * 4
     ),
     "lesson-3-10-introduction-mission": (
-        ["arrivals"] * 2 + ["welcome"] * 2 + ["prep"] * 2 + ["guests"] * 3 + ["table-talk"] * 5
+        ["arrivals"] * 2 + ["welcome"] * 2 + ["prep"] * 2 + ["guests"] * 3 + ["more-guests"] + ["table-talk"] * 5
     ),
     "lesson-4-10-my-day-mission": (
-        ["home"] * 4 + ["morning"] * 2 + ["help"] * 2 + ["welcome"] * 9
+        ["home"] * 4 + ["morning"] * 2 + ["help"] * 2 + ["plan-the-visit"] * 3 + ["welcome"] * 9
     ),
     "lesson-5-10-cafe-mission": (
         ["mercado"] * 4 + ["gustos"] * 3 + ["pide"] * 4
-        + ["comidas"] * 3 + ["precios"] * 3 + ["cafe"] * 3
+        + ["comidas"] * 3 + ["precios"] * 3 + ["mas-compras"] * 4 + ["cafe"] * 3
     ),
     "lesson-6-10-town-mission": (
         ["find-help"] * 3 + ["safe-route"] + ["choose-service"] * 4
-        + ["travel"] * 2 + ["help-traveller"] * 4
+        + ["travel"] * 2 + ["the-city"] + ["help-traveller"] * 4
     ),
 }
 

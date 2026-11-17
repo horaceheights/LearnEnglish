@@ -141,10 +141,11 @@ test('conversation decisions use ordinary contrast teaching and keep semantic im
 // A1 4.13 to 4.15 (months and more at home) with sixteen review cards moved the total to 2783; the earlier outputs were proven byte-identical first.
 // A1 5.13 More Food and 5.14 At the Table with eight review constructions moved the total to 2834; the earlier outputs were proven byte-identical first.
 // The last seven gap lessons (3.14, 6.13, 7.9 to 7.13) moved the total to 3013; the earlier outputs were proven byte-identical first.
-test('all 3013 established A1 ordinary wrong-choice outputs remain unchanged', () => {
+// The 2026-11-17 gap-lesson mission beats moved the total to 3055; the earlier outputs were proven byte-identical first.
+test('all 3055 established A1 ordinary wrong-choice outputs remain unchanged', () => {
   const course = JSON.parse(fs.readFileSync(path.join(__dirname, '../src/generated/a1-course.json'), 'utf8'));
   const results = course.flatMap(lesson => lesson.cards).filter(card => card.options.length >= 2 && !card.interaction_type?.startsWith('complete'))
     .flatMap(card => wrongOptions(card).map(option => [card.slide_id, option.id, lessonMistakeHint(card, option.id)]));
-  assert.equal(results.length, 3013);
+  assert.equal(results.length, 3055);
   assert.equal(crypto.createHash('sha256').update(JSON.stringify(results)).digest('hex'), fixture.a1BaselineSha256);
 });

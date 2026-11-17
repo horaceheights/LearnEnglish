@@ -106,11 +106,12 @@ class UnitFiveReviewTests(unittest.TestCase):
                            "Can I have coffee and eggs, please?", "Thank you."):
                 self.assertIn(phrase, text, number)
         mission = LESSONS["5.16"]["cards"]
-        self.assertEqual(len(mission), 20)
+        self.assertEqual(len(mission), 24)  # 2026-11-17: four gap-lesson beats (5.11-5.14)
         self.assertEqual(sum(c["mission_game"]["kind"] == "voice-gate" for c in mission), 10)
         self.assertEqual([c["slide_id"] for c in mission],
                          [*[f"M{i:02}" for i in range(1, 13)], "M12L", "M12D",
-                          *[f"M{i:02}" for i in range(13, 19)]])
+                          *[f"M{i:02}" for i in range(13, 16)], "M15A", "M15B", "M15C", "M15D",
+                          *[f"M{i:02}" for i in range(16, 19)]])
 
     def test_mission_contract_preserves_recap_order_card_identity_and_mission_media(self):
         from scripts.validate_lesson_cards import LESSONS as canonical, validate_mission_contracts
@@ -118,7 +119,7 @@ class UnitFiveReviewTests(unittest.TestCase):
         self.assertEqual(validate_mission_contracts(canonical), [])
         mission_id = "lesson-5-10-cafe-mission"
         cases = (
-            ("missing meal", "must contain exactly 20 mission beats"),
+            ("missing meal", "must contain exactly 24 mission beats"),
             ("renumbered stable card", "mission beat IDs must preserve the approved sequence"),
             ("market inside recap", "approved chapter beat map"),
             ("teaching hero", "namespace"),

@@ -1,0 +1,55 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "4e30d216-ef80-4d1b-8f85-7fd455fd5548",
+  "asset_id": "m601-city",
+  "pack_sha256": "4a165d80ba8f1f09b44d717f53c51a0e4f88735621494d8369682bbfd009d679",
+  "started_at": "2026-11-17T14:58:13.670483+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English, used as a 'listen and find' game scene: the learner hears a sentence and taps the matching subject. Natural everyday photographic detail, natural light and correct perspective; NOT an illustration, 3D render, cartoon, collage or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. Every subject named below must be instantly recognizable on a small phone screen. Do not imitate earlier course photos.\n\nA WIDE VIEW AT THE EDGE OF A CITY on a clear day, with four separate subjects from left to right: (1) a large unlabeled street MAP on a freestanding information board in the foreground (only colored streets, parks and a river, no names or symbols); (2) an empty gray ROAD with a white center line running straight away into the distance; (3) an open-air MARKET with several colorful stalls under awnings; (4) ONE tall modern glass office BUILDING standing alone. No other buildings, no people. No letters, words, logos or brand marks anywhere.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "hGv8asqxKdawqtsPrM2YoQM",
+  "usage": {
+    "promptTokenCount": 236,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1526,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 236
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038771",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 236,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 6.3,
+  "output": "output/imagegen/unit-6-mission-v11/m601-city.png",
+  "sha256": "c222f61ef8102488c3e277b50a4c26b2ddfaa5eb25c20c3196ad9a9e8fdfee86",
+  "byte_count": 1737756,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}

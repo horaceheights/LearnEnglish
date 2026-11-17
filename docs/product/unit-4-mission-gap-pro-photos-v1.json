@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "pack": "unit-4-mission-gap-pro-photos",
+  "revision": 1,
+  "output_namespace": "unit-4-mission-v12",
+  "authorization": "2026-11-17: mission scenes for the A1 coverage-gap lessons. The user asked to \"add the missions for the new lessons\", approved the gap-lesson media in advance (\"I preapprove all image and audios creation no need for me to reiew and approve on the fly\") and chose the image model by photo type (\"Yes, use Flash\"): Gemini 2.5 Flash Image for objects, animals and scenery, Gemini 3 Pro Image for people, numerals and edits. Ceiling US$0.67 for this revision. Revision 1 is frozen: a changed prompt is a new revision in a new file, and every rejected output is reported with its cost.",
+  "image_settings": {
+    "provider": "google-gemini",
+    "model": "gemini-3-pro-image",
+    "aspect_ratio": "3:2",
+    "image_size": "2K",
+    "runtime_size": "1536x1024",
+    "runtime_format": "webp",
+    "n": 1
+  },
+  "production": {
+    "price_per_image_usd": "0.134",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing (checked 2026-09-24: Gemini 3 Pro Image, $0.134 per 1K/2K image)",
+    "planned_images": 2,
+    "expected_cost_usd": "0.27",
+    "requested_ceiling_usd": "0.67",
+    "no_automatic_retries": true,
+    "order": "Independent photos in any order. A rejected output is reported with its cost; a redo needs a changed prompt in a new revision file."
+  },
+  "shared_prompts": {
+    "photo": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English, used as a 'listen and find' game scene: the learner hears a sentence and taps the matching subject. Natural everyday photographic detail, natural light and correct perspective; NOT an illustration, 3D render, cartoon, collage or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. Every subject named below must be instantly recognizable on a small phone screen. Do not imitate earlier course photos.",
+    "edit": "This is an edit of image 1: the result must look like the same photograph. Change only what the instruction names."
+  },
+  "assets": [
+    {
+      "id": "m401-home-day",
+      "order": 1,
+      "lesson": "4.17",
+      "item": "They make breakfast. / They use the computer. / They come to my house. / He is writing now.",
+      "runtime_filename": "a1_u4_mission_gap_home_day_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo"
+      ],
+      "prompt": "A BRIGHT OPEN-PLAN FAMILY HOME seen from one side, with four separate scenes from left to right: (1) two adults MAKING BREAKFAST together at the kitchen counter, frying eggs and making toast; (2) two children USING A COMPUTER together at a desk, both looking at the screen; (3) two guests with a bag COMING IN through the open front door; (4) a man sitting at a small table WRITING in a notebook with a pen. Each scene has clear space around it. No letters, words, logos or brand marks anywhere. Every visible hand has five natural fingers."
+    },
+    {
+      "id": "m402-planner",
+      "order": 2,
+      "lesson": "4.17",
+      "item": "It is January. / It is April. / My birthday is in July. / It is December.",
+      "runtime_filename": "a1_u4_mission_gap_planner_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo",
+        "edit"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1_photo_u4_calendar_year_v1.webp",
+        "sha256": "f2cd9002d202468996c0774657225989ada8c64a3b25cd188472e49f3ac3d2d7",
+        "observed_description": "A whiteboard year planner in a wooden frame on a beige wall: the year 2023 at the top and twelve boxes in three rows of four, numbered 1 to 12, each with two small grids of squares."
+      },
+      "prompt": "Image 1 shows a framed whiteboard year planner with twelve numbered boxes (1 to 12) under a year. Keep the board, frame, wall, numbers, box lines and the small grids in every box exactly as they are, with the same framing. Add ONE change: in box 7 only, draw a small pink birthday cake with three candles in the upper right of the box, as a simple marker drawing. No loop, no circle, no other drawing, no new writing."
+    }
+  ]
+}
