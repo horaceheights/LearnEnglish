@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "pack": "unit-7-mission-gap-flash-photos",
+  "revision": 3,
+  "output_namespace": "unit-7-mission-v15",
+  "authorization": "2026-11-17: remade mission scenes for the A1 coverage-gap lessons. The user asked to \"add the missions for the new lessons\", approved the gap-lesson media in advance (\"I preapprove all image and audios creation no need for me to reiew and approve on the fly\") and then asked for Gemini Flash only (\"continue, rmember we are using gemini flash, not pro\"). The farm scene: revision 1 returned stitched panels and revision 2 (unit-7-mission-v13) was refused with HTTP 402. The feelings scene replaces a Pro photo whose two 'is sick' clues counted as one claim; it now shows four different feelings. Ceiling US$0.28 for this revision. This revision is frozen: a changed prompt is a new revision in a new file, and every rejected output is reported with its cost.",
+  "image_settings": {
+    "provider": "google-gemini",
+    "model": "gemini-2.5-flash-image",
+    "aspect_ratio": "3:2",
+    "image_size": "1K",
+    "runtime_size": "1536x1024",
+    "runtime_format": "webp",
+    "n": 1
+  },
+  "production": {
+    "price_per_image_usd": "0.0387",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing (checked 2026-11-16: Gemini 2.5 Flash Image, about $0.039 per image)",
+    "planned_images": 2,
+    "expected_cost_usd": "0.08",
+    "requested_ceiling_usd": "0.28",
+    "no_automatic_retries": true,
+    "order": "Independent photos in any order. A rejected output is reported with its cost; a redo needs a changed prompt in a new revision file."
+  },
+  "shared_prompts": {
+    "photo": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English, used as a 'listen and find' game scene: the learner hears a sentence and taps the matching subject. Natural everyday photographic detail, natural light and correct perspective; NOT an illustration, 3D render, cartoon, collage or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. Every subject named below must be instantly recognizable on a small phone screen. Do not imitate earlier course photos."
+  },
+  "assets": [
+    {
+      "id": "m701-feelings",
+      "order": 1,
+      "lesson": "7.15",
+      "item": "She is sick. / He is angry. / She is afraid. / He is fine.",
+      "runtime_filename": "a1_u7_mission_gap_feelings_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo"
+      ],
+      "prompt": "A WAITING ROOM with a row of chairs and four adults seated well apart, from left to right: (1) a SICK woman wrapped in a blanket with a red nose, blowing her nose into a tissue; (2) an ANGRY man with arms tightly crossed, eyebrows pulled down hard and a deep frown; (3) an AFRAID woman shrinking back with wide eyes, open mouth and both palms raised, staring at a large spider on the floor in front of her; (4) a man who is FINE: relaxed and calm, sitting comfortably with a small easy smile and a thumbs-up. Each feeling is unmistakable at phone size. This is ONE single continuous photograph taken with one camera from one position: NOT a collage, NOT a grid, NOT side-by-side panels, no seams or dividing lines; the same ground and background run continuously behind every subject, and the subjects stand at slightly different distances from the camera like in a real scene. No letters, words, logos or brand marks anywhere. Every visible hand has five natural fingers."
+    },
+    {
+      "id": "m704-farm",
+      "order": 4,
+      "lesson": "7.15",
+      "item": "The cow is eating. / The horse is running. / It is a pig. / It is a sheep.",
+      "runtime_filename": "a1_u7_mission_gap_farm_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo"
+      ],
+      "prompt": "ONE GREEN FARM FIELD photographed in one wide shot, with four animals spread across it from left to right at slightly different distances: a black-and-white COW with its head down EATING grass; a brown HORSE RUNNING fast in side view, legs in mid-stride; a pink PIG standing on the grass; a white woolly SHEEP standing on the grass. The same grass and the same sky run behind all four animals. No people, no other animals. This is ONE single continuous photograph taken with one camera from one position: NOT a collage, NOT a grid, NOT side-by-side panels, no seams or dividing lines; the same ground and background run continuously behind every subject, and the subjects stand at slightly different distances from the camera like in a real scene. No letters, words, logos or brand marks anywhere."
+    }
+  ]
+}

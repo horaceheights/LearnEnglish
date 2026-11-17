@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "pack": "unit-2-mission-gap-flash-photos",
+  "revision": 4,
+  "output_namespace": "unit-2-mission-v16",
+  "authorization": "2026-11-17: remade mission scenes for the A1 coverage-gap lessons. The user asked to \"add the missions for the new lessons\", approved the gap-lesson media in advance (\"I preapprove all image and audios creation no need for me to reiew and approve on the fly\") and then asked for Gemini Flash only (\"continue, rmember we are using gemini flash, not pro\"). Revision 2 (unit-2-mission-v13) was refused with HTTP 402 before any image was made; revision 1 showed only one bicycle. Revision 3 (unit-2-mission-v15) again showed only one bicycle, rejected; the beat now uses the 2.11 big/small contrast on houses and dogs. Ceiling US$0.24 for this revision. This revision is frozen: a changed prompt is a new revision in a new file, and every rejected output is reported with its cost.",
+  "image_settings": {
+    "provider": "google-gemini",
+    "model": "gemini-2.5-flash-image",
+    "aspect_ratio": "3:2",
+    "image_size": "1K",
+    "runtime_size": "1536x1024",
+    "runtime_format": "webp",
+    "n": 1
+  },
+  "production": {
+    "price_per_image_usd": "0.0387",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing (checked 2026-11-16: Gemini 2.5 Flash Image, about $0.039 per image)",
+    "planned_images": 1,
+    "expected_cost_usd": "0.04",
+    "requested_ceiling_usd": "0.24",
+    "no_automatic_retries": true,
+    "order": "Independent photos in any order. A rejected output is reported with its cost; a redo needs a changed prompt in a new revision file."
+  },
+  "shared_prompts": {
+    "photo": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English, used as a 'listen and find' game scene: the learner hears a sentence and taps the matching subject. Natural everyday photographic detail, natural light and correct perspective; NOT an illustration, 3D render, cartoon, collage or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. Every subject named below must be instantly recognizable on a small phone screen. Do not imitate earlier course photos."
+  },
+  "assets": [
+    {
+      "id": "m201-size",
+      "order": 1,
+      "lesson": "2.15",
+      "item": "It is a big house. / It is a small house. / It is a big dog. / It is a small dog.",
+      "runtime_filename": "a1_u2_mission_gap_size_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo"
+      ],
+      "prompt": "A QUIET STREET EDGE ON A SUNNY DAY seen from the pavement. On the LEFT half: one very BIG house, three floors tall and wide, with a BIG shaggy dog standing on the lawn in front of it. On the RIGHT half: one very SMALL house, a tiny one-floor cottage, with a SMALL puppy-sized dog standing on the lawn in front of it. The big house is clearly much larger than the small house, and the big dog clearly much larger than the small dog. The two dogs stand in the lower part of the photo, the two houses fill the upper part. Exactly two houses and two dogs; no people, no cars. This is ONE single continuous photograph taken with one camera from one position: NOT a collage, NOT a grid, NOT side-by-side panels, no seams or dividing lines. No letters, words, logos or brand marks anywhere."
+    }
+  ]
+}

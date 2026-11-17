@@ -16,7 +16,7 @@ class Unit7ApprovedProgressionTests(unittest.TestCase):
     def test_complete_approved_allocation_is_reproducible_and_versioned(self):
         # 2026-11-16: the coverage-gap lessons 7.9 to 7.13 moved the review to 7.14 and the mission to 7.15.
         # Their approved plans keep their file names (7.9 and 7.10); the review gained five construction cards.
-        allocations = [55, 49, 42, 44, 45, 54, 42, 48, 79, 22]  # 2026-11-17: three gap-lesson mission beats
+        allocations = [55, 49, 42, 44, 45, 54, 42, 48, 79, 24]  # 2026-11-17: five gap-lesson mission beats
         numbers = [f'7.{n}' for n in range(1, 9)] + ['7.14', '7.15']
         self.assertEqual(set(LESSONS), {f'7.{n}' for n in range(1, 16)})
         for n, count in enumerate(allocations, 1):
@@ -66,10 +66,10 @@ class Unit7ApprovedProgressionTests(unittest.TestCase):
         cards = LESSONS['7.15']['cards']
         listening = [c for c in cards if c['mission_game']['kind'] != 'voice-gate']
         gates = [c for c in cards if c['mission_game']['kind'] == 'voice-gate']
-        # 2026-11-17: three gap-lesson beats (7.10, 7.11, 7.13) of four cues each before the closing gates.
-        self.assertEqual((len(listening), len(gates)), (18, 4))
-        self.assertEqual(sum(len(c['mission_game']['cues']) for c in listening), 50)
-        self.assertEqual([c['slide_id'] for c in cards], [f'M{n:02}' for n in range(1,23)])
+        # 2026-11-17: five gap-lesson beats (7.9 to 7.13) of four cues each before the closing gates.
+        self.assertEqual((len(listening), len(gates)), (20, 4))
+        self.assertEqual(sum(len(c['mission_game']['cues']) for c in listening), 58)
+        self.assertEqual([c['slide_id'] for c in cards], [f'M{n:02}' for n in range(1,25)])
         self.assertEqual([c['slide_id'] for c in cards if c['mission_game'].get('completion_scene')], ['M10','M14'])
         for card in listening:
             # The 2026-11-17 gap-lesson beats are independent object searches, which may shuffle their cues.

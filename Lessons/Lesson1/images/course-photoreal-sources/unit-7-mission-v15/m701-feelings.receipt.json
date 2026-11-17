@@ -1,0 +1,55 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "97368b28-230e-4bcf-8f9a-e51fc3f9ce6b",
+  "asset_id": "m701-feelings",
+  "pack_sha256": "0bd1a81ae08394af889c7ea4159dabf1fb8fdac24bff9d7f1b9540dfa4308765",
+  "started_at": "2026-11-17T18:03:34.898749+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English, used as a 'listen and find' game scene: the learner hears a sentence and taps the matching subject. Natural everyday photographic detail, natural light and correct perspective; NOT an illustration, 3D render, cartoon, collage or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. Every subject named below must be instantly recognizable on a small phone screen. Do not imitate earlier course photos.\n\nA WAITING ROOM with a row of chairs and four adults seated well apart, from left to right: (1) a SICK woman wrapped in a blanket with a red nose, blowing her nose into a tissue; (2) an ANGRY man with arms tightly crossed, eyebrows pulled down hard and a deep frown; (3) an AFRAID woman shrinking back with wide eyes, open mouth and both palms raised, staring at a large spider on the floor in front of her; (4) a man who is FINE: relaxed and calm, sitting comfortably with a small easy smile and a thumbs-up. Each feeling is unmistakable at phone size. This is ONE single continuous photograph taken with one camera from one position: NOT a collage, NOT a grid, NOT side-by-side panels, no seams or dividing lines; the same ground and background run continuously behind every subject, and the subjects stand at slightly different distances from the camera like in a real scene. No letters, words, logos or brand marks anywhere. Every visible hand has five natural fingers.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "9Zb8aq35IPqsqtsP2ZCH4AI",
+  "usage": {
+    "promptTokenCount": 333,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1623,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 333
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038800",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 333,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 7.05,
+  "output": "output/imagegen/unit-7-mission-v15/m701-feelings.png",
+  "sha256": "cea58bf42731e49032e12914ec4f16419e54baf27be3a8ccbf8d8e35e1eaf45e",
+  "byte_count": 1802794,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}
