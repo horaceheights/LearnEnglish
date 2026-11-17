@@ -15,11 +15,23 @@ const goldVocabulary = [
   'grandfather', 'grandmother', 'grandparents', 'grandchildren', 'playing',
   'studying', 'working', 'cooking', 'talking', 'not', 'who',
 ];
+// 2026-11-17: the gap lessons 1.10 Pets and 1.11 Friends and People join the review list;
+// beats M18A/M18B use them, but only the foundation words above must all be heard.
+const gapVocabulary = [
+  'dog', 'cat', 'bird', 'rabbit', 'pet', 'pets', 'friend', 'friends',
+  'husband', 'wife', 'son', 'daughter', 'person', 'people',
+];
+const slideIds = [
+  ...Array.from({ length: 18 }, (_item, index) => `M${String(index + 1).padStart(2, '0')}`),
+  'M18A', 'M18B',
+  ...Array.from({ length: 4 }, (_item, index) => `M${String(index + 19).padStart(2, '0')}`),
+];
 const chapterIds = [
   ...Array(3).fill('find-the-people'),
   ...Array(6).fill('connect-the-family'),
   ...Array(6).fill('follow-the-actions'),
   ...Array(3).fill('repair-the-clues'),
+  ...Array(2).fill('pets-and-friends'),
   ...Array(4).fill('welcome-everyone'),
 ];
 const gameKinds = [
@@ -27,6 +39,7 @@ const gameKinds = [
   ...Array(6).fill('family-link'),
   ...Array(6).fill('action-hunt'),
   ...Array(3).fill('contrast-hunt'),
+  'crowd-search', 'crowd-search',
   ...Array(4).fill('voice-gate'),
 ];
 const heroAssets = [
@@ -34,8 +47,8 @@ const heroAssets = [
   '04_age_groups', '05_babies', '06_brother_sister', '07_sibling_pairs',
   '08_parents', '09_generations', '10_eat_drink', '11_read_write',
   '12_run_swim', '13_sit_sleep', '14_play_study', '15_work_cook_talk',
-  '16_not_eating_v2', '17_not_reading', '18_not_running', '19_who_father',
-  '20_who_grandmother', '21_who_parents', '22_family_arrival',
+  '16_not_eating_v2', '17_not_reading', '18_not_running', '18a_pets', '18b_friends',
+  '19_who_father', '20_who_grandmother', '21_who_parents', '22_family_arrival',
 ].map((suffix) => `a1_u1_reunion_${suffix}.webp`);
 const rejectedInstructionTerms = /\b(?:modelo|señal|señales|destino|origen|relación singular|relación plural|pista dice|boy|girl|man|woman|father|mother|reading|writing|eating|drinking)\b/i;
 
@@ -46,14 +59,14 @@ const heroFilename = (card) => filename(
 const tokens = (text) => String(text || '').toLowerCase().match(/[a-z]+/g) || [];
 
 assert.equal(mission.experience_type, 'mission');
-assert.equal(mission.content_revision, 6, 'The voice-game mission must invalidate the ordinary pronunciation-panel revision.');
-assert.equal(mission.cards.length, 22);
-assert.deepEqual(mission.cards.map((card) => card.slide_id), Array.from({ length: 22 }, (_item, index) => `M${String(index + 1).padStart(2, '0')}`));
+assert.equal(mission.content_revision, 7, 'The voice-game mission must invalidate the ordinary pronunciation-panel revision.');
+assert.equal(mission.cards.length, 24);
+assert.deepEqual(mission.cards.map((card) => card.slide_id), slideIds);
 assert.deepEqual(mission.cards.map((card) => card.mission_chapter_id), chapterIds);
 assert.deepEqual(mission.cards.map((card) => card.mission_game.kind), gameKinds);
-assert.deepEqual(mission.cards.map((card) => card.stage), [...Array(18).fill('Listen'), ...Array(4).fill('Speak')]);
-assert.deepEqual(mission.cards.map((card) => card.interaction_type), [...Array(18).fill('mission-game'), ...Array(3).fill('mission-speak'), 'mission-finale']);
-assert.deepEqual(mission.review_vocabulary, goldVocabulary);
+assert.deepEqual(mission.cards.map((card) => card.stage), [...Array(20).fill('Listen'), ...Array(4).fill('Speak')]);
+assert.deepEqual(mission.cards.map((card) => card.interaction_type), [...Array(20).fill('mission-game'), ...Array(3).fill('mission-speak'), 'mission-finale']);
+assert.deepEqual(mission.review_vocabulary, [...goldVocabulary, ...gapVocabulary]);
 
 mission.cards.forEach((card) => {
   const game = card.mission_game;
@@ -84,14 +97,14 @@ mission.cards.forEach((card) => {
 
 assert.equal(mission.cards[0].mission_game.tutorial_mode, 'guided-no-fail');
 assert.ok(mission.cards.slice(1).every((card) => !card.mission_game.tutorial_mode));
-for (const card of mission.cards.slice(18)) {
+for (const card of mission.cards.slice(20)) {
   assert.equal(card.prompt_image_url, '', `${card.slide_id} must not duplicate its speaking image.`);
   assert.equal(card.options.filter((option) => option.image_url).length, 1);
 }
 
 const heroes = mission.cards.map(heroFilename);
 assert.deepEqual(heroes, heroAssets);
-assert.equal(new Set(heroes).size, 22);
+assert.equal(new Set(heroes).size, 24);
 const earlierMedia = new Set(course
   .filter((item) => item.unit_id === 'unit-1' && Number(item.sub_lesson_id.split('.')[1]) < 10)
   .flatMap((item) => item.cards)
@@ -110,4 +123,4 @@ assert.deepEqual(goldVocabulary.filter((word) => !learnedTokens.has(word)), []);
 const missionLanguage = [...learnedTokens].join(' ');
 for (const question of ['who', 'he', 'she', 'they']) assert.ok(missionLanguage.includes(question));
 
-console.log('Lesson 1.10 real-game contract passed: 18 listening challenges, 4 speaking gates, 22 unique scenes.');
+console.log('Lesson 1.10 real-game contract passed: 20 listening challenges, 4 speaking gates, 24 unique scenes.');

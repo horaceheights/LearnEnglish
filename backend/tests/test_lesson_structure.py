@@ -86,20 +86,24 @@ UNIT_ONE_GOLD = [
     "sisters", "an", "adult", "adults", "father", "mother", "parents",
     "grandfather", "grandmother", "grandparents", "grandchildren", "playing",
     "studying", "working", "cooking", "talking", "not", "who",
+    # 2026-11-17: words of the gap lessons 1.10 Pets and 1.11 Friends and People (beats M18A/M18B).
+    "dog", "cat", "bird", "rabbit", "pet", "pets", "friend", "friends",
+    "husband", "wife", "son", "daughter", "person", "people",
 ]
 MISSION_CHAPTERS = (
     ["find-the-people"] * 3
     + ["connect-the-family"] * 6
     + ["follow-the-actions"] * 6
     + ["repair-the-clues"] * 3
+    + ["pets-and-friends"] * 2
     + ["welcome-everyone"] * 4
 )
 MISSION_STAGES = [
-    *(["Listen"] * 18),
+    *(["Listen"] * 20),
     *(["Speak"] * 4),
 ]
 MISSION_INTERACTION_SEQUENCE = [
-    *(["mission-game"] * 18),
+    *(["mission-game"] * 20),
     *(["mission-speak"] * 3),
     "mission-finale",
 ]
@@ -108,17 +112,21 @@ MISSION_KIND_SEQUENCE = [
     *(["family-link"] * 6),
     *(["action-hunt"] * 6),
     *(["contrast-hunt"] * 3),
+    "crowd-search", "crowd-search",
     *(["voice-gate"] * 4),
 ]
+MISSION_SLIDES = [f"M{index:02d}" for index in range(1, 19)] + ["M18A", "M18B"] + [f"M{index:02d}" for index in range(19, 23)]
+# Each hero carries its beat's slide number; the 2026-11-17 gap beats take suffixes so no shipped still is renamed.
 MISSION_HERO_ASSETS = [
-    f"a1_u1_reunion_{index:02d}_{suffix}.webp"
-    for index, suffix in enumerate((
+    f"a1_u1_reunion_{slide[1:].lower()}_{suffix}.webp"
+    for slide, suffix in zip(MISSION_SLIDES, (
         "people_path", "four_people_search", "pronoun_arrival", "age_groups",
         "babies", "brother_sister", "sibling_pairs", "parents", "generations",
         "eat_drink", "read_write", "run_swim", "sit_sleep", "play_study",
         "work_cook_talk", "not_eating_v2", "not_reading", "not_running",
+        "pets", "friends",
         "who_father", "who_grandmother", "who_parents", "family_arrival",
-    ), 1)
+    ))
 ]
 
 
@@ -377,8 +385,8 @@ class LessonStructureTests(unittest.TestCase):
         mission = LESSONS["lesson-10-family-mission"]
         self.assertEqual([], mission.vocabulary)
         self.assertEqual("mission", mission.experience_type)
-        self.assertEqual(6, mission.content_revision)
-        self.assertEqual(22, len(mission.cards))
+        self.assertEqual(7, mission.content_revision)
+        self.assertEqual(24, len(mission.cards))
         self.assertEqual(UNIT_ONE_GOLD, mission.review_vocabulary)
         self.assertEqual(
             [
@@ -386,6 +394,7 @@ class LessonStructureTests(unittest.TestCase):
                 "connect-the-family",
                 "follow-the-actions",
                 "repair-the-clues",
+                "pets-and-friends",
                 "welcome-everyone",
             ],
             [chapter.id for chapter in mission.mission.chapters],
@@ -404,7 +413,7 @@ class LessonStructureTests(unittest.TestCase):
         self.assertTrue(mission.mission.completion_title)
         self.assertTrue(mission.mission.completion_message)
         self.assertEqual(
-            [f"M{index:02d}" for index in range(1, 23)],
+            MISSION_SLIDES,
             [card.slide_id for card in mission.cards],
         )
         self.assertEqual(MISSION_CHAPTERS, [card.mission_chapter_id for card in mission.cards])
@@ -454,7 +463,7 @@ class LessonStructureTests(unittest.TestCase):
         hero_assets = []
         for beat, card in enumerate(mission.cards, 1):
             with self.subTest(beat=beat, slide=card.slide_id):
-                self.assertRegex(card.pedagogy_note, rf"^Mission beat {beat:02d}/22:")
+                self.assertRegex(card.pedagogy_note, rf"^Mission beat {beat:02d}/24:")
                 correct = next(
                     option for option in card.options
                     if option.id == card.correct_option_id
@@ -466,7 +475,7 @@ class LessonStructureTests(unittest.TestCase):
             MISSION_HERO_ASSETS,
             hero_assets,
         )
-        self.assertEqual(22, len(set(hero_assets)))
+        self.assertEqual(24, len(set(hero_assets)))
         self.assertEqual([], validate_mission_contracts())
 
     def test_mission_contract_fails_closed_on_core_regressions(self):
@@ -474,10 +483,10 @@ class LessonStructureTests(unittest.TestCase):
 
         wrong_count = deepcopy(LESSONS)
         wrong_count["lesson-10-family-mission"].cards.pop()
-        cases.append((wrong_count, "must contain exactly 22 mission beats"))
+        cases.append((wrong_count, "must contain exactly 24 mission beats"))
 
         missing_who_form = deepcopy(LESSONS)
-        missing_who_card = missing_who_form["lesson-10-family-mission"].cards[18]
+        missing_who_card = missing_who_form["lesson-10-family-mission"].cards[20]
         missing_who_card.prompt = "He is the father."
         missing_who_card.audio_text = "He is the father."
         missing_who_card.mission_game.cue_audio_text = None

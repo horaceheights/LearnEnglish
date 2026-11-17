@@ -17,8 +17,8 @@ const kickoff = fs.readFileSync(path.join(mobileRoot, 'src/components/MissionKic
 const screen = fs.readFileSync(path.join(mobileRoot, 'src/screens/LessonScreen.tsx'), 'utf8');
 const images = require('../src/generated/bundled-image-packs.json').images;
 
-assert.equal(mission.cards.length, 22);
-assert.equal(mission.content_revision, 6);
+assert.equal(mission.cards.length, 24);
+assert.equal(mission.content_revision, 7);
 assert.deepEqual(
   [...new Set(mission.cards.map((card) => card.mission_game.kind))].sort(),
   ['action-hunt', 'contrast-hunt', 'crowd-search', 'family-link', 'guided-search', 'voice-gate'].sort(),
@@ -102,14 +102,14 @@ assert.match(
 );
 
 const bundledReunionImages = Object.keys(images).filter(name => /^a1_u1_reunion_.*\.webp$/.test(name));
-assert.equal(bundledReunionImages.length, 27);
+assert.equal(bundledReunionImages.length, 29);  // 27 before the 2026-11-17 pets and friends beats
 
 assert.match(lessonCard, /\{missionVoiceGate\.heading\}/);
 assert.match(lessonCard, /\{missionVoiceGate\.instruction\}/);
-assert.equal(missionVoiceProgress(mission, 18).heading, 'ABRE LA CELEBRACIÓN');
-assert.equal(missionVoiceProgress(mission, 18).instruction, 'Activa la entrada con tu voz');
-assert.equal(missionVoiceProgress(mission, 18).total, 4);
-assert.equal(missionVoiceProgress(mission, 21).step, 4);
+assert.equal(missionVoiceProgress(mission, 20).heading, 'ABRE LA CELEBRACIÓN');
+assert.equal(missionVoiceProgress(mission, 20).instruction, 'Activa la entrada con tu voz');
+assert.equal(missionVoiceProgress(mission, 20).total, 4);
+assert.equal(missionVoiceProgress(mission, 23).step, 4);
 assert.match(lessonCard, /Array\.from\(\{ length: missionVoiceGate\.total \}/);
 assert.match(lessonCard, /presentation=\{isMissionVoiceGate \? 'mission-voice-gate' : 'standard'\}/);
 assert.match(pronunciation, /presentation === 'mission-voice-gate'/);

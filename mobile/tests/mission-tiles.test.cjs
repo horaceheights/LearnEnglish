@@ -13,12 +13,12 @@ const course = require(path.join(mobileRoot, 'src/generated/a1-course.json'));
 const mission = course.find((lesson) => lesson.experience_type === 'mission');
 
 assert.ok(mission, 'The embedded catalog must expose the declared mission experience.');
-assert.equal(mission.cards.length, 22);
+assert.equal(mission.cards.length, 24);  // 22 before the 2026-11-17 pets and friends beats
 assert.ok(
-  Math.min(...mission.cards.slice(0, 18).map((card) => card.mission_game.targets.length)) >= 4,
+  Math.min(...mission.cards.slice(0, 20).map((card) => card.mission_game.targets.length)) >= 4,
   'Every listening challenge must present at least four equally credible tap candidates.',
 );
-for (const card of mission.cards.slice(0, 18)) {
+for (const card of mission.cards.slice(0, 20)) {
   const targetIds = card.mission_game.targets.map((target) => target.id).sort();
   const cueTargetIds = card.mission_game.cues.map((cue) => cue.target_id).sort();
   assert.deepEqual(

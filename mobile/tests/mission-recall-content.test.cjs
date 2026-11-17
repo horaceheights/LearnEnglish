@@ -27,7 +27,7 @@ test('recall gates play one female visitor question, keep a private answer, and 
     'adf78c24749613524c68b2ccdc5bee3f4fdbe755efd0b4dbbf2b6f834cdac0c2',
     'e564e11667e01a24cdb7a1bbf8e7180514858765a422bcb269007d552e0b0d96',
   ];
-  lesson.cards.slice(18).forEach((card,i) => {
+  lesson.cards.slice(20).forEach((card,i) => {
     assert.equal(card.audio_turns.length, 1);
     const turn = card.audio_turns[0];
     assert.equal(turn.text, card.mission_game.cue_audio_text);
