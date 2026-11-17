@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "pack": "unit-5-mission-gap-flash-photos",
+  "revision": 1,
+  "output_namespace": "unit-5-mission-v11",
+  "authorization": "2026-11-17: mission scenes for the A1 coverage-gap lessons. The user asked to \"add the missions for the new lessons\", approved the gap-lesson media in advance (\"I preapprove all image and audios creation no need for me to reiew and approve on the fly\") and chose the image model by photo type (\"Yes, use Flash\"): Gemini 2.5 Flash Image for objects, animals and scenery, Gemini 3 Pro Image for people, numerals and edits. Ceiling US$0.48 for this revision. Revision 1 is frozen: a changed prompt is a new revision in a new file, and every rejected output is reported with its cost.",
+  "image_settings": {
+    "provider": "google-gemini",
+    "model": "gemini-2.5-flash-image",
+    "aspect_ratio": "3:2",
+    "image_size": "1K",
+    "runtime_size": "1536x1024",
+    "runtime_format": "webp",
+    "n": 1
+  },
+  "production": {
+    "price_per_image_usd": "0.0387",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing (checked 2026-11-16: Gemini 2.5 Flash Image, about $0.039 per image)",
+    "planned_images": 2,
+    "expected_cost_usd": "0.08",
+    "requested_ceiling_usd": "0.48",
+    "no_automatic_retries": true,
+    "order": "Independent photos in any order. A rejected output is reported with its cost; a redo needs a changed prompt in a new revision file."
+  },
+  "shared_prompts": {
+    "photo": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English, used as a 'listen and find' game scene: the learner hears a sentence and taps the matching subject. Natural everyday photographic detail, natural light and correct perspective; NOT an illustration, 3D render, cartoon, collage or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. Every subject named below must be instantly recognizable on a small phone screen. Do not imitate earlier course photos.",
+    "edit": "This is an edit of image 1: the result must look like the same photograph. Change only what the instruction names."
+  },
+  "assets": [
+    {
+      "id": "m503-lunch",
+      "order": 3,
+      "lesson": "5.16",
+      "item": "It is soup. / It is a sandwich. / It is salad. / It is cheese.",
+      "runtime_filename": "a1_u5_mission_gap_lunch_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo"
+      ],
+      "prompt": "A CAFE TABLE seen from above, with four separate dishes in a row from left to right, well apart: a bowl of hot tomato SOUP; one SANDWICH on a small board; a bowl of green leaf SALAD; a wedge of yellow CHEESE on a small board. Nothing else on the table. Exactly four subjects, spread evenly across the whole width of the photo, each clearly separated from the others by open space, none overlapping or hidden, each large and sharp. Eye-level view, the whole of every subject visible. No letters, words, logos or brand marks anywhere."
+    },
+    {
+      "id": "m504-tableware",
+      "order": 4,
+      "lesson": "5.16",
+      "item": "It is a cup. / It is a glass. / It is a bottle. / It is a plate.",
+      "runtime_filename": "a1_u5_mission_gap_tableware_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo"
+      ],
+      "prompt": "A CAFE TABLE seen from the side at eye level, with four EMPTY things standing in a row from left to right, well apart: a white coffee CUP on its saucer; a clear drinking GLASS; a tall green glass BOTTLE; a round white PLATE standing upright on a small stand so its face is seen. Nothing in any of them; nothing else on the table. Exactly four subjects, spread evenly across the whole width of the photo, each clearly separated from the others by open space, none overlapping or hidden, each large and sharp. Eye-level view, the whole of every subject visible. No letters, words, logos or brand marks anywhere."
+    }
+  ]
+}

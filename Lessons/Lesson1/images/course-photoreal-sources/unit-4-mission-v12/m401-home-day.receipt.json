@@ -1,0 +1,57 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "fdb17865-ba29-4646-b391-a214ab6c822d",
+  "asset_id": "m401-home-day",
+  "pack_sha256": "385903be0e85c547053e9600c5d904f2487585eef7e4c695177ca64fc6d567f7",
+  "started_at": "2026-11-17T14:56:16.663529+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English, used as a 'listen and find' game scene: the learner hears a sentence and taps the matching subject. Natural everyday photographic detail, natural light and correct perspective; NOT an illustration, 3D render, cartoon, collage or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. Every subject named below must be instantly recognizable on a small phone screen. Do not imitate earlier course photos.\n\nA BRIGHT OPEN-PLAN FAMILY HOME seen from one side, with four separate scenes from left to right: (1) two adults MAKING BREAKFAST together at the kitchen counter, frying eggs and making toast; (2) two children USING A COMPUTER together at a desk, both looking at the screen; (3) two guests with a bag COMING IN through the open front door; (4) a man sitting at a small table WRITING in a notebook with a pen. Each scene has clear space around it. No letters, words, logos or brand marks anywhere. Every visible hand has five natural fingers.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "D2v8av6mJ4Xoz7IPy97P-AI",
+  "usage": {
+    "promptTokenCount": 240,
+    "candidatesTokenCount": 1351,
+    "totalTokenCount": 1869,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 240
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 278,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137816",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 240,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 278
+  },
+  "elapsed_seconds": 23.61,
+  "output": "output/imagegen/unit-4-mission-v12/m401-home-day.png",
+  "sha256": "566faf33552ce87d758aca85d2e70867c024420452c0f483559c83f4d70c4812",
+  "byte_count": 5377837,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

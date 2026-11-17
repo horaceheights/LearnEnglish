@@ -456,7 +456,8 @@ ASSIGNMENT_GROUPS: dict[str, list[tuple[str, str, str]]] = {
         ('audio_speaker', 'male-character', 'L1 L4 S7 S9 S11 S12 U6 U10 U12'),
     ],
     'lesson-6-10-town-mission': [
-        ('answer_audio_speaker', 'ana', 'M11 M12 M13 M14'),
+        # 2026-11-17: the 6.13 gap-lesson beat (M11) moved Ana's closing answers up one.
+        ('answer_audio_speaker', 'ana', 'M12 M13 M14 M15'),
     ],
     # Unit 7 was rebuilt through the content engine on 2026-09-27: each brief names who says every
     # line (the man pointing to his body, the pictured person who is hungry, thirsty or cold, Ana
@@ -567,10 +568,10 @@ ASSIGNMENT_GROUPS: dict[str, list[tuple[str, str, str]]] = {
         ('audio_speaker', 'sofia', 'L8 R9 R10 R11 S5 S6 U5 U6'),
     ],
     "lesson-4-10-my-day-mission": [
-        ('answer_audio_speaker', 'female-character', 'M11 M12 M13 M16 M17'),
-        ('answer_audio_speaker', 'male-character', 'M09 M10 M14 M15'),
-        ('audio_speaker', 'female-character', 'M09 M10 M14'),
-        ('audio_speaker', 'male-character', 'M11 M12 M13 M15 M16 M17'),
+        ('answer_audio_speaker', 'female-character', 'M14 M15 M16 M19 M20'),
+        ('answer_audio_speaker', 'male-character', 'M12 M13 M17 M18'),
+        ('audio_speaker', 'female-character', 'M12 M13 M17'),
+        ('audio_speaker', 'male-character', 'M14 M15 M16 M18 M19 M20'),
     ],
     'lesson-2-pronouns': [
     ],

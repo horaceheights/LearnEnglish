@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "05ddd307-a0ab-4489-9f1a-1c44243a150f",
+  "asset_id": "m402-planner",
+  "pack_sha256": "385903be0e85c547053e9600c5d904f2487585eef7e4c695177ca64fc6d567f7",
+  "started_at": "2026-11-17T14:56:41.293683+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English, used as a 'listen and find' game scene: the learner hears a sentence and taps the matching subject. Natural everyday photographic detail, natural light and correct perspective; NOT an illustration, 3D render, cartoon, collage or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. Every subject named below must be instantly recognizable on a small phone screen. Do not imitate earlier course photos.\n\nThis is an edit of image 1: the result must look like the same photograph. Change only what the instruction names.\n\nImage 1 shows a framed whiteboard year planner with twelve numbered boxes (1 to 12) under a year. Keep the board, frame, wall, numbers, box lines and the small grids in every box exactly as they are, with the same framing. Add ONE change: in box 7 only, draw a small pink birthday cake with three candles in the upper right of the box, as a simple marker drawing. No loop, no circle, no other drawing, no new writing.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1_photo_u4_calendar_year_v1.webp",
+    "sha256": "f2cd9002d202468996c0774657225989ada8c64a3b25cd188472e49f3ac3d2d7"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "KGv8auaTIufQz7IPibyj8QQ",
+  "usage": {
+    "promptTokenCount": 500,
+    "candidatesTokenCount": 1265,
+    "totalTokenCount": 1983,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 242
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 218,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137616",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 500,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 218
+  },
+  "elapsed_seconds": 31.66,
+  "output": "output/imagegen/unit-4-mission-v12/m402-planner.png",
+  "sha256": "f18aaaab0f4e82fce93a07dd580387031ef51e9189ddfda8c52cbcf054620c1e",
+  "byte_count": 4852436,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

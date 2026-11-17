@@ -1,0 +1,55 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "2f4775d9-c8c1-4b34-96a4-21df36bb47be",
+  "asset_id": "m403-house-outside",
+  "pack_sha256": "99c117659a5e9a510accd23e47c8d1151b4fa326db5b63515fc32aed445d503c",
+  "started_at": "2026-11-17T14:56:09.473758+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English, used as a 'listen and find' game scene: the learner hears a sentence and taps the matching subject. Natural everyday photographic detail, natural light and correct perspective; NOT an illustration, 3D render, cartoon, collage or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. Every subject named below must be instantly recognizable on a small phone screen. Do not imitate earlier course photos.\n\nA SUBURBAN STREET SCENE seen from across the road. From left to right: a low brick GARDEN WALL standing alone at the edge of the pavement; a small family house with a gray roof and a CAT sitting ON THE ROOF near the top; a front GARDEN of green lawn and flowers with a DOG standing IN THE GARDEN; a tall modern APARTMENT building of many floors with many balconies. The cat, the dog, the wall and the apartment building are each in their own quarter of the photo. No people. No letters, words, logos or brand marks anywhere.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "CGv8auurHOPVz7IP_NWIsAI",
+  "usage": {
+    "promptTokenCount": 237,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1527,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 237
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038771",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 237,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 6.67,
+  "output": "output/imagegen/unit-4-mission-v11/m403-house-outside.png",
+  "sha256": "3720b61d210bce4692ad05d0669bb4462b0c924d0efe2bac227d6eb22aaf3ee8",
+  "byte_count": 2013470,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}

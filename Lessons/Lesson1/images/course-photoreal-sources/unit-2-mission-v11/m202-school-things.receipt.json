@@ -1,0 +1,55 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "b4fe675c-ca92-45fb-a710-57c1760bf80b",
+  "asset_id": "m202-school-things",
+  "pack_sha256": "7fbc90ee53327bbdd18ffe9dc905b4621f5b4a3465e2fe5991755439f1e02a1d",
+  "started_at": "2026-11-17T14:55:07.907503+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English, used as a 'listen and find' game scene: the learner hears a sentence and taps the matching subject. Natural everyday photographic detail, natural light and correct perspective; NOT an illustration, 3D render, cartoon, collage or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. Every subject named below must be instantly recognizable on a small phone screen. Do not imitate earlier course photos.\n\nSCHOOL THINGS ON A WOODEN PICNIC TABLE in a park, seen from above. From left to right, lying flat and well apart: one long YELLOW pencil; one long RED pencil; one closed BLUE notebook; one closed GREEN notebook. The pencils lie vertically (pointing from the top of the photo to the bottom) so each is long in the frame. Plain covers, nothing else on the table. Exactly four subjects, spread evenly across the whole width of the photo, each clearly separated from the others by open space, none overlapping or hidden, each large and sharp. Eye-level view, the whole of every subject visible. No letters, words, logos or brand marks anywhere.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "ymr8avbRLrPoz7IP4fLbiQM",
+  "usage": {
+    "promptTokenCount": 254,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1544,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 254
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038776",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 254,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 6.44,
+  "output": "output/imagegen/unit-2-mission-v11/m202-school-things.png",
+  "sha256": "43ba6835109553a1ea2d5f0a7e06bdcf98dc0e61152e8feb05483039e546a1df",
+  "byte_count": 1369762,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}
