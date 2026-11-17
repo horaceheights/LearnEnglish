@@ -10,7 +10,7 @@
   "sub_lesson_id": "3.16",
   "sub_lesson_title": "Cenas cruzadas",
   "experience_type": "mission",
-  "content_revision": 7,
+  "content_revision": 8,
   "mission": {
     "label": "MISIÓN FINAL · UNIDAD 3",
     "title": "Cenas cruzadas",
@@ -196,7 +196,7 @@
         }
       ],
       "spanish_translation": "Buenos días. Adiós. Estoy leyendo. Estoy jugando.",
-      "pedagogy_note": "Mission beat 01/15: En la mañana llegan los voluntarios: descubre quién saluda, quién se va y qué hace cada persona.",
+      "pedagogy_note": "Mission beat 01/16: En la mañana llegan los voluntarios: descubre quién saluda, quién se va y qué hace cada persona.",
       "mission_game": {
         "kind": "guided-search",
         "instruction_es": "Escucha la frase y toca a la persona que la dice.",
@@ -373,7 +373,7 @@
         }
       ],
       "spanish_translation": "¿Cómo te llamas? Me llamo Diego. Hola. Estamos hablando.",
-      "pedagogy_note": "Mission beat 02/15: En el registro, descubre quién pregunta, quién se presenta y quién llega.",
+      "pedagogy_note": "Mission beat 02/16: En el registro, descubre quién pregunta, quién se presenta y quién llega.",
       "mission_game": {
         "kind": "crowd-search",
         "instruction_es": "Escucha la frase y toca a la persona que la dice.",
@@ -553,7 +553,7 @@
         }
       ],
       "spanish_translation": "Soy de México. Soy canadiense. Soy de España. Soy estadounidense.",
-      "pedagogy_note": "Mission beat 03/15: En la bienvenida internacional, cada invitado dice de dónde es.",
+      "pedagogy_note": "Mission beat 03/16: En la bienvenida internacional, cada invitado dice de dónde es.",
       "mission_game": {
         "kind": "crowd-search",
         "instruction_es": "Escucha la frase y toca a la persona que la dice.",
@@ -729,7 +729,7 @@
         }
       ],
       "spanish_translation": "Tengo trece años. Tengo diecisiete años. Tengo doce años. Tengo quince años.",
-      "pedagogy_note": "Mission beat 04/15: En la mesa juvenil, cada participante dice su edad.",
+      "pedagogy_note": "Mission beat 04/16: En la mesa juvenil, cada participante dice su edad.",
       "mission_game": {
         "kind": "crowd-search",
         "instruction_es": "Escucha la frase y toca a la persona que la dice.",
@@ -905,7 +905,7 @@
         }
       ],
       "spanish_translation": "Estoy cocinando. Estás escribiendo. Estoy escribiendo. Estamos jugando.",
-      "pedagogy_note": "Mission beat 05/15: En la cocina, distingue quién habla de sí mismo, quién le habla a otra persona y quiénes juegan juntos.",
+      "pedagogy_note": "Mission beat 05/16: En la cocina, distingue quién habla de sí mismo, quién le habla a otra persona y quiénes juegan juntos.",
       "mission_game": {
         "kind": "action-hunt",
         "instruction_es": "Escucha la frase y toca a la persona que la dice.",
@@ -1085,7 +1085,7 @@
         }
       ],
       "spanish_translation": "Tengo mi libro. Este teléfono es tuyo. Tengo una bicicleta. Estos libros son nuestros.",
-      "pedagogy_note": "Mission beat 06/15: Antes de la cena, descubre quién habla de lo suyo, quién entrega algo y quiénes tienen libros.",
+      "pedagogy_note": "Mission beat 06/16: Antes de la cena, descubre quién habla de lo suyo, quién entrega algo y quiénes tienen libros.",
       "mission_game": {
         "kind": "crowd-search",
         "instruction_es": "Escucha la frase y toca a la persona que la dice.",
@@ -1265,7 +1265,7 @@
         }
       ],
       "spanish_translation": "Soy doctor. Soy enfermera. Soy agricultor. Soy conductor.",
-      "pedagogy_note": "Mission beat 07/15: Los invitados llegan del trabajo: descubre a qué se dedica cada uno.",
+      "pedagogy_note": "Mission beat 07/16: Los invitados llegan del trabajo: descubre a qué se dedica cada uno.",
       "mission_game": {
         "kind": "crowd-search",
         "instruction_es": "Escucha la frase y toca a la persona que la dice.",
@@ -1441,7 +1441,7 @@
         }
       ],
       "spanish_translation": "Él tiene un auto. Ella tiene una bicicleta. Ellos están hablando. Él es doctor.",
-      "pedagogy_note": "Mission beat 08/15: Llegan los últimos invitados: escucha qué tiene o qué es cada persona.",
+      "pedagogy_note": "Mission beat 08/16: Llegan los últimos invitados: escucha qué tiene o qué es cada persona.",
       "mission_game": {
         "kind": "crowd-search",
         "instruction_es": "Escucha la frase y toca a la persona que describe.",
@@ -1621,7 +1621,7 @@
         }
       ],
       "spanish_translation": "Ella tiene su bolsa. Él tiene su bolsa. Ella tiene su teléfono. Él tiene su teléfono.",
-      "pedagogy_note": "Mission beat 09/15: En la entrada, escucha si la bolsa o el teléfono es de él o de ella.",
+      "pedagogy_note": "Mission beat 09/16: En la entrada, escucha si la bolsa o el teléfono es de él o de ella.",
       "mission_game": {
         "kind": "contrast-hunt",
         "instruction_es": "Escucha de quién es cada cosa y toca a esa persona.",
@@ -1741,6 +1741,186 @@
       "mission_chapter_id": "more-guests",
       "interaction_type": "mission-game",
       "stage": "Listen",
+      "prompt": "It is eleven Park Street. It is twelve Park Street. It is fifteen Park Street. It is twenty Park Street.",
+      "prompt_image_url": "/lesson-assets/a1_u3_mission_gap_addresses_v1.webp",
+      "options": [
+        {
+          "id": "addresses-1",
+          "image_url": "",
+          "label": "It is eleven Park Street."
+        },
+        {
+          "id": "addresses-2",
+          "image_url": "",
+          "label": "It is twelve Park Street."
+        },
+        {
+          "id": "addresses-3",
+          "image_url": "",
+          "label": "It is fifteen Park Street."
+        },
+        {
+          "id": "addresses-4",
+          "image_url": "",
+          "label": "It is twenty Park Street."
+        }
+      ],
+      "correct_option_id": "addresses-1",
+      "correct_option_ids": [
+        "addresses-1",
+        "addresses-2",
+        "addresses-3",
+        "addresses-4"
+      ],
+      "audio_text": "It is eleven Park Street. It is twelve Park Street. It is fifteen Park Street. It is twenty Park Street.",
+      "answer_audio_text": null,
+      "audio_turns": [
+        {
+          "text": "It is eleven Park Street.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u3_mission_gap_addresses_v1.webp"
+        },
+        {
+          "text": "It is twelve Park Street.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u3_mission_gap_addresses_v1.webp"
+        },
+        {
+          "text": "It is fifteen Park Street.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u3_mission_gap_addresses_v1.webp"
+        },
+        {
+          "text": "It is twenty Park Street.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u3_mission_gap_addresses_v1.webp"
+        }
+      ],
+      "spanish_translation": "Es la calle Park número once. Es la calle Park número doce. Es la calle Park número quince. Es la calle Park número veinte.",
+      "pedagogy_note": "Mission beat 10/16: gap lesson 3.13 — crowd-search; each heard sentence from that lesson names one visible target in a new scene.",
+      "mission_game": {
+        "kind": "crowd-search",
+        "instruction_es": "Escucha la pista en inglés y toca la respuesta.",
+        "validation": "ordered",
+        "targets": [
+          {
+            "id": "addresses-1",
+            "label_es": "Es la calle Park número once.",
+            "subject_kind": "object",
+            "accepted_option_ids": [
+              "addresses-1"
+            ],
+            "rect": {
+              "x": 0.06,
+              "y": 0.28,
+              "width": 0.16,
+              "height": 0.59
+            },
+            "head_anchors": [
+              {
+                "x": 0.145,
+                "y": 0.29
+              }
+            ]
+          },
+          {
+            "id": "addresses-2",
+            "label_es": "Es la calle Park número doce.",
+            "subject_kind": "object",
+            "accepted_option_ids": [
+              "addresses-2"
+            ],
+            "rect": {
+              "x": 0.3,
+              "y": 0.28,
+              "width": 0.16,
+              "height": 0.59
+            },
+            "head_anchors": [
+              {
+                "x": 0.385,
+                "y": 0.29
+              }
+            ]
+          },
+          {
+            "id": "addresses-3",
+            "label_es": "Es la calle Park número quince.",
+            "subject_kind": "object",
+            "accepted_option_ids": [
+              "addresses-3"
+            ],
+            "rect": {
+              "x": 0.535,
+              "y": 0.28,
+              "width": 0.16,
+              "height": 0.59
+            },
+            "head_anchors": [
+              {
+                "x": 0.62,
+                "y": 0.29
+              }
+            ]
+          },
+          {
+            "id": "addresses-4",
+            "label_es": "Es la calle Park número veinte.",
+            "subject_kind": "object",
+            "accepted_option_ids": [
+              "addresses-4"
+            ],
+            "rect": {
+              "x": 0.78,
+              "y": 0.28,
+              "width": 0.17,
+              "height": 0.59
+            },
+            "head_anchors": [
+              {
+                "x": 0.865,
+                "y": 0.29
+              }
+            ]
+          }
+        ],
+        "cues": [
+          {
+            "id": "cue-addresses-1",
+            "text": "It is eleven Park Street.",
+            "answer_text": "It is eleven Park Street.",
+            "target_id": "addresses-1",
+            "option_id": "addresses-1"
+          },
+          {
+            "id": "cue-addresses-2",
+            "text": "It is twelve Park Street.",
+            "answer_text": "It is twelve Park Street.",
+            "target_id": "addresses-2",
+            "option_id": "addresses-2"
+          },
+          {
+            "id": "cue-addresses-3",
+            "text": "It is fifteen Park Street.",
+            "answer_text": "It is fifteen Park Street.",
+            "target_id": "addresses-3",
+            "option_id": "addresses-3"
+          },
+          {
+            "id": "cue-addresses-4",
+            "text": "It is twenty Park Street.",
+            "answer_text": "It is twenty Park Street.",
+            "target_id": "addresses-4",
+            "option_id": "addresses-4"
+          }
+        ]
+      }
+    },
+    {
+      "slide_id": "M11",
+      "mission_chapter_id": "more-guests",
+      "interaction_type": "mission-game",
+      "stage": "Listen",
       "prompt": "He is a waiter. She is a police officer. She is an artist. He is a singer.",
       "prompt_image_url": "/lesson-assets/a1_u3_mission_gap_jobs_v1.webp",
       "options": [
@@ -1797,7 +1977,7 @@
         }
       ],
       "spanish_translation": "Él es mesero. Ella es policía. Ella es artista. Él es cantante.",
-      "pedagogy_note": "Mission beat 10/15: gap lesson 3.14 — crowd-search; each heard sentence from that lesson names one visible target in a new scene.",
+      "pedagogy_note": "Mission beat 11/16: gap lesson 3.14 — crowd-search; each heard sentence from that lesson names one visible target in a new scene.",
       "mission_game": {
         "kind": "crowd-search",
         "instruction_es": "Escucha la pista en inglés y toca la respuesta.",
@@ -1913,7 +2093,7 @@
       }
     },
     {
-      "slide_id": "M11",
+      "slide_id": "M12",
       "mission_chapter_id": "table-talk",
       "interaction_type": "mission-speak",
       "stage": "Speak",
@@ -1937,7 +2117,7 @@
         }
       ],
       "spanish_translation": "Soy doctor.",
-      "pedagogy_note": "Mission beat 11/15: Ana le pregunta a Diego por su trabajo; responde por él.",
+      "pedagogy_note": "Mission beat 12/16: Ana le pregunta a Diego por su trabajo; responde por él.",
       "mission_game": {
         "kind": "voice-gate",
         "instruction_es": "Escucha la pregunta. Después lee la respuesta en voz alta.",
@@ -1970,7 +2150,7 @@
       }
     },
     {
-      "slide_id": "M12",
+      "slide_id": "M13",
       "mission_chapter_id": "table-talk",
       "interaction_type": "mission-speak",
       "stage": "Speak",
@@ -1994,7 +2174,7 @@
         }
       ],
       "spanish_translation": "Soy de Canadá. Soy canadiense.",
-      "pedagogy_note": "Mission beat 12/15: Diego le pregunta a Sofia de dónde es; responde por ella.",
+      "pedagogy_note": "Mission beat 13/16: Diego le pregunta a Sofia de dónde es; responde por ella.",
       "mission_game": {
         "kind": "voice-gate",
         "instruction_es": "Escucha la pregunta. Después lee la respuesta en voz alta.",
@@ -2027,7 +2207,7 @@
       }
     },
     {
-      "slide_id": "M13",
+      "slide_id": "M14",
       "mission_chapter_id": "table-talk",
       "interaction_type": "mission-speak",
       "stage": "Speak",
@@ -2051,7 +2231,7 @@
         }
       ],
       "spanish_translation": "Tengo dieciocho años.",
-      "pedagogy_note": "Mission beat 13/15: Sofia le pregunta a Luis su edad; responde por él.",
+      "pedagogy_note": "Mission beat 14/16: Sofia le pregunta a Luis su edad; responde por él.",
       "mission_game": {
         "kind": "voice-gate",
         "instruction_es": "Escucha la pregunta. Después lee la respuesta en voz alta.",
@@ -2084,7 +2264,7 @@
       }
     },
     {
-      "slide_id": "M14",
+      "slide_id": "M15",
       "mission_chapter_id": "table-talk",
       "interaction_type": "mission-speak",
       "stage": "Speak",
@@ -2108,7 +2288,7 @@
         }
       ],
       "spanish_translation": "Sí, este teléfono es mío.",
-      "pedagogy_note": "Mission beat 14/15: Ana encuentra un teléfono en la mesa y le pregunta a Luis si es suyo; responde por él.",
+      "pedagogy_note": "Mission beat 15/16: Ana encuentra un teléfono en la mesa y le pregunta a Luis si es suyo; responde por él.",
       "mission_game": {
         "kind": "voice-gate",
         "instruction_es": "Escucha la pregunta. Después lee la respuesta en voz alta.",
@@ -2141,7 +2321,7 @@
       }
     },
     {
-      "slide_id": "M15",
+      "slide_id": "M16",
       "mission_chapter_id": "table-talk",
       "interaction_type": "mission-finale",
       "stage": "Speak",
@@ -2165,7 +2345,7 @@
         }
       ],
       "spanish_translation": "Estamos comiendo.",
-      "pedagogy_note": "Mission beat 15/15: Una vecina pregunta qué hacen; responde por todos y la cena comienza.",
+      "pedagogy_note": "Mission beat 16/16: Una vecina pregunta qué hacen; responde por todos y la cena comienza.",
       "mission_game": {
         "kind": "voice-gate",
         "instruction_es": "Escucha la pregunta. Después lee la respuesta en voz alta.",

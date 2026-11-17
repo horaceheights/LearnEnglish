@@ -8,7 +8,7 @@ const { fitMissionHeadScene, missionCueOrder } = require('../src/missionTargetIn
 const lesson = JSON.parse(fs.readFileSync(path.join(root, 'backend/lessons/unit_2/lesson-2-10-around-me-mission.yaml'), 'utf8'));
 const proof = JSON.parse(fs.readFileSync(path.join(root, 'docs/qa/unit-2-mission-media-v4.json'), 'utf8'));
 
-test('all 44 object targets bind the reviewed pixels, coordinates and English clues', () => {
+test('all 48 object targets bind the reviewed pixels, coordinates and English clues', () => {
   let cues = 0;
   for (const card of lesson.cards.filter(c => c.stage === 'Listen')) {
     const record = proof.assets.find(r => r.runtime_filename === path.basename(card.prompt_image_url));
@@ -28,8 +28,8 @@ test('all 44 object targets bind the reviewed pixels, coordinates and English cl
     const order = missionCueOrder(game, () => .17);
     assert.deepEqual([...order].sort(), game.cues.map((_, i) => i));
   }
-  // 2026-11-17: two gap-lesson beats (2.12, 2.13) add eight object cues.
-  assert.equal(cues, 44);
+  // 2026-11-17: three gap-lesson beats (2.11, 2.12, 2.13) add twelve object cues.
+  assert.equal(cues, 48);
 });
 
 test('object rail preserves the full photograph, all member anchors and non-overlapping 48dp controls', () => {

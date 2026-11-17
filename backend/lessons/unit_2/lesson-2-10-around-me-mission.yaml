@@ -10,7 +10,7 @@
   "sub_lesson_id": "2.15",
   "sub_lesson_title": "Encuentro en el parque",
   "experience_type": "mission",
-  "content_revision": 7,
+  "content_revision": 8,
   "mission": {
     "voice_heading": "CONFIRMA EL ENCUENTRO",
     "voice_instruction": "Lee cada respuesta en voz alta para confirmar",
@@ -45,7 +45,7 @@
       {
         "id": "more-in-the-park",
         "title": "Más cosas en el parque",
-        "objective": "Escucha el color de cada cosa y tócala."
+        "objective": "Escucha la pista y toca la cosa correcta."
       },
       {
         "id": "confirm-the-meeting",
@@ -180,7 +180,7 @@
         }
       ],
       "spanish_translation": "Es un parque. Es una escuela. Es una tienda. Es un hospital.",
-      "pedagogy_note": "Mission beat 01/15: Encuentra los lugares que rodean el punto de encuentro.",
+      "pedagogy_note": "Mission beat 01/16: Encuentra los lugares que rodean el punto de encuentro.",
       "mission_game": {
         "kind": "guided-search",
         "instruction_es": "Escucha y toca el punto del lugar.",
@@ -360,7 +360,7 @@
         }
       ],
       "spanish_translation": "Es un autobús. Es un carro. Es una bicicleta. Es un puente.",
-      "pedagogy_note": "Mission beat 02/15: Reconoce el transporte y el puente para llegar al parque.",
+      "pedagogy_note": "Mission beat 02/16: Reconoce el transporte y el puente para llegar al parque.",
       "mission_game": {
         "kind": "crowd-search",
         "instruction_es": "Escucha y toca el punto de la respuesta.",
@@ -539,7 +539,7 @@
         }
       ],
       "spanish_translation": "Es una casa. Es un restaurante. Es una mesa. Es una silla.",
-      "pedagogy_note": "Mission beat 03/15: Ya llegaste: reconoce los lugares vecinos y el mobiliario del encuentro.",
+      "pedagogy_note": "Mission beat 03/16: Ya llegaste: reconoce los lugares vecinos y el mobiliario del encuentro.",
       "mission_game": {
         "kind": "crowd-search",
         "instruction_es": "Escucha y toca el punto de la respuesta.",
@@ -718,7 +718,7 @@
         }
       ],
       "spanish_translation": "Este es un libro. Este es un bolígrafo. Este es un teléfono. Esta es una bolsa.",
-      "pedagogy_note": "Mission beat 04/15: Localiza los objetos que se van a usar en el encuentro.",
+      "pedagogy_note": "Mission beat 04/16: Localiza los objetos que se van a usar en el encuentro.",
       "mission_game": {
         "kind": "crowd-search",
         "instruction_es": "Escucha y toca el punto del objeto.",
@@ -897,7 +897,7 @@
         }
       ],
       "spanish_translation": "Estos son libros. Esos son libros. Estos son teléfonos. Ese es un teléfono.",
-      "pedagogy_note": "Mission beat 05/15: Distingue lo que tienes en las manos de lo que dejaste más allá sobre la mesa.",
+      "pedagogy_note": "Mission beat 05/16: Distingue lo que tienes en las manos de lo que dejaste más allá sobre la mesa.",
       "mission_game": {
         "kind": "crowd-search",
         "instruction_es": "Escucha y toca el objeto cerca de ti o al fondo.",
@@ -1088,7 +1088,7 @@
         }
       ],
       "spanish_translation": "¿Cuál? La roja. ¿Cuál? La azul. ¿Cuál? La verde. ¿Cuál? La amarilla.",
-      "pedagogy_note": "Mission beat 06/15: Reconoce el color de cada silla para preparar el espacio.",
+      "pedagogy_note": "Mission beat 06/16: Reconoce el color de cada silla para preparar el espacio.",
       "mission_game": {
         "kind": "crowd-search",
         "instruction_es": "Escucha el color y toca la silla.",
@@ -1267,7 +1267,7 @@
         }
       ],
       "spanish_translation": "Tres libros verdes. Cuatro plumas amarillas. Cinco teléfonos negros. Seis bolsas blancas.",
-      "pedagogy_note": "Mission beat 07/15: Comprueba que cada grupo tenga la cantidad y el color indicados.",
+      "pedagogy_note": "Mission beat 07/16: Comprueba que cada grupo tenga la cantidad y el color indicados.",
       "mission_game": {
         "kind": "crowd-search",
         "instruction_es": "Escucha, cuenta y toca el grupo completo.",
@@ -1502,7 +1502,7 @@
         }
       ],
       "spanish_translation": "Es el número siete. Es el número ocho. Es el número nueve. Es el número diez.",
-      "pedagogy_note": "Mission beat 08/15: Identifica los números de las mesas que se van a preparar.",
+      "pedagogy_note": "Mission beat 08/16: Identifica los números de las mesas que se van a preparar.",
       "mission_game": {
         "kind": "crowd-search",
         "instruction_es": "Escucha y toca el número.",
@@ -1681,7 +1681,7 @@
         }
       ],
       "spanish_translation": "Un libro rojo. Dos teléfonos azules. Una bolsa negra. Dos plumas blancas.",
-      "pedagogy_note": "Mission beat 09/15: Última comprobación: distingue cada objeto por su cantidad y color.",
+      "pedagogy_note": "Mission beat 09/16: Última comprobación: distingue cada objeto por su cantidad y color.",
       "mission_game": {
         "kind": "crowd-search",
         "instruction_es": "Escucha, cuenta y toca el objeto o grupo.",
@@ -1813,6 +1813,185 @@
       "mission_chapter_id": "more-in-the-park",
       "interaction_type": "mission-game",
       "stage": "Listen",
+      "prompt": "It is a big house. It is a small house. It is a big dog. It is a small dog.",
+      "prompt_image_url": "/lesson-assets/a1_u2_mission_gap_size_v1.webp",
+      "options": [
+        {
+          "id": "size-1",
+          "image_url": "",
+          "label": "It is a big house."
+        },
+        {
+          "id": "size-2",
+          "image_url": "",
+          "label": "It is a small house."
+        },
+        {
+          "id": "size-3",
+          "image_url": "",
+          "label": "It is a big dog."
+        },
+        {
+          "id": "size-4",
+          "image_url": "",
+          "label": "It is a small dog."
+        }
+      ],
+      "correct_option_id": "size-1",
+      "correct_option_ids": [
+        "size-1",
+        "size-2",
+        "size-3",
+        "size-4"
+      ],
+      "audio_text": "It is a big house. It is a small house. It is a big dog. It is a small dog.",
+      "audio_turns": [
+        {
+          "text": "It is a big house.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u2_mission_gap_size_v1.webp"
+        },
+        {
+          "text": "It is a small house.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u2_mission_gap_size_v1.webp"
+        },
+        {
+          "text": "It is a big dog.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u2_mission_gap_size_v1.webp"
+        },
+        {
+          "text": "It is a small dog.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u2_mission_gap_size_v1.webp"
+        }
+      ],
+      "spanish_translation": "Es una casa grande. Es una casa pequeña. Es un perro grande. Es un perro pequeño.",
+      "pedagogy_note": "Mission beat 10/16: gap lesson 2.11 — crowd-search; each heard sentence from that lesson names one visible target in a new scene.",
+      "mission_game": {
+        "kind": "crowd-search",
+        "instruction_es": "Escucha la pista en inglés y toca la respuesta.",
+        "validation": "ordered",
+        "targets": [
+          {
+            "id": "size-1",
+            "label_es": "Es una casa grande.",
+            "subject_kind": "object",
+            "accepted_option_ids": [
+              "size-1"
+            ],
+            "rect": {
+              "x": 0.0,
+              "y": 0.06,
+              "width": 0.5,
+              "height": 0.5
+            },
+            "head_anchors": [
+              {
+                "x": 0.25,
+                "y": 0.08
+              }
+            ]
+          },
+          {
+            "id": "size-2",
+            "label_es": "Es una casa pequeña.",
+            "subject_kind": "object",
+            "accepted_option_ids": [
+              "size-2"
+            ],
+            "rect": {
+              "x": 0.61,
+              "y": 0.13,
+              "width": 0.36,
+              "height": 0.48
+            },
+            "head_anchors": [
+              {
+                "x": 0.79,
+                "y": 0.14
+              }
+            ]
+          },
+          {
+            "id": "size-3",
+            "label_es": "Es un perro grande.",
+            "subject_kind": "object",
+            "accepted_option_ids": [
+              "size-3"
+            ],
+            "rect": {
+              "x": 0.3,
+              "y": 0.59,
+              "width": 0.14,
+              "height": 0.18
+            },
+            "head_anchors": [
+              {
+                "x": 0.4,
+                "y": 0.6
+              }
+            ]
+          },
+          {
+            "id": "size-4",
+            "label_es": "Es un perro pequeño.",
+            "subject_kind": "object",
+            "accepted_option_ids": [
+              "size-4"
+            ],
+            "rect": {
+              "x": 0.66,
+              "y": 0.63,
+              "width": 0.12,
+              "height": 0.16
+            },
+            "head_anchors": [
+              {
+                "x": 0.7,
+                "y": 0.68
+              }
+            ]
+          }
+        ],
+        "cues": [
+          {
+            "id": "cue-size-1",
+            "text": "It is a big house.",
+            "answer_text": "It is a big house.",
+            "target_id": "size-1",
+            "option_id": "size-1"
+          },
+          {
+            "id": "cue-size-2",
+            "text": "It is a small house.",
+            "answer_text": "It is a small house.",
+            "target_id": "size-2",
+            "option_id": "size-2"
+          },
+          {
+            "id": "cue-size-3",
+            "text": "It is a big dog.",
+            "answer_text": "It is a big dog.",
+            "target_id": "size-3",
+            "option_id": "size-3"
+          },
+          {
+            "id": "cue-size-4",
+            "text": "It is a small dog.",
+            "answer_text": "It is a small dog.",
+            "target_id": "size-4",
+            "option_id": "size-4"
+          }
+        ]
+      }
+    },
+    {
+      "slide_id": "M11",
+      "mission_chapter_id": "more-in-the-park",
+      "interaction_type": "mission-game",
+      "stage": "Listen",
       "prompt": "It is a yellow pencil. It is a red pencil. It is a blue notebook. It is a green notebook.",
       "prompt_image_url": "/lesson-assets/a1_u2_mission_gap_school_things_v1.webp",
       "options": [
@@ -1868,7 +2047,7 @@
         }
       ],
       "spanish_translation": "Es un lápiz amarillo. Es un lápiz rojo. Es un cuaderno azul. Es un cuaderno verde.",
-      "pedagogy_note": "Mission beat 10/15: gap lesson 2.12 — crowd-search; each heard sentence from that lesson names one visible target in a new scene.",
+      "pedagogy_note": "Mission beat 11/16: gap lesson 2.12 — crowd-search; each heard sentence from that lesson names one visible target in a new scene.",
       "mission_game": {
         "kind": "crowd-search",
         "instruction_es": "Escucha la pista en inglés y toca la respuesta.",
@@ -1988,7 +2167,7 @@
       }
     },
     {
-      "slide_id": "M11",
+      "slide_id": "M12",
       "mission_chapter_id": "more-in-the-park",
       "interaction_type": "mission-game",
       "stage": "Listen",
@@ -2047,7 +2226,7 @@
         }
       ],
       "spanish_translation": "Es un perro café. Es un gato gris. Es una bolsa rosa. Es una silla morada.",
-      "pedagogy_note": "Mission beat 11/15: gap lesson 2.13 — crowd-search; each heard sentence from that lesson names one visible target in a new scene.",
+      "pedagogy_note": "Mission beat 12/16: gap lesson 2.13 — crowd-search; each heard sentence from that lesson names one visible target in a new scene.",
       "mission_game": {
         "kind": "crowd-search",
         "instruction_es": "Escucha la pista en inglés y toca la respuesta.",
@@ -2167,7 +2346,7 @@
       }
     },
     {
-      "slide_id": "M12",
+      "slide_id": "M13",
       "mission_chapter_id": "confirm-the-meeting",
       "interaction_type": "mission-speak",
       "stage": "Speak",
@@ -2190,7 +2369,7 @@
         }
       ],
       "spanish_translation": "Es rojo.",
-      "pedagogy_note": "Mission beat 12/15: Confirma el libro que preparaste.",
+      "pedagogy_note": "Mission beat 13/16: Confirma el libro que preparaste.",
       "mission_game": {
         "kind": "voice-gate",
         "instruction_es": "Escucha la pregunta. Después lee la respuesta en voz alta.",
@@ -2223,7 +2402,7 @@
       }
     },
     {
-      "slide_id": "M13",
+      "slide_id": "M14",
       "mission_chapter_id": "confirm-the-meeting",
       "interaction_type": "mission-speak",
       "stage": "Speak",
@@ -2246,7 +2425,7 @@
         }
       ],
       "spanish_translation": "Es el número ocho.",
-      "pedagogy_note": "Mission beat 13/15: Confirma el teléfono para el encuentro.",
+      "pedagogy_note": "Mission beat 14/16: Confirma el teléfono para el encuentro.",
       "mission_game": {
         "kind": "voice-gate",
         "instruction_es": "Escucha la pregunta. Después lee la respuesta en voz alta.",
@@ -2279,7 +2458,7 @@
       }
     },
     {
-      "slide_id": "M14",
+      "slide_id": "M15",
       "mission_chapter_id": "confirm-the-meeting",
       "interaction_type": "mission-speak",
       "stage": "Speak",
@@ -2302,7 +2481,7 @@
         }
       ],
       "spanish_translation": "Es un autobús.",
-      "pedagogy_note": "Mission beat 14/15: Confirma el transporte del encuentro.",
+      "pedagogy_note": "Mission beat 15/16: Confirma el transporte del encuentro.",
       "mission_game": {
         "kind": "voice-gate",
         "instruction_es": "Escucha la pregunta. Después lee la respuesta en voz alta.",
@@ -2335,7 +2514,7 @@
       }
     },
     {
-      "slide_id": "M15",
+      "slide_id": "M16",
       "mission_chapter_id": "confirm-the-meeting",
       "interaction_type": "mission-finale",
       "stage": "Speak",
@@ -2358,7 +2537,7 @@
         }
       ],
       "spanish_translation": "Es un parque.",
-      "pedagogy_note": "Mission beat 15/15: Confirma el lugar y termina el encuentro.",
+      "pedagogy_note": "Mission beat 16/16: Confirma el lugar y termina el encuentro.",
       "mission_game": {
         "kind": "voice-gate",
         "instruction_es": "Escucha la pregunta. Después lee la respuesta en voz alta.",

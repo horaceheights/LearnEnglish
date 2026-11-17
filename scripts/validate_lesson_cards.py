@@ -225,7 +225,7 @@ UNIT_ONE_FOUNDATION_LESSON_IDS = (
 )
 MISSION_CARD_COUNTS = {
     "lesson-10-family-mission": 22,
-    "lesson-3-10-introduction-mission": 15,  # 14 before the 2026-11-17 gap-lesson beats
+    "lesson-3-10-introduction-mission": 16,  # 14 before the 2026-11-17 gap-lesson beats
     "lesson-4-10-my-day-mission": 20,  # 17 before the 2026-11-17 gap-lesson beats
     "lesson-5-10-cafe-mission": 24,  # 20 before the 2026-11-17 gap-lesson beats
     "lesson-6-10-town-mission": 15,  # 14 before the 2026-11-17 gap-lesson beats
@@ -330,7 +330,7 @@ MISSION_KIND_SEQUENCE = {
     "lesson-3-10-introduction-mission": [
         "guided-search", "crowd-search", "crowd-search", "crowd-search",
         "action-hunt", "crowd-search", "crowd-search", "crowd-search", "contrast-hunt",
-        "crowd-search",  # 2026-11-17: 3.14 More Jobs
+        "crowd-search", "crowd-search",  # 2026-11-17: 3.13 addresses, 3.14 More Jobs
         "voice-gate", "voice-gate", "voice-gate", "voice-gate", "voice-gate",
     ],
     "lesson-4-10-my-day-mission": [
@@ -366,7 +366,7 @@ MISSION_CHAPTER_SEQUENCE = {
         + ["welcome-everyone"] * 4
     ),
     "lesson-3-10-introduction-mission": (
-        ["arrivals"] * 2 + ["welcome"] * 2 + ["prep"] * 2 + ["guests"] * 3 + ["more-guests"] + ["table-talk"] * 5
+        ["arrivals"] * 2 + ["welcome"] * 2 + ["prep"] * 2 + ["guests"] * 3 + ["more-guests"] * 2 + ["table-talk"] * 5
     ),
     "lesson-4-10-my-day-mission": (
         ["home"] * 4 + ["morning"] * 2 + ["help"] * 2 + ["plan-the-visit"] * 3 + ["welcome"] * 9

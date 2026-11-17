@@ -1,0 +1,55 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "6ff3fb24-c6d0-4906-918a-85393150169e",
+  "asset_id": "m201-size",
+  "pack_sha256": "f46b1bd2590eaed52e72b83ce79f6e181b2ff1872e564fc871be6480cc511dd1",
+  "started_at": "2026-11-17T18:04:33.203789+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English, used as a 'listen and find' game scene: the learner hears a sentence and taps the matching subject. Natural everyday photographic detail, natural light and correct perspective; NOT an illustration, 3D render, cartoon, collage or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. Every subject named below must be instantly recognizable on a small phone screen. Do not imitate earlier course photos.\n\nA QUIET STREET EDGE ON A SUNNY DAY seen from the pavement. On the LEFT half: one very BIG house, three floors tall and wide, with a BIG shaggy dog standing on the lawn in front of it. On the RIGHT half: one very SMALL house, a tiny one-floor cottage, with a SMALL puppy-sized dog standing on the lawn in front of it. The big house is clearly much larger than the small house, and the big dog clearly much larger than the small dog. The two dogs stand in the lower part of the photo, the two houses fill the upper part. Exactly two houses and two dogs; no people, no cars. This is ONE single continuous photograph taken with one camera from one position: NOT a collage, NOT a grid, NOT side-by-side panels, no seams or dividing lines. No letters, words, logos or brand marks anywhere.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "L5f8au-vKpTpz7IPqJjtiAM",
+  "usage": {
+    "promptTokenCount": 299,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1589,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 299
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038790",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 299,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 5.84,
+  "output": "output/imagegen/unit-2-mission-v16/m201-size.png",
+  "sha256": "a6bb5302699f878b5576f91fe60bff94ef90b40df91655ce0e61e5c9b3acdb50",
+  "byte_count": 2099621,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}

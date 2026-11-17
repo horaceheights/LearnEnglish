@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "pack": "unit-3-mission-gap-flash-photos",
+  "revision": 1,
+  "output_namespace": "unit-3-mission-v15",
+  "authorization": "2026-11-17: remade mission scenes for the A1 coverage-gap lessons. The user asked to \"add the missions for the new lessons\", approved the gap-lesson media in advance (\"I preapprove all image and audios creation no need for me to reiew and approve on the fly\") and then asked for Gemini Flash only (\"continue, rmember we are using gemini flash, not pro\"). Earlier Pro revisions: revision 1 returned stitched door panels; revision 2 (unit-3-mission-v14) was refused with HTTP 402. The user then asked for Gemini Flash only (2026-11-17). Ceiling US$0.24 for this revision. This revision is frozen: a changed prompt is a new revision in a new file, and every rejected output is reported with its cost.",
+  "image_settings": {
+    "provider": "google-gemini",
+    "model": "gemini-2.5-flash-image",
+    "aspect_ratio": "3:2",
+    "image_size": "1K",
+    "runtime_size": "1536x1024",
+    "runtime_format": "webp",
+    "n": 1
+  },
+  "production": {
+    "price_per_image_usd": "0.0387",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing (checked 2026-11-16: Gemini 2.5 Flash Image, about $0.039 per image)",
+    "planned_images": 1,
+    "expected_cost_usd": "0.04",
+    "requested_ceiling_usd": "0.24",
+    "no_automatic_retries": true,
+    "order": "Independent photos in any order. A rejected output is reported with its cost; a redo needs a changed prompt in a new revision file."
+  },
+  "shared_prompts": {
+    "photo": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English, used as a 'listen and find' game scene: the learner hears a sentence and taps the matching subject. Natural everyday photographic detail, natural light and correct perspective; NOT an illustration, 3D render, cartoon, collage or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. Every subject named below must be instantly recognizable on a small phone screen. Do not imitate earlier course photos."
+  },
+  "assets": [
+    {
+      "id": "m301-addresses",
+      "order": 1,
+      "lesson": "3.16",
+      "item": "It is eleven Park Street. / It is twelve Park Street. / It is fifteen Park Street. / It is twenty Park Street.",
+      "runtime_filename": "a1_u3_mission_gap_addresses_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo"
+      ],
+      "prompt": "A ROW OF FOUR TERRACED HOUSES along one cobbled street, photographed from across the street at a slight angle, so the four front doors appear side by side in one continuous brick facade. Each door is a different color (blue, green, red, yellow) and has one big brass house number on it: from left to right 11, 12, 15 and 20. The digits are large, clear and correct and are the ONLY writing anywhere: no street sign, no name plates, no letters. Evening light, lamps by the doors. No people. This is ONE single continuous photograph taken with one camera from one position: NOT a collage, NOT a grid, NOT side-by-side panels, no seams or dividing lines; the same ground and background run continuously behind every subject, and the subjects stand at slightly different distances from the camera like in a real scene."
+    }
+  ]
+}
