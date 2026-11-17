@@ -87,8 +87,8 @@ for (const filename of lessonFiles) {
 
 assert.equal(units.size, 7, 'Expected embedded lessons from all seven A1 units.');
 assert.ok(textTileCards > 500, 'Expected the full A1 text-tile catalog to be audited.');
-assert.equal([...expectedMissionTapCards].filter(id => id.startsWith('lesson-10-family-mission:')).length, 18,
-  'All 18 Unit 1 listening scenes must remain in scope.');
+assert.equal([...expectedMissionTapCards].filter(id => id.startsWith('lesson-10-family-mission:')).length, 20,
+  'All 20 Unit 1 listening scenes (18 before the 2026-11-17 pets and friends beats) must remain in scope.');
 assert.deepEqual(checkedMissionTapCards, expectedMissionTapCards, 'Every declared listening mission must retain audited hidden candidates.');
 assert.equal(missionTapCandidateSets, expectedMissionTapCards.size, 'Each listening mission must be checked exactly once.');
 console.log(`Text-tile option limit passed for ${textTileCards} cards across the complete course, including ${missionTapCandidateSets} hidden tap-candidate sets and ${missionConstructionBanks} bounded construction banks.`);
