@@ -11,6 +11,9 @@ const ast = ts.createSourceFile(file,source,ts.ScriptTarget.Latest,true,ts.Scrip
 const course = JSON.parse(fs.readFileSync(path.join(root,'mobile/src/generated/a1-course.json'),'utf8'));
 const legacy = course.flatMap(lesson=>lesson.cards.filter(card=>card.stage==='Use' && card.interaction_type==='complete').map(card=>({lesson,card})));
 const element=(type,props,...children)=>({type,props:{...props,children}});
+const hook={};
+new Function('require','exports',ts.transpileModule(fs.readFileSync(path.join(root,'mobile/src/hooks/useLearnTranslationPreview.ts'),'utf8'),
+  {compilerOptions:{module:ts.ModuleKind.CommonJS}}).outputText)(()=>({}),hook);
 function evaluate(node,context={}) {
   const exports={};
   vm.runInNewContext(ts.transpileModule('exports.value = '+node.getText(ast),{
@@ -32,6 +35,7 @@ function renderHeader(lesson,card,visible,onTranslate,onReplay) {
   return evaluate(headerBranch.whenTrue,{
     currentCard:card,activeLesson:lesson,learnTranslation:{enabled:false},playingVisualTurn:null,
     teachingTranslationVisible:visible,manualCompletionTranslation:true,
+    learnTranslationText:hook.learnTranslationText,manualTeachingTranslationKey:visible?'card':'',teachingCardKey:'card',
     lessonLocationLabel:()=>lesson.sub_lesson_id,lessonStageLabel:()=> 'COMPLETA',
     titleStyle:{},renderHighlightedTitle:text=>text,cardReplayText:card.audio_text,
     openTeachingTranslation:onTranslate,playCurrentCardPrompt:onReplay,
