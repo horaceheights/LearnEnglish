@@ -141,6 +141,20 @@ ASSIGNMENT_GROUPS: dict[str, list[tuple[str, str, str]]] = {
         ('answer_audio_speaker', 'co-teacher', 'R2 R4 R6 R8 R10 U2 U4 U6 U8'),
         ('audio_speaker', 'co-teacher', 'L2 L4 L6 A2 A4 A6 A8 S2 S4 S6 S8 U2 U4 U6 U8'),
     ],
+    # 2026-11-18 alphabet lesson: each pictured speaker keeps their voice and the narrators alternate; regenerated from the lesson.
+    "lesson-3-15-the-alphabet": [
+        ('answer_audio_speaker', 'co-teacher', 'R2 R4 R6 R8 R10 U2 U4 U6 U8'),
+        ('audio_speaker', 'co-teacher', 'L2 L4 L6 L8 A2 A4 A6 A8 S2 S4 S6 S8 U2 U4 U6 U8'),
+    ],
+    # 2026-11-18 alphabet lesson: each pictured speaker keeps their voice and the narrators alternate; regenerated from the lesson.
+    "lesson-3-16-how-do-you-spell-it": [
+        ('answer_audio_speaker', 'ana', 'U3'),
+        ('answer_audio_speaker', 'co-teacher', 'U5 U7 U9'),
+        ('answer_audio_speaker', 'luis', 'R1 R4 U1 U4'),
+        ('audio_speaker', 'ana', 'R3 R4 A3 S3 U3'),
+        ('audio_speaker', 'co-teacher', 'L3 R5 R7 R9 A2 A6 A8 A10 S5 S7 S9 U5 U7 U9'),
+        ('audio_speaker', 'luis', 'L1 A1 A4 S1 S4 U1 U4'),
+    ],
     "lesson-3-9-unit-3-review": [
         ('answer_audio_speaker', 'ana', 'R1 R8 U6'),
         ('answer_audio_speaker', 'co-teacher', 'R9'),

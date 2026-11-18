@@ -1,0 +1,239 @@
+{
+  "schema_version": 1,
+  "pack": "unit-3-alphabet-flash-photos",
+  "revision": 1,
+  "output_namespace": "unit-3-lesson-v6",
+  "authorization": "2026-11-18: the user approved two A1 alphabet lessons after 3.14 (\"yes proceed as planned so far, no change the mission or review to add alphabet, review is too long aready\"), with gap-lesson media approved in advance (\"I preapprove all image and audios creation no need for me to reiew and approve on the fly\") and Gemini Flash only (\"continue, rmember we are using gemini flash, not pro\"). Ceiling US$1.00 for this revision. Revision 1 is frozen: a changed prompt is a new revision in a new file, and every rejected output is reported with its cost.",
+  "image_settings": {
+    "provider": "google-gemini",
+    "model": "gemini-2.5-flash-image",
+    "aspect_ratio": "3:2",
+    "image_size": "1K",
+    "runtime_size": "1536x1024",
+    "runtime_format": "webp",
+    "n": 1
+  },
+  "production": {
+    "price_per_image_usd": "0.0387",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing (checked 2026-11-16: Gemini 2.5 Flash Image, about $0.039 per image)",
+    "planned_images": 16,
+    "expected_cost_usd": "0.62",
+    "requested_ceiling_usd": "1.00",
+    "no_automatic_retries": true,
+    "order": "Independent photos in any order. A rejected output is reported with its cost; a redo needs a changed prompt in a new revision file."
+  },
+  "shared_prompts": {
+    "photo": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture, soft natural daylight and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.",
+    "safe_center": "Keep the main subject of the photo whole inside the central 55 percent of the photo width, so a centered 4:5 crop keeps it whole; only expendable background reaches the left and right edges."
+  },
+  "assets": [
+    {
+      "id": "a01-ahjk",
+      "order": 1,
+      "lesson": "3.15",
+      "item": "A, H, J, K",
+      "runtime_filename": "a1_photo_u3_alphabet_ahjk_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo",
+        "safe_center"
+      ],
+      "prompt": "LETTER CARDS IN A ROW: in a bright adult-education classroom, 4 square white cards are stuck in one straight horizontal row on a clean white whiteboard, evenly spaced with a small gap between cards. Each card shows exactly one large, bold, black, printed CAPITAL letter in a plain sans-serif font, centered on the card. From left to right the letters are exactly: A, H, J, K. That is 4 cards and 4 letters in total, in that order, each letter exactly once. Nothing else is written anywhere: no other letters, lowercase letters, words, numbers, punctuation or marks on the cards, the whiteboard or the room. The row is seen straight on, perfectly sharp and fully legible, centered in the photo; the classroom around the whiteboard (window light, a green plant, the edge of a desk) is softly blurred. No people and no hands. No logos."
+    },
+    {
+      "id": "a02-bcde",
+      "order": 2,
+      "lesson": "3.15",
+      "item": "B, C, D, E",
+      "runtime_filename": "a1_photo_u3_alphabet_bcde_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo",
+        "safe_center"
+      ],
+      "prompt": "LETTER CARDS IN A ROW: in a bright adult-education classroom, 4 square white cards are stuck in one straight horizontal row on a clean white whiteboard, evenly spaced with a small gap between cards. Each card shows exactly one large, bold, black, printed CAPITAL letter in a plain sans-serif font, centered on the card. From left to right the letters are exactly: B, C, D, E. That is 4 cards and 4 letters in total, in that order, each letter exactly once. Nothing else is written anywhere: no other letters, lowercase letters, words, numbers, punctuation or marks on the cards, the whiteboard or the room. The row is seen straight on, perfectly sharp and fully legible, centered in the photo; the classroom around the whiteboard (window light, a green plant, the edge of a desk) is softly blurred. No people and no hands. No logos."
+    },
+    {
+      "id": "a03-gptvz",
+      "order": 3,
+      "lesson": "3.15",
+      "item": "G, P, T, V, Z",
+      "runtime_filename": "a1_photo_u3_alphabet_gptvz_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo",
+        "safe_center"
+      ],
+      "prompt": "LETTER CARDS IN A ROW: in a bright adult-education classroom, 5 square white cards are stuck in one straight horizontal row on a clean white whiteboard, evenly spaced with a small gap between cards. Each card shows exactly one large, bold, black, printed CAPITAL letter in a plain sans-serif font, centered on the card. From left to right the letters are exactly: G, P, T, V, Z. That is 5 cards and 5 letters in total, in that order, each letter exactly once. Nothing else is written anywhere: no other letters, lowercase letters, words, numbers, punctuation or marks on the cards, the whiteboard or the room. The row is seen straight on, perfectly sharp and fully legible, centered in the photo; the classroom around the whiteboard (window light, a green plant, the edge of a desk) is softly blurred. No people and no hands. No logos."
+    },
+    {
+      "id": "a04-flmnsx",
+      "order": 4,
+      "lesson": "3.15",
+      "item": "F, L, M, N, S, X",
+      "runtime_filename": "a1_photo_u3_alphabet_flmnsx_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo",
+        "safe_center"
+      ],
+      "prompt": "LETTER CARDS IN A ROW: in a bright adult-education classroom, 6 square white cards are stuck in one straight horizontal row on a clean white whiteboard, evenly spaced with a small gap between cards. Each card shows exactly one large, bold, black, printed CAPITAL letter in a plain sans-serif font, centered on the card. From left to right the letters are exactly: F, L, M, N, S, X. That is 6 cards and 6 letters in total, in that order, each letter exactly once. Nothing else is written anywhere: no other letters, lowercase letters, words, numbers, punctuation or marks on the cards, the whiteboard or the room. The row is seen straight on, perfectly sharp and fully legible, centered in the photo; the classroom around the whiteboard (window light, a green plant, the edge of a desk) is softly blurred. No people and no hands. No logos."
+    },
+    {
+      "id": "a05-iy",
+      "order": 5,
+      "lesson": "3.15",
+      "item": "I, Y",
+      "runtime_filename": "a1_photo_u3_alphabet_iy_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo",
+        "safe_center"
+      ],
+      "prompt": "LETTER CARDS IN A ROW: in a bright adult-education classroom, 2 square white cards are stuck in one straight horizontal row on a clean white whiteboard, evenly spaced with a small gap between cards. Each card shows exactly one large, bold, black, printed CAPITAL letter in a plain sans-serif font, centered on the card. From left to right the letters are exactly: I, Y. That is 2 cards and 2 letters in total, in that order, each letter exactly once; the I is a plain vertical bar with short serifs top and bottom so it cannot be read as a lowercase l or the number 1. Nothing else is written anywhere: no other letters, lowercase letters, words, numbers, punctuation or marks on the cards, the whiteboard or the room. The row is seen straight on, perfectly sharp and fully legible, centered in the photo; the classroom around the whiteboard (window light, a green plant, the edge of a desk) is softly blurred. No people and no hands. No logos."
+    },
+    {
+      "id": "a06-quw",
+      "order": 6,
+      "lesson": "3.15",
+      "item": "Q, U, W",
+      "runtime_filename": "a1_photo_u3_alphabet_quw_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo",
+        "safe_center"
+      ],
+      "prompt": "LETTER CARDS IN A ROW: in a bright adult-education classroom, 3 square white cards are stuck in one straight horizontal row on a clean white whiteboard, evenly spaced with a small gap between cards. Each card shows exactly one large, bold, black, printed CAPITAL letter in a plain sans-serif font, centered on the card. From left to right the letters are exactly: Q, U, W. That is 3 cards and 3 letters in total, in that order, each letter exactly once; the Q has a clear tail so it cannot be read as an O. Nothing else is written anywhere: no other letters, lowercase letters, words, numbers, punctuation or marks on the cards, the whiteboard or the room. The row is seen straight on, perfectly sharp and fully legible, centered in the photo; the classroom around the whiteboard (window light, a green plant, the edge of a desk) is softly blurred. No people and no hands. No logos."
+    },
+    {
+      "id": "a07-letter-o",
+      "order": 7,
+      "lesson": "3.15",
+      "item": "O",
+      "runtime_filename": "a1_photo_u3_alphabet_o_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo",
+        "safe_center"
+      ],
+      "prompt": "ONE LETTER CARD: in a bright adult-education classroom, one single square white card is stuck in the middle of a clean white whiteboard. The card shows exactly one large, bold, black, printed CAPITAL letter O in a plain sans-serif font, a round letter O and not the number zero, centered on the card, filling most of it. Only the capital letter O: nothing else is written anywhere, no other letters, lowercase letters, words, numbers, punctuation or marks on the card, the whiteboard or the room. The card is seen straight on, perfectly sharp and fully legible, in the center of the photo; the classroom around the whiteboard (window light, a green plant, the edge of a desk) is softly blurred. No people and no hands. No logos."
+    },
+    {
+      "id": "a08-letter-r",
+      "order": 8,
+      "lesson": "3.15",
+      "item": "R",
+      "runtime_filename": "a1_photo_u3_alphabet_r_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo",
+        "safe_center"
+      ],
+      "prompt": "ONE LETTER CARD: in a bright adult-education classroom, one single square white card is stuck in the middle of a clean white whiteboard. The card shows exactly one large, bold, black, printed CAPITAL letter R in a plain sans-serif font, centered on the card, filling most of it. Only the capital letter R: nothing else is written anywhere, no other letters, lowercase letters, words, numbers, punctuation or marks on the card, the whiteboard or the room. The card is seen straight on, perfectly sharp and fully legible, in the center of the photo; the classroom around the whiteboard (window light, a green plant, the edge of a desk) is softly blurred. No people and no hands. No logos."
+    },
+    {
+      "id": "a09-letter-e",
+      "order": 9,
+      "lesson": "3.15",
+      "item": "E",
+      "runtime_filename": "a1_photo_u3_alphabet_letter_e_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo",
+        "safe_center"
+      ],
+      "prompt": "ONE LETTER CARD: in a bright adult-education classroom, one single square white card is stuck in the middle of a clean white whiteboard. The card shows exactly one large, bold, black, printed CAPITAL letter E in a plain sans-serif font, centered on the card, filling most of it. Only the capital letter E: nothing else is written anywhere, no other letters, lowercase letters, words, numbers, punctuation or marks on the card, the whiteboard or the room. The card is seen straight on, perfectly sharp and fully legible, in the center of the photo; the classroom around the whiteboard (window light, a green plant, the edge of a desk) is softly blurred. No people and no hands. No logos."
+    },
+    {
+      "id": "a10-letter-i",
+      "order": 10,
+      "lesson": "3.15",
+      "item": "I",
+      "runtime_filename": "a1_photo_u3_alphabet_letter_i_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo",
+        "safe_center"
+      ],
+      "prompt": "ONE LETTER CARD: in a bright adult-education classroom, one single square white card is stuck in the middle of a clean white whiteboard. The card shows exactly one large, bold, black, printed CAPITAL letter I in a plain sans-serif font with short serifs top and bottom so it cannot be read as a lowercase l or the number 1, centered on the card, filling most of it. Only the capital letter I: nothing else is written anywhere, no other letters, lowercase letters, words, numbers, punctuation or marks on the card, the whiteboard or the room. The card is seen straight on, perfectly sharp and fully legible, in the center of the photo; the classroom around the whiteboard (window light, a green plant, the edge of a desk) is softly blurred. No people and no hands. No logos."
+    },
+    {
+      "id": "a11-letter-g",
+      "order": 11,
+      "lesson": "3.15",
+      "item": "G",
+      "runtime_filename": "a1_photo_u3_alphabet_letter_g_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo",
+        "safe_center"
+      ],
+      "prompt": "ONE LETTER CARD: in a bright adult-education classroom, one single square white card is stuck in the middle of a clean white whiteboard. The card shows exactly one large, bold, black, printed CAPITAL letter G in a plain sans-serif font, centered on the card, filling most of it. Only the capital letter G: nothing else is written anywhere, no other letters, lowercase letters, words, numbers, punctuation or marks on the card, the whiteboard or the room. The card is seen straight on, perfectly sharp and fully legible, in the center of the photo; the classroom around the whiteboard (window light, a green plant, the edge of a desk) is softly blurred. No people and no hands. No logos."
+    },
+    {
+      "id": "a12-letter-j",
+      "order": 12,
+      "lesson": "3.15",
+      "item": "J",
+      "runtime_filename": "a1_photo_u3_alphabet_letter_j_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo",
+        "safe_center"
+      ],
+      "prompt": "ONE LETTER CARD: in a bright adult-education classroom, one single square white card is stuck in the middle of a clean white whiteboard. The card shows exactly one large, bold, black, printed CAPITAL letter J in a plain sans-serif font, centered on the card, filling most of it. Only the capital letter J: nothing else is written anywhere, no other letters, lowercase letters, words, numbers, punctuation or marks on the card, the whiteboard or the room. The card is seen straight on, perfectly sharp and fully legible, in the center of the photo; the classroom around the whiteboard (window light, a green plant, the edge of a desk) is softly blurred. No people and no hands. No logos."
+    },
+    {
+      "id": "a13-letter-h",
+      "order": 13,
+      "lesson": "3.15",
+      "item": "H",
+      "runtime_filename": "a1_photo_u3_alphabet_letter_h_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo",
+        "safe_center"
+      ],
+      "prompt": "ONE LETTER CARD: in a bright adult-education classroom, one single square white card is stuck in the middle of a clean white whiteboard. The card shows exactly one large, bold, black, printed CAPITAL letter H in a plain sans-serif font, centered on the card, filling most of it. Only the capital letter H: nothing else is written anywhere, no other letters, lowercase letters, words, numbers, punctuation or marks on the card, the whiteboard or the room. The card is seen straight on, perfectly sharp and fully legible, in the center of the photo; the classroom around the whiteboard (window light, a green plant, the edge of a desk) is softly blurred. No people and no hands. No logos."
+    },
+    {
+      "id": "a14-letter-y",
+      "order": 14,
+      "lesson": "3.15",
+      "item": "Y",
+      "runtime_filename": "a1_photo_u3_alphabet_letter_y_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo",
+        "safe_center"
+      ],
+      "prompt": "ONE LETTER CARD: in a bright adult-education classroom, one single square white card is stuck in the middle of a clean white whiteboard. The card shows exactly one large, bold, black, printed CAPITAL letter Y in a plain sans-serif font, centered on the card, filling most of it. Only the capital letter Y: nothing else is written anywhere, no other letters, lowercase letters, words, numbers, punctuation or marks on the card, the whiteboard or the room. The card is seen straight on, perfectly sharp and fully legible, in the center of the photo; the classroom around the whiteboard (window light, a green plant, the edge of a desk) is softly blurred. No people and no hands. No logos."
+    },
+    {
+      "id": "a15-letter-w",
+      "order": 15,
+      "lesson": "3.15",
+      "item": "W",
+      "runtime_filename": "a1_photo_u3_alphabet_letter_w_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo",
+        "safe_center"
+      ],
+      "prompt": "ONE LETTER CARD: in a bright adult-education classroom, one single square white card is stuck in the middle of a clean white whiteboard. The card shows exactly one large, bold, black, printed CAPITAL letter W in a plain sans-serif font, centered on the card, filling most of it. Only the capital letter W: nothing else is written anywhere, no other letters, lowercase letters, words, numbers, punctuation or marks on the card, the whiteboard or the room. The card is seen straight on, perfectly sharp and fully legible, in the center of the photo; the classroom around the whiteboard (window light, a green plant, the edge of a desk) is softly blurred. No people and no hands. No logos."
+    },
+    {
+      "id": "a16-double-l",
+      "order": 16,
+      "lesson": "3.16",
+      "item": "Double (L, L)",
+      "runtime_filename": "a1_photo_u3_alphabet_double_l_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo",
+        "safe_center"
+      ],
+      "prompt": "TWO MATCHING LETTER CARDS: in a bright adult-education classroom, two square white cards are stuck side by side on a clean white whiteboard with a small gap between them. Each card shows exactly one large, bold, black, printed CAPITAL letter L in a plain sans-serif font, centered on the card: the two cards are identical, L and L. Nothing else is written anywhere: no other letters, lowercase letters, words, numbers, punctuation or marks on the cards, the whiteboard or the room. The two cards are seen straight on, perfectly sharp and fully legible, centered in the photo; the classroom around the whiteboard (window light, a green plant, the edge of a desk) is softly blurred. No people and no hands. No logos."
+    }
+  ]
+}

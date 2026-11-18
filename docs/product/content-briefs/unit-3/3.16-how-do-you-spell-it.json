@@ -1,0 +1,284 @@
+{
+  "brief_version": 1,
+  "captions": false,
+  "narrators": [
+    "teacher",
+    "co-teacher"
+  ],
+  "note": "Coverage gap lesson (2026-11-18, user decisions: \"so it will be 2 new lessons\", \"yes proceed as planned so far, no change the mission or review to add alphabet, review is too long aready\"). Follows 3.15 The Alphabet: Ana and Luis spell their names from their 3.1 badges, then known words are spelled from their earlier pictures (dog, red, park, green, book, street), with double for a repeated letter. Each wrong option swaps one letter Spanish speakers confuse (E/I, A/E, G/J, O/U). Spelling a street name, email and the repair phrases go to A1+ 3.x. The Unit 3 review and mission stay unchanged.",
+  "target": "backend/lessons/unit_3/lesson-3-16-how-do-you-spell-it.yaml",
+  "lesson": {
+    "id": "lesson-3-16-how-do-you-spell-it",
+    "title": "3.16 How Do You Spell It?",
+    "level": "Beginner A1",
+    "unit_id": "unit-3",
+    "unit_title": "Unit 3: Me and Other People",
+    "unit_outcome": "Use tightly supported exchanges to greet people and give a name, age, origin and job, ask and answer yes/no questions with be, and describe who owns things.",
+    "lesson_id": "lesson-3",
+    "lesson_title": "Unit 3: Me and Other People",
+    "sub_lesson_id": "3.16",
+    "sub_lesson_title": "How Do You Spell It?",
+    "goal": "Ask How do you spell your name? and How do you spell it?, and spell a name or a known word letter by letter, saying double for a repeated letter.",
+    "vocabulary": [
+      "How do you spell your name?",
+      "How do you spell it?",
+      "double"
+    ],
+    "review_vocabulary": [
+      "how",
+      "do",
+      "you",
+      "your",
+      "name",
+      "it",
+      "Ana",
+      "Luis",
+      "dog",
+      "red",
+      "park",
+      "green",
+      "book",
+      "street"
+    ],
+    "grammar_function": "How do you spell your name? / How do you spell it? + letters; double + letter.",
+    "prerequisite": "3.15 The Alphabet; 3.1 What is your name?; 1.10 dog; 2.1 park; 2.2 street; 2.3 book; 2.7 red and green.",
+    "speaking_outcome": "Ask How do you spell your name? and spell Ana, Luis and known words such as G, R, double E, N.",
+    "content_revision": 1
+  },
+  "layout": {
+    "Recognize": 10,
+    "Listen": 10,
+    "Speak": 9,
+    "Use": 9
+  },
+  "stage_sequences": {},
+  "items": [
+    {
+      "text": "How do you spell your name?",
+      "es": "¿Cómo se escribe tu nombre?",
+      "image": "a1_scene_name-dialogue-ana_04d12f0.webp",
+      "kind": "spell-question",
+      "image_choices": false,
+      "four_card": false,
+      "speaker": "luis"
+    },
+    {
+      "text": "How do you spell it?",
+      "es": "¿Cómo se escribe?",
+      "image": "/lesson-assets/a1_photo_u1_pets_dog_v1.webp",
+      "kind": "spell-question",
+      "image_choices": false,
+      "four_card": false,
+      "blanks": [
+        "spell",
+        "it"
+      ]
+    },
+    {
+      "text": "Double",
+      "es": "Doble: dos letras iguales",
+      "image": "/lesson-assets/a1_photo_u3_alphabet_double_l_v1.webp",
+      "kind": "new-word",
+      "choices": false,
+      "four_card": false
+    },
+    {
+      "text": "A, N, A",
+      "es": "A, N, A (Ana)",
+      "image": "a1_scene_ana-badge_785def3.webp",
+      "kind": "spelling",
+      "form": "word",
+      "learn": false,
+      "prefer": [
+        "E, N, A"
+      ],
+      "four_card": false,
+      "question": "How do you spell your name?",
+      "question_es": "¿Cómo se escribe tu nombre?",
+      "blanks": [
+        "N",
+        "A"
+      ],
+      "speaker": "ana",
+      "question_speaker": "luis"
+    },
+    {
+      "text": "L, U, I, S",
+      "es": "L, U, I, S (Luis)",
+      "image": "a1_scene_luis-badge_80bb288.webp",
+      "kind": "spelling",
+      "form": "word",
+      "learn": false,
+      "prefer": [
+        "L, U, E, S"
+      ],
+      "four_card": false,
+      "question": "How do you spell your name?",
+      "question_es": "¿Cómo se escribe tu nombre?",
+      "blanks": [
+        "I",
+        "S"
+      ],
+      "speaker": "luis",
+      "question_speaker": "ana"
+    },
+    {
+      "text": "D, O, G",
+      "es": "D, O, G (dog, perro)",
+      "image": "/lesson-assets/a1_photo_u1_pets_dog_v1.webp",
+      "kind": "spelling",
+      "form": "word",
+      "learn": false,
+      "prefer": [
+        "D, O, J"
+      ],
+      "four_card": false,
+      "question": "How do you spell it?",
+      "question_es": "¿Cómo se escribe?",
+      "blanks": [
+        "O",
+        "G"
+      ]
+    },
+    {
+      "text": "R, E, D",
+      "es": "R, E, D (red, rojo)",
+      "image": "/lesson-assets/a1_photo_u2_color_red_v1.webp",
+      "kind": "spelling",
+      "form": "word",
+      "learn": false,
+      "prefer": [
+        "R, I, D"
+      ],
+      "four_card": false,
+      "question": "How do you spell it?",
+      "question_es": "¿Cómo se escribe?",
+      "blanks": [
+        "E",
+        "D"
+      ]
+    },
+    {
+      "text": "P, A, R, K",
+      "es": "P, A, R, K (park, parque)",
+      "image": "place_park.webp",
+      "kind": "spelling",
+      "form": "word",
+      "learn": false,
+      "prefer": [
+        "P, E, R, K"
+      ],
+      "four_card": false,
+      "question": "How do you spell it?",
+      "question_es": "¿Cómo se escribe?",
+      "blanks": [
+        "A",
+        "R"
+      ]
+    },
+    {
+      "text": "G, R, double E, N",
+      "es": "G, R, doble E, N (green, verde)",
+      "image": "/lesson-assets/a1_photo_u2_color_green_v1.webp",
+      "kind": "spelling",
+      "form": "word",
+      "learn": false,
+      "prefer": [
+        "J, R, double E, N"
+      ],
+      "four_card": false,
+      "question": "How do you spell it?",
+      "question_es": "¿Cómo se escribe?",
+      "blanks": [
+        "double",
+        "E"
+      ]
+    },
+    {
+      "text": "B, double O, K",
+      "es": "B, doble O, K (book, libro)",
+      "image": "object_book.webp",
+      "kind": "spelling",
+      "form": "word",
+      "learn": false,
+      "prefer": [
+        "B, double U, K"
+      ],
+      "four_card": false,
+      "question": "How do you spell it?",
+      "question_es": "¿Cómo se escribe?",
+      "blanks": [
+        "double",
+        "O"
+      ]
+    },
+    {
+      "text": "S, T, R, double E, T",
+      "es": "S, T, R, doble E, T (street, calle)",
+      "image": "place_street.webp",
+      "kind": "spelling",
+      "form": "word",
+      "learn": false,
+      "prefer": [
+        "S, T, R, double I, T"
+      ],
+      "four_card": false,
+      "question": "How do you spell it?",
+      "question_es": "¿Cómo se escribe?",
+      "blanks": [
+        "double",
+        "E"
+      ]
+    }
+  ],
+  "pool": [
+    {
+      "text": "E, N, A",
+      "es": "",
+      "kind": "spelling",
+      "form": "word"
+    },
+    {
+      "text": "L, U, E, S",
+      "es": "",
+      "kind": "spelling",
+      "form": "word"
+    },
+    {
+      "text": "D, O, J",
+      "es": "",
+      "kind": "spelling",
+      "form": "word"
+    },
+    {
+      "text": "R, I, D",
+      "es": "",
+      "kind": "spelling",
+      "form": "word"
+    },
+    {
+      "text": "P, E, R, K",
+      "es": "",
+      "kind": "spelling",
+      "form": "word"
+    },
+    {
+      "text": "J, R, double E, N",
+      "es": "",
+      "kind": "spelling",
+      "form": "word"
+    },
+    {
+      "text": "B, double U, K",
+      "es": "",
+      "kind": "spelling",
+      "form": "word"
+    },
+    {
+      "text": "S, T, R, double I, T",
+      "es": "",
+      "kind": "spelling",
+      "form": "word"
+    }
+  ]
+}
