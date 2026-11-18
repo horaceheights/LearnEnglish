@@ -164,9 +164,9 @@ cards:
   stage: Recognize
   correct_option_id: he-boy
   options:
-  - {id: he-man, image_url: '', label: He is a man.}
-  - {id: she-girl, image_url: '', label: She is a girl.}
-  - {id: he-boy, image_url: '', label: He is a boy.}
+  - {id: he-man, image_url: '', label: He is a man., spanish_translation: "Él es un hombre."}
+  - {id: she-girl, image_url: '', label: She is a girl., spanish_translation: "Ella es una niña."}
+  - {id: he-boy, image_url: '', label: He is a boy., spanish_translation: "Él es un niño."}
   audio_text: ''
   answer_audio_text: He is a boy.
   prompt_image_url: /lesson-assets/boy.webp
@@ -191,9 +191,9 @@ cards:
   stage: Recognize
   correct_option_id: she-girl
   options:
-  - {id: he-boy, image_url: '', label: He is a boy.}
-  - {id: she-girl, image_url: '', label: She is a girl.}
-  - {id: she-woman, image_url: '', label: She is a woman.}
+  - {id: he-boy, image_url: '', label: He is a boy., spanish_translation: "Él es un niño."}
+  - {id: she-girl, image_url: '', label: She is a girl., spanish_translation: "Ella es una niña."}
+  - {id: she-woman, image_url: '', label: She is a woman., spanish_translation: "Ella es una mujer."}
   audio_text: ''
   answer_audio_text: She is a girl.
   prompt_image_url: /lesson-assets/girl.webp
@@ -233,9 +233,9 @@ cards:
   stage: Recognize
   correct_option_id: he-man
   options:
-  - {id: she-woman, image_url: '', label: She is a woman.}
-  - {id: he-boy, image_url: '', label: He is a boy.}
-  - {id: he-man, image_url: '', label: He is a man.}
+  - {id: she-woman, image_url: '', label: She is a woman., spanish_translation: "Ella es una mujer."}
+  - {id: he-boy, image_url: '', label: He is a boy., spanish_translation: "Él es un niño."}
+  - {id: he-man, image_url: '', label: He is a man., spanish_translation: "Él es un hombre."}
   audio_text: ''
   answer_audio_text: He is a man.
   prompt_image_url: /lesson-assets/man.webp
@@ -275,9 +275,9 @@ cards:
   stage: Recognize
   correct_option_id: she-woman
   options:
-  - {id: she-woman, image_url: '', label: She is a woman.}
-  - {id: he-man, image_url: '', label: He is a man.}
-  - {id: she-girl, image_url: '', label: She is a girl.}
+  - {id: she-woman, image_url: '', label: She is a woman., spanish_translation: "Ella es una mujer."}
+  - {id: he-man, image_url: '', label: He is a man., spanish_translation: "Él es un hombre."}
+  - {id: she-girl, image_url: '', label: She is a girl., spanish_translation: "Ella es una niña."}
   audio_text: ''
   answer_audio_text: She is a woman.
   prompt_image_url: /lesson-assets/woman.webp

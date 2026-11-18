@@ -8,6 +8,8 @@ Use this guide whenever creating or substantially revising lessons or units. The
 
 **Per-card copy correction (2026-10-26):** new delivery packages use the shared activity instructions without an added Spanish scenario paragraph. `context_es` is rejected on every card, including review and mission cards; shortening the text does not satisfy removal. Preserve exact reviewed translations, optional help and the established mission kickoff/completion surfaces. Verify all stages in both canonical content and embedded mobile output.
 
+**Written choice translations (user decision 2026-11-18):** every written choice under a photo in Reconoce carries its item's or pool entry's authored `es` as `spanish_translation`, which the shared Traducir button shows on demand. A brief entry offered as such a choice must have a real Spanish translation, never a note; the author step fails without it.
+
 ## 1. Keep the engine separate from the curriculum
 
 | Layer | Responsibility |

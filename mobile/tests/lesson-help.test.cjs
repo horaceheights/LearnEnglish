@@ -25,6 +25,20 @@ for (const mode of modes) {
   assert.equal(lessonHelpText(imageToText, mode), 'Mira la imagen y toca la frase que la describe.');
   assert.doesNotMatch(lessonHelpText(imageToText, mode), /repetir|bocina|sonido|traducción/);
 }
+// When every written choice carries Spanish, help names the Traducir button (2026-11-18), in 25 words or fewer.
+const translated = (...pairs) => pairs.map(([label, spanish_translation], index) => (
+  { id: String(index), label, image_url: '', spanish_translation }));
+for (const mode of modes) {
+  const help = lessonHelpText({ ...imageToText,
+    options: translated(['The boy is eating.', 'El niño está comiendo.'], ['The boy is sleeping.', 'El niño está durmiendo.']) }, mode);
+  assert.equal(help, 'Mira la imagen y toca la frase que la describe. Toca Traducir para ver las frases en español.');
+  assert.ok(help.split(/\s+/).length <= 25);
+}
+assert.match(lessonHelpText({ ...imageToText, options: translated(['Boy', 'Niño'], ['Girl', 'Niña']) }),
+  /toca la palabra que la describe\. Toca Traducir para ver las palabras en español\./);
+assert.equal(lessonHelpText({ ...imageToText, stage: 'Listen',
+  options: translated(['The boy is eating.', 'El niño está comiendo.'], ['The boy is sleeping.', 'El niño está durmiendo.']) }, 'visual-instruction')
+  .includes('Traducir'), false, 'Listen keeps its hidden-text contract and has no Traducir button.');
 assert.match(lessonHelpText({ ...imageToText, options: textOptions('Boy', 'Girl') }), /toca la palabra que la describe/);
 assert.match(lessonHelpText({ ...imageToText, options: textOptions('Who is he?', 'Who is she?') }), /toca la pregunta que corresponde/);
 assert.match(lessonHelpText(card()), /Lee y escucha.+Toca la imagen que corresponde/);
