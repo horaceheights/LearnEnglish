@@ -5,7 +5,7 @@
     "teacher",
     "co-teacher"
   ],
-  "note": "Coverage gap lesson (2026-11-15, user request \"biuild the whole plan, none stop\"). Five more answers to the 7.2 questions How are you? and How is she? The draft list also had good and bad; they are left out because giving good a meaning in the app would change the reviewed Good morning feedback. Source: docs/planning/a1-gap-lessons-draft.md.",
+  "note": "Coverage gap lesson (2026-11-15, user request \"biuild the whole plan, none stop\"). Five more answers to the 7.2 questions How are you? and How is she? good and bad were added on 2026-11-18 at the user's request (\"ys we need good and bad\"): It is a good day. / It is a bad day. A greeting such as Good morning is still explained whole in the feedback. Source: docs/planning/a1-gap-lessons-draft.md.",
   "target": "backend/lessons/unit_7/lesson-7-9-more-feelings.yaml",
   "lesson": {
     "id": "lesson-7-9-more-feelings",
@@ -18,8 +18,10 @@
     "lesson_title": "Unit 7: Everyday Needs and A1 Integration",
     "sub_lesson_id": "7.9",
     "sub_lesson_title": "More Feelings",
-    "goal": "Say that you are fine or great, and that someone is sick, angry or afraid.",
+    "goal": "Say that it is a good or a bad day, that you are fine or great, and that someone is sick, angry or afraid.",
     "vocabulary": [
+      "good",
+      "bad",
       "fine",
       "great",
       "sick",
@@ -34,42 +36,61 @@
       "am",
       "is",
       "she",
-      "he"
+      "he",
+      "it",
+      "a",
+      "day"
     ],
-    "grammar_function": "How are you? I am fine/great; How is she/he? She/He is sick/angry/afraid.",
-    "prerequisite": "3.2-3.3 I am, she is, he is; 7.2 How are you? and How is she?",
-    "speaking_outcome": "Ask How are you? and answer I am fine.; say She is sick. and He is angry.",
-    "content_revision": 1
+    "grammar_function": "It is a good/bad day.; How are you? I am fine/great; How is she/he? She/He is sick/angry/afraid.",
+    "prerequisite": "3.2-3.3 I am, she is, he is; 7.2 How are you? and How is she?; 2.11 It is a big house.; 4.x What day is it today?",
+    "speaking_outcome": "Say It is a good day. and It is a bad day.; ask How are you? and answer I am fine.; say She is sick. and He is angry.",
+    "content_revision": 2
   },
   "layout": {
-    "Recognize": 11,
+    "Recognize": 10,
     "Listen": 9,
     "Speak": 8,
     "Use": 8
   },
   "stage_sequences": {
     "Speak": [
+      "It is a good day.",
+      "It is a bad day.",
       "I am fine.",
       "I am great.",
       "She is sick.",
-      "He is sick.",
       "He is angry.",
-      "She is angry.",
       "She is afraid.",
-      "I am fine."
+      "He is sick."
     ],
     "Use": [
+      "It is a good day.",
+      "It is a bad day.",
       "I am fine.",
       "I am great.",
       "She is sick.",
       "He is angry.",
       "She is afraid.",
-      "He is sick.",
-      "She is angry.",
-      "I am great."
+      "She is angry."
     ]
   },
   "items": [
+    {
+      "text": "Good",
+      "es": "Bueno",
+      "image": "/lesson-assets/a1_photo_u7_feelings_good_day_v1.webp",
+      "kind": "new-word",
+      "choices": false,
+      "four_card": false
+    },
+    {
+      "text": "Bad",
+      "es": "Malo",
+      "image": "/lesson-assets/a1_photo_u7_feelings_bad_day_v1.webp",
+      "kind": "new-word",
+      "choices": false,
+      "four_card": false
+    },
     {
       "text": "Fine",
       "es": "Bien",
@@ -111,6 +132,36 @@
       "kind": "new-word",
       "choices": false,
       "four_card": false
+    },
+    {
+      "text": "It is a good day.",
+      "es": "Es un buen día.",
+      "image": "/lesson-assets/a1_photo_u7_feelings_good_day_v1.webp",
+      "kind": "day",
+      "learn": false,
+      "prefer": [
+        "It is a bad day."
+      ],
+      "four_card": false,
+      "blanks": [
+        "good",
+        "day"
+      ]
+    },
+    {
+      "text": "It is a bad day.",
+      "es": "Es un mal día.",
+      "image": "/lesson-assets/a1_photo_u7_feelings_bad_day_v1.webp",
+      "kind": "day",
+      "learn": false,
+      "prefer": [
+        "It is a good day."
+      ],
+      "four_card": false,
+      "blanks": [
+        "bad",
+        "day"
+      ]
     },
     {
       "text": "I am fine.",

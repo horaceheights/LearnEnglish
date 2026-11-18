@@ -207,3 +207,20 @@ for (const [right, wrong] of [['There are', 'There is'], ['There is', 'There are
 assert.match(lessonMistakeHint({...card('', 'You are happy.', 'You is happy.'), stage:'Recognize'}, 'wrong'), /tú.+ustedes/);
 assert.doesNotMatch(lessonMistakeHint({...card('', 'I do not study.', 'I study.'), stage:'Recognize'}, 'wrong'), /gusta/);
 assert.doesNotMatch(lessonMistakeHint({...card('', 'He is not a child.', 'He is a child.'), stage:'Recognize'}, 'wrong'), /acción|ocurre/);
+
+// 2026-11-18: good has a meaning ("bueno o buena"), but a greeting is explained whole, never word by word.
+{
+  const lessons = require('../src/generated/a1-course.json');
+  const greetings = lessons.flatMap(lesson => lesson.cards || [])
+    .filter(item => /^good morning\.?$/i.test(item.audio_text || item.prompt || ''));
+  let checked = 0;
+  for (const item of greetings) {
+    for (const option of (item.options || []).filter(option => option.id !== item.correct_option_id && /goodbye/i.test(option.id))) {
+      const hint = lessonMistakeHint(item, option.id);
+      assert.match(hint, /“good morning” \(buenos días\)/, `${item.slide_id}: ${hint}`);
+      assert.doesNotMatch(hint, /bueno o buena/, `${item.slide_id}: ${hint}`);
+      checked++;
+    }
+  }
+  assert.ok(checked >= 5, `expected the Good morning / goodbye contrasts, checked ${checked}`);
+}

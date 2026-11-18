@@ -283838,6 +283838,7 @@
       ],
       "compatible_variants": [
         "answer",
+        "prompt",
         "split-ing"
       ],
       "provenance": {
@@ -285853,11 +285854,13 @@
       ],
       "profile_id": "a1-elevenlabs-character-cast-v1",
       "compatible_modes": [
-        "prompt"
+        "prompt",
+        "pronunciation_slow"
       ],
       "compatible_variants": [
         "answer",
-        "prompt"
+        "prompt",
+        "split-ing"
       ],
       "provenance": {
         "source": "elevenlabs-offline-render",
@@ -286050,11 +286053,13 @@
       ],
       "profile_id": "a1-elevenlabs-character-cast-v1",
       "compatible_modes": [
-        "prompt"
+        "prompt",
+        "pronunciation_slow"
       ],
       "compatible_variants": [
         "answer",
-        "prompt"
+        "prompt",
+        "split-ing"
       ],
       "provenance": {
         "source": "elevenlabs-offline-render",
@@ -289364,11 +289369,13 @@
       ],
       "profile_id": "a1-elevenlabs-character-cast-v1",
       "compatible_modes": [
-        "prompt"
+        "prompt",
+        "pronunciation_slow"
       ],
       "compatible_variants": [
         "answer",
-        "prompt"
+        "prompt",
+        "split-ing"
       ],
       "provenance": {
         "source": "elevenlabs-offline-render",
@@ -293451,6 +293458,397 @@
         "review": {
           "status": "operator-listening-approved",
           "audio_sha256": "7f0081d8c98fd089014793aab7d7ded2ce3ee27ab17d5e125ab4f7e51ebea723",
+          "basis": "Operator explicitly confirmed this recording's natural pronunciation with --reviewed-take."
+        }
+      }
+    },
+    "92417246fbbab6ea46c461bfac7fd408084f9279c34378f6875d45b22a1411a5": {
+      "file": "takes/92417246fbbab6ea46c461bfac7fd408084f9279c34378f6875d45b22a1411a5.mp3",
+      "audio_sha256": "92417246fbbab6ea46c461bfac7fd408084f9279c34378f6875d45b22a1411a5",
+      "bytes": 15089,
+      "text": "Good",
+      "compatible_speaker_roles": [
+        "answer",
+        "teacher"
+      ],
+      "profile_id": "a1-elevenlabs-character-cast-v1",
+      "compatible_modes": [
+        "prompt"
+      ],
+      "compatible_variants": [
+        "answer",
+        "prompt"
+      ],
+      "provenance": {
+        "source": "elevenlabs-offline-render",
+        "provider": "elevenlabs-premium",
+        "model_id": "eleven_v4",
+        "narrator": "female-teacher",
+        "voice_id": "XfNU2rGpBa01ckF309OY",
+        "provider_output_format": "mp3_44100_128",
+        "seed": 1101,
+        "settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.8
+        },
+        "stored_media": {
+          "container": "mp3",
+          "codec": "mp3float",
+          "sample_rate_hz": 44100,
+          "channels": 1,
+          "bit_rate_bps": 128000
+        },
+        "processing": [
+          "Original ElevenLabs v4 provider bytes; no post-processing."
+        ],
+        "generated_at": "2026-11-18T14:34:52.458799+00:00",
+        "approved_at": "2026-11-18T14:49:25.679610+00:00",
+        "request_id": "WdUVkEZpgPz4Z52Ijkth",
+        "trace_id": "aacd989eeeba1f292eba09c66631ce05",
+        "character_cost": 2,
+        "incremental_character_cost": 2,
+        "provider_requests": [
+          {
+            "model_id": "eleven_v4",
+            "text": "Good",
+            "character_cost": 2,
+            "incremental_character_cost": 2,
+            "character_cost_source": "provider-header",
+            "character_cost_header": "2",
+            "staged_reuse": false,
+            "request_id": "WdUVkEZpgPz4Z52Ijkth",
+            "trace_id": "aacd989eeeba1f292eba09c66631ce05"
+          }
+        ],
+        "review": {
+          "status": "operator-listening-approved",
+          "audio_sha256": "92417246fbbab6ea46c461bfac7fd408084f9279c34378f6875d45b22a1411a5",
+          "basis": "Operator explicitly confirmed this recording's natural pronunciation with --reviewed-take."
+        }
+      }
+    },
+    "247ec9f6736344ec26107343a7458b61bcefd14b3c1784547d0bbb495a2996ba": {
+      "file": "takes/247ec9f6736344ec26107343a7458b61bcefd14b3c1784547d0bbb495a2996ba.mp3",
+      "audio_sha256": "247ec9f6736344ec26107343a7458b61bcefd14b3c1784547d0bbb495a2996ba",
+      "bytes": 31807,
+      "text": "It is a bad day.",
+      "compatible_speaker_roles": [
+        "answer",
+        "teacher"
+      ],
+      "profile_id": "a1-elevenlabs-character-cast-v1",
+      "compatible_modes": [
+        "prompt"
+      ],
+      "compatible_variants": [
+        "answer",
+        "prompt"
+      ],
+      "provenance": {
+        "source": "elevenlabs-offline-render",
+        "provider": "elevenlabs-premium",
+        "model_id": "eleven_v4",
+        "narrator": "female-teacher",
+        "voice_id": "XfNU2rGpBa01ckF309OY",
+        "provider_output_format": "mp3_44100_128",
+        "seed": 1101,
+        "settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.8
+        },
+        "stored_media": {
+          "container": "mp3",
+          "codec": "mp3float",
+          "sample_rate_hz": 44100,
+          "channels": 1,
+          "bit_rate_bps": 128000
+        },
+        "processing": [
+          "Original ElevenLabs v4 provider bytes; no post-processing."
+        ],
+        "generated_at": "2026-11-18T14:34:54.285913+00:00",
+        "approved_at": "2026-11-18T14:47:39.658959+00:00",
+        "request_id": "GaVjROcLYO7BtTs95jfe",
+        "trace_id": "7a1def7da279fad82eba09c66631c938",
+        "character_cost": 7,
+        "incremental_character_cost": 7,
+        "provider_requests": [
+          {
+            "model_id": "eleven_v4",
+            "text": "It is a bad day.",
+            "character_cost": 7,
+            "incremental_character_cost": 7,
+            "character_cost_source": "provider-header",
+            "character_cost_header": "7",
+            "staged_reuse": false,
+            "request_id": "GaVjROcLYO7BtTs95jfe",
+            "trace_id": "7a1def7da279fad82eba09c66631c938"
+          }
+        ],
+        "review": {
+          "status": "operator-listening-approved",
+          "audio_sha256": "247ec9f6736344ec26107343a7458b61bcefd14b3c1784547d0bbb495a2996ba",
+          "basis": "Operator explicitly confirmed this recording's natural pronunciation with --reviewed-take."
+        }
+      }
+    },
+    "7f257e794dee5aafb4b16044472f22bd5957c326b58ba584a721edde9f48dc81": {
+      "file": "takes/7f257e794dee5aafb4b16044472f22bd5957c326b58ba584a721edde9f48dc81.mp3",
+      "audio_sha256": "7f257e794dee5aafb4b16044472f22bd5957c326b58ba584a721edde9f48dc81",
+      "bytes": 26792,
+      "text": "It is a good day.",
+      "compatible_speaker_roles": [
+        "answer",
+        "teacher"
+      ],
+      "profile_id": "a1-elevenlabs-character-cast-v1",
+      "compatible_modes": [
+        "prompt",
+        "pronunciation_slow"
+      ],
+      "compatible_variants": [
+        "answer",
+        "prompt",
+        "split-ing"
+      ],
+      "provenance": {
+        "source": "elevenlabs-offline-render",
+        "provider": "elevenlabs-premium",
+        "model_id": "eleven_v4",
+        "narrator": "female-teacher",
+        "voice_id": "XfNU2rGpBa01ckF309OY",
+        "provider_output_format": "mp3_44100_128",
+        "seed": 1101,
+        "settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.8
+        },
+        "stored_media": {
+          "container": "mp3",
+          "codec": "mp3float",
+          "sample_rate_hz": 44100,
+          "channels": 1,
+          "bit_rate_bps": 128000
+        },
+        "processing": [
+          "Original ElevenLabs v4 provider bytes; no post-processing."
+        ],
+        "generated_at": "2026-11-18T14:34:56.161427+00:00",
+        "approved_at": "2026-11-18T14:49:05.391099+00:00",
+        "request_id": "Ch20tw6lUKwXFNJfOycm",
+        "trace_id": "bd86289432b48318af45574b8f50a4e7",
+        "character_cost": 7,
+        "incremental_character_cost": 7,
+        "provider_requests": [
+          {
+            "model_id": "eleven_v4",
+            "text": "It is a good day.",
+            "character_cost": 7,
+            "incremental_character_cost": 7,
+            "character_cost_source": "provider-header",
+            "character_cost_header": "7",
+            "staged_reuse": false,
+            "request_id": "Ch20tw6lUKwXFNJfOycm",
+            "trace_id": "bd86289432b48318af45574b8f50a4e7"
+          }
+        ],
+        "review": {
+          "status": "operator-listening-approved",
+          "audio_sha256": "7f257e794dee5aafb4b16044472f22bd5957c326b58ba584a721edde9f48dc81",
+          "basis": "Operator explicitly confirmed this recording's natural pronunciation with --reviewed-take."
+        }
+      }
+    },
+    "30d56f15fa9fe5a3f3baf47090c6f0297bce5bbf02ec89db752d1a0499c83f02": {
+      "file": "takes/30d56f15fa9fe5a3f3baf47090c6f0297bce5bbf02ec89db752d1a0499c83f02.mp3",
+      "audio_sha256": "30d56f15fa9fe5a3f3baf47090c6f0297bce5bbf02ec89db752d1a0499c83f02",
+      "bytes": 15089,
+      "text": "Bad",
+      "compatible_speaker_roles": [
+        "co-teacher"
+      ],
+      "profile_id": "a1-elevenlabs-character-cast-v1",
+      "compatible_modes": [
+        "prompt"
+      ],
+      "compatible_variants": [
+        "answer",
+        "prompt"
+      ],
+      "provenance": {
+        "source": "elevenlabs-offline-render",
+        "provider": "elevenlabs-premium",
+        "model_id": "eleven_v4",
+        "narrator": "male-teacher",
+        "voice_id": "cjVigY5qzO86Huf0OWal",
+        "provider_output_format": "mp3_44100_128",
+        "seed": 1101,
+        "settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.8
+        },
+        "stored_media": {
+          "container": "mp3",
+          "codec": "mp3float",
+          "sample_rate_hz": 44100,
+          "channels": 1,
+          "bit_rate_bps": 128000
+        },
+        "processing": [
+          "Original ElevenLabs v4 provider bytes; no post-processing."
+        ],
+        "generated_at": "2026-11-18T14:34:58.068365+00:00",
+        "approved_at": "2026-11-18T14:48:03.174027+00:00",
+        "request_id": "Y4vydVQ2nkQwRPfF8kBd",
+        "trace_id": "dd91af2d2e38b85eaf45574b8f50a81c",
+        "character_cost": 1,
+        "incremental_character_cost": 1,
+        "provider_requests": [
+          {
+            "model_id": "eleven_v4",
+            "text": "Bad",
+            "character_cost": 1,
+            "incremental_character_cost": 1,
+            "character_cost_source": "provider-header",
+            "character_cost_header": "1",
+            "staged_reuse": false,
+            "request_id": "Y4vydVQ2nkQwRPfF8kBd",
+            "trace_id": "dd91af2d2e38b85eaf45574b8f50a81c"
+          }
+        ],
+        "review": {
+          "status": "operator-listening-approved",
+          "audio_sha256": "30d56f15fa9fe5a3f3baf47090c6f0297bce5bbf02ec89db752d1a0499c83f02",
+          "basis": "Operator explicitly confirmed this recording's natural pronunciation with --reviewed-take."
+        }
+      }
+    },
+    "60b1d4833d463b65516b0775a91d107be213b1c42de4a33c1cb2b4ac96ac887a": {
+      "file": "takes/60b1d4833d463b65516b0775a91d107be213b1c42de4a33c1cb2b4ac96ac887a.mp3",
+      "audio_sha256": "60b1d4833d463b65516b0775a91d107be213b1c42de4a33c1cb2b4ac96ac887a",
+      "bytes": 33061,
+      "text": "It is a bad day.",
+      "compatible_speaker_roles": [
+        "co-teacher"
+      ],
+      "profile_id": "a1-elevenlabs-character-cast-v1",
+      "compatible_modes": [
+        "prompt",
+        "pronunciation_slow"
+      ],
+      "compatible_variants": [
+        "answer",
+        "prompt",
+        "split-ing"
+      ],
+      "provenance": {
+        "source": "elevenlabs-offline-render",
+        "provider": "elevenlabs-premium",
+        "model_id": "eleven_v4",
+        "narrator": "male-teacher",
+        "voice_id": "cjVigY5qzO86Huf0OWal",
+        "provider_output_format": "mp3_44100_128",
+        "seed": 1101,
+        "settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.8
+        },
+        "stored_media": {
+          "container": "mp3",
+          "codec": "mp3float",
+          "sample_rate_hz": 44100,
+          "channels": 1,
+          "bit_rate_bps": 128000
+        },
+        "processing": [
+          "Original ElevenLabs v4 provider bytes; no post-processing."
+        ],
+        "generated_at": "2026-11-18T14:35:00.044096+00:00",
+        "approved_at": "2026-11-18T14:48:23.493906+00:00",
+        "request_id": "INhLeurRCncR4VhnQCBu",
+        "trace_id": "b6b2aaea58dc9afbaf45574b8f50a4a4",
+        "character_cost": 7,
+        "incremental_character_cost": 7,
+        "provider_requests": [
+          {
+            "model_id": "eleven_v4",
+            "text": "It is a bad day.",
+            "character_cost": 7,
+            "incremental_character_cost": 7,
+            "character_cost_source": "provider-header",
+            "character_cost_header": "7",
+            "staged_reuse": false,
+            "request_id": "INhLeurRCncR4VhnQCBu",
+            "trace_id": "b6b2aaea58dc9afbaf45574b8f50a4a4"
+          }
+        ],
+        "review": {
+          "status": "operator-listening-approved",
+          "audio_sha256": "60b1d4833d463b65516b0775a91d107be213b1c42de4a33c1cb2b4ac96ac887a",
+          "basis": "Operator explicitly confirmed this recording's natural pronunciation with --reviewed-take."
+        }
+      }
+    },
+    "7b99017f98d27f854454892e265af053f3bb28677978080108574591caa35edc": {
+      "file": "takes/7b99017f98d27f854454892e265af053f3bb28677978080108574591caa35edc.mp3",
+      "audio_sha256": "7b99017f98d27f854454892e265af053f3bb28677978080108574591caa35edc",
+      "bytes": 28046,
+      "text": "It is a good day.",
+      "compatible_speaker_roles": [
+        "co-teacher"
+      ],
+      "profile_id": "a1-elevenlabs-character-cast-v1",
+      "compatible_modes": [
+        "prompt"
+      ],
+      "compatible_variants": [
+        "answer",
+        "prompt"
+      ],
+      "provenance": {
+        "source": "elevenlabs-offline-render",
+        "provider": "elevenlabs-premium",
+        "model_id": "eleven_v4",
+        "narrator": "male-teacher",
+        "voice_id": "cjVigY5qzO86Huf0OWal",
+        "provider_output_format": "mp3_44100_128",
+        "seed": 1101,
+        "settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.8
+        },
+        "stored_media": {
+          "container": "mp3",
+          "codec": "mp3float",
+          "sample_rate_hz": 44100,
+          "channels": 1,
+          "bit_rate_bps": 128000
+        },
+        "processing": [
+          "Original ElevenLabs v4 provider bytes; no post-processing."
+        ],
+        "generated_at": "2026-11-18T14:35:01.807748+00:00",
+        "approved_at": "2026-11-18T14:48:44.550823+00:00",
+        "request_id": "siq13ugPWoCy6Q2dsdBV",
+        "trace_id": "5782e2a2886db912af45574b8f50a2bc",
+        "character_cost": 7,
+        "incremental_character_cost": 7,
+        "provider_requests": [
+          {
+            "model_id": "eleven_v4",
+            "text": "It is a good day.",
+            "character_cost": 7,
+            "incremental_character_cost": 7,
+            "character_cost_source": "provider-header",
+            "character_cost_header": "7",
+            "staged_reuse": false,
+            "request_id": "siq13ugPWoCy6Q2dsdBV",
+            "trace_id": "5782e2a2886db912af45574b8f50a2bc"
+          }
+        ],
+        "review": {
+          "status": "operator-listening-approved",
+          "audio_sha256": "7b99017f98d27f854454892e265af053f3bb28677978080108574591caa35edc",
           "basis": "Operator explicitly confirmed this recording's natural pronunciation with --reviewed-take."
         }
       }
@@ -398750,9 +399148,19 @@
       "approved_at": "2026-11-16T15:43:27.616815+00:00",
       "approval_note": "Installed after explicit listening review of these exact bytes."
     },
+    "lesson-7-9-more-feelings-c001-answer-4038898d0aa65dac07ff": {
+      "take_id": "92417246fbbab6ea46c461bfac7fd408084f9279c34378f6875d45b22a1411a5",
+      "approved_at": "2026-11-18T14:49:25.679610+00:00",
+      "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
     "lesson-7-9-more-feelings-c001-answer-ca1ee470b108adfd98ad": {
       "take_id": "1d09192ef2ea9b43b3c8bbd13d99ea8b78a9dbde836ac2cb748303a4448876fe",
       "approved_at": "2026-11-16T15:44:51.868799+00:00",
+      "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
+    "lesson-7-9-more-feelings-c001-prompt-b1362f55f6c5ed03a17b": {
+      "take_id": "92417246fbbab6ea46c461bfac7fd408084f9279c34378f6875d45b22a1411a5",
+      "approved_at": "2026-11-18T14:49:25.679610+00:00",
       "approval_note": "Installed after explicit listening review of these exact bytes."
     },
     "lesson-7-9-more-feelings-c001-prompt-d7756ab61ae4d42d18f0": {
@@ -398765,10 +399173,25 @@
       "approved_at": "2026-11-16T15:46:31.877287+00:00",
       "approval_note": "Installed after explicit listening review of these exact bytes."
     },
+    "lesson-7-9-more-feelings-c002-answer-b467564cdee29d27cb45": {
+      "take_id": "30d56f15fa9fe5a3f3baf47090c6f0297bce5bbf02ec89db752d1a0499c83f02",
+      "approved_at": "2026-11-18T14:48:03.174027+00:00",
+      "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
     "lesson-7-9-more-feelings-c002-prompt-0bdb432fd1da542d6ab8": {
       "take_id": "f112de6fa6939daf768646cfb47ccdc7930ee3c297cba608122cc846a3d56ea8",
       "approved_at": "2026-11-16T15:46:31.877287+00:00",
       "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
+    "lesson-7-9-more-feelings-c002-prompt-f77b1b4aaea1f97677e5": {
+      "take_id": "30d56f15fa9fe5a3f3baf47090c6f0297bce5bbf02ec89db752d1a0499c83f02",
+      "approved_at": "2026-11-18T14:48:03.174027+00:00",
+      "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
+    "lesson-7-9-more-feelings-c003-answer-4850fbff091f5ea7d83d": {
+      "take_id": "1d09192ef2ea9b43b3c8bbd13d99ea8b78a9dbde836ac2cb748303a4448876fe",
+      "approved_at": "2026-11-16T15:44:51.868799+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
     "lesson-7-9-more-feelings-c003-answer-4f780651c4ac76bbeb54": {
       "take_id": "8d9e260b89772d0dc9f01a263d536ffe575cdc0dbf6a50f1e4b9365ed9c296f2",
@@ -398778,6 +399201,11 @@
     "lesson-7-9-more-feelings-c003-answer-e5b06625f23e1b8f3b51": {
       "take_id": "8d9e260b89772d0dc9f01a263d536ffe575cdc0dbf6a50f1e4b9365ed9c296f2",
       "approved_at": "2026-11-16T15:39:49.966748+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-7-9-more-feelings-c003-prompt-3f3bbc1df4cb6de84700": {
+      "take_id": "1d09192ef2ea9b43b3c8bbd13d99ea8b78a9dbde836ac2cb748303a4448876fe",
+      "approved_at": "2026-11-16T15:44:51.868799+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
     "lesson-7-9-more-feelings-c003-prompt-49203e0552daff707114": {
@@ -398800,6 +399228,16 @@
       "approved_at": "2026-11-16T15:53:09.464924+00:00",
       "approval_note": "Installed after explicit listening review of these exact bytes."
     },
+    "lesson-7-9-more-feelings-c004-answer-3ffa2c4b5fe6fc099f88": {
+      "take_id": "f112de6fa6939daf768646cfb47ccdc7930ee3c297cba608122cc846a3d56ea8",
+      "approved_at": "2026-11-16T15:46:31.877287+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-7-9-more-feelings-c004-prompt-037011eafec4800c7222": {
+      "take_id": "f112de6fa6939daf768646cfb47ccdc7930ee3c297cba608122cc846a3d56ea8",
+      "approved_at": "2026-11-16T15:46:31.877287+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
     "lesson-7-9-more-feelings-c004-prompt-36dee0bd741028534901": {
       "take_id": "ee9c1da896b5a351926d2a853700f68ece89da6a19ad9a94e0db0072c5cf5afa",
       "approved_at": "2026-11-16T15:53:09.464924+00:00",
@@ -398814,6 +399252,11 @@
       "take_id": "22523af3e113ae84cd26ae4ff70de311651d0acb28999638a7c1074866397163",
       "approved_at": "2026-11-16T15:26:53.785737+00:00",
       "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
+    "lesson-7-9-more-feelings-c005-answer-6e8a658577e83e1c1971": {
+      "take_id": "8d9e260b89772d0dc9f01a263d536ffe575cdc0dbf6a50f1e4b9365ed9c296f2",
+      "approved_at": "2026-11-16T15:39:49.966748+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
     "lesson-7-9-more-feelings-c005-answer-d0347002152239dbda56": {
       "take_id": "22523af3e113ae84cd26ae4ff70de311651d0acb28999638a7c1074866397163",
@@ -398830,20 +399273,45 @@
       "approved_at": "2026-11-16T15:26:53.785737+00:00",
       "approval_note": "Installed after explicit listening review of these exact bytes."
     },
+    "lesson-7-9-more-feelings-c005-prompt-93bb9c6c2f6bf9fc65ea": {
+      "take_id": "8d9e260b89772d0dc9f01a263d536ffe575cdc0dbf6a50f1e4b9365ed9c296f2",
+      "approved_at": "2026-11-16T15:39:49.966748+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
     "lesson-7-9-more-feelings-c006-answer-7673a61ca764affd865b": {
       "take_id": "c3a209c988c183ad9019ada4cde6bed4aaccf9f7180825c41af23c855cb49eb3",
       "approved_at": "2026-11-16T15:45:08.318014+00:00",
       "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
+    "lesson-7-9-more-feelings-c006-answer-f9ae8e2c3302ab0b3a60": {
+      "take_id": "ee9c1da896b5a351926d2a853700f68ece89da6a19ad9a94e0db0072c5cf5afa",
+      "approved_at": "2026-11-16T15:53:09.464924+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-7-9-more-feelings-c006-prompt-8161bba59da8e6713c2f": {
+      "take_id": "ee9c1da896b5a351926d2a853700f68ece89da6a19ad9a94e0db0072c5cf5afa",
+      "approved_at": "2026-11-16T15:53:09.464924+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
     "lesson-7-9-more-feelings-c006-prompt-99dfc79f88689765cf3a": {
       "take_id": "b65d6ecc381dae3bce13907ebc999cba97779b59b92bad9eb59221c0f7cbf15a",
       "approved_at": "2026-11-16T15:54:34.346087+00:00",
       "approval_note": "Installed after explicit listening review of these exact bytes."
     },
+    "lesson-7-9-more-feelings-c007-answer-fa32cecc9eb7350caf15": {
+      "take_id": "22523af3e113ae84cd26ae4ff70de311651d0acb28999638a7c1074866397163",
+      "approved_at": "2026-11-16T15:26:53.785737+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
     "lesson-7-9-more-feelings-c007-answer-fe515e3bbb58738806db": {
       "take_id": "dd8bc7e72e45aabda1ac6edbfbe301370775858e2f3d9d30688a1ce45f1f5585",
       "approved_at": "2026-11-16T15:46:48.426459+00:00",
       "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
+    "lesson-7-9-more-feelings-c007-prompt-2257f45ebf8661cffe53": {
+      "take_id": "22523af3e113ae84cd26ae4ff70de311651d0acb28999638a7c1074866397163",
+      "approved_at": "2026-11-16T15:26:53.785737+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
     "lesson-7-9-more-feelings-c007-prompt-82039f3ad7a428e01aa8": {
       "take_id": "15dd664b96ef45b5d8f5e43c4c9310067d947c66bb49af9cdb75ef967163d9bf",
@@ -398859,6 +399327,16 @@
       "take_id": "8ae2acbe2a115e3083dd7a21cbed57946ad8180c71d24b25c2ef6e9af48da40f",
       "approved_at": "2026-11-16T16:05:34.915230+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-7-9-more-feelings-c008-answer-e7ee2816c7b3e7493a03": {
+      "take_id": "7b99017f98d27f854454892e265af053f3bb28677978080108574591caa35edc",
+      "approved_at": "2026-11-18T14:48:44.550823+00:00",
+      "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
+    "lesson-7-9-more-feelings-c008-prompt-92d40a732af2f9396634": {
+      "take_id": "7b99017f98d27f854454892e265af053f3bb28677978080108574591caa35edc",
+      "approved_at": "2026-11-18T14:48:44.550823+00:00",
+      "approval_note": "Installed after explicit listening review of these exact bytes."
     },
     "lesson-7-9-more-feelings-c008-prompt-e498085a92990bc5df94": {
       "take_id": "8ae2acbe2a115e3083dd7a21cbed57946ad8180c71d24b25c2ef6e9af48da40f",
@@ -398878,6 +399356,11 @@
     "lesson-7-9-more-feelings-c009-answer-0f6bdd00cb37f540424b": {
       "take_id": "fd0ba494473d6b51664f28c1ef21b080f93f351a5c841bf5cb5ce5cdf42e0741",
       "approved_at": "2026-11-16T15:39:16.629534+00:00",
+      "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
+    "lesson-7-9-more-feelings-c009-answer-248504dcf58edd3847e8": {
+      "take_id": "247ec9f6736344ec26107343a7458b61bcefd14b3c1784547d0bbb495a2996ba",
+      "approved_at": "2026-11-18T14:47:39.658959+00:00",
       "approval_note": "Installed after explicit listening review of these exact bytes."
     },
     "lesson-7-9-more-feelings-c009-prompt-7e291004419ec0ebfbd1": {
@@ -398900,9 +399383,19 @@
       "approved_at": "2026-11-16T16:04:38.973038+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
+    "lesson-7-9-more-feelings-c010-answer-bb30786885d2dccdb447": {
+      "take_id": "c3a209c988c183ad9019ada4cde6bed4aaccf9f7180825c41af23c855cb49eb3",
+      "approved_at": "2026-11-16T15:45:08.318014+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
     "lesson-7-9-more-feelings-c010-prompt-476c9f30b79f031f7a0e": {
       "take_id": "2b5c99d414a28120aa1d49a2d50fb1ad81a8c9b163e30b2e72a589f2dfb7d453",
       "approved_at": "2026-11-16T16:04:38.973038+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-7-9-more-feelings-c010-prompt-4e2ecfde8b5c9bf4c55f": {
+      "take_id": "b65d6ecc381dae3bce13907ebc999cba97779b59b92bad9eb59221c0f7cbf15a",
+      "approved_at": "2026-11-16T15:54:34.346087+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
     "lesson-7-9-more-feelings-c010-prompt-fb7361648813a0ca4f8c": {
@@ -398920,6 +399413,11 @@
       "approved_at": "2026-11-16T15:29:41.411591+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
+    "lesson-7-9-more-feelings-c011-answer-a93801f37bc0e14dfd5c": {
+      "take_id": "dd8bc7e72e45aabda1ac6edbfbe301370775858e2f3d9d30688a1ce45f1f5585",
+      "approved_at": "2026-11-16T15:46:48.426459+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
     "lesson-7-9-more-feelings-c011-prompt-22abaa6b12f5357f5ea8": {
       "take_id": "143d697f9fbddf7482bf17a12d1a36104a7bbbf6cc7c0ca94f1ae0fa2f52c745",
       "approved_at": "2026-11-16T15:29:59.129478+00:00",
@@ -398930,9 +399428,19 @@
       "approved_at": "2026-11-16T15:29:59.129478+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
+    "lesson-7-9-more-feelings-c011-prompt-5f756b36ea2393be5b6c": {
+      "take_id": "15dd664b96ef45b5d8f5e43c4c9310067d947c66bb49af9cdb75ef967163d9bf",
+      "approved_at": "2026-09-01T01:03:04.073224+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
     "lesson-7-9-more-feelings-c012-answer-9172119b7fc54d6a57f7": {
       "take_id": "23762d8a4d4e6b738e5d9011c11104420cb864a9bdcc7690617280ec9cd10d01",
       "approved_at": "2026-11-16T15:54:00.771748+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-7-9-more-feelings-c012-answer-a597e45c6bc0d4c57e52": {
+      "take_id": "8ae2acbe2a115e3083dd7a21cbed57946ad8180c71d24b25c2ef6e9af48da40f",
+      "approved_at": "2026-11-16T16:05:34.915230+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
     "lesson-7-9-more-feelings-c012-answer-cf529f1511b1266e70ea": {
@@ -398945,6 +399453,11 @@
       "approved_at": "2026-11-16T15:54:00.771748+00:00",
       "approval_note": "Installed after explicit listening review of these exact bytes."
     },
+    "lesson-7-9-more-feelings-c012-prompt-3fe7ad8e75b64cc7fa23": {
+      "take_id": "8ae2acbe2a115e3083dd7a21cbed57946ad8180c71d24b25c2ef6e9af48da40f",
+      "approved_at": "2026-11-16T16:05:34.915230+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
     "lesson-7-9-more-feelings-c012-prompt-433641428bba595f9bf8": {
       "take_id": "23762d8a4d4e6b738e5d9011c11104420cb864a9bdcc7690617280ec9cd10d01",
       "approved_at": "2026-11-16T15:54:00.771748+00:00",
@@ -398955,9 +399468,24 @@
       "approved_at": "2026-11-16T15:45:08.318014+00:00",
       "approval_note": "Installed after explicit listening review of these exact bytes."
     },
+    "lesson-7-9-more-feelings-c013-answer-ed82389a12ccc70ed989": {
+      "take_id": "fd0ba494473d6b51664f28c1ef21b080f93f351a5c841bf5cb5ce5cdf42e0741",
+      "approved_at": "2026-11-16T15:39:16.629534+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
     "lesson-7-9-more-feelings-c013-prompt-0e82a55f1f7cb91c7e6e": {
       "take_id": "15dd664b96ef45b5d8f5e43c4c9310067d947c66bb49af9cdb75ef967163d9bf",
       "approved_at": "2026-09-01T01:03:04.073224+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-7-9-more-feelings-c013-prompt-f29df4c9e039de6bcef7": {
+      "take_id": "ffb9fca620d7cf7ec20b718092664f3d25662290cf35827233cb1855752c6fcc",
+      "approved_at": "2026-11-16T15:30:17.234145+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-7-9-more-feelings-c014-answer-9bc87c255480911f0f58": {
+      "take_id": "2b5c99d414a28120aa1d49a2d50fb1ad81a8c9b163e30b2e72a589f2dfb7d453",
+      "approved_at": "2026-11-16T16:04:38.973038+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
     "lesson-7-9-more-feelings-c014-answer-c7ed9df57c336c0df4f6": {
@@ -398970,10 +399498,20 @@
       "approved_at": "2026-11-16T15:54:34.346087+00:00",
       "approval_note": "Installed after explicit listening review of these exact bytes."
     },
+    "lesson-7-9-more-feelings-c014-prompt-a817ee4174305f300d35": {
+      "take_id": "2b5c99d414a28120aa1d49a2d50fb1ad81a8c9b163e30b2e72a589f2dfb7d453",
+      "approved_at": "2026-11-16T16:04:38.973038+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
     "lesson-7-9-more-feelings-c015-answer-05e71f38737fd6ca952e": {
       "take_id": "941c1d8b6c7522035b076c08cc394ae0aa1820e1e104708cd37bea687bfe6a54",
       "approved_at": "2026-11-16T15:39:33.384450+00:00",
       "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
+    "lesson-7-9-more-feelings-c015-answer-5da91f8c12b085f5a070": {
+      "take_id": "c098f85f26b00dfd950d2a86bf926e8d509c3cccabc6c1f96710f8960013f1f3",
+      "approved_at": "2026-11-16T15:29:41.411591+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
     "lesson-7-9-more-feelings-c015-answer-f99a775cc47a6b26c283": {
       "take_id": "941c1d8b6c7522035b076c08cc394ae0aa1820e1e104708cd37bea687bfe6a54",
@@ -398990,10 +399528,20 @@
       "approved_at": "2026-11-16T15:30:17.234145+00:00",
       "approval_note": "Installed after explicit listening review of these exact bytes."
     },
+    "lesson-7-9-more-feelings-c015-prompt-ef6f31d03f520aa0546c": {
+      "take_id": "143d697f9fbddf7482bf17a12d1a36104a7bbbf6cc7c0ca94f1ae0fa2f52c745",
+      "approved_at": "2026-11-16T15:29:59.129478+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
     "lesson-7-9-more-feelings-c016-answer-1e22f949d68a6529c79d": {
       "take_id": "2b5c99d414a28120aa1d49a2d50fb1ad81a8c9b163e30b2e72a589f2dfb7d453",
       "approved_at": "2026-11-16T16:04:38.973038+00:00",
       "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
+    "lesson-7-9-more-feelings-c016-answer-54ae0d9d4d793a6a48e0": {
+      "take_id": "23762d8a4d4e6b738e5d9011c11104420cb864a9bdcc7690617280ec9cd10d01",
+      "approved_at": "2026-11-16T15:54:00.771748+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
     "lesson-7-9-more-feelings-c016-answer-738ccb089c832db57d36": {
       "take_id": "2b5c99d414a28120aa1d49a2d50fb1ad81a8c9b163e30b2e72a589f2dfb7d453",
@@ -399005,9 +399553,19 @@
       "approved_at": "2026-11-16T16:04:38.973038+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
+    "lesson-7-9-more-feelings-c016-prompt-afd83bcf5e351fa17707": {
+      "take_id": "23762d8a4d4e6b738e5d9011c11104420cb864a9bdcc7690617280ec9cd10d01",
+      "approved_at": "2026-11-16T15:54:00.771748+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
     "lesson-7-9-more-feelings-c016-prompt-d99168f3a2829fba2668": {
       "take_id": "2b5c99d414a28120aa1d49a2d50fb1ad81a8c9b163e30b2e72a589f2dfb7d453",
       "approved_at": "2026-11-16T16:04:38.973038+00:00",
+      "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
+    "lesson-7-9-more-feelings-c017-answer-4171a31703fd8aca609f": {
+      "take_id": "7f257e794dee5aafb4b16044472f22bd5957c326b58ba584a721edde9f48dc81",
+      "approved_at": "2026-11-18T14:49:05.391099+00:00",
       "approval_note": "Installed after explicit listening review of these exact bytes."
     },
     "lesson-7-9-more-feelings-c017-answer-65924979e3985099b40a": {
@@ -399025,9 +399583,24 @@
       "approved_at": "2026-11-16T15:46:48.426459+00:00",
       "approval_note": "Installed after explicit listening review of these exact bytes."
     },
+    "lesson-7-9-more-feelings-c018-answer-65276cbd8587c72077aa": {
+      "take_id": "7b99017f98d27f854454892e265af053f3bb28677978080108574591caa35edc",
+      "approved_at": "2026-11-18T14:48:44.550823+00:00",
+      "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
+    "lesson-7-9-more-feelings-c018-prompt-0856591b19427631c963": {
+      "take_id": "7b99017f98d27f854454892e265af053f3bb28677978080108574591caa35edc",
+      "approved_at": "2026-11-18T14:48:44.550823+00:00",
+      "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
     "lesson-7-9-more-feelings-c018-prompt-2e281b363d9fb01514c9": {
       "take_id": "dd8bc7e72e45aabda1ac6edbfbe301370775858e2f3d9d30688a1ce45f1f5585",
       "approved_at": "2026-11-16T15:46:48.426459+00:00",
+      "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
+    "lesson-7-9-more-feelings-c019-answer-37e531dcc4832da661ae": {
+      "take_id": "247ec9f6736344ec26107343a7458b61bcefd14b3c1784547d0bbb495a2996ba",
+      "approved_at": "2026-11-18T14:47:39.658959+00:00",
       "approval_note": "Installed after explicit listening review of these exact bytes."
     },
     "lesson-7-9-more-feelings-c019-answer-69d842a063af9abb50f5": {
@@ -399040,6 +399613,16 @@
       "approved_at": "2026-11-16T15:39:33.384450+00:00",
       "approval_note": "Installed after explicit listening review of these exact bytes."
     },
+    "lesson-7-9-more-feelings-c019-prompt-6e8c79a12318b038f0eb": {
+      "take_id": "247ec9f6736344ec26107343a7458b61bcefd14b3c1784547d0bbb495a2996ba",
+      "approved_at": "2026-11-18T14:47:39.658959+00:00",
+      "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
+    "lesson-7-9-more-feelings-c020-answer-afb0babc5c10c7adf423": {
+      "take_id": "c3a209c988c183ad9019ada4cde6bed4aaccf9f7180825c41af23c855cb49eb3",
+      "approved_at": "2026-11-16T15:45:08.318014+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
     "lesson-7-9-more-feelings-c020-answer-c9213da139c2929effd3": {
       "take_id": "606b5d0ba196ec07d4e210926527353c30c773d2c3f33af206fe4f7e111b6862",
       "approved_at": "2026-11-16T16:05:15.786421+00:00",
@@ -399048,6 +399631,11 @@
     "lesson-7-9-more-feelings-c020-answer-d8fef613249794d4a390": {
       "take_id": "606b5d0ba196ec07d4e210926527353c30c773d2c3f33af206fe4f7e111b6862",
       "approved_at": "2026-11-16T16:05:15.786421+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-7-9-more-feelings-c020-prompt-090cc1336355c713258d": {
+      "take_id": "c3a209c988c183ad9019ada4cde6bed4aaccf9f7180825c41af23c855cb49eb3",
+      "approved_at": "2026-11-16T15:45:08.318014+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
     "lesson-7-9-more-feelings-c020-prompt-10eeae282f998197972e": {
@@ -399060,6 +399648,11 @@
       "approved_at": "2026-11-16T16:05:15.786421+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
+    "lesson-7-9-more-feelings-c021-answer-209688bc56c564851147": {
+      "take_id": "dd8bc7e72e45aabda1ac6edbfbe301370775858e2f3d9d30688a1ce45f1f5585",
+      "approved_at": "2026-11-16T15:46:48.426459+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
     "lesson-7-9-more-feelings-c021-answer-6aa83e787ed9eaee3684": {
       "take_id": "5aa4533a87ad497657100e18c79bd75486de25e9e66b7ff24bd9ea4571859d84",
       "approved_at": "2026-11-16T15:38:42.173068+00:00",
@@ -399068,6 +399661,11 @@
     "lesson-7-9-more-feelings-c021-answer-c998e774c22eb97ca2d4": {
       "take_id": "5aa4533a87ad497657100e18c79bd75486de25e9e66b7ff24bd9ea4571859d84",
       "approved_at": "2026-11-16T15:38:42.173068+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-7-9-more-feelings-c021-prompt-25712703150f6fe7139b": {
+      "take_id": "dd8bc7e72e45aabda1ac6edbfbe301370775858e2f3d9d30688a1ce45f1f5585",
+      "approved_at": "2026-11-16T15:46:48.426459+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
     "lesson-7-9-more-feelings-c021-prompt-98ff6008e1207bc1ab12": {
@@ -399085,15 +399683,30 @@
       "approved_at": "2026-11-16T15:54:17.667934+00:00",
       "approval_note": "Installed after explicit listening review of these exact bytes."
     },
+    "lesson-7-9-more-feelings-c022-answer-8e74aec17487712ead4a": {
+      "take_id": "8ae2acbe2a115e3083dd7a21cbed57946ad8180c71d24b25c2ef6e9af48da40f",
+      "approved_at": "2026-11-16T16:05:34.915230+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
     "lesson-7-9-more-feelings-c022-prompt-a9cb6d1c59a6a4a79577": {
       "take_id": "371e99faaace461fac9541daabfd5c8eb4efe3b8ab75d00f06b7170f120036d6",
       "approved_at": "2026-11-16T15:54:17.667934+00:00",
       "approval_note": "Installed after explicit listening review of these exact bytes."
     },
+    "lesson-7-9-more-feelings-c022-prompt-ee817374a2acaaae2904": {
+      "take_id": "8ae2acbe2a115e3083dd7a21cbed57946ad8180c71d24b25c2ef6e9af48da40f",
+      "approved_at": "2026-11-16T16:05:34.915230+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
     "lesson-7-9-more-feelings-c023-answer-3f6922b8fd85a2355daa": {
       "take_id": "6fb8c993a3ca83f5300fbd7025d5bcf073c80f42f1d22e0843462308c36713a2",
       "approved_at": "2026-11-16T15:29:22.769278+00:00",
       "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
+    "lesson-7-9-more-feelings-c023-answer-69fb49f8db5486ce5a57": {
+      "take_id": "fd0ba494473d6b51664f28c1ef21b080f93f351a5c841bf5cb5ce5cdf42e0741",
+      "approved_at": "2026-11-16T15:39:16.629534+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
     "lesson-7-9-more-feelings-c023-answer-c33b00db539122cfbce7": {
       "take_id": "6fb8c993a3ca83f5300fbd7025d5bcf073c80f42f1d22e0843462308c36713a2",
@@ -399110,6 +399723,16 @@
       "approved_at": "2026-11-16T15:29:22.769278+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
+    "lesson-7-9-more-feelings-c023-prompt-b560e80b5de99579cf95": {
+      "take_id": "fd0ba494473d6b51664f28c1ef21b080f93f351a5c841bf5cb5ce5cdf42e0741",
+      "approved_at": "2026-11-16T15:39:16.629534+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-7-9-more-feelings-c024-answer-131d6ff2cf51533ca9fa": {
+      "take_id": "2b5c99d414a28120aa1d49a2d50fb1ad81a8c9b163e30b2e72a589f2dfb7d453",
+      "approved_at": "2026-11-16T16:04:38.973038+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
     "lesson-7-9-more-feelings-c024-answer-c5d5ea9b0b9be475f69d": {
       "take_id": "c3a209c988c183ad9019ada4cde6bed4aaccf9f7180825c41af23c855cb49eb3",
       "approved_at": "2026-11-16T15:45:08.318014+00:00",
@@ -399120,10 +399743,25 @@
       "approved_at": "2026-11-16T15:45:08.318014+00:00",
       "approval_note": "Installed after explicit listening review of these exact bytes."
     },
+    "lesson-7-9-more-feelings-c024-prompt-b9be467df1295455d6a7": {
+      "take_id": "2b5c99d414a28120aa1d49a2d50fb1ad81a8c9b163e30b2e72a589f2dfb7d453",
+      "approved_at": "2026-11-16T16:04:38.973038+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
     "lesson-7-9-more-feelings-c025-answer-3a8cfac525e6e6ba50ae": {
       "take_id": "dd8bc7e72e45aabda1ac6edbfbe301370775858e2f3d9d30688a1ce45f1f5585",
       "approved_at": "2026-11-16T15:46:48.426459+00:00",
       "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
+    "lesson-7-9-more-feelings-c025-answer-fb0190cc4fc276be4607": {
+      "take_id": "c098f85f26b00dfd950d2a86bf926e8d509c3cccabc6c1f96710f8960013f1f3",
+      "approved_at": "2026-11-16T15:29:41.411591+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-7-9-more-feelings-c025-prompt-58c9f6ef8b49f6377ae1": {
+      "take_id": "c098f85f26b00dfd950d2a86bf926e8d509c3cccabc6c1f96710f8960013f1f3",
+      "approved_at": "2026-11-16T15:29:41.411591+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
     "lesson-7-9-more-feelings-c025-prompt-7e738850c4f26c64a1db": {
       "take_id": "dd8bc7e72e45aabda1ac6edbfbe301370775858e2f3d9d30688a1ce45f1f5585",
@@ -399135,6 +399773,16 @@
       "approved_at": "2026-11-16T15:45:08.318014+00:00",
       "approval_note": "Installed after explicit listening review of these exact bytes."
     },
+    "lesson-7-9-more-feelings-c026-answer-d2e4d7151f086c8a8688": {
+      "take_id": "23762d8a4d4e6b738e5d9011c11104420cb864a9bdcc7690617280ec9cd10d01",
+      "approved_at": "2026-11-16T15:54:00.771748+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-7-9-more-feelings-c026-prompt-12e2c0ea1a067f68d925": {
+      "take_id": "23762d8a4d4e6b738e5d9011c11104420cb864a9bdcc7690617280ec9cd10d01",
+      "approved_at": "2026-11-16T15:54:00.771748+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
     "lesson-7-9-more-feelings-c026-prompt-4868ac2dfa1fb06af321": {
       "take_id": "c3a209c988c183ad9019ada4cde6bed4aaccf9f7180825c41af23c855cb49eb3",
       "approved_at": "2026-11-16T15:45:08.318014+00:00",
@@ -399145,15 +399793,30 @@
       "approved_at": "2026-11-16T15:46:48.426459+00:00",
       "approval_note": "Installed after explicit listening review of these exact bytes."
     },
+    "lesson-7-9-more-feelings-c027-answer-95db2c49fc2311ffc236": {
+      "take_id": "7f257e794dee5aafb4b16044472f22bd5957c326b58ba584a721edde9f48dc81",
+      "approved_at": "2026-11-18T14:49:05.391099+00:00",
+      "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
     "lesson-7-9-more-feelings-c027-prompt-3d66e0771a172f1d3502": {
       "take_id": "dd8bc7e72e45aabda1ac6edbfbe301370775858e2f3d9d30688a1ce45f1f5585",
       "approved_at": "2026-11-16T15:46:48.426459+00:00",
+      "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
+    "lesson-7-9-more-feelings-c027-prompt-9bdcd62e6c49d0f77284": {
+      "take_id": "7f257e794dee5aafb4b16044472f22bd5957c326b58ba584a721edde9f48dc81",
+      "approved_at": "2026-11-18T14:49:05.391099+00:00",
       "approval_note": "Installed after explicit listening review of these exact bytes."
     },
     "lesson-7-9-more-feelings-c028-answer-4b5a8faaa78b639ecec5": {
       "take_id": "8ae2acbe2a115e3083dd7a21cbed57946ad8180c71d24b25c2ef6e9af48da40f",
       "approved_at": "2026-11-16T16:05:34.915230+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-7-9-more-feelings-c028-answer-93e54fe416f2cf05a9d0": {
+      "take_id": "60b1d4833d463b65516b0775a91d107be213b1c42de4a33c1cb2b4ac96ac887a",
+      "approved_at": "2026-11-18T14:48:23.493906+00:00",
+      "approval_note": "Installed after explicit listening review of these exact bytes."
     },
     "lesson-7-9-more-feelings-c028-answer-ede420e9118bce909249": {
       "take_id": "8ae2acbe2a115e3083dd7a21cbed57946ad8180c71d24b25c2ef6e9af48da40f",
@@ -399165,9 +399828,19 @@
       "approved_at": "2026-11-16T16:05:34.915230+00:00",
       "approval_note": "Installed after explicit listening review of these exact bytes."
     },
+    "lesson-7-9-more-feelings-c028-prompt-7f735f4027856b0cb621": {
+      "take_id": "60b1d4833d463b65516b0775a91d107be213b1c42de4a33c1cb2b4ac96ac887a",
+      "approved_at": "2026-11-18T14:48:23.493906+00:00",
+      "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
     "lesson-7-9-more-feelings-c028-prompt-9422310914b9fbb285e6": {
       "take_id": "8ae2acbe2a115e3083dd7a21cbed57946ad8180c71d24b25c2ef6e9af48da40f",
       "approved_at": "2026-11-16T16:05:34.915230+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-7-9-more-feelings-c029-answer-cba3e0592db3662cd4c8": {
+      "take_id": "c3a209c988c183ad9019ada4cde6bed4aaccf9f7180825c41af23c855cb49eb3",
+      "approved_at": "2026-11-16T15:45:08.318014+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
     "lesson-7-9-more-feelings-c029-answer-e3a873c80be2d6aadf7a": {
@@ -399179,6 +399852,11 @@
       "take_id": "c098f85f26b00dfd950d2a86bf926e8d509c3cccabc6c1f96710f8960013f1f3",
       "approved_at": "2026-11-16T15:29:41.411591+00:00",
       "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
+    "lesson-7-9-more-feelings-c029-prompt-09c0e4d25936f4273117": {
+      "take_id": "c3a209c988c183ad9019ada4cde6bed4aaccf9f7180825c41af23c855cb49eb3",
+      "approved_at": "2026-11-16T15:45:08.318014+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
     "lesson-7-9-more-feelings-c029-prompt-225acc850606420bb973": {
       "take_id": "c098f85f26b00dfd950d2a86bf926e8d509c3cccabc6c1f96710f8960013f1f3",
@@ -399200,6 +399878,16 @@
       "approved_at": "2026-11-16T15:54:00.771748+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
+    "lesson-7-9-more-feelings-c030-answer-8dcda98bb808efb45dba": {
+      "take_id": "dd8bc7e72e45aabda1ac6edbfbe301370775858e2f3d9d30688a1ce45f1f5585",
+      "approved_at": "2026-11-16T15:46:48.426459+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-7-9-more-feelings-c030-prompt-4ffc7a589193411cccd3": {
+      "take_id": "dd8bc7e72e45aabda1ac6edbfbe301370775858e2f3d9d30688a1ce45f1f5585",
+      "approved_at": "2026-11-16T15:46:48.426459+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
     "lesson-7-9-more-feelings-c030-prompt-e84ece955cda10ff1b5e": {
       "take_id": "23762d8a4d4e6b738e5d9011c11104420cb864a9bdcc7690617280ec9cd10d01",
       "approved_at": "2026-11-16T15:54:00.771748+00:00",
@@ -399209,6 +399897,11 @@
       "take_id": "23762d8a4d4e6b738e5d9011c11104420cb864a9bdcc7690617280ec9cd10d01",
       "approved_at": "2026-11-16T15:54:00.771748+00:00",
       "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
+    "lesson-7-9-more-feelings-c031-answer-294e4a87edb9d1c70c22": {
+      "take_id": "941c1d8b6c7522035b076c08cc394ae0aa1820e1e104708cd37bea687bfe6a54",
+      "approved_at": "2026-11-16T15:39:33.384450+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
     "lesson-7-9-more-feelings-c031-answer-71211e0bb5d30dde283e": {
       "take_id": "fd0ba494473d6b51664f28c1ef21b080f93f351a5c841bf5cb5ce5cdf42e0741",
@@ -399225,6 +399918,11 @@
       "approved_at": "2026-11-16T15:39:16.629534+00:00",
       "approval_note": "Installed after explicit listening review of these exact bytes."
     },
+    "lesson-7-9-more-feelings-c031-prompt-54cc77cf9800d972ee9e": {
+      "take_id": "941c1d8b6c7522035b076c08cc394ae0aa1820e1e104708cd37bea687bfe6a54",
+      "approved_at": "2026-11-16T15:39:33.384450+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
     "lesson-7-9-more-feelings-c031-prompt-da0638fe47329587a3cf": {
       "take_id": "fd0ba494473d6b51664f28c1ef21b080f93f351a5c841bf5cb5ce5cdf42e0741",
       "approved_at": "2026-11-16T15:39:16.629534+00:00",
@@ -399240,14 +399938,29 @@
       "approved_at": "2026-11-16T16:04:38.973038+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
+    "lesson-7-9-more-feelings-c032-answer-f9b856ead00123e50547": {
+      "take_id": "23762d8a4d4e6b738e5d9011c11104420cb864a9bdcc7690617280ec9cd10d01",
+      "approved_at": "2026-11-16T15:54:00.771748+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
     "lesson-7-9-more-feelings-c032-prompt-43b773b5f217dfb51051": {
       "take_id": "2b5c99d414a28120aa1d49a2d50fb1ad81a8c9b163e30b2e72a589f2dfb7d453",
       "approved_at": "2026-11-16T16:04:38.973038+00:00",
       "approval_note": "Installed after explicit listening review of these exact bytes."
     },
+    "lesson-7-9-more-feelings-c032-prompt-bf2d06608316d483090a": {
+      "take_id": "23762d8a4d4e6b738e5d9011c11104420cb864a9bdcc7690617280ec9cd10d01",
+      "approved_at": "2026-11-16T15:54:00.771748+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
     "lesson-7-9-more-feelings-c032-prompt-ea788c1d87ebd46c828d": {
       "take_id": "2b5c99d414a28120aa1d49a2d50fb1ad81a8c9b163e30b2e72a589f2dfb7d453",
       "approved_at": "2026-11-16T16:04:38.973038+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-7-9-more-feelings-c033-answer-2572d0e81e6baa3fe48b": {
+      "take_id": "5aa4533a87ad497657100e18c79bd75486de25e9e66b7ff24bd9ea4571859d84",
+      "approved_at": "2026-11-16T15:38:42.173068+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
     "lesson-7-9-more-feelings-c033-answer-3be19d2c27d8fd172a7d": {
@@ -399260,10 +399973,25 @@
       "approved_at": "2026-11-16T15:45:08.318014+00:00",
       "approval_note": "Installed after explicit listening review of these exact bytes."
     },
+    "lesson-7-9-more-feelings-c033-prompt-e813a5228c5054cdf2ab": {
+      "take_id": "5aa4533a87ad497657100e18c79bd75486de25e9e66b7ff24bd9ea4571859d84",
+      "approved_at": "2026-11-16T15:38:42.173068+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
     "lesson-7-9-more-feelings-c034-answer-36c4a137631fb233a47a": {
       "take_id": "c3a209c988c183ad9019ada4cde6bed4aaccf9f7180825c41af23c855cb49eb3",
       "approved_at": "2026-11-16T15:45:08.318014+00:00",
       "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
+    "lesson-7-9-more-feelings-c034-answer-d2de3d63cac4babf5986": {
+      "take_id": "371e99faaace461fac9541daabfd5c8eb4efe3b8ab75d00f06b7170f120036d6",
+      "approved_at": "2026-11-16T15:54:17.667934+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-7-9-more-feelings-c034-prompt-2110bb2d324474b37908": {
+      "take_id": "371e99faaace461fac9541daabfd5c8eb4efe3b8ab75d00f06b7170f120036d6",
+      "approved_at": "2026-11-16T15:54:17.667934+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
     "lesson-7-9-more-feelings-c034-prompt-ffb07c2359f466a509f1": {
       "take_id": "c3a209c988c183ad9019ada4cde6bed4aaccf9f7180825c41af23c855cb49eb3",
@@ -399275,9 +400003,19 @@
       "approved_at": "2026-11-16T15:46:48.426459+00:00",
       "approval_note": "Installed after explicit listening review of these exact bytes."
     },
+    "lesson-7-9-more-feelings-c035-answer-b68c4b8a3a362b00ec5c": {
+      "take_id": "7f257e794dee5aafb4b16044472f22bd5957c326b58ba584a721edde9f48dc81",
+      "approved_at": "2026-11-18T14:49:05.391099+00:00",
+      "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
     "lesson-7-9-more-feelings-c035-prompt-937d86b47fdba251b4ae": {
       "take_id": "dd8bc7e72e45aabda1ac6edbfbe301370775858e2f3d9d30688a1ce45f1f5585",
       "approved_at": "2026-11-16T15:46:48.426459+00:00",
+      "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
+    "lesson-7-9-more-feelings-c035-prompt-c1b147cf4677991111d9": {
+      "take_id": "7f257e794dee5aafb4b16044472f22bd5957c326b58ba584a721edde9f48dc81",
+      "approved_at": "2026-11-18T14:49:05.391099+00:00",
       "approval_note": "Installed after explicit listening review of these exact bytes."
     },
     "lesson-7-9-more-feelings-c036-answer-083b964812f94297ca35": {
@@ -399285,10 +400023,20 @@
       "approved_at": "2026-11-16T15:39:33.384450+00:00",
       "approval_note": "Installed after explicit listening review of these exact bytes."
     },
+    "lesson-7-9-more-feelings-c036-answer-84df66ce3dc20ca71671": {
+      "take_id": "60b1d4833d463b65516b0775a91d107be213b1c42de4a33c1cb2b4ac96ac887a",
+      "approved_at": "2026-11-18T14:48:23.493906+00:00",
+      "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
     "lesson-7-9-more-feelings-c036-answer-c8e1e70dd67c3a0d84e7": {
       "take_id": "941c1d8b6c7522035b076c08cc394ae0aa1820e1e104708cd37bea687bfe6a54",
       "approved_at": "2026-11-16T15:39:33.384450+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-7-9-more-feelings-c036-prompt-bf845581dc5269e6cc5a": {
+      "take_id": "60b1d4833d463b65516b0775a91d107be213b1c42de4a33c1cb2b4ac96ac887a",
+      "approved_at": "2026-11-18T14:48:23.493906+00:00",
+      "approval_note": "Installed after explicit listening review of these exact bytes."
     },
     "lesson-7-9-more-feelings-c036-prompt-dac90d1a26674e160130": {
       "take_id": "941c1d8b6c7522035b076c08cc394ae0aa1820e1e104708cd37bea687bfe6a54",
@@ -399310,6 +400058,16 @@
       "approved_at": "2026-11-16T15:54:00.771748+00:00",
       "approval_note": "Installed after explicit listening review of these exact bytes."
     },
+    "lesson-7-9-more-feelings-c037-answer-f08d1011bd371a7d5f5a": {
+      "take_id": "c3a209c988c183ad9019ada4cde6bed4aaccf9f7180825c41af23c855cb49eb3",
+      "approved_at": "2026-11-16T15:45:08.318014+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-7-9-more-feelings-c037-prompt-56734b591b3a4ed32722": {
+      "take_id": "c3a209c988c183ad9019ada4cde6bed4aaccf9f7180825c41af23c855cb49eb3",
+      "approved_at": "2026-11-16T15:45:08.318014+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
     "lesson-7-9-more-feelings-c037-prompt-7849f7cbd0359f1ae022": {
       "take_id": "23762d8a4d4e6b738e5d9011c11104420cb864a9bdcc7690617280ec9cd10d01",
       "approved_at": "2026-11-16T15:54:00.771748+00:00",
@@ -399328,6 +400086,16 @@
     "lesson-7-9-more-feelings-c038-answer-9d8ab5ef58951a3559a1": {
       "take_id": "5aa4533a87ad497657100e18c79bd75486de25e9e66b7ff24bd9ea4571859d84",
       "approved_at": "2026-11-16T15:38:42.173068+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-7-9-more-feelings-c038-answer-e635a3a6475970461912": {
+      "take_id": "dd8bc7e72e45aabda1ac6edbfbe301370775858e2f3d9d30688a1ce45f1f5585",
+      "approved_at": "2026-11-16T15:46:48.426459+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-7-9-more-feelings-c038-prompt-7eb78689ece23784b8fc": {
+      "take_id": "dd8bc7e72e45aabda1ac6edbfbe301370775858e2f3d9d30688a1ce45f1f5585",
+      "approved_at": "2026-11-16T15:46:48.426459+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
     "lesson-7-9-more-feelings-c038-prompt-88badf653664d96f6444": {
@@ -399350,6 +400118,16 @@
       "approved_at": "2026-11-16T15:54:17.667934+00:00",
       "approval_note": "Installed after explicit listening review of these exact bytes."
     },
+    "lesson-7-9-more-feelings-c039-answer-93e2e42c6e83b2fbc6f4": {
+      "take_id": "941c1d8b6c7522035b076c08cc394ae0aa1820e1e104708cd37bea687bfe6a54",
+      "approved_at": "2026-11-16T15:39:33.384450+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-7-9-more-feelings-c039-prompt-6bb57dc5bd082fad6615": {
+      "take_id": "941c1d8b6c7522035b076c08cc394ae0aa1820e1e104708cd37bea687bfe6a54",
+      "approved_at": "2026-11-16T15:39:33.384450+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
     "lesson-7-9-more-feelings-c039-prompt-8630f6bb9f3e5af9b713": {
       "take_id": "371e99faaace461fac9541daabfd5c8eb4efe3b8ab75d00f06b7170f120036d6",
       "approved_at": "2026-11-16T15:54:17.667934+00:00",
@@ -399359,6 +400137,11 @@
       "take_id": "371e99faaace461fac9541daabfd5c8eb4efe3b8ab75d00f06b7170f120036d6",
       "approved_at": "2026-11-16T15:54:17.667934+00:00",
       "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
+    "lesson-7-9-more-feelings-c040-answer-6b9b6f7ee7f2a0733cd0": {
+      "take_id": "23762d8a4d4e6b738e5d9011c11104420cb864a9bdcc7690617280ec9cd10d01",
+      "approved_at": "2026-11-16T15:54:00.771748+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
     "lesson-7-9-more-feelings-c040-answer-6f16f8009149f00f503b": {
       "take_id": "fd0ba494473d6b51664f28c1ef21b080f93f351a5c841bf5cb5ce5cdf42e0741",
@@ -399380,15 +400163,40 @@
       "approved_at": "2026-11-16T15:39:16.629534+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
+    "lesson-7-9-more-feelings-c040-prompt-8311be3ba79168719f47": {
+      "take_id": "23762d8a4d4e6b738e5d9011c11104420cb864a9bdcc7690617280ec9cd10d01",
+      "approved_at": "2026-11-16T15:54:00.771748+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
     "lesson-7-9-more-feelings-c041-answer-024009eca992a56d2f1b": {
       "take_id": "dd8bc7e72e45aabda1ac6edbfbe301370775858e2f3d9d30688a1ce45f1f5585",
       "approved_at": "2026-11-16T15:46:48.426459+00:00",
       "approval_note": "Installed after explicit listening review of these exact bytes."
     },
+    "lesson-7-9-more-feelings-c041-answer-a5ccf6e0d0a655f5027c": {
+      "take_id": "5aa4533a87ad497657100e18c79bd75486de25e9e66b7ff24bd9ea4571859d84",
+      "approved_at": "2026-11-16T15:38:42.173068+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
     "lesson-7-9-more-feelings-c041-prompt-6b7235c441555a15bd8c": {
       "take_id": "dd8bc7e72e45aabda1ac6edbfbe301370775858e2f3d9d30688a1ce45f1f5585",
       "approved_at": "2026-11-16T15:46:48.426459+00:00",
       "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
+    "lesson-7-9-more-feelings-c041-prompt-9ff4f3c8f41ceaad45c2": {
+      "take_id": "5aa4533a87ad497657100e18c79bd75486de25e9e66b7ff24bd9ea4571859d84",
+      "approved_at": "2026-11-16T15:38:42.173068+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-7-9-more-feelings-c042-answer-329e903f34d1f6702c4f": {
+      "take_id": "606b5d0ba196ec07d4e210926527353c30c773d2c3f33af206fe4f7e111b6862",
+      "approved_at": "2026-11-16T16:05:15.786421+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-7-9-more-feelings-c042-prompt-a68faf51c660fd50916f": {
+      "take_id": "606b5d0ba196ec07d4e210926527353c30c773d2c3f33af206fe4f7e111b6862",
+      "approved_at": "2026-11-16T16:05:15.786421+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
     "lesson-7-is-are-not-c001-answer-d95337155f32829bc11c": {
       "take_id": "4c3228d0e1a65ed69f30214bfa8d15e3cff6b2c242aa2a4d24a5601ac1a44f95",
