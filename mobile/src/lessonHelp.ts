@@ -1,5 +1,6 @@
 import type { Lesson, LessonCard } from './types';
 import { isWrittenRecognize } from './lessonPromptPresentation';
+import { recognizeOptionTranslationsAvailable } from './optionTranslations';
 
 /** The first Aprende card models the task; introduce help on the next card. */
 export function isFirstSectionHelpIntroduction(lesson: Lesson | null | undefined, cardIndex: number): boolean {
@@ -102,9 +103,13 @@ function cardHelpInstruction(card: LessonCard, promptInteractionMode: PromptInte
 
   if (hasOnlyTextOptions(card)) {
     if (card.prompt_image_url || IMAGE_TO_TEXT_STAGES.has(card.stage)) {
-      return textChoiceNoun(card) === 'pregunta'
+      const goal = textChoiceNoun(card) === 'pregunta'
         ? 'Mira la imagen y toca la pregunta que corresponde.'
         : `Mira la imagen y toca la ${textChoiceNoun(card)} que la describe.`;
+      // Help explains the controls actually present (2026-11-18 Traducir button).
+      return recognizeOptionTranslationsAvailable(card)
+        ? `${goal} Toca Traducir para ver las ${textChoiceNoun(card)}s en español.`
+        : goal;
     }
     return 'Lee la indicación y toca la respuesta correcta.';
   }

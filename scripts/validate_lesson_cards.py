@@ -2088,6 +2088,43 @@ def validate_text_tile_option_limit(lessons=None) -> list[str]:
     return errors
 
 
+OPTION_TRANSLATION_FALLBACK = "Traducción no disponible todavía."
+
+
+def recognize_option_translation_card(card) -> bool:
+    """A Recognize photo above two or more written choices (Traducir, 2026-11-18)."""
+    options = card.options or []
+    return (card.stage == "Recognize"
+            and bool((card.prompt_image_url or "").strip())
+            and getattr(card, "mission_game", None) is None
+            and len(options) >= 2
+            and all(not (option.image_url or "").strip() and (option.label or "").strip() for option in options))
+
+
+def validate_recognize_option_translations(lessons=None) -> list[str]:
+    """Every written choice under a Recognize photo carries its own real Spanish."""
+    errors: list[str] = []
+    for lesson in (LESSONS.values() if lessons is None else lessons):
+        for card_index, card in enumerate(lesson.cards, 1):
+            if not recognize_option_translation_card(card):
+                continue
+            location = f"{lesson.id} card {card_index} ({card.slide_id})"
+            spanish_by_english: dict[str, str] = {}
+            for option in card.options:
+                spanish = (option.spanish_translation or "").strip()
+                if not spanish:
+                    errors.append(f"{location} written choice {option.label!r} needs its Spanish spanish_translation.")
+                elif spanish == OPTION_TRANSLATION_FALLBACK or re.match(r"^¡?Elige\b", spanish):
+                    errors.append(f"{location} written choice {option.label!r} uses an instruction or fallback, "
+                                  f"not a translation: {spanish!r}.")
+                else:
+                    spanish_by_english[option.label.strip()] = spanish
+            if len(set(spanish_by_english.values())) < len(spanish_by_english):
+                errors.append(f"{location} gives different written choices the same Spanish; "
+                              "add a short clarification such as (de él) / (de ella).")
+    return errors
+
+
 def validate_answer_choice_forms(lessons=None, contracts=None, *, require_contracts=True) -> list[str]:
     """Enforce course-wide choice structure plus exact authoring contracts."""
     from scripts.answer_choice_guardrail import validate_banks
@@ -3208,6 +3245,7 @@ def validate_registered_courses(warnings: list[str]) -> list[str]:
                       for lesson in lessons for card in lesson.cards
                       for issue in card_context_errors(card.context_es))
         for validate in (validate_option_ids, validate_text_tile_option_limit,
+                         validate_recognize_option_translations,
                          validate_duplicate_option_images, validate_recognize_contract,
                          validate_interaction_requirements, validate_media_references):
             errors.extend(validate(lessons))
@@ -3283,6 +3321,7 @@ def main(argv: list[str] | None = None) -> int:
         *[error for lesson in LESSONS.values() for error in tutor_contract_errors(lesson)],
         *validate_option_ids(),
         *validate_text_tile_option_limit(),
+        *validate_recognize_option_translations(),
         *validate_answer_choice_forms(),
         *validate_duplicate_option_images(),
         *validate_family_adult_ambiguity(),

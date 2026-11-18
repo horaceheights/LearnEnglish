@@ -54,5 +54,29 @@ for(const lesson of lessons){for(const intro of lesson.cards||[]){if(intro.stage
   assert.equal(h.api.learnTranslationPreviewDuration(intro),2000,`${lesson.id}/${intro.slide_id}`);units.add(lesson.unit_id);introductions++;
 }}}
 assert.equal(units.size,new Set(lessons.map(lesson=>lesson.unit_id)).size,'Every unit is covered by the default.');assert.ok(introductions>300);
+// User decision 2026-11-18: a question-and-answer Learn card previews its complete Spanish at once;
+// a tap still translates the line on screen. Per-line text inside one two-second window only flashed.
+const exchange={...card,spanish_translation:'¿Cuándo trabaja Luis? Él trabaja el sábado.',audio_turns:[
+  {text:'When does Luis work?',spanish_translation:'¿Cuándo trabaja Luis?'},{text:'He works on Saturday.',spanish_translation:'Él trabaja el sábado.'}]};
+assert.equal(h.api.learnTranslationText(exchange,'¿Cuándo trabaja Luis?',false),exchange.spanish_translation,'Preview shows every line.');
+assert.equal(h.api.learnTranslationText(exchange,'Él trabaja el sábado.',false),exchange.spanish_translation,'Preview does not switch per line.');
+assert.equal(h.api.learnTranslationText(exchange,'Él trabaja el sábado.',true),'Él trabaja el sábado.','A tap translates the visible line.');
+assert.equal(h.api.learnTranslationText({...exchange,stage:'Recognize'},'Él trabaja el sábado.',false),'Él trabaja el sábado.','Assessments keep their own text.');
+let exchanges=0;
+for(const file of ['a1-course.json','a1-plus-course.json']){
+  const catalog=JSON.parse(fs.readFileSync(path.resolve(__dirname,'../src/generated',file),'utf8'));
+  for(const lesson of Array.isArray(catalog)?catalog:catalog.lessons)for(const intro of lesson.cards){
+    const lines=(intro.audio_turns||[]).map(turn=>turn.spanish_translation?.trim()).filter(Boolean);
+    if(intro.stage!=='Learn'||!lines.length)continue;exchanges++;
+    const shown=h.api.learnTranslationText(intro,lines.at(-1),false);
+    for(const line of lines)assert.ok(shown.includes(line),`${lesson.id}/${intro.slide_id} preview must include "${line}"`);
+  }
+}
+assert.ok(exchanges>0,'Per-line Learn cards exist to protect.');
+for(const client of ['../src/screens/LessonScreen.tsx','../../frontend/components/LessonPlayer.js'])
+  assert.match(fs.readFileSync(path.resolve(__dirname,client),'utf8'),/\{learnTranslationText\(currentCard,/,`${client} renders the shared preview text.`);
+// A complete question-and-answer translation can need three lines at 13 px on a phone: shrink, never clip with "…".
+assert.match(fs.readFileSync(path.resolve(__dirname,'../src/screens/LessonScreen.tsx'),'utf8'),
+  /adjustsFontSizeToFit\s+minimumFontScale=\{0\.75\}\s+numberOfLines=\{2\}\s+style=\{\[styles\.inlineTranslation/,'Native translation fits its two lines.');
 h.set({key:'L2:restart',card});h.unmount();
 console.log('Learn translation preview: exact timing, readiness, pause, replay, reset and cleanup passed.');

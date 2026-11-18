@@ -75,5 +75,7 @@ test('long answers retain their font floor and the helper is scoped to the affec
   assert.match(source, /balancesPromptWithChoices = !isLandscape && !isPronunciation && !isMissionTile/);
   assert.match(source, /!useCompactCompletionTiles && Boolean\(activeTurnImageUrl \|\| card.prompt_image_url\)/);
   assert.match(source, /hasTextOnlyOptions && !allowVerticalGrowth/);
-  assert.match(source, /: uniformTextOptionHeight;/);
+  // The optional Traducir band (2026-11-18) is added to every row uniformly around this choice.
+  assert.match(source, /: uniformTextOptionHeight\);/);
+  assert.match(source, /const effectiveTextOptionHeight = optionTranslationReserve \+ \(/);
 });
