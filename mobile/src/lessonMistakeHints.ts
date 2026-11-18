@@ -46,6 +46,9 @@ const IDENTITY_CHOICE_LABELS: Record<string, string> = {
   sisters: 'a las hermanas',
 };
 
+// Fixed phrases whose words are never explained one by one in a picture contrast.
+const WHOLE_PHRASES = new Set(['good morning', 'good afternoon', 'good evening', 'good night']);
+
 // Meanings of the actual answer contrasts, never inferred from asset filenames.
 const MEANINGS: Record<string, string> = {
   adult: 'adulto', adults: 'adultos', baby: 'bebé', babies: 'bebés',
@@ -148,7 +151,7 @@ const MEANINGS: Record<string, string> = {
   nose: 'nariz', fingers: 'dedos de las manos', toes: 'dedos de los pies',
   coat: 'abrigo', sweater: 'suéter', scarf: 'bufanda', gloves: 'guantes', shorts: 'pantalones cortos',
   // A1 7.9 (2026-11-15): good and bad days. good has no entry: one would change the reviewed Good morning feedback.
-  bad: 'malo o mala', great: 'muy bien', fine: 'bien', sick: 'enfermo o enferma',
+  good: 'bueno o buena', bad: 'malo o mala', great: 'muy bien', fine: 'bien', sick: 'enfermo o enferma',
   angry: 'enojado o enojada', afraid: 'con miedo',
   // A1 7.10 (2026-11-15): seasons.
   spring: 'primavera', summer: 'verano', fall: 'otoño', winter: 'invierno', sun: 'sol', snow: 'nieve',
@@ -702,6 +705,12 @@ function imageChoiceContrast(card: LessonCard, correctId: string, wrongId: strin
   if (IMAGE_CHOICE_MEANINGS[correct] && IMAGE_CHOICE_MEANINGS[wrong]) {
     const cue = /listen/i.test(card.stage) ? 'la frase escuchada' : 'la frase';
     return `Elegiste “${IMAGE_CHOICE_MEANINGS[wrong]}”; ${cue} pide “${IMAGE_CHOICE_MEANINGS[correct]}”.`;
+  }
+  // A greeting is explained whole: its first word alone ("good" in "good morning") would mislead
+  // (2026-11-18, when good gained a meaning).
+  if (WHOLE_PHRASES.has(correct) && MEANINGS[correct] && MEANINGS[wrong] && MEANINGS[correct] !== MEANINGS[wrong]) {
+    const cue = /listen/i.test(card.stage) ? 'la frase escuchada' : 'la frase';
+    return `La imagen elegida muestra “${wrong}” (${MEANINGS[wrong]}); ${cue} pide “${correct}” (${MEANINGS[correct]}).`;
   }
   const expected = correct.split(' ');
   const selected = wrong.split(' ');

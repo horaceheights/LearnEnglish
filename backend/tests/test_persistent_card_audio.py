@@ -332,7 +332,7 @@ class PersistentCardAudioTests(unittest.TestCase):
             # 2026-11-15: coverage-gap lesson 2.12 In the Classroom (Luis and narrator fields).
             # 2026-11-15: coverage-gap lessons 4.13 to 4.15 (months, birthday and more at home; Ana, Luis and narrator fields).
             # 2026-11-16: the last seven gap lessons give Luis his 6.13, 7.9 and narrator-pair lines (+23).
-            Counter({'male-character': 821, 'luis': 455, 'diego': 49}),
+            Counter({'male-character': 821, 'luis': 450, 'diego': 49}),
             Counter(asset.speaker_role for asset, _card in selected),
         )
         # 2026-09-29: four current-action exchanges replace 3.3's old fragment drills.

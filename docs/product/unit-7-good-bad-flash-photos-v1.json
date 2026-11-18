@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "pack": "unit-7-good-bad-flash-photos",
+  "revision": 1,
+  "output_namespace": "unit-7-lesson-v25",
+  "authorization": "2026-11-18: the user asked to add good and bad to A1 (\"ys we need good and bad\"), after approving the gap-lesson media in advance (\"I preapprove all image and audios creation no need for me to reiew and approve on the fly\") and asking for Gemini Flash only (\"continue, rmember we are using gemini flash, not pro\"). Ceiling US$0.28 for this revision. Revision 1 is frozen: a changed prompt is a new revision in a new file, and every rejected output is reported with its cost.",
+  "image_settings": {
+    "provider": "google-gemini",
+    "model": "gemini-2.5-flash-image",
+    "aspect_ratio": "3:2",
+    "image_size": "1K",
+    "runtime_size": "1536x1024",
+    "runtime_format": "webp",
+    "n": 1
+  },
+  "production": {
+    "price_per_image_usd": "0.0387",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing (checked 2026-11-16: Gemini 2.5 Flash Image, about $0.039 per image)",
+    "planned_images": 2,
+    "expected_cost_usd": "0.08",
+    "requested_ceiling_usd": "0.28",
+    "no_automatic_retries": true,
+    "order": "Independent photos in any order. A rejected output is reported with its cost; a redo needs a changed prompt in a new revision file."
+  },
+  "shared_prompts": {
+    "photo": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real skin, fur, fabric and landscape texture, natural light and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.",
+    "safe_center": "Keep the main subject of the photo whole inside the central 55 percent of the photo width, so a centered 4:5 crop keeps it whole; only expendable background reaches the left and right edges."
+  },
+  "assets": [
+    {
+      "id": "g01-good-day",
+      "order": 1,
+      "lesson": "7.9",
+      "item": "Good / It is a good day.",
+      "runtime_filename": "a1_photo_u7_feelings_good_day_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo",
+        "safe_center"
+      ],
+      "prompt": "A GOOD DAY: one man of about thirty-five walks along a sunny park path on a bright morning, smiling widely and happily, face turned up to the warm sun, arms relaxed and open, holding a takeaway coffee cup in one hand. Blue sky, green trees, golden sunlight on his face. He is clearly having a very good day: relaxed, happy, nothing wrong. Seen from the waist up, sharp. Exactly one person. No letters, words, numbers, logos or brand marks anywhere. Every visible hand has five natural fingers."
+    },
+    {
+      "id": "g02-bad-day",
+      "order": 2,
+      "lesson": "7.9",
+      "item": "Bad / It is a bad day.",
+      "runtime_filename": "a1_photo_u7_feelings_bad_day_v1.webp",
+      "four_card": false,
+      "shared": [
+        "photo",
+        "safe_center"
+      ],
+      "prompt": "A BAD DAY: one woman of about thirty stands on a city sidewalk in heavy rain, completely soaked, wet hair stuck to her face, holding a BROKEN umbrella turned inside out by the wind; at her feet a dropped paper coffee cup has spilled on the wet pavement. She looks down at it with an unhappy, fed-up face, mouth turned down. Gray sky, puddles. She is clearly having a very bad day; she is not hurt, not sick and not crying. Seen from the knees up, sharp. Exactly one person. No letters, words, numbers, logos or brand marks anywhere. Every visible hand has five natural fingers."
+    }
+  ]
+}

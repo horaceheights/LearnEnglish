@@ -9,8 +9,10 @@
   "lesson_title": "Unit 7: Everyday Needs and A1 Integration",
   "sub_lesson_id": "7.9",
   "sub_lesson_title": "More Feelings",
-  "goal": "Say that you are fine or great, and that someone is sick, angry or afraid.",
+  "goal": "Say that it is a good or a bad day, that you are fine or great, and that someone is sick, angry or afraid.",
   "vocabulary": [
+    "good",
+    "bad",
     "fine",
     "great",
     "sick",
@@ -25,12 +27,15 @@
     "am",
     "is",
     "she",
-    "he"
+    "he",
+    "it",
+    "a",
+    "day"
   ],
-  "grammar_function": "How are you? I am fine/great; How is she/he? She/He is sick/angry/afraid.",
-  "prerequisite": "3.2-3.3 I am, she is, he is; 7.2 How are you? and How is she?",
-  "speaking_outcome": "Ask How are you? and answer I am fine.; say She is sick. and He is angry.",
-  "content_revision": 1,
+  "grammar_function": "It is a good/bad day.; How are you? I am fine/great; How is she/he? She/He is sick/angry/afraid.",
+  "prerequisite": "3.2-3.3 I am, she is, he is; 7.2 How are you? and How is she?; 2.11 It is a big house.; 4.x What day is it today?",
+  "speaking_outcome": "Say It is a good day. and It is a bad day.; ask How are you? and answer I am fine.; say She is sick. and He is angry.",
+  "content_revision": 2,
   "purposeful_review_slides": [
     "R1",
     "R2",
@@ -42,7 +47,6 @@
     "R8",
     "R9",
     "R10",
-    "R11",
     "A1",
     "A2",
     "A3",
@@ -73,6 +77,45 @@
     {
       "slide_id": "L1",
       "interaction_type": "teach",
+      "prompt": "Good",
+      "stage": "Learn",
+      "correct_option_id": "good-learn",
+      "options": [
+        {
+          "id": "good-learn",
+          "image_url": "/lesson-assets/a1_photo_u7_feelings_good_day_v1.webp",
+          "label": "Good"
+        }
+      ],
+      "audio_text": "Good",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Bueno",
+      "pedagogy_note": "Story beat 01: Good"
+    },
+    {
+      "slide_id": "L2",
+      "interaction_type": "teach",
+      "prompt": "Bad",
+      "stage": "Learn",
+      "correct_option_id": "bad-learn",
+      "options": [
+        {
+          "id": "bad-learn",
+          "image_url": "/lesson-assets/a1_photo_u7_feelings_bad_day_v1.webp",
+          "label": "Bad"
+        }
+      ],
+      "audio_text": "Bad",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Malo",
+      "pedagogy_note": "Story beat 02: Bad",
+      "audio_speaker": "co-teacher"
+    },
+    {
+      "slide_id": "L3",
+      "interaction_type": "teach",
       "prompt": "Fine",
       "stage": "Learn",
       "correct_option_id": "fine-learn",
@@ -87,11 +130,11 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Bien",
-      "pedagogy_note": "Story beat 01: Fine",
+      "pedagogy_note": "Story beat 03: Fine",
       "audio_speaker": "ana"
     },
     {
-      "slide_id": "L2",
+      "slide_id": "L4",
       "interaction_type": "teach",
       "prompt": "Great",
       "stage": "Learn",
@@ -107,11 +150,11 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Muy bien",
-      "pedagogy_note": "Story beat 02: Great",
+      "pedagogy_note": "Story beat 04: Great",
       "audio_speaker": "luis"
     },
     {
-      "slide_id": "L3",
+      "slide_id": "L5",
       "interaction_type": "teach",
       "prompt": "Sick",
       "stage": "Learn",
@@ -127,10 +170,10 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Enfermo",
-      "pedagogy_note": "Story beat 03: Sick"
+      "pedagogy_note": "Story beat 05: Sick"
     },
     {
-      "slide_id": "L4",
+      "slide_id": "L6",
       "interaction_type": "teach",
       "prompt": "Angry",
       "stage": "Learn",
@@ -146,11 +189,11 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Enojado",
-      "pedagogy_note": "Story beat 04: Angry",
+      "pedagogy_note": "Story beat 06: Angry",
       "audio_speaker": "co-teacher"
     },
     {
-      "slide_id": "L5",
+      "slide_id": "L7",
       "interaction_type": "teach",
       "prompt": "Afraid",
       "stage": "Learn",
@@ -166,24 +209,73 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Con miedo",
-      "pedagogy_note": "Story beat 05: Afraid"
+      "pedagogy_note": "Story beat 07: Afraid"
     },
     {
       "slide_id": "R1",
+      "interaction_type": "t2i2",
+      "prompt": "It is a good day.",
+      "stage": "Recognize",
+      "correct_option_id": "it-is-a-good-day-r1",
+      "options": [
+        {
+          "id": "it-is-a-bad-day-r1",
+          "image_url": "/lesson-assets/a1_photo_u7_feelings_bad_day_v1.webp",
+          "label": null
+        },
+        {
+          "id": "it-is-a-good-day-r1",
+          "image_url": "/lesson-assets/a1_photo_u7_feelings_good_day_v1.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "It is a good day.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Es un buen día.",
+      "pedagogy_note": "Story beat 01: It is a good day.",
+      "audio_speaker": "co-teacher"
+    },
+    {
+      "slide_id": "R2",
+      "interaction_type": "i2t2",
+      "prompt": "",
+      "stage": "Recognize",
+      "correct_option_id": "it-is-a-bad-day-r2",
+      "options": [
+        {
+          "id": "it-is-a-good-day-r2",
+          "image_url": "",
+          "label": "It is a good day."
+        },
+        {
+          "id": "it-is-a-bad-day-r2",
+          "image_url": "",
+          "label": "It is a bad day."
+        }
+      ],
+      "audio_text": "",
+      "answer_audio_text": "It is a bad day.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u7_feelings_bad_day_v1.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "pedagogy_note": "Story beat 02: It is a bad day."
+    },
+    {
+      "slide_id": "R3",
       "interaction_type": "i2t2",
       "prompt": "How are you?",
       "stage": "Recognize",
-      "correct_option_id": "i-am-fine-r1",
+      "correct_option_id": "i-am-fine-r3",
       "options": [
         {
-          "id": "i-am-sick-r1",
-          "image_url": "",
-          "label": "I am sick."
-        },
-        {
-          "id": "i-am-fine-r1",
+          "id": "i-am-fine-r3",
           "image_url": "",
           "label": "I am fine."
+        },
+        {
+          "id": "i-am-sick-r3",
+          "image_url": "",
+          "label": "I am sick."
         }
       ],
       "audio_text": "How are you?",
@@ -191,23 +283,23 @@
       "prompt_image_url": "/lesson-assets/a1_photo_u7_feelings_ana_fine_v1.webp",
       "spanish_translation": "¿Cómo estás?",
       "answer_audio_speaker": "ana",
-      "pedagogy_note": "Story beat 01: I am fine.",
+      "pedagogy_note": "Story beat 03: I am fine.",
       "audio_speaker": "co-teacher"
     },
     {
-      "slide_id": "R2",
+      "slide_id": "R4",
       "interaction_type": "i2t2",
       "prompt": "How are you?",
       "stage": "Recognize",
-      "correct_option_id": "i-am-great-r2",
+      "correct_option_id": "i-am-great-r4",
       "options": [
         {
-          "id": "i-am-sick-r2",
+          "id": "i-am-sick-r4",
           "image_url": "",
           "label": "I am sick."
         },
         {
-          "id": "i-am-great-r2",
+          "id": "i-am-great-r4",
           "image_url": "",
           "label": "I am great."
         }
@@ -217,63 +309,14 @@
       "prompt_image_url": "/lesson-assets/a1_photo_u7_feelings_luis_great_v1.webp",
       "spanish_translation": "¿Cómo estás?",
       "answer_audio_speaker": "luis",
-      "pedagogy_note": "Story beat 02: I am great."
-    },
-    {
-      "slide_id": "R3",
-      "interaction_type": "t2i2",
-      "prompt": "She is sick.",
-      "stage": "Recognize",
-      "correct_option_id": "she-is-sick-r3",
-      "options": [
-        {
-          "id": "she-is-sick-r3",
-          "image_url": "/lesson-assets/a1_photo_u7_feelings_sick_in_bed_v1.webp",
-          "label": null
-        },
-        {
-          "id": "she-is-angry-r3",
-          "image_url": "/lesson-assets/a1_photo_u7_feelings_angry_fists_on_hips_v1.webp",
-          "label": null
-        }
-      ],
-      "audio_text": "She is sick.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Ella está enferma.",
-      "pedagogy_note": "Story beat 03: She is sick.",
-      "audio_speaker": "co-teacher"
-    },
-    {
-      "slide_id": "R4",
-      "interaction_type": "i2t2",
-      "prompt": "How is she?",
-      "stage": "Recognize",
-      "correct_option_id": "she-is-angry-r4",
-      "options": [
-        {
-          "id": "she-is-sick-r4",
-          "image_url": "",
-          "label": "She is sick."
-        },
-        {
-          "id": "she-is-angry-r4",
-          "image_url": "",
-          "label": "She is angry."
-        }
-      ],
-      "audio_text": "How is she?",
-      "answer_audio_text": "She is angry.",
-      "prompt_image_url": "/lesson-assets/a1_photo_u7_feelings_angry_fists_on_hips_v1.webp",
-      "spanish_translation": "¿Cómo está ella?",
-      "pedagogy_note": "Story beat 04: She is angry."
+      "pedagogy_note": "Story beat 04: I am great."
     },
     {
       "slide_id": "R5",
       "interaction_type": "t2i2",
-      "prompt": "She is afraid.",
+      "prompt": "She is sick.",
       "stage": "Recognize",
-      "correct_option_id": "she-is-afraid-r5",
+      "correct_option_id": "she-is-sick-r5",
       "options": [
         {
           "id": "she-is-angry-r5",
@@ -281,8 +324,67 @@
           "label": null
         },
         {
-          "id": "she-is-afraid-r5",
+          "id": "she-is-sick-r5",
+          "image_url": "/lesson-assets/a1_photo_u7_feelings_sick_in_bed_v1.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "She is sick.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Ella está enferma.",
+      "pedagogy_note": "Story beat 05: She is sick.",
+      "audio_speaker": "co-teacher"
+    },
+    {
+      "slide_id": "R6",
+      "interaction_type": "i2t3",
+      "prompt": "How is she?",
+      "stage": "Recognize",
+      "correct_option_id": "she-is-angry-r6",
+      "options": [
+        {
+          "id": "she-is-afraid-r6",
+          "image_url": "",
+          "label": "She is afraid."
+        },
+        {
+          "id": "she-is-angry-r6",
+          "image_url": "",
+          "label": "She is angry."
+        },
+        {
+          "id": "she-is-sick-r6",
+          "image_url": "",
+          "label": "She is sick."
+        }
+      ],
+      "audio_text": "How is she?",
+      "answer_audio_text": "She is angry.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u7_feelings_angry_fists_on_hips_v1.webp",
+      "spanish_translation": "¿Cómo está ella?",
+      "pedagogy_note": "Story beat 06: She is angry."
+    },
+    {
+      "slide_id": "R7",
+      "interaction_type": "t2i3",
+      "prompt": "She is afraid.",
+      "stage": "Recognize",
+      "correct_option_id": "she-is-afraid-r7",
+      "options": [
+        {
+          "id": "she-is-afraid-r7",
           "image_url": "/lesson-assets/a1_photo_u7_feelings_afraid_hands_up_v1.webp",
+          "label": null
+        },
+        {
+          "id": "she-is-angry-r7",
+          "image_url": "/lesson-assets/a1_photo_u7_feelings_angry_fists_on_hips_v1.webp",
+          "label": null
+        },
+        {
+          "id": "she-is-sick-r7",
+          "image_url": "/lesson-assets/a1_photo_u7_feelings_sick_in_bed_v1.webp",
           "label": null
         }
       ],
@@ -290,23 +392,23 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Ella tiene miedo.",
-      "pedagogy_note": "Story beat 05: She is afraid.",
+      "pedagogy_note": "Story beat 07: She is afraid.",
       "audio_speaker": "co-teacher"
     },
     {
-      "slide_id": "R6",
+      "slide_id": "R8",
       "interaction_type": "i2t2",
       "prompt": "How is he?",
       "stage": "Recognize",
-      "correct_option_id": "he-is-sick-r6",
+      "correct_option_id": "he-is-sick-r8",
       "options": [
         {
-          "id": "he-is-sick-r6",
+          "id": "he-is-sick-r8",
           "image_url": "",
           "label": "He is sick."
         },
         {
-          "id": "he-is-angry-r6",
+          "id": "he-is-angry-r8",
           "image_url": "",
           "label": "He is angry."
         }
@@ -315,22 +417,22 @@
       "answer_audio_text": "He is sick.",
       "prompt_image_url": "/lesson-assets/a1_photo_u7_feelings_sick_on_sofa_v1.webp",
       "spanish_translation": "¿Cómo está él?",
-      "pedagogy_note": "Story beat 06: He is sick."
+      "pedagogy_note": "Story beat 08: He is sick."
     },
     {
-      "slide_id": "R7",
+      "slide_id": "R9",
       "interaction_type": "t2i2",
       "prompt": "He is angry.",
       "stage": "Recognize",
-      "correct_option_id": "he-is-angry-r7",
+      "correct_option_id": "he-is-angry-r9",
       "options": [
         {
-          "id": "he-is-angry-r7",
+          "id": "he-is-angry-r9",
           "image_url": "/lesson-assets/a1_photo_u7_feelings_angry_arms_crossed_v1.webp",
           "label": null
         },
         {
-          "id": "he-is-sick-r7",
+          "id": "he-is-sick-r9",
           "image_url": "/lesson-assets/a1_photo_u7_feelings_sick_on_sofa_v1.webp",
           "label": null
         }
@@ -339,143 +441,96 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Él está enojado.",
-      "pedagogy_note": "Story beat 07: He is angry.",
-      "audio_speaker": "co-teacher"
-    },
-    {
-      "slide_id": "R8",
-      "interaction_type": "i2t3",
-      "prompt": "How are you?",
-      "stage": "Recognize",
-      "correct_option_id": "i-am-fine-r8",
-      "options": [
-        {
-          "id": "i-am-tired-r8",
-          "image_url": "",
-          "label": "I am tired."
-        },
-        {
-          "id": "i-am-fine-r8",
-          "image_url": "",
-          "label": "I am fine."
-        },
-        {
-          "id": "i-am-sick-r8",
-          "image_url": "",
-          "label": "I am sick."
-        }
-      ],
-      "audio_text": "How are you?",
-      "answer_audio_text": "I am fine.",
-      "prompt_image_url": "/lesson-assets/a1_photo_u7_feelings_ana_fine_v1.webp",
-      "spanish_translation": "¿Cómo estás?",
-      "answer_audio_speaker": "ana",
-      "pedagogy_note": "Story beat 08: I am fine."
-    },
-    {
-      "slide_id": "R9",
-      "interaction_type": "i2t3",
-      "prompt": "How are you?",
-      "stage": "Recognize",
-      "correct_option_id": "i-am-great-r9",
-      "options": [
-        {
-          "id": "i-am-sad-r9",
-          "image_url": "",
-          "label": "I am sad."
-        },
-        {
-          "id": "i-am-great-r9",
-          "image_url": "",
-          "label": "I am great."
-        },
-        {
-          "id": "i-am-sick-r9",
-          "image_url": "",
-          "label": "I am sick."
-        }
-      ],
-      "audio_text": "How are you?",
-      "answer_audio_text": "I am great.",
-      "prompt_image_url": "/lesson-assets/a1_photo_u7_feelings_luis_great_v1.webp",
-      "spanish_translation": "¿Cómo estás?",
-      "answer_audio_speaker": "luis",
-      "pedagogy_note": "Story beat 09: I am great.",
+      "pedagogy_note": "Story beat 09: He is angry.",
       "audio_speaker": "co-teacher"
     },
     {
       "slide_id": "R10",
-      "interaction_type": "i2t3",
-      "prompt": "How is she?",
+      "interaction_type": "i2t2",
+      "prompt": "",
       "stage": "Recognize",
-      "correct_option_id": "she-is-sick-r10",
+      "correct_option_id": "it-is-a-good-day-r10",
       "options": [
         {
-          "id": "she-is-sick-r10",
+          "id": "it-is-a-good-day-r10",
           "image_url": "",
-          "label": "She is sick."
+          "label": "It is a good day."
         },
         {
-          "id": "she-is-angry-r10",
+          "id": "it-is-a-bad-day-r10",
           "image_url": "",
-          "label": "She is angry."
-        },
-        {
-          "id": "she-is-afraid-r10",
-          "image_url": "",
-          "label": "She is afraid."
+          "label": "It is a bad day."
         }
       ],
-      "audio_text": "How is she?",
-      "answer_audio_text": "She is sick.",
-      "prompt_image_url": "/lesson-assets/a1_photo_u7_feelings_sick_in_bed_v1.webp",
-      "spanish_translation": "¿Cómo está ella?",
-      "pedagogy_note": "Story beat 10: She is sick."
-    },
-    {
-      "slide_id": "R11",
-      "interaction_type": "t2i3",
-      "prompt": "She is afraid.",
-      "stage": "Recognize",
-      "correct_option_id": "she-is-afraid-r11",
-      "options": [
-        {
-          "id": "she-is-angry-r11",
-          "image_url": "/lesson-assets/a1_photo_u7_feelings_angry_fists_on_hips_v1.webp",
-          "label": null
-        },
-        {
-          "id": "she-is-sick-r11",
-          "image_url": "/lesson-assets/a1_photo_u7_feelings_sick_in_bed_v1.webp",
-          "label": null
-        },
-        {
-          "id": "she-is-afraid-r11",
-          "image_url": "/lesson-assets/a1_photo_u7_feelings_afraid_hands_up_v1.webp",
-          "label": null
-        }
-      ],
-      "audio_text": "She is afraid.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Ella tiene miedo.",
-      "pedagogy_note": "Story beat 11: She is afraid.",
-      "audio_speaker": "co-teacher"
+      "audio_text": "",
+      "answer_audio_text": "It is a good day.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u7_feelings_good_day_v1.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "pedagogy_note": "Story beat 10: It is a good day."
     },
     {
       "slide_id": "A1",
+      "interaction_type": "a2i2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "it-is-a-good-day-a1",
+      "options": [
+        {
+          "id": "it-is-a-good-day-a1",
+          "image_url": "/lesson-assets/a1_photo_u7_feelings_good_day_v1.webp",
+          "label": null
+        },
+        {
+          "id": "it-is-a-bad-day-a1",
+          "image_url": "/lesson-assets/a1_photo_u7_feelings_bad_day_v1.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "It is a good day.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Story beat 01: It is a good day.",
+      "audio_speaker": "co-teacher"
+    },
+    {
+      "slide_id": "A2",
+      "interaction_type": "a2i2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "it-is-a-bad-day-a2",
+      "options": [
+        {
+          "id": "it-is-a-bad-day-a2",
+          "image_url": "/lesson-assets/a1_photo_u7_feelings_bad_day_v1.webp",
+          "label": null
+        },
+        {
+          "id": "it-is-a-good-day-a2",
+          "image_url": "/lesson-assets/a1_photo_u7_feelings_good_day_v1.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "It is a bad day.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Story beat 02: It is a bad day."
+    },
+    {
+      "slide_id": "A3",
       "interaction_type": "a2t2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "i-am-fine-a1",
+      "correct_option_id": "i-am-fine-a3",
       "options": [
         {
-          "id": "i-am-fine-a1",
+          "id": "i-am-fine-a3",
           "image_url": "",
           "label": "I am fine."
         },
         {
-          "id": "i-am-sick-a1",
+          "id": "i-am-sick-a3",
           "image_url": "",
           "label": "I am sick."
         }
@@ -484,93 +539,44 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 01: I am fine.",
+      "pedagogy_note": "Story beat 03: I am fine.",
       "audio_speaker": "ana"
     },
     {
-      "slide_id": "A2",
+      "slide_id": "A4",
       "interaction_type": "a2t2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "i-am-great-a2",
+      "correct_option_id": "i-am-great-a4",
       "options": [
         {
-          "id": "i-am-great-a2",
-          "image_url": "",
-          "label": "I am great."
-        },
-        {
-          "id": "i-am-sick-a2",
+          "id": "i-am-sick-a4",
           "image_url": "",
           "label": "I am sick."
+        },
+        {
+          "id": "i-am-great-a4",
+          "image_url": "",
+          "label": "I am great."
         }
       ],
       "audio_text": "I am great.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 02: I am great.",
+      "pedagogy_note": "Story beat 04: I am great.",
       "audio_speaker": "luis"
-    },
-    {
-      "slide_id": "A3",
-      "interaction_type": "a2t2",
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "she-is-sick-a3",
-      "options": [
-        {
-          "id": "she-is-sick-a3",
-          "image_url": "",
-          "label": "She is sick."
-        },
-        {
-          "id": "she-is-angry-a3",
-          "image_url": "",
-          "label": "She is angry."
-        }
-      ],
-      "audio_text": "She is sick.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 03: She is sick."
-    },
-    {
-      "slide_id": "A4",
-      "interaction_type": "a2i2",
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "she-is-angry-a4",
-      "options": [
-        {
-          "id": "she-is-sick-a4",
-          "image_url": "/lesson-assets/a1_photo_u7_feelings_sick_in_bed_v1.webp",
-          "label": null
-        },
-        {
-          "id": "she-is-angry-a4",
-          "image_url": "/lesson-assets/a1_photo_u7_feelings_angry_fists_on_hips_v1.webp",
-          "label": null
-        }
-      ],
-      "audio_text": "She is angry.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 04: She is angry.",
-      "audio_speaker": "co-teacher"
     },
     {
       "slide_id": "A5",
       "interaction_type": "a2i3",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "she-is-afraid-a5",
+      "correct_option_id": "she-is-sick-a5",
       "options": [
         {
-          "id": "she-is-afraid-a5",
-          "image_url": "/lesson-assets/a1_photo_u7_feelings_afraid_hands_up_v1.webp",
+          "id": "she-is-sick-a5",
+          "image_url": "/lesson-assets/a1_photo_u7_feelings_sick_in_bed_v1.webp",
           "label": null
         },
         {
@@ -579,7 +585,66 @@
           "label": null
         },
         {
-          "id": "she-is-sick-a5",
+          "id": "she-is-afraid-a5",
+          "image_url": "/lesson-assets/a1_photo_u7_feelings_afraid_hands_up_v1.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "She is sick.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Story beat 05: She is sick.",
+      "audio_speaker": "co-teacher"
+    },
+    {
+      "slide_id": "A6",
+      "interaction_type": "a2t3",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "she-is-angry-a6",
+      "options": [
+        {
+          "id": "she-is-angry-a6",
+          "image_url": "",
+          "label": "She is angry."
+        },
+        {
+          "id": "she-is-sick-a6",
+          "image_url": "",
+          "label": "She is sick."
+        },
+        {
+          "id": "she-is-afraid-a6",
+          "image_url": "",
+          "label": "She is afraid."
+        }
+      ],
+      "audio_text": "She is angry.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Story beat 06: She is angry."
+    },
+    {
+      "slide_id": "A7",
+      "interaction_type": "a2i3",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "she-is-afraid-a7",
+      "options": [
+        {
+          "id": "she-is-afraid-a7",
+          "image_url": "/lesson-assets/a1_photo_u7_feelings_afraid_hands_up_v1.webp",
+          "label": null
+        },
+        {
+          "id": "she-is-angry-a7",
+          "image_url": "/lesson-assets/a1_photo_u7_feelings_angry_fists_on_hips_v1.webp",
+          "label": null
+        },
+        {
+          "id": "she-is-sick-a7",
           "image_url": "/lesson-assets/a1_photo_u7_feelings_sick_in_bed_v1.webp",
           "label": null
         }
@@ -588,119 +653,99 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 05: She is afraid."
+      "pedagogy_note": "Story beat 07: She is afraid.",
+      "audio_speaker": "co-teacher"
     },
     {
-      "slide_id": "A6",
-      "interaction_type": "a2t2",
+      "slide_id": "A8",
+      "interaction_type": "a2i2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "he-is-sick-a6",
+      "correct_option_id": "he-is-sick-a8",
       "options": [
         {
-          "id": "he-is-angry-a6",
-          "image_url": "",
-          "label": "He is angry."
+          "id": "he-is-angry-a8",
+          "image_url": "/lesson-assets/a1_photo_u7_feelings_angry_arms_crossed_v1.webp",
+          "label": null
         },
         {
-          "id": "he-is-sick-a6",
-          "image_url": "",
-          "label": "He is sick."
+          "id": "he-is-sick-a8",
+          "image_url": "/lesson-assets/a1_photo_u7_feelings_sick_on_sofa_v1.webp",
+          "label": null
         }
       ],
       "audio_text": "He is sick.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 06: He is sick.",
-      "audio_speaker": "co-teacher"
+      "pedagogy_note": "Story beat 08: He is sick."
     },
     {
-      "slide_id": "A7",
-      "interaction_type": "a2i2",
+      "slide_id": "A9",
+      "interaction_type": "a2t2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "he-is-angry-a7",
+      "correct_option_id": "he-is-angry-a9",
       "options": [
         {
-          "id": "he-is-sick-a7",
-          "image_url": "/lesson-assets/a1_photo_u7_feelings_sick_on_sofa_v1.webp",
-          "label": null
+          "id": "he-is-sick-a9",
+          "image_url": "",
+          "label": "He is sick."
         },
         {
-          "id": "he-is-angry-a7",
-          "image_url": "/lesson-assets/a1_photo_u7_feelings_angry_arms_crossed_v1.webp",
-          "label": null
+          "id": "he-is-angry-a9",
+          "image_url": "",
+          "label": "He is angry."
         }
       ],
       "audio_text": "He is angry.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 07: He is angry."
-    },
-    {
-      "slide_id": "A8",
-      "interaction_type": "a2t3",
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "i-am-fine-a8",
-      "options": [
-        {
-          "id": "i-am-fine-a8",
-          "image_url": "",
-          "label": "I am fine."
-        },
-        {
-          "id": "i-am-sick-a8",
-          "image_url": "",
-          "label": "I am sick."
-        },
-        {
-          "id": "i-am-tired-a8",
-          "image_url": "",
-          "label": "I am tired."
-        }
-      ],
-      "audio_text": "I am fine.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 08: I am fine.",
-      "audio_speaker": "ana"
-    },
-    {
-      "slide_id": "A9",
-      "interaction_type": "a2t3",
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "i-am-great-a9",
-      "options": [
-        {
-          "id": "i-am-sick-a9",
-          "image_url": "",
-          "label": "I am sick."
-        },
-        {
-          "id": "i-am-sad-a9",
-          "image_url": "",
-          "label": "I am sad."
-        },
-        {
-          "id": "i-am-great-a9",
-          "image_url": "",
-          "label": "I am great."
-        }
-      ],
-      "audio_text": "I am great.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 09: I am great.",
-      "audio_speaker": "luis"
+      "pedagogy_note": "Story beat 09: He is angry.",
+      "audio_speaker": "co-teacher"
     },
     {
       "slide_id": "S1",
+      "interaction_type": "speak",
+      "prompt": "It is a good day.",
+      "stage": "Speak",
+      "correct_option_id": "it-is-a-good-day-speak",
+      "options": [
+        {
+          "id": "it-is-a-good-day-speak",
+          "image_url": "/lesson-assets/a1_photo_u7_feelings_good_day_v1.webp",
+          "label": "It is a good day."
+        }
+      ],
+      "audio_text": "It is a good day.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Es un buen día.",
+      "pedagogy_note": "Story beat 01: It is a good day."
+    },
+    {
+      "slide_id": "S2",
+      "interaction_type": "speak",
+      "prompt": "It is a bad day.",
+      "stage": "Speak",
+      "correct_option_id": "it-is-a-bad-day-speak",
+      "options": [
+        {
+          "id": "it-is-a-bad-day-speak",
+          "image_url": "/lesson-assets/a1_photo_u7_feelings_bad_day_v1.webp",
+          "label": "It is a bad day."
+        }
+      ],
+      "audio_text": "It is a bad day.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Es un mal día.",
+      "pedagogy_note": "Story beat 02: It is a bad day.",
+      "audio_speaker": "co-teacher"
+    },
+    {
+      "slide_id": "S3",
       "interaction_type": "speak",
       "prompt": "I am fine.",
       "stage": "Speak",
@@ -716,11 +761,11 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Estoy bien.",
-      "pedagogy_note": "Story beat 01: I am fine.",
+      "pedagogy_note": "Story beat 03: I am fine.",
       "audio_speaker": "ana"
     },
     {
-      "slide_id": "S2",
+      "slide_id": "S4",
       "interaction_type": "speak",
       "prompt": "I am great.",
       "stage": "Speak",
@@ -736,11 +781,11 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Estoy muy bien.",
-      "pedagogy_note": "Story beat 02: I am great.",
+      "pedagogy_note": "Story beat 04: I am great.",
       "audio_speaker": "luis"
     },
     {
-      "slide_id": "S3",
+      "slide_id": "S5",
       "interaction_type": "speak",
       "prompt": "She is sick.",
       "stage": "Speak",
@@ -756,30 +801,10 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Ella está enferma.",
-      "pedagogy_note": "Story beat 03: She is sick.",
-      "audio_speaker": "co-teacher"
+      "pedagogy_note": "Story beat 05: She is sick."
     },
     {
-      "slide_id": "S4",
-      "interaction_type": "speak",
-      "prompt": "He is sick.",
-      "stage": "Speak",
-      "correct_option_id": "he-is-sick-speak",
-      "options": [
-        {
-          "id": "he-is-sick-speak",
-          "image_url": "/lesson-assets/a1_photo_u7_feelings_sick_on_sofa_v1.webp",
-          "label": "He is sick."
-        }
-      ],
-      "audio_text": "He is sick.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Él está enfermo.",
-      "pedagogy_note": "Story beat 04: He is sick."
-    },
-    {
-      "slide_id": "S5",
+      "slide_id": "S6",
       "interaction_type": "speak",
       "prompt": "He is angry.",
       "stage": "Speak",
@@ -795,27 +820,8 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Él está enojado.",
-      "pedagogy_note": "Story beat 05: He is angry.",
+      "pedagogy_note": "Story beat 06: He is angry.",
       "audio_speaker": "co-teacher"
-    },
-    {
-      "slide_id": "S6",
-      "interaction_type": "speak",
-      "prompt": "She is angry.",
-      "stage": "Speak",
-      "correct_option_id": "she-is-angry-speak",
-      "options": [
-        {
-          "id": "she-is-angry-speak",
-          "image_url": "/lesson-assets/a1_photo_u7_feelings_angry_fists_on_hips_v1.webp",
-          "label": "She is angry."
-        }
-      ],
-      "audio_text": "She is angry.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Ella está enojada.",
-      "pedagogy_note": "Story beat 06: She is angry."
     },
     {
       "slide_id": "S7",
@@ -834,31 +840,90 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Ella tiene miedo.",
-      "pedagogy_note": "Story beat 07: She is afraid.",
-      "audio_speaker": "co-teacher"
+      "pedagogy_note": "Story beat 07: She is afraid."
     },
     {
       "slide_id": "S8",
       "interaction_type": "speak",
-      "prompt": "I am fine.",
+      "prompt": "He is sick.",
       "stage": "Speak",
-      "correct_option_id": "i-am-fine-speak",
+      "correct_option_id": "he-is-sick-speak",
       "options": [
         {
-          "id": "i-am-fine-speak",
-          "image_url": "/lesson-assets/a1_photo_u7_feelings_ana_fine_v1.webp",
-          "label": "I am fine."
+          "id": "he-is-sick-speak",
+          "image_url": "/lesson-assets/a1_photo_u7_feelings_sick_on_sofa_v1.webp",
+          "label": "He is sick."
         }
       ],
-      "audio_text": "I am fine.",
+      "audio_text": "He is sick.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Estoy bien.",
-      "pedagogy_note": "Story beat 08: I am fine.",
-      "audio_speaker": "ana"
+      "spanish_translation": "Él está enfermo.",
+      "pedagogy_note": "Story beat 08: He is sick.",
+      "audio_speaker": "co-teacher"
     },
     {
       "slide_id": "U1",
+      "interaction_type": "complete2",
+      "prompt": "It is a ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "good",
+      "options": [
+        {
+          "id": "good",
+          "image_url": "",
+          "label": "good"
+        },
+        {
+          "id": "day",
+          "image_url": "",
+          "label": "day"
+        }
+      ],
+      "audio_text": "It is a good day.",
+      "answer_audio_text": "It is a good day.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u7_feelings_good_day_v1.webp",
+      "spanish_translation": "Es un buen día.",
+      "translation": "Es un buen día.",
+      "correct_option_ids": [
+        "good",
+        "day"
+      ],
+      "pedagogy_note": "Story beat 01: It is a good day."
+    },
+    {
+      "slide_id": "U2",
+      "interaction_type": "complete2",
+      "prompt": "It is a ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "bad",
+      "options": [
+        {
+          "id": "bad",
+          "image_url": "",
+          "label": "bad"
+        },
+        {
+          "id": "day",
+          "image_url": "",
+          "label": "day"
+        }
+      ],
+      "audio_text": "It is a bad day.",
+      "answer_audio_text": "It is a bad day.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u7_feelings_bad_day_v1.webp",
+      "spanish_translation": "Es un mal día.",
+      "translation": "Es un mal día.",
+      "correct_option_ids": [
+        "bad",
+        "day"
+      ],
+      "answer_audio_speaker": "co-teacher",
+      "pedagogy_note": "Story beat 02: It is a bad day.",
+      "audio_speaker": "co-teacher"
+    },
+    {
+      "slide_id": "U3",
       "interaction_type": "complete2",
       "prompt": "I ___ ___.",
       "stage": "Use",
@@ -885,11 +950,11 @@
         "fine"
       ],
       "answer_audio_speaker": "ana",
-      "pedagogy_note": "Story beat 01: I am fine.",
+      "pedagogy_note": "Story beat 03: I am fine.",
       "audio_speaker": "ana"
     },
     {
-      "slide_id": "U2",
+      "slide_id": "U4",
       "interaction_type": "complete2",
       "prompt": "I ___ ___.",
       "stage": "Use",
@@ -916,23 +981,28 @@
         "great"
       ],
       "answer_audio_speaker": "luis",
-      "pedagogy_note": "Story beat 02: I am great.",
+      "pedagogy_note": "Story beat 04: I am great.",
       "audio_speaker": "luis"
     },
     {
-      "slide_id": "U3",
-      "interaction_type": "complete2",
-      "prompt": "She ___ ___.",
+      "slide_id": "U5",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___.",
       "stage": "Use",
-      "correct_option_id": "is",
+      "correct_option_id": "word-1",
       "options": [
         {
-          "id": "is",
+          "id": "word-2",
           "image_url": "",
           "label": "is"
         },
         {
-          "id": "sick",
+          "id": "word-1",
+          "image_url": "",
+          "label": "She"
+        },
+        {
+          "id": "word-3",
           "image_url": "",
           "label": "sick"
         }
@@ -943,25 +1013,31 @@
       "spanish_translation": "Ella está enferma.",
       "translation": "Ella está enferma.",
       "correct_option_ids": [
-        "is",
-        "sick"
+        "word-1",
+        "word-2",
+        "word-3"
       ],
-      "pedagogy_note": "Story beat 03: She is sick."
+      "pedagogy_note": "Story beat 05: She is sick."
     },
     {
-      "slide_id": "U4",
-      "interaction_type": "complete2",
-      "prompt": "He ___ ___.",
+      "slide_id": "U6",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___.",
       "stage": "Use",
-      "correct_option_id": "is",
+      "correct_option_id": "word-1",
       "options": [
         {
-          "id": "is",
+          "id": "word-2",
           "image_url": "",
           "label": "is"
         },
         {
-          "id": "angry",
+          "id": "word-1",
+          "image_url": "",
+          "label": "He"
+        },
+        {
+          "id": "word-3",
           "image_url": "",
           "label": "angry"
         }
@@ -972,15 +1048,16 @@
       "spanish_translation": "Él está enojado.",
       "translation": "Él está enojado.",
       "correct_option_ids": [
-        "is",
-        "angry"
+        "word-1",
+        "word-2",
+        "word-3"
       ],
       "answer_audio_speaker": "co-teacher",
-      "pedagogy_note": "Story beat 04: He is angry.",
+      "pedagogy_note": "Story beat 06: He is angry.",
       "audio_speaker": "co-teacher"
     },
     {
-      "slide_id": "U5",
+      "slide_id": "U7",
       "interaction_type": "complete-sentence",
       "prompt": "___ ___ ___.",
       "stage": "Use",
@@ -1012,47 +1089,10 @@
         "word-2",
         "word-3"
       ],
-      "pedagogy_note": "Story beat 05: She is afraid."
+      "pedagogy_note": "Story beat 07: She is afraid."
     },
     {
-      "slide_id": "U6",
-      "interaction_type": "complete-sentence",
-      "prompt": "___ ___ ___.",
-      "stage": "Use",
-      "correct_option_id": "word-1",
-      "options": [
-        {
-          "id": "word-2",
-          "image_url": "",
-          "label": "is"
-        },
-        {
-          "id": "word-1",
-          "image_url": "",
-          "label": "He"
-        },
-        {
-          "id": "word-3",
-          "image_url": "",
-          "label": "sick"
-        }
-      ],
-      "audio_text": "He is sick.",
-      "answer_audio_text": "He is sick.",
-      "prompt_image_url": "/lesson-assets/a1_photo_u7_feelings_sick_on_sofa_v1.webp",
-      "spanish_translation": "Él está enfermo.",
-      "translation": "Él está enfermo.",
-      "correct_option_ids": [
-        "word-1",
-        "word-2",
-        "word-3"
-      ],
-      "answer_audio_speaker": "co-teacher",
-      "pedagogy_note": "Story beat 06: He is sick.",
-      "audio_speaker": "co-teacher"
-    },
-    {
-      "slide_id": "U7",
+      "slide_id": "U8",
       "interaction_type": "complete-sentence",
       "prompt": "___ ___ ___.",
       "stage": "Use",
@@ -1084,44 +1124,9 @@
         "word-2",
         "word-3"
       ],
-      "pedagogy_note": "Story beat 07: She is angry."
-    },
-    {
-      "slide_id": "U8",
-      "interaction_type": "complete-sentence",
-      "prompt": "___ ___ ___.",
-      "stage": "Use",
-      "correct_option_id": "word-1",
-      "options": [
-        {
-          "id": "word-2",
-          "image_url": "",
-          "label": "am"
-        },
-        {
-          "id": "word-1",
-          "image_url": "",
-          "label": "I"
-        },
-        {
-          "id": "word-3",
-          "image_url": "",
-          "label": "great"
-        }
-      ],
-      "audio_text": "I am great.",
-      "answer_audio_text": "I am great.",
-      "prompt_image_url": "/lesson-assets/a1_photo_u7_feelings_luis_great_v1.webp",
-      "spanish_translation": "Estoy muy bien.",
-      "translation": "Estoy muy bien.",
-      "correct_option_ids": [
-        "word-1",
-        "word-2",
-        "word-3"
-      ],
-      "answer_audio_speaker": "luis",
-      "pedagogy_note": "Story beat 08: I am great.",
-      "audio_speaker": "luis"
+      "answer_audio_speaker": "co-teacher",
+      "pedagogy_note": "Story beat 08: She is angry.",
+      "audio_speaker": "co-teacher"
     }
   ]
 }
