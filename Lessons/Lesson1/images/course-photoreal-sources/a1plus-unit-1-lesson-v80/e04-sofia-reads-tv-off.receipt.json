@@ -1,0 +1,62 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "bfbadb1c-2b1b-4c79-b631-ea05501c78e3",
+  "asset_id": "e04-sofia-reads-tv-off",
+  "pack_sha256": "9d82a09ac4aedada43f5bb60097a5933f91905f849f7a4f63a13689314940749",
+  "started_at": "2026-11-18T16:18:01.839969+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, numbers, logos or brand marks anywhere: book covers and spines are plain solid colors, menus and signs are blank, and any screen shows only soft abstract color with no text, faces or recognizable show. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos.\n\nKeep the person, both hands and the object of the action inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nOnly this one person is in the photo; there is nobody else, even far in the background.\n\nThe action is the most obvious thing in the photo: the camera is at eye level a few steps away, the face is fully visible in three-quarter view and in sharp focus, and the person is seen from the head to the waist or lower, with the hands and the object clearly visible. The person is busy with the action and does not look at the camera.\n\nIt is clearly EVENING after dark: every window shows a deep blue evening sky, and warm indoor lamps light the room and the person's face. No daylight anywhere.\n\nImage 1 shows Sofia. Keep her face, long curly dark hair, warm brown skin and build exactly, and her white blouse under her bright blue blazer, with no badge and no card. Create a new photograph in her living room in the evening: Sofia sits in a comfortable mustard-yellow armchair under a warm reading lamp and reads an open book with a plain dark-red cover, holding it with both hands, her eyes on the page. Beside her armchair, a flat TV stands on a low white cabinet, clearly SWITCHED OFF: its screen is plain black and reflects only a little lamp light, and she is not looking at it. The window shows the dark blue evening sky. Both Sofia with her book and the black TV screen are inside the central 55 percent of the width, and the black screen takes up at least 20 percent of the photo width, so it is easy to see that the TV is off. There is no remote control in her hands.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1plus-unit-1-q03-7d520a07846a47b8.webp",
+    "sha256": "7d520a07846a47b8e8389c3226f3b3639d7eed0d257318b08e4f9b77c5b2258b"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "uM_9avOnG4qGqtsPtMXKsAM",
+  "usage": {
+    "promptTokenCount": 788,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 2078,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 530
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038936",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 788,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 8.74,
+  "output": "output/imagegen/a1plus-unit-1-lesson-v80/e04-sofia-reads-tv-off.png",
+  "sha256": "1b4644f74bd2c32f46f2f4825beea38021f79220bb87d767ea92191a7bfd6758",
+  "byte_count": 1096410,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}
