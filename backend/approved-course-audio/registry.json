@@ -283838,6 +283838,7 @@
       ],
       "compatible_variants": [
         "answer",
+        "prompt",
         "split-ing"
       ],
       "provenance": {
@@ -285853,11 +285854,13 @@
       ],
       "profile_id": "a1-elevenlabs-character-cast-v1",
       "compatible_modes": [
-        "prompt"
+        "prompt",
+        "pronunciation_slow"
       ],
       "compatible_variants": [
         "answer",
-        "prompt"
+        "prompt",
+        "split-ing"
       ],
       "provenance": {
         "source": "elevenlabs-offline-render",
@@ -286050,11 +286053,13 @@
       ],
       "profile_id": "a1-elevenlabs-character-cast-v1",
       "compatible_modes": [
-        "prompt"
+        "prompt",
+        "pronunciation_slow"
       ],
       "compatible_variants": [
         "answer",
-        "prompt"
+        "prompt",
+        "split-ing"
       ],
       "provenance": {
         "source": "elevenlabs-offline-render",
@@ -289364,11 +289369,13 @@
       ],
       "profile_id": "a1-elevenlabs-character-cast-v1",
       "compatible_modes": [
-        "prompt"
+        "prompt",
+        "pronunciation_slow"
       ],
       "compatible_variants": [
         "answer",
-        "prompt"
+        "prompt",
+        "split-ing"
       ],
       "provenance": {
         "source": "elevenlabs-offline-render",
@@ -293451,6 +293458,397 @@
         "review": {
           "status": "operator-listening-approved",
           "audio_sha256": "7f0081d8c98fd089014793aab7d7ded2ce3ee27ab17d5e125ab4f7e51ebea723",
+          "basis": "Operator explicitly confirmed this recording's natural pronunciation with --reviewed-take."
+        }
+      }
+    },
+    "92417246fbbab6ea46c461bfac7fd408084f9279c34378f6875d45b22a1411a5": {
+      "file": "takes/92417246fbbab6ea46c461bfac7fd408084f9279c34378f6875d45b22a1411a5.mp3",
+      "audio_sha256": "92417246fbbab6ea46c461bfac7fd408084f9279c34378f6875d45b22a1411a5",
+      "bytes": 15089,
+      "text": "Good",
+      "compatible_speaker_roles": [
+        "answer",
+        "teacher"
+      ],
+      "profile_id": "a1-elevenlabs-character-cast-v1",
+      "compatible_modes": [
+        "prompt"
+      ],
+      "compatible_variants": [
+        "answer",
+        "prompt"
+      ],
+      "provenance": {
+        "source": "elevenlabs-offline-render",
+        "provider": "elevenlabs-premium",
+        "model_id": "eleven_v4",
+        "narrator": "female-teacher",
+        "voice_id": "XfNU2rGpBa01ckF309OY",
+        "provider_output_format": "mp3_44100_128",
+        "seed": 1101,
+        "settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.8
+        },
+        "stored_media": {
+          "container": "mp3",
+          "codec": "mp3float",
+          "sample_rate_hz": 44100,
+          "channels": 1,
+          "bit_rate_bps": 128000
+        },
+        "processing": [
+          "Original ElevenLabs v4 provider bytes; no post-processing."
+        ],
+        "generated_at": "2026-11-18T14:34:52.458799+00:00",
+        "approved_at": "2026-11-18T14:49:25.679610+00:00",
+        "request_id": "WdUVkEZpgPz4Z52Ijkth",
+        "trace_id": "aacd989eeeba1f292eba09c66631ce05",
+        "character_cost": 2,
+        "incremental_character_cost": 2,
+        "provider_requests": [
+          {
+            "model_id": "eleven_v4",
+            "text": "Good",
+            "character_cost": 2,
+            "incremental_character_cost": 2,
+            "character_cost_source": "provider-header",
+            "character_cost_header": "2",
+            "staged_reuse": false,
+            "request_id": "WdUVkEZpgPz4Z52Ijkth",
+            "trace_id": "aacd989eeeba1f292eba09c66631ce05"
+          }
+        ],
+        "review": {
+          "status": "operator-listening-approved",
+          "audio_sha256": "92417246fbbab6ea46c461bfac7fd408084f9279c34378f6875d45b22a1411a5",
+          "basis": "Operator explicitly confirmed this recording's natural pronunciation with --reviewed-take."
+        }
+      }
+    },
+    "247ec9f6736344ec26107343a7458b61bcefd14b3c1784547d0bbb495a2996ba": {
+      "file": "takes/247ec9f6736344ec26107343a7458b61bcefd14b3c1784547d0bbb495a2996ba.mp3",
+      "audio_sha256": "247ec9f6736344ec26107343a7458b61bcefd14b3c1784547d0bbb495a2996ba",
+      "bytes": 31807,
+      "text": "It is a bad day.",
+      "compatible_speaker_roles": [
+        "answer",
+        "teacher"
+      ],
+      "profile_id": "a1-elevenlabs-character-cast-v1",
+      "compatible_modes": [
+        "prompt"
+      ],
+      "compatible_variants": [
+        "answer",
+        "prompt"
+      ],
+      "provenance": {
+        "source": "elevenlabs-offline-render",
+        "provider": "elevenlabs-premium",
+        "model_id": "eleven_v4",
+        "narrator": "female-teacher",
+        "voice_id": "XfNU2rGpBa01ckF309OY",
+        "provider_output_format": "mp3_44100_128",
+        "seed": 1101,
+        "settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.8
+        },
+        "stored_media": {
+          "container": "mp3",
+          "codec": "mp3float",
+          "sample_rate_hz": 44100,
+          "channels": 1,
+          "bit_rate_bps": 128000
+        },
+        "processing": [
+          "Original ElevenLabs v4 provider bytes; no post-processing."
+        ],
+        "generated_at": "2026-11-18T14:34:54.285913+00:00",
+        "approved_at": "2026-11-18T14:47:39.658959+00:00",
+        "request_id": "GaVjROcLYO7BtTs95jfe",
+        "trace_id": "7a1def7da279fad82eba09c66631c938",
+        "character_cost": 7,
+        "incremental_character_cost": 7,
+        "provider_requests": [
+          {
+            "model_id": "eleven_v4",
+            "text": "It is a bad day.",
+            "character_cost": 7,
+            "incremental_character_cost": 7,
+            "character_cost_source": "provider-header",
+            "character_cost_header": "7",
+            "staged_reuse": false,
+            "request_id": "GaVjROcLYO7BtTs95jfe",
+            "trace_id": "7a1def7da279fad82eba09c66631c938"
+          }
+        ],
+        "review": {
+          "status": "operator-listening-approved",
+          "audio_sha256": "247ec9f6736344ec26107343a7458b61bcefd14b3c1784547d0bbb495a2996ba",
+          "basis": "Operator explicitly confirmed this recording's natural pronunciation with --reviewed-take."
+        }
+      }
+    },
+    "7f257e794dee5aafb4b16044472f22bd5957c326b58ba584a721edde9f48dc81": {
+      "file": "takes/7f257e794dee5aafb4b16044472f22bd5957c326b58ba584a721edde9f48dc81.mp3",
+      "audio_sha256": "7f257e794dee5aafb4b16044472f22bd5957c326b58ba584a721edde9f48dc81",
+      "bytes": 26792,
+      "text": "It is a good day.",
+      "compatible_speaker_roles": [
+        "answer",
+        "teacher"
+      ],
+      "profile_id": "a1-elevenlabs-character-cast-v1",
+      "compatible_modes": [
+        "prompt",
+        "pronunciation_slow"
+      ],
+      "compatible_variants": [
+        "answer",
+        "prompt",
+        "split-ing"
+      ],
+      "provenance": {
+        "source": "elevenlabs-offline-render",
+        "provider": "elevenlabs-premium",
+        "model_id": "eleven_v4",
+        "narrator": "female-teacher",
+        "voice_id": "XfNU2rGpBa01ckF309OY",
+        "provider_output_format": "mp3_44100_128",
+        "seed": 1101,
+        "settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.8
+        },
+        "stored_media": {
+          "container": "mp3",
+          "codec": "mp3float",
+          "sample_rate_hz": 44100,
+          "channels": 1,
+          "bit_rate_bps": 128000
+        },
+        "processing": [
+          "Original ElevenLabs v4 provider bytes; no post-processing."
+        ],
+        "generated_at": "2026-11-18T14:34:56.161427+00:00",
+        "approved_at": "2026-11-18T14:49:05.391099+00:00",
+        "request_id": "Ch20tw6lUKwXFNJfOycm",
+        "trace_id": "bd86289432b48318af45574b8f50a4e7",
+        "character_cost": 7,
+        "incremental_character_cost": 7,
+        "provider_requests": [
+          {
+            "model_id": "eleven_v4",
+            "text": "It is a good day.",
+            "character_cost": 7,
+            "incremental_character_cost": 7,
+            "character_cost_source": "provider-header",
+            "character_cost_header": "7",
+            "staged_reuse": false,
+            "request_id": "Ch20tw6lUKwXFNJfOycm",
+            "trace_id": "bd86289432b48318af45574b8f50a4e7"
+          }
+        ],
+        "review": {
+          "status": "operator-listening-approved",
+          "audio_sha256": "7f257e794dee5aafb4b16044472f22bd5957c326b58ba584a721edde9f48dc81",
+          "basis": "Operator explicitly confirmed this recording's natural pronunciation with --reviewed-take."
+        }
+      }
+    },
+    "30d56f15fa9fe5a3f3baf47090c6f0297bce5bbf02ec89db752d1a0499c83f02": {
+      "file": "takes/30d56f15fa9fe5a3f3baf47090c6f0297bce5bbf02ec89db752d1a0499c83f02.mp3",
+      "audio_sha256": "30d56f15fa9fe5a3f3baf47090c6f0297bce5bbf02ec89db752d1a0499c83f02",
+      "bytes": 15089,
+      "text": "Bad",
+      "compatible_speaker_roles": [
+        "co-teacher"
+      ],
+      "profile_id": "a1-elevenlabs-character-cast-v1",
+      "compatible_modes": [
+        "prompt"
+      ],
+      "compatible_variants": [
+        "answer",
+        "prompt"
+      ],
+      "provenance": {
+        "source": "elevenlabs-offline-render",
+        "provider": "elevenlabs-premium",
+        "model_id": "eleven_v4",
+        "narrator": "male-teacher",
+        "voice_id": "cjVigY5qzO86Huf0OWal",
+        "provider_output_format": "mp3_44100_128",
+        "seed": 1101,
+        "settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.8
+        },
+        "stored_media": {
+          "container": "mp3",
+          "codec": "mp3float",
+          "sample_rate_hz": 44100,
+          "channels": 1,
+          "bit_rate_bps": 128000
+        },
+        "processing": [
+          "Original ElevenLabs v4 provider bytes; no post-processing."
+        ],
+        "generated_at": "2026-11-18T14:34:58.068365+00:00",
+        "approved_at": "2026-11-18T14:48:03.174027+00:00",
+        "request_id": "Y4vydVQ2nkQwRPfF8kBd",
+        "trace_id": "dd91af2d2e38b85eaf45574b8f50a81c",
+        "character_cost": 1,
+        "incremental_character_cost": 1,
+        "provider_requests": [
+          {
+            "model_id": "eleven_v4",
+            "text": "Bad",
+            "character_cost": 1,
+            "incremental_character_cost": 1,
+            "character_cost_source": "provider-header",
+            "character_cost_header": "1",
+            "staged_reuse": false,
+            "request_id": "Y4vydVQ2nkQwRPfF8kBd",
+            "trace_id": "dd91af2d2e38b85eaf45574b8f50a81c"
+          }
+        ],
+        "review": {
+          "status": "operator-listening-approved",
+          "audio_sha256": "30d56f15fa9fe5a3f3baf47090c6f0297bce5bbf02ec89db752d1a0499c83f02",
+          "basis": "Operator explicitly confirmed this recording's natural pronunciation with --reviewed-take."
+        }
+      }
+    },
+    "60b1d4833d463b65516b0775a91d107be213b1c42de4a33c1cb2b4ac96ac887a": {
+      "file": "takes/60b1d4833d463b65516b0775a91d107be213b1c42de4a33c1cb2b4ac96ac887a.mp3",
+      "audio_sha256": "60b1d4833d463b65516b0775a91d107be213b1c42de4a33c1cb2b4ac96ac887a",
+      "bytes": 33061,
+      "text": "It is a bad day.",
+      "compatible_speaker_roles": [
+        "co-teacher"
+      ],
+      "profile_id": "a1-elevenlabs-character-cast-v1",
+      "compatible_modes": [
+        "prompt",
+        "pronunciation_slow"
+      ],
+      "compatible_variants": [
+        "answer",
+        "prompt",
+        "split-ing"
+      ],
+      "provenance": {
+        "source": "elevenlabs-offline-render",
+        "provider": "elevenlabs-premium",
+        "model_id": "eleven_v4",
+        "narrator": "male-teacher",
+        "voice_id": "cjVigY5qzO86Huf0OWal",
+        "provider_output_format": "mp3_44100_128",
+        "seed": 1101,
+        "settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.8
+        },
+        "stored_media": {
+          "container": "mp3",
+          "codec": "mp3float",
+          "sample_rate_hz": 44100,
+          "channels": 1,
+          "bit_rate_bps": 128000
+        },
+        "processing": [
+          "Original ElevenLabs v4 provider bytes; no post-processing."
+        ],
+        "generated_at": "2026-11-18T14:35:00.044096+00:00",
+        "approved_at": "2026-11-18T14:48:23.493906+00:00",
+        "request_id": "INhLeurRCncR4VhnQCBu",
+        "trace_id": "b6b2aaea58dc9afbaf45574b8f50a4a4",
+        "character_cost": 7,
+        "incremental_character_cost": 7,
+        "provider_requests": [
+          {
+            "model_id": "eleven_v4",
+            "text": "It is a bad day.",
+            "character_cost": 7,
+            "incremental_character_cost": 7,
+            "character_cost_source": "provider-header",
+            "character_cost_header": "7",
+            "staged_reuse": false,
+            "request_id": "INhLeurRCncR4VhnQCBu",
+            "trace_id": "b6b2aaea58dc9afbaf45574b8f50a4a4"
+          }
+        ],
+        "review": {
+          "status": "operator-listening-approved",
+          "audio_sha256": "60b1d4833d463b65516b0775a91d107be213b1c42de4a33c1cb2b4ac96ac887a",
+          "basis": "Operator explicitly confirmed this recording's natural pronunciation with --reviewed-take."
+        }
+      }
+    },
+    "7b99017f98d27f854454892e265af053f3bb28677978080108574591caa35edc": {
+      "file": "takes/7b99017f98d27f854454892e265af053f3bb28677978080108574591caa35edc.mp3",
+      "audio_sha256": "7b99017f98d27f854454892e265af053f3bb28677978080108574591caa35edc",
+      "bytes": 28046,
+      "text": "It is a good day.",
+      "compatible_speaker_roles": [
+        "co-teacher"
+      ],
+      "profile_id": "a1-elevenlabs-character-cast-v1",
+      "compatible_modes": [
+        "prompt"
+      ],
+      "compatible_variants": [
+        "answer",
+        "prompt"
+      ],
+      "provenance": {
+        "source": "elevenlabs-offline-render",
+        "provider": "elevenlabs-premium",
+        "model_id": "eleven_v4",
+        "narrator": "male-teacher",
+        "voice_id": "cjVigY5qzO86Huf0OWal",
+        "provider_output_format": "mp3_44100_128",
+        "seed": 1101,
+        "settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.8
+        },
+        "stored_media": {
+          "container": "mp3",
+          "codec": "mp3float",
+          "sample_rate_hz": 44100,
+          "channels": 1,
+          "bit_rate_bps": 128000
+        },
+        "processing": [
+          "Original ElevenLabs v4 provider bytes; no post-processing."
+        ],
+        "generated_at": "2026-11-18T14:35:01.807748+00:00",
+        "approved_at": "2026-11-18T14:48:44.550823+00:00",
+        "request_id": "siq13ugPWoCy6Q2dsdBV",
+        "trace_id": "5782e2a2886db912af45574b8f50a2bc",
+        "character_cost": 7,
+        "incremental_character_cost": 7,
+        "provider_requests": [
+          {
+            "model_id": "eleven_v4",
+            "text": "It is a good day.",
+            "character_cost": 7,
+            "incremental_character_cost": 7,
+            "character_cost_source": "provider-header",
+            "character_cost_header": "7",
+            "staged_reuse": false,
+            "request_id": "siq13ugPWoCy6Q2dsdBV",
+            "trace_id": "5782e2a2886db912af45574b8f50a2bc"
+          }
+        ],
+        "review": {
+          "status": "operator-listening-approved",
+          "audio_sha256": "7b99017f98d27f854454892e265af053f3bb28677978080108574591caa35edc",
           "basis": "Operator explicitly confirmed this recording's natural pronunciation with --reviewed-take."
         }
       }
@@ -301611,11 +302009,6 @@
       "approved_at": "2026-11-13T12:43:44.838124+00:00",
       "approval_note": "Installed after explicit listening review of these exact bytes."
     },
-    "a1plus-unit-1-lesson-1-8-c001-prompt-turn-1-c4b5712c3e1c7672b548": {
-      "take_id": "914be5193af8c8d23e37b217c61b51a8fb2d686f3a773a51fc2e4d8a501770e2",
-      "approved_at": "2026-11-18T16:42:42.017899+00:00",
-      "approval_note": "Installed after explicit listening review of these exact bytes."
-    },
     "a1plus-unit-1-lesson-1-8-c001-prompt-turn-1-faa2e49192893d2aa5b1": {
       "take_id": "c782c389272bcbfc84421566f40f65a6b20fb3c3c8023bb03735334ce8330d62",
       "approved_at": "2026-10-26T18:46:31Z",
@@ -301627,16 +302020,6 @@
       "approved_at": "2026-10-26T18:46:31Z",
       "approval_note": "Exact user-approved listening batch 9cef93eed5196982ee92612d321fd5dbbb23b2483c9e1dd28d60e673623e9704; unchanged provider bytes.",
       "batch_reviewed_at": "2026-10-26T18:46:31Z"
-    },
-    "a1plus-unit-1-lesson-1-8-c001-prompt-turn-2-903d6b0f288f22e7a2bd": {
-      "take_id": "e38c92e379bb4a2e6808b6b9e5db378a5d00dcf3f6ad3ae7921394c2305254c2",
-      "approved_at": "2026-11-18T16:44:23.872868+00:00",
-      "approval_note": "Installed after explicit listening review of these exact bytes."
-    },
-    "a1plus-unit-1-lesson-1-8-c002-prompt-turn-1-60fed38458f315368fd5": {
-      "take_id": "e38c92e379bb4a2e6808b6b9e5db378a5d00dcf3f6ad3ae7921394c2305254c2",
-      "approved_at": "2026-11-18T16:44:23.872868+00:00",
-      "approval_note": "Installed after explicit listening review of these exact bytes."
     },
     "a1plus-unit-1-lesson-1-8-c002-prompt-turn-1-daa4f18c9862259d5d4b": {
       "take_id": "bb880bad14affab5796880bf74c181125870d98471d167a5f6c5b0e33c0d56b7",
@@ -301650,26 +302033,11 @@
       "approval_note": "Exact user-approved listening batch 9cef93eed5196982ee92612d321fd5dbbb23b2483c9e1dd28d60e673623e9704; unchanged provider bytes.",
       "batch_reviewed_at": "2026-10-26T18:46:31Z"
     },
-    "a1plus-unit-1-lesson-1-8-c002-prompt-turn-2-52576c1ae3cfd7fc74e9": {
-      "take_id": "c3dd1d28ce8313caa8bce3576d5fc4470877e4f3bf566aa44e3dcfa7563eb4aa",
-      "approved_at": "2026-11-18T16:41:29.306310+00:00",
-      "approval_note": "Installed after explicit listening review of these exact bytes."
-    },
     "a1plus-unit-1-lesson-1-8-c003-prompt-turn-1-1367cfc61abc8508bf53": {
       "take_id": "fc02f82883e191b20381b93ad7b123ed5a8a17a1e87fca89a1761cc2d9ebb9ae",
       "approved_at": "2026-10-26T18:46:31Z",
       "approval_note": "Exact user-approved listening batch 9cef93eed5196982ee92612d321fd5dbbb23b2483c9e1dd28d60e673623e9704; unchanged provider bytes.",
       "batch_reviewed_at": "2026-10-26T18:46:31Z"
-    },
-    "a1plus-unit-1-lesson-1-8-c003-prompt-turn-1-d33d3844c565bdbcac5e": {
-      "take_id": "a52024037f35bcb1b93b988ad153502aa22f92e8a3df3ae49fb502f08b4f8cb4",
-      "approved_at": "2026-11-18T16:45:06.224285+00:00",
-      "approval_note": "Installed after explicit listening review of these exact bytes."
-    },
-    "a1plus-unit-1-lesson-1-8-c003-prompt-turn-2-81244b60f2bda8b87172": {
-      "take_id": "1b52a243eed6448a839d4c881596b935c4c5b385c7750f4eb7e9574b8438830f",
-      "approved_at": "2026-11-18T16:43:35.257061+00:00",
-      "approval_note": "Installed after explicit listening review of these exact bytes."
     },
     "a1plus-unit-1-lesson-1-8-c003-prompt-turn-2-d2900367d5fb2059b1b3": {
       "take_id": "3c9b769e595e259d434daf0500e72252e8173219d634430e7a34c8dcc0afac78",
@@ -301683,26 +302051,11 @@
       "approval_note": "Exact user-approved listening batch 9cef93eed5196982ee92612d321fd5dbbb23b2483c9e1dd28d60e673623e9704; unchanged provider bytes.",
       "batch_reviewed_at": "2026-10-26T18:46:31Z"
     },
-    "a1plus-unit-1-lesson-1-8-c004-prompt-turn-1-fef3e331ae17b32ce823": {
-      "take_id": "1b52a243eed6448a839d4c881596b935c4c5b385c7750f4eb7e9574b8438830f",
-      "approved_at": "2026-11-18T16:43:35.257061+00:00",
-      "approval_note": "Installed after explicit listening review of these exact bytes."
-    },
-    "a1plus-unit-1-lesson-1-8-c004-prompt-turn-2-79227b02ca8ac36b3308": {
-      "take_id": "b6f5fdc765755e58386beb9f21c3ec56c33ee5b69b8c4df59e3f0fbcef31c7da",
-      "approved_at": "2026-11-18T16:46:57.574050+00:00",
-      "approval_note": "Installed after explicit listening review of these exact bytes."
-    },
     "a1plus-unit-1-lesson-1-8-c004-prompt-turn-2-dfcf696752bb4fa47127": {
       "take_id": "1ff6cf758aa829946a4fca4461b52bd13fd60c2cdc7dfec15c28c78f914c85bc",
       "approved_at": "2026-10-26T18:46:31Z",
       "approval_note": "Exact user-approved listening batch 9cef93eed5196982ee92612d321fd5dbbb23b2483c9e1dd28d60e673623e9704; unchanged provider bytes.",
       "batch_reviewed_at": "2026-10-26T18:46:31Z"
-    },
-    "a1plus-unit-1-lesson-1-8-c005-prompt-ff03049c9e8cc92c7d4f": {
-      "take_id": "c3dd1d28ce8313caa8bce3576d5fc4470877e4f3bf566aa44e3dcfa7563eb4aa",
-      "approved_at": "2026-11-18T16:41:29.306310+00:00",
-      "approval_note": "Installed after explicit listening review of these exact bytes."
     },
     "a1plus-unit-1-lesson-1-8-c005-prompt-turn-1-c217a5c8dfc30d7f1421": {
       "take_id": "363fcdbce06c4122b1280a67dd39497bc52f37bfb0e50d93b7dfbb7ef5139ebf",
@@ -301716,11 +302069,6 @@
       "approval_note": "Exact user-approved listening batch 9cef93eed5196982ee92612d321fd5dbbb23b2483c9e1dd28d60e673623e9704; unchanged provider bytes.",
       "batch_reviewed_at": "2026-10-26T18:46:31Z"
     },
-    "a1plus-unit-1-lesson-1-8-c006-answer-ed3d730aa15e7c22bed4": {
-      "take_id": "e38c92e379bb4a2e6808b6b9e5db378a5d00dcf3f6ad3ae7921394c2305254c2",
-      "approved_at": "2026-11-18T16:44:23.872868+00:00",
-      "approval_note": "Installed after explicit listening review of these exact bytes."
-    },
     "a1plus-unit-1-lesson-1-8-c006-prompt-turn-1-faf5f765a97ebf52ae4e": {
       "take_id": "54bff7fcd1d3df0e2e880a7c8e1bf5bdd716b24614c8fc4f018a4f716be4c641",
       "approved_at": "2026-10-26T18:46:31Z",
@@ -301732,11 +302080,6 @@
       "approved_at": "2026-10-26T18:46:31Z",
       "approval_note": "Exact user-approved listening batch 9cef93eed5196982ee92612d321fd5dbbb23b2483c9e1dd28d60e673623e9704; unchanged provider bytes.",
       "batch_reviewed_at": "2026-10-26T18:46:31Z"
-    },
-    "a1plus-unit-1-lesson-1-8-c007-prompt-f23560063ae9c5078121": {
-      "take_id": "a62cc5b98def3a4237b4ef3350723dfb37a40d467a05e4c4b610a96c0aa4497e",
-      "approved_at": "2026-11-18T16:46:43.659388+00:00",
-      "approval_note": "Installed after explicit listening review of these exact bytes."
     },
     "a1plus-unit-1-lesson-1-8-c007-prompt-turn-1-f11017c2f33528006bc8": {
       "take_id": "018c3fb7d09d0b5b21cbea10ebde88f7a105fb9f26f1c16d85e98ea3f58f9659",
@@ -301750,11 +302093,6 @@
       "approval_note": "Exact user-approved listening batch 9cef93eed5196982ee92612d321fd5dbbb23b2483c9e1dd28d60e673623e9704; unchanged provider bytes.",
       "batch_reviewed_at": "2026-10-26T18:46:31Z"
     },
-    "a1plus-unit-1-lesson-1-8-c008-answer-014f7c0856ed41322903": {
-      "take_id": "53d36fd9f2159a9ba62bb2568470f89f2e56607cf96410b000fcb8c0ef4eff5a",
-      "approved_at": "2026-11-18T16:41:42.509251+00:00",
-      "approval_note": "Installed after explicit listening review of these exact bytes."
-    },
     "a1plus-unit-1-lesson-1-8-c008-prompt-turn-1-63367e03f07f5a58a4cf": {
       "take_id": "15aeb0a20d6f15510a58e678777237b9f15d7ef01a982f7bb4889cfcc2e53a82",
       "approved_at": "2026-10-26T18:46:31Z",
@@ -301767,37 +302105,17 @@
       "approval_note": "Exact user-approved listening batch 9cef93eed5196982ee92612d321fd5dbbb23b2483c9e1dd28d60e673623e9704; unchanged provider bytes.",
       "batch_reviewed_at": "2026-10-26T18:46:31Z"
     },
-    "a1plus-unit-1-lesson-1-8-c009-prompt-c5b8d5d7bc4e1c99e286": {
-      "take_id": "b6f5fdc765755e58386beb9f21c3ec56c33ee5b69b8c4df59e3f0fbcef31c7da",
-      "approved_at": "2026-11-18T16:46:57.574050+00:00",
-      "approval_note": "Installed after explicit listening review of these exact bytes."
-    },
-    "a1plus-unit-1-lesson-1-8-c010-answer-d4db74beebadf97f1a41": {
-      "take_id": "1b52a243eed6448a839d4c881596b935c4c5b385c7750f4eb7e9574b8438830f",
-      "approved_at": "2026-11-18T16:43:35.257061+00:00",
-      "approval_note": "Installed after explicit listening review of these exact bytes."
-    },
     "a1plus-unit-1-lesson-1-8-c010-answer-turn-1-af53888a9b726bbff4b5": {
       "take_id": "22b7e8e1f8b68e8ce9ae6e48e0fe1c15043726e2eacfe6ea0cfcc125f350428e",
       "approved_at": "2026-10-26T18:46:31Z",
       "approval_note": "Exact user-approved listening batch 9cef93eed5196982ee92612d321fd5dbbb23b2483c9e1dd28d60e673623e9704; unchanged provider bytes.",
       "batch_reviewed_at": "2026-10-26T18:46:31Z"
     },
-    "a1plus-unit-1-lesson-1-8-c011-prompt-80266e68e0188be248d1": {
-      "take_id": "a52024037f35bcb1b93b988ad153502aa22f92e8a3df3ae49fb502f08b4f8cb4",
-      "approved_at": "2026-11-18T16:45:06.224285+00:00",
-      "approval_note": "Installed after explicit listening review of these exact bytes."
-    },
     "a1plus-unit-1-lesson-1-8-c011-prompt-turn-1-8c18c9dfdea3784a8ed5": {
       "take_id": "374962dc116b575968a55aba97ad4ede08d5512852875b1e00c315e88ea8149d",
       "approved_at": "2026-10-26T18:46:31Z",
       "approval_note": "Exact user-approved listening batch 9cef93eed5196982ee92612d321fd5dbbb23b2483c9e1dd28d60e673623e9704; unchanged provider bytes.",
       "batch_reviewed_at": "2026-10-26T18:46:31Z"
-    },
-    "a1plus-unit-1-lesson-1-8-c012-answer-70d0b8744020f08f6949": {
-      "take_id": "7a866c8699b2798825daa736e94eeea90e64d1813053ff5a241f524c22163600",
-      "approved_at": "2026-11-18T16:42:55.626872+00:00",
-      "approval_note": "Installed after explicit listening review of these exact bytes."
     },
     "a1plus-unit-1-lesson-1-8-c012-prompt-turn-1-15db122f50c5e08cc031": {
       "take_id": "6b12fee751f3701a0d4536cc68ca38176ffde37ee37bf0c7962f27a802b22e41",
@@ -301811,11 +302129,6 @@
       "approval_note": "Exact user-approved listening batch 9cef93eed5196982ee92612d321fd5dbbb23b2483c9e1dd28d60e673623e9704; unchanged provider bytes.",
       "batch_reviewed_at": "2026-10-26T18:46:31Z"
     },
-    "a1plus-unit-1-lesson-1-8-c013-prompt-29dec729694cf4dbf215": {
-      "take_id": "e191c4897c4c515b39d869718333664f90c52904cdb71de10876da12287ce0fb",
-      "approved_at": "2026-11-18T16:41:15.646450+00:00",
-      "approval_note": "Installed after explicit listening review of these exact bytes."
-    },
     "a1plus-unit-1-lesson-1-8-c013-prompt-turn-1-8c2a2bb8a268045fc7b9": {
       "take_id": "a01df8138e180ee4936205ccb4dee050525a0d56394b15c9d905dd8c3ff8f91f",
       "approved_at": "2026-10-26T18:46:31Z",
@@ -301826,11 +302139,6 @@
       "approved_at": "2026-10-26T18:46:31Z",
       "approval_note": "Exact user-approved listening batch 9cef93eed5196982ee92612d321fd5dbbb23b2483c9e1dd28d60e673623e9704; unchanged provider bytes.",
       "batch_reviewed_at": "2026-10-26T18:46:31Z"
-    },
-    "a1plus-unit-1-lesson-1-8-c014-answer-ec505778eb28eeacec4c": {
-      "take_id": "f773a5de8d1f3a98de52236a52051d12e1c4c0cb031972ab08ec148ef7a97a79",
-      "approved_at": "2026-11-18T16:45:20.257237+00:00",
-      "approval_note": "Installed after explicit listening review of these exact bytes."
     },
     "a1plus-unit-1-lesson-1-8-c014-answer-turn-1-6c8af5825893ad9e13ed": {
       "take_id": "2ae34195bf9d21103743b9658c29a394dd630c342ac622e45bd13e4a1cefd7d3",
@@ -301850,11 +302158,6 @@
       "approval_note": "Exact user-approved listening batch 9cef93eed5196982ee92612d321fd5dbbb23b2483c9e1dd28d60e673623e9704; unchanged provider bytes.",
       "batch_reviewed_at": "2026-10-26T18:46:31Z"
     },
-    "a1plus-unit-1-lesson-1-8-c015-prompt-e3dd0a8131a1e7d77368": {
-      "take_id": "6c10e93306b8e0c090adea82abf56b5bee960c3bf3fa2fd354864c064da18062",
-      "approved_at": "2026-11-18T16:44:52.136477+00:00",
-      "approval_note": "Installed after explicit listening review of these exact bytes."
-    },
     "a1plus-unit-1-lesson-1-8-c015-prompt-turn-1-4c3027a22e23a7a20f3c": {
       "take_id": "2ebefd1f8f709561a6f3656ae697ca731b9320e41936f92da3edde7811d68c8c",
       "approved_at": "2026-10-26T18:46:31Z",
@@ -301865,11 +302168,6 @@
       "take_id": "fc02f82883e191b20381b93ad7b123ed5a8a17a1e87fca89a1761cc2d9ebb9ae",
       "approved_at": "2026-10-26T18:46:31Z",
       "approval_note": "Reuse the exact user-approved recording for self-contained ordinary listening; speech, speaker, delivery and bytes unchanged."
-    },
-    "a1plus-unit-1-lesson-1-8-c016-prompt-baecce3141b1b255fd78": {
-      "take_id": "c3dd1d28ce8313caa8bce3576d5fc4470877e4f3bf566aa44e3dcfa7563eb4aa",
-      "approved_at": "2026-11-18T16:41:29.306310+00:00",
-      "approval_note": "Installed after explicit listening review of these exact bytes."
     },
     "a1plus-unit-1-lesson-1-8-c016-prompt-turn-1-c04910e8fefaa633b4dc": {
       "take_id": "3c9b769e595e259d434daf0500e72252e8173219d634430e7a34c8dcc0afac78",
@@ -301883,11 +302181,6 @@
       "approval_note": "Exact user-approved listening batch 9cef93eed5196982ee92612d321fd5dbbb23b2483c9e1dd28d60e673623e9704; unchanged provider bytes.",
       "batch_reviewed_at": "2026-10-26T18:46:31Z"
     },
-    "a1plus-unit-1-lesson-1-8-c017-prompt-b42e70bbd38c5a9af6af": {
-      "take_id": "a62cc5b98def3a4237b4ef3350723dfb37a40d467a05e4c4b610a96c0aa4497e",
-      "approved_at": "2026-11-18T16:46:43.659388+00:00",
-      "approval_note": "Installed after explicit listening review of these exact bytes."
-    },
     "a1plus-unit-1-lesson-1-8-c017-prompt-turn-1-44d2fb5a7a8d1cc4c15c": {
       "take_id": "8532515fcefaf7ac051afba509b54cad669c1d7b4515c46e7837fc0022f8bdb4",
       "approved_at": "2026-10-26T18:46:31Z",
@@ -301898,11 +302191,6 @@
       "take_id": "1630be4ae04639dd43586844970aa4da3ad56c47631eb41f665327bfd638097a",
       "approved_at": "2026-10-26T18:46:31Z",
       "approval_note": "Reuse the exact user-approved recording for self-contained ordinary listening; speech, speaker, delivery and bytes unchanged."
-    },
-    "a1plus-unit-1-lesson-1-8-c018-prompt-b98017028060b05c1a95": {
-      "take_id": "8168c5145789cef03eb32f7db4f23679ba6d3b5cea7fadb84092303e79d7ce36",
-      "approved_at": "2026-11-18T16:42:09.293104+00:00",
-      "approval_note": "Installed after explicit listening review of these exact bytes."
     },
     "a1plus-unit-1-lesson-1-8-c018-prompt-turn-1-d6ddadad2966e26127be": {
       "take_id": "8e654a6d98053cbad9ac4b9fd835c1a5a7e9999f2d85f3d6f48da4d2ee7afdd1",
@@ -301916,11 +302204,6 @@
       "approval_note": "Exact user-approved listening batch 9cef93eed5196982ee92612d321fd5dbbb23b2483c9e1dd28d60e673623e9704; unchanged provider bytes.",
       "batch_reviewed_at": "2026-10-26T18:46:31Z"
     },
-    "a1plus-unit-1-lesson-1-8-c019-prompt-d0c0d9064ccab816ba13": {
-      "take_id": "4b9b1a1de144d7fa2fbf3ff5cdb53d44e89713d19b39941d6a2f8459cf11c32d",
-      "approved_at": "2026-11-18T16:45:34.120807+00:00",
-      "approval_note": "Installed after explicit listening review of these exact bytes."
-    },
     "a1plus-unit-1-lesson-1-8-c019-prompt-turn-1-954ec12d7cbe73865d80": {
       "take_id": "363fcdbce06c4122b1280a67dd39497bc52f37bfb0e50d93b7dfbb7ef5139ebf",
       "approved_at": "2026-10-26T18:46:31Z",
@@ -301931,11 +302214,6 @@
       "approved_at": "2026-10-26T18:46:31Z",
       "approval_note": "Exact user-approved listening batch 9cef93eed5196982ee92612d321fd5dbbb23b2483c9e1dd28d60e673623e9704; unchanged provider bytes.",
       "batch_reviewed_at": "2026-10-26T18:46:31Z"
-    },
-    "a1plus-unit-1-lesson-1-8-c020-prompt-35c99661cc612e52c067": {
-      "take_id": "53d36fd9f2159a9ba62bb2568470f89f2e56607cf96410b000fcb8c0ef4eff5a",
-      "approved_at": "2026-11-18T16:41:42.509251+00:00",
-      "approval_note": "Installed after explicit listening review of these exact bytes."
     },
     "a1plus-unit-1-lesson-1-8-c020-prompt-turn-1-1cc45329c301b78ac926": {
       "take_id": "22b7e8e1f8b68e8ce9ae6e48e0fe1c15043726e2eacfe6ea0cfcc125f350428e",
@@ -301949,11 +302227,6 @@
       "approval_note": "Exact user-approved listening batch 9cef93eed5196982ee92612d321fd5dbbb23b2483c9e1dd28d60e673623e9704; unchanged provider bytes.",
       "batch_reviewed_at": "2026-10-26T18:46:31Z"
     },
-    "a1plus-unit-1-lesson-1-8-c021-prompt-3d8ddf0488a6f66418b5": {
-      "take_id": "7399f5e41ca8d5aabcca829409c8ec743fe44925652bc85b049cee0db4f8fed6",
-      "approved_at": "2026-11-18T16:46:02.017644+00:00",
-      "approval_note": "Installed after explicit listening review of these exact bytes."
-    },
     "a1plus-unit-1-lesson-1-8-c021-prompt-turn-1-460036d824138834b8b5": {
       "take_id": "fac40f1cb80e76c2404594cd95fff38b1881d7619cfedce462185ec63581d405",
       "approved_at": "2026-10-26T18:46:31Z",
@@ -301964,11 +302237,6 @@
       "take_id": "54bff7fcd1d3df0e2e880a7c8e1bf5bdd716b24614c8fc4f018a4f716be4c641",
       "approved_at": "2026-10-26T18:46:31Z",
       "approval_note": "Reuse the exact user-approved recording for self-contained ordinary listening; speech, speaker, delivery and bytes unchanged."
-    },
-    "a1plus-unit-1-lesson-1-8-c022-prompt-2d90ca324bb7db2a637f": {
-      "take_id": "265feaa4fad925f1b3f2d986734df84bb2273ee510f0f9b7e20cf02123309dc2",
-      "approved_at": "2026-11-18T16:44:08.575403+00:00",
-      "approval_note": "Installed after explicit listening review of these exact bytes."
     },
     "a1plus-unit-1-lesson-1-8-c022-prompt-turn-1-a8b68d5ab20228a4152e": {
       "take_id": "edca9b3a14dc06555a2f726b441c220a871d96200bde1a562a0966ac0ef30909",
@@ -301982,11 +302250,6 @@
       "approval_note": "Exact user-approved listening batch 9cef93eed5196982ee92612d321fd5dbbb23b2483c9e1dd28d60e673623e9704; unchanged provider bytes.",
       "batch_reviewed_at": "2026-10-26T18:46:31Z"
     },
-    "a1plus-unit-1-lesson-1-8-c023-prompt-e8e233bca8b681440333": {
-      "take_id": "8168c5145789cef03eb32f7db4f23679ba6d3b5cea7fadb84092303e79d7ce36",
-      "approved_at": "2026-11-18T16:42:09.293104+00:00",
-      "approval_note": "Installed after explicit listening review of these exact bytes."
-    },
     "a1plus-unit-1-lesson-1-8-c023-prompt-turn-1-03185da70a68a21b9ff5": {
       "take_id": "018c3fb7d09d0b5b21cbea10ebde88f7a105fb9f26f1c16d85e98ea3f58f9659",
       "approved_at": "2026-10-26T18:46:31Z",
@@ -301997,11 +302260,6 @@
       "approved_at": "2026-10-26T18:46:31Z",
       "approval_note": "Exact user-approved listening batch 9cef93eed5196982ee92612d321fd5dbbb23b2483c9e1dd28d60e673623e9704; unchanged provider bytes.",
       "batch_reviewed_at": "2026-10-26T18:46:31Z"
-    },
-    "a1plus-unit-1-lesson-1-8-c024-prompt-61b74bd7a9c966ac2c5f": {
-      "take_id": "7a866c8699b2798825daa736e94eeea90e64d1813053ff5a241f524c22163600",
-      "approved_at": "2026-11-18T16:42:55.626872+00:00",
-      "approval_note": "Installed after explicit listening review of these exact bytes."
     },
     "a1plus-unit-1-lesson-1-8-c024-prompt-turn-1-8b5effa8c0b2e161599b": {
       "take_id": "d751e1e8314240a3514bfff9c5722dc3a58ab28b42edbeda977891b2651659ba",
@@ -302014,11 +302272,6 @@
       "approved_at": "2026-10-26T18:46:31Z",
       "approval_note": "Exact user-approved listening batch 9cef93eed5196982ee92612d321fd5dbbb23b2483c9e1dd28d60e673623e9704; unchanged provider bytes.",
       "batch_reviewed_at": "2026-10-26T18:46:31Z"
-    },
-    "a1plus-unit-1-lesson-1-8-c025-prompt-fecb27980b7a5447eed9": {
-      "take_id": "914be5193af8c8d23e37b217c61b51a8fb2d686f3a773a51fc2e4d8a501770e2",
-      "approved_at": "2026-11-18T16:42:42.017899+00:00",
-      "approval_note": "Installed after explicit listening review of these exact bytes."
     },
     "a1plus-unit-1-lesson-1-8-c025-prompt-turn-1-4fc2d7945f834fd0b936": {
       "take_id": "c53e8e15688d5e912db4c4de51c411b70b0ba14f7f340a9dad7f89ea4590ba0e",
@@ -302037,21 +302290,11 @@
       "approval_note": "Exact user-approved listening batch 9cef93eed5196982ee92612d321fd5dbbb23b2483c9e1dd28d60e673623e9704; unchanged provider bytes.",
       "batch_reviewed_at": "2026-10-26T18:46:31Z"
     },
-    "a1plus-unit-1-lesson-1-8-c026-prompt-turn-1-9827d44636918ea1afee": {
-      "take_id": "2e20f1e05f1d1661869c00ea0b4fdb2df8354bbe1af6259386e60a6af08e6ee0",
-      "approved_at": "2026-11-18T16:44:38.068133+00:00",
-      "approval_note": "Installed after explicit listening review of these exact bytes."
-    },
     "a1plus-unit-1-lesson-1-8-c027-prompt-turn-1-050d377d2fd32a6ebe8b": {
       "take_id": "f04c80f940ca912044bf3fa0cfd559d1e66f5511215d48453b7cddd7d6c2a09b",
       "approved_at": "2026-10-26T18:46:31Z",
       "approval_note": "Exact user-approved listening batch 9cef93eed5196982ee92612d321fd5dbbb23b2483c9e1dd28d60e673623e9704; unchanged provider bytes.",
       "batch_reviewed_at": "2026-10-26T18:46:31Z"
-    },
-    "a1plus-unit-1-lesson-1-8-c027-prompt-turn-1-9085404f4c88072994e2": {
-      "take_id": "a35b0ba5b521ec97078a9124cb2b28caeb4a8deaabce3bdd625ab1c7231ad563",
-      "approved_at": "2026-11-18T16:46:15.904247+00:00",
-      "approval_note": "Installed after explicit listening review of these exact bytes."
     },
     "a1plus-unit-1-lesson-1-8-c028-prompt-turn-1-ce56b0d3796893e06f21": {
       "take_id": "0c5ec94fe1d5284e00ac47ed92ae6d8b5ec9d956385109406280abb2a0430e04",
@@ -302059,21 +302302,11 @@
       "approval_note": "Exact user-approved listening batch 9cef93eed5196982ee92612d321fd5dbbb23b2483c9e1dd28d60e673623e9704; unchanged provider bytes.",
       "batch_reviewed_at": "2026-10-26T18:46:31Z"
     },
-    "a1plus-unit-1-lesson-1-8-c028-prompt-turn-1-e37a65eb81fc7e40c4e8": {
-      "take_id": "50e11cb5943e14968e0619434dcb186efe6e73e56d2aba2f1e17659ea2a1acb3",
-      "approved_at": "2026-11-18T16:43:54.346354+00:00",
-      "approval_note": "Installed after explicit listening review of these exact bytes."
-    },
     "a1plus-unit-1-lesson-1-8-c029-prompt-turn-1-c3e507a6afd4252ffe6f": {
       "take_id": "a9b0f8d24b7bb160c7056227a441000aeffa8b79fb18d6e5a70b9933f8de4e37",
       "approved_at": "2026-10-26T18:46:31Z",
       "approval_note": "Exact user-approved listening batch 9cef93eed5196982ee92612d321fd5dbbb23b2483c9e1dd28d60e673623e9704; unchanged provider bytes.",
       "batch_reviewed_at": "2026-10-26T18:46:31Z"
-    },
-    "a1plus-unit-1-lesson-1-8-c029-prompt-turn-1-f0599fdba90314913696": {
-      "take_id": "5b5e7aa46904a9cd28c714ec70dfa60ad112f3e268ab5bc90e713dfb053b6f2c",
-      "approved_at": "2026-11-18T16:42:27.382041+00:00",
-      "approval_note": "Installed after explicit listening review of these exact bytes."
     },
     "a1plus-unit-1-lesson-1-8-c030-prompt-turn-1-509a780b4ff0f2d5abfb": {
       "take_id": "09cf315a45462b922492934728161824bc20e8d71a88cc91e8c562a73c1ea120",
@@ -302081,26 +302314,11 @@
       "approval_note": "Exact user-approved listening batch 9cef93eed5196982ee92612d321fd5dbbb23b2483c9e1dd28d60e673623e9704; unchanged provider bytes.",
       "batch_reviewed_at": "2026-10-26T18:46:31Z"
     },
-    "a1plus-unit-1-lesson-1-8-c030-prompt-turn-1-8130f5dd434cffd54ac6": {
-      "take_id": "8e439e9ba10b8da260b4940445a978a330c4de78a7302a3ca9b23997543ef759",
-      "approved_at": "2026-11-18T16:46:29.882704+00:00",
-      "approval_note": "Installed after explicit listening review of these exact bytes."
-    },
     "a1plus-unit-1-lesson-1-8-c031-prompt-turn-1-0bf31399c7a528b3f138": {
       "take_id": "9171f1e9871d901724e03635dccf5c5e54c4dfe000ca8805744435caddc1c458",
       "approved_at": "2026-10-26T18:46:31Z",
       "approval_note": "Exact user-approved listening batch 9cef93eed5196982ee92612d321fd5dbbb23b2483c9e1dd28d60e673623e9704; unchanged provider bytes.",
       "batch_reviewed_at": "2026-10-26T18:46:31Z"
-    },
-    "a1plus-unit-1-lesson-1-8-c031-prompt-turn-1-485e0ef6e06123fa1a41": {
-      "take_id": "b19becb6e1deed0dc14fae5298a3ea12dbf2ce581cf2deeba9fc3cbf05cb3ad7",
-      "approved_at": "2026-11-18T16:41:55.652230+00:00",
-      "approval_note": "Installed after explicit listening review of these exact bytes."
-    },
-    "a1plus-unit-1-lesson-1-8-c032-prompt-turn-1-4377fe9a3743abd72537": {
-      "take_id": "71527de45d6a731f10c725804ba66615917328af80ccde1845b5e41b236f017d",
-      "approved_at": "2026-11-18T16:43:17.399387+00:00",
-      "approval_note": "Installed after explicit listening review of these exact bytes."
     },
     "a1plus-unit-1-lesson-1-8-c032-prompt-turn-1-6d24d83d12e985c4aa52": {
       "take_id": "50b735351937d882aaafe02f07728d172ae896183100ea476d1cdc29f716d943",
@@ -302108,26 +302326,11 @@
       "approval_note": "Exact user-approved listening batch 9cef93eed5196982ee92612d321fd5dbbb23b2483c9e1dd28d60e673623e9704; unchanged provider bytes.",
       "batch_reviewed_at": "2026-10-26T18:46:31Z"
     },
-    "a1plus-unit-1-lesson-1-8-c033-prompt-turn-1-791b539222e63825021e": {
-      "take_id": "7a757a92e3b4fa274697c187c24568803ff4cb1656e7919f8a8a2872f7e45d79",
-      "approved_at": "2026-11-18T16:45:48.163446+00:00",
-      "approval_note": "Installed after explicit listening review of these exact bytes."
-    },
     "a1plus-unit-1-lesson-1-8-c033-prompt-turn-1-912963bc45321f2ceaac": {
       "take_id": "2261e477369c678c2f83ab92d4c0a4a44f09034689b94ac0c7893258963c95af",
       "approved_at": "2026-10-26T18:46:31Z",
       "approval_note": "Exact user-approved listening batch 9cef93eed5196982ee92612d321fd5dbbb23b2483c9e1dd28d60e673623e9704; unchanged provider bytes.",
       "batch_reviewed_at": "2026-10-26T18:46:31Z"
-    },
-    "a1plus-unit-1-lesson-1-8-c034-answer-9facf7010021445ad20b": {
-      "take_id": "e38c92e379bb4a2e6808b6b9e5db378a5d00dcf3f6ad3ae7921394c2305254c2",
-      "approved_at": "2026-11-18T16:44:23.872868+00:00",
-      "approval_note": "Installed after explicit listening review of these exact bytes."
-    },
-    "a1plus-unit-1-lesson-1-8-c034-prompt-7c1c8058de8f28654675": {
-      "take_id": "e38c92e379bb4a2e6808b6b9e5db378a5d00dcf3f6ad3ae7921394c2305254c2",
-      "approved_at": "2026-11-18T16:44:23.872868+00:00",
-      "approval_note": "Installed after explicit listening review of these exact bytes."
     },
     "a1plus-unit-1-lesson-1-8-c034-prompt-turn-1-4af6e62919734e6bac17": {
       "take_id": "27763a4387cb15490bd38a3881dddd32d4d843612f131161a80e504b81adbf70",
@@ -302135,31 +302338,11 @@
       "approval_note": "Exact user-approved listening batch 9cef93eed5196982ee92612d321fd5dbbb23b2483c9e1dd28d60e673623e9704; unchanged provider bytes.",
       "batch_reviewed_at": "2026-10-26T18:46:31Z"
     },
-    "a1plus-unit-1-lesson-1-8-c035-answer-277459d3d2a8bae98d13": {
-      "take_id": "c3dd1d28ce8313caa8bce3576d5fc4470877e4f3bf566aa44e3dcfa7563eb4aa",
-      "approved_at": "2026-11-18T16:41:29.306310+00:00",
-      "approval_note": "Installed after explicit listening review of these exact bytes."
-    },
-    "a1plus-unit-1-lesson-1-8-c035-prompt-e018d1c3f1c97fa23152": {
-      "take_id": "c3dd1d28ce8313caa8bce3576d5fc4470877e4f3bf566aa44e3dcfa7563eb4aa",
-      "approved_at": "2026-11-18T16:41:29.306310+00:00",
-      "approval_note": "Installed after explicit listening review of these exact bytes."
-    },
     "a1plus-unit-1-lesson-1-8-c035-prompt-turn-1-79614681ec3c9e165a3b": {
       "take_id": "12b60342b857c641cc4087836975038620de95265ea1382f7cba3e61fb0eccbd",
       "approved_at": "2026-10-26T18:46:31Z",
       "approval_note": "Exact user-approved listening batch 9cef93eed5196982ee92612d321fd5dbbb23b2483c9e1dd28d60e673623e9704; unchanged provider bytes.",
       "batch_reviewed_at": "2026-10-26T18:46:31Z"
-    },
-    "a1plus-unit-1-lesson-1-8-c036-answer-52a819ca64eaee17b636": {
-      "take_id": "1b52a243eed6448a839d4c881596b935c4c5b385c7750f4eb7e9574b8438830f",
-      "approved_at": "2026-11-18T16:43:35.257061+00:00",
-      "approval_note": "Installed after explicit listening review of these exact bytes."
-    },
-    "a1plus-unit-1-lesson-1-8-c036-prompt-d2643d09c234888c5334": {
-      "take_id": "1b52a243eed6448a839d4c881596b935c4c5b385c7750f4eb7e9574b8438830f",
-      "approved_at": "2026-11-18T16:43:35.257061+00:00",
-      "approval_note": "Installed after explicit listening review of these exact bytes."
     },
     "a1plus-unit-1-lesson-1-8-c036-prompt-turn-1-871797071a3094f38b7e": {
       "take_id": "24db4e3a60999832da468b889c744fd807e617b79dd11a5e22b9c7787fb36369",
@@ -302167,31 +302350,11 @@
       "approval_note": "Exact user-approved listening batch 9cef93eed5196982ee92612d321fd5dbbb23b2483c9e1dd28d60e673623e9704; unchanged provider bytes.",
       "batch_reviewed_at": "2026-10-26T18:46:31Z"
     },
-    "a1plus-unit-1-lesson-1-8-c037-answer-d99232103a0692842e82": {
-      "take_id": "b6f5fdc765755e58386beb9f21c3ec56c33ee5b69b8c4df59e3f0fbcef31c7da",
-      "approved_at": "2026-11-18T16:46:57.574050+00:00",
-      "approval_note": "Installed after explicit listening review of these exact bytes."
-    },
-    "a1plus-unit-1-lesson-1-8-c037-prompt-f87c672f4775511c8455": {
-      "take_id": "b6f5fdc765755e58386beb9f21c3ec56c33ee5b69b8c4df59e3f0fbcef31c7da",
-      "approved_at": "2026-11-18T16:46:57.574050+00:00",
-      "approval_note": "Installed after explicit listening review of these exact bytes."
-    },
     "a1plus-unit-1-lesson-1-8-c037-prompt-turn-1-a52e539c8a1ee9819eb9": {
       "take_id": "fbd735211dae6f2e18819d43ba90247183cae01fceaaf8b4aa855e4e837c9c1d",
       "approved_at": "2026-10-26T18:46:31Z",
       "approval_note": "Exact user-approved listening batch 9cef93eed5196982ee92612d321fd5dbbb23b2483c9e1dd28d60e673623e9704; unchanged provider bytes.",
       "batch_reviewed_at": "2026-10-26T18:46:31Z"
-    },
-    "a1plus-unit-1-lesson-1-8-c038-answer-ef6e04e30f655f6c7d54": {
-      "take_id": "53d36fd9f2159a9ba62bb2568470f89f2e56607cf96410b000fcb8c0ef4eff5a",
-      "approved_at": "2026-11-18T16:41:42.509251+00:00",
-      "approval_note": "Installed after explicit listening review of these exact bytes."
-    },
-    "a1plus-unit-1-lesson-1-8-c038-prompt-7a3f935f270b346efda2": {
-      "take_id": "53d36fd9f2159a9ba62bb2568470f89f2e56607cf96410b000fcb8c0ef4eff5a",
-      "approved_at": "2026-11-18T16:41:42.509251+00:00",
-      "approval_note": "Installed after explicit listening review of these exact bytes."
     },
     "a1plus-unit-1-lesson-1-8-c038-prompt-turn-1-03b17f32e939a8c8cc84": {
       "take_id": "3e03c58f4b20a3b6a3a80165977ecf69c82bdee1ecf34a590b96780ce2d6a5cb",
@@ -302199,21 +302362,11 @@
       "approval_note": "Exact user-approved listening batch 9cef93eed5196982ee92612d321fd5dbbb23b2483c9e1dd28d60e673623e9704; unchanged provider bytes.",
       "batch_reviewed_at": "2026-10-26T18:46:31Z"
     },
-    "a1plus-unit-1-lesson-1-8-c039-answer-d1861d5603f6f1c454d8": {
-      "take_id": "a62cc5b98def3a4237b4ef3350723dfb37a40d467a05e4c4b610a96c0aa4497e",
-      "approved_at": "2026-11-18T16:46:43.659388+00:00",
-      "approval_note": "Installed after explicit listening review of these exact bytes."
-    },
     "a1plus-unit-1-lesson-1-8-c039-answer-turn-1-a64217c7af6c2bb82c49": {
       "take_id": "bb880bad14affab5796880bf74c181125870d98471d167a5f6c5b0e33c0d56b7",
       "approved_at": "2026-10-26T18:46:31Z",
       "approval_note": "Exact user-approved listening batch 9cef93eed5196982ee92612d321fd5dbbb23b2483c9e1dd28d60e673623e9704; unchanged provider bytes.",
       "batch_reviewed_at": "2026-10-26T18:46:31Z"
-    },
-    "a1plus-unit-1-lesson-1-8-c039-prompt-f85dc9beb137524dcd07": {
-      "take_id": "a62cc5b98def3a4237b4ef3350723dfb37a40d467a05e4c4b610a96c0aa4497e",
-      "approved_at": "2026-11-18T16:46:43.659388+00:00",
-      "approval_note": "Installed after explicit listening review of these exact bytes."
     },
     "a1plus-unit-1-lesson-1-8-c039-prompt-turn-1-3c7973f5a03c13003a12": {
       "take_id": "bb880bad14affab5796880bf74c181125870d98471d167a5f6c5b0e33c0d56b7",
@@ -302221,21 +302374,11 @@
       "approval_note": "Exact user-approved listening batch 9cef93eed5196982ee92612d321fd5dbbb23b2483c9e1dd28d60e673623e9704; unchanged provider bytes.",
       "batch_reviewed_at": "2026-10-26T18:46:31Z"
     },
-    "a1plus-unit-1-lesson-1-8-c040-answer-b8d4a250ee2b3b9521b0": {
-      "take_id": "7a866c8699b2798825daa736e94eeea90e64d1813053ff5a241f524c22163600",
-      "approved_at": "2026-11-18T16:42:55.626872+00:00",
-      "approval_note": "Installed after explicit listening review of these exact bytes."
-    },
     "a1plus-unit-1-lesson-1-8-c040-answer-turn-1-4823dcc8e644d4236dbf": {
       "take_id": "3750bc1f438915f9dac6e6ef1e76d256b0fd9f93d54246d5234b149e257052fe",
       "approved_at": "2026-10-26T18:46:31Z",
       "approval_note": "Exact user-approved listening batch 9cef93eed5196982ee92612d321fd5dbbb23b2483c9e1dd28d60e673623e9704; unchanged provider bytes.",
       "batch_reviewed_at": "2026-10-26T18:46:31Z"
-    },
-    "a1plus-unit-1-lesson-1-8-c040-prompt-10f3cbc7dce116eca696": {
-      "take_id": "7a866c8699b2798825daa736e94eeea90e64d1813053ff5a241f524c22163600",
-      "approved_at": "2026-11-18T16:42:55.626872+00:00",
-      "approval_note": "Installed after explicit listening review of these exact bytes."
     },
     "a1plus-unit-1-lesson-1-8-c040-prompt-turn-1-d935f0afe28fcd2ae044": {
       "take_id": "3750bc1f438915f9dac6e6ef1e76d256b0fd9f93d54246d5234b149e257052fe",
@@ -302243,21 +302386,11 @@
       "approval_note": "Exact user-approved listening batch 9cef93eed5196982ee92612d321fd5dbbb23b2483c9e1dd28d60e673623e9704; unchanged provider bytes.",
       "batch_reviewed_at": "2026-10-26T18:46:31Z"
     },
-    "a1plus-unit-1-lesson-1-8-c041-answer-ef0fcd1adfc2c68725df": {
-      "take_id": "e191c4897c4c515b39d869718333664f90c52904cdb71de10876da12287ce0fb",
-      "approved_at": "2026-11-18T16:41:15.646450+00:00",
-      "approval_note": "Installed after explicit listening review of these exact bytes."
-    },
     "a1plus-unit-1-lesson-1-8-c041-answer-turn-1-dc7118c8d6d02c2e2b30": {
       "take_id": "fc02f82883e191b20381b93ad7b123ed5a8a17a1e87fca89a1761cc2d9ebb9ae",
       "approved_at": "2026-10-26T18:46:31Z",
       "approval_note": "Exact user-approved listening batch 9cef93eed5196982ee92612d321fd5dbbb23b2483c9e1dd28d60e673623e9704; unchanged provider bytes.",
       "batch_reviewed_at": "2026-10-26T18:46:31Z"
-    },
-    "a1plus-unit-1-lesson-1-8-c041-prompt-9c3ad6bdf9bc2710aa21": {
-      "take_id": "e191c4897c4c515b39d869718333664f90c52904cdb71de10876da12287ce0fb",
-      "approved_at": "2026-11-18T16:41:15.646450+00:00",
-      "approval_note": "Installed after explicit listening review of these exact bytes."
     },
     "a1plus-unit-1-lesson-1-8-c041-prompt-turn-1-4373c720e95c0f648946": {
       "take_id": "fc02f82883e191b20381b93ad7b123ed5a8a17a1e87fca89a1761cc2d9ebb9ae",
@@ -400546,9 +400679,19 @@
       "approved_at": "2026-11-16T15:43:27.616815+00:00",
       "approval_note": "Installed after explicit listening review of these exact bytes."
     },
+    "lesson-7-9-more-feelings-c001-answer-4038898d0aa65dac07ff": {
+      "take_id": "92417246fbbab6ea46c461bfac7fd408084f9279c34378f6875d45b22a1411a5",
+      "approved_at": "2026-11-18T14:49:25.679610+00:00",
+      "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
     "lesson-7-9-more-feelings-c001-answer-ca1ee470b108adfd98ad": {
       "take_id": "1d09192ef2ea9b43b3c8bbd13d99ea8b78a9dbde836ac2cb748303a4448876fe",
       "approved_at": "2026-11-16T15:44:51.868799+00:00",
+      "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
+    "lesson-7-9-more-feelings-c001-prompt-b1362f55f6c5ed03a17b": {
+      "take_id": "92417246fbbab6ea46c461bfac7fd408084f9279c34378f6875d45b22a1411a5",
+      "approved_at": "2026-11-18T14:49:25.679610+00:00",
       "approval_note": "Installed after explicit listening review of these exact bytes."
     },
     "lesson-7-9-more-feelings-c001-prompt-d7756ab61ae4d42d18f0": {
@@ -400561,10 +400704,25 @@
       "approved_at": "2026-11-16T15:46:31.877287+00:00",
       "approval_note": "Installed after explicit listening review of these exact bytes."
     },
+    "lesson-7-9-more-feelings-c002-answer-b467564cdee29d27cb45": {
+      "take_id": "30d56f15fa9fe5a3f3baf47090c6f0297bce5bbf02ec89db752d1a0499c83f02",
+      "approved_at": "2026-11-18T14:48:03.174027+00:00",
+      "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
     "lesson-7-9-more-feelings-c002-prompt-0bdb432fd1da542d6ab8": {
       "take_id": "f112de6fa6939daf768646cfb47ccdc7930ee3c297cba608122cc846a3d56ea8",
       "approved_at": "2026-11-16T15:46:31.877287+00:00",
       "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
+    "lesson-7-9-more-feelings-c002-prompt-f77b1b4aaea1f97677e5": {
+      "take_id": "30d56f15fa9fe5a3f3baf47090c6f0297bce5bbf02ec89db752d1a0499c83f02",
+      "approved_at": "2026-11-18T14:48:03.174027+00:00",
+      "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
+    "lesson-7-9-more-feelings-c003-answer-4850fbff091f5ea7d83d": {
+      "take_id": "1d09192ef2ea9b43b3c8bbd13d99ea8b78a9dbde836ac2cb748303a4448876fe",
+      "approved_at": "2026-11-16T15:44:51.868799+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
     "lesson-7-9-more-feelings-c003-answer-4f780651c4ac76bbeb54": {
       "take_id": "8d9e260b89772d0dc9f01a263d536ffe575cdc0dbf6a50f1e4b9365ed9c296f2",
@@ -400574,6 +400732,11 @@
     "lesson-7-9-more-feelings-c003-answer-e5b06625f23e1b8f3b51": {
       "take_id": "8d9e260b89772d0dc9f01a263d536ffe575cdc0dbf6a50f1e4b9365ed9c296f2",
       "approved_at": "2026-11-16T15:39:49.966748+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-7-9-more-feelings-c003-prompt-3f3bbc1df4cb6de84700": {
+      "take_id": "1d09192ef2ea9b43b3c8bbd13d99ea8b78a9dbde836ac2cb748303a4448876fe",
+      "approved_at": "2026-11-16T15:44:51.868799+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
     "lesson-7-9-more-feelings-c003-prompt-49203e0552daff707114": {
@@ -400596,6 +400759,16 @@
       "approved_at": "2026-11-16T15:53:09.464924+00:00",
       "approval_note": "Installed after explicit listening review of these exact bytes."
     },
+    "lesson-7-9-more-feelings-c004-answer-3ffa2c4b5fe6fc099f88": {
+      "take_id": "f112de6fa6939daf768646cfb47ccdc7930ee3c297cba608122cc846a3d56ea8",
+      "approved_at": "2026-11-16T15:46:31.877287+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-7-9-more-feelings-c004-prompt-037011eafec4800c7222": {
+      "take_id": "f112de6fa6939daf768646cfb47ccdc7930ee3c297cba608122cc846a3d56ea8",
+      "approved_at": "2026-11-16T15:46:31.877287+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
     "lesson-7-9-more-feelings-c004-prompt-36dee0bd741028534901": {
       "take_id": "ee9c1da896b5a351926d2a853700f68ece89da6a19ad9a94e0db0072c5cf5afa",
       "approved_at": "2026-11-16T15:53:09.464924+00:00",
@@ -400610,6 +400783,11 @@
       "take_id": "22523af3e113ae84cd26ae4ff70de311651d0acb28999638a7c1074866397163",
       "approved_at": "2026-11-16T15:26:53.785737+00:00",
       "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
+    "lesson-7-9-more-feelings-c005-answer-6e8a658577e83e1c1971": {
+      "take_id": "8d9e260b89772d0dc9f01a263d536ffe575cdc0dbf6a50f1e4b9365ed9c296f2",
+      "approved_at": "2026-11-16T15:39:49.966748+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
     "lesson-7-9-more-feelings-c005-answer-d0347002152239dbda56": {
       "take_id": "22523af3e113ae84cd26ae4ff70de311651d0acb28999638a7c1074866397163",
@@ -400626,20 +400804,45 @@
       "approved_at": "2026-11-16T15:26:53.785737+00:00",
       "approval_note": "Installed after explicit listening review of these exact bytes."
     },
+    "lesson-7-9-more-feelings-c005-prompt-93bb9c6c2f6bf9fc65ea": {
+      "take_id": "8d9e260b89772d0dc9f01a263d536ffe575cdc0dbf6a50f1e4b9365ed9c296f2",
+      "approved_at": "2026-11-16T15:39:49.966748+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
     "lesson-7-9-more-feelings-c006-answer-7673a61ca764affd865b": {
       "take_id": "c3a209c988c183ad9019ada4cde6bed4aaccf9f7180825c41af23c855cb49eb3",
       "approved_at": "2026-11-16T15:45:08.318014+00:00",
       "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
+    "lesson-7-9-more-feelings-c006-answer-f9ae8e2c3302ab0b3a60": {
+      "take_id": "ee9c1da896b5a351926d2a853700f68ece89da6a19ad9a94e0db0072c5cf5afa",
+      "approved_at": "2026-11-16T15:53:09.464924+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-7-9-more-feelings-c006-prompt-8161bba59da8e6713c2f": {
+      "take_id": "ee9c1da896b5a351926d2a853700f68ece89da6a19ad9a94e0db0072c5cf5afa",
+      "approved_at": "2026-11-16T15:53:09.464924+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
     "lesson-7-9-more-feelings-c006-prompt-99dfc79f88689765cf3a": {
       "take_id": "b65d6ecc381dae3bce13907ebc999cba97779b59b92bad9eb59221c0f7cbf15a",
       "approved_at": "2026-11-16T15:54:34.346087+00:00",
       "approval_note": "Installed after explicit listening review of these exact bytes."
     },
+    "lesson-7-9-more-feelings-c007-answer-fa32cecc9eb7350caf15": {
+      "take_id": "22523af3e113ae84cd26ae4ff70de311651d0acb28999638a7c1074866397163",
+      "approved_at": "2026-11-16T15:26:53.785737+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
     "lesson-7-9-more-feelings-c007-answer-fe515e3bbb58738806db": {
       "take_id": "dd8bc7e72e45aabda1ac6edbfbe301370775858e2f3d9d30688a1ce45f1f5585",
       "approved_at": "2026-11-16T15:46:48.426459+00:00",
       "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
+    "lesson-7-9-more-feelings-c007-prompt-2257f45ebf8661cffe53": {
+      "take_id": "22523af3e113ae84cd26ae4ff70de311651d0acb28999638a7c1074866397163",
+      "approved_at": "2026-11-16T15:26:53.785737+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
     "lesson-7-9-more-feelings-c007-prompt-82039f3ad7a428e01aa8": {
       "take_id": "15dd664b96ef45b5d8f5e43c4c9310067d947c66bb49af9cdb75ef967163d9bf",
@@ -400655,6 +400858,16 @@
       "take_id": "8ae2acbe2a115e3083dd7a21cbed57946ad8180c71d24b25c2ef6e9af48da40f",
       "approved_at": "2026-11-16T16:05:34.915230+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-7-9-more-feelings-c008-answer-e7ee2816c7b3e7493a03": {
+      "take_id": "7b99017f98d27f854454892e265af053f3bb28677978080108574591caa35edc",
+      "approved_at": "2026-11-18T14:48:44.550823+00:00",
+      "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
+    "lesson-7-9-more-feelings-c008-prompt-92d40a732af2f9396634": {
+      "take_id": "7b99017f98d27f854454892e265af053f3bb28677978080108574591caa35edc",
+      "approved_at": "2026-11-18T14:48:44.550823+00:00",
+      "approval_note": "Installed after explicit listening review of these exact bytes."
     },
     "lesson-7-9-more-feelings-c008-prompt-e498085a92990bc5df94": {
       "take_id": "8ae2acbe2a115e3083dd7a21cbed57946ad8180c71d24b25c2ef6e9af48da40f",
@@ -400674,6 +400887,11 @@
     "lesson-7-9-more-feelings-c009-answer-0f6bdd00cb37f540424b": {
       "take_id": "fd0ba494473d6b51664f28c1ef21b080f93f351a5c841bf5cb5ce5cdf42e0741",
       "approved_at": "2026-11-16T15:39:16.629534+00:00",
+      "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
+    "lesson-7-9-more-feelings-c009-answer-248504dcf58edd3847e8": {
+      "take_id": "247ec9f6736344ec26107343a7458b61bcefd14b3c1784547d0bbb495a2996ba",
+      "approved_at": "2026-11-18T14:47:39.658959+00:00",
       "approval_note": "Installed after explicit listening review of these exact bytes."
     },
     "lesson-7-9-more-feelings-c009-prompt-7e291004419ec0ebfbd1": {
@@ -400696,9 +400914,19 @@
       "approved_at": "2026-11-16T16:04:38.973038+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
+    "lesson-7-9-more-feelings-c010-answer-bb30786885d2dccdb447": {
+      "take_id": "c3a209c988c183ad9019ada4cde6bed4aaccf9f7180825c41af23c855cb49eb3",
+      "approved_at": "2026-11-16T15:45:08.318014+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
     "lesson-7-9-more-feelings-c010-prompt-476c9f30b79f031f7a0e": {
       "take_id": "2b5c99d414a28120aa1d49a2d50fb1ad81a8c9b163e30b2e72a589f2dfb7d453",
       "approved_at": "2026-11-16T16:04:38.973038+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-7-9-more-feelings-c010-prompt-4e2ecfde8b5c9bf4c55f": {
+      "take_id": "b65d6ecc381dae3bce13907ebc999cba97779b59b92bad9eb59221c0f7cbf15a",
+      "approved_at": "2026-11-16T15:54:34.346087+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
     "lesson-7-9-more-feelings-c010-prompt-fb7361648813a0ca4f8c": {
@@ -400716,6 +400944,11 @@
       "approved_at": "2026-11-16T15:29:41.411591+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
+    "lesson-7-9-more-feelings-c011-answer-a93801f37bc0e14dfd5c": {
+      "take_id": "dd8bc7e72e45aabda1ac6edbfbe301370775858e2f3d9d30688a1ce45f1f5585",
+      "approved_at": "2026-11-16T15:46:48.426459+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
     "lesson-7-9-more-feelings-c011-prompt-22abaa6b12f5357f5ea8": {
       "take_id": "143d697f9fbddf7482bf17a12d1a36104a7bbbf6cc7c0ca94f1ae0fa2f52c745",
       "approved_at": "2026-11-16T15:29:59.129478+00:00",
@@ -400726,9 +400959,19 @@
       "approved_at": "2026-11-16T15:29:59.129478+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
+    "lesson-7-9-more-feelings-c011-prompt-5f756b36ea2393be5b6c": {
+      "take_id": "15dd664b96ef45b5d8f5e43c4c9310067d947c66bb49af9cdb75ef967163d9bf",
+      "approved_at": "2026-09-01T01:03:04.073224+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
     "lesson-7-9-more-feelings-c012-answer-9172119b7fc54d6a57f7": {
       "take_id": "23762d8a4d4e6b738e5d9011c11104420cb864a9bdcc7690617280ec9cd10d01",
       "approved_at": "2026-11-16T15:54:00.771748+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-7-9-more-feelings-c012-answer-a597e45c6bc0d4c57e52": {
+      "take_id": "8ae2acbe2a115e3083dd7a21cbed57946ad8180c71d24b25c2ef6e9af48da40f",
+      "approved_at": "2026-11-16T16:05:34.915230+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
     "lesson-7-9-more-feelings-c012-answer-cf529f1511b1266e70ea": {
@@ -400741,6 +400984,11 @@
       "approved_at": "2026-11-16T15:54:00.771748+00:00",
       "approval_note": "Installed after explicit listening review of these exact bytes."
     },
+    "lesson-7-9-more-feelings-c012-prompt-3fe7ad8e75b64cc7fa23": {
+      "take_id": "8ae2acbe2a115e3083dd7a21cbed57946ad8180c71d24b25c2ef6e9af48da40f",
+      "approved_at": "2026-11-16T16:05:34.915230+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
     "lesson-7-9-more-feelings-c012-prompt-433641428bba595f9bf8": {
       "take_id": "23762d8a4d4e6b738e5d9011c11104420cb864a9bdcc7690617280ec9cd10d01",
       "approved_at": "2026-11-16T15:54:00.771748+00:00",
@@ -400751,9 +400999,24 @@
       "approved_at": "2026-11-16T15:45:08.318014+00:00",
       "approval_note": "Installed after explicit listening review of these exact bytes."
     },
+    "lesson-7-9-more-feelings-c013-answer-ed82389a12ccc70ed989": {
+      "take_id": "fd0ba494473d6b51664f28c1ef21b080f93f351a5c841bf5cb5ce5cdf42e0741",
+      "approved_at": "2026-11-16T15:39:16.629534+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
     "lesson-7-9-more-feelings-c013-prompt-0e82a55f1f7cb91c7e6e": {
       "take_id": "15dd664b96ef45b5d8f5e43c4c9310067d947c66bb49af9cdb75ef967163d9bf",
       "approved_at": "2026-09-01T01:03:04.073224+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-7-9-more-feelings-c013-prompt-f29df4c9e039de6bcef7": {
+      "take_id": "ffb9fca620d7cf7ec20b718092664f3d25662290cf35827233cb1855752c6fcc",
+      "approved_at": "2026-11-16T15:30:17.234145+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-7-9-more-feelings-c014-answer-9bc87c255480911f0f58": {
+      "take_id": "2b5c99d414a28120aa1d49a2d50fb1ad81a8c9b163e30b2e72a589f2dfb7d453",
+      "approved_at": "2026-11-16T16:04:38.973038+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
     "lesson-7-9-more-feelings-c014-answer-c7ed9df57c336c0df4f6": {
@@ -400766,10 +401029,20 @@
       "approved_at": "2026-11-16T15:54:34.346087+00:00",
       "approval_note": "Installed after explicit listening review of these exact bytes."
     },
+    "lesson-7-9-more-feelings-c014-prompt-a817ee4174305f300d35": {
+      "take_id": "2b5c99d414a28120aa1d49a2d50fb1ad81a8c9b163e30b2e72a589f2dfb7d453",
+      "approved_at": "2026-11-16T16:04:38.973038+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
     "lesson-7-9-more-feelings-c015-answer-05e71f38737fd6ca952e": {
       "take_id": "941c1d8b6c7522035b076c08cc394ae0aa1820e1e104708cd37bea687bfe6a54",
       "approved_at": "2026-11-16T15:39:33.384450+00:00",
       "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
+    "lesson-7-9-more-feelings-c015-answer-5da91f8c12b085f5a070": {
+      "take_id": "c098f85f26b00dfd950d2a86bf926e8d509c3cccabc6c1f96710f8960013f1f3",
+      "approved_at": "2026-11-16T15:29:41.411591+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
     "lesson-7-9-more-feelings-c015-answer-f99a775cc47a6b26c283": {
       "take_id": "941c1d8b6c7522035b076c08cc394ae0aa1820e1e104708cd37bea687bfe6a54",
@@ -400786,10 +401059,20 @@
       "approved_at": "2026-11-16T15:30:17.234145+00:00",
       "approval_note": "Installed after explicit listening review of these exact bytes."
     },
+    "lesson-7-9-more-feelings-c015-prompt-ef6f31d03f520aa0546c": {
+      "take_id": "143d697f9fbddf7482bf17a12d1a36104a7bbbf6cc7c0ca94f1ae0fa2f52c745",
+      "approved_at": "2026-11-16T15:29:59.129478+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
     "lesson-7-9-more-feelings-c016-answer-1e22f949d68a6529c79d": {
       "take_id": "2b5c99d414a28120aa1d49a2d50fb1ad81a8c9b163e30b2e72a589f2dfb7d453",
       "approved_at": "2026-11-16T16:04:38.973038+00:00",
       "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
+    "lesson-7-9-more-feelings-c016-answer-54ae0d9d4d793a6a48e0": {
+      "take_id": "23762d8a4d4e6b738e5d9011c11104420cb864a9bdcc7690617280ec9cd10d01",
+      "approved_at": "2026-11-16T15:54:00.771748+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
     "lesson-7-9-more-feelings-c016-answer-738ccb089c832db57d36": {
       "take_id": "2b5c99d414a28120aa1d49a2d50fb1ad81a8c9b163e30b2e72a589f2dfb7d453",
@@ -400801,9 +401084,19 @@
       "approved_at": "2026-11-16T16:04:38.973038+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
+    "lesson-7-9-more-feelings-c016-prompt-afd83bcf5e351fa17707": {
+      "take_id": "23762d8a4d4e6b738e5d9011c11104420cb864a9bdcc7690617280ec9cd10d01",
+      "approved_at": "2026-11-16T15:54:00.771748+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
     "lesson-7-9-more-feelings-c016-prompt-d99168f3a2829fba2668": {
       "take_id": "2b5c99d414a28120aa1d49a2d50fb1ad81a8c9b163e30b2e72a589f2dfb7d453",
       "approved_at": "2026-11-16T16:04:38.973038+00:00",
+      "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
+    "lesson-7-9-more-feelings-c017-answer-4171a31703fd8aca609f": {
+      "take_id": "7f257e794dee5aafb4b16044472f22bd5957c326b58ba584a721edde9f48dc81",
+      "approved_at": "2026-11-18T14:49:05.391099+00:00",
       "approval_note": "Installed after explicit listening review of these exact bytes."
     },
     "lesson-7-9-more-feelings-c017-answer-65924979e3985099b40a": {
@@ -400821,9 +401114,24 @@
       "approved_at": "2026-11-16T15:46:48.426459+00:00",
       "approval_note": "Installed after explicit listening review of these exact bytes."
     },
+    "lesson-7-9-more-feelings-c018-answer-65276cbd8587c72077aa": {
+      "take_id": "7b99017f98d27f854454892e265af053f3bb28677978080108574591caa35edc",
+      "approved_at": "2026-11-18T14:48:44.550823+00:00",
+      "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
+    "lesson-7-9-more-feelings-c018-prompt-0856591b19427631c963": {
+      "take_id": "7b99017f98d27f854454892e265af053f3bb28677978080108574591caa35edc",
+      "approved_at": "2026-11-18T14:48:44.550823+00:00",
+      "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
     "lesson-7-9-more-feelings-c018-prompt-2e281b363d9fb01514c9": {
       "take_id": "dd8bc7e72e45aabda1ac6edbfbe301370775858e2f3d9d30688a1ce45f1f5585",
       "approved_at": "2026-11-16T15:46:48.426459+00:00",
+      "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
+    "lesson-7-9-more-feelings-c019-answer-37e531dcc4832da661ae": {
+      "take_id": "247ec9f6736344ec26107343a7458b61bcefd14b3c1784547d0bbb495a2996ba",
+      "approved_at": "2026-11-18T14:47:39.658959+00:00",
       "approval_note": "Installed after explicit listening review of these exact bytes."
     },
     "lesson-7-9-more-feelings-c019-answer-69d842a063af9abb50f5": {
@@ -400836,6 +401144,16 @@
       "approved_at": "2026-11-16T15:39:33.384450+00:00",
       "approval_note": "Installed after explicit listening review of these exact bytes."
     },
+    "lesson-7-9-more-feelings-c019-prompt-6e8c79a12318b038f0eb": {
+      "take_id": "247ec9f6736344ec26107343a7458b61bcefd14b3c1784547d0bbb495a2996ba",
+      "approved_at": "2026-11-18T14:47:39.658959+00:00",
+      "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
+    "lesson-7-9-more-feelings-c020-answer-afb0babc5c10c7adf423": {
+      "take_id": "c3a209c988c183ad9019ada4cde6bed4aaccf9f7180825c41af23c855cb49eb3",
+      "approved_at": "2026-11-16T15:45:08.318014+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
     "lesson-7-9-more-feelings-c020-answer-c9213da139c2929effd3": {
       "take_id": "606b5d0ba196ec07d4e210926527353c30c773d2c3f33af206fe4f7e111b6862",
       "approved_at": "2026-11-16T16:05:15.786421+00:00",
@@ -400844,6 +401162,11 @@
     "lesson-7-9-more-feelings-c020-answer-d8fef613249794d4a390": {
       "take_id": "606b5d0ba196ec07d4e210926527353c30c773d2c3f33af206fe4f7e111b6862",
       "approved_at": "2026-11-16T16:05:15.786421+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-7-9-more-feelings-c020-prompt-090cc1336355c713258d": {
+      "take_id": "c3a209c988c183ad9019ada4cde6bed4aaccf9f7180825c41af23c855cb49eb3",
+      "approved_at": "2026-11-16T15:45:08.318014+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
     "lesson-7-9-more-feelings-c020-prompt-10eeae282f998197972e": {
@@ -400856,6 +401179,11 @@
       "approved_at": "2026-11-16T16:05:15.786421+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
+    "lesson-7-9-more-feelings-c021-answer-209688bc56c564851147": {
+      "take_id": "dd8bc7e72e45aabda1ac6edbfbe301370775858e2f3d9d30688a1ce45f1f5585",
+      "approved_at": "2026-11-16T15:46:48.426459+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
     "lesson-7-9-more-feelings-c021-answer-6aa83e787ed9eaee3684": {
       "take_id": "5aa4533a87ad497657100e18c79bd75486de25e9e66b7ff24bd9ea4571859d84",
       "approved_at": "2026-11-16T15:38:42.173068+00:00",
@@ -400864,6 +401192,11 @@
     "lesson-7-9-more-feelings-c021-answer-c998e774c22eb97ca2d4": {
       "take_id": "5aa4533a87ad497657100e18c79bd75486de25e9e66b7ff24bd9ea4571859d84",
       "approved_at": "2026-11-16T15:38:42.173068+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-7-9-more-feelings-c021-prompt-25712703150f6fe7139b": {
+      "take_id": "dd8bc7e72e45aabda1ac6edbfbe301370775858e2f3d9d30688a1ce45f1f5585",
+      "approved_at": "2026-11-16T15:46:48.426459+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
     "lesson-7-9-more-feelings-c021-prompt-98ff6008e1207bc1ab12": {
@@ -400881,15 +401214,30 @@
       "approved_at": "2026-11-16T15:54:17.667934+00:00",
       "approval_note": "Installed after explicit listening review of these exact bytes."
     },
+    "lesson-7-9-more-feelings-c022-answer-8e74aec17487712ead4a": {
+      "take_id": "8ae2acbe2a115e3083dd7a21cbed57946ad8180c71d24b25c2ef6e9af48da40f",
+      "approved_at": "2026-11-16T16:05:34.915230+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
     "lesson-7-9-more-feelings-c022-prompt-a9cb6d1c59a6a4a79577": {
       "take_id": "371e99faaace461fac9541daabfd5c8eb4efe3b8ab75d00f06b7170f120036d6",
       "approved_at": "2026-11-16T15:54:17.667934+00:00",
       "approval_note": "Installed after explicit listening review of these exact bytes."
     },
+    "lesson-7-9-more-feelings-c022-prompt-ee817374a2acaaae2904": {
+      "take_id": "8ae2acbe2a115e3083dd7a21cbed57946ad8180c71d24b25c2ef6e9af48da40f",
+      "approved_at": "2026-11-16T16:05:34.915230+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
     "lesson-7-9-more-feelings-c023-answer-3f6922b8fd85a2355daa": {
       "take_id": "6fb8c993a3ca83f5300fbd7025d5bcf073c80f42f1d22e0843462308c36713a2",
       "approved_at": "2026-11-16T15:29:22.769278+00:00",
       "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
+    "lesson-7-9-more-feelings-c023-answer-69fb49f8db5486ce5a57": {
+      "take_id": "fd0ba494473d6b51664f28c1ef21b080f93f351a5c841bf5cb5ce5cdf42e0741",
+      "approved_at": "2026-11-16T15:39:16.629534+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
     "lesson-7-9-more-feelings-c023-answer-c33b00db539122cfbce7": {
       "take_id": "6fb8c993a3ca83f5300fbd7025d5bcf073c80f42f1d22e0843462308c36713a2",
@@ -400906,6 +401254,16 @@
       "approved_at": "2026-11-16T15:29:22.769278+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
+    "lesson-7-9-more-feelings-c023-prompt-b560e80b5de99579cf95": {
+      "take_id": "fd0ba494473d6b51664f28c1ef21b080f93f351a5c841bf5cb5ce5cdf42e0741",
+      "approved_at": "2026-11-16T15:39:16.629534+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-7-9-more-feelings-c024-answer-131d6ff2cf51533ca9fa": {
+      "take_id": "2b5c99d414a28120aa1d49a2d50fb1ad81a8c9b163e30b2e72a589f2dfb7d453",
+      "approved_at": "2026-11-16T16:04:38.973038+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
     "lesson-7-9-more-feelings-c024-answer-c5d5ea9b0b9be475f69d": {
       "take_id": "c3a209c988c183ad9019ada4cde6bed4aaccf9f7180825c41af23c855cb49eb3",
       "approved_at": "2026-11-16T15:45:08.318014+00:00",
@@ -400916,10 +401274,25 @@
       "approved_at": "2026-11-16T15:45:08.318014+00:00",
       "approval_note": "Installed after explicit listening review of these exact bytes."
     },
+    "lesson-7-9-more-feelings-c024-prompt-b9be467df1295455d6a7": {
+      "take_id": "2b5c99d414a28120aa1d49a2d50fb1ad81a8c9b163e30b2e72a589f2dfb7d453",
+      "approved_at": "2026-11-16T16:04:38.973038+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
     "lesson-7-9-more-feelings-c025-answer-3a8cfac525e6e6ba50ae": {
       "take_id": "dd8bc7e72e45aabda1ac6edbfbe301370775858e2f3d9d30688a1ce45f1f5585",
       "approved_at": "2026-11-16T15:46:48.426459+00:00",
       "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
+    "lesson-7-9-more-feelings-c025-answer-fb0190cc4fc276be4607": {
+      "take_id": "c098f85f26b00dfd950d2a86bf926e8d509c3cccabc6c1f96710f8960013f1f3",
+      "approved_at": "2026-11-16T15:29:41.411591+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-7-9-more-feelings-c025-prompt-58c9f6ef8b49f6377ae1": {
+      "take_id": "c098f85f26b00dfd950d2a86bf926e8d509c3cccabc6c1f96710f8960013f1f3",
+      "approved_at": "2026-11-16T15:29:41.411591+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
     "lesson-7-9-more-feelings-c025-prompt-7e738850c4f26c64a1db": {
       "take_id": "dd8bc7e72e45aabda1ac6edbfbe301370775858e2f3d9d30688a1ce45f1f5585",
@@ -400931,6 +401304,16 @@
       "approved_at": "2026-11-16T15:45:08.318014+00:00",
       "approval_note": "Installed after explicit listening review of these exact bytes."
     },
+    "lesson-7-9-more-feelings-c026-answer-d2e4d7151f086c8a8688": {
+      "take_id": "23762d8a4d4e6b738e5d9011c11104420cb864a9bdcc7690617280ec9cd10d01",
+      "approved_at": "2026-11-16T15:54:00.771748+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-7-9-more-feelings-c026-prompt-12e2c0ea1a067f68d925": {
+      "take_id": "23762d8a4d4e6b738e5d9011c11104420cb864a9bdcc7690617280ec9cd10d01",
+      "approved_at": "2026-11-16T15:54:00.771748+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
     "lesson-7-9-more-feelings-c026-prompt-4868ac2dfa1fb06af321": {
       "take_id": "c3a209c988c183ad9019ada4cde6bed4aaccf9f7180825c41af23c855cb49eb3",
       "approved_at": "2026-11-16T15:45:08.318014+00:00",
@@ -400941,15 +401324,30 @@
       "approved_at": "2026-11-16T15:46:48.426459+00:00",
       "approval_note": "Installed after explicit listening review of these exact bytes."
     },
+    "lesson-7-9-more-feelings-c027-answer-95db2c49fc2311ffc236": {
+      "take_id": "7f257e794dee5aafb4b16044472f22bd5957c326b58ba584a721edde9f48dc81",
+      "approved_at": "2026-11-18T14:49:05.391099+00:00",
+      "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
     "lesson-7-9-more-feelings-c027-prompt-3d66e0771a172f1d3502": {
       "take_id": "dd8bc7e72e45aabda1ac6edbfbe301370775858e2f3d9d30688a1ce45f1f5585",
       "approved_at": "2026-11-16T15:46:48.426459+00:00",
+      "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
+    "lesson-7-9-more-feelings-c027-prompt-9bdcd62e6c49d0f77284": {
+      "take_id": "7f257e794dee5aafb4b16044472f22bd5957c326b58ba584a721edde9f48dc81",
+      "approved_at": "2026-11-18T14:49:05.391099+00:00",
       "approval_note": "Installed after explicit listening review of these exact bytes."
     },
     "lesson-7-9-more-feelings-c028-answer-4b5a8faaa78b639ecec5": {
       "take_id": "8ae2acbe2a115e3083dd7a21cbed57946ad8180c71d24b25c2ef6e9af48da40f",
       "approved_at": "2026-11-16T16:05:34.915230+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-7-9-more-feelings-c028-answer-93e54fe416f2cf05a9d0": {
+      "take_id": "60b1d4833d463b65516b0775a91d107be213b1c42de4a33c1cb2b4ac96ac887a",
+      "approved_at": "2026-11-18T14:48:23.493906+00:00",
+      "approval_note": "Installed after explicit listening review of these exact bytes."
     },
     "lesson-7-9-more-feelings-c028-answer-ede420e9118bce909249": {
       "take_id": "8ae2acbe2a115e3083dd7a21cbed57946ad8180c71d24b25c2ef6e9af48da40f",
@@ -400961,9 +401359,19 @@
       "approved_at": "2026-11-16T16:05:34.915230+00:00",
       "approval_note": "Installed after explicit listening review of these exact bytes."
     },
+    "lesson-7-9-more-feelings-c028-prompt-7f735f4027856b0cb621": {
+      "take_id": "60b1d4833d463b65516b0775a91d107be213b1c42de4a33c1cb2b4ac96ac887a",
+      "approved_at": "2026-11-18T14:48:23.493906+00:00",
+      "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
     "lesson-7-9-more-feelings-c028-prompt-9422310914b9fbb285e6": {
       "take_id": "8ae2acbe2a115e3083dd7a21cbed57946ad8180c71d24b25c2ef6e9af48da40f",
       "approved_at": "2026-11-16T16:05:34.915230+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-7-9-more-feelings-c029-answer-cba3e0592db3662cd4c8": {
+      "take_id": "c3a209c988c183ad9019ada4cde6bed4aaccf9f7180825c41af23c855cb49eb3",
+      "approved_at": "2026-11-16T15:45:08.318014+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
     "lesson-7-9-more-feelings-c029-answer-e3a873c80be2d6aadf7a": {
@@ -400975,6 +401383,11 @@
       "take_id": "c098f85f26b00dfd950d2a86bf926e8d509c3cccabc6c1f96710f8960013f1f3",
       "approved_at": "2026-11-16T15:29:41.411591+00:00",
       "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
+    "lesson-7-9-more-feelings-c029-prompt-09c0e4d25936f4273117": {
+      "take_id": "c3a209c988c183ad9019ada4cde6bed4aaccf9f7180825c41af23c855cb49eb3",
+      "approved_at": "2026-11-16T15:45:08.318014+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
     "lesson-7-9-more-feelings-c029-prompt-225acc850606420bb973": {
       "take_id": "c098f85f26b00dfd950d2a86bf926e8d509c3cccabc6c1f96710f8960013f1f3",
@@ -400996,6 +401409,16 @@
       "approved_at": "2026-11-16T15:54:00.771748+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
+    "lesson-7-9-more-feelings-c030-answer-8dcda98bb808efb45dba": {
+      "take_id": "dd8bc7e72e45aabda1ac6edbfbe301370775858e2f3d9d30688a1ce45f1f5585",
+      "approved_at": "2026-11-16T15:46:48.426459+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-7-9-more-feelings-c030-prompt-4ffc7a589193411cccd3": {
+      "take_id": "dd8bc7e72e45aabda1ac6edbfbe301370775858e2f3d9d30688a1ce45f1f5585",
+      "approved_at": "2026-11-16T15:46:48.426459+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
     "lesson-7-9-more-feelings-c030-prompt-e84ece955cda10ff1b5e": {
       "take_id": "23762d8a4d4e6b738e5d9011c11104420cb864a9bdcc7690617280ec9cd10d01",
       "approved_at": "2026-11-16T15:54:00.771748+00:00",
@@ -401005,6 +401428,11 @@
       "take_id": "23762d8a4d4e6b738e5d9011c11104420cb864a9bdcc7690617280ec9cd10d01",
       "approved_at": "2026-11-16T15:54:00.771748+00:00",
       "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
+    "lesson-7-9-more-feelings-c031-answer-294e4a87edb9d1c70c22": {
+      "take_id": "941c1d8b6c7522035b076c08cc394ae0aa1820e1e104708cd37bea687bfe6a54",
+      "approved_at": "2026-11-16T15:39:33.384450+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
     "lesson-7-9-more-feelings-c031-answer-71211e0bb5d30dde283e": {
       "take_id": "fd0ba494473d6b51664f28c1ef21b080f93f351a5c841bf5cb5ce5cdf42e0741",
@@ -401021,6 +401449,11 @@
       "approved_at": "2026-11-16T15:39:16.629534+00:00",
       "approval_note": "Installed after explicit listening review of these exact bytes."
     },
+    "lesson-7-9-more-feelings-c031-prompt-54cc77cf9800d972ee9e": {
+      "take_id": "941c1d8b6c7522035b076c08cc394ae0aa1820e1e104708cd37bea687bfe6a54",
+      "approved_at": "2026-11-16T15:39:33.384450+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
     "lesson-7-9-more-feelings-c031-prompt-da0638fe47329587a3cf": {
       "take_id": "fd0ba494473d6b51664f28c1ef21b080f93f351a5c841bf5cb5ce5cdf42e0741",
       "approved_at": "2026-11-16T15:39:16.629534+00:00",
@@ -401036,14 +401469,29 @@
       "approved_at": "2026-11-16T16:04:38.973038+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
+    "lesson-7-9-more-feelings-c032-answer-f9b856ead00123e50547": {
+      "take_id": "23762d8a4d4e6b738e5d9011c11104420cb864a9bdcc7690617280ec9cd10d01",
+      "approved_at": "2026-11-16T15:54:00.771748+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
     "lesson-7-9-more-feelings-c032-prompt-43b773b5f217dfb51051": {
       "take_id": "2b5c99d414a28120aa1d49a2d50fb1ad81a8c9b163e30b2e72a589f2dfb7d453",
       "approved_at": "2026-11-16T16:04:38.973038+00:00",
       "approval_note": "Installed after explicit listening review of these exact bytes."
     },
+    "lesson-7-9-more-feelings-c032-prompt-bf2d06608316d483090a": {
+      "take_id": "23762d8a4d4e6b738e5d9011c11104420cb864a9bdcc7690617280ec9cd10d01",
+      "approved_at": "2026-11-16T15:54:00.771748+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
     "lesson-7-9-more-feelings-c032-prompt-ea788c1d87ebd46c828d": {
       "take_id": "2b5c99d414a28120aa1d49a2d50fb1ad81a8c9b163e30b2e72a589f2dfb7d453",
       "approved_at": "2026-11-16T16:04:38.973038+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-7-9-more-feelings-c033-answer-2572d0e81e6baa3fe48b": {
+      "take_id": "5aa4533a87ad497657100e18c79bd75486de25e9e66b7ff24bd9ea4571859d84",
+      "approved_at": "2026-11-16T15:38:42.173068+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
     "lesson-7-9-more-feelings-c033-answer-3be19d2c27d8fd172a7d": {
@@ -401056,10 +401504,25 @@
       "approved_at": "2026-11-16T15:45:08.318014+00:00",
       "approval_note": "Installed after explicit listening review of these exact bytes."
     },
+    "lesson-7-9-more-feelings-c033-prompt-e813a5228c5054cdf2ab": {
+      "take_id": "5aa4533a87ad497657100e18c79bd75486de25e9e66b7ff24bd9ea4571859d84",
+      "approved_at": "2026-11-16T15:38:42.173068+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
     "lesson-7-9-more-feelings-c034-answer-36c4a137631fb233a47a": {
       "take_id": "c3a209c988c183ad9019ada4cde6bed4aaccf9f7180825c41af23c855cb49eb3",
       "approved_at": "2026-11-16T15:45:08.318014+00:00",
       "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
+    "lesson-7-9-more-feelings-c034-answer-d2de3d63cac4babf5986": {
+      "take_id": "371e99faaace461fac9541daabfd5c8eb4efe3b8ab75d00f06b7170f120036d6",
+      "approved_at": "2026-11-16T15:54:17.667934+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-7-9-more-feelings-c034-prompt-2110bb2d324474b37908": {
+      "take_id": "371e99faaace461fac9541daabfd5c8eb4efe3b8ab75d00f06b7170f120036d6",
+      "approved_at": "2026-11-16T15:54:17.667934+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
     "lesson-7-9-more-feelings-c034-prompt-ffb07c2359f466a509f1": {
       "take_id": "c3a209c988c183ad9019ada4cde6bed4aaccf9f7180825c41af23c855cb49eb3",
@@ -401071,9 +401534,19 @@
       "approved_at": "2026-11-16T15:46:48.426459+00:00",
       "approval_note": "Installed after explicit listening review of these exact bytes."
     },
+    "lesson-7-9-more-feelings-c035-answer-b68c4b8a3a362b00ec5c": {
+      "take_id": "7f257e794dee5aafb4b16044472f22bd5957c326b58ba584a721edde9f48dc81",
+      "approved_at": "2026-11-18T14:49:05.391099+00:00",
+      "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
     "lesson-7-9-more-feelings-c035-prompt-937d86b47fdba251b4ae": {
       "take_id": "dd8bc7e72e45aabda1ac6edbfbe301370775858e2f3d9d30688a1ce45f1f5585",
       "approved_at": "2026-11-16T15:46:48.426459+00:00",
+      "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
+    "lesson-7-9-more-feelings-c035-prompt-c1b147cf4677991111d9": {
+      "take_id": "7f257e794dee5aafb4b16044472f22bd5957c326b58ba584a721edde9f48dc81",
+      "approved_at": "2026-11-18T14:49:05.391099+00:00",
       "approval_note": "Installed after explicit listening review of these exact bytes."
     },
     "lesson-7-9-more-feelings-c036-answer-083b964812f94297ca35": {
@@ -401081,10 +401554,20 @@
       "approved_at": "2026-11-16T15:39:33.384450+00:00",
       "approval_note": "Installed after explicit listening review of these exact bytes."
     },
+    "lesson-7-9-more-feelings-c036-answer-84df66ce3dc20ca71671": {
+      "take_id": "60b1d4833d463b65516b0775a91d107be213b1c42de4a33c1cb2b4ac96ac887a",
+      "approved_at": "2026-11-18T14:48:23.493906+00:00",
+      "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
     "lesson-7-9-more-feelings-c036-answer-c8e1e70dd67c3a0d84e7": {
       "take_id": "941c1d8b6c7522035b076c08cc394ae0aa1820e1e104708cd37bea687bfe6a54",
       "approved_at": "2026-11-16T15:39:33.384450+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-7-9-more-feelings-c036-prompt-bf845581dc5269e6cc5a": {
+      "take_id": "60b1d4833d463b65516b0775a91d107be213b1c42de4a33c1cb2b4ac96ac887a",
+      "approved_at": "2026-11-18T14:48:23.493906+00:00",
+      "approval_note": "Installed after explicit listening review of these exact bytes."
     },
     "lesson-7-9-more-feelings-c036-prompt-dac90d1a26674e160130": {
       "take_id": "941c1d8b6c7522035b076c08cc394ae0aa1820e1e104708cd37bea687bfe6a54",
@@ -401106,6 +401589,16 @@
       "approved_at": "2026-11-16T15:54:00.771748+00:00",
       "approval_note": "Installed after explicit listening review of these exact bytes."
     },
+    "lesson-7-9-more-feelings-c037-answer-f08d1011bd371a7d5f5a": {
+      "take_id": "c3a209c988c183ad9019ada4cde6bed4aaccf9f7180825c41af23c855cb49eb3",
+      "approved_at": "2026-11-16T15:45:08.318014+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-7-9-more-feelings-c037-prompt-56734b591b3a4ed32722": {
+      "take_id": "c3a209c988c183ad9019ada4cde6bed4aaccf9f7180825c41af23c855cb49eb3",
+      "approved_at": "2026-11-16T15:45:08.318014+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
     "lesson-7-9-more-feelings-c037-prompt-7849f7cbd0359f1ae022": {
       "take_id": "23762d8a4d4e6b738e5d9011c11104420cb864a9bdcc7690617280ec9cd10d01",
       "approved_at": "2026-11-16T15:54:00.771748+00:00",
@@ -401124,6 +401617,16 @@
     "lesson-7-9-more-feelings-c038-answer-9d8ab5ef58951a3559a1": {
       "take_id": "5aa4533a87ad497657100e18c79bd75486de25e9e66b7ff24bd9ea4571859d84",
       "approved_at": "2026-11-16T15:38:42.173068+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-7-9-more-feelings-c038-answer-e635a3a6475970461912": {
+      "take_id": "dd8bc7e72e45aabda1ac6edbfbe301370775858e2f3d9d30688a1ce45f1f5585",
+      "approved_at": "2026-11-16T15:46:48.426459+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-7-9-more-feelings-c038-prompt-7eb78689ece23784b8fc": {
+      "take_id": "dd8bc7e72e45aabda1ac6edbfbe301370775858e2f3d9d30688a1ce45f1f5585",
+      "approved_at": "2026-11-16T15:46:48.426459+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
     "lesson-7-9-more-feelings-c038-prompt-88badf653664d96f6444": {
@@ -401146,6 +401649,16 @@
       "approved_at": "2026-11-16T15:54:17.667934+00:00",
       "approval_note": "Installed after explicit listening review of these exact bytes."
     },
+    "lesson-7-9-more-feelings-c039-answer-93e2e42c6e83b2fbc6f4": {
+      "take_id": "941c1d8b6c7522035b076c08cc394ae0aa1820e1e104708cd37bea687bfe6a54",
+      "approved_at": "2026-11-16T15:39:33.384450+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-7-9-more-feelings-c039-prompt-6bb57dc5bd082fad6615": {
+      "take_id": "941c1d8b6c7522035b076c08cc394ae0aa1820e1e104708cd37bea687bfe6a54",
+      "approved_at": "2026-11-16T15:39:33.384450+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
     "lesson-7-9-more-feelings-c039-prompt-8630f6bb9f3e5af9b713": {
       "take_id": "371e99faaace461fac9541daabfd5c8eb4efe3b8ab75d00f06b7170f120036d6",
       "approved_at": "2026-11-16T15:54:17.667934+00:00",
@@ -401155,6 +401668,11 @@
       "take_id": "371e99faaace461fac9541daabfd5c8eb4efe3b8ab75d00f06b7170f120036d6",
       "approved_at": "2026-11-16T15:54:17.667934+00:00",
       "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
+    "lesson-7-9-more-feelings-c040-answer-6b9b6f7ee7f2a0733cd0": {
+      "take_id": "23762d8a4d4e6b738e5d9011c11104420cb864a9bdcc7690617280ec9cd10d01",
+      "approved_at": "2026-11-16T15:54:00.771748+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
     "lesson-7-9-more-feelings-c040-answer-6f16f8009149f00f503b": {
       "take_id": "fd0ba494473d6b51664f28c1ef21b080f93f351a5c841bf5cb5ce5cdf42e0741",
@@ -401176,15 +401694,40 @@
       "approved_at": "2026-11-16T15:39:16.629534+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
+    "lesson-7-9-more-feelings-c040-prompt-8311be3ba79168719f47": {
+      "take_id": "23762d8a4d4e6b738e5d9011c11104420cb864a9bdcc7690617280ec9cd10d01",
+      "approved_at": "2026-11-16T15:54:00.771748+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
     "lesson-7-9-more-feelings-c041-answer-024009eca992a56d2f1b": {
       "take_id": "dd8bc7e72e45aabda1ac6edbfbe301370775858e2f3d9d30688a1ce45f1f5585",
       "approved_at": "2026-11-16T15:46:48.426459+00:00",
       "approval_note": "Installed after explicit listening review of these exact bytes."
     },
+    "lesson-7-9-more-feelings-c041-answer-a5ccf6e0d0a655f5027c": {
+      "take_id": "5aa4533a87ad497657100e18c79bd75486de25e9e66b7ff24bd9ea4571859d84",
+      "approved_at": "2026-11-16T15:38:42.173068+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
     "lesson-7-9-more-feelings-c041-prompt-6b7235c441555a15bd8c": {
       "take_id": "dd8bc7e72e45aabda1ac6edbfbe301370775858e2f3d9d30688a1ce45f1f5585",
       "approved_at": "2026-11-16T15:46:48.426459+00:00",
       "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
+    "lesson-7-9-more-feelings-c041-prompt-9ff4f3c8f41ceaad45c2": {
+      "take_id": "5aa4533a87ad497657100e18c79bd75486de25e9e66b7ff24bd9ea4571859d84",
+      "approved_at": "2026-11-16T15:38:42.173068+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-7-9-more-feelings-c042-answer-329e903f34d1f6702c4f": {
+      "take_id": "606b5d0ba196ec07d4e210926527353c30c773d2c3f33af206fe4f7e111b6862",
+      "approved_at": "2026-11-16T16:05:15.786421+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-7-9-more-feelings-c042-prompt-a68faf51c660fd50916f": {
+      "take_id": "606b5d0ba196ec07d4e210926527353c30c773d2c3f33af206fe4f7e111b6862",
+      "approved_at": "2026-11-16T16:05:15.786421+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
     "lesson-7-is-are-not-c001-answer-d95337155f32829bc11c": {
       "take_id": "4c3228d0e1a65ed69f30214bfa8d15e3cff6b2c242aa2a4d24a5601ac1a44f95",
@@ -403460,6 +404003,271 @@
       "take_id": "c6fe954f9784c195138dbe559693983f3e18f2ed6a60ece950e2f2f31ff6c844",
       "approved_at": "2026-11-14T18:31:52.586359+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "a1plus-unit-1-lesson-1-8-c001-prompt-turn-1-c4b5712c3e1c7672b548": {
+      "take_id": "914be5193af8c8d23e37b217c61b51a8fb2d686f3a773a51fc2e4d8a501770e2",
+      "approved_at": "2026-11-18T16:42:42.017899+00:00",
+      "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
+    "a1plus-unit-1-lesson-1-8-c001-prompt-turn-2-903d6b0f288f22e7a2bd": {
+      "take_id": "e38c92e379bb4a2e6808b6b9e5db378a5d00dcf3f6ad3ae7921394c2305254c2",
+      "approved_at": "2026-11-18T16:44:23.872868+00:00",
+      "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
+    "a1plus-unit-1-lesson-1-8-c002-prompt-turn-1-60fed38458f315368fd5": {
+      "take_id": "e38c92e379bb4a2e6808b6b9e5db378a5d00dcf3f6ad3ae7921394c2305254c2",
+      "approved_at": "2026-11-18T16:44:23.872868+00:00",
+      "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
+    "a1plus-unit-1-lesson-1-8-c002-prompt-turn-2-52576c1ae3cfd7fc74e9": {
+      "take_id": "c3dd1d28ce8313caa8bce3576d5fc4470877e4f3bf566aa44e3dcfa7563eb4aa",
+      "approved_at": "2026-11-18T16:41:29.306310+00:00",
+      "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
+    "a1plus-unit-1-lesson-1-8-c003-prompt-turn-1-d33d3844c565bdbcac5e": {
+      "take_id": "a52024037f35bcb1b93b988ad153502aa22f92e8a3df3ae49fb502f08b4f8cb4",
+      "approved_at": "2026-11-18T16:45:06.224285+00:00",
+      "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
+    "a1plus-unit-1-lesson-1-8-c003-prompt-turn-2-81244b60f2bda8b87172": {
+      "take_id": "1b52a243eed6448a839d4c881596b935c4c5b385c7750f4eb7e9574b8438830f",
+      "approved_at": "2026-11-18T16:43:35.257061+00:00",
+      "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
+    "a1plus-unit-1-lesson-1-8-c004-prompt-turn-1-fef3e331ae17b32ce823": {
+      "take_id": "1b52a243eed6448a839d4c881596b935c4c5b385c7750f4eb7e9574b8438830f",
+      "approved_at": "2026-11-18T16:43:35.257061+00:00",
+      "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
+    "a1plus-unit-1-lesson-1-8-c004-prompt-turn-2-79227b02ca8ac36b3308": {
+      "take_id": "b6f5fdc765755e58386beb9f21c3ec56c33ee5b69b8c4df59e3f0fbcef31c7da",
+      "approved_at": "2026-11-18T16:46:57.574050+00:00",
+      "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
+    "a1plus-unit-1-lesson-1-8-c005-prompt-ff03049c9e8cc92c7d4f": {
+      "take_id": "c3dd1d28ce8313caa8bce3576d5fc4470877e4f3bf566aa44e3dcfa7563eb4aa",
+      "approved_at": "2026-11-18T16:41:29.306310+00:00",
+      "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
+    "a1plus-unit-1-lesson-1-8-c006-answer-ed3d730aa15e7c22bed4": {
+      "take_id": "e38c92e379bb4a2e6808b6b9e5db378a5d00dcf3f6ad3ae7921394c2305254c2",
+      "approved_at": "2026-11-18T16:44:23.872868+00:00",
+      "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
+    "a1plus-unit-1-lesson-1-8-c007-prompt-f23560063ae9c5078121": {
+      "take_id": "a62cc5b98def3a4237b4ef3350723dfb37a40d467a05e4c4b610a96c0aa4497e",
+      "approved_at": "2026-11-18T16:46:43.659388+00:00",
+      "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
+    "a1plus-unit-1-lesson-1-8-c008-answer-014f7c0856ed41322903": {
+      "take_id": "53d36fd9f2159a9ba62bb2568470f89f2e56607cf96410b000fcb8c0ef4eff5a",
+      "approved_at": "2026-11-18T16:41:42.509251+00:00",
+      "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
+    "a1plus-unit-1-lesson-1-8-c009-prompt-c5b8d5d7bc4e1c99e286": {
+      "take_id": "b6f5fdc765755e58386beb9f21c3ec56c33ee5b69b8c4df59e3f0fbcef31c7da",
+      "approved_at": "2026-11-18T16:46:57.574050+00:00",
+      "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
+    "a1plus-unit-1-lesson-1-8-c010-answer-d4db74beebadf97f1a41": {
+      "take_id": "1b52a243eed6448a839d4c881596b935c4c5b385c7750f4eb7e9574b8438830f",
+      "approved_at": "2026-11-18T16:43:35.257061+00:00",
+      "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
+    "a1plus-unit-1-lesson-1-8-c011-prompt-80266e68e0188be248d1": {
+      "take_id": "a52024037f35bcb1b93b988ad153502aa22f92e8a3df3ae49fb502f08b4f8cb4",
+      "approved_at": "2026-11-18T16:45:06.224285+00:00",
+      "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
+    "a1plus-unit-1-lesson-1-8-c012-answer-70d0b8744020f08f6949": {
+      "take_id": "7a866c8699b2798825daa736e94eeea90e64d1813053ff5a241f524c22163600",
+      "approved_at": "2026-11-18T16:42:55.626872+00:00",
+      "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
+    "a1plus-unit-1-lesson-1-8-c013-prompt-29dec729694cf4dbf215": {
+      "take_id": "e191c4897c4c515b39d869718333664f90c52904cdb71de10876da12287ce0fb",
+      "approved_at": "2026-11-18T16:41:15.646450+00:00",
+      "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
+    "a1plus-unit-1-lesson-1-8-c014-answer-ec505778eb28eeacec4c": {
+      "take_id": "f773a5de8d1f3a98de52236a52051d12e1c4c0cb031972ab08ec148ef7a97a79",
+      "approved_at": "2026-11-18T16:45:20.257237+00:00",
+      "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
+    "a1plus-unit-1-lesson-1-8-c015-prompt-e3dd0a8131a1e7d77368": {
+      "take_id": "6c10e93306b8e0c090adea82abf56b5bee960c3bf3fa2fd354864c064da18062",
+      "approved_at": "2026-11-18T16:44:52.136477+00:00",
+      "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
+    "a1plus-unit-1-lesson-1-8-c016-prompt-baecce3141b1b255fd78": {
+      "take_id": "c3dd1d28ce8313caa8bce3576d5fc4470877e4f3bf566aa44e3dcfa7563eb4aa",
+      "approved_at": "2026-11-18T16:41:29.306310+00:00",
+      "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
+    "a1plus-unit-1-lesson-1-8-c017-prompt-b42e70bbd38c5a9af6af": {
+      "take_id": "a62cc5b98def3a4237b4ef3350723dfb37a40d467a05e4c4b610a96c0aa4497e",
+      "approved_at": "2026-11-18T16:46:43.659388+00:00",
+      "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
+    "a1plus-unit-1-lesson-1-8-c018-prompt-b98017028060b05c1a95": {
+      "take_id": "8168c5145789cef03eb32f7db4f23679ba6d3b5cea7fadb84092303e79d7ce36",
+      "approved_at": "2026-11-18T16:42:09.293104+00:00",
+      "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
+    "a1plus-unit-1-lesson-1-8-c019-prompt-d0c0d9064ccab816ba13": {
+      "take_id": "4b9b1a1de144d7fa2fbf3ff5cdb53d44e89713d19b39941d6a2f8459cf11c32d",
+      "approved_at": "2026-11-18T16:45:34.120807+00:00",
+      "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
+    "a1plus-unit-1-lesson-1-8-c020-prompt-35c99661cc612e52c067": {
+      "take_id": "53d36fd9f2159a9ba62bb2568470f89f2e56607cf96410b000fcb8c0ef4eff5a",
+      "approved_at": "2026-11-18T16:41:42.509251+00:00",
+      "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
+    "a1plus-unit-1-lesson-1-8-c021-prompt-3d8ddf0488a6f66418b5": {
+      "take_id": "7399f5e41ca8d5aabcca829409c8ec743fe44925652bc85b049cee0db4f8fed6",
+      "approved_at": "2026-11-18T16:46:02.017644+00:00",
+      "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
+    "a1plus-unit-1-lesson-1-8-c022-prompt-2d90ca324bb7db2a637f": {
+      "take_id": "265feaa4fad925f1b3f2d986734df84bb2273ee510f0f9b7e20cf02123309dc2",
+      "approved_at": "2026-11-18T16:44:08.575403+00:00",
+      "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
+    "a1plus-unit-1-lesson-1-8-c023-prompt-e8e233bca8b681440333": {
+      "take_id": "8168c5145789cef03eb32f7db4f23679ba6d3b5cea7fadb84092303e79d7ce36",
+      "approved_at": "2026-11-18T16:42:09.293104+00:00",
+      "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
+    "a1plus-unit-1-lesson-1-8-c024-prompt-61b74bd7a9c966ac2c5f": {
+      "take_id": "7a866c8699b2798825daa736e94eeea90e64d1813053ff5a241f524c22163600",
+      "approved_at": "2026-11-18T16:42:55.626872+00:00",
+      "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
+    "a1plus-unit-1-lesson-1-8-c025-prompt-fecb27980b7a5447eed9": {
+      "take_id": "914be5193af8c8d23e37b217c61b51a8fb2d686f3a773a51fc2e4d8a501770e2",
+      "approved_at": "2026-11-18T16:42:42.017899+00:00",
+      "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
+    "a1plus-unit-1-lesson-1-8-c026-prompt-turn-1-9827d44636918ea1afee": {
+      "take_id": "2e20f1e05f1d1661869c00ea0b4fdb2df8354bbe1af6259386e60a6af08e6ee0",
+      "approved_at": "2026-11-18T16:44:38.068133+00:00",
+      "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
+    "a1plus-unit-1-lesson-1-8-c027-prompt-turn-1-9085404f4c88072994e2": {
+      "take_id": "a35b0ba5b521ec97078a9124cb2b28caeb4a8deaabce3bdd625ab1c7231ad563",
+      "approved_at": "2026-11-18T16:46:15.904247+00:00",
+      "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
+    "a1plus-unit-1-lesson-1-8-c028-prompt-turn-1-e37a65eb81fc7e40c4e8": {
+      "take_id": "50e11cb5943e14968e0619434dcb186efe6e73e56d2aba2f1e17659ea2a1acb3",
+      "approved_at": "2026-11-18T16:43:54.346354+00:00",
+      "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
+    "a1plus-unit-1-lesson-1-8-c029-prompt-turn-1-f0599fdba90314913696": {
+      "take_id": "5b5e7aa46904a9cd28c714ec70dfa60ad112f3e268ab5bc90e713dfb053b6f2c",
+      "approved_at": "2026-11-18T16:42:27.382041+00:00",
+      "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
+    "a1plus-unit-1-lesson-1-8-c030-prompt-turn-1-8130f5dd434cffd54ac6": {
+      "take_id": "8e439e9ba10b8da260b4940445a978a330c4de78a7302a3ca9b23997543ef759",
+      "approved_at": "2026-11-18T16:46:29.882704+00:00",
+      "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
+    "a1plus-unit-1-lesson-1-8-c031-prompt-turn-1-485e0ef6e06123fa1a41": {
+      "take_id": "b19becb6e1deed0dc14fae5298a3ea12dbf2ce581cf2deeba9fc3cbf05cb3ad7",
+      "approved_at": "2026-11-18T16:41:55.652230+00:00",
+      "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
+    "a1plus-unit-1-lesson-1-8-c032-prompt-turn-1-4377fe9a3743abd72537": {
+      "take_id": "71527de45d6a731f10c725804ba66615917328af80ccde1845b5e41b236f017d",
+      "approved_at": "2026-11-18T16:43:17.399387+00:00",
+      "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
+    "a1plus-unit-1-lesson-1-8-c033-prompt-turn-1-791b539222e63825021e": {
+      "take_id": "7a757a92e3b4fa274697c187c24568803ff4cb1656e7919f8a8a2872f7e45d79",
+      "approved_at": "2026-11-18T16:45:48.163446+00:00",
+      "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
+    "a1plus-unit-1-lesson-1-8-c034-answer-9facf7010021445ad20b": {
+      "take_id": "e38c92e379bb4a2e6808b6b9e5db378a5d00dcf3f6ad3ae7921394c2305254c2",
+      "approved_at": "2026-11-18T16:44:23.872868+00:00",
+      "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
+    "a1plus-unit-1-lesson-1-8-c034-prompt-7c1c8058de8f28654675": {
+      "take_id": "e38c92e379bb4a2e6808b6b9e5db378a5d00dcf3f6ad3ae7921394c2305254c2",
+      "approved_at": "2026-11-18T16:44:23.872868+00:00",
+      "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
+    "a1plus-unit-1-lesson-1-8-c035-answer-277459d3d2a8bae98d13": {
+      "take_id": "c3dd1d28ce8313caa8bce3576d5fc4470877e4f3bf566aa44e3dcfa7563eb4aa",
+      "approved_at": "2026-11-18T16:41:29.306310+00:00",
+      "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
+    "a1plus-unit-1-lesson-1-8-c035-prompt-e018d1c3f1c97fa23152": {
+      "take_id": "c3dd1d28ce8313caa8bce3576d5fc4470877e4f3bf566aa44e3dcfa7563eb4aa",
+      "approved_at": "2026-11-18T16:41:29.306310+00:00",
+      "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
+    "a1plus-unit-1-lesson-1-8-c036-answer-52a819ca64eaee17b636": {
+      "take_id": "1b52a243eed6448a839d4c881596b935c4c5b385c7750f4eb7e9574b8438830f",
+      "approved_at": "2026-11-18T16:43:35.257061+00:00",
+      "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
+    "a1plus-unit-1-lesson-1-8-c036-prompt-d2643d09c234888c5334": {
+      "take_id": "1b52a243eed6448a839d4c881596b935c4c5b385c7750f4eb7e9574b8438830f",
+      "approved_at": "2026-11-18T16:43:35.257061+00:00",
+      "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
+    "a1plus-unit-1-lesson-1-8-c037-answer-d99232103a0692842e82": {
+      "take_id": "b6f5fdc765755e58386beb9f21c3ec56c33ee5b69b8c4df59e3f0fbcef31c7da",
+      "approved_at": "2026-11-18T16:46:57.574050+00:00",
+      "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
+    "a1plus-unit-1-lesson-1-8-c037-prompt-f87c672f4775511c8455": {
+      "take_id": "b6f5fdc765755e58386beb9f21c3ec56c33ee5b69b8c4df59e3f0fbcef31c7da",
+      "approved_at": "2026-11-18T16:46:57.574050+00:00",
+      "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
+    "a1plus-unit-1-lesson-1-8-c038-answer-ef6e04e30f655f6c7d54": {
+      "take_id": "53d36fd9f2159a9ba62bb2568470f89f2e56607cf96410b000fcb8c0ef4eff5a",
+      "approved_at": "2026-11-18T16:41:42.509251+00:00",
+      "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
+    "a1plus-unit-1-lesson-1-8-c038-prompt-7a3f935f270b346efda2": {
+      "take_id": "53d36fd9f2159a9ba62bb2568470f89f2e56607cf96410b000fcb8c0ef4eff5a",
+      "approved_at": "2026-11-18T16:41:42.509251+00:00",
+      "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
+    "a1plus-unit-1-lesson-1-8-c039-answer-d1861d5603f6f1c454d8": {
+      "take_id": "a62cc5b98def3a4237b4ef3350723dfb37a40d467a05e4c4b610a96c0aa4497e",
+      "approved_at": "2026-11-18T16:46:43.659388+00:00",
+      "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
+    "a1plus-unit-1-lesson-1-8-c039-prompt-f85dc9beb137524dcd07": {
+      "take_id": "a62cc5b98def3a4237b4ef3350723dfb37a40d467a05e4c4b610a96c0aa4497e",
+      "approved_at": "2026-11-18T16:46:43.659388+00:00",
+      "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
+    "a1plus-unit-1-lesson-1-8-c040-answer-b8d4a250ee2b3b9521b0": {
+      "take_id": "7a866c8699b2798825daa736e94eeea90e64d1813053ff5a241f524c22163600",
+      "approved_at": "2026-11-18T16:42:55.626872+00:00",
+      "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
+    "a1plus-unit-1-lesson-1-8-c040-prompt-10f3cbc7dce116eca696": {
+      "take_id": "7a866c8699b2798825daa736e94eeea90e64d1813053ff5a241f524c22163600",
+      "approved_at": "2026-11-18T16:42:55.626872+00:00",
+      "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
+    "a1plus-unit-1-lesson-1-8-c041-answer-ef0fcd1adfc2c68725df": {
+      "take_id": "e191c4897c4c515b39d869718333664f90c52904cdb71de10876da12287ce0fb",
+      "approved_at": "2026-11-18T16:41:15.646450+00:00",
+      "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
+    "a1plus-unit-1-lesson-1-8-c041-prompt-9c3ad6bdf9bc2710aa21": {
+      "take_id": "e191c4897c4c515b39d869718333664f90c52904cdb71de10876da12287ce0fb",
+      "approved_at": "2026-11-18T16:41:15.646450+00:00",
+      "approval_note": "Installed after explicit listening review of these exact bytes."
     }
   }
 }

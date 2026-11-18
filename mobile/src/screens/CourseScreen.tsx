@@ -541,7 +541,7 @@ const VISUALS: Record<string, { image: string; description: string; color: strin
   },
   'lesson-7-9-more-feelings': {
     image: 'a1_photo_u7_feelings_luis_great_v1.webp',
-    description: 'Más sentimientos: bien, enfermo, enojado y con miedo.',
+    description: 'Días buenos y malos; bien, enfermo, enojado y con miedo.',
     color: '#f1e4fa',
   },
   'lesson-7-11-outdoors': {

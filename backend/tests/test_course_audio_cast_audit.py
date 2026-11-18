@@ -89,9 +89,10 @@ EXACT_ROLE_CHANGES = {}
 # 2026-11-15: coverage-gap lessons 5.13 More Food and 5.14 At the Table (Ana and narrator fields).
 # 2026-11-15: coverage-gap lessons 5.13 More Food and 5.14 At the Table (Ana and narrator fields).
 # 2026-11-16: the last seven gap lessons (3.14, 6.13, 7.9 to 7.13) and their review cards (+189).
-EXPECTED_EXPLICIT_ASSIGNMENT_COUNT = 2909
+# 2026-11-18: 7.9 gained good and bad (It is a good/bad day.); its Ana and Luis lines moved (-3).
+EXPECTED_EXPLICIT_ASSIGNMENT_COUNT = 2906
 EXPECTED_FINAL_ASSIGNMENTS_SHA256 = (
-    "24c6830a11c5a09868e9930e822cc43ade1a1a041024b4670771acd0c8cd3857"
+    "cf6344def3e3c3a81ba1662f5c415e13736e8333505c21993366834adc45217f"
 )
 
 

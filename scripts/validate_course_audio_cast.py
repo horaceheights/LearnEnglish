@@ -527,12 +527,12 @@ ASSIGNMENT_GROUPS: dict[str, list[tuple[str, str, str]]] = {
     ],
     # 2026-11-14 coverage-gap lesson: each pictured speaker keeps their voice and the narrators alternate; regenerated from the lesson.
     "lesson-7-9-more-feelings": [
-        ('answer_audio_speaker', 'ana', 'R1 R8 U1'),
-        ('answer_audio_speaker', 'co-teacher', 'U4 U6'),
-        ('answer_audio_speaker', 'luis', 'R2 R9 U2 U8'),
-        ('audio_speaker', 'ana', 'L1 A1 A8 S1 S8 U1'),
-        ('audio_speaker', 'co-teacher', 'L4 R1 R3 R5 R7 R9 R11 A4 A6 S3 S5 S7 U4 U6'),
-        ('audio_speaker', 'luis', 'L2 A2 A9 S2 U2 U8'),
+        ('answer_audio_speaker', 'ana', 'R3 U3'),
+        ('answer_audio_speaker', 'co-teacher', 'U2 U6 U8'),
+        ('answer_audio_speaker', 'luis', 'R4 U4'),
+        ('audio_speaker', 'ana', 'L3 A3 S3 U3'),
+        ('audio_speaker', 'co-teacher', 'L2 L6 R1 R3 R5 R7 R9 A1 A5 A7 A9 S2 S6 S8 U2 U6 U8'),
+        ('audio_speaker', 'luis', 'L4 A4 S4 U4'),
     ],
     # 2026-11-14 coverage-gap lesson: each pictured speaker keeps their voice and the narrators alternate; regenerated from the lesson.
     "lesson-7-10-seasons": [

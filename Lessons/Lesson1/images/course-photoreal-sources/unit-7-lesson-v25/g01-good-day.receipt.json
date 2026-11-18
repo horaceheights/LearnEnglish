@@ -1,0 +1,55 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "3cc21af0-dc5a-4dbb-ac5c-253c0e94c2ab",
+  "asset_id": "g01-good-day",
+  "pack_sha256": "84dcade5d28b25649741a7ad2e34a8b855605016bd53ed36e9969d48d1afa0cb",
+  "started_at": "2026-11-18T14:31:51.093657+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real skin, fur, fabric and landscape texture, natural light and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.\n\nKeep the main subject of the photo whole inside the central 55 percent of the photo width, so a centered 4:5 crop keeps it whole; only expendable background reaches the left and right edges.\n\nA GOOD DAY: one man of about thirty-five walks along a sunny park path on a bright morning, smiling widely and happily, face turned up to the warm sun, arms relaxed and open, holding a takeaway coffee cup in one hand. Blue sky, green trees, golden sunlight on his face. He is clearly having a very good day: relaxed, happy, nothing wrong. Seen from the waist up, sharp. Exactly one person. No letters, words, numbers, logos or brand marks anywhere. Every visible hand has five natural fingers.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "1bb9avDNJL6iqtsPi5W8-A0",
+  "usage": {
+    "promptTokenCount": 262,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1552,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 262
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038779",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 262,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 6.33,
+  "output": "output/imagegen/unit-7-lesson-v25/g01-good-day.png",
+  "sha256": "c6fc68508382ddd792d174e17a47d1f976597539de15e83160be4364e1708897",
+  "byte_count": 1482326,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}
