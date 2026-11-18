@@ -61,7 +61,7 @@ So five unit reviews must grow to include the new words. Two lessons still need 
 3. **`old` in A1 2.11: decided 2026-11-14.** The user chose `used` and `new` for things, so A1 does not teach `old`; it stays with A1+ 1.1 for people. 4.11 plans the verb `use`; its brief must keep the verb apart from the adjective `used`.
 4. **Reviews.** Reviews are capped at 48–54 cards. Adding the new words means either replacing existing review cards or approving longer reviews.
 5. **Missions.** Leaving the five missions untouched is possible, except for the two lessons in section 3 that need one more home.
-6. **A1+ Unit 1.** New A1 1.10 and 1.11 create A1+ 1.10 and 1.11 under the same-number rule. The A1+ Unit 1 rebuild is in progress in another session and would need to know.
+6. **A1+ Unit 1: decided 2026-11-18.** New A1 1.10 and 1.11 create A1+ 1.10 and 1.11 under the same-number rule. The user approved the new A1+ Unit 1 order: 1.10 follows Pets, 1.11 Friends and People, 1.12 the review and 1.13 the mission. It is recorded in the project guardrails and checked by `backend/tests/test_a1plus_follows_a1.py`.
 
 ## 5. Size of the work
 
