@@ -10,6 +10,13 @@ export function learnTranslationPreviewDuration(card?: LessonCard): number {
     ? duration : 0;
 }
 
+// User decision (2026-11-18): the automatic preview shows the card's complete Spanish at once.
+// One two-second window cannot follow a question and its answer line by line, so a later line's
+// own translation only flashed. A tap still translates the line currently on screen.
+export function learnTranslationText(card: LessonCard | undefined, lineTranslation: string, tapped: boolean): string {
+  return !tapped && learnTranslationPreviewDuration(card) ? card?.spanish_translation?.trim() ?? '' : lineTranslation;
+}
+
 // Count visible time, not time behind a briefing, unloaded picture or background app.
 // Replays and rotation keep the same card key and cannot buy another preview.
 export function useLearnTranslationPreview(card: LessonCard | undefined, cardKey: string, ready: boolean) {

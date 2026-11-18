@@ -130,7 +130,7 @@ import { spanishTranslationFor } from '../sentenceTranslations';
 import { replyImageAfterPrompt } from '../lessonTurnImages';
 import { cardClockCues, visibleClockCues } from '../teachingClock';
 import { lineSpeaker } from '../speakerBubble';
-import { useLearnTranslationPreview } from '../hooks/useLearnTranslationPreview';
+import { learnTranslationText, useLearnTranslationPreview } from '../hooks/useLearnTranslationPreview';
 import type { LearnerProfile, Lesson, LessonCard } from '../types';
 
 const SUCCESS_CHIME = require('../../assets/sfx/person-found-v2.mp3');
@@ -3385,12 +3385,14 @@ export function LessonScreen({
                   accessible={showSentenceTranslation || learnTranslation.visible}
                   accessibilityElementsHidden={!showSentenceTranslation && !learnTranslation.visible}
                   importantForAccessibility={showSentenceTranslation || learnTranslation.visible ? 'auto' : 'no-hide-descendants'}
+                  adjustsFontSizeToFit
+                  minimumFontScale={0.75}
                   numberOfLines={2}
                   style={[styles.inlineTranslation, {
                     opacity: showSentenceTranslation ? translationOpacity : learnTranslation.visible ? 1 : 0,
                   }]}
                 >
-                  {visibleSentenceTranslation}
+                  {learnTranslationText(currentCard, visibleSentenceTranslation, showSentenceTranslation)}
                 </Animated.Text>
               ) : null}
             </Pressable>

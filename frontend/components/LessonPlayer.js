@@ -38,7 +38,7 @@ import {
 import { isWrittenRecognize, recognizeAnswerReplayText } from "../../mobile/src/lessonPromptPresentation";
 import { lessonMistakeHint as getLessonMistakeHint } from "../../mobile/src/lessonMistakeHints";
 import { replyImageAfterPrompt, teachingOptionImageUrl, visibleTurnImageUrl } from "../../mobile/src/lessonTurnImages";
-import { useLearnTranslationPreview } from "../../mobile/src/hooks/useLearnTranslationPreview";
+import { learnTranslationText, useLearnTranslationPreview } from "../../mobile/src/hooks/useLearnTranslationPreview";
 import { WavAudioRecorder } from "../lib/WavAudioRecorder";
 import { isMissionLesson } from "../lib/missionExperience.mjs";
 import useStaticSfx from "../lib/useStaticSfx";
@@ -5874,7 +5874,8 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
                     aria-live={manualCompletionTranslation ? "polite" : undefined}
                     style={{ display: "block", minHeight: 20, fontSize: 14, lineHeight: "20px",
                       color: "#58656b", fontWeight: 700, visibility: teachingTranslationVisible ? "visible" : "hidden" }}>
-                    {playingVisualTurn?.spanish_translation || currentCard.spanish_translation}
+                    {learnTranslationText(currentCard, playingVisualTurn?.spanish_translation || currentCard.spanish_translation,
+                      manualTeachingTranslationKey === teachingCardKey)}
                   </span> : null}
                 </button>
                 <button type="button" aria-label={`Repetir: ${cardReplayText}`} onClick={playCurrentCardPrompt}

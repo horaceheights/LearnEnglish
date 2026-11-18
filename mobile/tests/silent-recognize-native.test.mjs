@@ -14,6 +14,7 @@ import { View, Text, Pressable, Animated } from 'react-native';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { isSilentWrittenRecognize, isWrittenRecognize, recognizeAnswerReplayText } from '../lessonPromptPresentation';
 import { lessonHeaderPromptText, usesCompactRecognizeInstruction } from '../lessonInstructions';
+import { learnTranslationText } from '../hooks/useLearnTranslationPreview';
 export function Header({ currentCard, result, viewport, styles, showSentenceTranslation, learnTranslation = { enabled: false, visible: false } }) {
   const { width, height, fontScale } = viewport;
   const usesLessonPhoneLandscape = width > height && height < 600;
