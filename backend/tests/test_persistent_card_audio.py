@@ -353,8 +353,9 @@ class PersistentCardAudioTests(unittest.TestCase):
         # 2026-10-19: approved Unit 7 proposal; exact scalar and male inventory
         # is recorded in unit-7-cast-inventory-review-2026-10-19.json.
         # 2026-11-14: the extended Unit 4 review gives Luis five 4.11 verb lines (+10 assets, +4 jobs).
+        # 2026-11-18: 7.9 good and bad moved its cards; Luis has five fewer lines there (-5 assets).
         # These are reviewed inventory pins, not spending approval or a cap.
-        self.assertEqual(1325, len(selected))
+        self.assertEqual(1320, len(selected))
         self.assertEqual(277, len(jobs))
         self.assertEqual(277, sum(len(job.request_fragments()) for job in jobs))
         # 2026-09-29: 4.3's male question names the phone instead of "it" (+7).
