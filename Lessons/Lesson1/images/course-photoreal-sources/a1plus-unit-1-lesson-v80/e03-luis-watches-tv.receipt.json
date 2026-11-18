@@ -1,0 +1,62 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "c2570749-bfb2-4d7e-8a6e-cd4e36812abe",
+  "asset_id": "e03-luis-watches-tv",
+  "pack_sha256": "9d82a09ac4aedada43f5bb60097a5933f91905f849f7a4f63a13689314940749",
+  "started_at": "2026-11-18T16:19:01.612054+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, numbers, logos or brand marks anywhere: book covers and spines are plain solid colors, menus and signs are blank, and any screen shows only soft abstract color with no text, faces or recognizable show. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos.\n\nKeep the person, both hands and the object of the action inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nOnly this one person is in the photo; there is nobody else, even far in the background.\n\nThe action is the most obvious thing in the photo: the camera is at eye level a few steps away, the face is fully visible in three-quarter view and in sharp focus, and the person is seen from the head to the waist or lower, with the hands and the object clearly visible. The person is busy with the action and does not look at the camera.\n\nIt is clearly EVENING after dark: every window shows a deep blue evening sky, and warm indoor lamps light the room and the person's face. No daylight anywhere.\n\nImage 1 shows Luis. Keep his face, short dark curly hair, clean-shaven face, warm medium-brown skin and build exactly, and his navy crew-neck T-shirt. Create a new photograph in his living room in the evening: Luis sits relaxed on a dark-blue fabric sofa and watches TV, a TV remote in one hand, his eyes on the screen. The camera stands to one side of the TV, so the photo shows Luis's face in three-quarter view and, near him in the frame, the side of a flat TV on a low wooden cabinet, its screen turned on and glowing with soft blue and orange abstract light that lights his face. A floor lamp gives warm light; the window behind the sofa shows the dark blue evening sky. Both Luis and the glowing TV screen are inside the central 55 percent of the width. The glowing screen is big enough to see instantly on a small phone: it takes up at least 20 percent of the photo width.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1plus-unit-1-q01-135c3f8f772bcbe4.webp",
+    "sha256": "135c3f8f772bcbe472b8cec719eb02318a7d52ce1c7152a94c6952aeb78566c2"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "9M_9auKqBNC_mtkP5OLc8A0",
+  "usage": {
+    "promptTokenCount": 795,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 2085,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 537
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038938",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 795,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 9.3,
+  "output": "output/imagegen/a1plus-unit-1-lesson-v80/e03-luis-watches-tv.png",
+  "sha256": "e2b767e73dbf1bacafe7992cfea6f818b9508c2c3e5e8bd1b2be8c56ba4312f8",
+  "byte_count": 1221951,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}

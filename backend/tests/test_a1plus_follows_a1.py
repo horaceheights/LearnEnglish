@@ -22,7 +22,7 @@ ROOT = Path(__file__).resolve().parents[2]
 
 # A1+ lessons that predate the same-number rule. Remove a number when its
 # position is rebuilt as the follow-up of the A1 lesson with the same number.
-NOT_YET_REBUILT = {"1.8", "1.9", "1.10", "1.11", "1.12"}
+NOT_YET_REBUILT = {"1.9", "1.10", "1.11", "1.12"}
 # A1 lessons whose A1+ follow-up does not exist yet.
 NOT_YET_BUILT = {"1.13"}
 

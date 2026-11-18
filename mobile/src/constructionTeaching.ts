@@ -93,13 +93,15 @@ for (const verb of words('swim swims runs')) VERBS.add(verb);
 for (const verb of words('make see use find give')) VERBS.add(verb);
 // A1 5.11 (2026-11-14): I buy bread. / I pay five dollars.
 for (const verb of words('buy pay')) VERBS.add(verb);
+// A1+ 1.8 (2026-11-13): cook as a habit after don't/doesn't (Diego doesn't cook dinner.); after an article it stays A1's noun.
+VERBS.add('cook');
 // A word that is both a noun and a verb ("drinks", "work") is the noun right after an article or a
 // possessive (The drinks are on the table.) and the verb after its subject (Luis drinks coffee.).
 const NOUN_MARKERS = set('a an the my your his her our their');
 const ACTIONS = set('eating drinking reading writing running walking swimming sitting sleeping playing studying working cooking talking watching listening going');
 const BE = set('am is are');
 const FREQUENCY = set('always usually sometimes never');
-const ROUTINE_BASE = set('leave arrive start finish study work wake get eat wash brush come go sleep drink walk play watch open close clean run take put meet');
+const ROUTINE_BASE = set('leave arrive start finish study work wake get eat wash brush come go sleep drink walk play watch open close clean run take put meet cook');
 
 type Relation = { start: number; end: number; explanation: string };
 type ClausePlan = { explanations: string[]; relations: Relation[]; supported: boolean };

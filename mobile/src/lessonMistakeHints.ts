@@ -273,6 +273,9 @@ const IMAGE_CHOICE_MEANINGS: Record<string, string> = {
   'does not understand': 'alguien que no entiende',
   'hobbies music': 'gusto por escuchar música',
   'wakes morning': 'despertarse por la mañana',
+  // A1+ 1.8 (2026-11-13): each evening photo names the habit it shows; "cook" here is the verb, not A1's cocinero.
+  'i cook dinner': 'cocinar la cena', 'i eat dinner at a restaurant': 'cenar en un restaurante',
+  'i watch tv in the evening': 'ver televisión por la noche', 'i read books in the evening': 'leer libros por la noche',
   // Unit 6 asking for help: each caption-free picture names the request it shows.
   'excuse me': 'llamar la atención con cortesía', 'can you help me': 'pedir ayuda',
   'sorry no': 'decir que no con cortesía',

@@ -111,11 +111,34 @@ export function relationalChoiceHint(card: LessonCard, correctOption: ChoiceOpti
   const right = clean(correct), selected = clean(wrong), heard = clean(card.audio_text || '');
   const [rightPart, wrongPart] = firstDifference(correct, wrong);
   const rightAction = action(rightPart), wrongAction = action(wrongPart);
-  const rightNegative = /\b(?:doesn't|does not)\b/.test(rightPart), wrongNegative = /\b(?:doesn't|does not)\b/.test(wrongPart);
+  // A habit is negated with doesn't (he, she, a name) or don't (I, you, we, they);
+  // A1's is/am/are not …-ing negates what is happening now. A1's full “do not”
+  // keeps its own established explanations.
+  const rightDont = /\bdon't\b/i.test(rightPart), wrongDont = /\bdon't\b/i.test(wrongPart);
+  const rightNegative = rightDont || /\b(?:doesn't|does not)\b/.test(rightPart);
+  const wrongNegative = wrongDont || /\b(?:doesn't|does not)\b/.test(wrongPart);
+  const habitNot = /\b(doesn't|does not|don't) (\w+)/i, nowNot = /\b(?:is|am|are) not \w+ing\b/i;
+  const rightNow = nowNot.exec(rightPart)?.[0], wrongNow = nowNot.exec(wrongPart)?.[0];
+  if (rightNegative && wrongNow) {
+    return bounded(`“${habitNot.exec(rightPart)?.[0].toLowerCase()}” niega una costumbre; tu opción, “${wrongNow.toLowerCase()}”, niega lo que pasa ahora.`);
+  }
+  if (rightNow && wrongNegative) {
+    return bounded(`“${rightNow.toLowerCase()}” niega lo que pasa ahora; tu opción, “${habitNot.exec(wrongPart)?.[0].toLowerCase()}”, niega una costumbre.`);
+  }
   if (rightNegative !== wrongNegative) {
+    if (rightDont || wrongDont) {
+      return rightDont
+        ? '“Don’t” niega la acción. Tu opción la afirma; conserva qué acción se niega.'
+        : 'Tu opción niega la acción con “don’t”; aquí la respuesta la confirma.';
+    }
     return rightNegative
       ? '“Does not” o “doesn’t” niega la acción. Tu opción la afirma; conserva qué acción o dato se niega.'
       : 'Tu opción niega la acción con “does not” o “doesn’t”; aquí la respuesta la confirma.';
+  }
+  if (rightNegative && wrongNegative && rightDont !== wrongDont) {
+    const subject = (part: string) => /^(.*?)\s*\b(?:doesn't|does not|don't)\b/i.exec(part.trim())?.[1] || '';
+    const said = (part: string, dont: boolean) => `${subject(part)} ${dont ? "don't" : "doesn't"}`.trim();
+    return bounded(`La frase dice “${said(rightPart, rightDont)}”; tu opción dice “${said(wrongPart, wrongDont)}”. “Doesn’t” va con he, she o un nombre; “don’t”, con I, you, we o they.`);
   }
   if (rightNegative && wrongNegative) {
     const rightTime = time(rightPart), wrongTime = time(wrongPart);

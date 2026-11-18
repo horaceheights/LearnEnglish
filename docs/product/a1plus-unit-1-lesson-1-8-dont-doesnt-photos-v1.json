@@ -1,0 +1,107 @@
+{
+  "schema_version": 1,
+  "pack": "a1plus-unit-1-lesson-1-8-dont-doesnt-photos",
+  "revision": 1,
+  "output_namespace": "a1plus-unit-1-lesson-v80",
+  "authorization": "2026-11-18: the user approved Gate 1 for A1+ 1.8 (\"Approve 1.8's text, facts and 4 Flash photo prompts (US$0.35 cap)?\" answered \"Approve, generate\"): the lesson text, answer choices and hints, the four evening facts, and these 4 prompts on Gemini 2.5 Flash Image with a US$0.35 ceiling. Gemini is the approved image tool (2026-09-23), Flash only (2026-11-17).",
+  "image_settings": {
+    "provider": "google-gemini",
+    "model": "gemini-2.5-flash-image",
+    "aspect_ratio": "3:2",
+    "image_size": "1K",
+    "runtime_size": "1536x1024",
+    "runtime_format": "webp",
+    "n": 1
+  },
+  "production": {
+    "price_per_image_usd": "0.0387",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing (checked 2026-11-16: Gemini 2.5 Flash Image, about $0.039 per image)",
+    "planned_images": 4,
+    "expected_cost_usd": "0.16",
+    "requested_ceiling_usd": "0.35",
+    "ceiling_note": "The renderer reserves US$0.20 before each request, so the fourth photo needs about US$0.32 of room; the expected spend is about US$0.16.",
+    "no_automatic_retries": true,
+    "order": "Generate e04 first (the TV must read as OFF at 180 px and both Sofia and the black screen must survive the centered 4:5 crop) and inspect it at 900/360/250/180 px and in the centered 4:5 crop; then e03 (the screen must read as ON), e01 and e02. A rejected output is reported with its cost; a redo needs a changed prompt in a new revision."
+  },
+  "shared_prompts": {
+    "photo": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, numbers, logos or brand marks anywhere: book covers and spines are plain solid colors, menus and signs are blank, and any screen shows only soft abstract color with no text, faces or recognizable show. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos.",
+    "safe_center": "Keep the person, both hands and the object of the action inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.",
+    "solo": "Only this one person is in the photo; there is nobody else, even far in the background.",
+    "action": "The action is the most obvious thing in the photo: the camera is at eye level a few steps away, the face is fully visible in three-quarter view and in sharp focus, and the person is seen from the head to the waist or lower, with the hands and the object clearly visible. The person is busy with the action and does not look at the camera.",
+    "evening": "It is clearly EVENING after dark: every window shows a deep blue evening sky, and warm indoor lamps light the room and the person's face. No daylight anywhere."
+  },
+  "assets": [
+    {
+      "id": "e01-ana-cooks-dinner",
+      "order": 1,
+      "item": "I cook dinner. / Ana cooks dinner. / I don't eat dinner at a restaurant. / Ana doesn't eat dinner at a restaurant.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "solo",
+        "action",
+        "evening"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-q02-c2b4398b65207eff.webp",
+        "sha256": "c2b4398b65207effa51e51260cc607c38ada48caea82f14eb872e4c9c8b5d0d5",
+        "observed_description": "Ana (long dark wavy hair, light-olive skin, sage-green overshirt over a white top, jeans) sits on a light-grey sofa and reads an open hardcover book (A1+ 1.2)."
+      },
+      "prompt": "Image 1 shows Ana. Keep her face, long dark wavy hair, light-olive skin and build exactly, and her sage-green overshirt over a white top. Create a new photograph in her small home kitchen in the evening: Ana stands at the stove and cooks dinner, stirring a steaming pot with a wooden spoon in one hand and holding the pot handle with the other. Chopped tomatoes, an onion and a cutting board lie on the counter beside the stove. Home is obvious: wooden cabinets, a few plain mugs on a shelf and a small plant on the windowsill; the kitchen window shows the dark blue evening sky. Cooking is the only thing she is doing; there is no plate of food ready to eat and no table set for dinner."
+    },
+    {
+      "id": "e02-diego-eats-at-a-restaurant",
+      "order": 2,
+      "item": "I don't cook dinner. / Diego doesn't cook dinner. / He doesn't cook dinner. / I eat dinner at a restaurant.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "solo",
+        "action",
+        "evening"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-q04-ded74a2cb6021167.webp",
+        "sha256": "ded74a2cb6021167d6af2351e9012476d36c1b0936ca9f4f4b6dee68783bb9e2",
+        "observed_description": "Diego (dark curly hair with a little grey, short full beard, burgundy button shirt) sits at a wooden kitchen table and bites a red apple, a white bowl of fruit in front of him (A1+ 1.2)."
+      },
+      "prompt": "Image 1 shows Diego. Keep his face, dark curly hair with a little grey, short full beard, skin tone and build exactly, and his burgundy button shirt. Create a new photograph in a small, quiet neighborhood restaurant in the evening, clearly NOT a home: Diego sits alone at a small square table with a white tablecloth and eats dinner, a fork in his hand lifting a bite from a full plate of rice, chicken and green vegetables; a glass of water and a folded napkin stand beside the plate. Behind him, several other small tables with chairs stand empty, warm pendant lamps hang from the ceiling and a wooden service counter is softly visible; the big front window shows the dark blue evening street. There is no stove, no pot and no cooking anywhere in the photo."
+    },
+    {
+      "id": "e03-luis-watches-tv",
+      "order": 3,
+      "item": "I watch TV in the evening.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "solo",
+        "action",
+        "evening"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-q01-135c3f8f772bcbe4.webp",
+        "sha256": "135c3f8f772bcbe472b8cec719eb02318a7d52ce1c7152a94c6952aeb78566c2",
+        "observed_description": "Luis (short dark curly hair, clean-shaven, warm medium-brown skin, navy crew-neck T-shirt) drinks coffee from a white mug at a wooden table in his bright kitchen (A1+ 1.2)."
+      },
+      "prompt": "Image 1 shows Luis. Keep his face, short dark curly hair, clean-shaven face, warm medium-brown skin and build exactly, and his navy crew-neck T-shirt. Create a new photograph in his living room in the evening: Luis sits relaxed on a dark-blue fabric sofa and watches TV, a TV remote in one hand, his eyes on the screen. The camera stands to one side of the TV, so the photo shows Luis's face in three-quarter view and, near him in the frame, the side of a flat TV on a low wooden cabinet, its screen turned on and glowing with soft blue and orange abstract light that lights his face. A floor lamp gives warm light; the window behind the sofa shows the dark blue evening sky. Both Luis and the glowing TV screen are inside the central 55 percent of the width. The glowing screen is big enough to see instantly on a small phone: it takes up at least 20 percent of the photo width."
+    },
+    {
+      "id": "e04-sofia-reads-tv-off",
+      "order": 4,
+      "item": "I don't watch TV in the evening. / Sofia doesn't watch TV in the evening. / She doesn't watch TV in the evening. / I read books in the evening.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "solo",
+        "action",
+        "evening"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-q03-7d520a07846a47b8.webp",
+        "sha256": "7d520a07846a47b8e8389c3226f3b3639d7eed0d257318b08e4f9b77c5b2258b",
+        "observed_description": "Sofia (long curly dark hair, warm brown skin, white blouse under a bright blue blazer) writes in a large notebook at a wooden desk by a bright window in her home study, a stack of her dark-red books beside her (A1+ 1.2)."
+      },
+      "prompt": "Image 1 shows Sofia. Keep her face, long curly dark hair, warm brown skin and build exactly, and her white blouse under her bright blue blazer, with no badge and no card. Create a new photograph in her living room in the evening: Sofia sits in a comfortable mustard-yellow armchair under a warm reading lamp and reads an open book with a plain dark-red cover, holding it with both hands, her eyes on the page. Beside her armchair, a flat TV stands on a low white cabinet, clearly SWITCHED OFF: its screen is plain black and reflects only a little lamp light, and she is not looking at it. The window shows the dark blue evening sky. Both Sofia with her book and the black TV screen are inside the central 55 percent of the width, and the black screen takes up at least 20 percent of the photo width, so it is easy to see that the TV is off. There is no remote control in her hands."
+    }
+  ]
+}
