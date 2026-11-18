@@ -14,8 +14,11 @@ import { View, Text, Pressable, Animated } from 'react-native';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { isSilentWrittenRecognize, isWrittenRecognize, recognizeAnswerReplayText } from '../lessonPromptPresentation';
 import { lessonHeaderPromptText, usesCompactRecognizeInstruction } from '../lessonInstructions';
+import { OPTION_TRANSLATION_BUTTON_LABEL, recognizeOptionTranslationsAvailable } from '../optionTranslations';
 import { learnTranslationText } from '../hooks/useLearnTranslationPreview';
 export function Header({ currentCard, result, viewport, styles, showSentenceTranslation, learnTranslation = { enabled: false, visible: false } }) {
+  const showOptionTranslateButton = recognizeOptionTranslationsAvailable(currentCard);
+  const optionTranslation = { visible: false, open() {} }, handleOptionTranslatePress = () => {};
   const { width, height, fontScale } = viewport;
   const usesLessonPhoneLandscape = width > height && height < 600;
   const useCompactPhoneLayout = usesLessonPhoneLandscape;
@@ -99,6 +102,15 @@ test('corrected photo-to-phrase cards reuse Lesson 1.1 instruction and replay st
       const replay = records.find(r => r.type === 'Pressable' && r.props.accessibilityLabel?.startsWith('Repetir'));
       assert.ok(replay);
       assert.equal(replay.props.disabled, result !== 'correct', 'No upfront answer audio; correct selection enables its replay.');
+      // Traducir (2026-11-18): available before and after answering, inside the header, beside the instruction.
+      const paneWidth = viewport.width > viewport.height ? 230 : 370;
+      const traducir = records.find(r => r.type === 'Pressable' && r.props.accessibilityLabel === 'Traducir las opciones al español');
+      assert.ok(traducir, `${currentCard.slide_id}: photo-to-sentence cards offer Traducir.`);
+      assert.ok(!traducir.props.disabled, 'Traducir stays available in every result state.');
+      assert.ok(records.some(r => r.type === 'Text' && r.text === 'Traducir'), 'The button is labelled.');
+      assert.ok(traducir.box.left >= -1 && traducir.box.left + traducir.box.width <= paneWidth + 1
+        && traducir.box.top + traducir.box.height <= 220, `${currentCard.slide_id}: Traducir stays inside the header.`);
+      assert.ok(traducir.box.top >= instruction.box.top + instruction.box.height - 1, 'Traducir sits under the instruction.');
     }
   }
 });

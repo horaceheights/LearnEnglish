@@ -26,12 +26,18 @@ class ChoiceOption(BaseModel):
     image_url: str = ""
     label: str | None = None
     clock_cues: list[TeachingClock] = Field(default_factory=list, max_length=4)
+    # Authored Spanish for a written choice, revealed only by the Recognize
+    # Traducir button (user decision 2026-11-18). Omitted where unset so
+    # existing serialized choices keep their exact contracts.
+    spanish_translation: str | None = None
 
     @model_serializer(mode="wrap")
     def omit_unset_clock_cues(self, handler):
         payload = handler(self)
         if not self.clock_cues:
             payload.pop("clock_cues", None)
+        if not self.spanish_translation:
+            payload.pop("spanish_translation", None)
         return payload
 
 

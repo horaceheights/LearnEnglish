@@ -96,10 +96,13 @@ function harness(saved = null, delayedRead = null) {
   const promptSource = fs.readFileSync(path.resolve(__dirname, '../src/lessonPromptPresentation.ts'), 'utf8');
   const promptModule = {};
   new Function('exports', ts.transpileModule(promptSource, { compilerOptions: { module: ts.ModuleKind.CommonJS } }).outputText)(promptModule);
+  const optionTranslationModule = {};
+  new Function('exports', ts.transpileModule(fs.readFileSync(path.resolve(__dirname, '../src/optionTranslations.ts'), 'utf8'),
+    { compilerOptions: { module: ts.ModuleKind.CommonJS } }).outputText)(optionTranslationModule);
   const helpModule = {};
   new Function('exports', 'require', ts.transpileModule(helpSource, { compilerOptions: { module: ts.ModuleKind.CommonJS } }).outputText)(helpModule, id => {
-    assert.equal(id, './lessonPromptPresentation');
-    return promptModule;
+    assert.ok(['./lessonPromptPresentation', './optionTranslations'].includes(id), id);
+    return id === './optionTranslations' ? optionTranslationModule : promptModule;
   });
   const course = require('../src/generated/a1-course.json');
   assert.equal(course.filter(lesson => helpModule.isFirstSectionHelpIntroduction(lesson, 1)).length,

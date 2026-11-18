@@ -131,6 +131,8 @@ import { replyImageAfterPrompt } from '../lessonTurnImages';
 import { cardClockCues, visibleClockCues } from '../teachingClock';
 import { lineSpeaker } from '../speakerBubble';
 import { learnTranslationText, useLearnTranslationPreview } from '../hooks/useLearnTranslationPreview';
+import { useManualSentenceTranslation } from '../hooks/useManualSentenceTranslation';
+import { OPTION_TRANSLATION_BUTTON_LABEL, recognizeOptionTranslationsAvailable } from '../optionTranslations';
 import type { LearnerProfile, Lesson, LessonCard } from '../types';
 
 const SUCCESS_CHIME = require('../../assets/sfx/person-found-v2.mp3');
@@ -1724,6 +1726,11 @@ export function LessonScreen({
   const learnTranslation = useLearnTranslationPreview(currentCard, helpCardKey,
     loadedTeachingImageKey === helpCardKey && isAppActive && cardAudio.ready
       && !isPageTurning && !sectionBriefing && !showHelp && !isComplete && !isCompletedSectionPicker);
+  // Photo-to-sentence Recognize cards: Traducir shows every choice's Spanish
+  // for the shared three-second window, only when tapped (2026-11-18).
+  const showOptionTranslateButton = !isMissionGameCard && !isSentenceCard
+    && recognizeOptionTranslationsAvailable(currentCard);
+  const optionTranslation = useManualSentenceTranslation(helpCardKey);
 
   const openSentenceTranslation = useCallback(() => {
     if (translationHideTimerRef.current) clearTimeout(translationHideTimerRef.current);
@@ -1752,6 +1759,16 @@ export function LessonScreen({
     help.interact();
     openSentenceTranslation();
   }, [help.interact, openSentenceTranslation, useCompactHeaderInstruction, visiblePromptText]);
+
+  // Never selects or grades a choice. A card with an English question above the
+  // photo also shows that question's Spanish, as a tap on the question would.
+  const handleOptionTranslatePress = useCallback(() => {
+    if (!showOptionTranslateButton) return;
+    help.interact();
+    optionTranslation.open();
+    if (!useCompactHeaderInstruction && visiblePromptText.trim()) openSentenceTranslation();
+  }, [help.interact, openSentenceTranslation, optionTranslation.open, showOptionTranslateButton,
+    useCompactHeaderInstruction, visiblePromptText]);
 
   const handleReplayButtonPress = useCallback(() => {
     if (!phraseReplayAvailable) return;
@@ -3396,6 +3413,23 @@ export function LessonScreen({
                 </Animated.Text>
               ) : null}
             </Pressable>
+            {showOptionTranslateButton ? <Pressable
+              accessibilityHint="Muestra las opciones en español por unos segundos."
+              accessibilityLabel="Traducir las opciones al español"
+              accessibilityRole="button"
+              hitSlop={{ bottom: 8, left: 6, right: 6, top: 8 }}
+              onPress={handleOptionTranslatePress}
+              style={({ pressed }) => [
+                styles.optionTranslateButton,
+                optionTranslation.visible ? styles.optionTranslateButtonActive : null,
+                pressed ? styles.replayButtonPressed : null,
+              ]}
+            >
+              <Ionicons color="#23856f" name="language" size={15} />
+              <Text maxFontSizeMultiplier={1.2} style={styles.optionTranslateLabel}>
+                {OPTION_TRANSLATION_BUTTON_LABEL}
+              </Text>
+            </Pressable> : null}
             {!silentWrittenRecognize || phraseReplayAvailable ? <Pressable
               accessibilityHint={useCompactRecognizeInstruction && !phraseReplayAvailable
                 ? 'Disponible después de elegir la frase correcta.'
@@ -3697,6 +3731,7 @@ export function LessonScreen({
             onGrammarAnimationComplete={grammarAnimationComplete}
             onResetSelection={resetMissionSelection}
             onSelect={choose}
+            optionTranslationsVisible={showOptionTranslateButton && optionTranslation.visible}
             onTutor={tutorContext ? openTutor : undefined}
             onUndoSelection={undoMissionSelection}
             result={result}
@@ -4022,6 +4057,22 @@ const styles = StyleSheet.create({
   },
   phraseReplayIconPlaying: { backgroundColor: '#176b5d' },
   phraseReplayIconDisabled: { opacity: 0.45 },
+  optionTranslateButton: {
+    alignItems: 'center',
+    alignSelf: 'center',
+    backgroundColor: '#eef7f4',
+    borderColor: '#9fcfc2',
+    borderRadius: 14,
+    borderWidth: 1,
+    flexDirection: 'row',
+    gap: 5,
+    marginTop: 4,
+    minHeight: 28,
+    paddingHorizontal: 12,
+    paddingVertical: 3,
+  },
+  optionTranslateButtonActive: { backgroundColor: '#d6efe8', borderColor: '#23856f' },
+  optionTranslateLabel: { color: '#176b5d', fontSize: 13, fontWeight: '800' },
   replayButtonPressed: { opacity: 0.82, transform: [{ scale: 0.95 }] },
   inlineTranslation: {
     color: '#58656b',

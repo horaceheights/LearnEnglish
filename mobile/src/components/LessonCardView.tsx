@@ -10,6 +10,7 @@ import { lessonVideoUrl, type CourseAudioProvider, type CourseAudioVoice } from 
 import type { CourseAudioTurnPlayback } from '../courseAudioSources';
 import { useReducedMotion } from '../hooks/useReducedMotion';
 import { COMPLETION_RETRY_HELP, lessonHelpText, type PromptInteractionMode } from '../lessonHelp';
+import { optionTranslationLineCount, optionTranslationText } from '../optionTranslations';
 import { lessonMistakeHint } from '../lessonMistakeHints';
 import { isWrittenRecognize } from '../lessonPromptPresentation';
 import { awaitingConstructionRetry } from '../constructionTeaching';
@@ -99,6 +100,8 @@ type Props = {
   pronunciationReplayRequestId?: number;
   onUndoSelection?: () => void;
   allowVerticalGrowth?: boolean;
+  /** Recognize Traducir window: show each written choice's Spanish under it. */
+  optionTranslationsVisible?: boolean;
 };
 
 export function LessonCardView({
@@ -140,6 +143,7 @@ export function LessonCardView({
   pronunciationReplayRequestId = 0,
   onUndoSelection,
   allowVerticalGrowth = false,
+  optionTranslationsVisible = false,
 }: Props) {
   const { height: viewportHeight, width: viewportWidth, fontScale } = useWindowDimensions();
   const reduceMotion = useReducedMotion();
@@ -340,7 +344,21 @@ export function LessonCardView({
   const balancesPromptWithChoices = !isLandscape && !isPronunciation && !isMissionTile
     && !useCompactCompletionTiles && Boolean(activeTurnImageUrl || card.prompt_image_url)
     && hasTextOnlyOptions && !allowVerticalGrowth;
-  const effectiveTextOptionHeight = phoneLandscape && hasTextOnlyOptions
+  // While Traducir is open, every tile grows by the same Spanish band: the English
+  // keeps its size and floors, tiles stay equal, and nothing clips (2026-11-18).
+  const optionTranslationFontSize = isTabletViewport ? 20 : 15;
+  const optionTranslationLineHeight = isTabletViewport ? 25 : 19;
+  const optionTranslationLines = optionTranslationsVisible && hasTextOnlyOptions
+    ? optionTranslationLineCount(
+        card.options,
+        Math.max(120, innerCardWidth / Math.max(1, textOptionColumns) - 48),
+        optionTranslationFontSize * textOptionScale,
+      )
+    : 0;
+  const optionTranslationReserve = optionTranslationLines
+    ? optionTranslationLines * optionTranslationLineHeight * textOptionScale + 2
+    : 0;
+  const effectiveTextOptionHeight = optionTranslationReserve + (phoneLandscape && hasTextOnlyOptions
     ? Math.max(48, (availableCardHeight - cardVerticalChrome - feedbackReservedHeight - 8 - (card.options.length - 1) * 8) / Math.max(1, card.options.length))
     : balancesPromptWithChoices
     ? promptChoiceRowHeight({
@@ -353,7 +371,7 @@ export function LessonCardView({
         minimumFontSize: textOptionMinimumFontSize,
         preferredRowHeight: uniformTextOptionHeight,
       })
-    : uniformTextOptionHeight;
+    : uniformTextOptionHeight);
   const textOptionsReservedHeight = hasTextOnlyOptions
     ? (textOptionRows * effectiveTextOptionHeight) + (Math.max(0, textOptionRows - 1) * 10)
     : 0;
@@ -784,6 +802,24 @@ export function LessonCardView({
                       >
                         {vocabularyText(option.label || '', vocabulary, revealCorrect || revealWrong)}
                       </Text>
+                      {optionTranslationText(option, optionTranslationsVisible) ? (
+                        // The tile grew by this band, so the English keeps its own space.
+                        <Text
+                          accessibilityLiveRegion="polite"
+                          adjustsFontSizeToFit
+                          maxFontSizeMultiplier={isTabletViewport ? 1.2 : 1.15}
+                          minimumFontScale={0.85}
+                          numberOfLines={Math.max(1, optionTranslationLines)}
+                          // Natural font metrics inside a measured band: Android auto-fit
+                          // must not be combined with an explicit line height.
+                          style={[styles.textOptionTranslation, {
+                            fontSize: optionTranslationFontSize,
+                            height: optionTranslationLines * optionTranslationLineHeight * textOptionScale,
+                          }]}
+                        >
+                          {optionTranslationText(option, optionTranslationsVisible)}
+                        </Text>
+                      ) : null}
                     </>
                   ) : null}
                   {revealCorrect ? <Text maxFontSizeMultiplier={1} style={styles.feedbackIcon}>✓</Text> : null}
@@ -1525,6 +1561,17 @@ const styles = StyleSheet.create({
     textShadowColor: 'rgba(255,255,255,0.85)',
     textShadowOffset: { height: 1, width: 0 },
     textShadowRadius: 1,
+    width: '100%',
+  },
+  textOptionTranslation: {
+    color: '#4d5a60',
+    flexShrink: 0,
+    fontWeight: '700',
+    includeFontPadding: false,
+    marginTop: 2,
+    maxWidth: '100%',
+    textAlign: 'center',
+    textAlignVertical: 'top',
     width: '100%',
   },
   pendingOption: { backgroundColor: '#fff6df', borderColor: '#d6a83b' },

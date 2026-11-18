@@ -11,12 +11,16 @@ new Function('exports', ts.transpileModule(source, {
   compilerOptions: { module: ts.ModuleKind.CommonJS },
 }).outputText)(api);
 const { isSilentWrittenRecognize, isWrittenRecognize, recognizeAnswerReplayText } = api;
+const optionTranslationApi = {};
+new Function('exports', ts.transpileModule(fs.readFileSync(path.join(root, 'src/optionTranslations.ts'), 'utf8'), {
+  compilerOptions: { module: ts.ModuleKind.CommonJS },
+}).outputText)(optionTranslationApi);
 const helpApi = {};
 new Function('exports', 'require', ts.transpileModule(fs.readFileSync(path.join(root, 'src/lessonHelp.ts'), 'utf8'), {
   compilerOptions: { module: ts.ModuleKind.CommonJS },
 }).outputText)(helpApi, (id) => {
-  assert.equal(id, './lessonPromptPresentation');
-  return api;
+  assert.ok(['./lessonPromptPresentation', './optionTranslations'].includes(id), id);
+  return id === './optionTranslations' ? optionTranslationApi : api;
 });
 const { lessonHelpText } = helpApi;
 
@@ -115,9 +119,10 @@ test('all regenerated weekday recognition cards keep writing and pronunciation w
     }
     const help = lessonHelpText(current, 'translation-on-tap');
     assert.doesNotMatch(help, /escucha|bocina|repetir/i, `${current.slide_id}: help never asks the learner to listen.`);
+    // Written choices under the photo carry Spanish, so help names the Traducir button (2026-11-18).
     assert.equal(help, current.options.every(option => option.image_url)
       ? 'Lee la palabra y toca la imagen que corresponde.'
-      : 'Mira la imagen y toca la frase que la describe.');
+      : 'Mira la imagen y toca la frase que la describe. Toca Traducir para ver las frases en español.');
   }
 });
 

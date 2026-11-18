@@ -6,6 +6,8 @@ export type ChoiceOption = {
   image_url: string;
   label: string | null;
   clock_cues?: TeachingClock[];
+  /** Authored Spanish for a written Recognize choice, shown only by the Traducir button. */
+  spanish_translation?: string;
 };
 
 export type CourseAudioAsset = {

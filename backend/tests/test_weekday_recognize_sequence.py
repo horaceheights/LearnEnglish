@@ -40,7 +40,9 @@ SEQUENCE = (
 # that reviewed presentation, while the explicit assertions protect its meaning.
 PRESERVED_STAGE_DIGESTS = {
     "Learn": "74c4440c9ea6093da6adf2a8eb78c886acc48daf13657856d823356d1dbb43b5",
-    "Recognize": "ae4f38ff017d880afb85a43e3c2ec239a06c1d23e31706b8faa47b2a697ae60b",
+    # 2026-11-18 Traducir: the written choices gained `spanish_translation`. With
+    # those values removed the stage still hashes to the approved ae4f38ff…ae60b.
+    "Recognize": "11ad182b1a373323ddb18097ce9d652cafeabd895c3416bb1c780dd865e36fd1",
 }
 
 

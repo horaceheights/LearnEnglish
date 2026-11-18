@@ -39,6 +39,8 @@ import { isWrittenRecognize, recognizeAnswerReplayText } from "../../mobile/src/
 import { lessonMistakeHint as getLessonMistakeHint } from "../../mobile/src/lessonMistakeHints";
 import { replyImageAfterPrompt, teachingOptionImageUrl, visibleTurnImageUrl } from "../../mobile/src/lessonTurnImages";
 import { learnTranslationText, useLearnTranslationPreview } from "../../mobile/src/hooks/useLearnTranslationPreview";
+import { useManualSentenceTranslation } from "../../mobile/src/hooks/useManualSentenceTranslation";
+import { OPTION_TRANSLATION_BUTTON_LABEL, optionTranslationText, recognizeOptionTranslationsAvailable } from "../../mobile/src/optionTranslations";
 import { WavAudioRecorder } from "../lib/WavAudioRecorder";
 import { isMissionLesson } from "../lib/missionExperience.mjs";
 import useStaticSfx from "../lib/useStaticSfx";
@@ -2464,6 +2466,11 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
     loadedTeachingImageKey === teachingCardKey && started && !isComplete && !isPageTurning
       && helpDocumentVisible && !showHelp && !tutor.visible);
   const teachingTranslationVisible = learnTranslation.visible || manualTeachingTranslationKey === teachingCardKey;
+  // Photo-to-sentence Recognize cards: Traducir shows each choice's Spanish for
+  // the shared three-second window, only when tapped (user decision 2026-11-18).
+  const showOptionTranslateButton = recognizeOptionTranslationsAvailable(currentCard);
+  const optionTranslation = useManualSentenceTranslation(teachingCardKey);
+  const optionTranslationsVisible = showOptionTranslateButton && optionTranslation.visible;
   useEffect(() => {
     const visibility = () => setHelpDocumentVisible(document.visibilityState === "visible");
     visibility();
@@ -5955,6 +5962,20 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
                 </h1>
               </button>
             ) : null}
+            {showOptionTranslateButton && !isSentenceCard ? (
+              <button type="button" data-option-translate onClick={() => { help.interact(); optionTranslation.open(); }}
+                aria-label="Traducir las opciones al español"
+                style={{ display: "inline-flex", alignItems: "center", gap: 6, margin: "6px auto 0", minHeight: 32,
+                  padding: "4px 14px", borderRadius: 16, cursor: "pointer", fontSize: 14, fontWeight: 800,
+                  color: "#176b5d", background: optionTranslationsVisible ? "#d6efe8" : "#eef7f4",
+                  border: `1px solid ${optionTranslationsVisible ? "#23856f" : "#9fcfc2"}` }}>
+                <svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16">
+                  <path d="M4 5h9M8.5 3v2M6 5c0 4 3 7 6 8M11 5c-1 4-4 7-7 8" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+                  <path d="M13 21l4-10 4 10M14.5 17.5h5" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+                {OPTION_TRANSLATION_BUTTON_LABEL}
+              </button>
+            ) : null}
           </section>
 
           {currentCard.context_es ? <p data-lesson-story-context aria-live="polite"
@@ -6368,7 +6389,16 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
                             : isMobile ? "18px 14px" : "28px 20px",
                         }}
                       >
-                        {renderVocabulary(optionLabel)}
+                        <span>
+                          {renderVocabulary(optionLabel)}
+                          {optionTranslationText(option, optionTranslationsVisible) ? (
+                            <span data-option-translation aria-live="polite"
+                              style={{ display: "block", marginTop: 4, color: "#4d5a60", fontWeight: 700,
+                                fontSize: isMobile ? 15 : 19, lineHeight: 1.25 }}>
+                              {optionTranslationText(option, optionTranslationsVisible)}
+                            </span>
+                          ) : null}
+                        </span>
                       </div>
                     )}
                   </CardTag>
