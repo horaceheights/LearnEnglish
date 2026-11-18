@@ -15,6 +15,7 @@ import Ionicons from '@expo/vector-icons/Ionicons';
 import { isSilentWrittenRecognize, isWrittenRecognize, recognizeAnswerReplayText } from '../lessonPromptPresentation';
 import { lessonHeaderPromptText, usesCompactRecognizeInstruction } from '../lessonInstructions';
 import { OPTION_TRANSLATION_BUTTON_LABEL, recognizeOptionTranslationsAvailable } from '../optionTranslations';
+import { learnTranslationText } from '../hooks/useLearnTranslationPreview';
 export function Header({ currentCard, result, viewport, styles, showSentenceTranslation, learnTranslation = { enabled: false, visible: false } }) {
   const showOptionTranslateButton = recognizeOptionTranslationsAvailable(currentCard);
   const optionTranslation = { visible: false, open() {} }, handleOptionTranslatePress = () => {};
