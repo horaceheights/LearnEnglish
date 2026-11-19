@@ -33,9 +33,9 @@ function ResultMascot({ happy, moving, size }: { happy: boolean; moving: boolean
   </View>;
 }
 
-export function LessonResultScreen({ result, lessonLabel, hasNext, onNext, onLessons, onRestart, onReview, onExit,
+export function LessonResultScreen({ result, lessonLabel, hasNext, nextLessonName = '', onNext, onLessons, onRestart, onReview, onExit,
   width, height, active, celebrate, saving, error, onRetrySave, offline = false, lesson, catalog = [] }: {
-  result: LessonResult; lessonLabel: string; hasNext: boolean; onNext: () => void; onLessons: () => void;
+  result: LessonResult; lessonLabel: string; hasNext: boolean; nextLessonName?: string; onNext: () => void; onLessons: () => void;
   onRestart: () => void; onReview: () => void; onExit: () => void; width: number; height: number;
   active: boolean; celebrate: boolean; saving: boolean; error: string;
   onRetrySave: () => void;
@@ -60,10 +60,11 @@ export function LessonResultScreen({ result, lessonLabel, hasNext, onNext, onLes
     return () => { cancelled = true; stopMissionSound(); burst.stopAnimation(); };
   }, [active, burst, celebrate, playMissionSound, reduceMotion, stopMissionSound, summary.passed]);
   const actionsDisabled = saving || Boolean(error);
-  const button = (label: string, onPress: () => void, primary = false, recommended = false) => (
-    <Pressable accessibilityRole="button" accessibilityLabel={recommended ? `${label}. Recomendado` : label}
+  const button = (label: string, onPress: () => void, primary = false, recommended = false, detail = '') => (
+    <Pressable accessibilityRole="button" accessibilityLabel={[label, detail, recommended ? 'Recomendado' : ''].filter(Boolean).join('. ')}
       disabled={actionsDisabled} onPress={onPress} style={[styles.button, primary ? styles.primary : null, actionsDisabled ? styles.disabled : null]}>
       <Text style={[styles.buttonText, primary ? styles.primaryText : null]}>{label}</Text>
+      {detail ? <Text style={[styles.detail, primary ? styles.primaryText : null]}>{detail}</Text> : null}
       {recommended ? <Text style={styles.recommended}>RECOMENDADO</Text> : null}
     </Pressable>
   );
@@ -98,7 +99,7 @@ export function LessonResultScreen({ result, lessonLabel, hasNext, onNext, onLes
         {!summary.passed ? <Text style={styles.question}>¿Qué quieres hacer?</Text> : null}
         <View style={styles.actions}>
           {summary.passed ? <>
-            {hasNext ? button('Continuar', onNext, true) : null}
+            {hasNext ? button('Continuar', onNext, true, false, nextLessonName ? `Siguiente lección: ${nextLessonName}` : '') : null}
             {button('Volver a las lecciones', onLessons, !hasNext)}
             {summary.afterReview && remainingReviewCards(result).length ? button('Seguir repasando hasta el 100%', onReview) : null}
           </> : <>
@@ -166,6 +167,7 @@ const styles = StyleSheet.create({
   primary: { backgroundColor: '#bd4226', borderColor: '#bd4226', borderBottomWidth: 4, borderBottomColor: '#94341e' },
   buttonText: { fontSize: 16, fontWeight: '800', textAlign: 'center', color: '#24333a' }, primaryText: { color: '#fff' },
   recommended: { fontSize: 11, fontWeight: '800', letterSpacing: .7, color: '#fff', marginTop: 3 },
+  detail: { fontSize: 14, fontWeight: '600', textAlign: 'center', color: '#58656a', marginTop: 3 },
   exit: { minHeight: 48, justifyContent: 'center', alignItems: 'center' }, exitText: { fontSize: 16, fontWeight: '700', color: '#58656a' },
   disabled: { opacity: .6 }, error: { color: '#94341e', fontSize: 16, textAlign: 'center' },
   goodbye: { flexGrow: 1, padding: 24, alignItems: 'center', justifyContent: 'center', gap: 24 },

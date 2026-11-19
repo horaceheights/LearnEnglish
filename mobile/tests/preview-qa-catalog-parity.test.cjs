@@ -77,6 +77,9 @@ for (const { lesson } of expected) {
     'Opening or shuffling a lesson must not modify its embedded source.');
 }
 updates.channel = 'production';
+assert.deepEqual(preview.exports.courseLessonSequence.map(lesson => [lesson.id, lesson.course_id]),
+  expected.map(({ lesson, courseId }) => [lesson.id, courseId]),
+  'The result screen\'s next lesson must come from every registered course, in order, in every channel.');
 const backend = [{ id: 'backend-owned' }];
 assert.equal(preview.exports.mergePreviewLessonSummaries(backend), backend);
 assert.equal(preview.exports.getPreviewLesson(expected[0].lesson.id), null);
