@@ -1,0 +1,62 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "355ac9c4-563b-4304-a55d-93b4dd0da767",
+  "asset_id": "s01-boy-girl-sleeping",
+  "pack_sha256": "36b6cf7282f3cd22323f7f0ae689739a39ab72589a146e8bb78f723eb6fa1ff6",
+  "started_at": "2026-11-19T15:12:04.716300+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for an English-speaking adult beginner learning German. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, numbers, logos or brand marks anywhere. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos.\n\nKeep every person and the thing they share inside the central 60 percent of the photo width, so a centered 4:5 crop keeps them; only expendable background reaches the left and right edges.\n\nThe two people are close together and clearly do the same activity together.\n\nImage 1 shows a boy and a girl. Keep both faces, hair, skin tones and builds exactly. Create a new photograph of the same two children in a cozy bedroom at night: they are both fast asleep side by side in one wide bed, under one light-colored blanket pulled up to their chests. Their eyes are clearly closed and their faces are relaxed, each head resting on its own white pillow, turned slightly toward the camera so both faces are fully visible. The boy wears plain blue pajamas and the girl wears plain lilac pajamas. A small bedside lamp gives soft warm light so both faces are easy to see; the room behind them is calm and dim. The camera is at the height of the bed, a few steps away, and shows both children from the head to the waist. Only these two people are in the photo; nobody is awake.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/they_boy_girl.webp",
+    "sha256": "73d97a0fe1771a1876952867bf8a64d7ca44f4a25a40c2fcb01635a97251cf24"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "wxH_apiaHZLVz7IPssTK0Qw",
+  "usage": {
+    "promptTokenCount": 607,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1897,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 349
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038882",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 607,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 26.61,
+  "output": "output/imagegen/de-a1-unit-1-lesson-v4/s01-boy-girl-sleeping.png",
+  "sha256": "28b09b2a6052e5f05e8f72022b614409634cf1355637dfe1991b880026aed2fe",
+  "byte_count": 1202085,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}

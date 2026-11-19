@@ -69,6 +69,8 @@ NARRATOR_VOICE_IDS = {
     "male-teacher": "cjVigY5qzO86Huf0OWal",  # Eric, the second neutral narrator (2026-09-25)
     # Native German narrator for the German course (user-auditioned 2026-11-18).
     "german-teacher": "K75lPKuh15SyVhQC1LrE",  # Carola
+    # Native German male co-teacher (user-auditioned 2026-11-19), alternating with Carola like Eric with Nichalia.
+    "german-co-teacher": "TUKJhQmz3RPYBNAgC5A1",  # German Narration
 }
 
 # Lesson content names the semantic speaker, never a provider voice ID. Named
@@ -89,13 +91,14 @@ SPEAKER_NARRATORS = {
     "co-teacher": "male-teacher",
     # The German course is read by a native German narrator, never the English cast.
     "de-teacher": "german-teacher",
+    "de-co-teacher": "german-co-teacher",
 }
 
 # Roles that may still fall back to the reviewed legacy (voice-unknown) cache.
 NEUTRAL_SPEAKER_ROLES = frozenset({"teacher", "question", "answer"})
 NAMED_SPEAKER_ROLES = frozenset(set(SPEAKER_NARRATORS) - NEUTRAL_SPEAKER_ROLES)
 # Off-camera narration: a line no pictured person says, in either neutral narrator.
-NARRATION_SPEAKER_ROLES = frozenset(NEUTRAL_SPEAKER_ROLES | {"co-teacher", "de-teacher"})
+NARRATION_SPEAKER_ROLES = frozenset(NEUTRAL_SPEAKER_ROLES | {"co-teacher", "de-teacher", "de-co-teacher"})
 
 
 @dataclass(frozen=True)

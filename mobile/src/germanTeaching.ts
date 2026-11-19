@@ -11,10 +11,18 @@ const key = (word: string) => word.toLowerCase();
 const set = (value: string) => new Set(value.split(' '));
 const ARTICLES = set('der die das ein eine');
 const NOUNS = set('junge mädchen mann frau');
+// German 1.5-1.6: family nouns. Plurals can follow sind without an article.
+for (const noun of 'familie baby babys kind kinder bruder brüder schwester schwestern erwachsenen'.split(' ')) NOUNS.add(noun);
+const BARE_PLURALS = set('babys kinder brüder schwestern');
+// Words that describe the person after ist/sind, with no article.
+const DESCRIPTIONS = set('erwachsen');
 const PRONOUNS = set('er sie');
-const VERBS = set('ist isst trinkt liest schreibt essen lesen schreiben');
+const VERBS = set('ist sind isst trinkt liest schreibt essen lesen schreiben rennt rennen sitzt sitzen schwimmt schwimmen schläft schlafen');
 // One person against two: the verb ending is the only difference after sie.
-const NUMBER_PAIRS: Record<string, string> = { isst: 'essen', liest: 'lesen', schreibt: 'schreiben' };
+const NUMBER_PAIRS: Record<string, string> = {
+  isst: 'essen', liest: 'lesen', schreibt: 'schreiben',
+  rennt: 'rennen', sitzt: 'sitzen', schwimmt: 'schwimmen', schläft: 'schlafen', ist: 'sind',
+};
 const quote = (text: string) => `“${text}”`;
 
 type Relation = { start: number; end: number; explanation: string };
@@ -62,10 +70,18 @@ function teachClause(text: string): ClausePlan {
     relations.push({ start: subjectStart, end: index + 1, explanation: `German puts the verb right after who does it: ${quote(`${subject} ${verb}`)}.` });
     const verbIndex = index;
     index += 1;
-    if (key(verb) === 'ist') {
-      const complement = nounPhrase();
+    if (key(verb) === 'ist' || key(verb) === 'sind') {
+      const word = tokens[index] || '';
+      let complement = nounPhrase();
+      if (!complement && (BARE_PLURALS.has(key(word)) || DESCRIPTIONS.has(key(word)))) {
+        complement = word;
+        explanations[index] = BARE_PLURALS.has(key(word))
+          ? `${quote(word)} is a plural, so it comes right after ${quote(verb)} with no article.`
+          : `${quote(word)} describes who they are, so it comes right after ${quote(verb)}.`;
+        index += 1;
+      }
       if (!complement) return { explanations, relations, supported: false };
-      relations.push({ start: verbIndex, end: index, explanation: `After “ist” comes what the person is: ${quote(complement)}.` });
+      relations.push({ start: verbIndex, end: index, explanation: `After ${quote(verb)} comes what the person is: ${quote(complement)}.` });
     }
   }
   return { explanations, relations, supported: index === tokens.length && explanations.every(Boolean) };

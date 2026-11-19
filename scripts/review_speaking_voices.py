@@ -43,7 +43,7 @@ from backend.app.course_audio_profile import NARRATION_SPEAKER_ROLES, narrator_f
 
 REVIEW_PATH = ROOT / "docs" / "qa" / "speaking-voice-review-v1.json"
 IMAGE_ROOT = ROOT / "mobile" / "assets" / "lesson-assets"
-MALE_NARRATORS = frozenset({"male-conversational", "male-teacher"})
+MALE_NARRATORS = frozenset({"male-conversational", "male-teacher", "german-co-teacher"})
 VOICES = frozenset({"male", "female", "narrator"})
 # The Spanish mission briefing is narration, and a voice gate's mission-cue clip is
 # only a fallback: the gate always plays its asker's own question turn.
