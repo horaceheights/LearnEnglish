@@ -24,7 +24,8 @@ ROOT = Path(__file__).resolve().parents[2]
 # position is rebuilt as the follow-up of the A1 lesson with the same number.
 NOT_YET_REBUILT: set[str] = set()
 # A1 lessons whose A1+ follow-up does not exist yet.
-NOT_YET_BUILT: set[str] = set()
+# A1+ Unit 2 (user decision, 2026-11-19): 2.1-2.5 built; 2.6-2.15 planned in the guardrails' Unit 2 order.
+NOT_YET_BUILT: set[str] = {f"2.{n}" for n in range(6, 16)}
 
 
 def lessons(course: str) -> dict:

@@ -1,0 +1,862 @@
+{
+  "brief_version": 1,
+  "follows": {
+    "course": "a1",
+    "lesson": "2.1",
+    "title": "Places Around Me"
+  },
+  "note": "A1+ Unit 2 Lesson 2.1, built on 2026-11-19 under the A1+ lesson standards approved 2026-10-27 and the user's 2026-11-09 rule that every A1+ lesson follows up the A1 lesson with the same number. The user approved the A1+ Unit 2 plan on 2026-11-19 (A1+ 2.Y follows A1 2.Y, one grammar step each) and chose \"Straight to Preview\": no per-lesson gates, Gemini 2.5 Flash photos and ElevenLabs audio pre-approved, reviewed in Preview. Each cast member goes to one place: Luis to the gym, Ana to the pool (A1+ 1.3's swimming photo), Diego to the office and Sofia to the park. Learn introduces goes on a known place first (the park), then each new place on its own (It is a gym.) before its contrast pair. Photo banks set the four people and places against each other; Listen text cards set the habit against the I-form and A1's is going. A unit's first lesson keeps Learn models to 8 words and Listen to 2 lines.",
+  "target": "backend/lessons/a1_plus/unit_2/a1plus-unit-2-lesson-2-1.yaml",
+  "captions": false,
+  "narrators": [
+    "teacher",
+    "co-teacher"
+  ],
+  "answer_audio_policy": "authored-only",
+  "speak_delivery": "a1-pronunciation-v1",
+  "lesson": {
+    "id": "a1plus-unit-2-lesson-2-1",
+    "title": "2.1 Where people go",
+    "level": "A1+",
+    "unit_id": "a1plus-unit-2",
+    "unit_title": "Places, things and how we describe them",
+    "unit_outcome": "Say where people go and how they get there, talk about the things people have, point things out and compare them, put things in order, and ask about favorites.",
+    "lesson_id": "a1plus-unit-2-lesson-2-1",
+    "lesson_title": "Where people go",
+    "sub_lesson_id": "2.1",
+    "sub_lesson_title": "Where people go",
+    "goal": "Say where people go with go to and goes to (I go to the gym. / Luis goes to the gym.), with three new places: gym, pool and office.",
+    "vocabulary": [
+      "goes",
+      "gym",
+      "pool",
+      "office"
+    ],
+    "review_vocabulary": [
+      "go",
+      "to",
+      "the",
+      "park",
+      "I",
+      "it",
+      "is",
+      "a",
+      "an",
+      "he",
+      "she",
+      "where",
+      "does",
+      "is going",
+      "swims",
+      "runs",
+      "works",
+      "studies",
+      "there",
+      "never",
+      "always",
+      "usually",
+      "How often",
+      "you"
+    ],
+    "grammar_function": "A follow-up of A1 2.1 Places Around Me: A1 names places (It is a park.) and says what people are doing in them (The girl is running in the park.); A1+ 2.1 says where people go. The one new grammar relationship is go to + place with he/she goes, the -es spelling of go, taught against the I-form (I go to the gym. / Luis goes to the gym.) and heard against A1's is going (Luis is going to the gym.). New places: gym, pool, office.",
+    "prerequisite": "A1 2.1 places (park) and It is a/an; A1 4.6 go to school; A1 6.3 I am going to; A1 6.11 goes; A1+ 1.2-1.3 the he/she -s; A1+ 1.9 Where does…?; A1+ 1.3 Ana swims and Sofia runs in the park.",
+    "speaking_outcome": "Say goes with a long o and a final z sound (/ɡoʊz/), different from go; keep to the in go to the gym short. Do not require native-like speed.",
+    "content_revision": 1,
+    "learn_context_groups": [
+      {
+        "kind": "contrast",
+        "targets": [
+          "goes"
+        ],
+        "models": [
+          {
+            "text": "I go to the park. Sofia goes to the park.",
+            "turns": [
+              "I go to the park.",
+              "Sofia goes to the park."
+            ],
+            "slide_id": "L1"
+          }
+        ]
+      },
+      {
+        "kind": "sequence",
+        "targets": [
+          "gym"
+        ],
+        "models": [
+          {
+            "text": "It is a gym.",
+            "slide_id": "L2"
+          }
+        ]
+      },
+      {
+        "kind": "contrast",
+        "targets": [
+          "goes",
+          "gym"
+        ],
+        "models": [
+          {
+            "text": "I go to the gym. Luis goes to the gym.",
+            "turns": [
+              "I go to the gym.",
+              "Luis goes to the gym."
+            ],
+            "slide_id": "L3"
+          }
+        ]
+      },
+      {
+        "kind": "sequence",
+        "targets": [
+          "pool"
+        ],
+        "models": [
+          {
+            "text": "It is a pool.",
+            "slide_id": "L4"
+          }
+        ]
+      },
+      {
+        "kind": "contrast",
+        "targets": [
+          "goes",
+          "pool"
+        ],
+        "models": [
+          {
+            "text": "I go to the pool. Ana goes to the pool.",
+            "turns": [
+              "I go to the pool.",
+              "Ana goes to the pool."
+            ],
+            "slide_id": "L5"
+          }
+        ]
+      },
+      {
+        "kind": "sequence",
+        "targets": [
+          "office"
+        ],
+        "models": [
+          {
+            "text": "It is an office.",
+            "slide_id": "L6"
+          }
+        ]
+      },
+      {
+        "kind": "contrast",
+        "targets": [
+          "goes",
+          "office"
+        ],
+        "models": [
+          {
+            "text": "I go to the office. Diego goes to the office.",
+            "turns": [
+              "I go to the office.",
+              "Diego goes to the office."
+            ],
+            "slide_id": "L7"
+          }
+        ]
+      }
+    ]
+  },
+  "items": [
+    {
+      "id": "l-goes-park",
+      "text": "I go to the park. Sofia goes to the park.",
+      "es": "Voy al parque. Sofía va al parque.",
+      "image": "/lesson-assets/a1plus-unit-2-p03-fd066bfcbd288353.webp",
+      "kind": "contrast",
+      "choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "I go to the park.",
+          "speaker": "sofia",
+          "image": "/lesson-assets/a1plus-unit-2-p03-fd066bfcbd288353.webp"
+        },
+        {
+          "text": "Sofia goes to the park.",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-2-p03-fd066bfcbd288353.webp"
+        }
+      ]
+    },
+    {
+      "id": "n-park",
+      "text": "Sofia goes to the park.",
+      "es": "Sofía va al parque.",
+      "image": "/lesson-assets/a1plus-unit-2-p03-fd066bfcbd288353.webp",
+      "kind": "named",
+      "learn": false,
+      "accepts": {
+        "subject-variety": "The lesson's frame is go to + place: a bank keeps go/goes and changes the place (and person) the picture shows, so the repeated verb is the point, not a weak distractor.",
+        "action-variety": "The lesson's frame is go to + place: a bank keeps go/goes and changes the place (and person) the picture shows, so the repeated verb is the point, not a weak distractor."
+      },
+      "blanks": [
+        "goes",
+        "to"
+      ]
+    },
+    {
+      "id": "h-park",
+      "text": "She goes to the park.",
+      "es": "Ella va al parque.",
+      "image": "/lesson-assets/a1plus-unit-2-p03-fd066bfcbd288353.webp",
+      "kind": "pronoun",
+      "learn": false,
+      "accepts": {
+        "subject-variety": "The lesson's frame is go to + place: a bank keeps go/goes and changes the place (and person) the picture shows, so the repeated verb is the point, not a weak distractor.",
+        "action-variety": "The lesson's frame is go to + place: a bank keeps go/goes and changes the place (and person) the picture shows, so the repeated verb is the point, not a weak distractor."
+      },
+      "blanks": [
+        "the",
+        "park"
+      ]
+    },
+    {
+      "id": "i-park",
+      "text": "I go to the park.",
+      "es": "Voy al parque.",
+      "image": "/lesson-assets/a1plus-unit-2-p03-fd066bfcbd288353.webp",
+      "kind": "mine",
+      "learn": false,
+      "accepts": {
+        "subject-variety": "The lesson's frame is go to + place: a bank keeps go/goes and changes the place (and person) the picture shows, so the repeated verb is the point, not a weak distractor.",
+        "action-variety": "The lesson's frame is go to + place: a bank keeps go/goes and changes the place (and person) the picture shows, so the repeated verb is the point, not a weak distractor."
+      },
+      "speaker": "sofia",
+      "blanks": [
+        "go",
+        "to"
+      ]
+    },
+    {
+      "id": "a-park",
+      "text": "She goes to the park.",
+      "es": "Ella va al parque.",
+      "image": "/lesson-assets/a1plus-unit-2-p03-fd066bfcbd288353.webp",
+      "kind": "reply",
+      "learn": false,
+      "accepts": {
+        "subject-variety": "The lesson's frame is go to + place: a bank keeps go/goes and changes the place (and person) the picture shows, so the repeated verb is the point, not a weak distractor.",
+        "action-variety": "The lesson's frame is go to + place: a bank keeps go/goes and changes the place (and person) the picture shows, so the repeated verb is the point, not a weak distractor."
+      },
+      "use": false,
+      "speaker": "co-teacher",
+      "question": "Where does Sofia go?",
+      "question_es": "¿Adónde va Sofía?",
+      "question_speaker": "teacher"
+    },
+    {
+      "id": "x-park",
+      "text": "Sofia goes to the park.",
+      "es": "Sofía va al parque.",
+      "image": "/lesson-assets/a1plus-unit-2-p03-fd066bfcbd288353.webp",
+      "kind": "heard",
+      "learn": false,
+      "image_choices": false,
+      "use": false,
+      "prefer": [
+        "Sofia is going to the park.",
+        "I go to the park."
+      ],
+      "accepts": {
+        "subject-variety": "Listen sets the habit (goes) against the I-form and A1's is going on the same person and place; the answer is what was heard.",
+        "action-variety": "Listen sets the habit (goes) against the I-form and A1's is going on the same person and place; the answer is what was heard."
+      }
+    },
+    {
+      "id": "l-gym",
+      "text": "It is a gym.",
+      "es": "Es un gimnasio.",
+      "image": "/lesson-assets/a1plus-unit-2-p01-912dc10dce3e0e81.webp",
+      "kind": "model",
+      "choices": false,
+      "use": false,
+      "speaker": "teacher"
+    },
+    {
+      "id": "l-goes-gym",
+      "text": "I go to the gym. Luis goes to the gym.",
+      "es": "Voy al gimnasio. Luis va al gimnasio.",
+      "image": "/lesson-assets/a1plus-unit-2-p01-912dc10dce3e0e81.webp",
+      "kind": "contrast",
+      "choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "I go to the gym.",
+          "speaker": "luis",
+          "image": "/lesson-assets/a1plus-unit-2-p01-912dc10dce3e0e81.webp"
+        },
+        {
+          "text": "Luis goes to the gym.",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-2-p01-912dc10dce3e0e81.webp"
+        }
+      ]
+    },
+    {
+      "id": "n-gym",
+      "text": "Luis goes to the gym.",
+      "es": "Luis va al gimnasio.",
+      "image": "/lesson-assets/a1plus-unit-2-p01-912dc10dce3e0e81.webp",
+      "kind": "named",
+      "learn": false,
+      "accepts": {
+        "subject-variety": "The lesson's frame is go to + place: a bank keeps go/goes and changes the place (and person) the picture shows, so the repeated verb is the point, not a weak distractor.",
+        "action-variety": "The lesson's frame is go to + place: a bank keeps go/goes and changes the place (and person) the picture shows, so the repeated verb is the point, not a weak distractor."
+      },
+      "blanks": [
+        "goes",
+        "to"
+      ]
+    },
+    {
+      "id": "h-gym",
+      "text": "He goes to the gym.",
+      "es": "Él va al gimnasio.",
+      "image": "/lesson-assets/a1plus-unit-2-p01-912dc10dce3e0e81.webp",
+      "kind": "pronoun",
+      "learn": false,
+      "accepts": {
+        "subject-variety": "The lesson's frame is go to + place: a bank keeps go/goes and changes the place (and person) the picture shows, so the repeated verb is the point, not a weak distractor.",
+        "action-variety": "The lesson's frame is go to + place: a bank keeps go/goes and changes the place (and person) the picture shows, so the repeated verb is the point, not a weak distractor."
+      },
+      "blanks": [
+        "the",
+        "gym"
+      ]
+    },
+    {
+      "id": "i-gym",
+      "text": "I go to the gym.",
+      "es": "Voy al gimnasio.",
+      "image": "/lesson-assets/a1plus-unit-2-p01-912dc10dce3e0e81.webp",
+      "kind": "mine",
+      "learn": false,
+      "accepts": {
+        "subject-variety": "The lesson's frame is go to + place: a bank keeps go/goes and changes the place (and person) the picture shows, so the repeated verb is the point, not a weak distractor.",
+        "action-variety": "The lesson's frame is go to + place: a bank keeps go/goes and changes the place (and person) the picture shows, so the repeated verb is the point, not a weak distractor."
+      },
+      "speaker": "luis",
+      "blanks": [
+        "go",
+        "to"
+      ]
+    },
+    {
+      "id": "a-gym",
+      "text": "He goes to the gym.",
+      "es": "Él va al gimnasio.",
+      "image": "/lesson-assets/a1plus-unit-2-p01-912dc10dce3e0e81.webp",
+      "kind": "reply",
+      "learn": false,
+      "accepts": {
+        "subject-variety": "The lesson's frame is go to + place: a bank keeps go/goes and changes the place (and person) the picture shows, so the repeated verb is the point, not a weak distractor.",
+        "action-variety": "The lesson's frame is go to + place: a bank keeps go/goes and changes the place (and person) the picture shows, so the repeated verb is the point, not a weak distractor."
+      },
+      "use": false,
+      "speaker": "co-teacher",
+      "question": "Where does Luis go?",
+      "question_es": "¿Adónde va Luis?",
+      "question_speaker": "teacher"
+    },
+    {
+      "id": "x-gym",
+      "text": "Luis goes to the gym.",
+      "es": "Luis va al gimnasio.",
+      "image": "/lesson-assets/a1plus-unit-2-p01-912dc10dce3e0e81.webp",
+      "kind": "heard",
+      "learn": false,
+      "image_choices": false,
+      "use": false,
+      "prefer": [
+        "Luis is going to the gym.",
+        "I go to the gym."
+      ],
+      "accepts": {
+        "subject-variety": "Listen sets the habit (goes) against the I-form and A1's is going on the same person and place; the answer is what was heard.",
+        "action-variety": "Listen sets the habit (goes) against the I-form and A1's is going on the same person and place; the answer is what was heard."
+      }
+    },
+    {
+      "id": "l-pool",
+      "text": "It is a pool.",
+      "es": "Es una piscina.",
+      "image": "/lesson-assets/a1plus-unit-1-s02-6a10ecb13ff623c8.webp",
+      "kind": "model",
+      "choices": false,
+      "use": false,
+      "speaker": "co-teacher"
+    },
+    {
+      "id": "l-goes-pool",
+      "text": "I go to the pool. Ana goes to the pool.",
+      "es": "Voy a la piscina. Ana va a la piscina.",
+      "image": "/lesson-assets/a1plus-unit-1-s02-6a10ecb13ff623c8.webp",
+      "kind": "contrast",
+      "choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "I go to the pool.",
+          "speaker": "ana",
+          "image": "/lesson-assets/a1plus-unit-1-s02-6a10ecb13ff623c8.webp"
+        },
+        {
+          "text": "Ana goes to the pool.",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-1-s02-6a10ecb13ff623c8.webp"
+        }
+      ]
+    },
+    {
+      "id": "n-pool",
+      "text": "Ana goes to the pool.",
+      "es": "Ana va a la piscina.",
+      "image": "/lesson-assets/a1plus-unit-1-s02-6a10ecb13ff623c8.webp",
+      "kind": "named",
+      "learn": false,
+      "accepts": {
+        "subject-variety": "The lesson's frame is go to + place: a bank keeps go/goes and changes the place (and person) the picture shows, so the repeated verb is the point, not a weak distractor.",
+        "action-variety": "The lesson's frame is go to + place: a bank keeps go/goes and changes the place (and person) the picture shows, so the repeated verb is the point, not a weak distractor."
+      },
+      "blanks": [
+        "goes",
+        "to"
+      ]
+    },
+    {
+      "id": "h-pool",
+      "text": "She goes to the pool.",
+      "es": "Ella va a la piscina.",
+      "image": "/lesson-assets/a1plus-unit-1-s02-6a10ecb13ff623c8.webp",
+      "kind": "pronoun",
+      "learn": false,
+      "accepts": {
+        "subject-variety": "The lesson's frame is go to + place: a bank keeps go/goes and changes the place (and person) the picture shows, so the repeated verb is the point, not a weak distractor.",
+        "action-variety": "The lesson's frame is go to + place: a bank keeps go/goes and changes the place (and person) the picture shows, so the repeated verb is the point, not a weak distractor."
+      },
+      "blanks": [
+        "the",
+        "pool"
+      ]
+    },
+    {
+      "id": "i-pool",
+      "text": "I go to the pool.",
+      "es": "Voy a la piscina.",
+      "image": "/lesson-assets/a1plus-unit-1-s02-6a10ecb13ff623c8.webp",
+      "kind": "mine",
+      "learn": false,
+      "accepts": {
+        "subject-variety": "The lesson's frame is go to + place: a bank keeps go/goes and changes the place (and person) the picture shows, so the repeated verb is the point, not a weak distractor.",
+        "action-variety": "The lesson's frame is go to + place: a bank keeps go/goes and changes the place (and person) the picture shows, so the repeated verb is the point, not a weak distractor."
+      },
+      "speaker": "ana",
+      "blanks": [
+        "go",
+        "to"
+      ]
+    },
+    {
+      "id": "a-pool",
+      "text": "She goes to the pool.",
+      "es": "Ella va a la piscina.",
+      "image": "/lesson-assets/a1plus-unit-1-s02-6a10ecb13ff623c8.webp",
+      "kind": "reply",
+      "learn": false,
+      "accepts": {
+        "subject-variety": "The lesson's frame is go to + place: a bank keeps go/goes and changes the place (and person) the picture shows, so the repeated verb is the point, not a weak distractor.",
+        "action-variety": "The lesson's frame is go to + place: a bank keeps go/goes and changes the place (and person) the picture shows, so the repeated verb is the point, not a weak distractor."
+      },
+      "use": false,
+      "speaker": "co-teacher",
+      "question": "Where does Ana go?",
+      "question_es": "¿Adónde va Ana?",
+      "question_speaker": "teacher"
+    },
+    {
+      "id": "x-pool",
+      "text": "Ana goes to the pool.",
+      "es": "Ana va a la piscina.",
+      "image": "/lesson-assets/a1plus-unit-1-s02-6a10ecb13ff623c8.webp",
+      "kind": "heard",
+      "learn": false,
+      "image_choices": false,
+      "use": false,
+      "prefer": [
+        "Ana is going to the pool.",
+        "I go to the pool."
+      ],
+      "accepts": {
+        "subject-variety": "Listen sets the habit (goes) against the I-form and A1's is going on the same person and place; the answer is what was heard.",
+        "action-variety": "Listen sets the habit (goes) against the I-form and A1's is going on the same person and place; the answer is what was heard."
+      }
+    },
+    {
+      "id": "l-office",
+      "text": "It is an office.",
+      "es": "Es una oficina.",
+      "image": "/lesson-assets/a1plus-unit-2-p02-4f9df2712ec9cb2c.webp",
+      "kind": "model",
+      "choices": false,
+      "use": false,
+      "speaker": "teacher"
+    },
+    {
+      "id": "l-goes-office",
+      "text": "I go to the office. Diego goes to the office.",
+      "es": "Voy a la oficina. Diego va a la oficina.",
+      "image": "/lesson-assets/a1plus-unit-2-p02-4f9df2712ec9cb2c.webp",
+      "kind": "contrast",
+      "choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "I go to the office.",
+          "speaker": "diego",
+          "image": "/lesson-assets/a1plus-unit-2-p02-4f9df2712ec9cb2c.webp"
+        },
+        {
+          "text": "Diego goes to the office.",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-2-p02-4f9df2712ec9cb2c.webp"
+        }
+      ]
+    },
+    {
+      "id": "n-office",
+      "text": "Diego goes to the office.",
+      "es": "Diego va a la oficina.",
+      "image": "/lesson-assets/a1plus-unit-2-p02-4f9df2712ec9cb2c.webp",
+      "kind": "named",
+      "learn": false,
+      "accepts": {
+        "subject-variety": "The lesson's frame is go to + place: a bank keeps go/goes and changes the place (and person) the picture shows, so the repeated verb is the point, not a weak distractor.",
+        "action-variety": "The lesson's frame is go to + place: a bank keeps go/goes and changes the place (and person) the picture shows, so the repeated verb is the point, not a weak distractor."
+      },
+      "blanks": [
+        "goes",
+        "to"
+      ]
+    },
+    {
+      "id": "h-office",
+      "text": "He goes to the office.",
+      "es": "Él va a la oficina.",
+      "image": "/lesson-assets/a1plus-unit-2-p02-4f9df2712ec9cb2c.webp",
+      "kind": "pronoun",
+      "learn": false,
+      "accepts": {
+        "subject-variety": "The lesson's frame is go to + place: a bank keeps go/goes and changes the place (and person) the picture shows, so the repeated verb is the point, not a weak distractor.",
+        "action-variety": "The lesson's frame is go to + place: a bank keeps go/goes and changes the place (and person) the picture shows, so the repeated verb is the point, not a weak distractor."
+      },
+      "blanks": [
+        "the",
+        "office"
+      ]
+    },
+    {
+      "id": "i-office",
+      "text": "I go to the office.",
+      "es": "Voy a la oficina.",
+      "image": "/lesson-assets/a1plus-unit-2-p02-4f9df2712ec9cb2c.webp",
+      "kind": "mine",
+      "learn": false,
+      "accepts": {
+        "subject-variety": "The lesson's frame is go to + place: a bank keeps go/goes and changes the place (and person) the picture shows, so the repeated verb is the point, not a weak distractor.",
+        "action-variety": "The lesson's frame is go to + place: a bank keeps go/goes and changes the place (and person) the picture shows, so the repeated verb is the point, not a weak distractor."
+      },
+      "speaker": "diego",
+      "blanks": [
+        "go",
+        "to"
+      ]
+    },
+    {
+      "id": "a-office",
+      "text": "He goes to the office.",
+      "es": "Él va a la oficina.",
+      "image": "/lesson-assets/a1plus-unit-2-p02-4f9df2712ec9cb2c.webp",
+      "kind": "reply",
+      "learn": false,
+      "accepts": {
+        "subject-variety": "The lesson's frame is go to + place: a bank keeps go/goes and changes the place (and person) the picture shows, so the repeated verb is the point, not a weak distractor.",
+        "action-variety": "The lesson's frame is go to + place: a bank keeps go/goes and changes the place (and person) the picture shows, so the repeated verb is the point, not a weak distractor."
+      },
+      "use": false,
+      "speaker": "co-teacher",
+      "question": "Where does Diego go?",
+      "question_es": "¿Adónde va Diego?",
+      "question_speaker": "teacher"
+    },
+    {
+      "id": "x-office",
+      "text": "Diego goes to the office.",
+      "es": "Diego va a la oficina.",
+      "image": "/lesson-assets/a1plus-unit-2-p02-4f9df2712ec9cb2c.webp",
+      "kind": "heard",
+      "learn": false,
+      "image_choices": false,
+      "use": false,
+      "prefer": [
+        "Diego is going to the office.",
+        "I go to the office."
+      ],
+      "accepts": {
+        "subject-variety": "Listen sets the habit (goes) against the I-form and A1's is going on the same person and place; the answer is what was heard.",
+        "action-variety": "Listen sets the habit (goes) against the I-form and A1's is going on the same person and place; the answer is what was heard."
+      }
+    },
+    {
+      "id": "x-swims",
+      "text": "Ana goes to the pool. She swims.",
+      "es": "Ana va a la piscina. Nada.",
+      "image": "/lesson-assets/a1plus-unit-1-s02-6a10ecb13ff623c8.webp",
+      "kind": "heard",
+      "learn": false,
+      "image_choices": false,
+      "use": false,
+      "prefer": [
+        "Ana goes to the pool. She runs.",
+        "Ana is going to the pool."
+      ],
+      "accepts": {
+        "subject-variety": "Listen sets lines about the same person and place against each other; the answer is what was heard (A1+ 2.1 retrieval of Unit 1).",
+        "action-variety": "Listen sets lines about the same person and place against each other; the answer is what was heard (A1+ 2.1 retrieval of Unit 1)."
+      }
+    },
+    {
+      "id": "x-works",
+      "text": "Diego goes to the office. He works there.",
+      "es": "Diego va a la oficina. Trabaja allí.",
+      "image": "/lesson-assets/a1plus-unit-2-p02-4f9df2712ec9cb2c.webp",
+      "kind": "heard",
+      "learn": false,
+      "image_choices": false,
+      "use": false,
+      "prefer": [
+        "Diego goes to the office. He studies there.",
+        "Diego is going to the office."
+      ],
+      "accepts": {
+        "subject-variety": "Listen sets lines about the same person and place against each other; the answer is what was heard (A1+ 2.1 retrieval of Unit 1).",
+        "action-variety": "Listen sets lines about the same person and place against each other; the answer is what was heard (A1+ 2.1 retrieval of Unit 1)."
+      }
+    },
+    {
+      "id": "x-never",
+      "text": "Diego never goes to the gym.",
+      "es": "Diego nunca va al gimnasio.",
+      "image": "/lesson-assets/a1plus-unit-2-p02-4f9df2712ec9cb2c.webp",
+      "kind": "heard",
+      "learn": false,
+      "image_choices": false,
+      "use": false,
+      "prefer": [
+        "Diego always goes to the gym.",
+        "Diego usually goes to the gym."
+      ],
+      "accepts": {
+        "subject-variety": "Listen sets lines about the same person and place against each other; the answer is what was heard (A1+ 2.1 retrieval of Unit 1).",
+        "action-variety": "Listen sets lines about the same person and place against each other; the answer is what was heard (A1+ 2.1 retrieval of Unit 1)."
+      }
+    },
+    {
+      "id": "q-often",
+      "text": "How often do you go to the gym?",
+      "es": "¿Con qué frecuencia vas al gimnasio?",
+      "image": "/lesson-assets/a1plus-unit-2-p01-912dc10dce3e0e81.webp",
+      "kind": "question",
+      "learn": false,
+      "choices": false,
+      "use": false,
+      "speaker": "ana"
+    },
+    {
+      "id": "q-where",
+      "text": "Where does Luis go?",
+      "es": "¿Adónde va Luis?",
+      "image": "/lesson-assets/a1plus-unit-2-p01-912dc10dce3e0e81.webp",
+      "kind": "question",
+      "learn": false,
+      "choices": false,
+      "speaker": "ana",
+      "blanks": [
+        "does",
+        "Luis"
+      ]
+    }
+  ],
+  "pool": [
+    {
+      "text": "Sofia is going to the park.",
+      "es": "Sofía está yendo al parque.",
+      "image": "/lesson-assets/a1plus-unit-2-p03-fd066bfcbd288353.webp",
+      "kind": "heard",
+      "image_choices": false
+    },
+    {
+      "text": "I go to the park.",
+      "es": "Voy al parque.",
+      "image": "/lesson-assets/a1plus-unit-2-p03-fd066bfcbd288353.webp",
+      "kind": "heard",
+      "image_choices": false
+    },
+    {
+      "text": "Luis is going to the gym.",
+      "es": "Luis está yendo al gimnasio.",
+      "image": "/lesson-assets/a1plus-unit-2-p01-912dc10dce3e0e81.webp",
+      "kind": "heard",
+      "image_choices": false
+    },
+    {
+      "text": "I go to the gym.",
+      "es": "Voy al gimnasio.",
+      "image": "/lesson-assets/a1plus-unit-2-p01-912dc10dce3e0e81.webp",
+      "kind": "heard",
+      "image_choices": false
+    },
+    {
+      "text": "Ana is going to the pool.",
+      "es": "Ana está yendo a la piscina.",
+      "image": "/lesson-assets/a1plus-unit-1-s02-6a10ecb13ff623c8.webp",
+      "kind": "heard",
+      "image_choices": false
+    },
+    {
+      "text": "I go to the pool.",
+      "es": "Voy a la piscina.",
+      "image": "/lesson-assets/a1plus-unit-1-s02-6a10ecb13ff623c8.webp",
+      "kind": "heard",
+      "image_choices": false
+    },
+    {
+      "text": "Diego is going to the office.",
+      "es": "Diego está yendo a la oficina.",
+      "image": "/lesson-assets/a1plus-unit-2-p02-4f9df2712ec9cb2c.webp",
+      "kind": "heard",
+      "image_choices": false
+    },
+    {
+      "text": "I go to the office.",
+      "es": "Voy a la oficina.",
+      "image": "/lesson-assets/a1plus-unit-2-p02-4f9df2712ec9cb2c.webp",
+      "kind": "heard",
+      "image_choices": false
+    },
+    {
+      "text": "Ana goes to the pool. She runs.",
+      "es": "Ana va a la piscina. Corre.",
+      "image": "/lesson-assets/a1plus-unit-1-s02-6a10ecb13ff623c8.webp",
+      "kind": "heard",
+      "image_choices": false
+    },
+    {
+      "text": "Ana is going to the pool.",
+      "es": "Ana está yendo a la piscina.",
+      "image": "/lesson-assets/a1plus-unit-1-s02-6a10ecb13ff623c8.webp",
+      "kind": "heard",
+      "image_choices": false
+    },
+    {
+      "text": "Diego goes to the office. He studies there.",
+      "es": "Diego va a la oficina. Estudia allí.",
+      "image": "/lesson-assets/a1plus-unit-2-p02-4f9df2712ec9cb2c.webp",
+      "kind": "heard",
+      "image_choices": false
+    },
+    {
+      "text": "Diego is going to the office.",
+      "es": "Diego está yendo a la oficina.",
+      "image": "/lesson-assets/a1plus-unit-2-p02-4f9df2712ec9cb2c.webp",
+      "kind": "heard",
+      "image_choices": false
+    },
+    {
+      "text": "Diego always goes to the gym.",
+      "es": "Diego siempre va al gimnasio.",
+      "image": "/lesson-assets/a1plus-unit-2-p02-4f9df2712ec9cb2c.webp",
+      "kind": "heard",
+      "image_choices": false
+    },
+    {
+      "text": "Diego usually goes to the gym.",
+      "es": "Diego normalmente va al gimnasio.",
+      "image": "/lesson-assets/a1plus-unit-2-p02-4f9df2712ec9cb2c.webp",
+      "kind": "heard",
+      "image_choices": false
+    }
+  ],
+  "layout": {
+    "Recognize": 10,
+    "Listen": 10,
+    "Speak": 8,
+    "Use": 7
+  },
+  "stage_sequences": {
+    "Learn": [
+      "l-goes-park",
+      "l-gym",
+      "l-goes-gym",
+      "l-pool",
+      "l-goes-pool",
+      "l-office",
+      "l-goes-office"
+    ],
+    "Recognize": [
+      "n-gym",
+      "h-pool",
+      "a-office",
+      "n-park",
+      "i-gym",
+      "a-pool",
+      "n-office",
+      "h-gym",
+      "i-pool",
+      "a-park"
+    ],
+    "Listen": [
+      "n-pool",
+      "x-gym",
+      "a-gym",
+      "h-office",
+      "x-swims",
+      "n-park",
+      "a-office",
+      "x-works",
+      "h-park",
+      "x-never"
+    ],
+    "Speak": [
+      "i-gym",
+      "n-gym",
+      "i-pool",
+      "q-where",
+      "i-office",
+      "h-office",
+      "n-park",
+      "q-often"
+    ],
+    "Use": [
+      "n-gym",
+      "i-pool",
+      "h-office",
+      "n-park",
+      "q-where",
+      "n-office",
+      "i-gym"
+    ]
+  }
+}

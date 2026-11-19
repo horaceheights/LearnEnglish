@@ -1,0 +1,778 @@
+{
+  "brief_version": 1,
+  "follows": {
+    "course": "a1",
+    "lesson": "2.3",
+    "title": "Common Objects"
+  },
+  "note": "A1+ Unit 2 Lesson 2.3, built on 2026-11-19 under the A1+ lesson standards approved 2026-10-27 and the user's 2026-11-09 rule that every A1+ lesson follows up the A1 lesson with the same number. The user approved the A1+ Unit 2 plan on 2026-11-19 (A1+ 2.Y follows A1 2.Y, one grammar step each) and chose \"Straight to Preview\": no per-lesson gates, Gemini 2.5 Flash photos and ElevenLabs audio pre-approved, reviewed in Preview. Learn shows each new thing alone on a table (It is a watch.; headphones are They are headphones.); practice shows each cast member with one thing: Luis's watch, Diego's wallet, Ana's headphones, Sofia's camera. A Yes answer is chosen when the picture shows the thing; No answers stay in the text banks. Two Listen text cards bring back 1.8's don't and 1.11's with them.",
+  "target": "backend/lessons/a1_plus/unit_2/a1plus-unit-2-lesson-2-3.yaml",
+  "captions": false,
+  "narrators": [
+    "teacher",
+    "co-teacher"
+  ],
+  "answer_audio_policy": "authored-only",
+  "speak_delivery": "a1-pronunciation-v1",
+  "lesson": {
+    "id": "a1plus-unit-2-lesson-2-3",
+    "title": "2.3 Things I have",
+    "level": "A1+",
+    "unit_id": "a1plus-unit-2",
+    "unit_title": "Places, things and how we describe them",
+    "unit_outcome": "Say where people go and how they get there, talk about the things people have, point things out and compare them, put things in order, and ask about favorites.",
+    "lesson_id": "a1plus-unit-2-lesson-2-3",
+    "lesson_title": "Things I have",
+    "sub_lesson_id": "2.3",
+    "sub_lesson_title": "Things I have",
+    "goal": "Name four everyday things (a watch, a wallet, headphones, a camera) and say and ask who has them (Luis has a watch. / Do you have a camera? Yes, I do.).",
+    "vocabulary": [
+      "watch",
+      "wallet",
+      "headphones",
+      "camera"
+    ],
+    "review_vocabulary": [
+      "I",
+      "have",
+      "has",
+      "a",
+      "it",
+      "is",
+      "they",
+      "are",
+      "do",
+      "you",
+      "does",
+      "yes",
+      "no",
+      "don't",
+      "doesn't",
+      "he",
+      "she",
+      "listen",
+      "to",
+      "music",
+      "with",
+      "them"
+    ],
+    "grammar_function": "A follow-up of A1 2.3 Common Objects: A1 names a book, a pen, a phone, a bag, a chair and a table (It is a pen.); A1+ 2.3 names four more everyday things and who has them. It adds no new grammar relationship: A1's have/has and A1+ 1.5's Do you have…?, with 1.9's short answers (Luis has a watch. / Do you have a camera? Yes, I do. / Does Ana have headphones? Yes, she does.).",
+    "prerequisite": "A1 2.3 objects and It is a…; A1 3.12 have/has; A1 7.6 listen to music; A1+ 1.5 Do you have…?; A1+ 1.8 don't; A1+ 1.9 Does…? Yes, she does.; A1+ 1.11 with them.",
+    "speaking_outcome": "Say watch with a short o-like vowel and a clear final ch, wallet with stress on the first syllable, headphones with stress on head, camera with three short syllables (CAM-er-a). Do not require native-like speed.",
+    "content_revision": 1,
+    "learn_context_groups": [
+      {
+        "kind": "sequence",
+        "targets": [
+          "watch"
+        ],
+        "models": [
+          {
+            "slide_id": "L1",
+            "text": "It is a watch."
+          }
+        ]
+      },
+      {
+        "kind": "sequence",
+        "targets": [
+          "wallet"
+        ],
+        "models": [
+          {
+            "slide_id": "L2",
+            "text": "It is a wallet."
+          }
+        ]
+      },
+      {
+        "kind": "sequence",
+        "targets": [
+          "headphones"
+        ],
+        "models": [
+          {
+            "slide_id": "L3",
+            "text": "They are headphones."
+          }
+        ]
+      },
+      {
+        "kind": "sequence",
+        "targets": [
+          "camera"
+        ],
+        "models": [
+          {
+            "slide_id": "L4",
+            "text": "It is a camera."
+          }
+        ]
+      }
+    ]
+  },
+  "items": [
+    {
+      "id": "l-watch",
+      "text": "It is a watch.",
+      "es": "Es un reloj.",
+      "image": "/lesson-assets/a1plus-unit-2-o01-df408e2610563b16.webp",
+      "kind": "model",
+      "choices": false,
+      "use": false,
+      "speaker": "teacher"
+    },
+    {
+      "id": "w-watch",
+      "text": "A watch",
+      "es": "Un reloj",
+      "image": "/lesson-assets/a1plus-unit-2-o01-df408e2610563b16.webp",
+      "kind": "thing",
+      "learn": false,
+      "form": "word",
+      "use": false
+    },
+    {
+      "id": "i-watch",
+      "text": "I have a watch.",
+      "es": "Tengo un reloj.",
+      "image": "/lesson-assets/a1plus-unit-2-h01-9ecb67786559a2b0.webp",
+      "kind": "mine",
+      "learn": false,
+      "accepts": {
+        "subject-variety": "The lesson names what people have: a bank keeps I have / has and changes only the thing (and person) the picture shows.",
+        "action-variety": "The lesson names what people have: a bank keeps I have / has and changes only the thing (and person) the picture shows."
+      },
+      "speaker": "luis",
+      "blanks": [
+        "a",
+        "watch"
+      ]
+    },
+    {
+      "id": "n-watch",
+      "text": "Luis has a watch.",
+      "es": "Luis tiene un reloj.",
+      "image": "/lesson-assets/a1plus-unit-2-h01-9ecb67786559a2b0.webp",
+      "kind": "named",
+      "learn": false,
+      "accepts": {
+        "subject-variety": "The lesson names what people have: a bank keeps I have / has and changes only the thing (and person) the picture shows.",
+        "action-variety": "The lesson names what people have: a bank keeps I have / has and changes only the thing (and person) the picture shows."
+      },
+      "blanks": [
+        "has",
+        "a"
+      ]
+    },
+    {
+      "id": "y-watch",
+      "text": "Yes, I do.",
+      "es": "Sí, tengo.",
+      "image": "/lesson-assets/a1plus-unit-2-h01-9ecb67786559a2b0.webp",
+      "kind": "reply",
+      "learn": false,
+      "use": false,
+      "image_choices": false,
+      "speaker": "luis",
+      "question": "Do you have a watch?",
+      "question_es": "¿Tienes un reloj?",
+      "question_speaker": "ana",
+      "accepts": {
+        "subject-variety": "Listen sets lines about the same person and thing against each other (have against don't have, them against it); the answer is what was heard.",
+        "action-variety": "Listen sets lines about the same person and thing against each other (have against don't have, them against it); the answer is what was heard.",
+        "conversational-response": "Listen sets lines about the same person and thing against each other (have against don't have, them against it); the answer is what was heard."
+      },
+      "listening_turns": [
+        {
+          "text": "Do you have a watch?",
+          "speaker": "ana",
+          "image": "/lesson-assets/a1plus-unit-2-h01-9ecb67786559a2b0.webp"
+        },
+        {
+          "text": "Yes, I do. I have a watch.",
+          "speaker": "luis",
+          "image": "/lesson-assets/a1plus-unit-2-h01-9ecb67786559a2b0.webp"
+        }
+      ],
+      "prefer": [
+        "No, I don't."
+      ]
+    },
+    {
+      "id": "q-watch",
+      "text": "Do you have a watch?",
+      "es": "¿Tienes un reloj?",
+      "image": "/lesson-assets/a1plus-unit-2-h01-9ecb67786559a2b0.webp",
+      "kind": "question",
+      "learn": false,
+      "choices": false,
+      "speaker": "ana",
+      "blanks": [
+        "Do",
+        "you"
+      ]
+    },
+    {
+      "id": "d-watch",
+      "text": "Yes, he does.",
+      "es": "Sí, él tiene.",
+      "image": "/lesson-assets/a1plus-unit-2-h01-9ecb67786559a2b0.webp",
+      "kind": "does",
+      "learn": false,
+      "use": false,
+      "image_choices": false,
+      "speaker": "co-teacher",
+      "question": "Does Luis have a watch?",
+      "question_es": "¿Luis tiene un reloj?",
+      "question_speaker": "teacher",
+      "prefer": [
+        "No, he doesn't."
+      ],
+      "accepts": {
+        "subject-variety": "Listen sets lines about the same person and thing against each other (have against don't have, them against it); the answer is what was heard.",
+        "action-variety": "Listen sets lines about the same person and thing against each other (have against don't have, them against it); the answer is what was heard.",
+        "conversational-response": "Listen sets lines about the same person and thing against each other (have against don't have, them against it); the answer is what was heard."
+      }
+    },
+    {
+      "id": "l-wallet",
+      "text": "It is a wallet.",
+      "es": "Es una cartera.",
+      "image": "/lesson-assets/a1plus-unit-2-o02-0cd72b2b9d18a005.webp",
+      "kind": "model",
+      "choices": false,
+      "use": false,
+      "speaker": "co-teacher"
+    },
+    {
+      "id": "w-wallet",
+      "text": "A wallet",
+      "es": "Una cartera",
+      "image": "/lesson-assets/a1plus-unit-2-o02-0cd72b2b9d18a005.webp",
+      "kind": "thing",
+      "learn": false,
+      "form": "word",
+      "use": false
+    },
+    {
+      "id": "i-wallet",
+      "text": "I have a wallet.",
+      "es": "Tengo una cartera.",
+      "image": "/lesson-assets/a1plus-unit-2-h02-84caaeda1eaf7f4f.webp",
+      "kind": "mine",
+      "learn": false,
+      "accepts": {
+        "subject-variety": "The lesson names what people have: a bank keeps I have / has and changes only the thing (and person) the picture shows.",
+        "action-variety": "The lesson names what people have: a bank keeps I have / has and changes only the thing (and person) the picture shows."
+      },
+      "speaker": "diego",
+      "blanks": [
+        "a",
+        "wallet"
+      ]
+    },
+    {
+      "id": "n-wallet",
+      "text": "Diego has a wallet.",
+      "es": "Diego tiene una cartera.",
+      "image": "/lesson-assets/a1plus-unit-2-h02-84caaeda1eaf7f4f.webp",
+      "kind": "named",
+      "learn": false,
+      "accepts": {
+        "subject-variety": "The lesson names what people have: a bank keeps I have / has and changes only the thing (and person) the picture shows.",
+        "action-variety": "The lesson names what people have: a bank keeps I have / has and changes only the thing (and person) the picture shows."
+      },
+      "blanks": [
+        "has",
+        "a"
+      ]
+    },
+    {
+      "id": "y-wallet",
+      "text": "Yes, I do.",
+      "es": "Sí, tengo.",
+      "image": "/lesson-assets/a1plus-unit-2-h02-84caaeda1eaf7f4f.webp",
+      "kind": "reply",
+      "learn": false,
+      "use": false,
+      "image_choices": false,
+      "speaker": "diego",
+      "question": "Do you have a wallet?",
+      "question_es": "¿Tienes una cartera?",
+      "question_speaker": "sofia",
+      "accepts": {
+        "subject-variety": "Listen sets lines about the same person and thing against each other (have against don't have, them against it); the answer is what was heard.",
+        "action-variety": "Listen sets lines about the same person and thing against each other (have against don't have, them against it); the answer is what was heard.",
+        "conversational-response": "Listen sets lines about the same person and thing against each other (have against don't have, them against it); the answer is what was heard."
+      },
+      "listening_turns": [
+        {
+          "text": "Do you have a wallet?",
+          "speaker": "sofia",
+          "image": "/lesson-assets/a1plus-unit-2-h02-84caaeda1eaf7f4f.webp"
+        },
+        {
+          "text": "Yes, I do. I have a wallet.",
+          "speaker": "diego",
+          "image": "/lesson-assets/a1plus-unit-2-h02-84caaeda1eaf7f4f.webp"
+        }
+      ],
+      "prefer": [
+        "No, I don't."
+      ]
+    },
+    {
+      "id": "q-wallet",
+      "text": "Do you have a wallet?",
+      "es": "¿Tienes una cartera?",
+      "image": "/lesson-assets/a1plus-unit-2-h02-84caaeda1eaf7f4f.webp",
+      "kind": "question",
+      "learn": false,
+      "choices": false,
+      "speaker": "sofia",
+      "blanks": [
+        "Do",
+        "you"
+      ]
+    },
+    {
+      "id": "d-wallet",
+      "text": "Yes, he does.",
+      "es": "Sí, él tiene.",
+      "image": "/lesson-assets/a1plus-unit-2-h02-84caaeda1eaf7f4f.webp",
+      "kind": "does",
+      "learn": false,
+      "use": false,
+      "image_choices": false,
+      "speaker": "co-teacher",
+      "question": "Does Diego have a wallet?",
+      "question_es": "¿Diego tiene una cartera?",
+      "question_speaker": "teacher",
+      "prefer": [
+        "No, he doesn't."
+      ],
+      "accepts": {
+        "subject-variety": "Listen sets lines about the same person and thing against each other (have against don't have, them against it); the answer is what was heard.",
+        "action-variety": "Listen sets lines about the same person and thing against each other (have against don't have, them against it); the answer is what was heard.",
+        "conversational-response": "Listen sets lines about the same person and thing against each other (have against don't have, them against it); the answer is what was heard."
+      }
+    },
+    {
+      "id": "l-headphones",
+      "text": "They are headphones.",
+      "es": "Son audífonos.",
+      "image": "/lesson-assets/a1plus-unit-2-o03-eb3662b4a34f86de.webp",
+      "kind": "model",
+      "choices": false,
+      "use": false,
+      "speaker": "teacher"
+    },
+    {
+      "id": "w-headphones",
+      "text": "Headphones",
+      "es": "Audífonos",
+      "image": "/lesson-assets/a1plus-unit-2-o03-eb3662b4a34f86de.webp",
+      "kind": "thing",
+      "learn": false,
+      "form": "word",
+      "use": false
+    },
+    {
+      "id": "i-headphones",
+      "text": "I have headphones.",
+      "es": "Tengo audífonos.",
+      "image": "/lesson-assets/a1plus-unit-2-h03-21995d19a2c990df.webp",
+      "kind": "mine",
+      "learn": false,
+      "accepts": {
+        "subject-variety": "The lesson names what people have: a bank keeps I have / has and changes only the thing (and person) the picture shows.",
+        "action-variety": "The lesson names what people have: a bank keeps I have / has and changes only the thing (and person) the picture shows."
+      },
+      "speaker": "ana",
+      "blanks": [
+        "have",
+        "headphones"
+      ]
+    },
+    {
+      "id": "n-headphones",
+      "text": "Ana has headphones.",
+      "es": "Ana tiene audífonos.",
+      "image": "/lesson-assets/a1plus-unit-2-h03-21995d19a2c990df.webp",
+      "kind": "named",
+      "learn": false,
+      "accepts": {
+        "subject-variety": "The lesson names what people have: a bank keeps I have / has and changes only the thing (and person) the picture shows.",
+        "action-variety": "The lesson names what people have: a bank keeps I have / has and changes only the thing (and person) the picture shows."
+      },
+      "blanks": [
+        "Ana",
+        "has"
+      ]
+    },
+    {
+      "id": "y-headphones",
+      "text": "Yes, I do.",
+      "es": "Sí, tengo.",
+      "image": "/lesson-assets/a1plus-unit-2-h03-21995d19a2c990df.webp",
+      "kind": "reply",
+      "learn": false,
+      "use": false,
+      "image_choices": false,
+      "speaker": "ana",
+      "question": "Do you have headphones?",
+      "question_es": "¿Tienes audífonos?",
+      "question_speaker": "luis",
+      "accepts": {
+        "subject-variety": "Listen sets lines about the same person and thing against each other (have against don't have, them against it); the answer is what was heard.",
+        "action-variety": "Listen sets lines about the same person and thing against each other (have against don't have, them against it); the answer is what was heard.",
+        "conversational-response": "Listen sets lines about the same person and thing against each other (have against don't have, them against it); the answer is what was heard."
+      },
+      "listening_turns": [
+        {
+          "text": "Do you have headphones?",
+          "speaker": "luis",
+          "image": "/lesson-assets/a1plus-unit-2-h03-21995d19a2c990df.webp"
+        },
+        {
+          "text": "Yes, I do. I have headphones.",
+          "speaker": "ana",
+          "image": "/lesson-assets/a1plus-unit-2-h03-21995d19a2c990df.webp"
+        }
+      ],
+      "prefer": [
+        "No, I don't."
+      ]
+    },
+    {
+      "id": "q-headphones",
+      "text": "Do you have headphones?",
+      "es": "¿Tienes audífonos?",
+      "image": "/lesson-assets/a1plus-unit-2-h03-21995d19a2c990df.webp",
+      "kind": "question",
+      "learn": false,
+      "choices": false,
+      "speaker": "luis",
+      "blanks": [
+        "Do",
+        "you"
+      ]
+    },
+    {
+      "id": "d-headphones",
+      "text": "Yes, she does.",
+      "es": "Sí, ella tiene.",
+      "image": "/lesson-assets/a1plus-unit-2-h03-21995d19a2c990df.webp",
+      "kind": "does",
+      "learn": false,
+      "use": false,
+      "image_choices": false,
+      "speaker": "co-teacher",
+      "question": "Does Ana have headphones?",
+      "question_es": "¿Ana tiene audífonos?",
+      "question_speaker": "teacher",
+      "prefer": [
+        "No, she doesn't."
+      ],
+      "accepts": {
+        "subject-variety": "Listen sets lines about the same person and thing against each other (have against don't have, them against it); the answer is what was heard.",
+        "action-variety": "Listen sets lines about the same person and thing against each other (have against don't have, them against it); the answer is what was heard.",
+        "conversational-response": "Listen sets lines about the same person and thing against each other (have against don't have, them against it); the answer is what was heard."
+      }
+    },
+    {
+      "id": "l-camera",
+      "text": "It is a camera.",
+      "es": "Es una cámara.",
+      "image": "/lesson-assets/a1plus-unit-2-o04-4fe3b30cc98f6e87.webp",
+      "kind": "model",
+      "choices": false,
+      "use": false,
+      "speaker": "co-teacher"
+    },
+    {
+      "id": "w-camera",
+      "text": "A camera",
+      "es": "Una cámara",
+      "image": "/lesson-assets/a1plus-unit-2-o04-4fe3b30cc98f6e87.webp",
+      "kind": "thing",
+      "learn": false,
+      "form": "word",
+      "use": false
+    },
+    {
+      "id": "i-camera",
+      "text": "I have a camera.",
+      "es": "Tengo una cámara.",
+      "image": "/lesson-assets/a1plus-unit-2-h04-c7fb5877da8d06c5.webp",
+      "kind": "mine",
+      "learn": false,
+      "accepts": {
+        "subject-variety": "The lesson names what people have: a bank keeps I have / has and changes only the thing (and person) the picture shows.",
+        "action-variety": "The lesson names what people have: a bank keeps I have / has and changes only the thing (and person) the picture shows."
+      },
+      "speaker": "sofia",
+      "blanks": [
+        "a",
+        "camera"
+      ]
+    },
+    {
+      "id": "n-camera",
+      "text": "Sofia has a camera.",
+      "es": "Sofía tiene una cámara.",
+      "image": "/lesson-assets/a1plus-unit-2-h04-c7fb5877da8d06c5.webp",
+      "kind": "named",
+      "learn": false,
+      "accepts": {
+        "subject-variety": "The lesson names what people have: a bank keeps I have / has and changes only the thing (and person) the picture shows.",
+        "action-variety": "The lesson names what people have: a bank keeps I have / has and changes only the thing (and person) the picture shows."
+      },
+      "blanks": [
+        "has",
+        "a"
+      ]
+    },
+    {
+      "id": "y-camera",
+      "text": "Yes, I do.",
+      "es": "Sí, tengo.",
+      "image": "/lesson-assets/a1plus-unit-2-h04-c7fb5877da8d06c5.webp",
+      "kind": "reply",
+      "learn": false,
+      "use": false,
+      "image_choices": false,
+      "speaker": "sofia",
+      "question": "Do you have a camera?",
+      "question_es": "¿Tienes una cámara?",
+      "question_speaker": "diego",
+      "accepts": {
+        "subject-variety": "Listen sets lines about the same person and thing against each other (have against don't have, them against it); the answer is what was heard.",
+        "action-variety": "Listen sets lines about the same person and thing against each other (have against don't have, them against it); the answer is what was heard.",
+        "conversational-response": "Listen sets lines about the same person and thing against each other (have against don't have, them against it); the answer is what was heard."
+      },
+      "listening_turns": [
+        {
+          "text": "Do you have a camera?",
+          "speaker": "diego",
+          "image": "/lesson-assets/a1plus-unit-2-h04-c7fb5877da8d06c5.webp"
+        },
+        {
+          "text": "Yes, I do. I have a camera.",
+          "speaker": "sofia",
+          "image": "/lesson-assets/a1plus-unit-2-h04-c7fb5877da8d06c5.webp"
+        }
+      ],
+      "prefer": [
+        "No, I don't."
+      ]
+    },
+    {
+      "id": "q-camera",
+      "text": "Do you have a camera?",
+      "es": "¿Tienes una cámara?",
+      "image": "/lesson-assets/a1plus-unit-2-h04-c7fb5877da8d06c5.webp",
+      "kind": "question",
+      "learn": false,
+      "choices": false,
+      "speaker": "diego",
+      "blanks": [
+        "Do",
+        "you"
+      ]
+    },
+    {
+      "id": "d-camera",
+      "text": "Yes, she does.",
+      "es": "Sí, ella tiene.",
+      "image": "/lesson-assets/a1plus-unit-2-h04-c7fb5877da8d06c5.webp",
+      "kind": "does",
+      "learn": false,
+      "use": false,
+      "image_choices": false,
+      "speaker": "co-teacher",
+      "question": "Does Sofia have a camera?",
+      "question_es": "¿Sofía tiene una cámara?",
+      "question_speaker": "teacher",
+      "prefer": [
+        "No, she doesn't."
+      ],
+      "accepts": {
+        "subject-variety": "Listen sets lines about the same person and thing against each other (have against don't have, them against it); the answer is what was heard.",
+        "action-variety": "Listen sets lines about the same person and thing against each other (have against don't have, them against it); the answer is what was heard.",
+        "conversational-response": "Listen sets lines about the same person and thing against each other (have against don't have, them against it); the answer is what was heard."
+      }
+    },
+    {
+      "id": "x-dont",
+      "text": "I don't have a camera. I have a watch.",
+      "es": "No tengo una cámara. Tengo un reloj.",
+      "image": "/lesson-assets/a1plus-unit-2-h01-9ecb67786559a2b0.webp",
+      "kind": "heard",
+      "learn": false,
+      "image_choices": false,
+      "use": false,
+      "speaker": "luis",
+      "prefer": [
+        "I have a camera. I don't have a watch."
+      ],
+      "accepts": {
+        "subject-variety": "Listen sets lines about the same person and thing against each other (have against don't have, them against it); the answer is what was heard.",
+        "action-variety": "Listen sets lines about the same person and thing against each other (have against don't have, them against it); the answer is what was heard.",
+        "conversational-response": "Listen sets lines about the same person and thing against each other (have against don't have, them against it); the answer is what was heard."
+      }
+    },
+    {
+      "id": "x-them",
+      "text": "I have headphones. I listen to music with them.",
+      "es": "Tengo audífonos. Escucho música con ellos.",
+      "image": "/lesson-assets/a1plus-unit-2-h03-21995d19a2c990df.webp",
+      "kind": "heard",
+      "learn": false,
+      "image_choices": false,
+      "use": false,
+      "speaker": "ana",
+      "prefer": [
+        "I have headphones. I listen to music with it.",
+        "I have a camera. I listen to music with it."
+      ],
+      "accepts": {
+        "subject-variety": "Listen sets lines about the same person and thing against each other (have against don't have, them against it); the answer is what was heard.",
+        "action-variety": "Listen sets lines about the same person and thing against each other (have against don't have, them against it); the answer is what was heard.",
+        "conversational-response": "Listen sets lines about the same person and thing against each other (have against don't have, them against it); the answer is what was heard."
+      }
+    },
+    {
+      "id": "s-dont",
+      "text": "I don't have a camera.",
+      "es": "No tengo una cámara.",
+      "image": "/lesson-assets/a1plus-unit-2-h01-9ecb67786559a2b0.webp",
+      "kind": "dont",
+      "learn": false,
+      "choices": false,
+      "speaker": "luis",
+      "blanks": [
+        "don't",
+        "have"
+      ]
+    },
+    {
+      "id": "s-them",
+      "text": "I listen to music with them.",
+      "es": "Escucho música con ellos.",
+      "image": "/lesson-assets/a1plus-unit-2-h03-21995d19a2c990df.webp",
+      "kind": "them",
+      "learn": false,
+      "choices": false,
+      "speaker": "ana",
+      "blanks": [
+        "with",
+        "them"
+      ]
+    }
+  ],
+  "pool": [
+    {
+      "text": "No, I don't.",
+      "es": "No, no tengo.",
+      "image": "/lesson-assets/a1plus-unit-2-h01-9ecb67786559a2b0.webp",
+      "kind": "reply",
+      "image_choices": false
+    },
+    {
+      "text": "No, he doesn't.",
+      "es": "No, él no tiene.",
+      "image": "/lesson-assets/a1plus-unit-2-h01-9ecb67786559a2b0.webp",
+      "kind": "does",
+      "image_choices": false
+    },
+    {
+      "text": "No, she doesn't.",
+      "es": "No, ella no tiene.",
+      "image": "/lesson-assets/a1plus-unit-2-h03-21995d19a2c990df.webp",
+      "kind": "does",
+      "image_choices": false
+    },
+    {
+      "text": "I have a camera. I don't have a watch.",
+      "es": "Tengo una cámara. No tengo un reloj.",
+      "image": "/lesson-assets/a1plus-unit-2-h01-9ecb67786559a2b0.webp",
+      "kind": "heard",
+      "image_choices": false
+    },
+    {
+      "text": "I have headphones. I listen to music with it.",
+      "es": "Tengo audífonos. Escucho música con él.",
+      "image": "/lesson-assets/a1plus-unit-2-h03-21995d19a2c990df.webp",
+      "kind": "heard",
+      "image_choices": false
+    },
+    {
+      "text": "I have a camera. I listen to music with it.",
+      "es": "Tengo una cámara. Escucho música con ella.",
+      "image": "/lesson-assets/a1plus-unit-2-h03-21995d19a2c990df.webp",
+      "kind": "heard",
+      "image_choices": false
+    }
+  ],
+  "layout": {
+    "Recognize": 11,
+    "Listen": 10,
+    "Speak": 8,
+    "Use": 8
+  },
+  "stage_sequences": {
+    "Learn": [
+      "l-watch",
+      "l-wallet",
+      "l-headphones",
+      "l-camera"
+    ],
+    "Recognize": [
+      "w-watch",
+      "n-wallet",
+      "w-camera",
+      "y-watch",
+      "n-headphones",
+      "d-camera",
+      "w-wallet",
+      "i-camera",
+      "n-watch",
+      "d-headphones",
+      "w-headphones"
+    ],
+    "Listen": [
+      "i-wallet",
+      "y-headphones",
+      "n-camera",
+      "x-dont",
+      "w-watch",
+      "d-wallet",
+      "i-headphones",
+      "x-them",
+      "n-watch",
+      "y-camera"
+    ],
+    "Speak": [
+      "i-watch",
+      "q-wallet",
+      "i-headphones",
+      "s-them",
+      "n-camera",
+      "q-camera",
+      "s-dont",
+      "n-wallet"
+    ],
+    "Use": [
+      "i-watch",
+      "n-wallet",
+      "q-headphones",
+      "i-camera",
+      "n-headphones",
+      "q-watch",
+      "s-dont",
+      "n-camera"
+    ]
+  }
+}

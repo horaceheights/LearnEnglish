@@ -1,0 +1,91 @@
+{
+  "schema_version": 1,
+  "pack": "a1plus-unit-2-lesson-2-1-places-photos",
+  "revision": 1,
+  "output_namespace": "a1plus-unit-2-lesson-v210",
+  "authorization": "2026-11-19: the user approved the A1+ Unit 2 plan (A1+ 2.Y follows A1 2.Y) and, asked how to build it, chose \"Straight to Preview\" (\"As in 1.9-1.13: no stops. I build the lessons in batches with media pre-approved, and you review everything in Preview.\"). Gemini is the approved image tool (2026-09-23), Flash only (2026-11-17).",
+  "image_settings": {
+    "provider": "google-gemini",
+    "model": "gemini-2.5-flash-image",
+    "aspect_ratio": "3:2",
+    "image_size": "1K",
+    "runtime_size": "1536x1024",
+    "runtime_format": "webp",
+    "n": 1
+  },
+  "production": {
+    "price_per_image_usd": "0.0387",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing (checked 2026-11-16: Gemini 2.5 Flash Image, about $0.039 per image)",
+    "planned_images": 3,
+    "expected_cost_usd": "0.12",
+    "requested_ceiling_usd": "0.35",
+    "ceiling_note": "The renderer reserves US$0.20 before each request; each request is sent on its own, and the expected spend for the pack is about US$0.12.",
+    "no_automatic_retries": true,
+    "order": "Generate p02 first (the room must read as an office, not a home study, at 180 px), then p01 and p03; inspect each at 900/360/250/180 px and in the centered 4:5 crop. Ana's pool photo is A1+ 1.3's approved s02."
+  },
+  "shared_prompts": {
+    "photo": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, numbers, logos or brand marks anywhere, not on signs, screens, clothes, bags, machines or vehicles. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos.",
+    "safe_center": "Keep the person and the thing that carries the meaning inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.",
+    "solo": "Only this one person is in the photo; there is nobody else, even far in the background.",
+    "face": "The person's face is fully visible in three-quarter view, looking at what they are doing, not at the camera.",
+    "daytime": "It is clearly daytime with soft natural light.",
+    "still": "A still life with no person and no hands: the object lies alone, large and centered, on a plain light wooden table, photographed from a slightly raised angle with a softly blurred plain wall behind it. Nothing else is on the table.",
+    "near_far": "Two matching objects that differ only in color: the near one is in the person's hands close to the camera, large and sharp; the far one is clearly across the room, about four meters away, smaller but easy to see and in focus, alone on its own piece of furniture against a plain wall, and visible just beside the person's shoulder so that it also stays inside the central 55 percent of the photo width. The two colors are strong and unmistakable. There is no third object of that kind anywhere in the photo."
+  },
+  "assets": [
+    {
+      "id": "p01-luis-gym",
+      "order": 1,
+      "item": "I go to the gym. / Luis goes to the gym. / It is a gym.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "solo",
+        "face",
+        "daytime"
+      ],
+      "prompt": "Image 1 shows Luis. Keep his face, short dark curly hair, clean-shaven face, warm medium-brown skin and build exactly. Create a new photograph of him: he is at the gym in the morning, in a navy T-shirt and dark grey sports shorts, and lifts one dumbbell with his right hand, smiling. Behind him the room is obviously a gym: a long rack of black dumbbells, two treadmills and a big wall mirror, bright and clean. Luis and the dumbbell are large, near the camera and in sharp focus; the dumbbell rack and the treadmills are clearly visible behind him.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-q01-135c3f8f772bcbe4.webp",
+        "sha256": "135c3f8f772bcbe472b8cec719eb02318a7d52ce1c7152a94c6952aeb78566c2",
+        "observed_description": "Luis (short dark curly hair, clean-shaven, warm medium-brown skin, navy crew-neck T-shirt) drinks coffee from a white mug at a wooden table in his bright kitchen (A1+ 1.2)."
+      }
+    },
+    {
+      "id": "p02-diego-office",
+      "order": 2,
+      "item": "I go to the office. / Diego goes to the office. / It is an office.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "solo",
+        "face",
+        "daytime"
+      ],
+      "prompt": "Image 1 shows Diego. Keep his face, dark curly hair with a little grey, short full beard, skin tone and build exactly. Create a new photograph of him: he arrives at his office in the morning, in his burgundy button shirt, with a dark laptop bag on his shoulder, and puts his coffee cup on his desk. The room is obviously an office: an open-plan room with several identical white desks in rows, black office chairs, computer screens that are switched off, and big windows; all the other desks are empty because he is early. Diego and his desk are large, near the camera and in sharp focus; the rows of desks are clearly visible behind him.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-q04-ded74a2cb6021167.webp",
+        "sha256": "ded74a2cb6021167d6af2351e9012476d36c1b0936ca9f4f4b6dee68783bb9e2",
+        "observed_description": "Diego (dark curly hair with a little grey, short full beard, burgundy button shirt) sits at a wooden kitchen table and bites a red apple (A1+ 1.2)."
+      }
+    },
+    {
+      "id": "p03-sofia-park",
+      "order": 3,
+      "item": "I go to the park. / Sofia goes to the park. / She walks.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "solo",
+        "face",
+        "daytime"
+      ],
+      "prompt": "Image 1 shows Sofia. Keep her face, long curly dark hair, warm brown skin and build exactly. Create a new photograph of her: she walks in a green city park on a sunny morning, in a bright blue T-shirt, black leggings and white sneakers, her curly hair up in a high bun, a small water bottle in one hand. She walks along a wide paved path toward the camera, between green lawns and big trees, with an empty wooden park bench beside the path. Sofia is large, near the camera and in sharp focus, clearly walking (one foot forward), and the park around her is obvious.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-q03-7d520a07846a47b8.webp",
+        "sha256": "7d520a07846a47b8e8389c3226f3b3639d7eed0d257318b08e4f9b77c5b2258b",
+        "observed_description": "Sofia (long curly dark hair, warm brown skin, white blouse under a bright blue blazer) writes in a large notebook at a wooden desk by a bright window in her home study (A1+ 1.2)."
+      }
+    }
+  ]
+}
