@@ -36,9 +36,14 @@ for (const mode of modes) {
 }
 assert.match(lessonHelpText({ ...imageToText, options: translated(['Boy', 'Niño'], ['Girl', 'Niña']) }),
   /toca la palabra que la describe\. Toca Traducir para ver las palabras en español\./);
-assert.equal(lessonHelpText({ ...imageToText, stage: 'Listen',
-  options: translated(['The boy is eating.', 'El niño está comiendo.'], ['The boy is sleeping.', 'El niño está durmiendo.']) }, 'visual-instruction')
-  .includes('Traducir'), false, 'Listen keeps its hidden-text contract and has no Traducir button.');
+// Escucha written choices offer Traducir too; help keeps the replay hint and stays within 25 words.
+const listenHelp = lessonHelpText({ ...imageToText, stage: 'Listen', audio_text: 'The boy is eating.',
+  options: translated(['The boy is eating.', 'El niño está comiendo.'], ['The boy is sleeping.', 'El niño está durmiendo.']) }, 'visual-instruction');
+assert.equal(listenHelp, 'Escucha y elige la frase correcta. Toca la bocina para repetir o Traducir para ver las frases en español.');
+assert.ok(listenHelp.split(/\s+/).length <= 25);
+assert.equal(lessonHelpText({ ...imageToText, stage: 'Use', interaction_type: 'complete2', prompt: '___ is eating.',
+  options: translated(['He', 'Él'], ['She', 'Ella']) }, 'translation-on-tap').includes('Traducir'), false,
+  'Completa keeps its sentence tap and never names Traducir.');
 assert.match(lessonHelpText({ ...imageToText, options: textOptions('Boy', 'Girl') }), /toca la palabra que la describe/);
 assert.match(lessonHelpText({ ...imageToText, options: textOptions('Who is he?', 'Who is she?') }), /toca la pregunta que corresponde/);
 assert.match(lessonHelpText(card()), /Lee y escucha.+Toca la imagen que corresponde/);

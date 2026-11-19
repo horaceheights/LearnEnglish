@@ -32,8 +32,8 @@ try {
   & node --test tests/silent-recognize-prompt.test.cjs tests/silent-recognize-native.test.mjs
   if ($LASTEXITCODE -ne 0) { throw 'Silent written recognition and answer replay checks failed.' }
 
-  & node --test tests/recognize-option-translation.test.cjs tests/recognize-option-translation-native.test.mjs
-  if ($LASTEXITCODE -ne 0) { throw 'Recognize Traducir option translations failed.' }
+  & node --test tests/option-translation.test.cjs tests/option-translation-native.test.mjs
+  if ($LASTEXITCODE -ne 0) { throw 'Traducir option translations failed.' }
 
   & node tests/lesson-progress.test.cjs (Join-Path $outputDirectory 'lessonProgress.js')
   if ($LASTEXITCODE -ne 0) { throw 'Fallaron las pruebas de puntuación e intentos.' }
