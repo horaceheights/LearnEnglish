@@ -9,9 +9,11 @@ The user chose a German course built on the same engine and photo library, shipp
 - A course taught in another language declares `speechLocale` in `backend/courses.json` (German: `de-DE`). Speak cards use it for on-device streaming and for the backend scoring fallback, which accepts only allow-listed locales; English courses declare none and keep the configured English default.
 - Word tokenizers for scoring, tiles and vocabulary chips accept lower-case Latin letters (umlauts, ß, accents), so `Mädchen` is one word. English content is ASCII and tokenizes exactly as before.
 - German lines are recorded by a native German narrator (speaker role `de-teacher`, voice Carola, chosen by the user from a two-voice audition), not the English cast: the user rejected the English teacher voice speaking German.
+- German narration alternates two native German narrators, like the English teacher and co-teacher (user decision 2026-11-19): within each section, odd cards are read by Carola (`de-teacher`) and even cards by the male co-teacher German Narration (`de-co-teacher`), in every German lesson.
 - German cards carry `target_language: "de"`. Their mistake feedback is English and explains German order (article before noun, verb second, `und` between two people, one-or-two-people verb endings) through `mobile/src/germanTeaching.ts`; like the English construction teacher, words outside its supported patterns get no invented rule and block the course check.
 - German Learn cards never teach a pronoun as an isolated word (`Er`, `Sie`): the speech model read lone pronouns as English. Pronouns are introduced inside sentences (`Er ist ein Junge.`).
-- The pilot reuses existing course photos only. Their German review contexts start as `pending-human-review`; agent review is not human approval.
+- The pilot reuses existing course photos only. Their German review contexts start as `pending-human-review`; agent review is not human approval. German 1.4 adds one new Gemini Flash photo (the same boy and girl asleep side by side, approved 2026-11-19); it shows the full 3:2 frame only and is never used in a four-photo grid, because the centered 4:5 crop clips the girl.
+- German Unit 1 continues in the mock's order: 1.4 one or two people (rennt/rennen, sitzt/sitzen, schwimmt/schwimmen, schläft/schlafen), 1.5 children and babies with `sind`, 1.6 brothers, sisters and adults (`erwachsen`, `die Erwachsenen`). Each batch passes a text-and-photo gate, then a recordings gate, before shipping.
 
 ## A1+ lesson standards — approved 2026-10-27
 
