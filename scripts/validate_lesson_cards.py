@@ -3225,6 +3225,13 @@ def validate_mobile_a1_semantic_parity() -> list[str]:
     return errors
 
 
+def authored_lesson_files(descriptor: dict) -> dict[str, str]:
+    """Exact lesson files of a course authored without a sidecar delivery source."""
+    root = ROOT / descriptor["lessonRoot"]
+    return {path.relative_to(ROOT).as_posix(): sha256_file(path)
+            for path in sorted(root.glob("unit_*/*.yaml"))}
+
+
 def validate_registered_courses(warnings: list[str]) -> list[str]:
     """Additional courses retain their own curriculum and exact review records."""
     from app.data import COURSE_DESCRIPTORS, COURSE_LESSONS, ALL_LESSONS
@@ -3281,10 +3288,15 @@ def validate_registered_courses(warnings: list[str]) -> list[str]:
                         errors.append(f"{lesson.id}: image has no exact semantic-review record: {url}")
             if pending:
                 warnings.append(f"{descriptor['id']}: {pending} exact images still await human semantic review; agent review is not human approval.")
-            source = json.loads((ROOT / descriptor["deliverySource"]).read_text(encoding="utf-8"))
-            from scripts.compile_lesson_delivery import validate_source_fields
             from scripts.listening_contract import ordinary_listening_errors
-            validate_source_fields(source)
+            if descriptor.get("deliverySource"):
+                source = json.loads((ROOT / descriptor["deliverySource"]).read_text(encoding="utf-8"))
+                from scripts.compile_lesson_delivery import validate_source_fields
+                validate_source_fields(source)
+            else:
+                # A course authored directly as lesson files (like A1) binds its
+                # review records to those exact files instead of a sidecar source.
+                source = authored_lesson_files(descriptor)
             for lesson in lessons:
                 if getattr(lesson, "experience_type", None) == "mission":
                     continue

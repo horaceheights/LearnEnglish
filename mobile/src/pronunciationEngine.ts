@@ -58,7 +58,9 @@ export function speechTokens(text: string): string[] {
   return text
     .toLocaleLowerCase('en-US')
     .replace(/[’]/g, "'")
-    .match(/[a-z]+(?:'[a-z]+)?/g) ?? [];
+    // Lower-case Latin letters (umlauts, ß, accents) so German words stay whole;
+    // English text is plain ASCII and tokenizes exactly as before.
+    .match(/[a-zßà-öø-ÿ]+(?:'[a-zßà-öø-ÿ]+)?/g) ?? [];
 }
 
 function readableSyllables(word: string): string[] {
