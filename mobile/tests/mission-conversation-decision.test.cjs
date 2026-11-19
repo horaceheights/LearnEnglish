@@ -267,7 +267,7 @@ test('web audio plays all turns in order, ignores duplicate callbacks, and rejec
   assert.equal(await playDecisionTurns(['silent'], () => {}, 5).promise, false, 'No completion signal cannot unlock');
 });
 
-function harness(platform, completion = false, imageOptions = false) {
+function harness(platform, completion = false, imageOptions = false, translated = false) {
   let cursor = 0, dirty = true, tree, effects = [], width = 390, height = 844, resolveResponse;
   const slots = [], submits = [], responses = [], advances = [], replays = [];
   const same = (a, b) => a && b && a.length === b.length && a.every((value, index) => Object.is(value, b[index]));
@@ -275,6 +275,8 @@ function harness(platform, completion = false, imageOptions = false) {
     useState(initial) { const i = cursor++; if (!slots[i]) slots[i] = { value: typeof initial === 'function' ? initial() : initial }; return [slots[i].value, next => { const value = typeof next === 'function' ? next(slots[i].value) : next; if (!Object.is(value, slots[i].value)) { slots[i].value = value; dirty = true; } }]; },
     useRef(initial) { return slots[cursor++] ??= { current: initial }; },
     useMemo(fn, deps) { const i = cursor++; if (!same(slots[i]?.deps, deps)) slots[i] = { deps, value: fn() }; return slots[i].value; },
+    // The Traducir window (useManualSentenceTranslation) memoizes its opener.
+    useCallback(fn, deps) { return react.useMemo(() => fn, deps); },
     useEffect(fn, deps) { const i = cursor++; if (!same(slots[i]?.deps, deps)) effects.push(() => { slots[i]?.cleanup?.(); slots[i] = { deps, cleanup: fn(), effect: fn }; }); },
   };
   const jsx = (type, props, key) => ({ type, props, key });
@@ -282,7 +284,8 @@ function harness(platform, completion = false, imageOptions = false) {
     'react-native': { View: 'View', Text: 'Text', Pressable: 'Pressable', ScrollView: 'ScrollView', StyleSheet: { create: value => value }, useWindowDimensions: () => ({ width, height }) } });
   const Component = platform === 'native' ? load('mobile/src/components/MissionConversationDecision.tsx').MissionConversationDecision
     : load('frontend/components/MissionConversationDecision.js').default;
-  const props = { card: { ...card, options: imageOptions ? options.map(option => ({ ...option, image_url: `${option.id}.png` })) : options,
+  const fixtureOptions = translated ? options.map((option, index) => ({ ...option, spanish_translation: `Respuesta ${index + 1}` })) : options;
+  const props = { card: { ...card, options: imageOptions ? fixtureOptions.map(option => ({ ...option, image_url: `${option.id}.png` })) : fixtureOptions,
     mission_game: { ...card.mission_game, ...(completion ? { completion_scene: { image_url: 'outcome.png', context_es: 'La historia continúa.' } } : {}) } },
     paused: false, interactionReady: false, cueUnavailable: false, imageUrl: 'prompt.png', imageSrc: 'prompt.png', resolveImage: value => value,
     onSubmit: ids => submits.push(ids), onRetry: () => {}, onResponse: () => { responses.push(true); return new Promise(resolve => { resolveResponse = resolve; }); },
@@ -319,6 +322,21 @@ for (const platform of ['native', 'web']) {
     await h.response(false); assert.equal(h.advances.length, 0);
     h.button('Repetir respuesta'); assert.equal(h.responses.length, 2);
     await h.response(true); assert.equal(h.advances.length, 1); assert.equal(h.submits.length, 2);
+    h.unmount();
+  });
+  test(`${platform}: Traducir shows each written reply's Spanish without answering (2026-11-18)`, () => {
+    const label = node => node.props?.accessibilityLabel || node.props?.['aria-label'];
+    const plain = harness(platform);
+    assert.equal(plain.nodes().find(node => label(node) === 'Traducir las opciones al español'), undefined,
+      'No Spanish on the replies means no button.');
+    plain.unmount();
+    const h = harness(platform, false, false, true);
+    const spanish = options.map((_option, index) => ({ spanish_translation: `Respuesta ${index + 1}` }));
+    assert.ok(h.nodes().find(node => label(node) === 'Traducir las opciones al español'), 'Written replies with Spanish offer Traducir.');
+    assert.ok(!h.text().includes('Respuesta 1'), 'Spanish stays hidden until the button is pressed.');
+    h.button('Traducir las opciones al español');
+    for (const option of spanish) assert.ok(h.text().includes(option.spanish_translation), option.spanish_translation);
+    assert.deepEqual(h.submits, [], 'Translating never answers.');
     h.unmount();
   });
   test(`${platform}: response pause retains the beat and completion appears only after response replay`, async () => {

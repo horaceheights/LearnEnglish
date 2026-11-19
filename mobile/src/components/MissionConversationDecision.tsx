@@ -8,6 +8,8 @@ import { useMissionConversationDecision } from '../hooks/useMissionConversationD
 import { lessonMistakeHint } from '../lessonMistakeHints';
 import { OptionMediaImage } from './OptionMediaImage';
 import { TutorButton } from './TutorButton';
+import { useManualSentenceTranslation } from '../hooks/useManualSentenceTranslation';
+import { OPTION_TRANSLATION_BUTTON_LABEL, optionTranslationText, optionTranslationsAvailable } from '../optionTranslations';
 
 type Props = {
   card: LessonCard;
@@ -40,6 +42,10 @@ export function MissionConversationDecision(props: Props) {
   const busy = state.phase === 'responding';
   const hasResponse = Boolean(card.answer_audio_text || card.answer_audio_turns?.length);
   const replayDisabled = paused || !['choosing', 'wrong'].includes(state.phase);
+  // Traducir (user decision 2026-11-18): written replies show their Spanish for 3 s, on demand only.
+  const optionTranslation = useManualSentenceTranslation(card.slide_id);
+  const showTranslate = !completion && optionTranslationsAvailable(card);
+  const translationsVisible = showTranslate && optionTranslation.visible;
   const mistakeFeedback = hint ? <View accessibilityLiveRegion="polite" style={styles.feedback}>
     <ScrollView style={styles.explanation} contentContainerStyle={styles.explanationContent}>
       <Text style={styles.encouragement}>Cuando te equivocas, también aprendes.</Text>
@@ -60,6 +66,13 @@ export function MissionConversationDecision(props: Props) {
           <Ionicons name="volume-high" color="#247b78" size={28} />
         </Pressable> : null}
       </View>
+      {showTranslate ? <Pressable accessibilityRole="button" accessibilityLabel="Traducir las opciones al español"
+        accessibilityHint="Muestra las opciones en español por unos segundos." hitSlop={{ bottom: 8, left: 6, right: 6, top: 8 }}
+        onPress={() => optionTranslation.open()}
+        style={({ pressed }) => [styles.translate, translationsVisible ? styles.translateActive : null, pressed ? styles.translatePressed : null]}>
+        <Ionicons color="#23856f" name="language" size={15} />
+        <Text maxFontSizeMultiplier={1.2} style={styles.translateLabel}>{OPTION_TRANSLATION_BUTTON_LABEL}</Text>
+      </Pressable> : null}
       {cueUnavailable && !completion && !busy ? <Text accessibilityLiveRegion="assertive" style={styles.error}>No se pudo reproducir el audio completo. Toca la bocina para volver a escuchar.</Text> : null}
       {busy ? <Text accessibilityLiveRegion="polite" style={styles.status}>{hasResponse ? '✓ Escucha la respuesta…' : '✓ ¡Bien!'}</Text> : null}
     </View>
@@ -85,7 +98,11 @@ export function MissionConversationDecision(props: Props) {
               images ? { width: imageWidth, aspectRatio: 1.5, padding: 3 } : styles.textOption,
               state.selectedId === option.id ? (state.phase === 'wrong' ? styles.wrong : styles.correct) : null]}>
             {option.image_url ? <OptionMediaImage imageUrl={option.image_url} accessibilityLabel={`Imagen ${index + 1}`} />
-              : <Text style={styles.optionText}>{option.label}</Text>}
+              : <>
+                <Text style={styles.optionText}>{option.label}</Text>
+                {optionTranslationText(option, translationsVisible) ? <Text accessibilityLiveRegion="polite" maxFontSizeMultiplier={1.15}
+                  style={styles.optionTranslation}>{optionTranslationText(option, translationsVisible)}</Text> : null}
+              </>}
           </Pressable>)}
         </View>
       </>)}
@@ -103,6 +120,12 @@ const styles = StyleSheet.create({
   option: { minHeight: 48, borderWidth: 2, borderColor: '#d5dfd7', backgroundColor: '#fffdf7', borderRadius: 14, overflow: 'hidden' },
   textOption: { paddingHorizontal: 14, paddingVertical: 10, justifyContent: 'center', width: '100%' },
   optionText: { fontSize: 18, lineHeight: 24, fontWeight: '600', color: '#234541', textAlign: 'center' },
+  optionTranslation: { color: '#4d5a60', fontSize: 15, fontWeight: '700', marginTop: 2, textAlign: 'center' },
+  translate: { alignItems: 'center', alignSelf: 'center', backgroundColor: '#eef7f4', borderColor: '#9fcfc2', borderRadius: 14,
+    borderWidth: 1, flexDirection: 'row', gap: 5, minHeight: 28, paddingHorizontal: 12, paddingVertical: 3 },
+  translateActive: { backgroundColor: '#d6efe8', borderColor: '#23856f' },
+  translatePressed: { opacity: 0.82 },
+  translateLabel: { color: '#176b5d', fontSize: 13, fontWeight: '800' },
   correct: { borderColor: '#31946c', backgroundColor: '#e2f6ea' }, wrong: { borderColor: '#c75147', backgroundColor: '#fff1ed' },
   feedback: { flex: 1, minHeight: 0, gap: 6, padding: 8, backgroundColor: '#fff8ef', borderRadius: 12 },
   explanation: { flex: 1, minHeight: 0 }, explanationContent: { gap: 8 },

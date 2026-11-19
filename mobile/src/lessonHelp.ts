@@ -1,6 +1,6 @@
 import type { Lesson, LessonCard } from './types';
 import { isWrittenRecognize } from './lessonPromptPresentation';
-import { recognizeOptionTranslationsAvailable } from './optionTranslations';
+import { optionTranslationsAvailable } from './optionTranslations';
 
 /** The first Aprende card models the task; introduce help on the next card. */
 export function isFirstSectionHelpIntroduction(lesson: Lesson | null | undefined, cardIndex: number): boolean {
@@ -67,7 +67,11 @@ export function listeningHelpText(card?: LessonCard | null, replayOnPrompt = fal
   const instruction = `Escucha y elige la ${hasImageOptions(card) ? 'imagen' : textChoiceNoun(card)} correcta.`;
   const hasPromptAudio = Boolean(card.audio_text?.trim() || card.audio_turns?.length
     || card.audio_assets?.some(asset => asset.purpose === 'prompt'));
-  return hasPromptAudio ? `${instruction} Toca ${replayOnPrompt ? 'la frase' : 'la bocina'} para repetir.` : instruction;
+  // Help explains the controls actually present (2026-11-18 Traducir button), in two sentences at most.
+  const translate = optionTranslationsAvailable(card) ? `Traducir para ver las ${textChoiceNoun(card)}s en español` : '';
+  if (!hasPromptAudio) return translate ? `${instruction} Toca ${translate}.` : instruction;
+  const replay = `Toca ${replayOnPrompt ? 'la frase' : 'la bocina'} para repetir`;
+  return translate ? `${instruction} ${replay} o ${translate}.` : `${instruction} ${replay}.`;
 }
 
 /**
@@ -107,7 +111,7 @@ function cardHelpInstruction(card: LessonCard, promptInteractionMode: PromptInte
         ? 'Mira la imagen y toca la pregunta que corresponde.'
         : `Mira la imagen y toca la ${textChoiceNoun(card)} que la describe.`;
       // Help explains the controls actually present (2026-11-18 Traducir button).
-      return recognizeOptionTranslationsAvailable(card)
+      return optionTranslationsAvailable(card)
         ? `${goal} Toca Traducir para ver las ${textChoiceNoun(card)}s en español.`
         : goal;
     }

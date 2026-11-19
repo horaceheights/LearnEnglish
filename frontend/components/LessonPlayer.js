@@ -40,7 +40,7 @@ import { lessonMistakeHint as getLessonMistakeHint } from "../../mobile/src/less
 import { replyImageAfterPrompt, teachingOptionImageUrl, visibleTurnImageUrl } from "../../mobile/src/lessonTurnImages";
 import { learnTranslationText, useLearnTranslationPreview } from "../../mobile/src/hooks/useLearnTranslationPreview";
 import { useManualSentenceTranslation } from "../../mobile/src/hooks/useManualSentenceTranslation";
-import { OPTION_TRANSLATION_BUTTON_LABEL, optionTranslationText, recognizeOptionTranslationsAvailable } from "../../mobile/src/optionTranslations";
+import { OPTION_TRANSLATION_BUTTON_LABEL, optionTranslationText, optionTranslationsAvailable } from "../../mobile/src/optionTranslations";
 import { WavAudioRecorder } from "../lib/WavAudioRecorder";
 import { isMissionLesson } from "../lib/missionExperience.mjs";
 import useStaticSfx from "../lib/useStaticSfx";
@@ -2466,9 +2466,10 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
     loadedTeachingImageKey === teachingCardKey && started && !isComplete && !isPageTurning
       && helpDocumentVisible && !showHelp && !tutor.visible);
   const teachingTranslationVisible = learnTranslation.visible || manualTeachingTranslationKey === teachingCardKey;
-  // Photo-to-sentence Recognize cards: Traducir shows each choice's Spanish for
-  // the shared three-second window, only when tapped (user decision 2026-11-18).
-  const showOptionTranslateButton = recognizeOptionTranslationsAvailable(currentCard);
+  // Written-choice Recognize and Listen cards: Traducir shows each choice's Spanish
+  // for the shared three-second window, only when tapped (user decision 2026-11-18).
+  // Mission conversation decisions carry their own button in CelebrationMission.
+  const showOptionTranslateButton = !currentCard?.mission_game && optionTranslationsAvailable(currentCard);
   const optionTranslation = useManualSentenceTranslation(teachingCardKey);
   const optionTranslationsVisible = showOptionTranslateButton && optionTranslation.visible;
   useEffect(() => {

@@ -1,15 +1,16 @@
-"""Give every written Recognize choice under a photo its authored Spanish.
+"""Give every written answer choice its authored Spanish.
 
-User decision 2026-11-18: photo-to-sentence Recognize cards get an on-demand
-Traducir button that shows each choice's Spanish under its English. Choices
-store that Spanish as `spanish_translation`. This one-off backfill fills it on
-existing lessons from, in order:
+User decisions 2026-11-18: every slide where the learner picks written English
+(Recognize and Listen text choices, and mission conversation decisions) gets an
+on-demand Traducir button that shows each choice's Spanish under its English.
+Completa word tiles keep their sentence tap instead. Choices store that Spanish
+as `spanish_translation`. This backfill fills it on existing lessons from, in order:
 
 1. the lesson's own content brief (item or pool `es`, matched by exact English);
 2. any other content brief;
 3. exact authored Spanish for the same English elsewhere in the catalog
    (single-image Learn and Speak models, audio turns, Use answers);
-4. the reviewed hand-written table in docs/qa/recognize-option-translations-2026-11-18.json.
+4. the reviewed hand-written tables in docs/qa/*-option-translations-2026-11-18.json.
 
 Run without --write for a report. --write edits the lesson files in place,
 keeping each file's existing serialization byte-for-byte apart from the new
@@ -30,16 +31,18 @@ import yaml
 ROOT = Path(__file__).resolve().parents[1]
 LESSON_ROOT = ROOT / "backend" / "lessons"
 BRIEF_ROOT = ROOT / "docs" / "product" / "content-briefs"
-MANUAL_TABLE = ROOT / "docs" / "qa" / "recognize-option-translations-2026-11-18.json"
+MANUAL_TABLES = [ROOT / "docs" / "qa" / "recognize-option-translations-2026-11-18.json",
+                 ROOT / "docs" / "qa" / "listen-option-translations-2026-11-18.json"]
+TRANSLATED_STAGES = {"Recognize", "Listen"}
 FALLBACK = "Traducción no disponible todavía."
 
 
 def qualifies(card: dict) -> bool:
-    """A Recognize card with one photo above two or more written choices."""
+    """A Recognize or Listen card (or mission conversation decision) with written choices."""
     options = card.get("options") or []
-    return (card.get("stage") == "Recognize"
-            and bool(str(card.get("prompt_image_url") or "").strip())
-            and not card.get("mission_game")
+    game = card.get("mission_game")
+    return (card.get("stage") in TRANSLATED_STAGES
+            and (not game or game.get("kind") == "conversation-decision")
             and len(options) >= 2
             and all(not str(option.get("image_url") or "").strip() and str(option.get("label") or "").strip()
                     for option in options))
@@ -98,6 +101,11 @@ def catalog_translations(lessons) -> dict[str, collections.Counter]:
                 add(options[0].get("label"), card.get("spanish_translation"))
             if card.get("stage") == "Use" and card.get("answer_audio_text") and not card.get("answer_audio_turns"):
                 add(card.get("answer_audio_text"), card.get("spanish_translation"))
+            # A Listen card's own Spanish translates its spoken line when that line is the answer.
+            correct = next((option for option in options if option.get("id") == card.get("correct_option_id")), None)
+            if (card.get("stage") == "Listen" and correct and not card.get("audio_turns")
+                    and str(card.get("audio_text") or "").strip() == str(correct.get("label") or "").strip()):
+                add(card.get("audio_text"), card.get("spanish_translation"))
             for option in options:
                 add(option.get("label"), option.get("spanish_translation"))
     return found
@@ -255,8 +263,10 @@ def main() -> None:
     args = parser.parse_args()
     lessons = load_lessons()
     briefs_by_lesson, briefs_anywhere = load_briefs()
-    manual = json.loads(MANUAL_TABLE.read_text(encoding="utf-8")) if MANUAL_TABLE.exists() else {}
-    manual = {english: spanish for english, spanish in manual.get("translations", {}).items()}
+    manual = {}
+    for table in MANUAL_TABLES:
+        if table.exists():
+            manual.update(json.loads(table.read_text(encoding="utf-8")).get("translations", {}))
     plan, sources, gaps, disagreements = resolve(
         lessons, briefs_by_lesson, briefs_anywhere, catalog_translations(lessons), manual)
     print("Choices by source:", dict(sources))

@@ -6,9 +6,11 @@ import test from 'node:test';
 import { element as e, lessonHarness } from './native-lesson-harness.mjs';
 
 const catalog = JSON.parse(fs.readFileSync(new URL('../src/generated/all-courses.json', import.meta.url), 'utf8'));
-const photoToSentence = catalog.flatMap(lesson => lesson.cards.map(card => ({ ...card, lessonId: lesson.id, lessonLevel: lesson.level })))
-  .filter(card => card.stage === 'Recognize' && card.prompt_image_url && !card.mission_game && card.options.length >= 2
+const writtenChoices = catalog.flatMap(lesson => lesson.cards.map(card => ({ ...card, lessonId: lesson.id, lessonLevel: lesson.level })))
+  .filter(card => ['Recognize', 'Listen'].includes(card.stage) && !card.mission_game && card.options.length >= 2
     && card.options.every(option => !option.image_url && option.spanish_translation));
+const photoToSentence = writtenChoices.filter(card => card.stage === 'Recognize' && card.prompt_image_url);
+const listenChoices = writtenChoices.filter(card => card.stage === 'Listen');
 const longest = [...photoToSentence].sort((a, b) =>
   Math.max(...b.options.map(o => o.spanish_translation.length)) - Math.max(...a.options.map(o => o.spanish_translation.length)))[0];
 const cards = [
@@ -16,6 +18,10 @@ const cards = [
   photoToSentence.find(card => card.lessonId === 'lesson-1-people-actions' && card.options.length === 3),
   photoToSentence.find(card => card.options.length === 2),
   longest,
+  listenChoices.find(card => !card.prompt_image_url && card.options.length === 3),
+  listenChoices.find(card => card.prompt_image_url && card.options.length === 3),
+  [...listenChoices].sort((a, b) =>
+    Math.max(...b.options.map(o => o.spanish_translation.length)) - Math.max(...a.options.map(o => o.spanish_translation.length)))[0],
 ];
 const noop = () => {};
 
