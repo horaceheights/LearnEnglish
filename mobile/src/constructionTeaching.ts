@@ -6,6 +6,8 @@ import type { LessonCard } from './types';
 const words = (value: string) => value.toLowerCase().replace(/\b([ap])\.m\./g, '$1m').match(/[a-z]+(?:'[a-z]+)?/g) || [];
 const set = (value: string) => new Set(value.split(' '));
 const DETERMINERS = set('a an the my your his her our their this that these those');
+// A1+ 1.10 (2026-11-18): its, the possessive for an animal or a thing (The dog plays with its ball.).
+DETERMINERS.add('its');
 const NUMBERS = set('one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen twenty');
 // A1 5.12 (2026-11-15): the tens from thirty to one hundred.
 for (const number of 'thirty forty fifty sixty seventy eighty ninety hundred'.split(' ')) NUMBERS.add(number);
@@ -41,6 +43,8 @@ for (const noun of words('aunt uncle cousin')) NOUNS.add(noun);
 for (const noun of words('hair beard')) NOUNS.add(noun);
 // A1 1.10 (2026-11-14): pets.
 for (const noun of words('dog cat bird rabbit pet pets')) NOUNS.add(noun);
+// A1+ 1.10 (2026-11-18): the four pets' names (Its name is Max.).
+for (const noun of words('max luna rio coco')) NOUNS.add(noun);
 // A1 2.12 (2026-11-15): in the classroom.
 for (const noun of words('classroom class student desk pencil paper notebook')) NOUNS.add(noun);
 // A1 1.11 (2026-11-14): friends and people.
@@ -95,9 +99,11 @@ for (const verb of words('make see use find give')) VERBS.add(verb);
 for (const verb of words('buy pay')) VERBS.add(verb);
 // A1+ 1.8 (2026-11-13): cook as a habit after don't/doesn't (Diego doesn't cook dinner.); after an article it stays A1's noun.
 VERBS.add('cook');
+// A1+ 1.10 (2026-11-18): a pet's habit with its thing (The dog plays with its ball.).
+VERBS.add('plays');
 // A word that is both a noun and a verb ("drinks", "work") is the noun right after an article or a
 // possessive (The drinks are on the table.) and the verb after its subject (Luis drinks coffee.).
-const NOUN_MARKERS = set('a an the my your his her our their');
+const NOUN_MARKERS = set('a an the my your his her its our their');
 const ACTIONS = set('eating drinking reading writing running walking swimming sitting sleeping playing studying working cooking talking watching listening going');
 const BE = set('am is are');
 const FREQUENCY = set('always usually sometimes never');
@@ -175,7 +181,7 @@ function teachClause(text: string): ClausePlan {
         ? `En ${quote(phrase(start, end))}, ${quote(tokens[described])} describe ${quote(tokens[head])} y va antes del nombre.`
         : NUMBERS.has(first) || first === 'some'
           ? `En ${quote(phrase(start, end))}, la cantidad va antes del nombre: primero cuánto hay y después qué es.`
-          : ['my', 'your', 'his', 'her', 'our', 'their'].includes(first)
+          : ['my', 'your', 'his', 'her', 'its', 'our', 'their'].includes(first)
             ? `En ${quote(phrase(start, end))}, ${quote(tokens[start])} indica de quién es y va antes del nombre ${quote(phrase(start + 1, end))}.`
             : DETERMINERS.has(first)
               ? `En ${quote(phrase(start, end))}, ${quote(tokens[start])} acompaña al nombre ${quote(phrase(start + 1, end))} y va delante de él.`
