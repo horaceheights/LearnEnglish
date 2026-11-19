@@ -1,0 +1,387 @@
+{
+  "schema_version": 1,
+  "pack": "a1plus-unit-2-lesson-2-5-this-that-photos",
+  "revision": 5,
+  "output_namespace": "a1plus-unit-2-lesson-v251",
+  "authorization": "2026-11-19: the user approved the A1+ Unit 2 plan and chose \"Straight to Preview\" (media pre-approved, reviewed in Preview). Gemini is the approved image tool (2026-09-23), Flash only (2026-11-17). Later on 2026-11-19 the user found the first 2.5 photos unclear (\"the person is just looking at this one but person does not point at the other bag or item for that one. its just not clear\"), suggested \"maybe they need to be two image transitions?\" and approved the plan: a THIS/THAT pair per scene, the picture switching on *but*, side-on staging, and bikes instead of the cups. After the first render the user saw that the pointing photos point past the far things (\"they are pointing away from the things they are supposed to be pointing to\") and approved redoing them (\"Yes, redo them\"). Asked whether another image service was needed, the user chose to keep Gemini with a drawn guide and added: \"maybe just change the body postion abit towards the object too. do redo them all, just do one for testing\".",
+  "image_settings": {
+    "provider": "google-gemini",
+    "model": "gemini-2.5-flash-image",
+    "aspect_ratio": "3:2",
+    "image_size": "1K",
+    "runtime_size": "1536x1024",
+    "runtime_format": "webp",
+    "n": 1
+  },
+  "supersedes": {
+    "pack": "docs/product/a1plus-unit-2-lesson-2-5-this-that-photos-v4.json",
+    "reason": "Word-only angles missed: v4's e18 and e20 aim at the ground in front of the far bike and chair (e16 passed). v5 draws the arm as a magenta guide on each reviewed THIS photo, from the pointing shoulder toward the middle of the far thing, measured on the photo, and asks for it to be painted over."
+  },
+  "production": {
+    "price_per_image_usd": "0.0387",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing (checked 2026-11-16: Gemini 2.5 Flash Image, about $0.039 per image)",
+    "planned_images": 25,
+    "expected_cost_usd": "0.97",
+    "requested_ceiling_usd": "1.00",
+    "ceiling_note": "The renderer reserves US$0.20 before each request and counts every earlier receipt in this namespace (14 images, about US$0.55 before v5).",
+    "no_automatic_retries": true,
+    "order": "Render e23 (Luis) alone first as the user's test and show it; render the rest only after the user accepts it. Check each guided edit: no magenta left anywhere, the line from shoulder through fingertip lands near the middle of the far thing, the body turned a little toward it, five fingers, near thing still held, a gap before the far thing; inspect at 900/360/250/180 px."
+  },
+  "shared_prompts": {
+    "photo": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, numbers, logos or brand marks anywhere, not on signs, screens, clothes, bags, machines or vehicles. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos.",
+    "solo": "Only this one person is in the photo; there is nobody else, even far in the background.",
+    "daytime": "It is clearly daytime with soft natural light.",
+    "near_far_scene": "The meaning of the photo is NEAR versus FAR. Exactly two things of the same kind are in the photo, and they differ only in color. The near one is with the person in the left part of the photo, large and sharp. The far one stands alone in the right third of the photo, clearly farther away, against a plain wall with nothing else around it; it is in focus and easy to recognize even on a small phone screen, and its center is about three quarters of the way across the photo, well clear of the right edge. The camera is at chest height and sees the whole scene from the side, so that the space between the person and the far thing runs from left to right across the photo: an arm pointed at the far thing would be seen side-on as a long line across the photo, never pointing toward the camera. The floor and wall between them are plain and empty. There is no mirror, no picture on the wall, no shelf of objects, and no third thing of that kind anywhere."
+  },
+  "assets": [
+    {
+      "id": "e01-ana-red-near-this",
+      "order": 1,
+      "item": "This one is red. / This bag is red, (turn 1)",
+      "shared": [
+        "photo",
+        "solo",
+        "daytime",
+        "near_far_scene"
+      ],
+      "prompt": "Image 1 shows Ana. Keep her face, long dark wavy hair, light-olive skin and build exactly. Create a new photograph of her: she stands in her bright living room in her sage-green overshirt over a white top and jeans. She stands in the left third of the photo, her body turned a little toward the right side of the photo, her face visible in three-quarter view. With the hand nearer the camera she holds a large RED canvas tote bag by its handles, low at her side, so the red bag hangs beside her close to the camera, large and sharp. She looks down at the red bag and touches the front of it with the tip of the index finger of her other hand; that arm stays bent and low, close to her body. Across the room, in the right third of the photo, about four meters away from her, one BLUE canvas tote bag of the same shape and size sits alone on the seat of a light wooden chair against a plain white wall. The blue bag is clearly smaller than the red one because it is far away, but it is in focus and easy to recognize, about one fifth of the photo width.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-q02-c2b4398b65207eff.webp",
+        "sha256": "c2b4398b65207effa51e51260cc607c38ada48caea82f14eb872e4c9c8b5d0d5",
+        "observed_description": "Ana (long dark wavy hair, light-olive skin, sage-green overshirt over a white top, jeans) sits on a light-grey sofa and reads an open hardcover book (A1+ 1.2)."
+      }
+    },
+    {
+      "id": "e02-ana-red-near-that",
+      "order": 2,
+      "item": "That one is blue. / but that bag is blue. (turn 2)",
+      "shared": [
+        "photo",
+        "solo",
+        "daytime",
+        "near_far_scene"
+      ],
+      "prompt": "Image 1 shows Ana: she holds a red tote bag by its handles in one hand and touches it with her other index finger, and a blue tote bag on a wooden chair stands alone across the room. Keep everything else exactly the same: Ana's face, hair, clothes and body position, the hand that holds the red bag, the red bag, the blue bag, the room, the light and the camera position. Change only two things. First, her free arm (the one that touched the red bag) is now raised and stretched out straight at shoulder height toward the blue bag, with her index finger pointing at it and the other fingers curled; the whole arm and the pointing hand are clearly visible, seen from the side against the plain wall, and the fingertip stays far away from the blue bag, with a wide empty gap between them. The arm stays at shoulder height and does not reach down or forward to it. Second, she turns her head and looks at the blue bag. The red bag stays exactly where it was, still held by her other hand, close to the camera.",
+      "reference": "e01-ana-red-near-this"
+    },
+    {
+      "id": "e03-ana-blue-near-this",
+      "order": 3,
+      "item": "This one is blue. / This bag is blue, (turn 1)",
+      "shared": [
+        "photo",
+        "solo",
+        "daytime",
+        "near_far_scene"
+      ],
+      "prompt": "Image 1 shows Ana in her living room, holding a red tote bag and touching it with her finger, with a blue tote bag on a chair across the room. Keep everything exactly the same: Ana, the pose, the gesture, the clothes, the place, the light and the camera position. Swap only the colors of the two bags: the bag near Ana is now BLUE, exactly the blue the far bag had, and the far bag is now RED, exactly the red the near bag had. Same shapes, same sizes, same positions; nothing else changes.",
+      "reference": "e01-ana-red-near-this"
+    },
+    {
+      "id": "e04-ana-blue-near-that",
+      "order": 4,
+      "item": "That one is red. / but that bag is red. (turn 2)",
+      "shared": [
+        "photo",
+        "solo",
+        "daytime",
+        "near_far_scene"
+      ],
+      "prompt": "Image 1 shows Ana in her living room, holding a red tote bag in one hand and pointing with her other arm at a blue tote bag on a chair across the room. Keep everything exactly the same: Ana, the pose, the gesture, the clothes, the place, the light and the camera position. Swap only the colors of the two bags: the bag near Ana is now BLUE, exactly the blue the far bag had, and the far bag is now RED, exactly the red the near bag had. Same shapes, same sizes, same positions; nothing else changes.",
+      "reference": "e02-ana-red-near-that"
+    },
+    {
+      "id": "e05-luis-white-near-this",
+      "order": 5,
+      "item": "This one is white. / This bike is white, (turn 1)",
+      "shared": [
+        "photo",
+        "solo",
+        "daytime",
+        "near_far_scene"
+      ],
+      "prompt": "Image 1 shows Luis. Keep his face, short dark curly hair, clean-shaven face, warm medium-brown skin and build exactly. Create a new photograph of him: he stands in a quiet, sunny paved courtyard behind an apartment building, in his navy T-shirt and jeans. He stands in the left third of the photo, his body turned a little toward the right side of the photo, his face visible in three-quarter view. Right beside him, close to the camera, stands a WHITE city bike seen from the side, its whole frame and both wheels visible. With the hand nearer the camera he holds the white bike's handlebar; he looks down at the white bike and touches its saddle with the tip of the index finger of his other hand; that arm stays bent and low. Across the courtyard, in the right third of the photo, about five meters away from him, one BLACK city bike of the same model leans alone against a plain light-grey wall, seen from the side with both wheels visible. The black bike is clearly smaller than the white one because it is far away, but it is in focus and easy to recognize. There are no other bikes, cars, plants, bins, signs or doors near the black bike.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-q01-135c3f8f772bcbe4.webp",
+        "sha256": "135c3f8f772bcbe472b8cec719eb02318a7d52ce1c7152a94c6952aeb78566c2",
+        "observed_description": "Luis (short dark curly hair, clean-shaven, warm medium-brown skin, navy crew-neck T-shirt) drinks coffee from a white mug at a wooden table in his bright kitchen (A1+ 1.2)."
+      }
+    },
+    {
+      "id": "e06-luis-white-near-that",
+      "order": 6,
+      "item": "That one is black. / but that bike is black. (turn 2)",
+      "shared": [
+        "photo",
+        "solo",
+        "daytime",
+        "near_far_scene"
+      ],
+      "prompt": "Image 1 shows Luis: he holds a white bike's handlebar with one hand and touches its saddle with his other index finger, and a black bike leaning on the wall stands alone across the room. Keep everything else exactly the same: Luis's face, hair, clothes and body position, the hand that holds the white bike, the white bike, the black bike, the room, the light and the camera position. Change only two things. First, his free arm (the one that touched the white bike) is now raised and stretched out straight at shoulder height toward the black bike, with his index finger pointing at it and the other fingers curled; the whole arm and the pointing hand are clearly visible, seen from the side against the plain wall, and the fingertip stays far away from the black bike, with a wide empty gap between them. The arm stays at shoulder height and does not reach down or forward to it. Second, he turns his head and looks at the black bike. The white bike stays exactly where it was, still held by his other hand, close to the camera.",
+      "reference": "e05-luis-white-near-this"
+    },
+    {
+      "id": "e07-luis-black-near-this",
+      "order": 7,
+      "item": "This one is black. / This bike is black, (turn 1)",
+      "shared": [
+        "photo",
+        "solo",
+        "daytime",
+        "near_far_scene"
+      ],
+      "prompt": "Image 1 shows Luis in a courtyard, holding a white bike's handlebar and touching its saddle with his finger, with a black bike leaning on the wall across the courtyard. Keep everything exactly the same: Luis, the pose, the gesture, the clothes, the place, the light and the camera position. Swap only the colors of the two bikes: the bike near Luis is now BLACK, exactly the black the far bike had, and the far bike is now WHITE, exactly the white the near bike had. Same shapes, same sizes, same positions; nothing else changes.",
+      "reference": "e05-luis-white-near-this"
+    },
+    {
+      "id": "e08-luis-black-near-that",
+      "order": 8,
+      "item": "That one is white. / but that bike is white. (turn 2)",
+      "shared": [
+        "photo",
+        "solo",
+        "daytime",
+        "near_far_scene"
+      ],
+      "prompt": "Image 1 shows Luis in a courtyard, holding a white bike's handlebar with one hand and pointing with his other arm at a black bike leaning on the wall across the courtyard. Keep everything exactly the same: Luis, the pose, the gesture, the clothes, the place, the light and the camera position. Swap only the colors of the two bikes: the bike near Luis is now BLACK, exactly the black the far bike had, and the far bike is now WHITE, exactly the white the near bike had. Same shapes, same sizes, same positions; nothing else changes.",
+      "reference": "e06-luis-white-near-that"
+    },
+    {
+      "id": "e09-diego-green-near-this",
+      "order": 9,
+      "item": "This one is green. / This chair is green, (turn 1)",
+      "shared": [
+        "photo",
+        "solo",
+        "daytime",
+        "near_far_scene"
+      ],
+      "prompt": "Image 1 shows Diego. Keep his face, dark curly hair with a little grey, short full beard, skin tone and build exactly. Create a new photograph of him: he stands in a bright, almost empty room with a light wooden floor and plain white walls, in his burgundy button shirt and dark trousers. He stands in the left third of the photo, his body turned a little toward the right side of the photo, his face visible in three-quarter view. Right beside him, close to the camera, stands a GREEN wooden chair; with the hand nearer the camera he holds the top of its backrest. He looks down at the green chair and touches its seat with the tip of the index finger of his other hand, his hand low; that arm stays bent and low. Across the room, in the right third of the photo, about four meters away from him, one BLACK wooden chair of the same shape stands alone against the far white wall, facing the room. The black chair is clearly smaller than the green one because it is far away, but it is in focus and easy to recognize.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-q04-ded74a2cb6021167.webp",
+        "sha256": "ded74a2cb6021167d6af2351e9012476d36c1b0936ca9f4f4b6dee68783bb9e2",
+        "observed_description": "Diego (dark curly hair with a little grey, short full beard, burgundy button shirt) sits at a wooden kitchen table and bites a red apple (A1+ 1.2)."
+      }
+    },
+    {
+      "id": "e10-diego-green-near-that",
+      "order": 10,
+      "item": "That one is black. / but that chair is black. (turn 2)",
+      "shared": [
+        "photo",
+        "solo",
+        "daytime",
+        "near_far_scene"
+      ],
+      "prompt": "Image 1 shows Diego: he holds the backrest of a green chair with one hand and touches its seat with his other index finger, and a black chair against the far wall stands alone across the room. Keep everything else exactly the same: Diego's face, hair, clothes and body position, the hand that holds the green chair, the green chair, the black chair, the room, the light and the camera position. Change only two things. First, his free arm (the one that touched the green chair) is now raised and stretched out straight at shoulder height toward the black chair, with his index finger pointing at it and the other fingers curled; the whole arm and the pointing hand are clearly visible, seen from the side against the plain wall, and the fingertip stays far away from the black chair, with a wide empty gap between them. The arm stays at shoulder height and does not reach down or forward to it. Second, he turns his head and looks at the black chair. The green chair stays exactly where it was, still held by his other hand, close to the camera.",
+      "reference": "e09-diego-green-near-this"
+    },
+    {
+      "id": "e11-ana-red-near-point",
+      "order": 11,
+      "item": "That one is blue. / but that bag is blue. (turn 2)",
+      "shared": [
+        "photo",
+        "solo",
+        "daytime",
+        "near_far_scene"
+      ],
+      "prompt": "Image 1 shows Ana: she stands with a red tote bag on her shoulder and her hand resting on it, looking down at it, and a blue tote bag sits alone on the seat of a wooden chair across the room, lower than her shoulders. Keep everything else exactly the same: Ana's face, hair, clothes, legs and body position, the hand on the red bag, the red bag, the blue bag, the room, the light and the camera position. Change only two things. First, her free arm (the one that is not on the red bag) now points at the blue bag: the arm is stretched out straight and SLOPES DOWN from her shoulder toward the blue bag, about 20 degrees below level, so that her pointing hand ends up at the height of her chest, lower than her shoulder. The index finger continues the line of the arm and points straight AT the middle of the blue bag, the other fingers curled: a straight line drawn from her shoulder through her fingertip would end exactly on the blue bag, NOT on the wall above it and NOT on the floor in front of it. The arm and the pointing hand are seen from the side against the plain wall, and the fingertip stays far from the blue bag, about one third of the way from Ana to it. Second, she turns her head and looks at the blue bag. The red bag stays exactly where it is, with her other hand still on it.",
+      "reference": "e01-ana-red-near-this"
+    },
+    {
+      "id": "e12-ana-blue-near-point",
+      "order": 12,
+      "item": "That one is red. / but that bag is red. (turn 2)",
+      "shared": [
+        "photo",
+        "solo",
+        "daytime",
+        "near_far_scene"
+      ],
+      "prompt": "Image 1 shows Ana in her living room with a red tote bag on her shoulder, her hand on it, pointing down with her other arm at a blue tote bag on a chair across the room. Keep everything exactly the same: Ana, the pose, the pointing arm and its exact angle, the gesture, the clothes, the place, the light and the camera position. Swap only the colors of the two bags: the bag near Ana is now BLUE, exactly the blue the far bag had, and the far bag is now RED, exactly the red the near bag had. Same shapes, same sizes, same positions; nothing else changes.",
+      "reference": "e11-ana-red-near-point"
+    },
+    {
+      "id": "e13-luis-white-near-point",
+      "order": 13,
+      "item": "That one is black. / but that bike is black. (turn 2)",
+      "shared": [
+        "photo",
+        "solo",
+        "daytime",
+        "near_far_scene"
+      ],
+      "prompt": "Image 1 shows Luis: he stands behind a white bike with his hands on its saddle and handlebar, looking down at it, and a black bike leans alone against the far wall, standing on the ground, much lower than his shoulders. Keep everything else exactly the same: Luis's face, hair, clothes, legs and body position, the hand on the white bike's saddle, the white bike, the black bike, the room, the light and the camera position. Change only two things. First, his free arm (the one that is not on the white bike) now points at the black bike: the arm is stretched out straight and SLOPES DOWN from his shoulder toward the black bike, about 30 degrees below level, so that his pointing hand ends up at the height of his stomach, lower than his shoulder. The index finger continues the line of the arm and points straight AT the middle of the black bike, the other fingers curled: a straight line drawn from his shoulder through his fingertip would end exactly on the black bike, NOT on the wall above it and NOT on the floor in front of it. The arm and the pointing hand are seen from the side against the plain wall, and the fingertip stays far from the black bike, about one third of the way from Luis to it. Second, he turns his head and looks at the black bike. The white bike stays exactly where it is, with his other hand still on it.",
+      "reference": "e05-luis-white-near-this"
+    },
+    {
+      "id": "e14-luis-black-near-point",
+      "order": 14,
+      "item": "That one is white. / but that bike is white. (turn 2)",
+      "shared": [
+        "photo",
+        "solo",
+        "daytime",
+        "near_far_scene"
+      ],
+      "prompt": "Image 1 shows Luis in a courtyard with one hand on a white bike's saddle, pointing down with his other arm at a black bike leaning on the wall across the courtyard. Keep everything exactly the same: Luis, the pose, the pointing arm and its exact angle, the gesture, the clothes, the place, the light and the camera position. Swap only the colors of the two bikes: the bike near Luis is now BLACK, exactly the black the far bike had, and the far bike is now WHITE, exactly the white the near bike had. Same shapes, same sizes, same positions; nothing else changes.",
+      "reference": "e13-luis-white-near-point"
+    },
+    {
+      "id": "e15-diego-green-near-point",
+      "order": 15,
+      "item": "That one is black. / but that chair is black. (turn 2)",
+      "shared": [
+        "photo",
+        "solo",
+        "daytime",
+        "near_far_scene"
+      ],
+      "prompt": "Image 1 shows Diego: he stands with both hands on the backrest of a green chair beside him, looking down at it, and a black chair stands alone against the far wall, standing on the floor, much lower than his shoulders. Keep everything else exactly the same: Diego's face, hair, clothes, legs and body position, the hand on the green chair, the green chair, the black chair, the room, the light and the camera position. Change only two things. First, his free arm (the one that is not on the green chair) now points at the black chair: the arm is stretched out straight and SLOPES DOWN from his shoulder toward the black chair, about 30 degrees below level, so that his pointing hand ends up at the height of his stomach, lower than his shoulder. The index finger continues the line of the arm and points straight AT the middle of the black chair, the other fingers curled: a straight line drawn from his shoulder through his fingertip would end exactly on the black chair, NOT on the wall above it and NOT on the floor in front of it. The arm and the pointing hand are seen from the side against the plain wall, and the fingertip stays far from the black chair, about one third of the way from Diego to it. Second, he turns his head and looks at the black chair. The green chair stays exactly where it is, with his other hand still on it.",
+      "reference": "e09-diego-green-near-this"
+    },
+    {
+      "id": "e16-ana-red-near-low",
+      "order": 16,
+      "item": "That one is blue. / but that bag is blue. (turn 2)",
+      "shared": [
+        "photo",
+        "solo",
+        "daytime",
+        "near_far_scene"
+      ],
+      "prompt": "Image 1 shows Ana: she stands with a red tote bag on her shoulder and her hand resting on it, looking down at it, and a blue tote bag sits alone on the seat of a low wooden chair across the room, far below the height of her shoulders. Keep everything else exactly the same: Ana's face, hair, clothes, legs and body position, the hand on the red bag, the red bag, the blue bag, the place, the light and the camera position. Change only two things. First, her free arm (the one that is not on the red bag) points DOWN at the blue bag, which is low and far away. The arm is straight and clearly slants downward from her shoulder, about 30 degrees below level, so that her pointing hand is held LOW, at the height of her waist, level with the top edge of the red bag. The hand is NOT at shoulder height and NOT at chest height, and the arm is NOT level. The index finger continues the same downward slant and points straight at the middle of the blue bag; her eyes, her arm and her finger all aim along one downward line that ends on the blue bag. The arm and hand are seen from the side, and the fingertip stays far from the blue bag, much nearer to Ana than to the blue bag. Second, she turns her head and looks down at the blue bag. The red bag stays exactly where it is, with her other hand still on it.",
+      "reference": "e01-ana-red-near-this"
+    },
+    {
+      "id": "e17-ana-blue-near-low",
+      "order": 17,
+      "item": "That one is red. / but that bag is red. (turn 2)",
+      "shared": [
+        "photo",
+        "solo",
+        "daytime",
+        "near_far_scene"
+      ],
+      "prompt": "Image 1 shows Ana in her living room with a red tote bag on her shoulder, her hand on it, pointing down with her other arm at a blue tote bag on a chair across the room. Keep everything exactly the same: Ana, the pose, the pointing arm and its exact downward angle, the gesture, the clothes, the place, the light and the camera position. Swap only the colors of the two bags: the bag near Ana is now BLUE, exactly the blue the far bag had, and the far bag is now RED, exactly the red the near bag had. Same shapes, same sizes, same positions; nothing else changes.",
+      "reference": "e16-ana-red-near-low"
+    },
+    {
+      "id": "e18-luis-white-near-low",
+      "order": 18,
+      "item": "That one is black. / but that bike is black. (turn 2)",
+      "shared": [
+        "photo",
+        "solo",
+        "daytime",
+        "near_far_scene"
+      ],
+      "prompt": "Image 1 shows Luis: he stands behind a white bike with one hand on its saddle and the other on its handlebar, looking down at it, and a black bike stands alone on the ground against the far wall, far below the height of his shoulders. Keep everything else exactly the same: Luis's face, hair, clothes, legs and body position, the hand on the white bike's saddle, the white bike, the black bike, the place, the light and the camera position. Change only two things. First, his free arm (the one that is not on the white bike) points DOWN at the black bike, which is low and far away. The arm is straight and clearly slants downward from his shoulder, about 30 degrees below level, so that his pointing hand is held LOW, at the height of his belly, a little above his belt. The hand is NOT at shoulder height and NOT at chest height, and the arm is NOT level. The index finger continues the same downward slant and points straight at the middle of the black bike; his eyes, his arm and his finger all aim along one downward line that ends on the black bike. The arm and hand are seen from the side, and the fingertip stays far from the black bike, much nearer to Luis than to the black bike. Second, he turns his head and looks down at the black bike. The white bike stays exactly where it is, with his other hand still on it.",
+      "reference": "e05-luis-white-near-this"
+    },
+    {
+      "id": "e19-luis-black-near-low",
+      "order": 19,
+      "item": "That one is white. / but that bike is white. (turn 2)",
+      "shared": [
+        "photo",
+        "solo",
+        "daytime",
+        "near_far_scene"
+      ],
+      "prompt": "Image 1 shows Luis in a courtyard with one hand on a white bike's saddle, pointing down with his other arm at a black bike against the wall across the courtyard. Keep everything exactly the same: Luis, the pose, the pointing arm and its exact downward angle, the gesture, the clothes, the place, the light and the camera position. Swap only the colors of the two bikes: the bike near Luis is now BLACK, exactly the black the far bike had, and the far bike is now WHITE, exactly the white the near bike had. Same shapes, same sizes, same positions; nothing else changes.",
+      "reference": "e18-luis-white-near-low"
+    },
+    {
+      "id": "e20-diego-green-near-low",
+      "order": 20,
+      "item": "That one is black. / but that chair is black. (turn 2)",
+      "shared": [
+        "photo",
+        "solo",
+        "daytime",
+        "near_far_scene"
+      ],
+      "prompt": "Image 1 shows Diego: he stands with both hands on the backrest of a green chair beside him, looking down at it, and a black chair stands alone on the floor against the far wall, far below the height of his shoulders. Keep everything else exactly the same: Diego's face, hair, clothes, legs and body position, the hand on the green chair, the green chair, the black chair, the place, the light and the camera position. Change only two things. First, his free arm (the one that is not on the green chair) points DOWN at the black chair, which is low and far away. The arm is straight and clearly slants downward from his shoulder, about 30 degrees below level, so that his pointing hand is held LOW, at the height of his belly, a little above his belt. The hand is NOT at shoulder height and NOT at chest height, and the arm is NOT level. The index finger continues the same downward slant and points straight at the middle of the black chair; his eyes, his arm and his finger all aim along one downward line that ends on the black chair. The arm and hand are seen from the side, and the fingertip stays far from the black chair, much nearer to Diego than to the black chair. Second, he turns his head and looks down at the black chair. The green chair stays exactly where it is, with his other hand still on it.",
+      "reference": "e09-diego-green-near-this"
+    },
+    {
+      "id": "e21-ana-red-near-guided",
+      "order": 21,
+      "item": "That one is blue. / but that bag is blue. (turn 2)",
+      "shared": [
+        "photo",
+        "solo",
+        "daytime",
+        "near_far_scene"
+      ],
+      "prompt": "Image 1 is a photo of Ana with magenta guide marks drawn on it. Make a clean, natural photograph from it. Keep everything else exactly the same: Ana's face, hair, clothes and legs, the red bag on her shoulder with her hand resting on it, the red bag, the blue bag, the place, the light and the camera position. Change only these things. First, her free arm (the one that is not on the red bag) now lies exactly along the thick magenta guide line: the line starts at her shoulder and ends at the magenta dot, where her index fingertip is. The arm is straight, her hand is at the dot, and the index finger points along the thin dashed magenta line, straight at the middle of the blue bag; the other fingers are curled. Second, she turns her chest and shoulders a little toward the blue bag, as people do when they point at something, and turns her head to look at the blue bag; her face stays visible. Third, remove every magenta mark completely: the finished photo has no lines, dashes, dots or magenta color anywhere, and the arm is natural skin and sleeve. The fingertip stays far from the blue bag.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/course-photoreal-sources/a1plus-unit-2-lesson-v251/guides/g01-ana-guide.png",
+        "sha256": "b6c953338c4ed2e425bed0ac6288ba269e59febc7f4b42889c30a870b9aa0aff",
+        "observed_description": "e01 (Ana, red tote on her shoulder, hand on it; blue tote on the far chair) with a thick magenta arm guide from her far shoulder 23 degrees down toward the middle of the blue bag, ending at a dot, then a dashed line toward the bag."
+      }
+    },
+    {
+      "id": "e22-ana-blue-near-guided",
+      "order": 22,
+      "item": "That one is red. / but that bag is red. (turn 2)",
+      "shared": [
+        "photo",
+        "solo",
+        "daytime",
+        "near_far_scene"
+      ],
+      "prompt": "Image 1 shows Ana in her living room with a red tote bag on her shoulder, her hand on it, pointing with her other arm at a blue tote bag on a chair across the room. Keep everything exactly the same: Ana, the pose, the pointing arm and its exact angle, the gesture, the clothes, the place, the light and the camera position. Swap only the colors of the two bags: the bag near Ana is now BLUE, exactly the blue the far bag had, and the far bag is now RED, exactly the red the near bag had. Same shapes, same sizes, same positions; nothing else changes.",
+      "reference": "e21-ana-red-near-guided"
+    },
+    {
+      "id": "e23-luis-white-near-guided",
+      "order": 23,
+      "item": "That one is black. / but that bike is black. (turn 2)",
+      "shared": [
+        "photo",
+        "solo",
+        "daytime",
+        "near_far_scene"
+      ],
+      "prompt": "Image 1 is a photo of Luis with magenta guide marks drawn on it. Make a clean, natural photograph from it. Keep everything else exactly the same: Luis's face, hair, clothes and legs, his other hand still holding the white bike's saddle, the white bike, the black bike, the place, the light and the camera position. Change only these things. First, the arm whose hand was on the handlebar (the arm nearer the black bike) now lies exactly along the thick magenta guide line: the line starts at his shoulder and ends at the magenta dot, where his index fingertip is. The arm is straight, his hand is at the dot, and the index finger points along the thin dashed magenta line, straight at the middle of the black bike; the other fingers are curled. Second, he turns his chest and shoulders a little toward the black bike, as people do when they point at something, and turns his head to look at the black bike; his face stays visible. Third, remove every magenta mark completely: the finished photo has no lines, dashes, dots or magenta color anywhere, and the arm is natural skin and sleeve. The fingertip stays far from the black bike.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/course-photoreal-sources/a1plus-unit-2-lesson-v251/guides/g02-luis-guide.png",
+        "sha256": "4bf62ac04e7e12c2bdc9a32e6b27cb7b02a9ac82ed9ff7a32aaf8d20ebf5f4c8",
+        "observed_description": "e05 (Luis behind the white bike, hands on its saddle and handlebar; black bike against the far wall) with a thick magenta arm guide from his right shoulder 25 degrees down toward the middle of the black bike, ending at a dot, then a dashed line."
+      }
+    },
+    {
+      "id": "e24-luis-black-near-guided",
+      "order": 24,
+      "item": "That one is white. / but that bike is white. (turn 2)",
+      "shared": [
+        "photo",
+        "solo",
+        "daytime",
+        "near_far_scene"
+      ],
+      "prompt": "Image 1 shows Luis in a courtyard with one hand on a white bike's saddle, pointing with his other arm at a black bike against the wall across the courtyard. Keep everything exactly the same: Luis, the pose, the pointing arm and its exact angle, the gesture, the clothes, the place, the light and the camera position. Swap only the colors of the two bikes: the bike near Luis is now BLACK, exactly the black the far bike had, and the far bike is now WHITE, exactly the white the near bike had. Same shapes, same sizes, same positions; nothing else changes.",
+      "reference": "e23-luis-white-near-guided"
+    },
+    {
+      "id": "e25-diego-green-near-guided",
+      "order": 25,
+      "item": "That one is black. / but that chair is black. (turn 2)",
+      "shared": [
+        "photo",
+        "solo",
+        "daytime",
+        "near_far_scene"
+      ],
+      "prompt": "Image 1 is a photo of Diego with magenta guide marks drawn on it. Make a clean, natural photograph from it. Keep everything else exactly the same: Diego's face, hair, clothes and legs, his other hand still on the green chair's backrest, the green chair, the black chair, the place, the light and the camera position. Change only these things. First, the arm nearer the black chair now lies exactly along the thick magenta guide line: the line starts at his shoulder and ends at the magenta dot, where his index fingertip is. The arm is straight, his hand is at the dot, and the index finger points along the thin dashed magenta line, straight at the middle of the black chair; the other fingers are curled. Second, he turns his chest and shoulders a little toward the black chair, as people do when they point at something, and turns his head to look at the black chair; his face stays visible. Third, remove every magenta mark completely: the finished photo has no lines, dashes, dots or magenta color anywhere, and the arm is natural skin and sleeve. The fingertip stays far from the black chair.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/course-photoreal-sources/a1plus-unit-2-lesson-v251/guides/g03-diego-guide.png",
+        "sha256": "d8e0435bdf8d85520b5bb7b69bb407c5d56f686654f9d5997f4c72953b77b9c9",
+        "observed_description": "e09 (Diego with both hands on the green chair's backrest; black chair against the far wall) with a thick magenta arm guide from his right shoulder 27 degrees down toward the middle of the black chair, ending at a dot, then a dashed line."
+      }
+    }
+  ]
+}

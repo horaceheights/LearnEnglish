@@ -234,6 +234,13 @@ def prior_knowledge(root: Path, standards: dict) -> set[str]:
 def card_lines(card: dict) -> list[str]:
     """The ordered English lines a card models: its spoken turns, else its prompt."""
     turns = [str(turn.get("text")) for turn in card.get("audio_turns") or [] if turn.get("text")]
+    # One speaker's sentence split mid-sentence only so that the picture can change (A1+ 2.5: the THIS photo,
+    # then the THAT photo from "but" on, user decision 2026-11-19) is still one model line. Two complete
+    # sentences by one speaker (a contrast pair) stay two lines.
+    speakers = {turn.get("speaker_role") for turn in card.get("audio_turns") or [] if turn.get("text")}
+    if (len(turns) > 1 and len(speakers) == 1 and card.get("prompt") and " ".join(turns) == card["prompt"]
+            and not any(turn.rstrip().endswith((".", "?", "!")) for turn in turns[:-1])):
+        return [str(card["prompt"])]
     return turns or ([str(card["prompt"])] if card.get("prompt") else [])
 
 

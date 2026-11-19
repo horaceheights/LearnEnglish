@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "pack": "a1plus-unit-2-lesson-2-5-this-that-photos",
+  "revision": 7,
+  "output_namespace": "a1plus-unit-2-lesson-v252",
+  "authorization": "2026-11-19: the user approved the A1+ Unit 2 plan and chose \"Straight to Preview\" (media pre-approved, reviewed in Preview). Gemini is the approved image tool (2026-09-23), Flash only (2026-11-17). Later on 2026-11-19 the user found the first 2.5 photos unclear (\"the person is just looking at this one but person does not point at the other bag or item for that one. its just not clear\"), suggested \"maybe they need to be two image transitions?\" and approved the plan: a THIS/THAT pair per scene, the picture switching on *but*, side-on staging, and bikes instead of the cups. After the first render the user saw that the pointing photos point past the far things (\"they are pointing away from the things they are supposed to be pointing to\") and approved redoing them (\"Yes, redo them\"). Asked whether another image service was needed, the user chose to keep Gemini with a drawn guide and added: \"maybe just change the body postion abit towards the object too. do redo them all, just do one for testing\". After the guided Flash test (e23) the user said \"he is poinging parallel to the bike not towards the bike\", \"he needs to turn his body too\", \"his head\"; told that Flash keeps the edited photo's pose and that Pro is about US$0.14 a photo, the user answered \"Yes, test on Pro\" (one Luis test first; the user's 2026-11-17 Flash-only rule is lifted for this test).",
+  "image_settings": {
+    "provider": "google-gemini",
+    "model": "gemini-2.5-flash-image",
+    "aspect_ratio": "3:2",
+    "image_size": "1K",
+    "runtime_size": "1536x1024",
+    "runtime_format": "webp",
+    "n": 1
+  },
+  "supersedes": {
+    "pack": "docs/product/a1plus-unit-2-lesson-2-5-this-that-photos-v6.json",
+    "reason": "Pro followed the guide (p02: body and head turned to the black bike, the shoulder-to-fingertip line 26 degrees down onto the bike's middle) but left the magenta marks; Flash, which keeps the edited photo's pose, removes them."
+  },
+  "production": {
+    "price_per_image_usd": "0.0387",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "planned_images": 1,
+    "expected_cost_usd": "0.04",
+    "requested_ceiling_usd": "0.60",
+    "ceiling_note": "Shares namespace v252 with the Pro receipts; the renderer reserves US$0.20.",
+    "no_automatic_retries": true,
+    "order": "Clean p02's marks (the user's Luis test); check that no magenta remains and the arm angle is unchanged (line check), then show the user."
+  },
+  "shared_prompts": {
+    "photo": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, numbers, logos or brand marks anywhere, not on signs, screens, clothes, bags, machines or vehicles. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos.",
+    "solo": "Only this one person is in the photo; there is nobody else, even far in the background.",
+    "daytime": "It is clearly daytime with soft natural light.",
+    "near_far_scene": "The meaning of the photo is NEAR versus FAR. Exactly two things of the same kind are in the photo, and they differ only in color. The near one is with the person in the left part of the photo, large and sharp. The far one stands alone in the right third of the photo, clearly farther away, against a plain wall with nothing else around it; it is in focus and easy to recognize even on a small phone screen, and its center is about three quarters of the way across the photo, well clear of the right edge. The camera is at chest height and sees the whole scene from the side, so that the space between the person and the far thing runs from left to right across the photo: an arm pointed at the far thing would be seen side-on as a long line across the photo, never pointing toward the camera. The floor and wall between them are plain and empty. There is no mirror, no picture on the wall, no shelf of objects, and no third thing of that kind anywhere."
+  },
+  "assets": [
+    {
+      "id": "c02-luis-white-near-clean",
+      "order": 1,
+      "item": "That one is black. / but that bike is black. (turn 2)",
+      "shared": [
+        "photo",
+        "solo",
+        "daytime"
+      ],
+      "prompt": "Image 1 is a finished photograph with magenta guide marks painted on top of it: a thick magenta line along Luis's pointing arm, a magenta dot at his fingertip and short magenta dashes in front of his finger. Remove only these magenta marks: show the arm, the hand and the wall exactly as they would look without them; the arm is natural skin with the navy T-shirt sleeve, and the wall is plain light grey. Keep everything else exactly the same: his pose, the exact angle of his pointing arm and finger, his head, body, face and clothes, both things, the place, the light and the camera position. No magenta remains anywhere.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/course-photoreal-sources/a1plus-unit-2-lesson-v252/staged/p02-luis-white-near-pro.png",
+        "sha256": "d1aa2fd493c5942cdde679fb3df07b3c4c54885c16dd9efa637d8dc60da878d5",
+        "observed_description": "Pro edit p02: Luis, body and head turned to the black bike, points with his right arm 26 degrees down at the black bike's middle, left hand on the white bike's saddle; the magenta guide line, dot and dashes are still painted over the arm and wall."
+      }
+    }
+  ]
+}

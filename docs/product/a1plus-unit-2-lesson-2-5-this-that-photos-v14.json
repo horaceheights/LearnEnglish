@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "pack": "a1plus-unit-2-lesson-2-5-this-that-photos",
+  "revision": 14,
+  "output_namespace": "a1plus-unit-2-lesson-v252",
+  "authorization": "2026-11-19: the user approved the A1+ Unit 2 plan and chose \"Straight to Preview\" (media pre-approved, reviewed in Preview). Gemini is the approved image tool (2026-09-23), Flash only (2026-11-17). Later on 2026-11-19 the user found the first 2.5 photos unclear (\"the person is just looking at this one but person does not point at the other bag or item for that one. its just not clear\"), suggested \"maybe they need to be two image transitions?\" and approved the plan: a THIS/THAT pair per scene, the picture switching on *but*, side-on staging, and bikes instead of the cups. After the first render the user saw that the pointing photos point past the far things (\"they are pointing away from the things they are supposed to be pointing to\") and approved redoing them (\"Yes, redo them\"). Asked whether another image service was needed, the user chose to keep Gemini with a drawn guide and added: \"maybe just change the body postion abit towards the object too. do redo them all, just do one for testing\". After the guided Flash test (e23) the user said \"he is poinging parallel to the bike not towards the bike\", \"he needs to turn his body too\", \"his head\"; told that Flash keeps the edited photo's pose and that Pro is about US$0.14 a photo, the user answered \"Yes, test on Pro\" (one Luis test first; the user's 2026-11-17 Flash-only rule is lifted for this test). The user found the Pro test still pointing at the floor with the head and eyes not on the far bike (\"he still pointing at the floor parallel to the bike\", \"why so hard to turn the mother fucker haed and eyes over to the objective\", \"turn the motherfocker\"); one new-photo test follows. Shown the over-the-shoulder test (b02), the user answered \"turn his head more\". The edit h02 barely moved the head, so a new photo follows. On n02 the user said \"move him closer to the direction of the bike, so move the luis more to the right, dont show his eyes, turn him more\". On n03 the user asked for \"the back of his head only and hand more perpendicular to the bike\" and then \"lower his hand\". Shown l02 (Luis from behind, hand lowered onto the black bike), the user approved the pose and said \"Yes, make the rest\".",
+  "image_settings": {
+    "provider": "google-gemini",
+    "model": "gemini-3-pro-image",
+    "aspect_ratio": "3:2",
+    "image_size": "2K",
+    "runtime_size": "1536x1024",
+    "runtime_format": "webp",
+    "n": 1
+  },
+  "supersedes": {
+    "pack": "docs/product/a1plus-unit-2-lesson-2-5-this-that-photos-v13.json",
+    "reason": "n04 and n05 are accepted; v14 adds their matching THIS photos."
+  },
+  "production": {
+    "price_per_image_usd": "0.134",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing (checked 2026-09-24 in the renderer)",
+    "planned_images": 2,
+    "expected_cost_usd": "0.28",
+    "requested_ceiling_usd": "2.20",
+    "ceiling_note": "Shares namespace v252 (US$1.29 spent before v14).",
+    "no_automatic_retries": true,
+    "order": "Render t07 and t08; check that only the near thing is touched and looked at."
+  },
+  "shared_prompts": {
+    "photo": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, numbers, logos or brand marks anywhere, not on signs, screens, clothes, bags, machines or vehicles. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos.",
+    "solo": "Only this one person is in the photo; there is nobody else, even far in the background.",
+    "daytime": "It is clearly daytime with soft natural light.",
+    "near_far_scene": "The meaning of the photo is NEAR versus FAR. Exactly two things of the same kind are in the photo, and they differ only in color. The near one is with the person in the left part of the photo, large and sharp. The far one stands alone in the right third of the photo, clearly farther away, against a plain wall with nothing else around it; it is in focus and easy to recognize even on a small phone screen, and its center is about three quarters of the way across the photo, well clear of the right edge. The camera is at chest height and sees the whole scene from the side, so that the space between the person and the far thing runs from left to right across the photo: an arm pointed at the far thing would be seen side-on as a long line across the photo, never pointing toward the camera. The floor and wall between them are plain and empty. There is no mirror, no picture on the wall, no shelf of objects, and no third thing of that kind anywhere."
+  },
+  "assets": [
+    {
+      "id": "t07-ana-red-near-back-this",
+      "order": 1,
+      "item": "This one is red. / This bag is red, (turn 1)",
+      "shared": [
+        "photo",
+        "solo",
+        "daytime"
+      ],
+      "prompt": "Image 1 shows Ana from behind in her living room, pointing down at a blue tote bag on a chair against the far wall, with a red tote bag on her left shoulder. Keep everything exactly the same: her back, the back of her head, her body and legs, her clothes, the red bag, the far one, the room, the light and the camera position. Change only her right arm and her head: she no longer points; her right arm comes down and her right hand touches the front of the red bag at her side, and she bends her head down to look at the red bag. Only the back of her head shows: no face, no eyes, no profile.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/course-photoreal-sources/a1plus-unit-2-lesson-v252/staged/n04-ana-red-near-back-that.png",
+        "sha256": "7aa9b982dee2e256352bc4f6f12b9f1a8cbe065971bbe9dfb92e3b485cac2cb8",
+        "observed_description": "n04 (accepted): Ana from behind, back of head only, red tote on her left shoulder, right arm pointing down at the blue tote on a chair against the far wall."
+      }
+    },
+    {
+      "id": "t08-diego-green-near-back-this",
+      "order": 2,
+      "item": "This one is green. / This chair is green, (turn 1)",
+      "shared": [
+        "photo",
+        "solo",
+        "daytime"
+      ],
+      "prompt": "Image 1 shows Diego from behind in an empty room, pointing down at a black chair against the far wall, with his left hand on the backrest of a green chair beside him. Keep everything exactly the same: his back, the back of his head, his body and legs, his clothes, the green chair, the far one, the room, the light and the camera position. Change only his right arm and his head: he no longer points; his right arm comes down and his right hand also rests on the top of the green chair's backrest, next to his left hand, and he bends his head down to look at the green chair. Only the back of his head shows: no face, no eyes, no profile.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/course-photoreal-sources/a1plus-unit-2-lesson-v252/staged/n05-diego-green-near-back-that.png",
+        "sha256": "41c4235c06d775f7117ae63c86f7fed94600dc44cd32c4e7b3f5cc73efd0d9e4",
+        "observed_description": "n05 (accepted): Diego from behind, left hand on the green chair's backrest, right arm pointing down at the black chair against the far wall."
+      }
+    }
+  ]
+}

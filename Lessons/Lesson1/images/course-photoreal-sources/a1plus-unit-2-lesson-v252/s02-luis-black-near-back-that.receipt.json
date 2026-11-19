@@ -1,0 +1,62 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "c31e5157-3886-4d91-afca-6fe462902c33",
+  "asset_id": "s02-luis-black-near-back-that",
+  "pack_sha256": "64b0f91edfc54d6cf3c026b9979ad47a4baf7f720f01a7b64f95a2e43338cf5c",
+  "started_at": "2026-11-19T22:04:13.207643+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, numbers, logos or brand marks anywhere, not on signs, screens, clothes, bags, machines or vehicles. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos.\n\nOnly this one person is in the photo; there is nobody else, even far in the background.\n\nIt is clearly daytime with soft natural light.\n\nImage 1 shows Luis from behind in a courtyard, his hand on the saddle of a white bike beside him, pointing down at a black bike against the far wall. Keep everything exactly the same: Luis, the pose, the arms and their exact angles, the head, the clothes, the place, the light and the camera position. Swap only the colors of the two bikes: the bike next to Luis is now BLACK, exactly the black the far bike had, and the far bike is now WHITE, exactly the white the near bike had. Same shapes, same sizes, same positions; nothing else changes.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/course-photoreal-sources/a1plus-unit-2-lesson-v252/staged/l02-luis-white-near-lowered-that.png",
+    "sha256": "ec6fcd289e0dc89fee37aad5a6dc47ddaf0a5d6f62ca1c8d08a6efb22045fccd"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "W3L_ar3UEdy5qtsP_vjL8Aw",
+  "usage": {
+    "promptTokenCount": 544,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1834,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 286
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038863",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 544,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 9.96,
+  "output": "output/imagegen/a1plus-unit-2-lesson-v252/s02-luis-black-near-back-that.png",
+  "sha256": "175fdf18a44e8366c5048bc3e735e75f08a3e5f287759502afe1ab4eb2115061",
+  "byte_count": 1245234,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}
