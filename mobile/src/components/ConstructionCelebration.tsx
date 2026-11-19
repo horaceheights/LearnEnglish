@@ -1,6 +1,8 @@
 import { useEffect, useRef } from 'react';
 import { Animated, Easing, Image, StyleSheet, Text, View } from 'react-native';
 import { useReducedMotion } from '../hooks/useReducedMotion';
+import { ui } from '../uiText';
+import { useUiLanguage } from '../uiLanguage';
 
 const MASCOT = require('../../assets/mascots/serious/squirrel-professor-celebrating-v1.png');
 
@@ -22,6 +24,7 @@ export function useConstructionCelebration(active: boolean) {
 }
 
 export function ConstructionCelebration({ lift, compact = false }: { lift: Animated.Value; compact?: boolean }) {
+  const lang = useUiLanguage();
   return <View testID="construction-celebration" style={[styles.root, compact ? styles.compact : null]}>
     <View accessible={false} accessibilityElementsHidden importantForAccessibility="no-hide-descendants"
       pointerEvents="none" style={[styles.scene, compact ? styles.sceneCompact : null]}>
@@ -34,9 +37,9 @@ export function ConstructionCelebration({ lift, compact = false }: { lift: Anima
       </Animated.View>
       <Text style={[styles.star, styles.rightStar]}>✦</Text>
     </View>
-    <View accessible accessibilityLiveRegion="polite" accessibilityLabel="¡Perfecto! ¡Buen trabajo!" style={styles.copy}>
-      <Text maxFontSizeMultiplier={compact ? 1.3 : undefined} style={[styles.title, compact ? styles.titleCompact : null]}>¡Perfecto!</Text>
-      <Text maxFontSizeMultiplier={compact ? 1.3 : undefined} style={[styles.message, compact ? styles.messageCompact : null]}>¡Buen trabajo!</Text>
+    <View accessible accessibilityLiveRegion="polite" accessibilityLabel={ui(lang, '¡Perfecto! ¡Buen trabajo!')} style={styles.copy}>
+      <Text maxFontSizeMultiplier={compact ? 1.3 : undefined} style={[styles.title, compact ? styles.titleCompact : null]}>{ui(lang, '¡Perfecto!')}</Text>
+      <Text maxFontSizeMultiplier={compact ? 1.3 : undefined} style={[styles.message, compact ? styles.messageCompact : null]}>{ui(lang, '¡Buen trabajo!')}</Text>
     </View>
   </View>;
 }

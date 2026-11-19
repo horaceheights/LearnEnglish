@@ -1,11 +1,22 @@
 # SpanGlish Project Guardrails
 
+## Course app language and the Spanish course — approved 2026-11-19
+
+SpanGlish teaches both ways. The user approved a Spanish course for English speakers (`es-a1`, Latin American Spanish from Mexico) that reuses the A1 structure and photos, with every translation, help text and app screen in English.
+
+- A course for English speakers declares `"uiLanguage": "en"` in `backend/courses.json`; the export carries it into `course-catalogs.json`. Courses without it (A1, A1+) keep the Spanish app shell unchanged. German (`de-a1`) and Spanish (`es-a1`) are English.
+- The language follows the course, not the device: a lesson runs in its course's language, and the course home follows the selected course tab. Menus, stage names (Learn, Recognize, Listen, Speak, Complete), instructions, help, section briefings, Translate (instead of Traducir), result, mission and feedback-survey screens all switch. Sign-in, profile and account-gate screens sit outside any course and stay Spanish.
+- Screen text goes through `ui(lang, '<Spanish text>')` from `mobile/src/uiText.ts`, whose table holds the English for every Spanish key. Pure helpers (`lessonInstructions`, `lessonHelp`, `lessonSectionBriefing`, `optionTranslations`) take an optional language that defaults to Spanish. `mobile/tests/course-ui-language.test.cjs` fails when a key has no English or the table keeps text the app no longer shows.
+- Pronunciation feedback uses the backend's `messages.en` for English courses.
+- The AI tutor (Liam) explains English in Spanish, so it stays off in English-language courses until an English-speaking tutor is approved.
+- Spanish cards carry `target_language: "es"`; the speech allow-list accepts `es-MX`; Spanish prompts may use `¿` and `¡`. The Spanish course registers in `backend/courses.json` and the release manifest with its first lessons, after its Unit 1 mock and narrator audition are approved.
+
 ## German pilot course — approved 2026-11-18
 
 The user chose a German course built on the same engine and photo library, shipped first as a Preview pilot of German Unit 1 lessons 1.1–1.3 for review. The lesson-by-lesson design basis is [`docs/planning/german-unit-1-mock.md`](../planning/german-unit-1-mock.md) (a feasibility mock, not approved curriculum beyond the pilot).
 
 - German is its own registered course, `de-a1` ("Deutsch A1 (beta)", level `Deutsch A1`), with its own unit and lesson identities. It never changes A1 or A1+ content, and its lessons follow German grammar order rather than translating English lessons one to one.
-- The learner is an English speaker: every card's help text (`spanish_translation`, option translations) is English. App menus, buttons and feedback frames stay Spanish until a separate decision changes the app shell.
+- The learner is an English speaker: every card's help text (`spanish_translation`, option translations) is English. Since 2026-11-19 the app shell is English too (see "Course app language" below).
 - A course taught in another language declares `speechLocale` in `backend/courses.json` (German: `de-DE`). Speak cards use it for on-device streaming and for the backend scoring fallback, which accepts only allow-listed locales; English courses declare none and keep the configured English default.
 - Word tokenizers for scoring, tiles and vocabulary chips accept lower-case Latin letters (umlauts, ß, accents), so `Mädchen` is one word. English content is ASCII and tokenizes exactly as before.
 - German lines are recorded by a native German narrator (speaker role `de-teacher`, voice Carola, chosen by the user from a two-voice audition), not the English cast: the user rejected the English teacher voice speaking German.

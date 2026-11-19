@@ -6,6 +6,8 @@ import { LessonPracticeEntry } from './LessonPracticeEntry';
 import { practiceAfterLesson } from '../lessonPractice';
 import type { Lesson, LessonSummary } from '../types';
 import { useMissionSoundEffects } from '../missionSoundEffects';
+import { ui } from '../uiText';
+import { useUiLanguage } from '../uiLanguage';
 
 const HAPPY = require('../../assets/mascots/serious/squirrel-professor-celebrating-v1.png');
 const FRIENDLY = require('../../assets/mascots/serious/listening-frames-normalized/listening-06.png');
@@ -41,6 +43,7 @@ export function LessonResultScreen({ result, lessonLabel, hasNext, nextLessonNam
   onRetrySave: () => void;
   offline?: boolean; lesson?: Lesson; catalog?: LessonSummary[];
 }) {
+  const lang = useUiLanguage();
   const reduceMotion = useReducedMotion();
   const summary = resultSummary(result);
   const landscape = width > height;
@@ -70,7 +73,7 @@ export function LessonResultScreen({ result, lessonLabel, hasNext, nextLessonNam
   );
   return <ScrollView style={styles.page} contentContainerStyle={styles.pageContent}>
     <View style={styles.brandRow}>
-      <Pressable accessibilityRole="button" disabled={actionsDisabled} accessibilityLabel="SpanGlish. Volver a las lecciones" onPress={onLessons} style={styles.brandButton}>
+      <Pressable accessibilityRole="button" disabled={actionsDisabled} accessibilityLabel={ui(lang, 'SpanGlish. Volver a las lecciones')} onPress={onLessons} style={styles.brandButton}>
         <Text style={styles.brand}>SpanGlish</Text>
       </Pressable>
       <Text style={styles.location}>{lessonLabel}</Text>
@@ -86,40 +89,41 @@ export function LessonResultScreen({ result, lessonLabel, hasNext, nextLessonNam
               { rotate: `${index * 37}deg` }],
           }]} />)}
         </View> : null}
-        <Text style={styles.eyebrow}>{summary.pending ? 'RESULTADO PENDIENTE' : summary.passed ? 'LECCIÓN APROBADA' : 'SIGAMOS PRACTICANDO'}</Text>
+        <Text style={styles.eyebrow}>{summary.pending ? ui(lang, 'RESULTADO PENDIENTE') : summary.passed ? ui(lang, 'LECCIÓN APROBADA') : ui(lang, 'SIGAMOS PRACTICANDO')}</Text>
         <Text accessibilityRole="header" style={[styles.title, compact ? styles.titleCompact : null]}>
-          {summary.pending ? 'Sigamos aprendiendo' : summary.passed ? hasNext ? '¡Lo lograste!' : '¡Curso completado!' : '¡Tú puedes!'}
+          {summary.pending ? ui(lang, 'Sigamos aprendiendo') : summary.passed ? hasNext ? ui(lang, '¡Lo lograste!') : ui(lang, '¡Curso completado!') : ui(lang, '¡Tú puedes!')}
         </Text>
         {!landscape && !summary.pending ? <Text style={[styles.score, compact ? styles.scoreCompact : null, summary.passed ? styles.passedScore : null]}>{summary.percentage}%</Text> : null}
       </View>
       <View style={styles.controls}>
         {landscape && !summary.pending ? <Text style={[styles.score, styles.scoreCompact, summary.passed ? styles.passedScore : null]}>{summary.percentage}%</Text> : null}
-        <Text style={styles.caption}>{summary.pending ? 'Falta evaluar algunas actividades.' : summary.afterReview ? 'Resultado después del repaso' : 'Aciertos al primer intento'}</Text>
-        <Text style={styles.message}>{summary.pending ? 'Puedes completarlas cuando tengas conexión.' : summary.passed ? 'Cada día hablas mejor.' : 'Un repaso te ayudará a mejorar.'}</Text>
-        {!summary.passed ? <Text style={styles.question}>¿Qué quieres hacer?</Text> : null}
+        <Text style={styles.caption}>{summary.pending ? ui(lang, 'Falta evaluar algunas actividades.') : summary.afterReview ? ui(lang, 'Resultado después del repaso') : ui(lang, 'Aciertos al primer intento')}</Text>
+        <Text style={styles.message}>{summary.pending ? ui(lang, 'Puedes completarlas cuando tengas conexión.') : summary.passed ? ui(lang, 'Cada día hablas mejor.') : ui(lang, 'Un repaso te ayudará a mejorar.')}</Text>
+        {!summary.passed ? <Text style={styles.question}>{ui(lang, '¿Qué quieres hacer?')}</Text> : null}
         <View style={styles.actions}>
           {summary.passed ? <>
-            {hasNext ? button('Continuar', onNext, true, false, nextLessonName ? `Siguiente lección: ${nextLessonName}` : '') : null}
-            {button('Volver a las lecciones', onLessons, !hasNext)}
-            {summary.afterReview && remainingReviewCards(result).length ? button('Seguir repasando hasta el 100%', onReview) : null}
+            {hasNext ? button(ui(lang, 'Continuar'), onNext, true, false, nextLessonName ? ui(lang, 'Siguiente lección: {name}', { name: nextLessonName }) : '') : null}
+            {button(ui(lang, 'Volver a las lecciones'), onLessons, !hasNext)}
+            {summary.afterReview && remainingReviewCards(result).length ? button(ui(lang, 'Seguir repasando hasta el 100%'), onReview) : null}
           </> : <>
-            {button('Reintentar toda la lección', onRestart)}
-            {remainingReviewCards(result).length ? button(summary.pending ? 'Completar actividades pendientes' : 'Repasar solo los errores', onReview, true, !summary.pending) : null}
+            {button(ui(lang, 'Reintentar toda la lección'), onRestart)}
+            {remainingReviewCards(result).length ? button(summary.pending ? ui(lang, 'Completar actividades pendientes') : ui(lang, 'Repasar solo los errores'), onReview, true, !summary.pending) : null}
           </>}
-          <Pressable accessibilityRole="button" disabled={actionsDisabled} onPress={onExit} style={styles.exit}><Text style={styles.exitText}>Salir</Text></Pressable>
+          <Pressable accessibilityRole="button" disabled={actionsDisabled} onPress={onExit} style={styles.exit}><Text style={styles.exitText}>{ui(lang, 'Salir')}</Text></Pressable>
         </View>
         {!summary.pending && lesson && practiceAfterLesson(lesson, catalog) ? <LessonPracticeEntry lesson={lesson} scope={result.userId + ":" + result.id} active={active} disabled={actionsDisabled || offline} onOpen={stopMissionSound} /> : null}
         {saving ? <ActivityIndicator accessibilityLabel="Guardando progreso" color="#2a8059" /> : null}
-        {offline && !saving && !error ? <Text style={styles.caption}>Tu progreso está guardado en este dispositivo. Se sincronizará cuando vuelva la conexión.</Text> : null}
-        {result.reviewAvailable === false && !summary.passed ? <Text style={styles.caption}>Este intento anterior no tiene el detalle de errores. Reintenta la lección para activar el repaso.</Text> : null}
+        {offline && !saving && !error ? <Text style={styles.caption}>{ui(lang, 'Tu progreso está guardado en este dispositivo. Se sincronizará cuando vuelva la conexión.')}</Text> : null}
+        {result.reviewAvailable === false && !summary.passed ? <Text style={styles.caption}>{ui(lang, 'Este intento anterior no tiene el detalle de errores. Reintenta la lección para activar el repaso.')}</Text> : null}
         {error ? <><Text accessibilityRole="alert" style={styles.error}>{error}</Text>
-          <Pressable accessibilityRole="button" disabled={saving} onPress={onRetrySave} style={styles.button}><Text style={styles.buttonText}>Guardar de nuevo</Text></Pressable></> : null}
+          <Pressable accessibilityRole="button" disabled={saving} onPress={onRetrySave} style={styles.button}><Text style={styles.buttonText}>{ui(lang, 'Guardar de nuevo')}</Text></Pressable></> : null}
       </View>
     </View>
   </ScrollView>;
 }
 
 export function LessonGoodbye({ onDone, width, height, active }: { onDone: () => void; width: number; height: number; active: boolean }) {
+  const lang = useUiLanguage();
   const reduceMotion = useReducedMotion();
   const [screenReader, setScreenReader] = useState<boolean | null>(null);
   useEffect(() => {
@@ -127,7 +131,7 @@ export function LessonGoodbye({ onDone, width, height, active }: { onDone: () =>
     void AccessibilityInfo.isScreenReaderEnabled().then((enabled) => {
       if (!mounted) return;
       setScreenReader(enabled);
-      if (enabled) AccessibilityInfo.announceForAccessibility(GOODBYE_MESSAGE);
+      if (enabled) AccessibilityInfo.announceForAccessibility(ui(lang, GOODBYE_MESSAGE));
     });
     return () => { mounted = false; };
   }, []);
@@ -139,10 +143,10 @@ export function LessonGoodbye({ onDone, width, height, active }: { onDone: () =>
   return <ScrollView style={styles.page} contentContainerStyle={[styles.goodbye, width > height ? styles.landscape : null]}>
     <ResultMascot happy={false} moving={active && !reduceMotion} size={Math.min(240, height * .35)} />
     <View style={styles.controls}>
-      <Text accessibilityRole="header" style={styles.title}>¡Nos vemos pronto!</Text>
-      <Text style={styles.goodbyeMessage}>{GOODBYE_MESSAGE}</Text>
-      <Text style={styles.caption}>Tu progreso está guardado.</Text>
-      {screenReader ? <Pressable accessibilityRole="button" onPress={onDone} style={[styles.button, styles.primary]}><Text style={[styles.buttonText, styles.primaryText]}>Salir</Text></Pressable> : null}
+      <Text accessibilityRole="header" style={styles.title}>{ui(lang, '¡Nos vemos pronto!')}</Text>
+      <Text style={styles.goodbyeMessage}>{ui(lang, GOODBYE_MESSAGE)}</Text>
+      <Text style={styles.caption}>{ui(lang, 'Tu progreso está guardado.')}</Text>
+      {screenReader ? <Pressable accessibilityRole="button" onPress={onDone} style={[styles.button, styles.primary]}><Text style={[styles.buttonText, styles.primaryText]}>{ui(lang, 'Salir')}</Text></Pressable> : null}
     </View>
   </ScrollView>;
 }

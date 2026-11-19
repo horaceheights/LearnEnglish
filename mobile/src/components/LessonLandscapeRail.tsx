@@ -5,6 +5,8 @@ import { Pressable, StyleSheet, Text, useWindowDimensions, View } from 'react-na
 import { LessonMediaFrame } from './LessonMediaFrame';
 import { OptionMediaImage } from './OptionMediaImage';
 import type { TeachingClock } from '../types';
+import { ui } from '../uiText';
+import { useUiLanguage } from '../uiLanguage';
 
 type Props = PropsWithChildren<{
   location: string; stage: string; color: string; progress: string;
@@ -17,17 +19,18 @@ type Props = PropsWithChildren<{
 
 export function LessonLandscapeRail({ location, stage, color, progress, imageUrl, clockCues, speakerRole = null, speaking = false,
   onBack, onHome, onMenu, children }: Props) {
+  const lang = useUiLanguage();
   const { fontScale } = useWindowDimensions();
   const [mediaHeight, setMediaHeight] = useState(0);
   return <View style={styles.rail}>
     <View style={styles.navigation}>
-      <Pressable accessibilityRole="button" accessibilityLabel="Volver a lecciones" onPress={onBack} style={styles.button}>
+      <Pressable accessibilityRole="button" accessibilityLabel={ui(lang, 'Volver a lecciones')} onPress={onBack} style={styles.button}>
         <Ionicons name="arrow-back" size={24} color="#245f53" />
       </Pressable>
       <Pressable accessibilityRole="button" accessibilityLabel="SpanGlish: inicio" onPress={onHome} style={styles.button}>
         <Ionicons name="home-outline" size={24} color="#dd6844" />
       </Pressable>
-      <Pressable accessibilityRole="button" accessibilityLabel="Secciones, ayuda y opciones" onPress={onMenu} style={styles.button}>
+      <Pressable accessibilityRole="button" accessibilityLabel={ui(lang, 'Secciones, ayuda y opciones')} onPress={onMenu} style={styles.button}>
         <Ionicons name="ellipsis-horizontal" size={24} color="#245f53" />
       </Pressable>
     </View>
@@ -38,7 +41,7 @@ export function LessonLandscapeRail({ location, stage, color, progress, imageUrl
     {imageUrl ? <View style={styles.media} onLayout={event => setMediaHeight(event.nativeEvent.layout.height)}>
       {mediaHeight > 0 ? <LessonMediaFrame maxHeight={mediaHeight}>
         <OptionMediaImage imageUrl={imageUrl} clockCues={clockCues} speakerRole={speakerRole} speaking={speaking}
-          accessibilityLabel="Imagen de la frase" />
+          accessibilityLabel={ui(lang, 'Imagen de la frase')} />
       </LessonMediaFrame> : null}
     </View> : null}
   </View>;

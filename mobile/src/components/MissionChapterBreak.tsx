@@ -4,6 +4,8 @@ import { Animated, Easing, Pressable, StyleSheet, Text, View } from 'react-nativ
 
 import { useReducedMotion } from '../hooks/useReducedMotion';
 import type { MissionChapterBreak as MissionChapterBreakContent } from '../missionChapterBreak';
+import { ui } from '../uiText';
+import { useUiLanguage } from '../uiLanguage';
 
 type Props = {
   content: MissionChapterBreakContent;
@@ -16,6 +18,7 @@ type Props = {
 const VISIBLE_MS = 5200;
 
 export function MissionChapterBreak({ content, onDone }: Props) {
+  const lang = useUiLanguage();
   const reducedMotion = useReducedMotion();
   const enter = useRef(new Animated.Value(reducedMotion ? 1 : 0)).current;
   const countdown = useRef(new Animated.Value(0)).current;
@@ -65,8 +68,8 @@ export function MissionChapterBreak({ content, onDone }: Props) {
       {/* Tapping moves on early rather than dismissing to nothing, so a learner
           who has already read it is never made to wait. */}
       <Pressable
-        accessibilityHint="Toca para continuar la misión."
-        accessibilityLabel={`Acto ${content.actNumber} de ${content.actCount} completado: ${content.doneTitle}. Sigue: ${content.nextTitle}. ${content.nextObjective}`}
+        accessibilityHint={ui(lang, 'Toca para continuar la misión.')}
+        accessibilityLabel={ui(lang, 'Acto {act} de {count} completado: {done}. Sigue: {next}. {objective}', { act: content.actNumber, count: content.actCount, done: content.doneTitle, next: content.nextTitle, objective: content.nextObjective })}
         accessibilityRole="button"
         onPress={onDone}
         style={styles.card}
@@ -74,14 +77,14 @@ export function MissionChapterBreak({ content, onDone }: Props) {
         <View style={styles.doneRow}>
           <Ionicons color="#ffd489" name="checkmark-circle" size={22} />
           <Text style={styles.doneLabel}>
-            {`ACTO ${content.actNumber} DE ${content.actCount} COMPLETADO`}
+            {ui(lang, 'ACTO {act} DE {count} COMPLETADO', { act: content.actNumber, count: content.actCount })}
           </Text>
         </View>
         <Text style={styles.doneTitle}>{content.doneTitle}</Text>
 
         <View style={styles.rule} />
 
-        <Text style={styles.nextLabel}>AHORA SIGUE</Text>
+        <Text style={styles.nextLabel}>{ui(lang, 'AHORA SIGUE')}</Text>
         <Text style={styles.nextTitle}>{content.nextTitle}</Text>
         <Text style={styles.nextObjective}>{content.nextObjective}</Text>
 
@@ -98,7 +101,7 @@ export function MissionChapterBreak({ content, onDone }: Props) {
             ]}
           />
         </View>
-        <Text style={styles.countdownLabel}>Empieza en un momento…</Text>
+        <Text style={styles.countdownLabel}>{ui(lang, 'Empieza en un momento…')}</Text>
       </Pressable>
     </Animated.View>
   );

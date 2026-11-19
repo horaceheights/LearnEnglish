@@ -160,7 +160,7 @@ test('the briefing surface is reachable, readable and reduced-motion safe', () =
 test('briefings follow forward progress only', () => {
   assert.match(
     screen,
-    /completedLessonMode === 'standard' && !qaMode && !missionExperience\s+\?\s+sectionBriefingForBoundary\(lesson, cardIndex\)/,
+    /completedLessonMode === 'standard' && !qaMode && !missionExperience\s+\?\s+sectionBriefingForBoundary\(lesson, cardIndex, lang\)/,
     'Review, QA and mission runs must not interrupt with a briefing.',
   );
   assert.match(
@@ -218,5 +218,5 @@ test('the automatic Learn card shows its countdown', () => {
 test('full construction shares contextual help after the section briefing', () => {
   assert.doesNotMatch(screen, /constructionHelpStatus|showConstructionCoachmark/);
   assert.match(screen, /useContextualHelp\(\{[\s\S]*!sectionBriefing[\s\S]*promptAutoplayFinished/);
-  assert.match(screen, /lessonHelpText\(currentCard, promptInteractionMode\)/);
+  assert.match(screen, /lessonHelpText\(currentCard, promptInteractionMode, lang\)/);
 });

@@ -1,5 +1,7 @@
 import { Image, Modal, Pressable, ScrollView, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { ui } from '../uiText';
+import { useUiLanguage } from '../uiLanguage';
 
 const LISTENING_SQUIRREL = require('../../assets/mascots/serious/listening-frames-normalized/listening-06.png');
 
@@ -11,6 +13,7 @@ type Props = {
 };
 
 export function SentenceHelpOverlay({ message, mode, onDismiss, onSuppress }: Props) {
+  const lang = useUiLanguage();
   const { height, width } = useWindowDimensions();
   const insets = useSafeAreaInsets();
   const isReminder = mode === 'reminder';
@@ -21,7 +24,7 @@ export function SentenceHelpOverlay({ message, mode, onDismiss, onSuppress }: Pr
         paddingTop: insets.top + 14, paddingBottom: insets.bottom + 14,
         paddingLeft: insets.left + 14, paddingRight: insets.right + 14,
       }]}>
-        {!isReminder ? <Pressable accessibilityLabel="Cerrar ayuda" accessibilityRole="button"
+        {!isReminder ? <Pressable accessibilityLabel={ui(lang, 'Cerrar ayuda')} accessibilityRole="button"
           onPress={onDismiss} style={StyleSheet.absoluteFill} /> : null}
         <View style={[styles.callout, { maxHeight: height - insets.top - insets.bottom - 28 }]}>
           <ScrollView style={styles.scroll} contentContainerStyle={styles.calloutBody}>
@@ -29,12 +32,12 @@ export function SentenceHelpOverlay({ message, mode, onDismiss, onSuppress }: Pr
               source={LISTENING_SQUIRREL} style={[styles.squirrel, compact ? styles.squirrelCompact : null]} />
             <View style={styles.copy}>
               <Text accessibilityRole="header" style={styles.title}>
-                {isReminder ? 'La ayuda sigue aquí' : '¿Necesitas ayuda?'}
+                {isReminder ? ui(lang, 'La ayuda sigue aquí') : ui(lang, '¿Necesitas ayuda?')}
               </Text>
               <Text accessibilityLiveRegion="polite" style={styles.message}>
-                {isReminder ? 'Si necesitas ayuda en el futuro, solo toca el botón' : message}
+                {isReminder ? ui(lang, 'Si necesitas ayuda en el futuro, solo toca el botón') : message}
               </Text>
-              {isReminder ? <View accessibilityLabel="Botón de ayuda, signo de interrogación" style={styles.helpIcon}>
+              {isReminder ? <View accessibilityLabel={ui(lang, 'Botón de ayuda, signo de interrogación')} style={styles.helpIcon}>
                 <Text style={styles.helpIconText}>?</Text>
               </View> : null}
             </View>
@@ -46,7 +49,7 @@ export function SentenceHelpOverlay({ message, mode, onDismiss, onSuppress }: Pr
             </Pressable>
             {!isReminder ? <Pressable accessibilityRole="button" onPress={onSuppress}
               style={({ pressed }) => [styles.button, styles.secondaryButton, pressed ? styles.buttonPressed : null]}>
-              <Text style={styles.secondaryButtonText}>No mostrar</Text>
+              <Text style={styles.secondaryButtonText}>{ui(lang, 'No mostrar')}</Text>
             </Pressable> : null}
           </View>
         </View>

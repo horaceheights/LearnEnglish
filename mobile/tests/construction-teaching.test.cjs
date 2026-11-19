@@ -439,8 +439,8 @@ test('a wrong construction waits for explicit retry while listening and missions
     assert.doesNotMatch(source, /Lee la explicación de abajo/, 'The empty word bank must not repeat the feedback.');
     assert.match(source, /result === ['"]correct['"] \? <ConstructionCelebration/, 'Only a graded correct answer may celebrate.');
   }
-  assert.match(overlay, /isReminder \? 'Si necesitas ayuda en el futuro, solo toca el botón' : message/);
-  assert.match(mobile, /<SentenceHelpOverlay[\s\S]*lessonHelpText\(currentCard, promptInteractionMode\)/);
+  assert.match(overlay, /isReminder \? ui\(lang, 'Si necesitas ayuda en el futuro, solo toca el botón'\) : message/);
+  assert.match(mobile, /<SentenceHelpOverlay[\s\S]*lessonHelpText\(currentCard, promptInteractionMode, lang\)/);
 });
 
 test('ordered routines, household verbs and the complete day question keep their grammar roles', () => {

@@ -3,6 +3,8 @@ import { Image, Pressable, ScrollView, StyleSheet, Text, View } from 'react-nati
 
 import { lessonImageSource } from '../lessonImageSources';
 import type { MissionPresentation } from '../types';
+import { ui } from '../uiText';
+import { useUiLanguage } from '../uiLanguage';
 
 type Props = {
   onContinue: () => void;
@@ -12,6 +14,7 @@ type Props = {
 };
 
 export function MissionCompletion({ onContinue, presentation, finalImageUrl, finalPhrase }: Props) {
+  const lang = useUiLanguage();
   return (
     <ScrollView contentContainerStyle={styles.page} style={styles.scroll}>
       <View style={styles.badge}>
@@ -32,7 +35,7 @@ export function MissionCompletion({ onContinue, presentation, finalImageUrl, fin
       </View> : null}
       {finalPhrase ? <Text style={styles.finalLine}>{finalPhrase}</Text> : null}
       <Text style={styles.message}>{presentation.completion_message}</Text>
-      <View accessibilityLabel="Objetivos de la misión completados" style={styles.restoredRow}>
+      <View accessibilityLabel={ui(lang, 'Objetivos de la misión completados')} style={styles.restoredRow}>
         {presentation.objectives.map((label) => (
           <View key={label} style={styles.restoredChip}>
             <Ionicons color="#24765f" name="checkmark-circle" size={16} />
@@ -41,7 +44,7 @@ export function MissionCompletion({ onContinue, presentation, finalImageUrl, fin
         ))}
       </View>
       <Pressable accessibilityRole="button" onPress={onContinue} style={styles.button}>
-        <Text style={styles.buttonText}>Continuar</Text>
+        <Text style={styles.buttonText}>{ui(lang, 'Continuar')}</Text>
         <Ionicons color="#fff" name="arrow-forward" size={20} />
       </Pressable>
     </ScrollView>

@@ -216,7 +216,7 @@ def normalize_azure_result(
 
 
 # Speech locales a registered course may request for its Speak cards.
-COURSE_SPEECH_LOCALES = frozenset({"de-DE"})
+COURSE_SPEECH_LOCALES = frozenset({"de-DE", "es-MX"})
 
 
 async def score_with_azure(

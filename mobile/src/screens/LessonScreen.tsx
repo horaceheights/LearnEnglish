@@ -60,7 +60,7 @@ import { useLessonTutor } from '../hooks/useLessonTutor';
 import { tutorSubmittedAnswer, tutorCardContext, type TutorMissionFocus } from '../lessonTutor';
 import { askTutor } from '../tutorApi';
 import { HELP_STORAGE_PREFIX, useContextualHelp } from '../hooks/useContextualHelp';
-import { COMPLETION_RETRY_HELP, isFirstSectionHelpIntroduction, lessonHelpText } from '../lessonHelp';
+import { completionRetryHelp, isFirstSectionHelpIntroduction, lessonHelpText } from '../lessonHelp';
 import { LessonLandscapeRail } from '../components/LessonLandscapeRail';
 import { isPhoneLandscape, landscapePromptIsWide } from '../lessonViewportLayout';
 import { StageJourney } from '../components/StageJourney';
@@ -133,7 +133,9 @@ import { cardClockCues, visibleClockCues } from '../teachingClock';
 import { lineSpeaker } from '../speakerBubble';
 import { learnTranslationText, useLearnTranslationPreview } from '../hooks/useLearnTranslationPreview';
 import { useManualSentenceTranslation } from '../hooks/useManualSentenceTranslation';
-import { OPTION_TRANSLATION_BUTTON_LABEL, optionTranslationsAvailable } from '../optionTranslations';
+import { optionTranslationButtonLabel, optionTranslationsAvailable } from '../optionTranslations';
+import { ui } from '../uiText';
+import { useUiLanguage } from '../uiLanguage';
 import type { LearnerProfile, Lesson, LessonCard } from '../types';
 
 const SUCCESS_CHIME = require('../../assets/sfx/person-found-v2.mp3');
@@ -233,9 +235,10 @@ function LessonBrandMark({
   centeredWidth?: number;
   onPress: () => void;
 }) {
+  const lang = useUiLanguage();
   return (
     <Pressable
-      accessibilityLabel="Salir de la lección e ir a Inicio"
+      accessibilityLabel={ui(lang, 'Salir de la lección e ir a Inicio')}
       accessibilityRole="button"
       onPress={onPress}
       style={[
@@ -267,6 +270,8 @@ export function LessonScreen({
   previouslyCompleted = false,
   qaMode = false,
 }: Props) {
+  // A course taught to English speakers runs this screen in English (2026-11-19).
+  const lang = useUiLanguage();
   // Keep one observed player for every ordinary lesson clip. Creating a new
   // native player per prompt/answer retains dozens of players by Completa and
   // can exhaust playback resources before the lesson screen is closed.
@@ -394,9 +399,10 @@ export function LessonScreen({
   const [isForegroundActive, setIsAppActive] = useState(AppState.currentState === 'active');
   const [tutorMission, setTutorMission] = useState<TutorMissionFocus | null>(null);
   const missionCuePosition = useRef({ card: -1, index: 0 });
-  const tutorContext = useMemo(() => lesson?.cards[cardIndex]
+  // The AI tutor explains English in Spanish, so courses taught in English leave it off.
+  const tutorContext = useMemo(() => lang === 'es' && lesson?.cards[cardIndex]
     ? tutorCardContext(lesson, lesson.cards[cardIndex], result, selectedIds.length ? selectedIds : selectedId ? [selectedId] : [], tutorMission) : null,
-  [lesson, cardIndex, result, selectedIds, selectedId, tutorMission]);
+  [lang, lesson, cardIndex, result, selectedIds, selectedId, tutorMission]);
   const tutor = useLessonTutor(`${profile.userId || 'guest'}:${lessonId}`, tutorContext, askTutor);
   // Use the engine's existing interruption/replay lifecycle for the tutor too.
   const isAppActive = isForegroundActive && !tutor.visible;
@@ -506,7 +512,7 @@ export function LessonScreen({
       return true;
     } catch (saveError) {
       captureDiagnosticError(saveError, 'save_lesson_result');
-      setResultError('No pudimos guardar tu progreso. Intenta guardarlo de nuevo.');
+      setResultError(ui(lang, 'No pudimos guardar tu progreso. Intenta guardarlo de nuevo.'));
       return false;
     } finally { setResultSaving(false); }
   }, [profile.userId, qaMode]);
@@ -539,15 +545,15 @@ export function LessonScreen({
   const confirmLessonExit = useCallback((destination: 'home' | 'previous') => {
     const returningHome = destination === 'home' || !qaMode;
     Alert.alert(
-      '¿Salir de la lección?',
+      ui(lang, '¿Salir de la lección?'),
       returningHome
-        ? '¿Quieres salir de la lección y volver a Inicio?'
-        : '¿Quieres salir de la lección y volver al panel de QA?',
+        ? ui(lang, '¿Quieres salir de la lección y volver a Inicio?')
+        : ui(lang, '¿Quieres salir de la lección y volver al panel de QA?'),
       [
-        { style: 'cancel', text: 'Seguir aprendiendo' },
+        { style: 'cancel', text: ui(lang, 'Seguir aprendiendo') },
         {
           style: 'destructive',
-          text: returningHome ? 'Salir a Inicio' : 'Salir de la lección',
+          text: returningHome ? ui(lang, 'Salir a Inicio') : ui(lang, 'Salir de la lección'),
           onPress: destination === 'home' ? onHome : onExit,
         },
       ],
@@ -1035,7 +1041,7 @@ export function LessonScreen({
       resumeHydratedRef.current = true;
     } catch (loadError) {
       captureDiagnosticError(loadError, 'lesson_load', { lesson_id: lessonId });
-      setError(loadError instanceof Error ? loadError.message : 'No pudimos cargar esta lección. Inténtalo otra vez.');
+      setError(loadError instanceof Error ? loadError.message : ui(lang, 'No pudimos cargar esta lección. Inténtalo otra vez.'));
     } finally {
       setIsLoading(false);
     }
@@ -1056,7 +1062,7 @@ export function LessonScreen({
       || cardIndex !== 0
       || openingBriefingShownRef.current
     ) return;
-    const opening = sectionBriefingForBoundary(lesson, null);
+    const opening = sectionBriefingForBoundary(lesson, null, lang);
     if (!opening) return;
     openingBriefingShownRef.current = true;
     setSectionBriefing(opening);
@@ -1436,10 +1442,10 @@ export function LessonScreen({
       card_number: cardIndex + 1,
     });
     Alert.alert(
-      'Advertencia',
-      'Tu conexión se perdió. Continuaremos sin calificación de pronunciación; solo podrás escuchar tu respuesta.',
+      ui(lang, 'Advertencia'),
+      ui(lang, 'Tu conexión se perdió. Continuaremos sin calificación de pronunciación; solo podrás escuchar tu respuesta.'),
       [
-        { onPress: onExit, style: 'destructive', text: 'Salir' },
+        { onPress: onExit, style: 'destructive', text: ui(lang, 'Salir') },
         {
           onPress: () => {
             addDiagnosticBreadcrumb('pronunciation_offline_practice_accepted', {
@@ -1447,7 +1453,7 @@ export function LessonScreen({
             });
             setOfflinePronunciationAccepted(true);
           },
-          text: 'Continuar',
+          text: ui(lang, 'Continuar'),
         },
       ],
       { cancelable: false },
@@ -2127,7 +2133,7 @@ export function LessonScreen({
     // briefing is entered or left. Derived from the authored stage boundaries;
     // replay, review, and QA jumps stay unchanged.
     const briefing = completedLessonMode === 'standard' && !qaMode && !missionExperience
-      ? sectionBriefingForBoundary(lesson, cardIndex)
+      ? sectionBriefingForBoundary(lesson, cardIndex, lang)
       : null;
     if (briefing) {
       addDiagnosticBreadcrumb('lesson_section_briefing_shown', {
@@ -2853,7 +2859,7 @@ export function LessonScreen({
     if (!saved || !await persistResult(saved)) return;
     try { await lessonResumePersistence.flush(); }
     catch {
-      setResultError('No pudimos guardar el punto de repaso. Intenta guardarlo de nuevo.');
+      setResultError(ui(lang, 'No pudimos guardar el punto de repaso. Intenta guardarlo de nuevo.'));
       return;
     }
     audioPlaybackRequestRef.current += 1;
@@ -3052,8 +3058,8 @@ export function LessonScreen({
         ? new Set(['and', 'are'])
         : new Set<string>();
     const localizedPrompt = useCompactListenInstruction
-      ? listeningChoiceInstruction(currentCard.options)
-      : lessonHeaderPromptText(lesson.id, currentCard.stage, displayedPrompt, currentCard.options);
+      ? listeningChoiceInstruction(currentCard.options, lang)
+      : lessonHeaderPromptText(lesson.id, currentCard.stage, displayedPrompt, currentCard.options, lang);
     if (useCompactHeaderInstruction) return localizedPrompt;
     return vocabularyParts(localizedPrompt, useCompactHeaderInstruction ? [] : lesson.vocabulary).map(({ text: part, highlighted }, index) => {
       const normalizedPart = part.toLowerCase();
@@ -3128,7 +3134,7 @@ export function LessonScreen({
     return (
       <SafeAreaView style={styles.safeArea}>
         <View style={styles.center}>
-          <PlayfulLoading label="Preparando tu lección…" />
+          <PlayfulLoading label={ui(lang, 'Preparando tu lección…')} />
         </View>
       </SafeAreaView>
     );
@@ -3138,10 +3144,10 @@ export function LessonScreen({
     return (
       <SafeAreaView style={styles.safeArea}>
         <View style={styles.center}>
-          <Text style={styles.errorTitle}>No pudimos abrir la lección</Text>
-          <Text style={styles.errorText}>{error}</Text>
-          <Pressable onPress={load} style={styles.primary}><Text style={styles.primaryText}>Reintentar</Text></Pressable>
-          <Pressable onPress={onExit} style={styles.linkButton}><Text style={styles.linkText}>Volver a lecciones</Text></Pressable>
+          <Text style={styles.errorTitle}>{ui(lang, 'No pudimos abrir la lección')}</Text>
+          <Text style={styles.errorText}>{ui(lang, error)}</Text>
+          <Pressable onPress={load} style={styles.primary}><Text style={styles.primaryText}>{ui(lang, 'Reintentar')}</Text></Pressable>
+          <Pressable onPress={onExit} style={styles.linkButton}><Text style={styles.linkText}>{ui(lang, 'Volver a lecciones')}</Text></Pressable>
         </View>
       </SafeAreaView>
     );
@@ -3172,7 +3178,7 @@ export function LessonScreen({
       <SafeAreaView style={styles.safeArea}>
         <View style={styles.briefingTopRow}>
           <Pressable
-            accessibilityLabel="Salir de la lección"
+            accessibilityLabel={ui(lang, 'Salir de la lección')}
             accessibilityRole="button"
             onPress={() => confirmLessonExit('previous')}
             style={styles.briefingExit}
@@ -3180,7 +3186,7 @@ export function LessonScreen({
             <Ionicons color="#244c45" name="arrow-back" size={22} />
           </Pressable>
           <Text style={styles.briefingContext}>
-            UNIDAD {lesson.sub_lesson_id?.split('.')[0] ?? '1'} · LECCIÓN {lesson.sub_lesson_id ?? ''}
+            {ui(lang, 'UNIDAD')} {lesson.sub_lesson_id?.split('.')[0] ?? '1'} · {ui(lang, 'LECCIÓN')} {lesson.sub_lesson_id ?? ''}
           </Text>
         </View>
         <LessonSectionBriefing
@@ -3223,7 +3229,7 @@ export function LessonScreen({
         onReview={() => void leaveResult(startErrorReview)}
         onRetrySave={() => void persistResult(lessonResult)}
         onExit={() => void leaveResult(() => setShowGoodbye(true))} />
-        : <PlayfulLoading label="Guardando tu resultado…" />}
+        : <PlayfulLoading label={ui(lang, 'Guardando tu resultado…')} />}
     </SafeAreaView>;
   }
 
@@ -3233,20 +3239,20 @@ export function LessonScreen({
         <StatusBar barStyle="dark-content" backgroundColor="#fbf7ef" />
         <ScrollView contentContainerStyle={styles.completionPage} style={styles.pageScroll}>
           <Text style={styles.completeMark}>✓</Text>
-          <Text style={styles.completeEyebrow}>SECCIÓN TERMINADA</Text>
-          <Text style={styles.completeTitle}>Buen repaso</Text>
+          <Text style={styles.completeEyebrow}>{ui(lang, 'SECCIÓN TERMINADA')}</Text>
+          <Text style={styles.completeTitle}>{ui(lang, 'Buen repaso')}</Text>
           <Text style={styles.completeText}>
-            Terminaste esta sección. Puedes practicar otra o volver a tus lecciones.
+            {ui(lang, 'Terminaste esta sección. Puedes practicar otra o volver a tus lecciones.')}
           </Text>
           <Pressable
             accessibilityRole="button"
             onPress={chooseCompletedLessonSections}
             style={styles.primary}
           >
-            <Text style={styles.primaryText}>Practicar otra sección</Text>
+            <Text style={styles.primaryText}>{ui(lang, 'Practicar otra sección')}</Text>
           </Pressable>
           <Pressable accessibilityRole="button" onPress={onExit} style={styles.linkButton}>
-            <Text style={styles.linkText}>Volver a las lecciones</Text>
+            <Text style={styles.linkText}>{ui(lang, 'Volver a las lecciones')}</Text>
           </Pressable>
         </ScrollView>
       </SafeAreaView>
@@ -3345,22 +3351,22 @@ export function LessonScreen({
             <Pressable
               ref={promptTapTargetRef}
               accessibilityLabel={useCompactRecognizeInstruction
-                  ? `Instrucción: ${lessonHeaderPromptText(lesson.id, currentCard.stage, currentCard.prompt, currentCard.options)}`
+                  ? ui(lang, 'Instrucción: {text}', { text: lessonHeaderPromptText(lesson.id, currentCard.stage, currentCard.prompt, currentCard.options, lang) })
                   : useCompactListenInstruction
-                    ? `Instrucción: ${listeningChoiceInstruction(currentCard.options)}`
+                    ? ui(lang, 'Instrucción: {text}', { text: listeningChoiceInstruction(currentCard.options, lang) })
                     : useCompactSpeakInstruction
-                      ? 'Instrucción: Escucha y repite'
+                      ? ui(lang, 'Instrucción: Escucha y repite')
                   : promptHasVisualBlank
-                    ? `Frase para completar: ${visiblePromptText}`
-                    : `Mostrar traducción de ${visiblePromptText}`}
+                    ? ui(lang, 'Frase para completar: {text}', { text: visiblePromptText })
+                    : ui(lang, 'Mostrar traducción de {text}', { text: visiblePromptText })}
               accessibilityActions={useCompactHeaderInstruction
                 ? []
-                : [{ label: 'Mostrar traducción', name: 'translate' }]}
+                : [{ label: ui(lang, 'Mostrar traducción'), name: 'translate' }]}
               accessibilityHint={useCompactHeaderInstruction
                   ? undefined
                   : promptHasVisualBlank
-                    ? 'Toca una vez para ver la traducción de la parte visible.'
-                    : 'Toca una vez para ver la traducción en español.'}
+                    ? ui(lang, 'Toca una vez para ver la traducción de la parte visible.')
+                    : ui(lang, 'Toca una vez para ver la traducción en español.')}
               accessibilityRole={useCompactHeaderInstruction ? 'text' : 'button'}
               disabled={useCompactHeaderInstruction || !visiblePromptText.trim()}
               onAccessibilityAction={({ nativeEvent }) => {
@@ -3398,7 +3404,7 @@ export function LessonScreen({
                 ]}
               >
                 {isPronunciation
-                  ? currentCard.mission_game?.instruction_es || pronunciationInstruction()
+                  ? currentCard.mission_game?.instruction_es || pronunciationInstruction(lang)
                   : renderPrompt()}
               </Text>
               {showSentenceTranslation || learnTranslation.enabled ? (
@@ -3419,8 +3425,8 @@ export function LessonScreen({
               ) : null}
             </Pressable>
             {showOptionTranslateButton ? <Pressable
-              accessibilityHint="Muestra las opciones en español por unos segundos."
-              accessibilityLabel="Traducir las opciones al español"
+              accessibilityHint={ui(lang, 'Muestra las opciones en español por unos segundos.')}
+              accessibilityLabel={ui(lang, 'Traducir las opciones al español')}
               accessibilityRole="button"
               hitSlop={{ bottom: 8, left: 6, right: 6, top: 8 }}
               onPress={handleOptionTranslatePress}
@@ -3432,16 +3438,16 @@ export function LessonScreen({
             >
               <Ionicons color="#23856f" name="language" size={15} />
               <Text maxFontSizeMultiplier={1.2} style={styles.optionTranslateLabel}>
-                {OPTION_TRANSLATION_BUTTON_LABEL}
+                {optionTranslationButtonLabel(lang)}
               </Text>
             </Pressable> : null}
             {!silentWrittenRecognize || phraseReplayAvailable ? <Pressable
               accessibilityHint={useCompactRecognizeInstruction && !phraseReplayAvailable
-                ? 'Disponible después de elegir la frase correcta.'
-                : 'Reproduce la frase en inglés otra vez.'}
+                ? ui(lang, 'Disponible después de elegir la frase correcta.')
+                : ui(lang, 'Reproduce la frase en inglés otra vez.')}
               accessibilityLabel={phraseReplayAvailable
-                ? `Repetir: ${phraseReplayText || pronunciationModelText}`
-                : 'Repetir frase en inglés'}
+                ? ui(lang, 'Repetir: {text}', { text: phraseReplayText || pronunciationModelText })
+                : ui(lang, 'Repetir frase en inglés')}
               accessibilityRole="button"
               accessibilityState={{ disabled: !phraseReplayAvailable }}
               disabled={!phraseReplayAvailable}
@@ -3482,7 +3488,7 @@ export function LessonScreen({
             {isPortrait ? (
               <>
                 <Pressable
-                  accessibilityLabel="Volver a lecciones"
+                  accessibilityLabel={ui(lang, 'Volver a lecciones')}
                   accessibilityRole="button"
                   onPress={() => confirmLessonExit('previous')}
                   style={styles.backButton}
@@ -3498,7 +3504,7 @@ export function LessonScreen({
             ) : (
               <View style={styles.heroNavigation}>
                 <Pressable
-                  accessibilityLabel="Volver a lecciones"
+                  accessibilityLabel={ui(lang, 'Volver a lecciones')}
                   accessibilityRole="button"
                   onPress={() => confirmLessonExit('previous')}
                   style={[styles.backButton, useCompactPhoneLayout ? styles.backButtonCompact : null]}
@@ -3536,7 +3542,7 @@ export function LessonScreen({
               </View>
             ) : null}
             <Pressable
-              accessibilityLabel={showHelp ? 'Ocultar ayuda' : 'Mostrar ayuda'}
+              accessibilityLabel={showHelp ? ui(lang, 'Ocultar ayuda') : ui(lang, 'Mostrar ayuda')}
               accessibilityRole="button"
               accessibilityState={{ expanded: showHelp }}
               onPress={help.open}
@@ -3585,14 +3591,14 @@ export function LessonScreen({
               styles.stage,
               activeStageColor ? { color: activeStageColor } : null,
             ]}>
-              {lessonStageLabel(lesson.id, currentCard.stage).toUpperCase()}
+              {lessonStageLabel(lesson.id, currentCard.stage, lang).toUpperCase()}
             </Text>
             {isAutomaticSingleCard ? (
               // This section plays by itself; show the learner that the card is
               // about to move on instead of letting it happen unannounced.
-              <View accessibilityLabel="Esta sección avanza sola" style={styles.autoPill}>
+              <View accessibilityLabel={ui(lang, 'Esta sección avanza sola')} style={styles.autoPill}>
                 <Ionicons color="#4f7cac" name="play-circle" size={16} />
-                <Text style={styles.autoPillText}>Automático</Text>
+                <Text style={styles.autoPillText}>{ui(lang, 'Automático')}</Text>
                 <View style={styles.autoTrack}>
                   <Animated.View style={[styles.autoFill, {
                     transform: [{
@@ -3606,9 +3612,9 @@ export function LessonScreen({
         </View> : null}
         {isCompletedSectionPicker ? (
           <View accessibilityLiveRegion="polite" style={styles.sectionPickerPanel}>
-            <Text accessibilityRole="header" style={styles.sectionPickerTitle}>Elige una sección</Text>
+            <Text accessibilityRole="header" style={styles.sectionPickerTitle}>{ui(lang, 'Elige una sección')}</Text>
             <Text style={styles.sectionPickerText}>
-              Toca cualquiera de las secciones completadas de arriba para practicarla otra vez.
+              {ui(lang, 'Toca cualquiera de las secciones completadas de arriba para practicarla otra vez.')}
             </Text>
           </View>
         ) : null}
@@ -3617,7 +3623,7 @@ export function LessonScreen({
     <View onLayout={event => setLessonBodyWidth(event.nativeEvent.layout.width)} style={[styles.lessonBody, needsTextAnswerScrolling ? styles.lessonBodyGrowing : null,
       usesLessonPhoneLandscape ? styles.lessonBodyLandscape : null]}>
       {usesLessonPhoneLandscape ? <LessonLandscapeRail
-        location={lessonLocation} stage={lessonStageLabel(lesson.id, currentCard.stage)}
+        location={lessonLocation} stage={lessonStageLabel(lesson.id, currentCard.stage, lang)}
         color={activeStageColor || '#279487'} progress={`${cardIndex + 1} / ${lesson.cards.length}`}
         onBack={() => confirmLessonExit('previous')} onHome={() => confirmLessonExit('home')}
         onMenu={() => setShowMissionLandscapeMenu(true)}
@@ -3693,7 +3699,7 @@ export function LessonScreen({
             />
           ) : isPronunciation && !isPronunciationAudioReady ? (
             <View style={styles.center}>
-              <PlayfulLoading label="Preparando pronunciación…" />
+              <PlayfulLoading label={ui(lang, 'Preparando pronunciación…')} />
             </View>
           ) : <LessonCardView
             vocabulary={lesson.vocabulary}
@@ -3763,7 +3769,7 @@ export function LessonScreen({
   return (
     <SafeAreaView style={styles.safeArea} onTouchStart={help.touchStart} onTouchEnd={help.touchEnd} onTouchCancel={help.touchEnd}>
       {tutorContext ? <LessonTutorSheet tutor={tutor} context={tutorContext} active={isForegroundActive}
-        title={`Lección ${lesson.sub_lesson_id} · ${lessonStageLabel(lesson.id, currentCard.stage)}`}
+        title={`${ui(lang, 'Lección')} ${lesson.sub_lesson_id} · ${lessonStageLabel(lesson.id, currentCard.stage, lang)}`}
         answer={tutorSubmittedAnswer(currentCard, tutorContext)} /> : null}
       <AudioConnectionNotice
         visible={isAppActive && !isCompletedSectionPicker && !cardAudio.ready}
@@ -3797,7 +3803,7 @@ export function LessonScreen({
       )}
       <SentenceHelpOverlay
         message={currentCard.mission_game?.instruction_es
-          || (awaitingConstructionRetry(currentCard, result) ? COMPLETION_RETRY_HELP : lessonHelpText(currentCard, promptInteractionMode))}
+          || (awaitingConstructionRetry(currentCard, result) ? completionRetryHelp(lang) : lessonHelpText(currentCard, promptInteractionMode, lang))}
         mode={help.mode}
         onDismiss={help.dismiss}
         onSuppress={help.suppress}
@@ -3810,12 +3816,12 @@ export function LessonScreen({
       >
         <View style={styles.completedPromptBackdrop}>
           <ScrollView accessibilityViewIsModal style={styles.missionLandscapeMenuScroll} contentContainerStyle={styles.missionLandscapeMenu}>
-            <Text accessibilityRole="header" style={styles.completedPromptTitle}>Opciones de la lección</Text>
-            <Pressable accessibilityRole="button" accessibilityLabel="Mostrar ayuda" onPress={() => {
+            <Text accessibilityRole="header" style={styles.completedPromptTitle}>{ui(lang, 'Opciones de la lección')}</Text>
+            <Pressable accessibilityRole="button" accessibilityLabel={ui(lang, 'Mostrar ayuda')} onPress={() => {
               setShowMissionLandscapeMenu(false);
               help.open();
             }} style={styles.completedPromptSecondary}>
-              <Text style={styles.completedPromptSecondaryText}>?  Ayuda</Text>
+              <Text style={styles.completedPromptSecondaryText}>{ui(lang, '?  Ayuda')}</Text>
             </Pressable>
             {!missionExperience ? <StageJourney allComplete={showCompletedJourney} cards={lesson.cards}
               currentIndex={cardIndex} lessonId={lesson.id}
@@ -3823,7 +3829,7 @@ export function LessonScreen({
               onStagePress={index => { setShowMissionLandscapeMenu(false); openStage(index); }} /> : null}
             {qaToolbar}
             <Pressable accessibilityRole="button" onPress={() => setShowMissionLandscapeMenu(false)} style={styles.completedPromptPrimary}>
-              <Text style={styles.completedPromptPrimaryText}>{missionExperience ? 'Volver al reto' : 'Volver a la lección'}</Text>
+              <Text style={styles.completedPromptPrimaryText}>{missionExperience ? ui(lang, 'Volver al reto') : ui(lang, 'Volver a la lección')}</Text>
             </Pressable>
           </ScrollView>
         </View>
@@ -3837,12 +3843,12 @@ export function LessonScreen({
         <View style={styles.completedPromptBackdrop}>
           <View accessibilityViewIsModal style={styles.completedPromptCard}>
             <Text accessibilityRole="header" style={styles.completedPromptTitle}>
-              {missionExperience ? 'Misión completada' : 'Lección completada'}
+              {missionExperience ? ui(lang, 'Misión completada') : ui(lang, 'Lección completada')}
             </Text>
             <Text style={styles.completedPromptText}>
               {missionExperience
-                ? 'Ya restauraste este álbum. ¿Quieres repetir la misión completa?'
-                : 'Ya completaste esta lección. ¿Quieres comenzar desde el principio?'}
+                ? ui(lang, 'Ya restauraste este álbum. ¿Quieres repetir la misión completa?')
+                : ui(lang, 'Ya completaste esta lección. ¿Quieres comenzar desde el principio?')}
             </Text>
             <Pressable
               accessibilityRole="button"
@@ -3850,7 +3856,7 @@ export function LessonScreen({
               style={styles.completedPromptPrimary}
             >
               <Text style={styles.completedPromptPrimaryText}>
-                {missionExperience ? 'Repetir la misión' : 'Sí, empezar de nuevo'}
+                {missionExperience ? ui(lang, 'Repetir la misión') : ui(lang, 'Sí, empezar de nuevo')}
               </Text>
             </Pressable>
             <Pressable
@@ -3859,7 +3865,7 @@ export function LessonScreen({
               style={styles.completedPromptSecondary}
             >
               <Text style={styles.completedPromptSecondaryText}>
-                {missionExperience ? 'Volver a las lecciones' : 'No, elegir una sección'}
+                {missionExperience ? ui(lang, 'Volver a las lecciones') : ui(lang, 'No, elegir una sección')}
               </Text>
             </Pressable>
           </View>

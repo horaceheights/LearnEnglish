@@ -51,7 +51,8 @@ for (const [client,file] of Object.entries(clients)) {
     const game={cues:[{target_id:'person',option_id:'reply',answer_text:'Go straight.'}],
       ...(completion?{completion_scene:{image_url:'arrived.webp',context_es:'Ya llegó al parque.'}}:{})};
     const lock={current:false};
-    const context={game,cueIndex:0,cue:game.cues[0],currentCue:game.cues[0],isVoiceGate:false,
+    // ui()/lang: the course app language (2026-11-19); Spanish here.
+    const context={ui:(_language,text)=>text,lang:'es',game,cueIndex:0,cue:game.cues[0],currentCue:game.cues[0],isVoiceGate:false,
       locked:false,disabled:false,solvedTargets:[],solvedTargetIds:[],selectionLockRef:lock,
       scheduleTransition:clock.render(),setSubmittedTarget:()=>{},setWrongTarget:()=>{},setWrongTargetId:()=>{},
       setFeedback:x=>state.feedback=x,setSolvedTargets:()=>{},setSolvedTargetIds:()=>{},
@@ -64,7 +65,8 @@ for (const [client,file] of Object.entries(clients)) {
     const proceed=callback(file,node=>{
       if(!ts.isJsxOpeningElement(node))return null;
       const attributes=node.attributes.properties;
-      if(!attributes.some(a=>ts.isJsxAttribute(a)&&a.name.getText().endsWith('Label')&&a.initializer?.text==='Continuar la historia')
+      if(!attributes.some(a=>ts.isJsxAttribute(a)&&a.name.getText().endsWith('Label')&&(a.initializer?.text==='Continuar la historia'
+        ||a.initializer?.expression?.getText()==="ui(lang, 'Continuar la historia')"))
         && !attributes.some(a=>ts.isJsxAttribute(a)&&a.name.getText()==='aria-label'&&a.initializer?.text==='Continuar la historia'))return null;
       return attributes.find(a=>ts.isJsxAttribute(a)&&['onClick','onPress'].includes(a.name.getText()))?.initializer.expression;
     },context);

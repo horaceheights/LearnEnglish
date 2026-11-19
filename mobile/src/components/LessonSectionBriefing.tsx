@@ -7,6 +7,8 @@ import { LESSON_STAGE_COLORS, lessonStageColorForSegment } from '../lessonStageT
 import type { SectionBriefing } from '../lessonSectionBriefing';
 import type { LessonCard } from '../types';
 import { StageJourney, stageIcon } from './StageJourney';
+import { ui } from '../uiText';
+import { useUiLanguage } from '../uiLanguage';
 
 type Props = {
   briefing: SectionBriefing;
@@ -23,6 +25,7 @@ function foregroundFor(color: string) {
 }
 
 export function LessonSectionBriefing({ briefing, cards, lessonId, onContinue }: Props) {
+  const lang = useUiLanguage();
   const reduceMotion = useReducedMotion();
   const entrance = useRef(new Animated.Value(0)).current;
   const isOpening = briefing.kind === 'opening';
@@ -71,14 +74,14 @@ export function LessonSectionBriefing({ briefing, cards, lessonId, onContinue }:
       >
         <View style={[styles.panel, { borderColor: doneColor }]}>
           <Text style={[styles.eyebrow, { color: doneColor }]}>
-            {isOpening ? 'VAS A APRENDER' : 'LO QUE ACABAS DE PRACTICAR'}
+            {isOpening ? ui(lang, 'VAS A APRENDER') : ui(lang, 'LO QUE ACABAS DE PRACTICAR')}
           </Text>
           {briefing.doneSummary ? (
             <Text style={styles.summary}>{briefing.doneSummary}</Text>
           ) : null}
           {briefing.doneChips.length > 0 ? (
             <View
-              accessibilityLabel={isOpening ? 'Palabras de esta lección' : 'Lo que practicaste'}
+              accessibilityLabel={isOpening ? ui(lang, 'Palabras de esta lección') : ui(lang, 'Lo que practicaste')}
               style={styles.chipRow}
             >
               {briefing.doneChips.map((chip) => (
@@ -108,7 +111,7 @@ export function LessonSectionBriefing({ briefing, cards, lessonId, onContinue }:
         </View>
 
         <Pressable accessibilityRole="button" onPress={onContinue} style={styles.button}>
-          <Text style={styles.buttonText}>Continuar</Text>
+          <Text style={styles.buttonText}>{ui(lang, 'Continuar')}</Text>
           <Ionicons color="#fff" name="arrow-forward" size={20} />
         </Pressable>
       </Animated.View>
