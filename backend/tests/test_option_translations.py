@@ -28,7 +28,9 @@ class OptionTranslationTests(unittest.TestCase):
         qualifying = [card for lesson in lessons for card in lesson.cards if option_translation_card(card)]
         self.assertGreater(sum(card.stage == "Recognize" for card in qualifying), 600)
         self.assertGreater(sum(card.stage == "Listen" and getattr(card, "mission_game", None) is None for card in qualifying), 550)
-        self.assertGreaterEqual(sum(getattr(card, "mission_game", None) is not None for card in qualifying), 12)
+        # The A1+ Unit 1 mission was rebuilt on 2026-11-18 as 1.13 with voice gates instead of conversation
+        # decisions (A1+ standards D4); a decision card that returns is still validated below, and
+        # test_missing_instruction_fallback_and_duplicate_spanish_fail keeps the decision rule covered.
         self.assertEqual(validate_option_translations(lessons), [])
 
     def test_missing_instruction_fallback_and_duplicate_spanish_fail(self):
