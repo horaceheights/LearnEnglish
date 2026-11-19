@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "pack": "a1plus-unit-2-lesson-2-5-this-that-photos",
+  "revision": 10,
+  "output_namespace": "a1plus-unit-2-lesson-v252",
+  "authorization": "2026-11-19: the user approved the A1+ Unit 2 plan and chose \"Straight to Preview\" (media pre-approved, reviewed in Preview). Gemini is the approved image tool (2026-09-23), Flash only (2026-11-17). Later on 2026-11-19 the user found the first 2.5 photos unclear (\"the person is just looking at this one but person does not point at the other bag or item for that one. its just not clear\"), suggested \"maybe they need to be two image transitions?\" and approved the plan: a THIS/THAT pair per scene, the picture switching on *but*, side-on staging, and bikes instead of the cups. After the first render the user saw that the pointing photos point past the far things (\"they are pointing away from the things they are supposed to be pointing to\") and approved redoing them (\"Yes, redo them\"). Asked whether another image service was needed, the user chose to keep Gemini with a drawn guide and added: \"maybe just change the body postion abit towards the object too. do redo them all, just do one for testing\". After the guided Flash test (e23) the user said \"he is poinging parallel to the bike not towards the bike\", \"he needs to turn his body too\", \"his head\"; told that Flash keeps the edited photo's pose and that Pro is about US$0.14 a photo, the user answered \"Yes, test on Pro\" (one Luis test first; the user's 2026-11-17 Flash-only rule is lifted for this test). The user found the Pro test still pointing at the floor with the head and eyes not on the far bike (\"he still pointing at the floor parallel to the bike\", \"why so hard to turn the mother fucker haed and eyes over to the objective\", \"turn the motherfocker\"); one new-photo test follows. Shown the over-the-shoulder test (b02), the user answered \"turn his head more\". The edit h02 barely moved the head, so a new photo follows.",
+  "image_settings": {
+    "provider": "google-gemini",
+    "model": "gemini-3-pro-image",
+    "aspect_ratio": "3:2",
+    "image_size": "2K",
+    "runtime_size": "1536x1024",
+    "runtime_format": "webp",
+    "n": 1
+  },
+  "supersedes": {
+    "pack": "docs/product/a1plus-unit-2-lesson-2-5-this-that-photos-v9.json",
+    "reason": "Pro's head-turn edit h02 kept b02's head almost unchanged; edits keep the pose."
+  },
+  "production": {
+    "price_per_image_usd": "0.134",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing (checked 2026-09-24 in the renderer)",
+    "planned_images": 2,
+    "expected_cost_usd": "0.27",
+    "requested_ceiling_usd": "0.90",
+    "ceiling_note": "Shares namespace v252 (US$0.46 spent before v10); the renderer reserves US$0.20.",
+    "no_automatic_retries": true,
+    "order": "Render n02 alone and show the user; t04 only after the user accepts it."
+  },
+  "shared_prompts": {
+    "photo": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, numbers, logos or brand marks anywhere, not on signs, screens, clothes, bags, machines or vehicles. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos.",
+    "solo": "Only this one person is in the photo; there is nobody else, even far in the background.",
+    "daytime": "It is clearly daytime with soft natural light.",
+    "near_far_scene": "The meaning of the photo is NEAR versus FAR. Exactly two things of the same kind are in the photo, and they differ only in color. The near one is with the person in the left part of the photo, large and sharp. The far one stands alone in the right third of the photo, clearly farther away, against a plain wall with nothing else around it; it is in focus and easy to recognize even on a small phone screen, and its center is about three quarters of the way across the photo, well clear of the right edge. The camera is at chest height and sees the whole scene from the side, so that the space between the person and the far thing runs from left to right across the photo: an arm pointed at the far thing would be seen side-on as a long line across the photo, never pointing toward the camera. The floor and wall between them are plain and empty. There is no mirror, no picture on the wall, no shelf of objects, and no third thing of that kind anywhere."
+  },
+  "assets": [
+    {
+      "id": "n02-luis-white-near-facing-that",
+      "order": 1,
+      "item": "That one is black. / but that bike is black. (turn 2)",
+      "shared": [
+        "photo",
+        "solo",
+        "daytime"
+      ],
+      "prompt": "Image 1 shows Luis in a paved courtyard: a white city bike stands close to the camera, and one black city bike leans against the far plain grey wall. Using the same man (same face, short dark curly hair, warm medium-brown skin, navy T-shirt and jeans), the same courtyard, the same white bike and the same black bike, create a NEW photograph from a different camera position. Luis has turned his whole body to FACE the black bike: his feet, hips, chest and shoulders all face it. The camera is behind him and a little to his left, at chest height. His HEAD is turned all the way toward the black bike and tilted down at it, exactly like his arm: from the camera we see the back of his head, his right ear and only the outline of his cheek, nose and eyebrow; his nose and eyes point straight at the black bike, not to the side and not at the wall. His left hand still rests on the saddle of the white bike, which stands right beside him, close to the camera, on the left of the photo. His right arm is stretched straight out in front of him toward the black bike, slightly downward, and his index finger points directly at the black bike: his eyes, his head, his arm and his finger all aim at it along one line. The black bike stands on the ground against the far wall, about five meters in front of his fingertip, in the middle-right of the photo, whole, sharp and easy to see, and nothing is between his finger and the bike. The fingertip stays far from the black bike.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/course-photoreal-sources/a1plus-unit-2-lesson-v252/staged/e05-luis-white-near-this.png",
+        "sha256": "2e813b03884106b18a5fd44f310d08ef61382a1e1dea8eb951d430f0fe61ef50",
+        "observed_description": "e05: Luis (navy T-shirt, jeans) behind a white city bike in a paved courtyard, hands on its saddle and handlebar; one black city bike leans on the far plain grey wall."
+      }
+    },
+    {
+      "id": "t04-luis-white-near-facing-this",
+      "order": 2,
+      "item": "This one is white. / This bike is white, (turn 1)",
+      "shared": [
+        "photo",
+        "solo",
+        "daytime"
+      ],
+      "prompt": "Image 1 shows Luis from behind in a courtyard, facing a black bike on the far wall and pointing at it, with his left hand on the saddle of a white bike beside him. Keep the same man, clothes, courtyard, both bikes, the light and the camera position exactly. Change only his head and right arm: he now looks DOWN at the white bike beside him, and his right hand rests on the white bike's handlebar. He no longer points; the black bike stays on the far wall, unchanged.",
+      "reference": "n02-luis-white-near-facing-that"
+    }
+  ]
+}
