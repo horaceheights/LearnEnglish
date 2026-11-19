@@ -102,6 +102,8 @@ const ACTIONS = set('eating drinking reading writing running walking swimming si
 const BE = set('am is are');
 const FREQUENCY = set('always usually sometimes never');
 const ROUTINE_BASE = set('leave arrive start finish study work wake get eat wash brush come go sleep drink walk play watch open close clean run take put meet cook');
+// A1+ 1.9 (2026-11-18): live after does (Where does your aunt live?).
+ROUTINE_BASE.add('live');
 
 type Relation = { start: number; end: number; explanation: string };
 type ClausePlan = { explanations: string[]; relations: Relation[]; supported: boolean };
@@ -385,26 +387,35 @@ function teachClause(text: string): ClausePlan {
   }
   // Do/does frames share the ordinary action's complement rules. The synthetic
   // first-person subject is discarded; no explanation may refer to that subject.
-  const routineQuestion = /^(?:(what time|how often|when|where|why) )?(do|does) /.exec(joined);
+  // A1+ 1.9 (2026-11-18) asks about a family member (Does your grandmother drink tea?) and who
+  // someone lives with (Who does your cousin live with?), where "with" closes the question.
+  const routineQuestion = /^(?:(what time|how often|when|where|why|who) )?(do|does) /.exec(joined);
   const routineQuestionSubject = routineQuestion ? (routineQuestion[1] ? words(routineQuestion[1]).length : 0) + 1 : -1;
   if (routineQuestion && text.trim().endsWith('?')
     && (routineQuestion[1] || routineQuestion[2] === 'does')
-    && ['i', 'you', 'he', 'she', 'it', 'we', 'they', 'ana', 'luis', 'sofia', 'diego'].includes(keys[routineQuestionSubject])) {
+    && ['i', 'you', 'he', 'she', 'it', 'we', 'they', 'ana', 'luis', 'sofia', 'diego', 'my', 'your', 'his', 'her', 'our', 'their'].includes(keys[routineQuestionSubject])) {
     const auxiliary = routineQuestion[1] ? words(routineQuestion[1]).length : 0;
     const subjectStart = auxiliary + 1;
     const action = keys.findIndex((key, index) => index > subjectStart && ROUTINE_BASE.has(key));
     if (action < 0 || !subject(subjectStart, action)) return { explanations, relations, supported: false };
     const person = keys.slice(subjectStart, action).join(' ');
-    const thirdPerson = ['he', 'she', 'it', 'ana', 'luis', 'sofia', 'diego'].includes(person);
+    const head = keys[action - 1];
+    const thirdPerson = ['he', 'she', 'it', 'ana', 'luis', 'sofia', 'diego'].includes(person)
+      || (!['i', 'you', 'we', 'they'].includes(person) && !person.includes(' and ')
+        && !/s$|^children$|^people$/.test(head));
     if ((keys[auxiliary] === 'does') !== thirdPerson) return { explanations, relations, supported: false };
-    const inner = teachClause('I ' + phrase(action, keys.length) + '.');
+    const closingWith = routineQuestion[1] === 'who' && keys[keys.length - 1] === 'with' && keys.length - 1 > action;
+    if (routineQuestion[1] === 'who' && !closingWith) return { explanations, relations, supported: false };
+    const innerEnd = closingWith ? keys.length - 1 : keys.length;
+    const inner = teachClause('I ' + phrase(action, innerEnd) + '.');
     if (!inner.supported) return { explanations, relations, supported: false };
-    teach(0, keys.length, `En esta pregunta, ${auxiliary ? `${quote(phrase(0, auxiliary))} va primero; después ` : 'primero va '}“${tokens[auxiliary]}”, luego ${quote(phrase(subjectStart, action))} y la acción ${quote(tokens[action])}.`);
-    if (auxiliary) teach(0, auxiliary, `${quote(phrase(0, auxiliary))} pregunta ${routineQuestion[1] === 'what time' ? 'la hora' : routineQuestion[1] === 'how often' ? 'la frecuencia' : routineQuestion[1] === 'where' ? 'el lugar' : routineQuestion[1] === 'when' ? 'cuándo' : 'el motivo'} y va antes del auxiliar ${quote(tokens[auxiliary])}.`);
+    teach(0, keys.length, `En esta pregunta, ${auxiliary ? `${quote(phrase(0, auxiliary))} va primero; después ` : 'primero va '}“${tokens[auxiliary]}”, luego ${quote(phrase(subjectStart, action))} y la acción ${quote(tokens[action])}${closingWith ? ', y “with” al final' : ''}.`);
+    if (auxiliary) teach(0, auxiliary, `${quote(phrase(0, auxiliary))} pregunta ${routineQuestion[1] === 'what time' ? 'la hora' : routineQuestion[1] === 'how often' ? 'la frecuencia' : routineQuestion[1] === 'where' ? 'el lugar' : routineQuestion[1] === 'when' ? 'cuándo' : routineQuestion[1] === 'who' ? 'por la persona' : 'el motivo'} y va antes del auxiliar ${quote(tokens[auxiliary])}.`);
     teach(auxiliary, action, `En esta pregunta, el auxiliar ${quote(tokens[auxiliary])} va antes del sujeto ${quote(phrase(subjectStart, action))}.`);
     teach(subjectStart, action + 1, `Después de ${quote(tokens[auxiliary])}, el sujeto ${quote(phrase(subjectStart, action))} va antes de ${quote(tokens[action])}, la acción en forma base.`);
     inner.explanations.slice(2).forEach((explanation, index) => { explanations[action + index + 1] = explanation; });
     relations.push(...inner.relations.filter(relation => relation.start > 0).map(relation => ({ ...relation, start: relation.start + action - 1, end: relation.end + action - 1 })));
+    if (closingWith) teach(keys.length - 1, keys.length, `“With” cierra la pregunta: “Who … with?” pregunta con quién, después de ${quote(tokens[action])}.`);
     return { explanations, relations, supported: explanations.every(Boolean) };
   }
   const negative = keys.findIndex(key => ["doesn't", "don't"].includes(key));

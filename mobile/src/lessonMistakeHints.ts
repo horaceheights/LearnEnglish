@@ -273,6 +273,9 @@ const IMAGE_CHOICE_MEANINGS: Record<string, string> = {
   'invites reading': 'una invitación a leer',
   'invites playing': 'una invitación a jugar',
   'invites swimming': 'una invitación a nadar',
+  // A1+ 1.9 (2026-11-18): Ana's cousin with the grandparents against the cousin at his own door.
+  'who does your cousin live with he lives with my grandparents': 'el primo con los abuelos',
+  'where does your cousin live he lives in mexico': 'el primo en su casa de México',
   'does not understand': 'alguien que no entiende',
   'hobbies music': 'gusto por escuchar música',
   'wakes morning': 'despertarse por la mañana',

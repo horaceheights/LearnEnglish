@@ -1,0 +1,881 @@
+{
+  "brief_version": 1,
+  "follows": {
+    "course": "a1",
+    "lesson": "1.9",
+    "title": "Who Is He? Who Are They?"
+  },
+  "note": "A1+ Unit 1 Lesson 1.9 rebuilt on 2026-11-18 under the A1+ lesson standards approved 2026-10-27 and the user's 2026-11-09 rule that every A1+ lesson follows up the A1 lesson with the same number; the user asked on 2026-11-18 to complete Unit 1 straight to Preview. A1 1.9 Who Is He? Who Are They? asks who family members are (Who is he? He is the father.). A1+ 1.9 asks about what they do and where they live, with does: Does your grandmother drink tea? Yes, she does. / Does your grandfather drink tea? No, he doesn't. / Where does your aunt live? She lives in Canada. / Who does your cousin live with? He lives with my grandparents. Luis asks and Ana answers about her family, with the facts and approved photos of 1.4 (aunt in Canada, uncle and cousin in Mexico, the cousin with the grandparents, Ana in the United States) and 1.6 (the grandmother drinks tea, the grandfather drinks coffee, the mother and the father run in the park). After does the verb has no -s (Does your aunt live...?), so the base form live is taught with it. A short answer keeps the person of the question, so its bank sets Yes against No on that person. No new photos.",
+  "target": "backend/lessons/a1_plus/unit_1/a1plus-unit-1-lesson-1-9.yaml",
+  "captions": false,
+  "narrators": [
+    "teacher",
+    "co-teacher"
+  ],
+  "answer_audio_policy": "authored-only",
+  "speak_delivery": "a1-pronunciation-v1",
+  "lesson": {
+    "id": "a1plus-unit-1-lesson-1-9",
+    "title": "1.9 Does your family...?",
+    "level": "A1+",
+    "unit_id": "a1plus-unit-1",
+    "unit_title": "People, family and habits",
+    "unit_outcome": "Describe people and family, say what people do every day and how often, and ask about other people’s habits.",
+    "lesson_id": "a1plus-unit-1-lesson-1-9",
+    "lesson_title": "Does your family...?",
+    "sub_lesson_id": "1.9",
+    "sub_lesson_title": "Does your family...?",
+    "goal": "Ask about someone's family with does and answer with a short answer (Does your grandmother drink tea? Yes, she does.), and ask where and who with does (Where does your aunt live? Who does your cousin live with?).",
+    "vocabulary": [
+      "Does",
+      "live",
+      "Where does",
+      "Who does"
+    ],
+    "review_vocabulary": [
+      "your",
+      "my",
+      "grandmother",
+      "grandfather",
+      "mother",
+      "father",
+      "aunt",
+      "uncle",
+      "cousin",
+      "grandparents",
+      "drink",
+      "tea",
+      "run",
+      "in",
+      "the",
+      "park",
+      "lives in",
+      "with",
+      "Canada",
+      "Mexico",
+      "the United States",
+      "yes",
+      "no",
+      "doesn't",
+      "he",
+      "she",
+      "I"
+    ],
+    "grammar_function": "A follow-up of A1 1.9 Who Is He? Who Are They?: A1 asks who family members are (Who is he? He is the father.); A1+ 1.9 asks what they do and where they live, with does. The one new grammar relationship is the question with does + the base verb, and its short answer: Does your grandmother drink tea? Yes, she does. / No, he doesn't. Where does and Who does put a question word before it (Where does your aunt live? Who does your cousin live with?). After does the verb loses its -s, as after 1.8's doesn't.",
+    "prerequisite": "A1 1.9 Who; A1 4.3 Where; A1 4.8 Do you...? and Yes, I do.; A1 5.3 drink and tea; A1 4.8 run; A1+ 1.4 aunt, uncle, cousin, lives in, with; A1+ 1.6 the grandparents' tea and coffee and the parents running in the park; A1+ 1.8 doesn't.",
+    "speaking_outcome": "Ask with does and a falling-rising question tone, keep the verb without -s after does (Does she drink...?), and answer with a short answer that keeps the person (Yes, she does. / No, he doesn't.). Do not require native-like speed.",
+    "content_revision": 4,
+    "learn_context_groups": [
+      {
+        "kind": "exchange",
+        "targets": [
+          "Does"
+        ],
+        "models": [
+          {
+            "slide_id": "L1",
+            "text": "Does your grandmother drink tea? Yes, she does.",
+            "turns": [
+              "Does your grandmother drink tea?",
+              "Yes, she does."
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "exchange",
+        "targets": [
+          "Does"
+        ],
+        "models": [
+          {
+            "slide_id": "L2",
+            "text": "Does your grandfather drink tea? No, he doesn't.",
+            "turns": [
+              "Does your grandfather drink tea?",
+              "No, he doesn't."
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "exchange",
+        "targets": [
+          "Where does",
+          "live"
+        ],
+        "models": [
+          {
+            "slide_id": "L3",
+            "text": "Where does your aunt live? She lives in Canada.",
+            "turns": [
+              "Where does your aunt live?",
+              "She lives in Canada."
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "exchange",
+        "targets": [
+          "Who does",
+          "live"
+        ],
+        "models": [
+          {
+            "slide_id": "L4",
+            "text": "Who does your cousin live with? He lives with my grandparents.",
+            "turns": [
+              "Who does your cousin live with?",
+              "He lives with my grandparents."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "items": [
+    {
+      "id": "l-does-yes",
+      "text": "Does your grandmother drink tea? Yes, she does.",
+      "es": "¿Tu abuela toma té? Sí, lo toma.",
+      "image": "/lesson-assets/a1plus-unit-1-f01-a668117345db103e.webp",
+      "kind": "exchange",
+      "choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "Does your grandmother drink tea?",
+          "speaker": "luis",
+          "image": "/lesson-assets/a1plus-unit-1-f01-a668117345db103e.webp"
+        },
+        {
+          "text": "Yes, she does.",
+          "speaker": "ana",
+          "image": "/lesson-assets/a1plus-unit-1-f01-a668117345db103e.webp"
+        }
+      ]
+    },
+    {
+      "id": "l-does-no",
+      "text": "Does your grandfather drink tea? No, he doesn't.",
+      "es": "¿Tu abuelo toma té? No, no lo toma.",
+      "image": "/lesson-assets/a1plus-unit-1-f02-edea3fd93197a36c.webp",
+      "kind": "exchange",
+      "choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "Does your grandfather drink tea?",
+          "speaker": "luis",
+          "image": "/lesson-assets/a1plus-unit-1-f02-edea3fd93197a36c.webp"
+        },
+        {
+          "text": "No, he doesn't.",
+          "speaker": "ana",
+          "image": "/lesson-assets/a1plus-unit-1-f02-edea3fd93197a36c.webp"
+        }
+      ]
+    },
+    {
+      "id": "l-where",
+      "text": "Where does your aunt live? She lives in Canada.",
+      "es": "¿Dónde vive tu tía? Vive en Canadá.",
+      "image": "/lesson-assets/a1plus-unit-1-k01-74c66f74ce4ad390.webp",
+      "kind": "exchange",
+      "choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "Where does your aunt live?",
+          "speaker": "luis",
+          "image": "/lesson-assets/a1plus-unit-1-k01-74c66f74ce4ad390.webp"
+        },
+        {
+          "text": "She lives in Canada.",
+          "speaker": "ana",
+          "image": "/lesson-assets/a1plus-unit-1-k01-74c66f74ce4ad390.webp"
+        }
+      ]
+    },
+    {
+      "id": "l-who",
+      "text": "Who does your cousin live with? He lives with my grandparents.",
+      "es": "¿Con quién vive tu primo? Vive con mis abuelos.",
+      "image": "/lesson-assets/a1plus-unit-1-k04-a3ea44bdfdd04521.webp",
+      "kind": "exchange",
+      "choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "Who does your cousin live with?",
+          "speaker": "luis",
+          "image": "/lesson-assets/a1plus-unit-1-k04-a3ea44bdfdd04521.webp"
+        },
+        {
+          "text": "He lives with my grandparents.",
+          "speaker": "ana",
+          "image": "/lesson-assets/a1plus-unit-1-k04-a3ea44bdfdd04521.webp"
+        }
+      ]
+    },
+    {
+      "id": "y-grandmother",
+      "text": "Yes, she does.",
+      "es": "Sí, lo toma.",
+      "image": "/lesson-assets/a1plus-unit-1-f01-a668117345db103e.webp",
+      "kind": "short",
+      "speaker": "ana",
+      "question": "Does your grandmother drink tea?",
+      "question_es": "¿Tu abuela toma té?",
+      "question_speaker": "luis",
+      "learn": false,
+      "image_choices": false,
+      "four_card": false,
+      "prefer": [
+        "No, she doesn't."
+      ],
+      "accepts": {
+        "subject-variety": "A short answer keeps the person of the question (she for the grandmother, he for the grandfather and the father); the bank sets Yes, ... does against No, ... doesn't on that same person, so the subject stays.",
+        "action-variety": "A short answer keeps the person of the question (she for the grandmother, he for the grandfather and the father); the bank sets Yes, ... does against No, ... doesn't on that same person, so the action stays."
+      },
+      "blanks": [
+        "she",
+        "does"
+      ]
+    },
+    {
+      "id": "n-grandfather",
+      "text": "No, he doesn't.",
+      "es": "No, no lo toma.",
+      "image": "/lesson-assets/a1plus-unit-1-f02-edea3fd93197a36c.webp",
+      "kind": "short",
+      "speaker": "ana",
+      "question": "Does your grandfather drink tea?",
+      "question_es": "¿Tu abuelo toma té?",
+      "question_speaker": "luis",
+      "learn": false,
+      "image_choices": false,
+      "four_card": false,
+      "prefer": [
+        "Yes, he does."
+      ],
+      "accepts": {
+        "subject-variety": "A short answer keeps the person of the question (she for the grandmother, he for the grandfather and the father); the bank sets Yes, ... does against No, ... doesn't on that same person, so the subject stays.",
+        "action-variety": "A short answer keeps the person of the question (she for the grandmother, he for the grandfather and the father); the bank sets Yes, ... does against No, ... doesn't on that same person, so the action stays."
+      },
+      "blanks": [
+        "he",
+        "doesn't"
+      ]
+    },
+    {
+      "id": "y-father",
+      "text": "Yes, he does.",
+      "es": "Sí, corre.",
+      "image": "/lesson-assets/a1plus-unit-1-f04-63202dc029845919.webp",
+      "kind": "short",
+      "speaker": "ana",
+      "question": "Does your father run in the park?",
+      "question_es": "¿Tu papá corre en el parque?",
+      "question_speaker": "luis",
+      "learn": false,
+      "image_choices": false,
+      "four_card": false,
+      "prefer": [
+        "No, he doesn't.",
+        "Yes, she does."
+      ],
+      "accepts": {
+        "subject-variety": "A short answer keeps the person of the question (she for the grandmother, he for the grandfather and the father); the bank sets Yes, ... does against No, ... doesn't on that same person, so the subject stays.",
+        "action-variety": "A short answer keeps the person of the question (she for the grandmother, he for the grandfather and the father); the bank sets Yes, ... does against No, ... doesn't on that same person, so the action stays."
+      },
+      "blanks": [
+        "he",
+        "does"
+      ]
+    },
+    {
+      "id": "w-aunt",
+      "text": "She lives in Canada.",
+      "es": "Vive en Canadá.",
+      "image": "/lesson-assets/a1plus-unit-1-k01-74c66f74ce4ad390.webp",
+      "kind": "where",
+      "speaker": "ana",
+      "question": "Where does your aunt live?",
+      "question_es": "¿Dónde vive tu tía?",
+      "question_speaker": "luis",
+      "learn": false,
+      "four_card": false,
+      "prefer": [
+        "She lives in Mexico.",
+        "She lives in the United States."
+      ]
+    },
+    {
+      "id": "w-uncle",
+      "text": "He lives in Mexico.",
+      "es": "Vive en México.",
+      "image": "/lesson-assets/a1plus-unit-1-k02-8fc41067842757fb.webp",
+      "kind": "where",
+      "speaker": "ana",
+      "learn": false,
+      "four_card": false,
+      "avoid": [
+        "He lives with my grandparents.",
+        "He lives with my grandmother.",
+        "He lives with my parents.",
+        "He lives with my mother."
+      ]
+    },
+    {
+      "id": "o-cousin",
+      "text": "He lives with my grandparents.",
+      "es": "Vive con mis abuelos.",
+      "image": "/lesson-assets/a1plus-unit-1-k04-a3ea44bdfdd04521.webp",
+      "kind": "where",
+      "speaker": "ana",
+      "question": "Who does your cousin live with?",
+      "question_es": "¿Con quién vive tu primo?",
+      "question_speaker": "luis",
+      "learn": false,
+      "four_card": false,
+      "prefer": [
+        "He lives with my parents.",
+        "He lives with my aunt."
+      ],
+      "avoid": [
+        "He lives in Mexico.",
+        "He lives with my grandmother."
+      ]
+    },
+    {
+      "id": "o-grandfather",
+      "text": "He lives with my grandmother.",
+      "es": "Vive con mi abuela.",
+      "image": "/lesson-assets/a1plus-unit-1-k04-a3ea44bdfdd04521.webp",
+      "kind": "where",
+      "speaker": "ana",
+      "question": "Who does your grandfather live with?",
+      "question_es": "¿Con quién vive tu abuelo?",
+      "question_speaker": "luis",
+      "learn": false,
+      "four_card": false,
+      "image_choices": false,
+      "prefer": [
+        "He lives with my mother.",
+        "He lives with my aunt."
+      ],
+      "avoid": [
+        "He lives in Mexico.",
+        "He lives with my grandparents."
+      ]
+    },
+    {
+      "id": "a-ana",
+      "text": "I live in the United States.",
+      "es": "Vivo en Estados Unidos.",
+      "image": "/lesson-assets/a1plus-unit-1-k05-9b9a22eb4f01e486.webp",
+      "kind": "where",
+      "speaker": "ana",
+      "learn": false,
+      "four_card": false,
+      "blanks": [
+        "I",
+        "live"
+      ]
+    },
+    {
+      "id": "e-grandmother",
+      "text": "Does your grandmother drink tea? Yes, she does.",
+      "es": "¿Tu abuela toma té? Sí, lo toma.",
+      "image": "/lesson-assets/a1plus-unit-1-f01-a668117345db103e.webp",
+      "kind": "heard-exchange",
+      "turns": [
+        {
+          "text": "Does your grandmother drink tea?",
+          "speaker": "luis",
+          "image": "/lesson-assets/a1plus-unit-1-f01-a668117345db103e.webp"
+        },
+        {
+          "text": "Yes, she does.",
+          "speaker": "ana",
+          "image": "/lesson-assets/a1plus-unit-1-f01-a668117345db103e.webp"
+        }
+      ],
+      "learn": false,
+      "use": false,
+      "four_card": false,
+      "prefer": [
+        "Does your grandfather drink tea? No, he doesn't."
+      ]
+    },
+    {
+      "id": "e-grandfather",
+      "text": "Does your grandfather drink tea? No, he doesn't.",
+      "es": "¿Tu abuelo toma té? No, no lo toma.",
+      "image": "/lesson-assets/a1plus-unit-1-f02-edea3fd93197a36c.webp",
+      "kind": "heard-exchange",
+      "turns": [
+        {
+          "text": "Does your grandfather drink tea?",
+          "speaker": "luis",
+          "image": "/lesson-assets/a1plus-unit-1-f02-edea3fd93197a36c.webp"
+        },
+        {
+          "text": "No, he doesn't.",
+          "speaker": "ana",
+          "image": "/lesson-assets/a1plus-unit-1-f02-edea3fd93197a36c.webp"
+        }
+      ],
+      "learn": false,
+      "use": false,
+      "four_card": false,
+      "prefer": [
+        "Does your grandmother drink tea? Yes, she does.",
+        "Does your father run in the park? Yes, he does."
+      ]
+    },
+    {
+      "id": "e-father",
+      "text": "Does your father run in the park? Yes, he does.",
+      "es": "¿Tu papá corre en el parque? Sí, corre.",
+      "image": "/lesson-assets/a1plus-unit-1-f04-63202dc029845919.webp",
+      "kind": "heard-exchange",
+      "turns": [
+        {
+          "text": "Does your father run in the park?",
+          "speaker": "luis",
+          "image": "/lesson-assets/a1plus-unit-1-f04-63202dc029845919.webp"
+        },
+        {
+          "text": "Yes, he does.",
+          "speaker": "ana",
+          "image": "/lesson-assets/a1plus-unit-1-f04-63202dc029845919.webp"
+        }
+      ],
+      "learn": false,
+      "use": false,
+      "four_card": false,
+      "prefer": [
+        "Does your mother run in the park? Yes, she does.",
+        "Does your grandfather drink tea? No, he doesn't."
+      ]
+    },
+    {
+      "id": "e-aunt-where",
+      "text": "Where does your aunt live? She lives in Canada.",
+      "es": "¿Dónde vive tu tía? Vive en Canadá.",
+      "image": "/lesson-assets/a1plus-unit-1-k01-74c66f74ce4ad390.webp",
+      "kind": "heard-exchange",
+      "turns": [
+        {
+          "text": "Where does your aunt live?",
+          "speaker": "luis",
+          "image": "/lesson-assets/a1plus-unit-1-k01-74c66f74ce4ad390.webp"
+        },
+        {
+          "text": "She lives in Canada.",
+          "speaker": "ana",
+          "image": "/lesson-assets/a1plus-unit-1-k01-74c66f74ce4ad390.webp"
+        }
+      ],
+      "learn": false,
+      "use": false,
+      "four_card": false,
+      "prefer": [
+        "Where does your uncle live? He lives in Mexico."
+      ]
+    },
+    {
+      "id": "e-uncle-where",
+      "text": "Where does your uncle live? He lives in Mexico.",
+      "es": "¿Dónde vive tu tío? Vive en México.",
+      "image": "/lesson-assets/a1plus-unit-1-k02-8fc41067842757fb.webp",
+      "kind": "heard-exchange",
+      "turns": [
+        {
+          "text": "Where does your uncle live?",
+          "speaker": "luis",
+          "image": "/lesson-assets/a1plus-unit-1-k02-8fc41067842757fb.webp"
+        },
+        {
+          "text": "He lives in Mexico.",
+          "speaker": "ana",
+          "image": "/lesson-assets/a1plus-unit-1-k02-8fc41067842757fb.webp"
+        }
+      ],
+      "learn": false,
+      "use": false,
+      "four_card": false,
+      "prefer": [
+        "Where does your aunt live? She lives in Canada.",
+        "Where does your cousin live? He lives in Mexico."
+      ]
+    },
+    {
+      "id": "e-aunt-no",
+      "text": "Does your aunt live in Mexico? No, she doesn't.",
+      "es": "¿Tu tía vive en México? No, no vive allí.",
+      "image": "/lesson-assets/a1plus-unit-1-k01-74c66f74ce4ad390.webp",
+      "kind": "heard-exchange",
+      "turns": [
+        {
+          "text": "Does your aunt live in Mexico?",
+          "speaker": "luis",
+          "image": "/lesson-assets/a1plus-unit-1-k01-74c66f74ce4ad390.webp"
+        },
+        {
+          "text": "No, she doesn't.",
+          "speaker": "ana",
+          "image": "/lesson-assets/a1plus-unit-1-k01-74c66f74ce4ad390.webp"
+        }
+      ],
+      "learn": false,
+      "use": false,
+      "four_card": false,
+      "prefer": [
+        "Does your uncle live in Mexico? Yes, he does.",
+        "Does your cousin live in Mexico? Yes, he does."
+      ]
+    },
+    {
+      "id": "e-cousin",
+      "text": "Who does your cousin live with? He lives with my grandparents.",
+      "es": "¿Con quién vive tu primo? Vive con mis abuelos.",
+      "image": "/lesson-assets/a1plus-unit-1-k04-a3ea44bdfdd04521.webp",
+      "kind": "heard-exchange",
+      "turns": [
+        {
+          "text": "Who does your cousin live with?",
+          "speaker": "luis",
+          "image": "/lesson-assets/a1plus-unit-1-k04-a3ea44bdfdd04521.webp"
+        },
+        {
+          "text": "He lives with my grandparents.",
+          "speaker": "ana",
+          "image": "/lesson-assets/a1plus-unit-1-k04-a3ea44bdfdd04521.webp"
+        }
+      ],
+      "learn": false,
+      "use": false,
+      "four_card": false,
+      "prefer": [
+        "Where does your cousin live? He lives in Mexico."
+      ]
+    },
+    {
+      "id": "q-grandmother",
+      "text": "Does your grandmother drink tea?",
+      "es": "¿Tu abuela toma té?",
+      "image": "/lesson-assets/a1plus-unit-1-f01-a668117345db103e.webp",
+      "kind": "question",
+      "speaker": "luis",
+      "learn": false,
+      "choices": false,
+      "blanks": [
+        "grandmother",
+        "drink"
+      ]
+    },
+    {
+      "id": "q-father",
+      "text": "Does your father run in the park?",
+      "es": "¿Tu papá corre en el parque?",
+      "image": "/lesson-assets/a1plus-unit-1-f04-63202dc029845919.webp",
+      "kind": "question",
+      "speaker": "luis",
+      "learn": false,
+      "choices": false
+    },
+    {
+      "id": "q-aunt",
+      "text": "Where does your aunt live?",
+      "es": "¿Dónde vive tu tía?",
+      "image": "/lesson-assets/a1plus-unit-1-k01-74c66f74ce4ad390.webp",
+      "kind": "question",
+      "speaker": "luis",
+      "learn": false,
+      "choices": false,
+      "blanks": [
+        "aunt",
+        "live"
+      ]
+    },
+    {
+      "id": "q-uncle-mx",
+      "text": "Does your uncle live in Mexico?",
+      "es": "¿Tu tío vive en México?",
+      "image": "/lesson-assets/a1plus-unit-1-k02-8fc41067842757fb.webp",
+      "kind": "question",
+      "speaker": "luis",
+      "learn": false,
+      "choices": false
+    },
+    {
+      "id": "q-cousin",
+      "text": "Who does your cousin live with?",
+      "es": "¿Con quién vive tu primo?",
+      "image": "/lesson-assets/a1plus-unit-1-k04-a3ea44bdfdd04521.webp",
+      "kind": "question",
+      "speaker": "luis",
+      "learn": false,
+      "choices": false
+    },
+    {
+      "id": "x-short",
+      "text": "No, he doesn't.",
+      "es": "No, no lo toma.",
+      "image": "/lesson-assets/a1plus-unit-1-f02-edea3fd93197a36c.webp",
+      "kind": "heard",
+      "speaker": "ana",
+      "learn": false,
+      "image_choices": false,
+      "use": false,
+      "prefer": [
+        "No, she doesn't.",
+        "Yes, he does."
+      ],
+      "accepts": {
+        "subject-variety": "Listen sets the does-question against the statement and against the same question about another person, and the short answers against each other; the answer is what was heard.",
+        "action-variety": "Listen sets the does-question against the statement and against the same question about another person, and the short answers against each other; the answer is what was heard."
+      }
+    },
+    {
+      "id": "x-who",
+      "text": "Who does your grandfather live with?",
+      "es": "¿Con quién vive tu abuelo?",
+      "image": "/lesson-assets/a1plus-unit-1-k04-a3ea44bdfdd04521.webp",
+      "kind": "heard",
+      "speaker": "luis",
+      "learn": false,
+      "image_choices": false,
+      "use": false,
+      "prefer": [
+        "Who does your cousin live with?",
+        "Where does your grandfather live?"
+      ],
+      "accepts": {
+        "subject-variety": "Listen sets the does-question against the statement and against the same question about another person, and the short answers against each other; the answer is what was heard.",
+        "action-variety": "Listen sets the does-question against the statement and against the same question about another person, and the short answers against each other; the answer is what was heard."
+      }
+    },
+    {
+      "id": "x-where",
+      "text": "Where does your uncle live?",
+      "es": "¿Dónde vive tu tío?",
+      "image": "/lesson-assets/a1plus-unit-1-k02-8fc41067842757fb.webp",
+      "kind": "heard",
+      "speaker": "luis",
+      "learn": false,
+      "image_choices": false,
+      "use": false,
+      "prefer": [
+        "Where does your aunt live?",
+        "Where does your cousin live?"
+      ],
+      "accepts": {
+        "subject-variety": "Listen sets the does-question against the statement and against the same question about another person, and the short answers against each other; the answer is what was heard.",
+        "action-variety": "Listen sets the does-question against the statement and against the same question about another person, and the short answers against each other; the answer is what was heard."
+      }
+    }
+  ],
+  "pool": [
+    {
+      "text": "Does your mother run in the park? Yes, she does.",
+      "es": "¿Tu mamá corre en el parque? Sí, corre.",
+      "image": "/lesson-assets/a1plus-unit-1-f03-683648d631e9c111.webp",
+      "kind": "heard-exchange"
+    },
+    {
+      "text": "Does your uncle live in Mexico? Yes, he does.",
+      "es": "¿Tu tío vive en México? Sí, vive allí.",
+      "image": "/lesson-assets/a1plus-unit-1-k02-8fc41067842757fb.webp",
+      "kind": "heard-exchange"
+    },
+    {
+      "text": "Where does your cousin live? He lives in Mexico.",
+      "es": "¿Dónde vive tu primo? Vive en México.",
+      "image": "/lesson-assets/a1plus-unit-1-k03-ed95a237e9e627a7.webp",
+      "kind": "heard-exchange"
+    },
+    {
+      "text": "Does your cousin live in Mexico? Yes, he does.",
+      "es": "¿Tu primo vive en México? Sí, vive allí.",
+      "image": "/lesson-assets/a1plus-unit-1-k03-ed95a237e9e627a7.webp",
+      "kind": "heard-exchange"
+    },
+    {
+      "text": "No, she doesn't.",
+      "es": "No, no lo toma.",
+      "image": "/lesson-assets/a1plus-unit-1-f02-edea3fd93197a36c.webp",
+      "kind": "heard",
+      "image_choices": false
+    },
+    {
+      "text": "Yes, he does.",
+      "es": "Sí, lo toma.",
+      "image": "/lesson-assets/a1plus-unit-1-f02-edea3fd93197a36c.webp",
+      "kind": "heard",
+      "image_choices": false
+    },
+    {
+      "text": "Who does your cousin live with?",
+      "es": "¿Con quién vive tu primo?",
+      "image": "/lesson-assets/a1plus-unit-1-k04-a3ea44bdfdd04521.webp",
+      "kind": "heard",
+      "image_choices": false
+    },
+    {
+      "text": "Where does your grandfather live?",
+      "es": "¿Dónde vive tu abuelo?",
+      "image": "/lesson-assets/a1plus-unit-1-k04-a3ea44bdfdd04521.webp",
+      "kind": "heard",
+      "image_choices": false
+    },
+    {
+      "text": "Where does your aunt live?",
+      "es": "¿Dónde vive tu tía?",
+      "image": "/lesson-assets/a1plus-unit-1-k02-8fc41067842757fb.webp",
+      "kind": "heard",
+      "image_choices": false
+    },
+    {
+      "text": "Where does your cousin live?",
+      "es": "¿Dónde vive tu primo?",
+      "image": "/lesson-assets/a1plus-unit-1-k02-8fc41067842757fb.webp",
+      "kind": "heard",
+      "image_choices": false
+    },
+    {
+      "text": "No, she doesn't.",
+      "es": "No, no lo toma.",
+      "image": "/lesson-assets/a1plus-unit-1-f01-a668117345db103e.webp",
+      "kind": "short",
+      "image_choices": false
+    },
+    {
+      "text": "Yes, he does.",
+      "es": "Sí, lo toma.",
+      "image": "/lesson-assets/a1plus-unit-1-f02-edea3fd93197a36c.webp",
+      "kind": "short",
+      "image_choices": false
+    },
+    {
+      "text": "No, he doesn't.",
+      "es": "No, no corre.",
+      "image": "/lesson-assets/a1plus-unit-1-f04-63202dc029845919.webp",
+      "kind": "short",
+      "image_choices": false
+    },
+    {
+      "text": "She lives in Mexico.",
+      "es": "Vive en México.",
+      "image": "/lesson-assets/a1plus-unit-1-k01-74c66f74ce4ad390.webp",
+      "kind": "where",
+      "image_choices": false
+    },
+    {
+      "text": "She lives in the United States.",
+      "es": "Vive en Estados Unidos.",
+      "image": "/lesson-assets/a1plus-unit-1-k01-74c66f74ce4ad390.webp",
+      "kind": "where",
+      "image_choices": false
+    },
+    {
+      "text": "He lives in Canada.",
+      "es": "Vive en Canadá.",
+      "image": "/lesson-assets/a1plus-unit-1-k02-8fc41067842757fb.webp",
+      "kind": "where",
+      "image_choices": false
+    },
+    {
+      "text": "He lives in the United States.",
+      "es": "Vive en Estados Unidos.",
+      "image": "/lesson-assets/a1plus-unit-1-k02-8fc41067842757fb.webp",
+      "kind": "where",
+      "image_choices": false
+    },
+    {
+      "text": "He lives with my aunt.",
+      "es": "Vive con mi tía.",
+      "image": "/lesson-assets/a1plus-unit-1-k04-a3ea44bdfdd04521.webp",
+      "kind": "where",
+      "image_choices": false
+    },
+    {
+      "text": "He lives with my parents.",
+      "es": "Vive con mis padres.",
+      "image": "/lesson-assets/a1plus-unit-1-k04-a3ea44bdfdd04521.webp",
+      "kind": "where",
+      "image_choices": false
+    },
+    {
+      "text": "He lives with my mother.",
+      "es": "Vive con mi mamá.",
+      "image": "/lesson-assets/a1plus-unit-1-k04-a3ea44bdfdd04521.webp",
+      "kind": "where",
+      "image_choices": false
+    }
+  ],
+  "layout": {
+    "Recognize": 12,
+    "Listen": 10,
+    "Speak": 8,
+    "Use": 8
+  },
+  "stage_sequences": {
+    "Learn": [
+      "l-does-yes",
+      "l-does-no",
+      "l-where",
+      "l-who"
+    ],
+    "Recognize": [
+      "a-ana",
+      "y-grandmother",
+      "w-aunt",
+      "n-grandfather",
+      "o-cousin",
+      "w-aunt",
+      "w-uncle",
+      "o-cousin",
+      "a-ana",
+      "y-father",
+      "w-uncle",
+      "o-grandfather"
+    ],
+    "Listen": [
+      "e-grandmother",
+      "e-grandfather",
+      "x-short",
+      "e-aunt-where",
+      "e-cousin",
+      "x-where",
+      "e-aunt-no",
+      "e-father",
+      "x-who",
+      "e-uncle-where"
+    ],
+    "Speak": [
+      "q-grandmother",
+      "y-grandmother",
+      "n-grandfather",
+      "q-aunt",
+      "w-aunt",
+      "q-cousin",
+      "o-cousin",
+      "q-uncle-mx"
+    ],
+    "Use": [
+      "q-grandmother",
+      "y-grandmother",
+      "n-grandfather",
+      "q-aunt",
+      "q-uncle-mx",
+      "q-cousin",
+      "q-father",
+      "a-ana"
+    ]
+  }
+}
