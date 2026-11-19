@@ -87,6 +87,12 @@ const MEANINGS: Record<string, string> = {
   // A1 4.15 (2026-11-15): more at home.
   apartment: 'apartamento', garden: 'jardín', floor: 'piso', wall: 'pared', stairs: 'escaleras', roof: 'techo',
   toilet: 'inodoro', key: 'llave',
+  // A1+ 2.1 (2026-11-19): places people go.
+  gym: 'gimnasio', pool: 'piscina', office: 'oficina',
+  // A1+ 2.3 (2026-11-19): things people have.
+  watch: 'reloj', wallet: 'cartera', headphones: 'audífonos', camera: 'cámara',
+  // A1+ 2.4 (2026-11-19): the short forms of be, so "what's" is never read as a possessive.
+  "what's": 'qué es', "it's": 'es', "isn't": 'no es',
   // A1 5.11 (2026-11-14): buying things.
   money: 'dinero', buy: 'comprar', pay: 'pagar', price: 'precio', cheap: 'barato o barata', expensive: 'caro o cara',
   // A1 5.12 (2026-11-15): the tens from thirty to one hundred.
@@ -728,10 +734,17 @@ function imageChoiceContrast(card: LessonCard, correctId: string, wrongId: strin
   }
   const expected = correct.split(' ');
   const selected = wrong.split(' ');
-  const difference = expected.find((word, index) => word !== selected[index] && meaning(word) && meaning(selected[index] || ''));
+  // "watch" is a thing (a watch, A1+ 2.3) but in "watch tv" it is the verb, which the word "tv" explains;
+  // "office" (A1+ 2.1) stays part of A1's "post office", which is explained whole below.
+  const known = (words: string[], word: string) => {
+    if (word === 'watch' && words.includes('tv')) return '';
+    if (word === 'office' && words[words.indexOf(word) - 1] === 'post') return '';
+    return meaning(word);
+  };
+  const difference = expected.find((word, index) => word !== selected[index] && known(expected, word) && known(selected, selected[index] || ''));
   const wrongDifference = selected[expected.indexOf(difference || '')];
-  const extraExpected = expected.find(word => !selected.includes(word) && meaning(word));
-  const extraWrong = selected.find(word => !expected.includes(word) && meaning(word));
+  const extraExpected = expected.find(word => !selected.includes(word) && known(expected, word));
+  const extraWrong = selected.find(word => !expected.includes(word) && known(selected, word));
   const evidenceWord = difference && wrongDifference ? difference : extraExpected;
   const mistakenWord = difference && wrongDifference ? wrongDifference : extraWrong;
   if (evidenceWord && mistakenWord && meaning(mistakenWord)) {

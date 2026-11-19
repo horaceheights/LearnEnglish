@@ -1,0 +1,847 @@
+{
+  "brief_version": 1,
+  "follows": {
+    "course": "a1",
+    "lesson": "2.5",
+    "title": "This and That"
+  },
+  "note": "A1+ Unit 2 Lesson 2.5, built on 2026-11-19 under the A1+ lesson standards approved 2026-10-27 and the user's 2026-11-09 rule that every A1+ lesson follows up the A1 lesson with the same number. The user approved the A1+ Unit 2 plan on 2026-11-19 (A1+ 2.Y follows A1 2.Y, one grammar step each) and chose \"Straight to Preview\": no per-lesson gates, Gemini 2.5 Flash photos and ElevenLabs audio pre-approved, reviewed in Preview. Each photo shows a cast member holding or touching one thing near the camera and a thing of the same kind in another color across the room: Ana's red and blue bags (and the same photo with the bags swapped), Luis's white and black cups (also swapped) and Diego's green and black chairs. Only the person in the photo says this and that, because this and that belong to the speaker. Picture banks set a scene against its swapped twin, so the learner tells this from that, not the color alone. The cup photos keep their far cup small and at the crop edge, so they never go into a four-picture card. Use builds the two halves (This one is red. / That one is blue.) and, because the whole but sentence is 9 words and Use takes at most 8, the short form with 2.4's isn't (This one is red, but that one isn't.).",
+  "target": "backend/lessons/a1_plus/unit_2/a1plus-unit-2-lesson-2-5.yaml",
+  "captions": false,
+  "narrators": [
+    "teacher",
+    "co-teacher"
+  ],
+  "answer_audio_policy": "authored-only",
+  "speak_delivery": "a1-pronunciation-v1",
+  "lesson": {
+    "id": "a1plus-unit-2-lesson-2-5",
+    "title": "2.5 This one, but that one",
+    "level": "A1+",
+    "unit_id": "a1plus-unit-2",
+    "unit_title": "Places, things and how we describe them",
+    "unit_outcome": "Say where people go and how they get there, talk about the things people have, point things out and compare them, put things in order, and ask about favorites.",
+    "lesson_id": "a1plus-unit-2-lesson-2-5",
+    "lesson_title": "This one, but that one",
+    "sub_lesson_id": "2.5",
+    "sub_lesson_title": "This one, but that one",
+    "goal": "Contrast a near thing and a far one with but (This bag is red, but that bag is blue.) and say this one and that one instead of repeating the thing (This one is red, but that one is blue.).",
+    "vocabulary": [
+      "but",
+      "this one",
+      "that one"
+    ],
+    "review_vocabulary": [
+      "this",
+      "that",
+      "one",
+      "is",
+      "isn't",
+      "bag",
+      "cup",
+      "chair",
+      "red",
+      "blue",
+      "white",
+      "black",
+      "green",
+      "do",
+      "you",
+      "have",
+      "a",
+      "yes",
+      "I"
+    ],
+    "grammar_function": "A follow-up of A1 2.5 This and That: A1 says This is a phone. for a near thing and That is a phone. for a far one; A1+ 2.5 sets the two against each other in one sentence. The one new grammar relationship is but joining two taught clauses (This bag is red, but that bag is blue.), with this one and that one standing for the thing (A1 2.10's Which one? The red one.): This one is red, but that one is blue. Two scenes are photographed twice with the near and far things swapped, so a Listen picture card tells this from that by ear.",
+    "prerequisite": "A1 2.5 this and that; A1 2.8 colors; A1 2.10 Which one? The red one.; A1 3.12 This car is mine. (this + noun); A1 2.3 bag, chair; A1 5.14 cup; A1+ 1.5 Do you have…?",
+    "speaking_outcome": "Say but short and weak (/bət/) with a small pause before it; stress the two colors (This one is RED, but that one is BLUE). Say this with a short i and that with an open a. Do not require native-like speed.",
+    "content_revision": 1,
+    "learn_context_groups": [
+      {
+        "kind": "sequence",
+        "targets": [
+          "this one"
+        ],
+        "models": [
+          {
+            "slide_id": "L1",
+            "text": "This one is red."
+          }
+        ]
+      },
+      {
+        "kind": "sequence",
+        "targets": [
+          "that one"
+        ],
+        "models": [
+          {
+            "slide_id": "L2",
+            "text": "That one is blue."
+          }
+        ]
+      },
+      {
+        "kind": "sequence",
+        "targets": [
+          "but"
+        ],
+        "models": [
+          {
+            "slide_id": "L3",
+            "text": "This bag is red, but that bag is blue."
+          }
+        ]
+      },
+      {
+        "kind": "sequence",
+        "targets": [
+          "but"
+        ],
+        "models": [
+          {
+            "slide_id": "L4",
+            "text": "This one is green, but that one is black."
+          }
+        ]
+      }
+    ]
+  },
+  "items": [
+    {
+      "id": "b-d01",
+      "text": "This bag is red, but that bag is blue.",
+      "es": "Esta bolsa es roja, pero esa bolsa es azul.",
+      "image": "/lesson-assets/a1plus-unit-2-d01-584df2c1836766c8.webp",
+      "kind": "but",
+      "learn": false,
+      "speaker": "ana",
+      "accepts": {
+        "subject-variety": "The lesson's frame is this … but that …: a bank keeps the sentence and swaps which thing is near (this) and which is far (that), or changes only the thing the picture shows.",
+        "action-variety": "The lesson's frame is this … but that …: a bank keeps the sentence and swaps which thing is near (this) and which is far (that), or changes only the thing the picture shows."
+      },
+      "use": false,
+      "prefer": [
+        "This bag is blue, but that bag is red."
+      ]
+    },
+    {
+      "id": "u-d01",
+      "text": "This one is red, but that one isn't.",
+      "es": "Esta es roja, pero esa no.",
+      "image": "/lesson-assets/a1plus-unit-2-d01-584df2c1836766c8.webp",
+      "kind": "butshort",
+      "learn": false,
+      "choices": false,
+      "speaker": "ana",
+      "blanks": [
+        "but",
+        "that"
+      ]
+    },
+    {
+      "id": "o-d01",
+      "text": "This one is red, but that one is blue.",
+      "es": "Esta es roja, pero esa es azul.",
+      "image": "/lesson-assets/a1plus-unit-2-d01-584df2c1836766c8.webp",
+      "kind": "ones",
+      "learn": false,
+      "speaker": "ana",
+      "accepts": {
+        "subject-variety": "The lesson's frame is this … but that …: a bank keeps the sentence and swaps which thing is near (this) and which is far (that), or changes only the thing the picture shows.",
+        "action-variety": "The lesson's frame is this … but that …: a bank keeps the sentence and swaps which thing is near (this) and which is far (that), or changes only the thing the picture shows."
+      },
+      "use": false,
+      "prefer": [
+        "This one is blue, but that one is red."
+      ]
+    },
+    {
+      "id": "t-d01",
+      "text": "This one is red.",
+      "es": "Esta es roja.",
+      "image": "/lesson-assets/a1plus-unit-2-d01-584df2c1836766c8.webp",
+      "kind": "this",
+      "learn": false,
+      "speaker": "ana",
+      "accepts": {
+        "subject-variety": "The lesson's frame is this … but that …: a bank keeps the sentence and swaps which thing is near (this) and which is far (that), or changes only the thing the picture shows.",
+        "action-variety": "The lesson's frame is this … but that …: a bank keeps the sentence and swaps which thing is near (this) and which is far (that), or changes only the thing the picture shows."
+      },
+      "image_choices": false,
+      "prefer": [
+        "That one is red."
+      ]
+    },
+    {
+      "id": "f-d01",
+      "text": "That one is blue.",
+      "es": "Esa es azul.",
+      "image": "/lesson-assets/a1plus-unit-2-d01-584df2c1836766c8.webp",
+      "kind": "that",
+      "learn": false,
+      "speaker": "ana",
+      "accepts": {
+        "subject-variety": "The lesson's frame is this … but that …: a bank keeps the sentence and swaps which thing is near (this) and which is far (that), or changes only the thing the picture shows.",
+        "action-variety": "The lesson's frame is this … but that …: a bank keeps the sentence and swaps which thing is near (this) and which is far (that), or changes only the thing the picture shows."
+      },
+      "image_choices": false,
+      "prefer": [
+        "This one is blue."
+      ]
+    },
+    {
+      "id": "b-d02",
+      "text": "This bag is blue, but that bag is red.",
+      "es": "Esta bolsa es azul, pero esa bolsa es roja.",
+      "image": "/lesson-assets/a1plus-unit-2-d02-6a80a225a4973133.webp",
+      "kind": "but",
+      "learn": false,
+      "speaker": "ana",
+      "accepts": {
+        "subject-variety": "The lesson's frame is this … but that …: a bank keeps the sentence and swaps which thing is near (this) and which is far (that), or changes only the thing the picture shows.",
+        "action-variety": "The lesson's frame is this … but that …: a bank keeps the sentence and swaps which thing is near (this) and which is far (that), or changes only the thing the picture shows."
+      },
+      "use": false,
+      "prefer": [
+        "This bag is red, but that bag is blue."
+      ]
+    },
+    {
+      "id": "u-d02",
+      "text": "This one is blue, but that one isn't.",
+      "es": "Esta es azul, pero esa no.",
+      "image": "/lesson-assets/a1plus-unit-2-d02-6a80a225a4973133.webp",
+      "kind": "butshort",
+      "learn": false,
+      "choices": false,
+      "speaker": "ana",
+      "blanks": [
+        "but",
+        "that"
+      ]
+    },
+    {
+      "id": "o-d02",
+      "text": "This one is blue, but that one is red.",
+      "es": "Esta es azul, pero esa es roja.",
+      "image": "/lesson-assets/a1plus-unit-2-d02-6a80a225a4973133.webp",
+      "kind": "ones",
+      "learn": false,
+      "speaker": "ana",
+      "accepts": {
+        "subject-variety": "The lesson's frame is this … but that …: a bank keeps the sentence and swaps which thing is near (this) and which is far (that), or changes only the thing the picture shows.",
+        "action-variety": "The lesson's frame is this … but that …: a bank keeps the sentence and swaps which thing is near (this) and which is far (that), or changes only the thing the picture shows."
+      },
+      "use": false,
+      "prefer": [
+        "This one is red, but that one is blue."
+      ]
+    },
+    {
+      "id": "t-d02",
+      "text": "This one is blue.",
+      "es": "Esta es azul.",
+      "image": "/lesson-assets/a1plus-unit-2-d02-6a80a225a4973133.webp",
+      "kind": "this",
+      "learn": false,
+      "speaker": "ana",
+      "accepts": {
+        "subject-variety": "The lesson's frame is this … but that …: a bank keeps the sentence and swaps which thing is near (this) and which is far (that), or changes only the thing the picture shows.",
+        "action-variety": "The lesson's frame is this … but that …: a bank keeps the sentence and swaps which thing is near (this) and which is far (that), or changes only the thing the picture shows."
+      },
+      "image_choices": false,
+      "prefer": [
+        "That one is blue."
+      ]
+    },
+    {
+      "id": "f-d02",
+      "text": "That one is red.",
+      "es": "Esa es roja.",
+      "image": "/lesson-assets/a1plus-unit-2-d02-6a80a225a4973133.webp",
+      "kind": "that",
+      "learn": false,
+      "speaker": "ana",
+      "accepts": {
+        "subject-variety": "The lesson's frame is this … but that …: a bank keeps the sentence and swaps which thing is near (this) and which is far (that), or changes only the thing the picture shows.",
+        "action-variety": "The lesson's frame is this … but that …: a bank keeps the sentence and swaps which thing is near (this) and which is far (that), or changes only the thing the picture shows."
+      },
+      "image_choices": false,
+      "prefer": [
+        "This one is red."
+      ]
+    },
+    {
+      "id": "b-d03",
+      "text": "This cup is white, but that cup is black.",
+      "es": "Esta taza es blanca, pero esa taza es negra.",
+      "image": "/lesson-assets/a1plus-unit-2-d03-aadea3d72d6180dc.webp",
+      "kind": "but",
+      "learn": false,
+      "speaker": "luis",
+      "accepts": {
+        "subject-variety": "The lesson's frame is this … but that …: a bank keeps the sentence and swaps which thing is near (this) and which is far (that), or changes only the thing the picture shows.",
+        "action-variety": "The lesson's frame is this … but that …: a bank keeps the sentence and swaps which thing is near (this) and which is far (that), or changes only the thing the picture shows."
+      },
+      "use": false,
+      "prefer": [
+        "This cup is black, but that cup is white."
+      ],
+      "four_card": false
+    },
+    {
+      "id": "u-d03",
+      "text": "This one is white, but that one isn't.",
+      "es": "Esta es blanca, pero esa no.",
+      "image": "/lesson-assets/a1plus-unit-2-d03-aadea3d72d6180dc.webp",
+      "kind": "butshort",
+      "learn": false,
+      "choices": false,
+      "speaker": "luis",
+      "blanks": [
+        "but",
+        "that"
+      ]
+    },
+    {
+      "id": "o-d03",
+      "text": "This one is white, but that one is black.",
+      "es": "Esta es blanca, pero esa es negra.",
+      "image": "/lesson-assets/a1plus-unit-2-d03-aadea3d72d6180dc.webp",
+      "kind": "ones",
+      "learn": false,
+      "speaker": "luis",
+      "accepts": {
+        "subject-variety": "The lesson's frame is this … but that …: a bank keeps the sentence and swaps which thing is near (this) and which is far (that), or changes only the thing the picture shows.",
+        "action-variety": "The lesson's frame is this … but that …: a bank keeps the sentence and swaps which thing is near (this) and which is far (that), or changes only the thing the picture shows."
+      },
+      "use": false,
+      "prefer": [
+        "This one is black, but that one is white."
+      ],
+      "four_card": false
+    },
+    {
+      "id": "t-d03",
+      "text": "This one is white.",
+      "es": "Esta es blanca.",
+      "image": "/lesson-assets/a1plus-unit-2-d03-aadea3d72d6180dc.webp",
+      "kind": "this",
+      "learn": false,
+      "speaker": "luis",
+      "accepts": {
+        "subject-variety": "The lesson's frame is this … but that …: a bank keeps the sentence and swaps which thing is near (this) and which is far (that), or changes only the thing the picture shows.",
+        "action-variety": "The lesson's frame is this … but that …: a bank keeps the sentence and swaps which thing is near (this) and which is far (that), or changes only the thing the picture shows."
+      },
+      "image_choices": false,
+      "prefer": [
+        "That one is white."
+      ]
+    },
+    {
+      "id": "f-d03",
+      "text": "That one is black.",
+      "es": "Esa es negra.",
+      "image": "/lesson-assets/a1plus-unit-2-d03-aadea3d72d6180dc.webp",
+      "kind": "that",
+      "learn": false,
+      "speaker": "luis",
+      "accepts": {
+        "subject-variety": "The lesson's frame is this … but that …: a bank keeps the sentence and swaps which thing is near (this) and which is far (that), or changes only the thing the picture shows.",
+        "action-variety": "The lesson's frame is this … but that …: a bank keeps the sentence and swaps which thing is near (this) and which is far (that), or changes only the thing the picture shows."
+      },
+      "image_choices": false,
+      "prefer": [
+        "This one is black."
+      ]
+    },
+    {
+      "id": "b-d04",
+      "text": "This cup is black, but that cup is white.",
+      "es": "Esta taza es negra, pero esa taza es blanca.",
+      "image": "/lesson-assets/a1plus-unit-2-d04-378c6c626c4e2352.webp",
+      "kind": "but",
+      "learn": false,
+      "speaker": "luis",
+      "accepts": {
+        "subject-variety": "The lesson's frame is this … but that …: a bank keeps the sentence and swaps which thing is near (this) and which is far (that), or changes only the thing the picture shows.",
+        "action-variety": "The lesson's frame is this … but that …: a bank keeps the sentence and swaps which thing is near (this) and which is far (that), or changes only the thing the picture shows."
+      },
+      "use": false,
+      "prefer": [
+        "This cup is white, but that cup is black."
+      ],
+      "four_card": false
+    },
+    {
+      "id": "u-d04",
+      "text": "This one is black, but that one isn't.",
+      "es": "Esta es negra, pero esa no.",
+      "image": "/lesson-assets/a1plus-unit-2-d04-378c6c626c4e2352.webp",
+      "kind": "butshort",
+      "learn": false,
+      "choices": false,
+      "speaker": "luis",
+      "blanks": [
+        "but",
+        "that"
+      ]
+    },
+    {
+      "id": "o-d04",
+      "text": "This one is black, but that one is white.",
+      "es": "Esta es negra, pero esa es blanca.",
+      "image": "/lesson-assets/a1plus-unit-2-d04-378c6c626c4e2352.webp",
+      "kind": "ones",
+      "learn": false,
+      "speaker": "luis",
+      "accepts": {
+        "subject-variety": "The lesson's frame is this … but that …: a bank keeps the sentence and swaps which thing is near (this) and which is far (that), or changes only the thing the picture shows.",
+        "action-variety": "The lesson's frame is this … but that …: a bank keeps the sentence and swaps which thing is near (this) and which is far (that), or changes only the thing the picture shows."
+      },
+      "use": false,
+      "prefer": [
+        "This one is white, but that one is black."
+      ],
+      "four_card": false
+    },
+    {
+      "id": "t-d04",
+      "text": "This one is black.",
+      "es": "Esta es negra.",
+      "image": "/lesson-assets/a1plus-unit-2-d04-378c6c626c4e2352.webp",
+      "kind": "this",
+      "learn": false,
+      "speaker": "luis",
+      "accepts": {
+        "subject-variety": "The lesson's frame is this … but that …: a bank keeps the sentence and swaps which thing is near (this) and which is far (that), or changes only the thing the picture shows.",
+        "action-variety": "The lesson's frame is this … but that …: a bank keeps the sentence and swaps which thing is near (this) and which is far (that), or changes only the thing the picture shows."
+      },
+      "image_choices": false,
+      "prefer": [
+        "That one is black."
+      ]
+    },
+    {
+      "id": "f-d04",
+      "text": "That one is white.",
+      "es": "Esa es blanca.",
+      "image": "/lesson-assets/a1plus-unit-2-d04-378c6c626c4e2352.webp",
+      "kind": "that",
+      "learn": false,
+      "speaker": "luis",
+      "accepts": {
+        "subject-variety": "The lesson's frame is this … but that …: a bank keeps the sentence and swaps which thing is near (this) and which is far (that), or changes only the thing the picture shows.",
+        "action-variety": "The lesson's frame is this … but that …: a bank keeps the sentence and swaps which thing is near (this) and which is far (that), or changes only the thing the picture shows."
+      },
+      "image_choices": false,
+      "prefer": [
+        "This one is white."
+      ]
+    },
+    {
+      "id": "b-d05",
+      "text": "This chair is green, but that chair is black.",
+      "es": "Esta silla es verde, pero esa silla es negra.",
+      "image": "/lesson-assets/a1plus-unit-2-d05-8d280e6dba238388.webp",
+      "kind": "but",
+      "learn": false,
+      "speaker": "diego",
+      "accepts": {
+        "subject-variety": "The lesson's frame is this … but that …: a bank keeps the sentence and swaps which thing is near (this) and which is far (that), or changes only the thing the picture shows.",
+        "action-variety": "The lesson's frame is this … but that …: a bank keeps the sentence and swaps which thing is near (this) and which is far (that), or changes only the thing the picture shows."
+      },
+      "use": false,
+      "prefer": [
+        "This chair is black, but that chair is green."
+      ]
+    },
+    {
+      "id": "u-d05",
+      "text": "This one is green, but that one isn't.",
+      "es": "Esta es verde, pero esa no.",
+      "image": "/lesson-assets/a1plus-unit-2-d05-8d280e6dba238388.webp",
+      "kind": "butshort",
+      "learn": false,
+      "choices": false,
+      "speaker": "diego",
+      "blanks": [
+        "but",
+        "that"
+      ]
+    },
+    {
+      "id": "o-d05",
+      "text": "This one is green, but that one is black.",
+      "es": "Esta es verde, pero esa es negra.",
+      "image": "/lesson-assets/a1plus-unit-2-d05-8d280e6dba238388.webp",
+      "kind": "ones",
+      "learn": false,
+      "speaker": "diego",
+      "accepts": {
+        "subject-variety": "The lesson's frame is this … but that …: a bank keeps the sentence and swaps which thing is near (this) and which is far (that), or changes only the thing the picture shows.",
+        "action-variety": "The lesson's frame is this … but that …: a bank keeps the sentence and swaps which thing is near (this) and which is far (that), or changes only the thing the picture shows."
+      },
+      "use": false,
+      "prefer": [
+        "This one is black, but that one is green."
+      ]
+    },
+    {
+      "id": "t-d05",
+      "text": "This one is green.",
+      "es": "Esta es verde.",
+      "image": "/lesson-assets/a1plus-unit-2-d05-8d280e6dba238388.webp",
+      "kind": "this",
+      "learn": false,
+      "speaker": "diego",
+      "accepts": {
+        "subject-variety": "The lesson's frame is this … but that …: a bank keeps the sentence and swaps which thing is near (this) and which is far (that), or changes only the thing the picture shows.",
+        "action-variety": "The lesson's frame is this … but that …: a bank keeps the sentence and swaps which thing is near (this) and which is far (that), or changes only the thing the picture shows."
+      },
+      "image_choices": false,
+      "prefer": [
+        "That one is green."
+      ]
+    },
+    {
+      "id": "f-d05",
+      "text": "That one is black.",
+      "es": "Esa es negra.",
+      "image": "/lesson-assets/a1plus-unit-2-d05-8d280e6dba238388.webp",
+      "kind": "that",
+      "learn": false,
+      "speaker": "diego",
+      "accepts": {
+        "subject-variety": "The lesson's frame is this … but that …: a bank keeps the sentence and swaps which thing is near (this) and which is far (that), or changes only the thing the picture shows.",
+        "action-variety": "The lesson's frame is this … but that …: a bank keeps the sentence and swaps which thing is near (this) and which is far (that), or changes only the thing the picture shows."
+      },
+      "image_choices": false,
+      "prefer": [
+        "This one is black."
+      ]
+    },
+    {
+      "id": "y-d01",
+      "text": "Yes, I do. This one is red.",
+      "es": "Sí. Esta es roja.",
+      "image": "/lesson-assets/a1plus-unit-2-d01-584df2c1836766c8.webp",
+      "kind": "reply",
+      "learn": false,
+      "use": false,
+      "image_choices": false,
+      "speaker": "ana",
+      "question": "Do you have a red bag?",
+      "question_es": "¿Tienes una bolsa roja?",
+      "question_speaker": "luis",
+      "accepts": {
+        "subject-variety": "Listen sets this one against that one, or the two colors, about the same picture; the answer is what was heard.",
+        "action-variety": "Listen sets this one against that one, or the two colors, about the same picture; the answer is what was heard.",
+        "conversational-response": "Listen sets this one against that one, or the two colors, about the same picture; the answer is what was heard."
+      },
+      "prefer": [
+        "Yes, I do. That one is red."
+      ]
+    },
+    {
+      "id": "q-d01",
+      "text": "Do you have a red bag?",
+      "es": "¿Tienes una bolsa roja?",
+      "image": "/lesson-assets/a1plus-unit-2-d01-584df2c1836766c8.webp",
+      "kind": "question",
+      "learn": false,
+      "choices": false,
+      "speaker": "luis",
+      "blanks": [
+        "Do",
+        "you"
+      ]
+    },
+    {
+      "id": "y-d05",
+      "text": "Yes, I do. This one is green.",
+      "es": "Sí. Esta es verde.",
+      "image": "/lesson-assets/a1plus-unit-2-d05-8d280e6dba238388.webp",
+      "kind": "reply",
+      "learn": false,
+      "use": false,
+      "image_choices": false,
+      "speaker": "diego",
+      "question": "Do you have a green chair?",
+      "question_es": "¿Tienes una silla verde?",
+      "question_speaker": "sofia",
+      "accepts": {
+        "subject-variety": "Listen sets this one against that one, or the two colors, about the same picture; the answer is what was heard.",
+        "action-variety": "Listen sets this one against that one, or the two colors, about the same picture; the answer is what was heard.",
+        "conversational-response": "Listen sets this one against that one, or the two colors, about the same picture; the answer is what was heard."
+      },
+      "prefer": [
+        "Yes, I do. That one is green."
+      ]
+    },
+    {
+      "id": "q-d05",
+      "text": "Do you have a green chair?",
+      "es": "¿Tienes una silla verde?",
+      "image": "/lesson-assets/a1plus-unit-2-d05-8d280e6dba238388.webp",
+      "kind": "question",
+      "learn": false,
+      "choices": false,
+      "speaker": "sofia",
+      "blanks": [
+        "Do",
+        "you"
+      ]
+    },
+    {
+      "id": "l-this-one",
+      "text": "This one is red.",
+      "es": "Esta es roja.",
+      "image": "/lesson-assets/a1plus-unit-2-d01-584df2c1836766c8.webp",
+      "kind": "model",
+      "choices": false,
+      "use": false,
+      "speaker": "ana"
+    },
+    {
+      "id": "l-that-one",
+      "text": "That one is blue.",
+      "es": "Esa es azul.",
+      "image": "/lesson-assets/a1plus-unit-2-d01-584df2c1836766c8.webp",
+      "kind": "model",
+      "choices": false,
+      "use": false,
+      "speaker": "ana"
+    },
+    {
+      "id": "l-but",
+      "text": "This bag is red, but that bag is blue.",
+      "es": "Esta bolsa es roja, pero esa bolsa es azul.",
+      "image": "/lesson-assets/a1plus-unit-2-d01-584df2c1836766c8.webp",
+      "kind": "model",
+      "choices": false,
+      "use": false,
+      "speaker": "ana"
+    },
+    {
+      "id": "l-but-ones",
+      "text": "This one is green, but that one is black.",
+      "es": "Esta es verde, pero esa es negra.",
+      "image": "/lesson-assets/a1plus-unit-2-d05-8d280e6dba238388.webp",
+      "kind": "model",
+      "choices": false,
+      "use": false,
+      "speaker": "diego"
+    }
+  ],
+  "pool": [
+    {
+      "text": "That one is red.",
+      "es": "Esa es roja.",
+      "image": "/lesson-assets/a1plus-unit-2-d01-584df2c1836766c8.webp",
+      "kind": "this",
+      "image_choices": false
+    },
+    {
+      "text": "This one is blue.",
+      "es": "Esta es azul.",
+      "image": "/lesson-assets/a1plus-unit-2-d01-584df2c1836766c8.webp",
+      "kind": "that",
+      "image_choices": false
+    },
+    {
+      "text": "This bag is blue, but that bag is red.",
+      "es": "Esta bolsa es azul, pero esa bolsa es roja.",
+      "image": "/lesson-assets/a1plus-unit-2-d02-6a80a225a4973133.webp",
+      "kind": "but",
+      "image_choices": false
+    },
+    {
+      "text": "This one is blue, but that one is red.",
+      "image": "/lesson-assets/a1plus-unit-2-d02-6a80a225a4973133.webp",
+      "es": "Esta es azul, pero esa es roja.",
+      "kind": "ones",
+      "image_choices": false
+    },
+    {
+      "text": "That one is blue.",
+      "es": "Esa es azul.",
+      "image": "/lesson-assets/a1plus-unit-2-d02-6a80a225a4973133.webp",
+      "kind": "this",
+      "image_choices": false
+    },
+    {
+      "text": "This one is red.",
+      "es": "Esta es roja.",
+      "image": "/lesson-assets/a1plus-unit-2-d02-6a80a225a4973133.webp",
+      "kind": "that",
+      "image_choices": false
+    },
+    {
+      "text": "This bag is red, but that bag is blue.",
+      "es": "Esta bolsa es roja, pero esa bolsa es azul.",
+      "image": "/lesson-assets/a1plus-unit-2-d01-584df2c1836766c8.webp",
+      "kind": "but",
+      "image_choices": false
+    },
+    {
+      "text": "This one is red, but that one is blue.",
+      "image": "/lesson-assets/a1plus-unit-2-d01-584df2c1836766c8.webp",
+      "es": "Esta es roja, pero esa es azul.",
+      "kind": "ones",
+      "image_choices": false
+    },
+    {
+      "text": "That one is white.",
+      "es": "Esa es blanca.",
+      "image": "/lesson-assets/a1plus-unit-2-d03-aadea3d72d6180dc.webp",
+      "kind": "this",
+      "image_choices": false,
+      "four_card": false
+    },
+    {
+      "text": "This one is black.",
+      "es": "Esta es negra.",
+      "image": "/lesson-assets/a1plus-unit-2-d03-aadea3d72d6180dc.webp",
+      "kind": "that",
+      "image_choices": false,
+      "four_card": false
+    },
+    {
+      "text": "This cup is black, but that cup is white.",
+      "es": "Esta taza es negra, pero esa taza es blanca.",
+      "image": "/lesson-assets/a1plus-unit-2-d04-378c6c626c4e2352.webp",
+      "kind": "but",
+      "image_choices": false,
+      "four_card": false
+    },
+    {
+      "text": "This one is black, but that one is white.",
+      "image": "/lesson-assets/a1plus-unit-2-d04-378c6c626c4e2352.webp",
+      "es": "Esta es negra, pero esa es blanca.",
+      "kind": "ones",
+      "image_choices": false,
+      "four_card": false
+    },
+    {
+      "text": "That one is black.",
+      "es": "Esa es negra.",
+      "image": "/lesson-assets/a1plus-unit-2-d04-378c6c626c4e2352.webp",
+      "kind": "this",
+      "image_choices": false,
+      "four_card": false
+    },
+    {
+      "text": "This one is white.",
+      "es": "Esta es blanca.",
+      "image": "/lesson-assets/a1plus-unit-2-d04-378c6c626c4e2352.webp",
+      "kind": "that",
+      "image_choices": false,
+      "four_card": false
+    },
+    {
+      "text": "This cup is white, but that cup is black.",
+      "es": "Esta taza es blanca, pero esa taza es negra.",
+      "image": "/lesson-assets/a1plus-unit-2-d03-aadea3d72d6180dc.webp",
+      "kind": "but",
+      "image_choices": false,
+      "four_card": false
+    },
+    {
+      "text": "This one is white, but that one is black.",
+      "image": "/lesson-assets/a1plus-unit-2-d03-aadea3d72d6180dc.webp",
+      "es": "Esta es blanca, pero esa es negra.",
+      "kind": "ones",
+      "image_choices": false,
+      "four_card": false
+    },
+    {
+      "text": "That one is green.",
+      "es": "Esa es verde.",
+      "image": "/lesson-assets/a1plus-unit-2-d05-8d280e6dba238388.webp",
+      "kind": "this",
+      "image_choices": false
+    },
+    {
+      "text": "This one is black.",
+      "es": "Esta es negra.",
+      "image": "/lesson-assets/a1plus-unit-2-d05-8d280e6dba238388.webp",
+      "kind": "that",
+      "image_choices": false
+    },
+    {
+      "text": "Yes, I do. That one is red.",
+      "es": "Sí. Esa es roja.",
+      "image": "/lesson-assets/a1plus-unit-2-d01-584df2c1836766c8.webp",
+      "kind": "reply",
+      "image_choices": false
+    },
+    {
+      "text": "Yes, I do. That one is green.",
+      "es": "Sí. Esa es verde.",
+      "image": "/lesson-assets/a1plus-unit-2-d05-8d280e6dba238388.webp",
+      "kind": "reply",
+      "image_choices": false
+    }
+  ],
+  "layout": {
+    "Recognize": 11,
+    "Listen": 10,
+    "Speak": 8,
+    "Use": 8
+  },
+  "stage_sequences": {
+    "Learn": [
+      "l-this-one",
+      "l-that-one",
+      "l-but",
+      "l-but-ones"
+    ],
+    "Recognize": [
+      "b-d01",
+      "t-d01",
+      "b-d04",
+      "f-d05",
+      "o-d02",
+      "t-d03",
+      "b-d05",
+      "f-d02",
+      "o-d01",
+      "t-d04",
+      "b-d02"
+    ],
+    "Listen": [
+      "b-d02",
+      "t-d02",
+      "o-d05",
+      "y-d01",
+      "b-d03",
+      "f-d01",
+      "o-d04",
+      "y-d05",
+      "b-d01",
+      "f-d03"
+    ],
+    "Speak": [
+      "t-d01",
+      "f-d01",
+      "b-d01",
+      "q-d01",
+      "o-d05",
+      "b-d03",
+      "t-d02",
+      "f-d04"
+    ],
+    "Use": [
+      "u-d01",
+      "u-d05",
+      "t-d01",
+      "f-d01",
+      "u-d03",
+      "t-d05",
+      "f-d03",
+      "f-d02"
+    ]
+  }
+}

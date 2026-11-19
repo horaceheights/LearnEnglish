@@ -140,6 +140,22 @@ export function relationalChoiceHint(card: LessonCard, correctOption: ChoiceOpti
     const said = (part: string, dont: boolean) => `${subject(part)} ${dont ? "don't" : "doesn't"}`.trim();
     return bounded(`La frase dice “${said(rightPart, rightDont)}”; tu opción dice “${said(wrongPart, wrongDont)}”. “Doesn’t” va con he, she o un nombre; “don’t”, con I, you, we o they.`);
   }
+  // A1+ 2.4 (2026-11-19): the short forms of be. “It’s” is “it is” and “isn’t” is “is not”;
+  // A1 writes the full forms, so these rules never meet an A1 option.
+  const isnt = /\b(?:isn't|aren't)\b/;
+  const rightIsnt = isnt.test(clean(rightPart)), wrongIsnt = isnt.test(clean(wrongPart));
+  const contracted = (part: string) => /\b(?:it's|isn't|what's)\b/.test(clean(part));
+  const asked = (part: string) => /^(?:is|are) (?:it|they)\b/i.test(part.trim()) && part.trim().endsWith('?');
+  if (asked(rightPart) !== asked(wrongPart) && contracted(asked(rightPart) ? wrongPart : rightPart)) {
+    return asked(wrongPart)
+      ? '“Is it…?” es una pregunta; lo que se dice aquí no pregunta: afirma con “it’s” o niega con “isn’t”.'
+      : 'Aquí se pregunta con “Is it…?”; tu opción no pregunta: afirma o niega.';
+  }
+  if (rightIsnt !== wrongIsnt && !rightNegative && !wrongNegative) {
+    return rightIsnt
+      ? '“Isn’t” es “is not”: niega. Tu opción lo afirma; aquí la frase dice que no es.'
+      : 'Tu opción niega con “isn’t” (is not); aquí la frase lo afirma con “it’s” (it is).';
+  }
   if (rightNegative && wrongNegative) {
     const rightTime = time(rightPart), wrongTime = time(wrongPart);
     if (rightTime && wrongTime && rightTime !== wrongTime) return `La negación descarta las ${NUMBER[rightTime]}; tu opción descarta las ${NUMBER[wrongTime]}. No confundas la hora negada con la hora real.`;

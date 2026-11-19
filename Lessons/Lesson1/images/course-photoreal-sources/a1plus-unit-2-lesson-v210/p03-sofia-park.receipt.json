@@ -1,0 +1,62 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "c0eb7abe-304a-4723-b8db-97b9191cc9ff",
+  "asset_id": "p03-sofia-park",
+  "pack_sha256": "30e3b44acd1270484b9d024d2fef702a999226b28ffc6909297ca44adce09223",
+  "started_at": "2026-11-19T15:46:00.843523+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, numbers, logos or brand marks anywhere, not on signs, screens, clothes, bags, machines or vehicles. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos.\n\nKeep the person and the thing that carries the meaning inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nOnly this one person is in the photo; there is nobody else, even far in the background.\n\nThe person's face is fully visible in three-quarter view, looking at what they are doing, not at the camera.\n\nIt is clearly daytime with soft natural light.\n\nImage 1 shows Sofia. Keep her face, long curly dark hair, warm brown skin and build exactly. Create a new photograph of her: she walks in a green city park on a sunny morning, in a bright blue T-shirt, black leggings and white sneakers, her curly hair up in a high bun, a small water bottle in one hand. She walks along a wide paved path toward the camera, between green lawns and big trees, with an empty wooden park bench beside the path. Sofia is large, near the camera and in sharp focus, clearly walking (one foot forward), and the park around her is obvious.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1plus-unit-1-q03-7d520a07846a47b8.webp",
+    "sha256": "7d520a07846a47b8e8389c3226f3b3639d7eed0d257318b08e4f9b77c5b2258b"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "txn_av2sEbSgqtsP7NPhiQY",
+  "usage": {
+    "promptTokenCount": 621,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1911,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 363
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038886",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 621,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 8.8,
+  "output": "output/imagegen/a1plus-unit-2-lesson-v210/p03-sofia-park.png",
+  "sha256": "3b7a06d24bff30f3c0f3263de9cbc07b4b8e29ffe542cf8edb1e9b3392860151",
+  "byte_count": 1980783,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}
