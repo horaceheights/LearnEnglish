@@ -8,7 +8,9 @@ const source = fs.readFileSync(path.join(__dirname, '../src/sentenceConstruction
 const compiled = ts.transpileModule(source, { compilerOptions: { module: ts.ModuleKind.CommonJS } }).outputText;
 const api = {};
 const teaching = {};
-vm.runInNewContext(ts.transpileModule(fs.readFileSync(path.join(__dirname, '../src/constructionTeaching.ts'), 'utf8'), { compilerOptions: { module: ts.ModuleKind.CommonJS } }).outputText, { exports: teaching });
+const german = {};
+vm.runInNewContext(ts.transpileModule(fs.readFileSync(path.join(__dirname, '../src/germanTeaching.ts'), 'utf8'), { compilerOptions: { module: ts.ModuleKind.CommonJS } }).outputText, { exports: german });
+vm.runInNewContext(ts.transpileModule(fs.readFileSync(path.join(__dirname, '../src/constructionTeaching.ts'), 'utf8'), { compilerOptions: { module: ts.ModuleKind.CommonJS } }).outputText, { exports: teaching, require: id => { assert.equal(id, './germanTeaching'); return german; } });
 vm.runInNewContext(compiled, { exports: api, require: id => { assert.equal(id, './constructionTeaching'); return teaching; } });
 const lesson = JSON.parse(fs.readFileSync(path.join(__dirname, '../src/generated/lesson-1-people-actions.json')));
 const pilots = lesson.cards.filter(api.isSentenceConstruction);

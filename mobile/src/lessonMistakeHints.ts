@@ -2,6 +2,7 @@ import type { LessonCard } from './types';
 import { spanishTranslationFor } from './sentenceTranslations';
 import { constructionMistakeHint, isOrderedCompletion } from './constructionTeaching';
 import { relationalChoiceHint } from './choiceTeaching';
+import { germanChoiceHint } from './germanTeaching';
 
 const SUBJECT_LABELS: Record<string, string> = {
   'a baby': '“A baby” (un bebé)',
@@ -821,6 +822,8 @@ export function lessonMistakeHint(card: LessonCard, selected?: string | string[]
   const ids = card.correct_option_ids?.length ? card.correct_option_ids : [card.correct_option_id];
   const selectedIds = Array.isArray(selected) ? selected : selected ? [selected] : [];
   if (isOrderedCompletion(card)) return constructionMistakeHint(card, selectedIds);
+  // German cards never fall through to the English/Spanish meaning rules below.
+  if (card.target_language === 'de') return germanChoiceHint(card, selectedIds[0]);
   const slot = Math.max(0, ids.findIndex((id, index) => selectedIds[index] !== id));
   const labels = ids.map((id) => card.options.find((option) => option.id === id)?.label || '');
   const correctOption = card.options.find((option) => option.id === ids[slot]);

@@ -95,7 +95,7 @@ function segmentAt(segments: StageSegment[], cardIndex: number): StageSegment | 
 }
 
 function normalizeWord(value: string) {
-  return value.trim().toLowerCase().replace(/[^a-z']+/g, '');
+  return value.trim().toLowerCase().replace(/[^a-zßà-öø-ÿ']+/g, '');
 }
 
 function uniqueInOrder(values: string[], limit: number) {
@@ -124,7 +124,7 @@ function vocabularyChips(lesson: Lesson, segment: StageSegment) {
     const sources = [card.prompt || '', card.audio_text || ''];
     card.options.forEach((option) => sources.push(option.label || ''));
     sources.forEach((source) => {
-      (source.toLowerCase().match(/[a-z']+/g) || []).forEach((word) => spoken.add(word));
+      (source.toLowerCase().match(/[a-zßà-öø-ÿ']+/g) || []).forEach((word) => spoken.add(word));
     });
   }
 

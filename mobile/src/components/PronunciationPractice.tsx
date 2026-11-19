@@ -20,6 +20,7 @@ import {
 import { useVideoPlayer, VideoView } from 'expo-video';
 
 import { getPronunciationStreamingToken, scorePronunciation } from '../api';
+import { speechLocaleForLevel } from '../courseSpeech';
 import {
   courseAudioAssetIdFromVoice,
   lessonVideoUrl,
@@ -990,6 +991,7 @@ export function PronunciationPractice({
         recorderFinalizeMs,
         level,
         exerciseType: exerciseTypeForPhrase(phrase),
+        locale: speechLocaleForLevel(level),
       });
       if (!isCurrentRun(runId)) return;
       const resultConfidence = nextResult.diagnostics?.recognitionConfidence;
@@ -1140,6 +1142,7 @@ export function PronunciationPractice({
         recorderFinalizeMs,
         level,
         exerciseType: exerciseTypeForPhrase(phrase),
+        locale: speechLocaleForLevel(level),
       });
       if (!isCurrentRun(runId)) return;
       const resultConfidence = nextResult.diagnostics?.recognitionConfidence;
@@ -1306,7 +1309,7 @@ export function PronunciationPractice({
         setPhase('listening');
         setMessage('Ahora tú…');
         await startNativeSpeech({
-          locale: streamingToken.locale,
+          locale: speechLocaleForLevel(level) ?? streamingToken.locale,
           referenceText: phrase,
           region: streamingToken.region,
           token: streamingToken.token,

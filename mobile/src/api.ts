@@ -252,7 +252,7 @@ export async function scorePronunciation(
   recordingUri: string,
   phrase: string,
   userId?: string,
-  clientOptions?: { recorderFinalizeMs?: number; level?: string; exerciseType?: string },
+  clientOptions?: { recorderFinalizeMs?: number; level?: string; exerciseType?: string; locale?: string },
 ): Promise<PronunciationResult> {
   return Sentry.startSpan(
     {
@@ -273,6 +273,8 @@ export async function scorePronunciation(
       if (userId) formData.append('user_id', userId);
       if (clientOptions?.level) formData.append('level', clientOptions.level);
       if (clientOptions?.exerciseType) formData.append('exercise_type', clientOptions.exerciseType);
+      // Only a non-English course sends a locale; English keeps the server default.
+      if (clientOptions?.locale) formData.append('locale', clientOptions.locale);
       const recordingName = recordingUri.toLocaleLowerCase().includes('.wav')
         ? 'pronunciation.wav'
         : 'pronunciation.m4a';

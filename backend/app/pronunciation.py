@@ -62,6 +62,7 @@ async def score_pronunciation(
     provider_override: str | None = None,
     level: str | None = None,
     exercise_type: str | None = None,
+    locale: str | None = None,
 ):
     provider = (provider_override or pronunciation_provider()).strip().lower()
     with sentry_sdk.start_span(op="pronunciation.score", name="Score pronunciation") as span:
@@ -74,5 +75,6 @@ async def score_pronunciation(
                 audio_file=audio_file,
                 level=level,
                 exercise_type=exercise_type,
+                locale=locale,
             )
         raise HTTPException(status_code=503, detail=f"Unsupported pronunciation provider: {provider}")
