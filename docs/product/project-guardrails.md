@@ -1,5 +1,18 @@
 # SpanGlish Project Guardrails
 
+## German pilot course — approved 2026-11-18
+
+The user chose a German course built on the same engine and photo library, shipped first as a Preview pilot of German Unit 1 lessons 1.1–1.3 for review. The lesson-by-lesson design basis is [`docs/planning/german-unit-1-mock.md`](../planning/german-unit-1-mock.md) (a feasibility mock, not approved curriculum beyond the pilot).
+
+- German is its own registered course, `de-a1` ("Deutsch A1 (beta)", level `Deutsch A1`), with its own unit and lesson identities. It never changes A1 or A1+ content, and its lessons follow German grammar order rather than translating English lessons one to one.
+- The learner is an English speaker: every card's help text (`spanish_translation`, option translations) is English. App menus, buttons and feedback frames stay Spanish until a separate decision changes the app shell.
+- A course taught in another language declares `speechLocale` in `backend/courses.json` (German: `de-DE`). Speak cards use it for on-device streaming and for the backend scoring fallback, which accepts only allow-listed locales; English courses declare none and keep the configured English default.
+- Word tokenizers for scoring, tiles and vocabulary chips accept lower-case Latin letters (umlauts, ß, accents), so `Mädchen` is one word. English content is ASCII and tokenizes exactly as before.
+- German lines are recorded by a native German narrator (speaker role `de-teacher`, voice Carola, chosen by the user from a two-voice audition), not the English cast: the user rejected the English teacher voice speaking German.
+- German cards carry `target_language: "de"`. Their mistake feedback is English and explains German order (article before noun, verb second, `und` between two people, one-or-two-people verb endings) through `mobile/src/germanTeaching.ts`; like the English construction teacher, words outside its supported patterns get no invented rule and block the course check.
+- German Learn cards never teach a pronoun as an isolated word (`Er`, `Sie`): the speech model read lone pronouns as English. Pronouns are introduced inside sentences (`Er ist ein Junge.`).
+- The pilot reuses existing course photos only. Their German review contexts start as `pending-human-review`; agent review is not human approval.
+
 ## A1+ lesson standards — approved 2026-10-27
 
 The user approved these standards after reviewing the installed A1+ Unit 1 against the 85 A1 lessons. A1+ keeps A1's lesson format; what grows is the language (connected sentences, third-person forms, connectors, frequency and questions). The measurable values are the `a1-plus` block of [`content-standards.json`](content-standards.json), checked by `scripts/audit_content_practice.py --course a1-plus`. Agent-written contracts never change these values without the user's approval.

@@ -3035,7 +3035,7 @@ export function LessonScreen({
         ? fillCompletionPrompt(currentCard.prompt, selectedLabels)
         : currentCard.prompt
     );
-    const selectedFocusWords = selectedLabels.flatMap((label) => label.toLowerCase().match(/[a-z']+/g) || []);
+    const selectedFocusWords = selectedLabels.flatMap((label) => label.toLowerCase().match(/[a-zßà-öø-ÿ']+/g) || []);
     const equivalenceFocusWords = grammarCompleted && (selectedLabels.length === 1 || selectedLabels.length === 2)
       ? completionEquivalenceFocusWords(currentCard.prompt, selectedLabels[0])
       : [];

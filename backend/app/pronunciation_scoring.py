@@ -155,7 +155,9 @@ def _mean(values: list[float]) -> float | None:
 
 
 def _speech_words(text: str | None) -> list[str]:
-    return re.findall(r"[a-z]+(?:'[a-z]+)?", (text or "").lower().replace("’", "'"))
+    # Lower-case Latin letters, so a German word such as mädchen stays one
+    # word; English text is plain ASCII and tokenizes exactly as before.
+    return re.findall(r"[a-zßà-öø-ÿ]+(?:'[a-zßà-öø-ÿ]+)?", (text or "").lower().replace("’", "'"))
 
 
 def _segment_gaps(words: list[dict[str, Any]]) -> list[int]:

@@ -28,13 +28,39 @@ test('additional registered courses explain every reachable construction swap', 
         const result = constructionMistakeHint(card, swap(card, a, b));
         if (plan.labels[a] === plan.labels[b]) assert.equal(result, '', context);
         else {
-          assert.ok(result.startsWith('Pusiste '), `${context}: missing specific correction`);
+          // German course cards teach English speakers, so their frame is English.
+          const frame = card.target_language === 'de' ? 'You put ' : 'Pusiste ';
+          assert.ok(result.startsWith(frame), `${context}: missing specific correction`);
           assert.ok(result.length <= 230, `${context}: ${result.length} characters: ${result}`);
           assert.doesNotMatch(result, /undefined|“\s*”/, context);
         }
       }
     }
   }
+});
+
+test('German course cards explain German order and the one-or-two-people verb in English', () => {
+  const { germanChoiceHint } = require('../src/germanTeaching.ts');
+  const card = (target, prompt) => {
+    const labels = target.match(/[a-zßà-öø-ÿ]+/gi);
+    const options = labels.map((label, index) => ({ id: String(index), label, image_url: '' }));
+    return { stage: 'Use', interaction_type: 'complete-sentence', target_language: 'de', prompt: prompt || target.replace(/[a-zßà-öø-ÿ]+/gi, '___'),
+      options, correct_option_id: '0', correct_option_ids: options.map(option => option.id), answer_audio_text: target, audio_text: target };
+  };
+  const verbFirst = card('Er ist ein Junge.');
+  assert.equal(constructionMistakeHint(verbFirst, swap(verbFirst, 0, 1)),
+    'You put “ist” where “Er” goes. German puts the verb right after who does it: “Er ist”.');
+  const article = card('Das Mädchen liest.');
+  assert.equal(constructionMistakeHint(article, swap(article, 0, 1)),
+    'You put “Mädchen” where “Das” goes. In “Das Mädchen” the article comes first, then the noun.');
+  assert.equal(constructionTeachingPlan(card('Der Junge und das Mädchen schreiben. Sie schreiben.')).supported, true);
+  // Words outside the supported German patterns never get an invented rule.
+  assert.equal(constructionTeachingPlan(card('Der Hund läuft.')).supported, false);
+  const choice = { stage: 'Listen', target_language: 'de', audio_text: 'Sie lesen.', spanish_translation: 'They are reading.',
+    correct_option_id: 'lesen', options: [{ id: 'lesen', label: 'Sie lesen.' }, { id: 'liest', label: 'Sie liest.' }] };
+  assert.equal(germanChoiceHint(choice, 'liest'),
+    'You heard “Sie lesen”: They are reading. “liest” is for one person; “lesen” is for two.');
+  assert.equal(lessonMistakeHint(choice, 'liest'), germanChoiceHint(choice, 'liest'));
 });
 
 function construction(target) {

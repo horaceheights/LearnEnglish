@@ -215,16 +215,23 @@ def normalize_azure_result(
     return result
 
 
+# Speech locales a registered course may request for its Speak cards.
+COURSE_SPEECH_LOCALES = frozenset({"de-DE"})
+
+
 async def score_with_azure(
     *,
     text: str,
     audio_file: UploadFile,
     level: str | None = None,
     exercise_type: str | None = None,
+    locale: str | None = None,
 ) -> dict[str, Any]:
     key = os.getenv("AZURE_SPEECH_KEY")
     region = os.getenv("AZURE_SPEECH_REGION")
-    locale = os.getenv("AZURE_SPEECH_LOCALE", "en-US")
+    # A registered non-English course may ask for its own locale; anything
+    # else (including no locale) keeps the configured English default.
+    locale = locale if locale in COURSE_SPEECH_LOCALES else os.getenv("AZURE_SPEECH_LOCALE", "en-US")
     if not key or not region:
         raise HTTPException(status_code=503, detail="Azure Speech is not configured.")
 

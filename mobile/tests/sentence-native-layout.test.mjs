@@ -10,7 +10,9 @@ const scSource = fs.readFileSync(new URL('../src/sentenceConstruction.ts', impor
 const scCompiled = ts.transpileModule(scSource, { compilerOptions: { module: ts.ModuleKind.CommonJS } }).outputText;
 const scApi = {};
 const teaching = {};
-vm.runInNewContext(ts.transpileModule(fs.readFileSync(new URL('../src/constructionTeaching.ts', import.meta.url), 'utf8'), { compilerOptions: { module: ts.ModuleKind.CommonJS } }).outputText, { exports: teaching });
+const german = {};
+vm.runInNewContext(ts.transpileModule(fs.readFileSync(new URL('../src/germanTeaching.ts', import.meta.url), 'utf8'), { compilerOptions: { module: ts.ModuleKind.CommonJS } }).outputText, { exports: german });
+vm.runInNewContext(ts.transpileModule(fs.readFileSync(new URL('../src/constructionTeaching.ts', import.meta.url), 'utf8'), { compilerOptions: { module: ts.ModuleKind.CommonJS } }).outputText, { exports: teaching, require: id => { assert.equal(id, './germanTeaching'); return german; } });
 vm.runInNewContext(scCompiled, { exports: scApi, require: id => { assert.equal(id, './constructionTeaching'); return teaching; } });
 const { sentenceLayout } = scApi;
 

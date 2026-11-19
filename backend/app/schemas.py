@@ -107,6 +107,9 @@ class LessonCard(BaseModel):
     prompt: str
     prompt_presentation: Literal["written"] | None = None
     context_es: str | None = Field(default=None, min_length=1, max_length=240)
+    # Set only on German course cards (German grammar feedback in English);
+    # omitted otherwise so English exports stay byte-identical.
+    target_language: Literal["de"] | None = None
     stage: str
     correct_option_id: str
     correct_option_ids: list[str] = Field(default_factory=list)
@@ -136,6 +139,8 @@ class LessonCard(BaseModel):
             payload.pop("prompt_presentation", None)
         if self.context_es is None:
             payload.pop("context_es", None)
+        if self.target_language is None:
+            payload.pop("target_language", None)
         if self.learn_translation_preview_ms is None:
             payload.pop("learn_translation_preview_ms", None)
         if self.reply_image_timing is None:
@@ -202,7 +207,9 @@ class LessonCard(BaseModel):
                 or set(ordered) != set(ids) or self.correct_option_id != ordered[0]):
             raise ValueError("Sentence construction needs exactly its ordered word tiles in Use.")
         # Time abbreviations are one movable token; internal dots are not slots.
-        if any(option.image_url or not re.fullmatch(r"(?:[A-Za-z]+(?:'[A-Za-z]+)?|[aApP]\.m\.)", option.label or "") for option in self.options):
+        # [^\W\d_] is any Unicode letter, so German tiles such as Mädchen pass;
+        # English tiles are ASCII letters and behave exactly as before.
+        if any(option.image_url or not re.fullmatch(r"(?:[^\W\d_]+(?:'[^\W\d_]+)?|[aApP]\.m\.)", option.label or "") for option in self.options):
             raise ValueError("Sentence construction tiles must contain one word each.")
         if re.sub(r"___|[\s.!?,]", "", self.prompt) or self.prompt.count("___") != len(ids):
             raise ValueError("Sentence construction must hide every word behind its own blank.")

@@ -422,6 +422,7 @@ async def score_pronunciation_practice(
     provider: str | None = Form(None),
     level: str | None = Form(None),
     exercise_type: str | None = Form(None),
+    locale: str | None = Form(None),
 ):
     if user_id:
         bound = accounts.account_for_user(user_id)
@@ -436,6 +437,7 @@ async def score_pronunciation_practice(
         provider_override=provider,
         level=level,
         exercise_type=exercise_type,
+        locale=locale,
     )
 
 

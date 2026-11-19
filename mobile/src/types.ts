@@ -80,6 +80,8 @@ export type LessonCard = {
   prompt: string;
   prompt_presentation?: 'written' | null;
   context_es?: string | null;
+  /** Set only on German course cards: German grammar feedback in English. */
+  target_language?: 'de' | null;
   stage: string;
   correct_option_id: string;
   correct_option_ids?: string[];
