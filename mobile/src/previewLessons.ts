@@ -10,6 +10,13 @@ const PREVIEW_LESSONS: Record<string, Lesson> = Object.fromEntries(
 export const previewCourseCatalogs = courseCatalogs;
 const lessonCourses = new Map(courseCatalogs.flatMap(course => course.lessonIds.map(id => [id, course.id] as const)));
 
+/** Every registered course's lessons in configured order, so the result screen can offer the next lesson of the same course. */
+export const courseLessonSequence = courseCatalogs.flatMap(course => course.lessonIds.flatMap(id => {
+  const lesson = PREVIEW_LESSONS[id];
+  return lesson ? [{ id, course_id: course.id, title: lesson.title,
+    sub_lesson_id: lesson.sub_lesson_id, sub_lesson_title: lesson.sub_lesson_title }] : [];
+}));
+
 function shuffledOptions(options: ChoiceOption[]): ChoiceOption[] {
   const shuffled = options.map((option) => ({ ...option }));
   for (let index = shuffled.length - 1; index > 0; index -= 1) {
