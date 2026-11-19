@@ -318,7 +318,7 @@ These values can't become target text as they are:
 4. **Mistake feedback (`spanishTeaching.ts`)** needs these patterns: `es` vs `está`, `son` vs `están`, article gender (`el/la`, `un/una`), plural agreement (`los/las`, `sentado/sentados`), `ellos` for mixed groups, and `no` before the verb. Other words get no invented rule, as in the German pilot.
 5. **Mission `_es` support fields** (see E1.13).
 6. **Translate button.** On `es-a1`, the existing written-choice translation button shows English and should be labelled "Translate", not "Traducir".
-7. **Narration.** Two native Mexican voices alternate odd/even cards (`es-teacher` / `es-co-teacher`), as in the German pilot. This depends on the audition below.
+7. **Narration.** Two native Mexican voices alternate odd/even cards (`es-teacher` / `es-co-teacher`), as in the German pilot. **Chosen by the user from a four-voice audition (2026-11-19):** odd cards `es-teacher` = Pamela (ElevenLabs library voice `pmruOMcxgUotq2bYO5Ne`, Mexico City, female); even cards `es-co-teacher` = Enrique Mondragón (`iDEmt5MnqUotdwCIVplo`, male). Both use `eleven_multilingual_v2` (stability 0.5, similarity 0.75). Ana María and Eduardo were the voices the user did not choose.
 
 ## Photos
 
