@@ -1,0 +1,55 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "85c6c043-d759-41ee-b2f5-eeba33fdac40",
+  "asset_id": "v02-father-son-football",
+  "pack_sha256": "d8dbfc0c40a014c8552eab23923b7c6ae866248f3071b1fb0884ab6cbce41205",
+  "started_at": "2026-11-19T04:52:53.162167+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, numbers, logos or brand marks anywhere: book covers are plain, screens show only soft abstract color. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos.\n\nKeep every person, animal and object of the action inside the central 60 percent of the photo width, so a centered 4:5 crop keeps them; only expendable background reaches the left and right edges.\n\nThese are members of one ordinary family, new to the course: they are not famous people and do not look like any earlier course character.\n\nThe people clearly do the activity together; nobody looks at the camera.\n\nA green city park on a sunny afternoon: the son (about 10, short curly brown hair, an orange T-shirt) plays football with the father (about 40, very tall, short black hair, clean-shaven, a dark-green polo shirt and jeans). A black-and-white soccer ball is on the grass between them; the boy kicks it toward his father, who stands close to him. The father is clearly much taller than the boy: his head is far above the boy's head. Both people head to feet and the whole ball are visible. Only these two people are in the photo.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "pID-aqiHLvuez7IP_63MsA4",
+  "usage": {
+    "promptTokenCount": 350,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1640,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 350
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038805",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 350,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 6.46,
+  "output": "output/imagegen/a1plus-unit-1-review-v120/v02-father-son-football.png",
+  "sha256": "9b5f59896703bb9090df058be060fdc4131a4eb1069897a448f101818b7bdea2",
+  "byte_count": 2202363,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}

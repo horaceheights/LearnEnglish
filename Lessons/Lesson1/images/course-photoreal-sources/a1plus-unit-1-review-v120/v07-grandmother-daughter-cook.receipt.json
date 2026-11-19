@@ -1,0 +1,62 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "55d2adbb-8624-48e4-a96d-b6bccf3449c3",
+  "asset_id": "v07-grandmother-daughter-cook",
+  "pack_sha256": "d8dbfc0c40a014c8552eab23923b7c6ae866248f3071b1fb0884ab6cbce41205",
+  "started_at": "2026-11-19T04:54:11.452231+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, numbers, logos or brand marks anywhere: book covers are plain, screens show only soft abstract color. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos.\n\nKeep every person, animal and object of the action inside the central 60 percent of the photo width, so a centered 4:5 crop keeps them; only expendable background reaches the left and right edges.\n\nThese are members of one ordinary family, new to the course: they are not famous people and do not look like any earlier course character.\n\nThe people clearly do the activity together; nobody looks at the camera.\n\nImage 1 shows the grandmother (the woman with short grey hair, round glasses and a lilac sweater). Keep her face, hair, glasses, clothes and build exactly. Create a new photograph in the same home kitchen in the evening, warm lamps on: the grandmother cooks dinner with the daughter (about 15, long dark hair in a ponytail, a red hoodie). The grandmother stirs a big pot on the stove with a wooden spoon and the girl cuts green vegetables on a cutting board right beside her; they smile at each other. Both faces are visible. Only these two people are in the photo; the grandfather is not there.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": {
+    "path": "output/imagegen/a1plus-unit-1-review-v120/v01-grandparents-coffee-tea.png",
+    "sha256": "236d3428febdf1f6202a8b936d8ec16039927c172fb964d9e981253cad62dafc"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "84D-aq7FFYDUz7IP0ZDS-QI",
+  "usage": {
+    "promptTokenCount": 605,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1895,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 347
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038882",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 605,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 9.12,
+  "output": "output/imagegen/a1plus-unit-1-review-v120/v07-grandmother-daughter-cook.png",
+  "sha256": "199177c8fde37584427d1f1423fe12f06b5804f1fc0daf4b39c19a97b39659ce",
+  "byte_count": 1475329,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}

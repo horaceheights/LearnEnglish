@@ -405,7 +405,9 @@ function teachClause(text: string): ClausePlan {
   const routineQuestionSubject = routineQuestion ? (routineQuestion[1] ? words(routineQuestion[1]).length : 0) + 1 : -1;
   if (routineQuestion && text.trim().endsWith('?')
     && (routineQuestion[1] || routineQuestion[2] === 'does')
-    && ['i', 'you', 'he', 'she', 'it', 'we', 'they', 'ana', 'luis', 'sofia', 'diego', 'my', 'your', 'his', 'her', 'our', 'their'].includes(keys[routineQuestionSubject])) {
+    && (['i', 'you', 'he', 'she', 'it', 'we', 'they', 'ana', 'luis', 'sofia', 'diego', 'my', 'your', 'his', 'her', 'our', 'their'].includes(keys[routineQuestionSubject])
+      // A family member with the (Does the father work at home?); "What time does the bus leave?" keeps its own frame below.
+      || (keys[routineQuestionSubject] === 'the' && routineQuestion[1] !== 'what time'))) {
     const auxiliary = routineQuestion[1] ? words(routineQuestion[1]).length : 0;
     const subjectStart = auxiliary + 1;
     const action = keys.findIndex((key, index) => index > subjectStart && ROUTINE_BASE.has(key));

@@ -1,0 +1,55 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "9cccfe3d-624e-4a55-904d-1825702a1335",
+  "asset_id": "v03-mother-reads-garden",
+  "pack_sha256": "d8dbfc0c40a014c8552eab23923b7c6ae866248f3071b1fb0884ab6cbce41205",
+  "started_at": "2026-11-19T04:53:00.018646+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, numbers, logos or brand marks anywhere: book covers are plain, screens show only soft abstract color. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos.\n\nKeep every person, animal and object of the action inside the central 60 percent of the photo width, so a centered 4:5 crop keeps them; only expendable background reaches the left and right edges.\n\nThese are members of one ordinary family, new to the course: they are not famous people and do not look like any earlier course character.\n\nOnly this one person is in the photo; there is nobody else, even far in the background. The person does not look at the camera.\n\nThe small green garden behind the family's house on a sunny afternoon: the mother (about 38, long straight red-brown hair past her shoulders, a mustard-yellow sweater) sits on a wooden garden bench among flowers and reads an open book with a plain blue cover, holding it with both hands. Her long red-brown hair is loose over her shoulders and clearly visible. Her face is in three-quarter view, looking at the book.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "q4D-avCFJ-GzmtkP49fm-A8",
+  "usage": {
+    "promptTokenCount": 327,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1617,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 327
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038798",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 327,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 7.14,
+  "output": "output/imagegen/a1plus-unit-1-review-v120/v03-mother-reads-garden.png",
+  "sha256": "cec1258a8319df64abc91b6532f1f4ded9ea0dc502ca15e329c7520887ee192b",
+  "byte_count": 2249110,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}

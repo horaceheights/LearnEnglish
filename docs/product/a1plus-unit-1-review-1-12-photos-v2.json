@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "pack": "a1plus-unit-1-review-1-12-photos",
+  "revision": 2,
+  "output_namespace": "a1plus-unit-1-review-v121",
+  "authorization": "2026-11-18: the user asked to complete A1+ Unit 1 and chose \"Straight to Preview\" (\"I write, check and ship all five, using Gemini 2.5 Flash photos (about US$2-3 total, mostly for the review and mission scenes) and ElevenLabs audio.\"). The A1+ standards ask the review for fresh people and photographs. Gemini is the approved image tool (2026-09-23), Flash only (2026-11-17).",
+  "image_settings": {
+    "provider": "google-gemini",
+    "model": "gemini-2.5-flash-image",
+    "aspect_ratio": "3:2",
+    "image_size": "1K",
+    "runtime_size": "1536x1024",
+    "runtime_format": "webp",
+    "n": 1
+  },
+  "production": {
+    "price_per_image_usd": "0.0387",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing (checked 2026-11-16: Gemini 2.5 Flash Image, about $0.039 per image)",
+    "planned_images": 1,
+    "expected_cost_usd": "0.04",
+    "requested_ceiling_usd": "0.25",
+    "ceiling_note": "The renderer reserves US$0.20 before each request; the expected spend is about US$0.31.",
+    "no_automatic_retries": true,
+    "order": "Revision 2 redoes only v06: in revision 1 the head-on dog's upright white tail read as an object on its head."
+  },
+  "shared_prompts": {
+    "photo": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, numbers, logos or brand marks anywhere: book covers are plain, screens show only soft abstract color. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos.",
+    "safe_center": "Keep every person, animal and object of the action inside the central 60 percent of the photo width, so a centered 4:5 crop keeps them; only expendable background reaches the left and right edges.",
+    "family": "These are members of one ordinary family, new to the course: they are not famous people and do not look like any earlier course character.",
+    "together": "The people clearly do the activity together; nobody looks at the camera.",
+    "solo": "Only this one person is in the photo; there is nobody else, even far in the background. The person does not look at the camera."
+  },
+  "assets": [
+    {
+      "id": "v06-dog-ball",
+      "order": 1,
+      "shared": [
+        "photo",
+        "safe_center",
+        "family"
+      ],
+      "item": "The dog plays with its ball. / What is its name? Its name is Toby.",
+      "prompt": "The green garden behind the family's house on a sunny day: the family's small black-and-white terrier dog plays with its own red rubber ball on the grass. The camera sees the dog from the SIDE, in profile, a few steps away at the dog's level: the dog stands on all four legs with the red ball held in its mouth, its short tail low behind it, its whole body from nose to tail clearly visible and in sharp focus. No people are in the photo."
+    }
+  ]
+}
