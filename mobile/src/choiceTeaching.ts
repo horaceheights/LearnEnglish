@@ -144,6 +144,19 @@ export function relationalChoiceHint(card: LessonCard, correctOption: ChoiceOpti
     const rightTime = time(rightPart), wrongTime = time(wrongPart);
     if (rightTime && wrongTime && rightTime !== wrongTime) return `La negación descarta las ${NUMBER[rightTime]}; tu opción descarta las ${NUMBER[wrongTime]}. No confundas la hora negada con la hora real.`;
   }
+  // A1+ 1.11 (2026-11-18): him, her and them at the end of a sentence are object pronouns
+  // (She cooks dinner with him.); a possessive her is always followed by its noun, so it never ends one.
+  const OBJECTS: Record<string, [string, string]> = {him: ['a él', 'con él'], her: ['a ella', 'con ella'], them: ['a ellos o a ellas', 'con ellos o con ellas']};
+  const rightWords = right.split(/\s+/), wrongWords = selected.split(/\s+/);
+  const rightObject = rightWords[rightWords.length - 1], wrongObject = wrongWords[wrongWords.length - 1];
+  if (rightWords.length === wrongWords.length && rightWords.length > 2 && OBJECTS[rightObject] && OBJECTS[wrongObject]
+      && rightObject !== wrongObject && rightWords.slice(0, -1).join(' ') === wrongWords.slice(0, -1).join(' ')) {
+    const withBefore = rightWords[rightWords.length - 2] === 'with';
+    const [rightPhrase, wrongPhrase] = withBefore ? [`with ${rightObject}`, `with ${wrongObject}`] : [rightObject, wrongObject];
+    const index = withBefore ? 1 : 0;
+    const cue = /listen/i.test(card.stage) ? 'la frase escuchada dice' : 'la imagen pide';
+    return bounded(`“${wrongPhrase}” significa ${OBJECTS[wrongObject][index]}; ${cue} “${rightPhrase}” (${OBJECTS[rightObject][index]}).`);
+  }
   const rightQuestion = questionKind(correct), wrongQuestion = questionKind(wrong);
   if (rightQuestion && wrongQuestion) {
     if (heard.includes(right)) {

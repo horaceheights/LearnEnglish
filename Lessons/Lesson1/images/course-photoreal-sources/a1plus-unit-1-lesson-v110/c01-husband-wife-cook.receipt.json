@@ -1,0 +1,62 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "bbed9a41-9ab8-4b70-bcac-b4c39439aff1",
+  "asset_id": "c01-husband-wife-cook",
+  "pack_sha256": "7ba9ee6384d7086f32c9e6765f99d24bb506ab7445c6d78f6a9f564e0b8280cb",
+  "started_at": "2026-11-19T04:42:59.539797+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, numbers, logos or brand marks anywhere. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos.\n\nKeep every person and the thing they share inside the central 60 percent of the photo width, so a centered 4:5 crop keeps them; only expendable background reaches the left and right edges.\n\nThe two people are close together and clearly do the same activity together.\n\nDoing it together is the most obvious thing in the photo: the camera is at eye level a few steps away, faces are in sharp focus, and nobody looks at the camera.\n\nImage 1 shows a husband and his wife. Keep both faces, hair, skin tones and builds exactly, and their clothes: his light-blue denim button shirt, her coral-red blouse. Create a new photograph in their home kitchen in the evening, warm lamps on: the husband and the wife cook dinner together, side by side at the stove and counter. He stirs a pot of soup with a wooden spoon; she cuts carrots on a cutting board right next to him. They smile at each other while they cook. Both faces are fully visible in three-quarter view, both are seen from the head to the waist, and the pot and the cutting board are clearly visible. Only these two people are in the photo.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/family_parents_talking.webp",
+    "sha256": "9030b541a472d1bf98d1d315beb166be3ae0eb825286d62cd37de4dbc2b8efe0"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "U37-asyLHN-gqtsPlajLqAU",
+  "usage": {
+    "promptTokenCount": 618,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1908,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 360
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038885",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 618,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 9.03,
+  "output": "output/imagegen/a1plus-unit-1-lesson-v110/c01-husband-wife-cook.png",
+  "sha256": "244c8e02d20deff9bab32188379479a0e856fd2fbd19e18e8471ff0b9a30a259",
+  "byte_count": 1468686,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}

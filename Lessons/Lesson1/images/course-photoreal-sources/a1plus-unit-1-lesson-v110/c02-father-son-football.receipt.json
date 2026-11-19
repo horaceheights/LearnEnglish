@@ -1,0 +1,62 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "7e99db79-edf1-4870-a500-e0b8f4ed6c9b",
+  "asset_id": "c02-father-son-football",
+  "pack_sha256": "7ba9ee6384d7086f32c9e6765f99d24bb506ab7445c6d78f6a9f564e0b8280cb",
+  "started_at": "2026-11-19T04:43:09.195870+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, numbers, logos or brand marks anywhere. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos.\n\nKeep every person and the thing they share inside the central 60 percent of the photo width, so a centered 4:5 crop keeps them; only expendable background reaches the left and right edges.\n\nThe two people are close together and clearly do the same activity together.\n\nDoing it together is the most obvious thing in the photo: the camera is at eye level a few steps away, faces are in sharp focus, and nobody looks at the camera.\n\nImage 1 shows a father, a mother and their son. Use only the father and the son: keep their faces, hair, skin tones and builds exactly, and their clothes (the father's light-blue denim button shirt, the boy's blue button shirt). Create a new photograph on the green lawn of their backyard on a sunny day: the son plays football with his father. A classic black-and-white soccer ball is on the grass between them; the boy is about to kick it toward his father, who stands a few steps away with his arms open, ready, both smiling. The whole ball and both people, head to feet, are clearly visible. Only these two people are in the photo; the mother is not there.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1_photo_u1_friends_son_v1.webp",
+    "sha256": "3c3e52c565817b5e448c9af6c7190db337c3214377e40f0102272c9ccc152308"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "XX7-atKqCo3Vz7IPiuLKsAo",
+  "usage": {
+    "promptTokenCount": 624,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1914,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 366
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038887",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 624,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 9.26,
+  "output": "output/imagegen/a1plus-unit-1-lesson-v110/c02-father-son-football.png",
+  "sha256": "aeb67b5d0af39440e31ef15dd2edd1c060a7767b4cd2c108016d9fc20927eafd",
+  "byte_count": 2248661,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}

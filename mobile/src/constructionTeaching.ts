@@ -101,6 +101,8 @@ for (const verb of words('buy pay')) VERBS.add(verb);
 VERBS.add('cook');
 // A1+ 1.10 (2026-11-18): a pet's habit with its thing (The dog plays with its ball.).
 VERBS.add('plays');
+// A1+ 1.11 (2026-11-18): who people do things with (He cooks dinner with her. / They read with her.).
+for (const verb of words('cooks read')) VERBS.add(verb);
 // A word that is both a noun and a verb ("drinks", "work") is the noun right after an article or a
 // possessive (The drinks are on the table.) and the verb after its subject (Luis drinks coffee.).
 const NOUN_MARKERS = set('a an the my your his her its our their');
@@ -302,7 +304,10 @@ function teachClause(text: string): ClausePlan {
                 : 'el lugar o la dirección';
       teach(start, nounEnd, `${quote(phrase(start, nounStart))} va antes de ${quote(location)}: introduce ${relation}. Juntos completan ${quote(anchor)}.`);
       const clockTime = nounEnd === nounStart + 2 && NUMBERS.has(keys[nounStart]) && keys[nounStart + 1] === "o'clock";
-      const valid = clockTime || (nounEnd === nounStart + 1 && (NUMBERS.has(keys[nounStart]) || ['left', 'right', 'there'].includes(keys[nounStart]))) || nominal(nounStart, nounEnd);
+      // A1+ 1.11 (2026-11-18): after "with", him, her and them stand for the person (She reads with them.).
+      const objectPronoun = prep[1] === 'with' && nounEnd === nounStart + 1 && ['him', 'her', 'them'].includes(keys[nounStart]);
+      if (objectPronoun) teach(nounStart, nounEnd, `${quote(tokens[nounStart])} reemplaza a ${keys[nounStart] === 'them' ? 'las personas' : 'la persona'} y va después de “with”: ${quote(phrase(start, nounEnd))} significa ${({ him: 'con él', her: 'con ella', them: 'con ellos o con ellas' } as Record<string, string>)[keys[nounStart]]}.`);
+      const valid = clockTime || objectPronoun || (nounEnd === nounStart + 1 && (NUMBERS.has(keys[nounStart]) || ['left', 'right', 'there'].includes(keys[nounStart]))) || nominal(nounStart, nounEnd);
       return valid && (nextPrep < 0 || complement(nextPrep, end, phrase(start, nounEnd)));
     }
     if (tail === 'every day') {
@@ -338,7 +343,8 @@ function teachClause(text: string): ClausePlan {
       return complement(start + 1, end, tokens[start]);
     }
     // A noun group may be followed by where/when it occurs or a contrast.
-    const boundary = keys.findIndex((key, index) => index > start && index < end && ['in', 'on', 'under', 'next', 'near', 'by', 'at', 'for', 'every', 'not', 'here', 'there', 'before', 'after', 'today'].includes(key));
+    // A1+ 1.11 (2026-11-18): the noun group may also be followed by who it is done with (cooks dinner with him).
+    const boundary = keys.findIndex((key, index) => index > start && index < end && ['in', 'on', 'under', 'next', 'near', 'by', 'at', 'for', 'every', 'not', 'here', 'there', 'before', 'after', 'today', 'with'].includes(key));
     const nounEnd = boundary < 0 ? end : boundary;
     teach(start, nounEnd, `${quote(phrase(start, nounEnd))} indica ${/^(am|is|are)$/i.test(anchor) ? 'qué es el sujeto' : 'qué recibe o completa la acción'}; en esta frase va después de ${quote(anchor)}.`);
     if (!nominal(start, nounEnd)) return false;

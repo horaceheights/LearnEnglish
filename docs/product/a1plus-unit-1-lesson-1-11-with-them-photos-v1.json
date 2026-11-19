@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "pack": "a1plus-unit-1-lesson-1-11-with-them-photos",
+  "revision": 1,
+  "output_namespace": "a1plus-unit-1-lesson-v110",
+  "authorization": "2026-11-18: the user asked to complete A1+ Unit 1 and chose \"Straight to Preview\" (\"I write, check and ship all five, using Gemini 2.5 Flash photos (about US$2-3 total, mostly for the review and mission scenes) and ElevenLabs audio.\") and \"him / her / them\" as 1.11's grammar step. Gemini is the approved image tool (2026-09-23), Flash only (2026-11-17).",
+  "image_settings": {
+    "provider": "google-gemini",
+    "model": "gemini-2.5-flash-image",
+    "aspect_ratio": "3:2",
+    "image_size": "1K",
+    "runtime_size": "1536x1024",
+    "runtime_format": "webp",
+    "n": 1
+  },
+  "production": {
+    "price_per_image_usd": "0.0387",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing (checked 2026-11-16: Gemini 2.5 Flash Image, about $0.039 per image)",
+    "planned_images": 3,
+    "expected_cost_usd": "0.12",
+    "requested_ceiling_usd": "0.35",
+    "ceiling_note": "The renderer reserves US$0.20 before each request; the expected spend is about US$0.12.",
+    "no_automatic_retries": true,
+    "order": "Generate c03 first (three people, the added son must look like his sister), then c01 and c02; inspect each at 900/360/250/180 px and in the centered 4:5 crop. The fourth photo of the lesson is A1 1.11's approved a1_photo_u1_friends_friends_v1 (the daughter playing with her friend)."
+  },
+  "shared_prompts": {
+    "photo": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, numbers, logos or brand marks anywhere. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos.",
+    "safe_center": "Keep every person and the thing they share inside the central 60 percent of the photo width, so a centered 4:5 crop keeps them; only expendable background reaches the left and right edges.",
+    "pair": "The two people are close together and clearly do the same activity together.",
+    "together": "Doing it together is the most obvious thing in the photo: the camera is at eye level a few steps away, faces are in sharp focus, and nobody looks at the camera."
+  },
+  "assets": [
+    {
+      "id": "c01-husband-wife-cook",
+      "order": 1,
+      "item": "The husband cooks dinner with his wife. / He cooks dinner with her. / She cooks dinner with him.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "pair",
+        "together"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/family_parents_talking.webp",
+        "sha256": "9030b541a472d1bf98d1d315beb166be3ae0eb825286d62cd37de4dbc2b8efe0",
+        "observed_description": "A1 1.11's husband (short dark hair, light stubble, light-blue denim button shirt) and wife (long wavy brown hair, coral-red blouse) sit at their wooden kitchen table with mugs."
+      },
+      "prompt": "Image 1 shows a husband and his wife. Keep both faces, hair, skin tones and builds exactly, and their clothes: his light-blue denim button shirt, her coral-red blouse. Create a new photograph in their home kitchen in the evening, warm lamps on: the husband and the wife cook dinner together, side by side at the stove and counter. He stirs a pot of soup with a wooden spoon; she cuts carrots on a cutting board right next to him. They smile at each other while they cook. Both faces are fully visible in three-quarter view, both are seen from the head to the waist, and the pot and the cutting board are clearly visible. Only these two people are in the photo."
+    },
+    {
+      "id": "c02-father-son-football",
+      "order": 2,
+      "item": "The son plays football with his father. / He plays football with him.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "pair",
+        "together"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1_photo_u1_friends_son_v1.webp",
+        "sha256": "3c3e52c565817b5e448c9af6c7190db337c3214377e40f0102272c9ccc152308",
+        "observed_description": "A1 1.11's family: the husband (short dark hair, light-blue denim shirt), the wife (coral blouse) and their son (about eight, short dark hair, blue button shirt) in their living room."
+      },
+      "prompt": "Image 1 shows a father, a mother and their son. Use only the father and the son: keep their faces, hair, skin tones and builds exactly, and their clothes (the father's light-blue denim button shirt, the boy's blue button shirt). Create a new photograph on the green lawn of their backyard on a sunny day: the son plays football with his father. A classic black-and-white soccer ball is on the grass between them; the boy is about to kick it toward his father, who stands a few steps away with his arms open, ready, both smiling. The whole ball and both people, head to feet, are clearly visible. Only these two people are in the photo; the mother is not there."
+    },
+    {
+      "id": "c03-mother-reads-children",
+      "order": 3,
+      "item": "The mother reads with the children. / She reads with them.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "together"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1_photo_u1_friends_daughter_v1.webp",
+        "sha256": "4f3b6b48db90af7df691200008857a78cf8b283a30f7a3e69c5d6e7ca0e9bae1",
+        "observed_description": "A1 1.11's family: the husband (denim shirt), the wife (long wavy brown hair, coral-red blouse) and their daughter (about seven, long dark hair, lavender T-shirt) in their living room."
+      },
+      "prompt": "Image 1 shows a father, a mother and their daughter. Use the mother and the daughter: keep their faces, hair, skin tones and builds exactly, and their clothes (the mother's coral-red blouse, the girl's lavender T-shirt). Add their son, a boy of about eight with short dark hair and a blue button shirt, who looks like his sister. Create a new photograph in their bright living room in the afternoon: the mother sits in the middle of a light sofa and reads a big picture book with her two children, the girl on one side and the boy on the other, all three looking at the open pages and smiling. The book has plain pages with simple colorful shapes and no text. All three faces are visible. Only these three people are in the photo; the father is not there."
+    }
+  ]
+}

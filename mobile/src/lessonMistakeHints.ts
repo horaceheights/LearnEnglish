@@ -200,6 +200,9 @@ const MEANINGS: Record<string, string> = {
   his: 'de él', her: 'de ella', your: 'tu', my: 'mi', us: 'Estados Unidos',
   // A1+ 1.10 (2026-11-18): its, the possessive for an animal or a thing (Its name is Max.).
   its: 'de un animal o una cosa',
+  // A1+ 1.11 (2026-11-18): object pronouns after a verb or with (She reads with them.).
+  him: 'a él', them: 'a ellos o a ellas',
+  cooks: 'cocina', plays: 'juega',
   our: 'nuestro', their: 'de ellos', mine: 'mío', yours: 'tuyo', ours: 'nuestro', have: 'tener', has: 'tiene',
   grandchildren: 'nietos',
   cook: 'cocinero', brush: 'cepillar', wash: 'lavar',
