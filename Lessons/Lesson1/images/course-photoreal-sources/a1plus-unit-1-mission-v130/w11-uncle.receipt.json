@@ -1,0 +1,62 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "e60cdef1-c188-4638-93b3-4a812121b7a7",
+  "asset_id": "w11-uncle",
+  "pack_sha256": "3167567d7cdd6920bb3229b77fafb6c5b9423716303804186df114782b452d0c",
+  "started_at": "2026-11-19T05:10:06.170102+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, numbers, logos or brand marks anywhere. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos.\n\nThe person is Ana's relative from an earlier lesson, so the face must match the reference exactly.\n\nImage 1 shows Ana and her uncle. Use only the uncle: keep his face, hair, skin tone, build and clothes exactly. Create a new photograph at Ana's family party in the sunny green garden behind her house on a warm afternoon: a long table with a white tablecloth, plates and a big cake, colorful paper lanterns and a few balloons hang from the trees, with no letters or numbers anywhere. The uncle stands by the party table holding a plate with a slice of cake and smiles. His face is fully visible. Only the uncle is in the photo; Ana is not there.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1plus-unit-1-k02-8fc41067842757fb.webp",
+    "sha256": "8fc41067842757fb0bede5513a9954f64fa81772294135e337a950f28e2da902"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "rYT-avPcNJWlmtkPv-KiqAo",
+  "usage": {
+    "promptTokenCount": 519,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1809,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 261
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038856",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 519,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 8.5,
+  "output": "output/imagegen/a1plus-unit-1-mission-v130/w11-uncle.png",
+  "sha256": "a33b74d1c3f9520a5ab4f57ec39fe6be3861950640805a8223c4c95ca78ca52b",
+  "byte_count": 1733287,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}

@@ -1,0 +1,62 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "bbefa887-01f9-458c-948e-f988a31a0495",
+  "asset_id": "w13-cousin-grandparents",
+  "pack_sha256": "3167567d7cdd6920bb3229b77fafb6c5b9423716303804186df114782b452d0c",
+  "started_at": "2026-11-19T05:10:23.025500+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, numbers, logos or brand marks anywhere. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos.\n\nAna's family party in the sunny green garden behind her house on a warm afternoon: a long table with a white tablecloth, plates and a big cake, colorful paper lanterns and a few balloons hang from the trees, with no letters or numbers anywhere.\n\nImage 1 shows Ana, her young cousin and her grandparents. Use only the cousin and the two grandparents: keep their faces, hair, skin tones, builds and clothes exactly. Create a new photograph at Ana's family party in the sunny green garden behind her house on a warm afternoon: a long table with a white tablecloth, plates and a big cake, colorful paper lanterns and a few balloons hang from the trees, with no letters or numbers anywhere. The cousin stands between his grandmother and his grandfather by the party table, his arms around their shoulders, all three smiling. All three faces are fully visible. Only these three people are in the photo; Ana is not there.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1plus-unit-1-k04-a3ea44bdfdd04521.webp",
+    "sha256": "a3ea44bdfdd04521e9c58cbe1dcd878a7650ee305da2cbd7b70bf7b9f8cb7de0"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "v4T-ar7PAsToz7IP0YeEoAg",
+  "usage": {
+    "promptTokenCount": 565,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1855,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 307
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038870",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 565,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 10.0,
+  "output": "output/imagegen/a1plus-unit-1-mission-v130/w13-cousin-grandparents.png",
+  "sha256": "10f678258342f42d580d477e0ccf1cb3195c11f28f6c01b6ab377fd537e52f5d",
+  "byte_count": 1946604,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}
