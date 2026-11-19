@@ -1,0 +1,133 @@
+{
+  "schema_version": 1,
+  "pack": "a1plus-unit-1-review-1-12-photos",
+  "revision": 1,
+  "output_namespace": "a1plus-unit-1-review-v120",
+  "authorization": "2026-11-18: the user asked to complete A1+ Unit 1 and chose \"Straight to Preview\" (\"I write, check and ship all five, using Gemini 2.5 Flash photos (about US$2-3 total, mostly for the review and mission scenes) and ElevenLabs audio.\"). The A1+ standards ask the review for fresh people and photographs. Gemini is the approved image tool (2026-09-23), Flash only (2026-11-17).",
+  "image_settings": {
+    "provider": "google-gemini",
+    "model": "gemini-2.5-flash-image",
+    "aspect_ratio": "3:2",
+    "image_size": "1K",
+    "runtime_size": "1536x1024",
+    "runtime_format": "webp",
+    "n": 1
+  },
+  "production": {
+    "price_per_image_usd": "0.0387",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing (checked 2026-11-16: Gemini 2.5 Flash Image, about $0.039 per image)",
+    "planned_images": 8,
+    "expected_cost_usd": "0.31",
+    "requested_ceiling_usd": "0.60",
+    "ceiling_note": "The renderer reserves US$0.20 before each request; the expected spend is about US$0.31.",
+    "no_automatic_retries": true,
+    "order": "Generate v01-v04 and v06 without references and inspect each at 900/360/250/180 px and in the centered 4:5 crop; then v05 from v04, v07 from v01 and v08 from v02, each after its base image's hash-bound review."
+  },
+  "shared_prompts": {
+    "photo": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, numbers, logos or brand marks anywhere: book covers are plain, screens show only soft abstract color. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos.",
+    "safe_center": "Keep every person, animal and object of the action inside the central 60 percent of the photo width, so a centered 4:5 crop keeps them; only expendable background reaches the left and right edges.",
+    "family": "These are members of one ordinary family, new to the course: they are not famous people and do not look like any earlier course character.",
+    "together": "The people clearly do the activity together; nobody looks at the camera.",
+    "solo": "Only this one person is in the photo; there is nobody else, even far in the background. The person does not look at the camera."
+  },
+  "assets": [
+    {
+      "id": "v01-grandparents-coffee-tea",
+      "order": 1,
+      "shared": [
+        "photo",
+        "safe_center",
+        "family",
+        "together"
+      ],
+      "item": "The grandfather has a beard. / The grandfather always drinks coffee. / The grandmother doesn't drink coffee.",
+      "prompt": "A bright home kitchen in the morning: the grandfather (about 75, white hair, a full white beard, a brown cardigan over a checked shirt) and the grandmother (about 72, short and small, short grey hair, round glasses, a lilac sweater) sit side by side at a round wooden kitchen table. The grandfather drinks coffee from a large white mug of black coffee; the grandmother drinks tea from a delicate teacup on a saucer, a teapot beside her. Both faces are fully visible in three-quarter view, they smile at each other, and both drinks are clearly visible. Only these two people are in the photo."
+    },
+    {
+      "id": "v02-father-son-football",
+      "order": 2,
+      "shared": [
+        "photo",
+        "safe_center",
+        "family",
+        "together"
+      ],
+      "item": "The son plays football with his father. / He plays football with him. / The father is tall.",
+      "prompt": "A green city park on a sunny afternoon: the son (about 10, short curly brown hair, an orange T-shirt) plays football with the father (about 40, very tall, short black hair, clean-shaven, a dark-green polo shirt and jeans). A black-and-white soccer ball is on the grass between them; the boy kicks it toward his father, who stands close to him. The father is clearly much taller than the boy: his head is far above the boy's head. Both people head to feet and the whole ball are visible. Only these two people are in the photo."
+    },
+    {
+      "id": "v03-mother-reads-garden",
+      "order": 3,
+      "shared": [
+        "photo",
+        "safe_center",
+        "family",
+        "solo"
+      ],
+      "item": "The mother has long hair. / The mother sometimes reads in the garden.",
+      "prompt": "The small green garden behind the family's house on a sunny afternoon: the mother (about 38, long straight red-brown hair past her shoulders, a mustard-yellow sweater) sits on a wooden garden bench among flowers and reads an open book with a plain blue cover, holding it with both hands. Her long red-brown hair is loose over her shoulders and clearly visible. Her face is in three-quarter view, looking at the book."
+    },
+    {
+      "id": "v04-daughter-studies-night",
+      "order": 4,
+      "shared": [
+        "photo",
+        "safe_center",
+        "family",
+        "solo"
+      ],
+      "item": "The daughter usually studies at night. / How often does the daughter study at night?",
+      "prompt": "The daughter's small bedroom at night: the daughter (about 15, long dark hair in a ponytail, a red hoodie) sits at a white desk under a warm desk lamp and studies, writing in an open notebook with a pencil, a stack of plain school books beside her. The window behind the desk shows a dark night sky; the room is lit only by the lamp. Her face is in three-quarter view, looking down at the notebook."
+    },
+    {
+      "id": "v05-children-swim-morning",
+      "order": 5,
+      "shared": [
+        "photo",
+        "safe_center",
+        "family",
+        "together"
+      ],
+      "reference": "v04-daughter-studies-night",
+      "item": "The children swim in the morning. / They swim in the morning. / The son has an older sister.",
+      "prompt": "Image 1 shows the daughter; keep her face, hair color and build exactly (here her hair is wet and tied back). Create a new photograph at an outdoor swimming pool early on a sunny morning: the daughter and her younger brother, the son (about 10, short curly brown hair, orange swim shorts), swim side by side in the clear blue water, their heads and shoulders above the water, both smiling. The daughter is clearly older and bigger than her brother. Low golden morning sunlight. Only these two people are in the photo."
+    },
+    {
+      "id": "v06-dog-ball",
+      "order": 6,
+      "shared": [
+        "photo",
+        "safe_center",
+        "family"
+      ],
+      "item": "The dog plays with its ball. / What is its name? Its name is Toby.",
+      "prompt": "The green garden behind the family's house on a sunny day: the family's small black-and-white terrier dog plays with its own red rubber ball on the grass, the ball in its mouth, tail up, close to the camera and in sharp focus. No people are in the photo."
+    },
+    {
+      "id": "v07-grandmother-daughter-cook",
+      "order": 7,
+      "shared": [
+        "photo",
+        "safe_center",
+        "family",
+        "together"
+      ],
+      "reference": "v01-grandparents-coffee-tea",
+      "item": "The grandmother cooks dinner with the daughter. / She cooks dinner with her.",
+      "prompt": "Image 1 shows the grandmother (the woman with short grey hair, round glasses and a lilac sweater). Keep her face, hair, glasses, clothes and build exactly. Create a new photograph in the same home kitchen in the evening, warm lamps on: the grandmother cooks dinner with the daughter (about 15, long dark hair in a ponytail, a red hoodie). The grandmother stirs a big pot on the stove with a wooden spoon and the girl cuts green vegetables on a cutting board right beside her; they smile at each other. Both faces are visible. Only these two people are in the photo; the grandfather is not there."
+    },
+    {
+      "id": "v08-father-works-home",
+      "order": 8,
+      "shared": [
+        "photo",
+        "safe_center",
+        "family",
+        "solo"
+      ],
+      "reference": "v02-father-son-football",
+      "item": "The father always works at home. / Does the father work at home? Yes, he does.",
+      "prompt": "Image 1 shows the father (the tall man with short black hair and a dark-green polo shirt). Keep his face, hair, clothes and build exactly. Create a new photograph in the family's living room at home on a weekday morning: the father sits at a wooden desk by the window and works on a laptop, with papers and a coffee mug beside it; home is obvious from the sofa, the family photos frames (with no visible faces) and a plant behind him. His face is in three-quarter view, looking at the laptop screen, which shows only soft abstract color. Only this one person is in the photo."
+    }
+  ]
+}

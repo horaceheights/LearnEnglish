@@ -1,0 +1,55 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "46f22977-5919-4c2c-b7c6-a65d02cc9c0d",
+  "asset_id": "w07-drinks",
+  "pack_sha256": "3167567d7cdd6920bb3229b77fafb6c5b9423716303804186df114782b452d0c",
+  "started_at": "2026-11-19T05:08:14.396229+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, numbers, logos or brand marks anywhere. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos.\n\nThis is a wide scene for a listening game: the learner hears one sentence and taps the person, pair, group or animal it describes, so the four described subjects must be clearly separate from each other, none hidden behind another, none cut off by the photo's edges, with their heads well below the top edge. Nobody looks at the camera.\n\nAna's family party in the sunny green garden behind her house on a warm afternoon: a long table with a white tablecloth, plates and a big cake, colorful paper lanterns and a few balloons hang from the trees, with no letters or numbers anywhere.\n\nFour guests sit side by side along one long side of the party table, facing the camera, with clear space between them, each holding ONE drink in both hands at chest height so the drink is large and easy to see. From left to right: a man of about 35 in a blue shirt holds a clear glass cup of light amber TEA, a tea bag string and paper tag hanging over the rim; a woman of about 35 in a green blouse holds a clear glass mug of black COFFEE; a man of about 60 in a grey shirt holds a tall clear glass of WATER; and a young woman of about 25 in an orange top holds a tall glass of bright ORANGE JUICE. Nobody else is in the photo.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "PYT-asP1PJOdz7IPruTImAU",
+  "usage": {
+    "promptTokenCount": 396,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1686,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 396
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038819",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 396,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 7.1,
+  "output": "output/imagegen/a1plus-unit-1-mission-v130/w07-drinks.png",
+  "sha256": "2504b898259f0eac95fce2be09e8f9fbc9b21657ad6e13814433a1a74c42a9a9",
+  "byte_count": 1880571,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}

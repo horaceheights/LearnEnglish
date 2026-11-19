@@ -199,6 +199,11 @@ const MEANINGS: Record<string, string> = {
   'can': 'puede', 'cannot': 'no puede',
   i: 'yo', you: 'tú', we: 'nosotros', they: 'ellos', he: 'él', she: 'ella',
   his: 'de él', her: 'de ella', your: 'tu', my: 'mi', us: 'Estados Unidos',
+  // A1+ 1.10 (2026-11-18): its, the possessive for an animal or a thing (Its name is Max.).
+  its: 'de un animal o una cosa',
+  // A1+ 1.11 (2026-11-18): object pronouns after a verb or with (She reads with them.).
+  him: 'a él', them: 'a ellos o a ellas',
+  cooks: 'cocina', plays: 'juega',
   our: 'nuestro', their: 'de ellos', mine: 'mío', yours: 'tuyo', ours: 'nuestro', have: 'tener', has: 'tiene',
   grandchildren: 'nietos',
   cook: 'cocinero', brush: 'cepillar', wash: 'lavar',
@@ -274,6 +279,9 @@ const IMAGE_CHOICE_MEANINGS: Record<string, string> = {
   'invites reading': 'una invitación a leer',
   'invites playing': 'una invitación a jugar',
   'invites swimming': 'una invitación a nadar',
+  // A1+ 1.9 (2026-11-18): Ana's cousin with the grandparents against the cousin at his own door.
+  'who does your cousin live with he lives with my grandparents': 'el primo con los abuelos',
+  'where does your cousin live he lives in mexico': 'el primo en su casa de México',
   'does not understand': 'alguien que no entiende',
   'hobbies music': 'gusto por escuchar música',
   'wakes morning': 'despertarse por la mañana',

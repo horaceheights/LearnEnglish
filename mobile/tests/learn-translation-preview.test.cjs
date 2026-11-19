@@ -72,6 +72,13 @@ for(const file of ['a1-course.json','a1-plus-course.json']){
     for(const line of lines)assert.ok(shown.includes(line),`${lesson.id}/${intro.slide_id} preview must include "${line}"`);
   }
 }
+// The Codex A1+ 1.9-1.12 held the catalog's only per-line Learn cards until their 2026-11-18 rebuild,
+// so one of them is kept as a fixture and the rule stays tested on a real installed card.
+const kept=JSON.parse(fs.readFileSync(path.resolve(__dirname,'fixtures/a1plus-per-line-learn-card.json'),'utf8')).card;
+const keptLines=kept.audio_turns.map(turn=>turn.spanish_translation?.trim()).filter(Boolean);
+assert.ok(kept.stage==='Learn'&&keptLines.length===2,'The fixture is a two-line Learn exchange.');
+for(const line of keptLines)assert.ok(h.api.learnTranslationText(kept,keptLines.at(-1),false).includes(line),`fixture preview must include "${line}"`);
+exchanges++;
 assert.ok(exchanges>0,'Per-line Learn cards exist to protect.');
 for(const client of ['../src/screens/LessonScreen.tsx','../../frontend/components/LessonPlayer.js'])
   assert.match(fs.readFileSync(path.resolve(__dirname,client),'utf8'),/\{learnTranslationText\(currentCard,/,`${client} renders the shared preview text.`);

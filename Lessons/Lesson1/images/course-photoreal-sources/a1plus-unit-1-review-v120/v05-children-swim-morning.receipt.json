@@ -1,0 +1,62 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "6766af50-5fc0-46cf-b9f7-5bdca42c08eb",
+  "asset_id": "v05-children-swim-morning",
+  "pack_sha256": "d8dbfc0c40a014c8552eab23923b7c6ae866248f3071b1fb0884ab6cbce41205",
+  "started_at": "2026-11-19T04:54:02.579936+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, numbers, logos or brand marks anywhere: book covers are plain, screens show only soft abstract color. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos.\n\nKeep every person, animal and object of the action inside the central 60 percent of the photo width, so a centered 4:5 crop keeps them; only expendable background reaches the left and right edges.\n\nThese are members of one ordinary family, new to the course: they are not famous people and do not look like any earlier course character.\n\nThe people clearly do the activity together; nobody looks at the camera.\n\nImage 1 shows the daughter; keep her face, hair color and build exactly (here her hair is wet and tied back). Create a new photograph at an outdoor swimming pool early on a sunny morning: the daughter and her younger brother, the son (about 10, short curly brown hair, orange swim shorts), swim side by side in the clear blue water, their heads and shoulders above the water, both smiling. The daughter is clearly older and bigger than her brother. Low golden morning sunlight. Only these two people are in the photo.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": {
+    "path": "output/imagegen/a1plus-unit-1-review-v120/v04-daughter-studies-night.png",
+    "sha256": "fbb299a07029ad01a72d1903c1557b9756a6ceddf5e03a5a2fcedd7126938987"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "6oD-av2SG_KfqtsP7tGPuQk",
+  "usage": {
+    "promptTokenCount": 588,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1878,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 330
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038876",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 588,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 8.33,
+  "output": "output/imagegen/a1plus-unit-1-review-v120/v05-children-swim-morning.png",
+  "sha256": "cd149e561d551f14c14d38b55fa0412667b286caa7c998602957ab837e0a9ba7",
+  "byte_count": 1345885,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}

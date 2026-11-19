@@ -1,0 +1,55 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "8366080e-f883-4d66-b8b9-35a83466f1e1",
+  "asset_id": "v06-dog-ball",
+  "pack_sha256": "25cd4e36a723d38c59e88c09bf44dbca23f001b857d6225c1392d0e584cae709",
+  "started_at": "2026-11-19T04:54:40.541845+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, numbers, logos or brand marks anywhere: book covers are plain, screens show only soft abstract color. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos.\n\nKeep every person, animal and object of the action inside the central 60 percent of the photo width, so a centered 4:5 crop keeps them; only expendable background reaches the left and right edges.\n\nThese are members of one ordinary family, new to the course: they are not famous people and do not look like any earlier course character.\n\nThe green garden behind the family's house on a sunny day: the family's small black-and-white terrier dog plays with its own red rubber ball on the grass. The camera sees the dog from the SIDE, in profile, a few steps away at the dog's level: the dog stands on all four legs with the red ball held in its mouth, its short tail low behind it, its whole body from nose to tail clearly visible and in sharp focus. No people are in the photo.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "EIH-aovCCPi5qtsP1O2JwQc",
+  "usage": {
+    "promptTokenCount": 308,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1598,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 308
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038792",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 308,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 5.59,
+  "output": "output/imagegen/a1plus-unit-1-review-v121/v06-dog-ball.png",
+  "sha256": "16e2ad9569a422aa9fe51989c8c4b8602ff78ce609b93734a93d2d27fc575d11",
+  "byte_count": 1677157,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}

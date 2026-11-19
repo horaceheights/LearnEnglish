@@ -1,0 +1,62 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "1609c3e5-4635-4bab-92aa-5cc14eab319c",
+  "asset_id": "b01-luis-dog-ball",
+  "pack_sha256": "027b53f193c784d7dc4a3e4a91b501f802bb852120ad04d6d2fde715678011d4",
+  "started_at": "2026-11-19T04:32:47.971215+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, numbers, logos or brand marks anywhere, not even on the pet's collar, bowl or bed. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos.\n\nKeep the person, the pet and the pet's thing inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nOnly this one person and this one pet are in the photo; there is nobody else and no other animal, even far in the background.\n\nThe pet and what it does with its own thing are the most obvious part of the photo: the camera is at the pet's level a few steps away, the animal is a real, natural-looking animal with correct anatomy, and the person looks at the pet, not at the camera.\n\nIt is clearly daytime with soft natural light.\n\nImage 1 shows Luis. Keep his face, short dark curly hair, clean-shaven face, warm medium-brown skin and build exactly, and his navy crew-neck T-shirt. Create a new photograph in a green city park on a sunny day: Luis crouches on the grass next to his dog, a friendly medium-sized brown dog with a red collar. The dog plays with its ball: it holds a bright yellow tennis ball in its mouth, tail up, facing Luis, and Luis smiles at the dog with one hand near its head. The dog and the yellow ball are large, near the camera and in sharp focus, and Luis's face is fully visible in three-quarter view. Trees and a path are softly visible behind them.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1plus-unit-1-q01-135c3f8f772bcbe4.webp",
+    "sha256": "135c3f8f772bcbe472b8cec719eb02318a7d52ce1c7152a94c6952aeb78566c2"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "73v-aoTwMJnWz7IPs7ifoQs",
+  "usage": {
+    "promptTokenCount": 692,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1982,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 434
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038908",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 692,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 8.06,
+  "output": "output/imagegen/a1plus-unit-1-lesson-v100/b01-luis-dog-ball.png",
+  "sha256": "2800eb3244197b4d7e4ef6a13b2687563c8a74e79f9d9a5222e0792c14221541",
+  "byte_count": 1885249,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}

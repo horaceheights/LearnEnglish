@@ -1,0 +1,247 @@
+{
+  "schema_version": 1,
+  "pack": "a1plus-unit-1-mission-1-13-photos",
+  "revision": 1,
+  "output_namespace": "a1plus-unit-1-mission-v130",
+  "authorization": "2026-11-18: the user asked to complete A1+ Unit 1 and chose \"Straight to Preview\" (\"I write, check and ship all five, using Gemini 2.5 Flash photos (about US$2-3 total, mostly for the review and mission scenes) and ElevenLabs audio.\"). Gemini is the approved image tool (2026-09-23), Flash only (2026-11-17).",
+  "image_settings": {
+    "provider": "google-gemini",
+    "model": "gemini-2.5-flash-image",
+    "aspect_ratio": "3:2",
+    "image_size": "1K",
+    "runtime_size": "1536x1024",
+    "runtime_format": "webp",
+    "n": 1
+  },
+  "production": {
+    "price_per_image_usd": "0.0387",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing (checked 2026-11-16: Gemini 2.5 Flash Image, about $0.039 per image)",
+    "planned_images": 16,
+    "expected_cost_usd": "0.62",
+    "requested_ceiling_usd": "1.10",
+    "ceiling_note": "The renderer reserves US$0.20 before each request; the expected spend is about US$0.62.",
+    "no_automatic_retries": true,
+    "order": "Generate the seven scenes first (each needs four separate, tappable targets) and inspect them at full size and phone size, then the kickoff and the four question/response pairs."
+  },
+  "shared_prompts": {
+    "photo": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, numbers, logos or brand marks anywhere. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos.",
+    "party": "Ana's family party in the sunny green garden behind her house on a warm afternoon: a long table with a white tablecloth, plates and a big cake, colorful paper lanterns and a few balloons hang from the trees, with no letters or numbers anywhere.",
+    "scene4": "This is a wide scene for a listening game: the learner hears one sentence and taps the person, pair, group or animal it describes, so the four described subjects must be clearly separate from each other, none hidden behind another, none cut off by the photo's edges, with their heads well below the top edge. Nobody looks at the camera.",
+    "solo-cast": "The person is a recurring course character, so the face must match the reference exactly.",
+    "solo-family": "The person is Ana's relative from an earlier lesson, so the face must match the reference exactly."
+  },
+  "assets": [
+    {
+      "id": "w00-kickoff-ana-gate",
+      "shared": [
+        "photo",
+        "solo-cast"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-q02-c2b4398b65207eff.webp",
+        "sha256": "c2b4398b65207effa51e51260cc607c38ada48caea82f14eb872e4c9c8b5d0d5",
+        "observed_description": "Ana (long dark wavy hair, light-olive skin, sage-green overshirt over a white top, jeans) reads on a sofa (A1+ 1.2)."
+      },
+      "item": "Kickoff: Ana welcomes the guests to her family party.",
+      "prompt": "Image 1 shows Ana. Keep her face, long dark wavy hair, light-olive skin and build exactly, and her sage-green overshirt over a white top. Create a new photograph: Ana stands at the open white wooden gate of her garden and waves hello with a big smile, looking at the camera. Behind her: Ana's family party in the sunny green garden behind her house on a warm afternoon: a long table with a white tablecloth, plates and a big cake, colorful paper lanterns and a few balloons hang from the trees, with no letters or numbers anywhere. Only Ana is in the photo.",
+      "order": 1
+    },
+    {
+      "id": "w01-guests-arrive",
+      "shared": [
+        "photo",
+        "scene4",
+        "party"
+      ],
+      "item": "M01 guided search: He is tall. / She has long hair. / She is short. / He has a beard.",
+      "prompt": "Four adult guests arrive at the garden party and stand on the grass in one row with wide, clear space between them, each seen from head to feet, smiling, in three-quarter view. From left to right: a VERY TALL young man of about 30 with short light-brown hair and a light-blue shirt, clearly the tallest by a head; a young woman of about 25 with VERY LONG straight black hair falling to her waist, in a white summer dress; a SHORT older woman of about 60 with short grey hair and a red cardigan, clearly the shortest, her head only at the others' shoulder height; and a man of about 50, of average height, with a BIG THICK dark-brown BEARD, in a brown jacket. Nobody else is in the photo.",
+      "order": 2
+    },
+    {
+      "id": "w02-old-and-young",
+      "shared": [
+        "photo",
+        "scene4",
+        "party"
+      ],
+      "item": "M02: He is old. / She is young. / She is old. / He is young.",
+      "prompt": "Four family guests sit at the garden party with clear space between them, each one fully visible, on a long wooden garden bench and two garden chairs. From left to right: a very OLD man of about 85 with white hair, no beard, a grey sweater; a YOUNG girl of about 7 with two braids and a yellow dress; a very OLD woman of about 85 with short white curly hair and a blue blouse; and a YOUNG man of about 17 with short black hair and a green T-shirt. Nobody else is in the photo.",
+      "order": 3
+    },
+    {
+      "id": "w03-party-actions",
+      "shared": [
+        "photo",
+        "scene4",
+        "party"
+      ],
+      "item": "M03: He drinks coffee. / She eats cake. / He cooks chicken. / She reads a book.",
+      "prompt": "Four adult guests at the garden party, spread out across the scene with clear space between them, each fully visible and each doing ONE clear thing. From left to right: a man in a striped shirt sits at a small round table and drinks coffee from a white mug; a woman in a pink blouse stands and eats a slice of chocolate cake with a fork from a small plate; a man in a white apron stands at a barbecue grill and cooks pieces of chicken, turning them with tongs, a little smoke rising; and a woman in a blue dress sits in a wooden garden chair and reads an open book with a plain green cover. Nobody else is in the photo.",
+      "order": 4
+    },
+    {
+      "id": "w04-swims-runs-sings-dances",
+      "shared": [
+        "photo",
+        "scene4",
+        "party"
+      ],
+      "item": "M04: The girl swims. / The boy runs. / The man sings. / The woman dances.",
+      "prompt": "The garden party next to a small backyard swimming pool. Four people spread across the scene with clear space between them, each doing ONE clear thing. From left to right: a girl of about 10 swims in the pool, her head and arms above the clear blue water; a boy of about 8 runs fast across the grass, one foot off the ground; a man of about 40 sits on a chair and sings, mouth open, playing an acoustic guitar; and a woman of about 40 dances alone on the grass, arms up, her skirt swinging. Nobody else is in the photo.",
+      "order": 5
+    },
+    {
+      "id": "w05-pets",
+      "shared": [
+        "photo",
+        "scene4",
+        "party"
+      ],
+      "item": "M05: The dog plays with its ball. / The cat is on its bed. / The bird drinks its water. / The rabbit eats its food.",
+      "prompt": "The garden party with FOUR PETS and no people, spread across the scene with clear space between them, each animal large and easy to see. From left to right: a tan dog with a red collar plays with its yellow tennis ball on the grass, the ball in its mouth; a grey-and-white cat lies awake on its own round grey cat bed on the stone patio; a small white birdcage stands on a low garden table close to the camera, and inside it a yellow-and-green parakeet drinks from its small water dish, its beak in the water; and a white-and-brown rabbit eats its food, lettuce and carrot pieces, from its own small blue bowl on the grass.",
+      "order": 6
+    },
+    {
+      "id": "w06-together",
+      "shared": [
+        "photo",
+        "scene4",
+        "party"
+      ],
+      "item": "M06: She dances with him. / He plays football with them. / She reads with her. / He cooks with her.",
+      "prompt": "Four separate groups at the garden party, spread across the scene from left to right with clear space between the groups, everyone fully visible. Group 1 (left): a woman in a red dress dances with a man in a white shirt, holding hands. Group 2: a man in a yellow T-shirt plays football with two small children, a boy and a girl, a black-and-white ball at their feet. Group 3: an old woman with white hair sits on a bench and reads a picture book with a little girl of about 6. Group 4 (right): a man in a white apron and a woman in a green blouse cook together at a barbecue grill, side by side. Nobody else is in the photo.",
+      "order": 7
+    },
+    {
+      "id": "w07-drinks",
+      "shared": [
+        "photo",
+        "scene4",
+        "party"
+      ],
+      "item": "M07 contrast hunt: He doesn't drink coffee. He drinks tea. / She drinks coffee. / He drinks water. / She drinks juice.",
+      "prompt": "Four guests sit side by side along one long side of the party table, facing the camera, with clear space between them, each holding ONE drink in both hands at chest height so the drink is large and easy to see. From left to right: a man of about 35 in a blue shirt holds a clear glass cup of light amber TEA, a tea bag string and paper tag hanging over the rim; a woman of about 35 in a green blouse holds a clear glass mug of black COFFEE; a man of about 60 in a grey shirt holds a tall clear glass of WATER; and a young woman of about 25 in an orange top holds a tall glass of bright ORANGE JUICE. Nobody else is in the photo.",
+      "order": 8
+    },
+    {
+      "id": "w08-luis-asks",
+      "shared": [
+        "photo",
+        "solo-cast"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-q01-135c3f8f772bcbe4.webp",
+        "sha256": "135c3f8f772bcbe472b8cec719eb02318a7d52ce1c7152a94c6952aeb78566c2",
+        "observed_description": "Luis (short dark curly hair, clean-shaven, warm medium-brown skin, navy crew-neck T-shirt) drinks coffee in his kitchen (A1+ 1.2)."
+      },
+      "item": "G1 question view: Does your grandmother drink tea? (Luis)",
+      "prompt": "Image 1 shows Luis. Keep his face, short dark curly hair, clean-shaven face, warm medium-brown skin and build exactly, and his navy crew-neck T-shirt. Create a new photograph at Ana's family party in the sunny green garden behind her house on a warm afternoon: a long table with a white tablecloth, plates and a big cake, colorful paper lanterns and a few balloons hang from the trees, with no letters or numbers anywhere. Luis stands near the party table and looks straight at the camera with a friendly, curious smile and holds one hand open, palm up, toward the side, as if asking the viewer a question. The face is fully visible and in sharp focus, seen from the head to the waist. Only Luis is in the photo.",
+      "order": 9
+    },
+    {
+      "id": "w09-grandmother-tea",
+      "shared": [
+        "photo",
+        "solo-family"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-f01-a668117345db103e.webp",
+        "sha256": "a668117345db103e1a0be808cebfaa792f75ff79393f2bae1b1201312d7212be",
+        "observed_description": "Ana's grandmother (A1+ 1.6) drinks tea at her kitchen table."
+      },
+      "item": "G1 response view: Yes, she does. (the grandmother drinks tea)",
+      "prompt": "Image 1 shows Ana's grandmother. Keep her face, hair, skin tone, build and clothes exactly. Create a new photograph at Ana's family party in the sunny green garden behind her house on a warm afternoon: a long table with a white tablecloth, plates and a big cake, colorful paper lanterns and a few balloons hang from the trees, with no letters or numbers anywhere. The grandmother sits at the party table and drinks tea from a white teacup on a saucer, a teapot in front of her, smiling. Her face is fully visible. Only the grandmother is in the photo.",
+      "order": 10
+    },
+    {
+      "id": "w10-sofia-asks",
+      "shared": [
+        "photo",
+        "solo-cast"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-q03-7d520a07846a47b8.webp",
+        "sha256": "7d520a07846a47b8e8389c3226f3b3639d7eed0d257318b08e4f9b77c5b2258b",
+        "observed_description": "Sofia (long curly dark hair, warm brown skin, white blouse under a bright blue blazer) writes at her desk (A1+ 1.2)."
+      },
+      "item": "G2 question view: Where does your uncle live? (Sofia)",
+      "prompt": "Image 1 shows Sofia. Keep her face, long curly dark hair, warm brown skin and build exactly, and her white blouse under her bright blue blazer, with no badge. Create a new photograph at Ana's family party in the sunny green garden behind her house on a warm afternoon: a long table with a white tablecloth, plates and a big cake, colorful paper lanterns and a few balloons hang from the trees, with no letters or numbers anywhere. Sofia stands under the paper lanterns and looks straight at the camera with a friendly, curious smile and holds one hand open, palm up, toward the side, as if asking the viewer a question. The face is fully visible and in sharp focus, seen from the head to the waist. Only Sofia is in the photo.",
+      "order": 11
+    },
+    {
+      "id": "w11-uncle",
+      "shared": [
+        "photo",
+        "solo-family"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-k02-8fc41067842757fb.webp",
+        "sha256": "8fc41067842757fb0bede5513a9954f64fa81772294135e337a950f28e2da902",
+        "observed_description": "Ana (left) and her uncle (right) at the uncle's door in Mexico (A1+ 1.4)."
+      },
+      "item": "G2 response view: He lives in Mexico. (the uncle)",
+      "prompt": "Image 1 shows Ana and her uncle. Use only the uncle: keep his face, hair, skin tone, build and clothes exactly. Create a new photograph at Ana's family party in the sunny green garden behind her house on a warm afternoon: a long table with a white tablecloth, plates and a big cake, colorful paper lanterns and a few balloons hang from the trees, with no letters or numbers anywhere. The uncle stands by the party table holding a plate with a slice of cake and smiles. His face is fully visible. Only the uncle is in the photo; Ana is not there.",
+      "order": 12
+    },
+    {
+      "id": "w12-diego-asks",
+      "shared": [
+        "photo",
+        "solo-cast"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-q04-ded74a2cb6021167.webp",
+        "sha256": "ded74a2cb6021167d6af2351e9012476d36c1b0936ca9f4f4b6dee68783bb9e2",
+        "observed_description": "Diego (dark curly hair with a little grey, short full beard, burgundy button shirt) eats an apple (A1+ 1.2)."
+      },
+      "item": "G3 question view: Who does your cousin live with? (Diego)",
+      "prompt": "Image 1 shows Diego. Keep his face, dark curly hair with a little grey, short full beard, skin tone and build exactly, and his burgundy button shirt. Create a new photograph at Ana's family party in the sunny green garden behind her house on a warm afternoon: a long table with a white tablecloth, plates and a big cake, colorful paper lanterns and a few balloons hang from the trees, with no letters or numbers anywhere. Diego stands near the balloons and looks straight at the camera with a friendly, curious smile and holds one hand open, palm up, toward the side, as if asking the viewer a question. The face is fully visible and in sharp focus, seen from the head to the waist. Only Diego is in the photo.",
+      "order": 13
+    },
+    {
+      "id": "w13-cousin-grandparents",
+      "shared": [
+        "photo",
+        "party"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-k04-a3ea44bdfdd04521.webp",
+        "sha256": "a3ea44bdfdd04521e9c58cbe1dcd878a7650ee305da2cbd7b70bf7b9f8cb7de0",
+        "observed_description": "Ana, her cousin and her grandparents at the grandparents' house in Mexico (A1+ 1.4)."
+      },
+      "item": "G3 response view: He lives with my grandparents. (the cousin with the grandparents)",
+      "prompt": "Image 1 shows Ana, her young cousin and her grandparents. Use only the cousin and the two grandparents: keep their faces, hair, skin tones, builds and clothes exactly. Create a new photograph at Ana's family party in the sunny green garden behind her house on a warm afternoon: a long table with a white tablecloth, plates and a big cake, colorful paper lanterns and a few balloons hang from the trees, with no letters or numbers anywhere. The cousin stands between his grandmother and his grandfather by the party table, his arms around their shoulders, all three smiling. All three faces are fully visible. Only these three people are in the photo; Ana is not there.",
+      "order": 14
+    },
+    {
+      "id": "w14-luis-asks-rabbit",
+      "shared": [
+        "photo",
+        "solo-cast"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-q01-135c3f8f772bcbe4.webp",
+        "sha256": "135c3f8f772bcbe472b8cec719eb02318a7d52ce1c7152a94c6952aeb78566c2",
+        "observed_description": "Luis (short dark curly hair, clean-shaven, warm medium-brown skin, navy crew-neck T-shirt) drinks coffee in his kitchen (A1+ 1.2)."
+      },
+      "item": "G4 question view: What is its name? (Luis, beside the rabbit)",
+      "prompt": "Image 1 shows Luis. Keep his face, short dark curly hair, clean-shaven face, warm medium-brown skin and build exactly, and his navy crew-neck T-shirt. Create a new photograph at Ana's family party in the sunny green garden behind her house on a warm afternoon: a long table with a white tablecloth, plates and a big cake, colorful paper lanterns and a few balloons hang from the trees, with no letters or numbers anywhere. Luis kneels on the grass next to a white-and-brown rabbit that eats lettuce from a small blue bowl, points at the rabbit with one hand and looks straight at the camera with a curious smile, as if asking the viewer a question. His face and the rabbit are fully visible. Only Luis and the rabbit are in the photo.",
+      "order": 15
+    },
+    {
+      "id": "w15-coco-rabbit",
+      "shared": [
+        "photo",
+        "party"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-b04-cfc73ca2e29a1a65.webp",
+        "sha256": "cfc73ca2e29a1a65165b7bb9c038413d2e776ca7f5b18a9437a51279b1afb4db",
+        "observed_description": "Ana and her white-and-brown rabbit Coco eating from its blue bowl in her garden (A1+ 1.10)."
+      },
+      "item": "G4 response view: Its name is Coco. (the rabbit)",
+      "prompt": "Image 1 shows Ana and her rabbit. Use only the rabbit: keep its white-and-brown coat, ears and size exactly, and its small blue bowl. Create a new close photograph of the rabbit on the grass at the garden party, the paper lanterns and the party table softly blurred behind it: the rabbit sits next to its blue bowl of lettuce and looks toward the camera, large, centered and in sharp focus. No people are in the photo.",
+      "order": 16
+    }
+  ]
+}

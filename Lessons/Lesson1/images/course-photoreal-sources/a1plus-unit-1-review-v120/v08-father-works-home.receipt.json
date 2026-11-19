@@ -1,0 +1,62 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "ee2e1eb9-7b01-41e9-bc52-a28f272c0d9c",
+  "asset_id": "v08-father-works-home",
+  "pack_sha256": "d8dbfc0c40a014c8552eab23923b7c6ae866248f3071b1fb0884ab6cbce41205",
+  "started_at": "2026-11-19T04:54:21.142888+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, numbers, logos or brand marks anywhere: book covers are plain, screens show only soft abstract color. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos.\n\nKeep every person, animal and object of the action inside the central 60 percent of the photo width, so a centered 4:5 crop keeps them; only expendable background reaches the left and right edges.\n\nThese are members of one ordinary family, new to the course: they are not famous people and do not look like any earlier course character.\n\nOnly this one person is in the photo; there is nobody else, even far in the background. The person does not look at the camera.\n\nImage 1 shows the father (the tall man with short black hair and a dark-green polo shirt). Keep his face, hair, clothes and build exactly. Create a new photograph in the family's living room at home on a weekday morning: the father sits at a wooden desk by the window and works on a laptop, with papers and a coffee mug beside it; home is obvious from the sofa, the family photos frames (with no visible faces) and a plant behind him. His face is in three-quarter view, looking at the laptop screen, which shows only soft abstract color. Only this one person is in the photo.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": {
+    "path": "output/imagegen/a1plus-unit-1-review-v120/v02-father-son-football.png",
+    "sha256": "9b5f59896703bb9090df058be060fdc4131a4eb1069897a448f101818b7bdea2"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "_YD-auHxB86LqtsPsJKqWQ",
+  "usage": {
+    "promptTokenCount": 622,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1912,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 364
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038887",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 622,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 8.22,
+  "output": "output/imagegen/a1plus-unit-1-review-v120/v08-father-works-home.png",
+  "sha256": "f13cb8c42a15e55e6554f4336a1785ac456c7416055cda7e9fc11074e9dfee6f",
+  "byte_count": 1450676,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}

@@ -81,7 +81,10 @@ test('every catalog written-choice card offers Traducir with distinct Spanish', 
       }
     }
   }
-  assert.ok(counts.Recognize > 600 && counts.Listen > 550 && counts.decision >= 12, JSON.stringify(counts));
+  // The A1+ Unit 1 mission was rebuilt on 2026-11-18 as 1.13 with voice gates instead of conversation
+  // decisions (A1+ standards D4), so no catalog card uses them now; mission-conversation-decision.test.cjs
+  // keeps their Traducir surface tested on both clients. Any decision card that returns is still checked above.
+  assert.ok(counts.Recognize > 600 && counts.Listen > 550, JSON.stringify(counts));
 });
 
 test('both clients open Traducir only from its button, through the shared three-second window', () => {

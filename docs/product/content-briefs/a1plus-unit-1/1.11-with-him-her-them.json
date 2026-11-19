@@ -1,0 +1,735 @@
+{
+  "brief_version": 1,
+  "follows": {
+    "course": "a1",
+    "lesson": "1.11",
+    "title": "Friends and People"
+  },
+  "note": "A1+ Unit 1 Lesson 1.11 built on 2026-11-18 under the A1+ lesson standards approved 2026-10-27 and the user's 2026-11-09 rule that every A1+ lesson follows up the A1 lesson with the same number. A1 1.11 Friends and People names a husband and wife, their son and daughter and the daughter's friend (The husband and the wife are talking.). The user chose him, her and them as A1+ 1.11's one grammar step on 2026-11-18 and asked for Unit 1 to be completed straight to Preview. The same A1 family does things together: the husband and the wife cook dinner together, the son plays football with his father, the mother reads with the children, and the daughter plays with her friend (A1 1.11's own photo). Each Learn card sets the noun against its pronoun (She cooks dinner with her husband. / She cooks dinner with him.); She plays with her friend. / She plays with her. shows both hers. The Recognize questions reuse 1.9's Who does ... with?, and the photo decides between him, her and them. Banks keep the sentence and change only the final pronoun, which the shared hint explains (with him, con él). A possessive her is always followed by its noun, so a final her is the object pronoun. Three new Flash photos (c01-c03) of A1 1.11's family and one A1 1.11 photo.",
+  "target": "backend/lessons/a1_plus/unit_1/a1plus-unit-1-lesson-1-11.yaml",
+  "captions": false,
+  "narrators": [
+    "teacher",
+    "co-teacher"
+  ],
+  "answer_audio_policy": "authored-only",
+  "speak_delivery": "a1-pronunciation-v1",
+  "lesson": {
+    "id": "a1plus-unit-1-lesson-1-11",
+    "title": "1.11 With him, with her, with them",
+    "level": "A1+",
+    "unit_id": "a1plus-unit-1",
+    "unit_title": "People, family and habits",
+    "unit_outcome": "Describe people and family, say what people do every day and how often, and ask about other people’s habits.",
+    "lesson_id": "a1plus-unit-1-lesson-1-11",
+    "lesson_title": "With him, with her, with them",
+    "sub_lesson_id": "1.11",
+    "sub_lesson_title": "With him, with her, with them",
+    "goal": "Say who people do things with, using him, her and them instead of the person (She cooks dinner with her husband. / She cooks dinner with him.), and answer Who does ... with?",
+    "vocabulary": [
+      "him",
+      "her",
+      "them"
+    ],
+    "review_vocabulary": [
+      "husband",
+      "wife",
+      "son",
+      "daughter",
+      "friend",
+      "children",
+      "mother",
+      "father",
+      "with",
+      "cooks",
+      "dinner",
+      "reads",
+      "read",
+      "plays",
+      "football",
+      "who",
+      "does",
+      "the",
+      "his",
+      "he",
+      "she",
+      "they"
+    ],
+    "grammar_function": "A follow-up of A1 1.11 Friends and People: A1 names a husband and wife, their son and daughter and a friend (The husband and the wife are talking.); A1+ 1.11 says who they do things with. The one new grammar relationship is the object pronoun after with: him, her and them replace the person (She cooks dinner with her husband. / She cooks dinner with him.), next to the subject pronouns he, she and they. Her is both the possessive (her friend) and the object (with her).",
+    "prerequisite": "A1 1.11 husband, wife, son, daughter, friend; A1 1.4 children; A1 1.6 mother, father; A1 3.10 his and her; A1 7.6 play football; A1+ 1.2 reads and the he/she -s (cooks, plays); A1+ 1.4 with; A1+ 1.9 Who does ... with?",
+    "speaking_outcome": "Say him, her and them clearly at the end of the sentence, linked to with (with him, with her, with them); the th of them is soft. Do not require native-like speed.",
+    "content_revision": 4,
+    "learn_context_groups": [
+      {
+        "kind": "contrast",
+        "targets": [
+          "him"
+        ],
+        "models": [
+          {
+            "slide_id": "L1",
+            "text": "She cooks dinner with her husband. She cooks dinner with him.",
+            "turns": [
+              "She cooks dinner with her husband.",
+              "She cooks dinner with him."
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "contrast",
+        "targets": [
+          "her"
+        ],
+        "models": [
+          {
+            "slide_id": "L2",
+            "text": "He cooks dinner with his wife. He cooks dinner with her.",
+            "turns": [
+              "He cooks dinner with his wife.",
+              "He cooks dinner with her."
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "contrast",
+        "targets": [
+          "them"
+        ],
+        "models": [
+          {
+            "slide_id": "L3",
+            "text": "She reads with the children. She reads with them.",
+            "turns": [
+              "She reads with the children.",
+              "She reads with them."
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "contrast",
+        "targets": [
+          "her"
+        ],
+        "models": [
+          {
+            "slide_id": "L4",
+            "text": "She plays with her friend. She plays with her.",
+            "turns": [
+              "She plays with her friend.",
+              "She plays with her."
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "contrast",
+        "targets": [
+          "him"
+        ],
+        "models": [
+          {
+            "slide_id": "L5",
+            "text": "He plays football with his father. He plays football with him.",
+            "turns": [
+              "He plays football with his father.",
+              "He plays football with him."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "items": [
+    {
+      "id": "l-him",
+      "text": "She cooks dinner with her husband. She cooks dinner with him.",
+      "es": "Ella cocina la cena con su esposo. Ella cocina la cena con él.",
+      "image": "/lesson-assets/a1plus-unit-1-c01-71f34ee8a4ce02ac.webp",
+      "kind": "contrast",
+      "choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "She cooks dinner with her husband.",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-1-c01-71f34ee8a4ce02ac.webp"
+        },
+        {
+          "text": "She cooks dinner with him.",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-1-c01-71f34ee8a4ce02ac.webp"
+        }
+      ]
+    },
+    {
+      "id": "l-her",
+      "text": "He cooks dinner with his wife. He cooks dinner with her.",
+      "es": "Él cocina la cena con su esposa. Él cocina la cena con ella.",
+      "image": "/lesson-assets/a1plus-unit-1-c01-71f34ee8a4ce02ac.webp",
+      "kind": "contrast",
+      "choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "He cooks dinner with his wife.",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-1-c01-71f34ee8a4ce02ac.webp"
+        },
+        {
+          "text": "He cooks dinner with her.",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-1-c01-71f34ee8a4ce02ac.webp"
+        }
+      ]
+    },
+    {
+      "id": "l-them",
+      "text": "She reads with the children. She reads with them.",
+      "es": "Ella lee con los niños. Ella lee con ellos.",
+      "image": "/lesson-assets/a1plus-unit-1-c03-e441e605f31e69c9.webp",
+      "kind": "contrast",
+      "choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "She reads with the children.",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-1-c03-e441e605f31e69c9.webp"
+        },
+        {
+          "text": "She reads with them.",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-1-c03-e441e605f31e69c9.webp"
+        }
+      ]
+    },
+    {
+      "id": "l-her2",
+      "text": "She plays with her friend. She plays with her.",
+      "es": "Ella juega con su amiga. Ella juega con ella.",
+      "image": "/lesson-assets/a1_photo_u1_friends_friends_v1.webp",
+      "kind": "contrast",
+      "choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "She plays with her friend.",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1_photo_u1_friends_friends_v1.webp"
+        },
+        {
+          "text": "She plays with her.",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1_photo_u1_friends_friends_v1.webp"
+        }
+      ]
+    },
+    {
+      "id": "l-him2",
+      "text": "He plays football with his father. He plays football with him.",
+      "es": "Él juega fútbol con su papá. Él juega fútbol con él.",
+      "image": "/lesson-assets/a1plus-unit-1-c02-8d0f388b47c90792.webp",
+      "kind": "contrast",
+      "choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "He plays football with his father.",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-1-c02-8d0f388b47c90792.webp"
+        },
+        {
+          "text": "He plays football with him.",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-1-c02-8d0f388b47c90792.webp"
+        }
+      ]
+    },
+    {
+      "id": "n-wife",
+      "text": "The wife cooks dinner with her husband.",
+      "es": "La esposa cocina la cena con su esposo.",
+      "image": "/lesson-assets/a1plus-unit-1-c01-71f34ee8a4ce02ac.webp",
+      "kind": "named",
+      "learn": false,
+      "use": false,
+      "four_card": false
+    },
+    {
+      "id": "n-husband",
+      "text": "The husband cooks dinner with his wife.",
+      "es": "El esposo cocina la cena con su esposa.",
+      "image": "/lesson-assets/a1plus-unit-1-c01-71f34ee8a4ce02ac.webp",
+      "kind": "named",
+      "learn": false,
+      "use": false,
+      "four_card": false
+    },
+    {
+      "id": "n-son",
+      "text": "The son plays football with his father.",
+      "es": "El hijo juega fútbol con su papá.",
+      "image": "/lesson-assets/a1plus-unit-1-c02-8d0f388b47c90792.webp",
+      "kind": "named",
+      "learn": false,
+      "use": false
+    },
+    {
+      "id": "n-mother",
+      "text": "The mother reads with the children.",
+      "es": "La mamá lee con los niños.",
+      "image": "/lesson-assets/a1plus-unit-1-c03-e441e605f31e69c9.webp",
+      "kind": "named",
+      "learn": false,
+      "use": false
+    },
+    {
+      "id": "n-daughter",
+      "text": "The daughter plays with her friend.",
+      "es": "La hija juega con su amiga.",
+      "image": "/lesson-assets/a1_photo_u1_friends_friends_v1.webp",
+      "kind": "named",
+      "learn": false,
+      "use": false
+    },
+    {
+      "id": "p-him",
+      "text": "She cooks dinner with him.",
+      "es": "Ella cocina la cena con él.",
+      "image": "/lesson-assets/a1plus-unit-1-c01-71f34ee8a4ce02ac.webp",
+      "kind": "pronoun",
+      "learn": false,
+      "four_card": false,
+      "blanks": [
+        "with",
+        "him"
+      ]
+    },
+    {
+      "id": "p-her",
+      "text": "He cooks dinner with her.",
+      "es": "Él cocina la cena con ella.",
+      "image": "/lesson-assets/a1plus-unit-1-c01-71f34ee8a4ce02ac.webp",
+      "kind": "pronoun",
+      "learn": false,
+      "four_card": false,
+      "blanks": [
+        "with",
+        "her"
+      ]
+    },
+    {
+      "id": "p-them",
+      "text": "She reads with them.",
+      "es": "Ella lee con ellos.",
+      "image": "/lesson-assets/a1plus-unit-1-c03-e441e605f31e69c9.webp",
+      "kind": "pronoun",
+      "learn": false,
+      "blanks": [
+        "with",
+        "them"
+      ]
+    },
+    {
+      "id": "p-her2",
+      "text": "She plays with her.",
+      "es": "Ella juega con ella.",
+      "image": "/lesson-assets/a1_photo_u1_friends_friends_v1.webp",
+      "kind": "pronoun",
+      "learn": false,
+      "blanks": [
+        "with",
+        "her"
+      ]
+    },
+    {
+      "id": "p-him2",
+      "text": "He plays football with him.",
+      "es": "Él juega fútbol con él.",
+      "image": "/lesson-assets/a1plus-unit-1-c02-8d0f388b47c90792.webp",
+      "kind": "pronoun",
+      "learn": false
+    },
+    {
+      "id": "p-they",
+      "text": "They read with her.",
+      "es": "Ellos leen con ella.",
+      "image": "/lesson-assets/a1plus-unit-1-c03-e441e605f31e69c9.webp",
+      "kind": "pronoun",
+      "learn": false
+    },
+    {
+      "id": "p-children",
+      "text": "The children read with her.",
+      "es": "Los niños leen con ella.",
+      "image": "/lesson-assets/a1plus-unit-1-c03-e441e605f31e69c9.webp",
+      "kind": "pronoun",
+      "learn": false
+    },
+    {
+      "id": "p-father",
+      "text": "The father plays football with him.",
+      "es": "El papá juega fútbol con él.",
+      "image": "/lesson-assets/a1plus-unit-1-c02-8d0f388b47c90792.webp",
+      "kind": "pronoun",
+      "learn": false
+    },
+    {
+      "id": "w-husband",
+      "text": "He cooks dinner with her.",
+      "es": "Él cocina la cena con ella.",
+      "image": "/lesson-assets/a1plus-unit-1-c01-71f34ee8a4ce02ac.webp",
+      "kind": "who",
+      "speaker": "co-teacher",
+      "question": "Who does the husband cook dinner with?",
+      "question_es": "¿Con quién cocina la cena el esposo?",
+      "question_speaker": "teacher",
+      "learn": false,
+      "image_choices": false,
+      "use": false,
+      "four_card": false,
+      "accepts": {
+        "subject-variety": "The bank keeps the person and the action and changes only the object pronoun at the end (him, her, them), which is the lesson's new item, so the subject stays.",
+        "action-variety": "The bank keeps the person and the action and changes only the object pronoun at the end (him, her, them), which is the lesson's new item, so the action stays."
+      },
+      "prefer": [
+        "He cooks dinner with him.",
+        "He cooks dinner with them."
+      ]
+    },
+    {
+      "id": "w-wife",
+      "text": "She cooks dinner with him.",
+      "es": "Ella cocina la cena con él.",
+      "image": "/lesson-assets/a1plus-unit-1-c01-71f34ee8a4ce02ac.webp",
+      "kind": "who",
+      "speaker": "co-teacher",
+      "question": "Who does the wife cook dinner with?",
+      "question_es": "¿Con quién cocina la cena la esposa?",
+      "question_speaker": "teacher",
+      "learn": false,
+      "image_choices": false,
+      "use": false,
+      "four_card": false,
+      "accepts": {
+        "subject-variety": "The bank keeps the person and the action and changes only the object pronoun at the end (him, her, them), which is the lesson's new item, so the subject stays.",
+        "action-variety": "The bank keeps the person and the action and changes only the object pronoun at the end (him, her, them), which is the lesson's new item, so the action stays."
+      },
+      "prefer": [
+        "She cooks dinner with her.",
+        "She cooks dinner with them."
+      ]
+    },
+    {
+      "id": "w-son",
+      "text": "He plays football with him.",
+      "es": "Él juega fútbol con él.",
+      "image": "/lesson-assets/a1plus-unit-1-c02-8d0f388b47c90792.webp",
+      "kind": "who",
+      "speaker": "co-teacher",
+      "question": "Who does the son play football with?",
+      "question_es": "¿Con quién juega fútbol el hijo?",
+      "question_speaker": "teacher",
+      "learn": false,
+      "image_choices": false,
+      "use": false,
+      "four_card": false,
+      "accepts": {
+        "subject-variety": "The bank keeps the person and the action and changes only the object pronoun at the end (him, her, them), which is the lesson's new item, so the subject stays.",
+        "action-variety": "The bank keeps the person and the action and changes only the object pronoun at the end (him, her, them), which is the lesson's new item, so the action stays."
+      },
+      "prefer": [
+        "He plays football with her.",
+        "He plays football with them."
+      ]
+    },
+    {
+      "id": "w-mother",
+      "text": "She reads with them.",
+      "es": "Ella lee con ellos.",
+      "image": "/lesson-assets/a1plus-unit-1-c03-e441e605f31e69c9.webp",
+      "kind": "who",
+      "speaker": "co-teacher",
+      "question": "Who does the mother read with?",
+      "question_es": "¿Con quién lee la mamá?",
+      "question_speaker": "teacher",
+      "learn": false,
+      "image_choices": false,
+      "use": false,
+      "four_card": false,
+      "accepts": {
+        "subject-variety": "The bank keeps the person and the action and changes only the object pronoun at the end (him, her, them), which is the lesson's new item, so the subject stays.",
+        "action-variety": "The bank keeps the person and the action and changes only the object pronoun at the end (him, her, them), which is the lesson's new item, so the action stays."
+      },
+      "prefer": [
+        "She reads with him.",
+        "She reads with her."
+      ]
+    },
+    {
+      "id": "w-daughter",
+      "text": "She plays with her.",
+      "es": "Ella juega con ella.",
+      "image": "/lesson-assets/a1_photo_u1_friends_friends_v1.webp",
+      "kind": "who",
+      "speaker": "co-teacher",
+      "question": "Who does the daughter play with?",
+      "question_es": "¿Con quién juega la hija?",
+      "question_speaker": "teacher",
+      "learn": false,
+      "image_choices": false,
+      "use": false,
+      "four_card": false,
+      "accepts": {
+        "subject-variety": "The bank keeps the person and the action and changes only the object pronoun at the end (him, her, them), which is the lesson's new item, so the subject stays.",
+        "action-variety": "The bank keeps the person and the action and changes only the object pronoun at the end (him, her, them), which is the lesson's new item, so the action stays."
+      },
+      "prefer": [
+        "She plays with him.",
+        "She plays with them."
+      ]
+    },
+    {
+      "id": "q-mother",
+      "text": "Who does the mother read with?",
+      "es": "¿Con quién lee la mamá?",
+      "image": "/lesson-assets/a1plus-unit-1-c03-e441e605f31e69c9.webp",
+      "kind": "question",
+      "speaker": "luis",
+      "learn": false,
+      "choices": false,
+      "use": false
+    },
+    {
+      "id": "x-them",
+      "text": "She reads with them.",
+      "es": "Ella lee con ellos.",
+      "image": "/lesson-assets/a1plus-unit-1-c03-e441e605f31e69c9.webp",
+      "kind": "heard",
+      "learn": false,
+      "image_choices": false,
+      "use": false,
+      "prefer": [
+        "She reads with him.",
+        "She reads with her."
+      ],
+      "accepts": {
+        "subject-variety": "Listen keeps the sentence and changes only the object pronoun (him, her, them); the answer is what was heard.",
+        "action-variety": "Listen keeps the sentence and changes only the object pronoun (him, her, them); the answer is what was heard."
+      }
+    },
+    {
+      "id": "x-him",
+      "text": "He plays football with him.",
+      "es": "Él juega fútbol con él.",
+      "image": "/lesson-assets/a1plus-unit-1-c02-8d0f388b47c90792.webp",
+      "kind": "heard",
+      "learn": false,
+      "image_choices": false,
+      "use": false,
+      "prefer": [
+        "He plays football with her.",
+        "He plays football with them."
+      ],
+      "accepts": {
+        "subject-variety": "Listen keeps the sentence and changes only the object pronoun (him, her, them); the answer is what was heard.",
+        "action-variety": "Listen keeps the sentence and changes only the object pronoun (him, her, them); the answer is what was heard."
+      }
+    },
+    {
+      "id": "x-her",
+      "text": "She plays with her.",
+      "es": "Ella juega con ella.",
+      "image": "/lesson-assets/a1_photo_u1_friends_friends_v1.webp",
+      "kind": "heard",
+      "learn": false,
+      "image_choices": false,
+      "use": false,
+      "prefer": [
+        "She plays with him.",
+        "She plays with them."
+      ],
+      "accepts": {
+        "subject-variety": "Listen keeps the sentence and changes only the object pronoun (him, her, them); the answer is what was heard.",
+        "action-variety": "Listen keeps the sentence and changes only the object pronoun (him, her, them); the answer is what was heard."
+      }
+    }
+  ],
+  "pool": [
+    {
+      "text": "He cooks dinner with him.",
+      "es": "Él cocina la cena con él.",
+      "image": "/lesson-assets/a1plus-unit-1-c01-71f34ee8a4ce02ac.webp",
+      "kind": "who",
+      "image_choices": false
+    },
+    {
+      "text": "He cooks dinner with them.",
+      "es": "Él cocina la cena con ellos.",
+      "image": "/lesson-assets/a1plus-unit-1-c01-71f34ee8a4ce02ac.webp",
+      "kind": "who",
+      "image_choices": false
+    },
+    {
+      "text": "She cooks dinner with her.",
+      "es": "Ella cocina la cena con ella.",
+      "image": "/lesson-assets/a1plus-unit-1-c01-71f34ee8a4ce02ac.webp",
+      "kind": "who",
+      "image_choices": false
+    },
+    {
+      "text": "She cooks dinner with them.",
+      "es": "Ella cocina la cena con ellos.",
+      "image": "/lesson-assets/a1plus-unit-1-c01-71f34ee8a4ce02ac.webp",
+      "kind": "who",
+      "image_choices": false
+    },
+    {
+      "text": "He plays football with her.",
+      "es": "Él juega fútbol con ella.",
+      "image": "/lesson-assets/a1plus-unit-1-c02-8d0f388b47c90792.webp",
+      "kind": "who",
+      "image_choices": false
+    },
+    {
+      "text": "He plays football with them.",
+      "es": "Él juega fútbol con ellos.",
+      "image": "/lesson-assets/a1plus-unit-1-c02-8d0f388b47c90792.webp",
+      "kind": "who",
+      "image_choices": false
+    },
+    {
+      "text": "She reads with him.",
+      "es": "Ella lee con él.",
+      "image": "/lesson-assets/a1plus-unit-1-c03-e441e605f31e69c9.webp",
+      "kind": "who",
+      "image_choices": false
+    },
+    {
+      "text": "She reads with her.",
+      "es": "Ella lee con ella.",
+      "image": "/lesson-assets/a1plus-unit-1-c03-e441e605f31e69c9.webp",
+      "kind": "who",
+      "image_choices": false
+    },
+    {
+      "text": "She plays with him.",
+      "es": "Ella juega con él.",
+      "image": "/lesson-assets/a1_photo_u1_friends_friends_v1.webp",
+      "kind": "who",
+      "image_choices": false
+    },
+    {
+      "text": "She plays with them.",
+      "es": "Ella juega con ellos.",
+      "image": "/lesson-assets/a1_photo_u1_friends_friends_v1.webp",
+      "kind": "who",
+      "image_choices": false
+    },
+    {
+      "text": "She reads with him.",
+      "es": "Ella lee con él.",
+      "image": "/lesson-assets/a1plus-unit-1-c03-e441e605f31e69c9.webp",
+      "kind": "heard",
+      "image_choices": false
+    },
+    {
+      "text": "She reads with her.",
+      "es": "Ella lee con ella.",
+      "image": "/lesson-assets/a1plus-unit-1-c03-e441e605f31e69c9.webp",
+      "kind": "heard",
+      "image_choices": false
+    },
+    {
+      "text": "He plays football with her.",
+      "es": "Él juega fútbol con ella.",
+      "image": "/lesson-assets/a1plus-unit-1-c02-8d0f388b47c90792.webp",
+      "kind": "heard",
+      "image_choices": false
+    },
+    {
+      "text": "He plays football with them.",
+      "es": "Él juega fútbol con ellos.",
+      "image": "/lesson-assets/a1plus-unit-1-c02-8d0f388b47c90792.webp",
+      "kind": "heard",
+      "image_choices": false
+    },
+    {
+      "text": "She plays with him.",
+      "es": "Ella juega con él.",
+      "image": "/lesson-assets/a1_photo_u1_friends_friends_v1.webp",
+      "kind": "heard",
+      "image_choices": false
+    },
+    {
+      "text": "She plays with them.",
+      "es": "Ella juega con ellos.",
+      "image": "/lesson-assets/a1_photo_u1_friends_friends_v1.webp",
+      "kind": "heard",
+      "image_choices": false
+    }
+  ],
+  "layout": {
+    "Recognize": 11,
+    "Listen": 10,
+    "Speak": 8,
+    "Use": 8
+  },
+  "stage_sequences": {
+    "Learn": [
+      "l-him",
+      "l-her",
+      "l-them",
+      "l-her2",
+      "l-him2"
+    ],
+    "Recognize": [
+      "p-them",
+      "w-husband",
+      "p-him2",
+      "w-daughter",
+      "n-mother",
+      "w-mother",
+      "p-her2",
+      "w-son",
+      "n-son",
+      "w-wife",
+      "n-daughter"
+    ],
+    "Listen": [
+      "p-her",
+      "p-him2",
+      "x-them",
+      "n-daughter",
+      "p-they",
+      "x-him",
+      "p-them",
+      "p-him",
+      "x-her",
+      "n-son"
+    ],
+    "Speak": [
+      "p-him",
+      "p-her",
+      "q-mother",
+      "p-them",
+      "p-him2",
+      "p-her2",
+      "p-they",
+      "n-son"
+    ],
+    "Use": [
+      "p-him",
+      "p-her",
+      "p-them",
+      "p-her2",
+      "p-him2",
+      "p-they",
+      "p-children",
+      "p-father"
+    ]
+  }
+}

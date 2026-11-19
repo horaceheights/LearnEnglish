@@ -7,6 +7,8 @@ import { germanConstructionPlan } from './germanTeaching';
 const words = (value: string) => value.toLowerCase().replace(/\b([ap])\.m\./g, '$1m').match(/[a-z]+(?:'[a-z]+)?/g) || [];
 const set = (value: string) => new Set(value.split(' '));
 const DETERMINERS = set('a an the my your his her our their this that these those');
+// A1+ 1.10 (2026-11-18): its, the possessive for an animal or a thing (The dog plays with its ball.).
+DETERMINERS.add('its');
 const NUMBERS = set('one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen twenty');
 // A1 5.12 (2026-11-15): the tens from thirty to one hundred.
 for (const number of 'thirty forty fifty sixty seventy eighty ninety hundred'.split(' ')) NUMBERS.add(number);
@@ -42,6 +44,8 @@ for (const noun of words('aunt uncle cousin')) NOUNS.add(noun);
 for (const noun of words('hair beard')) NOUNS.add(noun);
 // A1 1.10 (2026-11-14): pets.
 for (const noun of words('dog cat bird rabbit pet pets')) NOUNS.add(noun);
+// A1+ 1.10 (2026-11-18): the four pets' names (Its name is Max.).
+for (const noun of words('max luna rio coco')) NOUNS.add(noun);
 // A1 2.12 (2026-11-15): in the classroom.
 for (const noun of words('classroom class student desk pencil paper notebook')) NOUNS.add(noun);
 // A1 1.11 (2026-11-14): friends and people.
@@ -96,13 +100,19 @@ for (const verb of words('make see use find give')) VERBS.add(verb);
 for (const verb of words('buy pay')) VERBS.add(verb);
 // A1+ 1.8 (2026-11-13): cook as a habit after don't/doesn't (Diego doesn't cook dinner.); after an article it stays A1's noun.
 VERBS.add('cook');
+// A1+ 1.10 (2026-11-18): a pet's habit with its thing (The dog plays with its ball.).
+VERBS.add('plays');
+// A1+ 1.11 (2026-11-18): who people do things with (He cooks dinner with her. / They read with her.).
+for (const verb of words('cooks read')) VERBS.add(verb);
 // A word that is both a noun and a verb ("drinks", "work") is the noun right after an article or a
 // possessive (The drinks are on the table.) and the verb after its subject (Luis drinks coffee.).
-const NOUN_MARKERS = set('a an the my your his her our their');
+const NOUN_MARKERS = set('a an the my your his her its our their');
 const ACTIONS = set('eating drinking reading writing running walking swimming sitting sleeping playing studying working cooking talking watching listening going');
 const BE = set('am is are');
 const FREQUENCY = set('always usually sometimes never');
 const ROUTINE_BASE = set('leave arrive start finish study work wake get eat wash brush come go sleep drink walk play watch open close clean run take put meet cook');
+// A1+ 1.9 (2026-11-18): live after does (Where does your aunt live?).
+ROUTINE_BASE.add('live');
 
 type Relation = { start: number; end: number; explanation: string };
 type ClausePlan = { explanations: string[]; relations: Relation[]; supported: boolean };
@@ -174,7 +184,7 @@ function teachClause(text: string): ClausePlan {
         ? `En ${quote(phrase(start, end))}, ${quote(tokens[described])} describe ${quote(tokens[head])} y va antes del nombre.`
         : NUMBERS.has(first) || first === 'some'
           ? `En ${quote(phrase(start, end))}, la cantidad va antes del nombre: primero cuánto hay y después qué es.`
-          : ['my', 'your', 'his', 'her', 'our', 'their'].includes(first)
+          : ['my', 'your', 'his', 'her', 'its', 'our', 'their'].includes(first)
             ? `En ${quote(phrase(start, end))}, ${quote(tokens[start])} indica de quién es y va antes del nombre ${quote(phrase(start + 1, end))}.`
             : DETERMINERS.has(first)
               ? `En ${quote(phrase(start, end))}, ${quote(tokens[start])} acompaña al nombre ${quote(phrase(start + 1, end))} y va delante de él.`
@@ -295,7 +305,10 @@ function teachClause(text: string): ClausePlan {
                 : 'el lugar o la dirección';
       teach(start, nounEnd, `${quote(phrase(start, nounStart))} va antes de ${quote(location)}: introduce ${relation}. Juntos completan ${quote(anchor)}.`);
       const clockTime = nounEnd === nounStart + 2 && NUMBERS.has(keys[nounStart]) && keys[nounStart + 1] === "o'clock";
-      const valid = clockTime || (nounEnd === nounStart + 1 && (NUMBERS.has(keys[nounStart]) || ['left', 'right', 'there'].includes(keys[nounStart]))) || nominal(nounStart, nounEnd);
+      // A1+ 1.11 (2026-11-18): after "with", him, her and them stand for the person (She reads with them.).
+      const objectPronoun = prep[1] === 'with' && nounEnd === nounStart + 1 && ['him', 'her', 'them'].includes(keys[nounStart]);
+      if (objectPronoun) teach(nounStart, nounEnd, `${quote(tokens[nounStart])} reemplaza a ${keys[nounStart] === 'them' ? 'las personas' : 'la persona'} y va después de “with”: ${quote(phrase(start, nounEnd))} significa ${({ him: 'con él', her: 'con ella', them: 'con ellos o con ellas' } as Record<string, string>)[keys[nounStart]]}.`);
+      const valid = clockTime || objectPronoun || (nounEnd === nounStart + 1 && (NUMBERS.has(keys[nounStart]) || ['left', 'right', 'there'].includes(keys[nounStart]))) || nominal(nounStart, nounEnd);
       return valid && (nextPrep < 0 || complement(nextPrep, end, phrase(start, nounEnd)));
     }
     if (tail === 'every day') {
@@ -331,7 +344,8 @@ function teachClause(text: string): ClausePlan {
       return complement(start + 1, end, tokens[start]);
     }
     // A noun group may be followed by where/when it occurs or a contrast.
-    const boundary = keys.findIndex((key, index) => index > start && index < end && ['in', 'on', 'under', 'next', 'near', 'by', 'at', 'for', 'every', 'not', 'here', 'there', 'before', 'after', 'today'].includes(key));
+    // A1+ 1.11 (2026-11-18): the noun group may also be followed by who it is done with (cooks dinner with him).
+    const boundary = keys.findIndex((key, index) => index > start && index < end && ['in', 'on', 'under', 'next', 'near', 'by', 'at', 'for', 'every', 'not', 'here', 'there', 'before', 'after', 'today', 'with'].includes(key));
     const nounEnd = boundary < 0 ? end : boundary;
     teach(start, nounEnd, `${quote(phrase(start, nounEnd))} indica ${/^(am|is|are)$/i.test(anchor) ? 'qué es el sujeto' : 'qué recibe o completa la acción'}; en esta frase va después de ${quote(anchor)}.`);
     if (!nominal(start, nounEnd)) return false;
@@ -386,26 +400,37 @@ function teachClause(text: string): ClausePlan {
   }
   // Do/does frames share the ordinary action's complement rules. The synthetic
   // first-person subject is discarded; no explanation may refer to that subject.
-  const routineQuestion = /^(?:(what time|how often|when|where|why) )?(do|does) /.exec(joined);
+  // A1+ 1.9 (2026-11-18) asks about a family member (Does your grandmother drink tea?) and who
+  // someone lives with (Who does your cousin live with?), where "with" closes the question.
+  const routineQuestion = /^(?:(what time|how often|when|where|why|who) )?(do|does) /.exec(joined);
   const routineQuestionSubject = routineQuestion ? (routineQuestion[1] ? words(routineQuestion[1]).length : 0) + 1 : -1;
   if (routineQuestion && text.trim().endsWith('?')
     && (routineQuestion[1] || routineQuestion[2] === 'does')
-    && ['i', 'you', 'he', 'she', 'it', 'we', 'they', 'ana', 'luis', 'sofia', 'diego'].includes(keys[routineQuestionSubject])) {
+    && (['i', 'you', 'he', 'she', 'it', 'we', 'they', 'ana', 'luis', 'sofia', 'diego', 'my', 'your', 'his', 'her', 'our', 'their'].includes(keys[routineQuestionSubject])
+      // A family member with the (Does the father work at home?); "What time does the bus leave?" keeps its own frame below.
+      || (keys[routineQuestionSubject] === 'the' && routineQuestion[1] !== 'what time'))) {
     const auxiliary = routineQuestion[1] ? words(routineQuestion[1]).length : 0;
     const subjectStart = auxiliary + 1;
     const action = keys.findIndex((key, index) => index > subjectStart && ROUTINE_BASE.has(key));
     if (action < 0 || !subject(subjectStart, action)) return { explanations, relations, supported: false };
     const person = keys.slice(subjectStart, action).join(' ');
-    const thirdPerson = ['he', 'she', 'it', 'ana', 'luis', 'sofia', 'diego'].includes(person);
+    const head = keys[action - 1];
+    const thirdPerson = ['he', 'she', 'it', 'ana', 'luis', 'sofia', 'diego'].includes(person)
+      || (!['i', 'you', 'we', 'they'].includes(person) && !person.includes(' and ')
+        && !/s$|^children$|^people$/.test(head));
     if ((keys[auxiliary] === 'does') !== thirdPerson) return { explanations, relations, supported: false };
-    const inner = teachClause('I ' + phrase(action, keys.length) + '.');
+    const closingWith = routineQuestion[1] === 'who' && keys[keys.length - 1] === 'with' && keys.length - 1 > action;
+    if (routineQuestion[1] === 'who' && !closingWith) return { explanations, relations, supported: false };
+    const innerEnd = closingWith ? keys.length - 1 : keys.length;
+    const inner = teachClause('I ' + phrase(action, innerEnd) + '.');
     if (!inner.supported) return { explanations, relations, supported: false };
-    teach(0, keys.length, `En esta pregunta, ${auxiliary ? `${quote(phrase(0, auxiliary))} va primero; después ` : 'primero va '}“${tokens[auxiliary]}”, luego ${quote(phrase(subjectStart, action))} y la acción ${quote(tokens[action])}.`);
-    if (auxiliary) teach(0, auxiliary, `${quote(phrase(0, auxiliary))} pregunta ${routineQuestion[1] === 'what time' ? 'la hora' : routineQuestion[1] === 'how often' ? 'la frecuencia' : routineQuestion[1] === 'where' ? 'el lugar' : routineQuestion[1] === 'when' ? 'cuándo' : 'el motivo'} y va antes del auxiliar ${quote(tokens[auxiliary])}.`);
+    teach(0, keys.length, `En esta pregunta, ${auxiliary ? `${quote(phrase(0, auxiliary))} va primero; después ` : 'primero va '}“${tokens[auxiliary]}”, luego ${quote(phrase(subjectStart, action))} y la acción ${quote(tokens[action])}${closingWith ? ', y “with” al final' : ''}.`);
+    if (auxiliary) teach(0, auxiliary, `${quote(phrase(0, auxiliary))} pregunta ${routineQuestion[1] === 'what time' ? 'la hora' : routineQuestion[1] === 'how often' ? 'la frecuencia' : routineQuestion[1] === 'where' ? 'el lugar' : routineQuestion[1] === 'when' ? 'cuándo' : routineQuestion[1] === 'who' ? 'por la persona' : 'el motivo'} y va antes del auxiliar ${quote(tokens[auxiliary])}.`);
     teach(auxiliary, action, `En esta pregunta, el auxiliar ${quote(tokens[auxiliary])} va antes del sujeto ${quote(phrase(subjectStart, action))}.`);
     teach(subjectStart, action + 1, `Después de ${quote(tokens[auxiliary])}, el sujeto ${quote(phrase(subjectStart, action))} va antes de ${quote(tokens[action])}, la acción en forma base.`);
     inner.explanations.slice(2).forEach((explanation, index) => { explanations[action + index + 1] = explanation; });
     relations.push(...inner.relations.filter(relation => relation.start > 0).map(relation => ({ ...relation, start: relation.start + action - 1, end: relation.end + action - 1 })));
+    if (closingWith) teach(keys.length - 1, keys.length, `“With” cierra la pregunta: “Who … with?” pregunta con quién, después de ${quote(tokens[action])}.`);
     return { explanations, relations, supported: explanations.every(Boolean) };
   }
   const negative = keys.findIndex(key => ["doesn't", "don't"].includes(key));

@@ -1,0 +1,62 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "edfb4ada-812d-41bb-bf48-71fbbcc7b34d",
+  "asset_id": "w12-diego-asks",
+  "pack_sha256": "3167567d7cdd6920bb3229b77fafb6c5b9423716303804186df114782b452d0c",
+  "started_at": "2026-11-19T05:10:15.255040+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, numbers, logos or brand marks anywhere. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos.\n\nThe person is a recurring course character, so the face must match the reference exactly.\n\nImage 1 shows Diego. Keep his face, dark curly hair with a little grey, short full beard, skin tone and build exactly, and his burgundy button shirt. Create a new photograph at Ana's family party in the sunny green garden behind her house on a warm afternoon: a long table with a white tablecloth, plates and a big cake, colorful paper lanterns and a few balloons hang from the trees, with no letters or numbers anywhere. Diego stands near the balloons and looks straight at the camera with a friendly, curious smile and holds one hand open, palm up, toward the side, as if asking the viewer a question. The face is fully visible and in sharp focus, seen from the head to the waist. Only Diego is in the photo.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1plus-unit-1-q04-ded74a2cb6021167.webp",
+    "sha256": "ded74a2cb6021167d6af2351e9012476d36c1b0936ca9f4f4b6dee68783bb9e2"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "toT-atb4NovVz7IPxbu6kQ8",
+  "usage": {
+    "promptTokenCount": 547,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1837,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 289
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038864",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 547,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 7.13,
+  "output": "output/imagegen/a1plus-unit-1-mission-v130/w12-diego-asks.png",
+  "sha256": "9c2a7ead6d6271ec8233a63eb5a647aab74f4f136f6bf792d704b6ef2330441b",
+  "byte_count": 1469887,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}

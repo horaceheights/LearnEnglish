@@ -54,7 +54,7 @@ const settle = () => new Promise(resolve => setTimeout(resolve, 0));
   label(tree, 'Curso A1+').props.onPress(); await settle(); tree = render();
   assert.equal(label(tree, 'Curso A1+').props.accessibilityState.selected, true);
   const lessonButtons = walk(tree, n => n.type === 'Pressable' && /^1\.\d+\./.test(n.props?.accessibilityLabel || ''));
-  assert.equal(lessonButtons.length, 12, 'A1+ must expose all twelve lessons without A1 unit-number collisions.');
+  assert.equal(lessonButtons.length, 13, 'A1+ must expose all thirteen lessons without A1 unit-number collisions.');
   for (const [position, button] of lessonButtons.entries()) {
     button.props.onPress(); await settle();
     const lessonList = walk(render(), n => n.type === 'FlatList')[0];

@@ -1,0 +1,55 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "c26f8ead-bf85-4457-b087-b8c2c720fb85",
+  "asset_id": "w04-swims-runs-sings-dances",
+  "pack_sha256": "3167567d7cdd6920bb3229b77fafb6c5b9423716303804186df114782b452d0c",
+  "started_at": "2026-11-19T05:07:49.722901+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, numbers, logos or brand marks anywhere. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos.\n\nThis is a wide scene for a listening game: the learner hears one sentence and taps the person, pair, group or animal it describes, so the four described subjects must be clearly separate from each other, none hidden behind another, none cut off by the photo's edges, with their heads well below the top edge. Nobody looks at the camera.\n\nAna's family party in the sunny green garden behind her house on a warm afternoon: a long table with a white tablecloth, plates and a big cake, colorful paper lanterns and a few balloons hang from the trees, with no letters or numbers anywhere.\n\nThe garden party next to a small backyard swimming pool. Four people spread across the scene with clear space between them, each doing ONE clear thing. From left to right: a girl of about 10 swims in the pool, her head and arms above the clear blue water; a boy of about 8 runs fast across the grass, one foot off the ground; a man of about 40 sits on a chair and sings, mouth open, playing an acoustic guitar; and a woman of about 40 dances alone on the grass, arms up, her skirt swinging. Nobody else is in the photo.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "JYT-aoDUDNXoz7IPu7yN6AY",
+  "usage": {
+    "promptTokenCount": 366,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1656,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 366
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038810",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 366,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 7.61,
+  "output": "output/imagegen/a1plus-unit-1-mission-v130/w04-swims-runs-sings-dances.png",
+  "sha256": "dc900c111b52b204dc381a9b69ca9a664c96a1d0cc3fd46acf7382eaaf998443",
+  "byte_count": 2280820,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}

@@ -166,6 +166,39 @@ test('How many ... do you have? is a question, and older/younger describe the no
   assert.match(hint('Ana has an older sister.', 3, 4), /“older” describe “sister” y va antes del nombre/);
 });
 
+test('A1+ 1.9-1.12: does-questions about a family member, its, and him/her/them after with', () => {
+  for (const target of ['Does your grandmother drink tea?', 'Where does your aunt live?', 'Who does your cousin live with?',
+    'Does your uncle live in Mexico?', 'Does the father work at home?', 'Yes, she does.', "No, he doesn't.",
+    'The dog plays with its ball.', 'Its name is Coco.', 'I have a bird. Its name is Rio.', 'She cooks dinner with him.',
+    'She reads with them.', 'They read with her.', 'The father plays football with him.']) {
+    assert.ok(constructionTeachingPlan(construction(target)).supported, target);
+  }
+  assert.equal(constructionTeachingPlan(construction('Does your parents drink tea?')).supported, false,
+    'Does agrees with one person; plural parents take do.');
+  assert.equal(constructionTeachingPlan(construction('Who does your cousin live?')).supported, false,
+    'Who does ... with? keeps its closing with.');
+  assert.match(hint('Does your grandmother drink tea?', 0, 1), /auxiliar “Does”/);
+  assert.match(hint('Does your grandmother drink tea?', 1, 2), /“your” indica de quién es y va antes del nombre “grandmother”/);
+  assert.match(hint('Who does your cousin live with?', 4, 5), /“with” al final|“With” cierra la pregunta/);
+  assert.match(hint('The dog plays with its ball.', 4, 5), /“its” indica de quién es y va antes del nombre “ball”/);
+  assert.match(hint('She reads with them.', 2, 3), /“with” va antes de “them”: introduce con quién/);
+  // "What time does the bus leave?" keeps its own schedule frame.
+  const schedule = constructionTeachingPlan(construction('What time does the bus leave?'));
+  assert.match(schedule.relations.map(relation => relation.explanation).join(' '), /el transporte/);
+});
+
+test('A1+ 1.11: a final him, her or them is the object pronoun in the choice hint', () => {
+  const { relationalChoiceHint } = require('../src/choiceTeaching.ts');
+  const card = { stage: 'Listen', audio_text: 'She reads with them.' };
+  const option = label => ({ id: label, label, image_url: '' });
+  assert.equal(relationalChoiceHint(card, option('She reads with them.'), option('She reads with her.')),
+    '“with her” significa con ella; la frase escuchada dice “with them” (con ellos o con ellas).');
+  assert.equal(relationalChoiceHint({ ...card, stage: 'Recognize' }, option('He cooks dinner with her.'), option('He cooks dinner with him.')),
+    '“with him” significa con él; la imagen pide “with her” (con ella).');
+  // A possessive her is followed by its noun, so it never takes the object reading.
+  assert.equal(relationalChoiceHint(card, option('She plays with her friend.'), option('She plays with him.')), '');
+});
+
 test('polite requests, coordinated handovers and negative needs explain word order', () => {
   for (const target of ['Can I have coffee and eggs, please?', 'Here are your coffee and eggs.', 'Here are your three apples.', 'I do not want milk.', 'I do not need juice.']) {
     const card = construction(target);
