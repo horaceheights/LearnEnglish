@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "pack": "de-a1-unit-1-lesson-1-4-photos",
+  "revision": 1,
+  "output_namespace": "de-a1-unit-1-lesson-v4",
+  "authorization": "2026-11-19: the user answered \"Approve, generate\" to \"Approve the text and generate the photo?\" after reviewing the German 1.4-1.6 Gate 1 page (text, answer choices and this one prompt; Gemini Flash, about US$0.04, ceiling US$0.25). Gemini is the approved image tool (2026-09-23), Flash only (2026-11-17).",
+  "image_settings": {
+    "provider": "google-gemini",
+    "model": "gemini-2.5-flash-image",
+    "aspect_ratio": "3:2",
+    "image_size": "1K",
+    "runtime_size": "1536x1024",
+    "runtime_format": "webp",
+    "n": 1
+  },
+  "production": {
+    "price_per_image_usd": "0.0387",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing (checked 2026-11-16: Gemini 2.5 Flash Image, about $0.039 per image)",
+    "planned_images": 1,
+    "expected_cost_usd": "0.04",
+    "requested_ceiling_usd": "0.25",
+    "ceiling_note": "The renderer reserves US$0.20 before each request; the expected spend is about US$0.04.",
+    "no_automatic_retries": true,
+    "order": "One photo. Inspect it at 900/360/250/180 px and in the centered 4:5 crop: both children must read as asleep (eyes closed) and clearly be two people, so it never competes with girl_is_sleeping or boy_is_sleeping, which German 1.4 uses for the one-person form."
+  },
+  "shared_prompts": {
+    "photo": "Use case: photorealistic-natural. One real photograph for an English-speaking adult beginner learning German. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, numbers, logos or brand marks anywhere. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos.",
+    "safe_center": "Keep every person and the thing they share inside the central 60 percent of the photo width, so a centered 4:5 crop keeps them; only expendable background reaches the left and right edges.",
+    "pair": "The two people are close together and clearly do the same activity together."
+  },
+  "assets": [
+    {
+      "id": "s01-boy-girl-sleeping",
+      "order": 1,
+      "item": "Der Junge und das Mädchen schlafen. / Sie schlafen. (two people asleep; German 1.4 L8, R8, A6, A7, S6, U7)",
+      "shared": [
+        "photo",
+        "safe_center",
+        "pair"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/they_boy_girl.webp",
+        "sha256": "73d97a0fe1771a1876952867bf8a64d7ca44f4a25a40c2fcb01635a97251cf24",
+        "observed_description": "The course's boy and girl (German 1.3): the boy has short dark hair and a blue polo shirt; the younger girl has dark hair in a ponytail with a lilac hair tie and a lilac T-shirt. They stand side by side on a park path."
+      },
+      "prompt": "Image 1 shows a boy and a girl. Keep both faces, hair, skin tones and builds exactly. Create a new photograph of the same two children in a cozy bedroom at night: they are both fast asleep side by side in one wide bed, under one light-colored blanket pulled up to their chests. Their eyes are clearly closed and their faces are relaxed, each head resting on its own white pillow, turned slightly toward the camera so both faces are fully visible. The boy wears plain blue pajamas and the girl wears plain lilac pajamas. A small bedside lamp gives soft warm light so both faces are easy to see; the room behind them is calm and dim. The camera is at the height of the bed, a few steps away, and shows both children from the head to the waist. Only these two people are in the photo; nobody is awake."
+    }
+  ]
+}

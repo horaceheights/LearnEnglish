@@ -26,18 +26,24 @@ class GermanCourseTests(unittest.TestCase):
         courses = json.loads((ROOT / "backend/courses.json").read_text(encoding="utf-8"))
         self.assertEqual([c["id"] for c in courses if "speechLocale" not in c], ["a1", "a1-plus"])
 
-    def test_every_german_card_is_read_by_the_native_german_narrator_with_german_feedback(self):
-        self.assertIn("de-teacher", NARRATION_SPEAKER_ROLES)
+    def test_german_narration_alternates_carola_and_the_male_co_teacher_with_german_feedback(self):
+        # User decisions 2026-11-18 (Carola) and 2026-11-19 (male co-teacher, alternating
+        # within each section like the English teacher and co-teacher).
+        self.assertTrue({"de-teacher", "de-co-teacher"} <= NARRATION_SPEAKER_ROLES)
         self.assertEqual(NARRATOR_VOICE_IDS[narrator_for_speaker("de-teacher")], "K75lPKuh15SyVhQC1LrE")
+        self.assertEqual(NARRATOR_VOICE_IDS[narrator_for_speaker("de-co-teacher")], "TUKJhQmz3RPYBNAgC5A1")
         lessons = COURSE_LESSONS["de-a1"].values()
         self.assertTrue(lessons)
         for lesson in lessons:
             self.assertEqual(lesson.level, "Deutsch A1")
+            position = {}
             for card in lesson.cards:
+                position[card.stage] = position.get(card.stage, 0) + 1
+                expected = "de-teacher" if position[card.stage] % 2 else "de-co-teacher"
                 self.assertEqual(card.target_language, "de", (lesson.id, card.slide_id))
-                self.assertEqual(card.audio_speaker, "de-teacher", (lesson.id, card.slide_id))
+                self.assertEqual(card.audio_speaker, expected, (lesson.id, card.slide_id))
                 for asset in card.audio_assets:
-                    self.assertEqual(asset.speaker_role, "de-teacher", asset.id)
+                    self.assertEqual(asset.speaker_role, expected, asset.id)
 
     def test_english_courses_never_carry_the_german_flag(self):
         for course_id in ("a1", "a1-plus"):
