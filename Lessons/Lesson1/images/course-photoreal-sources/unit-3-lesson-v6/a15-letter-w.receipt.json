@@ -1,0 +1,55 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "7cae8f5c-3551-4e25-9c5d-7b03d0f3ce93",
+  "asset_id": "a15-letter-w",
+  "pack_sha256": "9f1400f91fb4358f8795bf077f0ce3c76c946bd8a39e312900145f44837c7cba",
+  "started_at": "2026-11-18T22:45:27.420500+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture, soft natural daylight and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.\n\nKeep the main subject of the photo whole inside the central 55 percent of the photo width, so a centered 4:5 crop keeps it whole; only expendable background reaches the left and right edges.\n\nONE LETTER CARD: in a bright adult-education classroom, one single square white card is stuck in the middle of a clean white whiteboard. The card shows exactly one large, bold, black, printed CAPITAL letter W in a plain sans-serif font, centered on the card, filling most of it. Only the capital letter W: nothing else is written anywhere, no other letters, lowercase letters, words, numbers, punctuation or marks on the card, the whiteboard or the room. The card is seen straight on, perfectly sharp and fully legible, in the center of the photo; the classroom around the whiteboard (window light, a green plant, the edge of a desk) is softly blurred. No people and no hands. No logos.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "hCr-at2xNMDRz7IP-senoAs",
+  "usage": {
+    "promptTokenCount": 296,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1586,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 296
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038789",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 296,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 5.54,
+  "output": "output/imagegen/unit-3-lesson-v6/a15-letter-w.png",
+  "sha256": "1a0014f1aa7ea7737f7184f2af54c3a1941728f5a46c6ac9df41e9cb37d1571a",
+  "byte_count": 955196,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}

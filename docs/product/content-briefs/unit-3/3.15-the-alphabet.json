@@ -1,0 +1,367 @@
+{
+  "brief_version": 1,
+  "captions": false,
+  "narrators": [
+    "teacher",
+    "co-teacher"
+  ],
+  "note": "Coverage gap lesson (2026-11-18, user decisions: \"so it will be 2 new lessons\", \"yes proceed as planned so far, no change the mission or review to add alphabet, review is too long aready\"). Reverses the 2026-09-23 deferral of spelling. All 26 letters are taught in the groups that share a vowel sound (the B to Z group is split in two cards so each can be completed on Use); What is it? then drills the letters Spanish speakers confuse (E/I, G/J, H, Y, W) on single-letter cards. The Unit 3 review and mission stay unchanged. Lesson 3.16 How Do You Spell It? follows.",
+  "target": "backend/lessons/unit_3/lesson-3-15-the-alphabet.yaml",
+  "lesson": {
+    "id": "lesson-3-15-the-alphabet",
+    "title": "3.15 The Alphabet",
+    "level": "Beginner A1",
+    "unit_id": "unit-3",
+    "unit_title": "Unit 3: Me and Other People",
+    "unit_outcome": "Use tightly supported exchanges to greet people and give a name, age, origin and job, ask and answer yes/no questions with be, and describe who owns things.",
+    "lesson_id": "lesson-3",
+    "lesson_title": "Unit 3: Me and Other People",
+    "sub_lesson_id": "3.15",
+    "sub_lesson_title": "The Alphabet",
+    "goal": "Say the 26 English letters in groups that share a sound and tell apart the letters that sound different in Spanish.",
+    "vocabulary": [
+      "A, H, J, K",
+      "B, C, D, E",
+      "G, P, T, V, Z",
+      "F, L, M, N, S, X",
+      "I, Y",
+      "O",
+      "Q, U, W",
+      "R"
+    ],
+    "review_vocabulary": [
+      "what",
+      "is",
+      "it"
+    ],
+    "grammar_function": "Letter names in sound groups; What is it? It is + letter.",
+    "prerequisite": "2.4 What is it?; 3.1 What is your name? My name is Ana.",
+    "speaking_outcome": "Say the alphabet group by group, and answer What is it? with It is E., It is G. or It is W.",
+    "content_revision": 1
+  },
+  "layout": {
+    "Recognize": 10,
+    "Listen": 8,
+    "Speak": 8,
+    "Use": 8
+  },
+  "stage_sequences": {
+    "Recognize": [
+      "A, H, J, K",
+      "B, C, D, E",
+      "G, P, T, V, Z",
+      "F, L, M, N, S, X",
+      "I, Y",
+      "O",
+      "Q, U, W",
+      "R",
+      "It is E.",
+      "I, Y"
+    ],
+    "Listen": [
+      "A, H, J, K",
+      "B, C, D, E",
+      "G, P, T, V, Z",
+      "F, L, M, N, S, X",
+      "I, Y",
+      "Q, U, W",
+      "It is O.",
+      "It is R."
+    ],
+    "Speak": [
+      "A, H, J, K",
+      "B, C, D, E",
+      "G, P, T, V, Z",
+      "F, L, M, N, S, X",
+      "I, Y",
+      "Q, U, W",
+      "It is O.",
+      "It is R."
+    ],
+    "Use": [
+      "A, H, J, K",
+      "It is J.",
+      "B, C, D, E",
+      "G, P, T, V, Z",
+      "It is O.",
+      "F, L, M, N, S, X",
+      "Q, U, W",
+      "It is R."
+    ]
+  },
+  "items": [
+    {
+      "text": "A, H, J, K",
+      "es": "A (ei), H (eich), J (yei), K (kei)",
+      "image": "/lesson-assets/a1_photo_u3_alphabet_ahjk_v1.webp",
+      "kind": "letter-group",
+      "form": "word",
+      "prefer": [
+        "I, Y",
+        "B, C, D, E"
+      ],
+      "four_card": false,
+      "blanks": [
+        "J",
+        "K"
+      ]
+    },
+    {
+      "text": "B, C, D, E",
+      "es": "B (bi), C (si), D (di), E (i)",
+      "image": "/lesson-assets/a1_photo_u3_alphabet_bcde_v1.webp",
+      "kind": "letter-group",
+      "form": "word",
+      "prefer": [
+        "A, H, J, K",
+        "I, Y"
+      ],
+      "four_card": false,
+      "blanks": [
+        "D",
+        "E"
+      ]
+    },
+    {
+      "text": "G, P, T, V, Z",
+      "es": "G (yi), P (pi), T (ti), V (vi), Z (zi)",
+      "image": "/lesson-assets/a1_photo_u3_alphabet_gptvz_v1.webp",
+      "kind": "letter-group",
+      "form": "word",
+      "prefer": [
+        "A, H, J, K",
+        "Q, U, W"
+      ],
+      "four_card": false,
+      "blanks": [
+        "V",
+        "Z"
+      ]
+    },
+    {
+      "text": "F, L, M, N, S, X",
+      "es": "F (ef), L (el), M (em), N (en), S (es), X (ex)",
+      "image": "/lesson-assets/a1_photo_u3_alphabet_flmnsx_v1.webp",
+      "kind": "letter-group",
+      "form": "word",
+      "prefer": [
+        "R",
+        "G, P, T, V, Z"
+      ],
+      "four_card": false,
+      "blanks": [
+        "M",
+        "N"
+      ]
+    },
+    {
+      "text": "I, Y",
+      "es": "I (ai), Y (uai)",
+      "image": "/lesson-assets/a1_photo_u3_alphabet_iy_v1.webp",
+      "kind": "letter-group",
+      "form": "word",
+      "prefer": [
+        "A, H, J, K",
+        "B, C, D, E"
+      ],
+      "four_card": false
+    },
+    {
+      "text": "O",
+      "es": "O (ou)",
+      "image": "/lesson-assets/a1_photo_u3_alphabet_o_v1.webp",
+      "kind": "letter-group",
+      "form": "word",
+      "prefer": [
+        "Q, U, W",
+        "R"
+      ],
+      "four_card": false
+    },
+    {
+      "text": "Q, U, W",
+      "es": "Q (kiu), U (iu), W (dábliu)",
+      "image": "/lesson-assets/a1_photo_u3_alphabet_quw_v1.webp",
+      "kind": "letter-group",
+      "form": "word",
+      "prefer": [
+        "O",
+        "I, Y"
+      ],
+      "four_card": false,
+      "blanks": [
+        "U",
+        "W"
+      ]
+    },
+    {
+      "text": "R",
+      "es": "R (ar)",
+      "image": "/lesson-assets/a1_photo_u3_alphabet_r_v1.webp",
+      "kind": "letter-group",
+      "form": "word",
+      "prefer": [
+        "O",
+        "F, L, M, N, S, X"
+      ],
+      "four_card": false
+    },
+    {
+      "text": "It is E.",
+      "es": "Es la E.",
+      "image": "/lesson-assets/a1_photo_u3_alphabet_letter_e_v1.webp",
+      "kind": "letter-it",
+      "learn": false,
+      "prefer": [
+        "It is I."
+      ],
+      "four_card": false,
+      "question": "What is it?",
+      "question_es": "¿Qué es?",
+      "blanks": [
+        "is",
+        "E"
+      ]
+    },
+    {
+      "text": "It is I.",
+      "es": "Es la I.",
+      "image": "/lesson-assets/a1_photo_u3_alphabet_letter_i_v1.webp",
+      "kind": "letter-it",
+      "learn": false,
+      "prefer": [
+        "It is E.",
+        "It is Y."
+      ],
+      "four_card": false,
+      "question": "What is it?",
+      "question_es": "¿Qué es?",
+      "blanks": [
+        "is",
+        "I"
+      ]
+    },
+    {
+      "text": "It is G.",
+      "es": "Es la G.",
+      "image": "/lesson-assets/a1_photo_u3_alphabet_letter_g_v1.webp",
+      "kind": "letter-it",
+      "learn": false,
+      "prefer": [
+        "It is J."
+      ],
+      "four_card": false,
+      "question": "What is it?",
+      "question_es": "¿Qué es?",
+      "blanks": [
+        "is",
+        "G"
+      ]
+    },
+    {
+      "text": "It is J.",
+      "es": "Es la J.",
+      "image": "/lesson-assets/a1_photo_u3_alphabet_letter_j_v1.webp",
+      "kind": "letter-it",
+      "learn": false,
+      "prefer": [
+        "It is G.",
+        "It is H."
+      ],
+      "four_card": false,
+      "question": "What is it?",
+      "question_es": "¿Qué es?",
+      "blanks": [
+        "is",
+        "J"
+      ]
+    },
+    {
+      "text": "It is H.",
+      "es": "Es la H.",
+      "image": "/lesson-assets/a1_photo_u3_alphabet_letter_h_v1.webp",
+      "kind": "letter-it",
+      "learn": false,
+      "prefer": [
+        "It is J."
+      ],
+      "four_card": false,
+      "question": "What is it?",
+      "question_es": "¿Qué es?",
+      "blanks": [
+        "is",
+        "H"
+      ]
+    },
+    {
+      "text": "It is Y.",
+      "es": "Es la Y.",
+      "image": "/lesson-assets/a1_photo_u3_alphabet_letter_y_v1.webp",
+      "kind": "letter-it",
+      "learn": false,
+      "prefer": [
+        "It is I.",
+        "It is W."
+      ],
+      "four_card": false,
+      "question": "What is it?",
+      "question_es": "¿Qué es?",
+      "blanks": [
+        "is",
+        "Y"
+      ]
+    },
+    {
+      "text": "It is W.",
+      "es": "Es la W.",
+      "image": "/lesson-assets/a1_photo_u3_alphabet_letter_w_v1.webp",
+      "kind": "letter-it",
+      "learn": false,
+      "prefer": [
+        "It is Y."
+      ],
+      "four_card": false,
+      "question": "What is it?",
+      "question_es": "¿Qué es?",
+      "blanks": [
+        "is",
+        "W"
+      ]
+    },
+    {
+      "text": "It is O.",
+      "es": "Es la O.",
+      "image": "/lesson-assets/a1_photo_u3_alphabet_o_v1.webp",
+      "kind": "letter-it",
+      "learn": false,
+      "prefer": [
+        "It is R."
+      ],
+      "four_card": false,
+      "question": "What is it?",
+      "question_es": "¿Qué es?",
+      "blanks": [
+        "is",
+        "O"
+      ]
+    },
+    {
+      "text": "It is R.",
+      "es": "Es la R.",
+      "image": "/lesson-assets/a1_photo_u3_alphabet_r_v1.webp",
+      "kind": "letter-it",
+      "learn": false,
+      "prefer": [
+        "It is O."
+      ],
+      "four_card": false,
+      "question": "What is it?",
+      "question_es": "¿Qué es?",
+      "blanks": [
+        "is",
+        "R"
+      ]
+    }
+  ],
+  "pool": []
+}

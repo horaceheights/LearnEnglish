@@ -1,0 +1,55 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "e52522ff-36c8-4eaf-8c62-1e6ec3486d74",
+  "asset_id": "a03-gptvz",
+  "pack_sha256": "9f1400f91fb4358f8795bf077f0ce3c76c946bd8a39e312900145f44837c7cba",
+  "started_at": "2026-11-18T22:44:04.268239+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture, soft natural daylight and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.\n\nKeep the main subject of the photo whole inside the central 55 percent of the photo width, so a centered 4:5 crop keeps it whole; only expendable background reaches the left and right edges.\n\nLETTER CARDS IN A ROW: in a bright adult-education classroom, 5 square white cards are stuck in one straight horizontal row on a clean white whiteboard, evenly spaced with a small gap between cards. Each card shows exactly one large, bold, black, printed CAPITAL letter in a plain sans-serif font, centered on the card. From left to right the letters are exactly: G, P, T, V, Z. That is 5 cards and 5 letters in total, in that order, each letter exactly once. Nothing else is written anywhere: no other letters, lowercase letters, words, numbers, punctuation or marks on the cards, the whiteboard or the room. The row is seen straight on, perfectly sharp and fully legible, centered in the photo; the classroom around the whiteboard (window light, a green plant, the edge of a desk) is softly blurred. No people and no hands. No logos.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "MSr-atfYOsWGz7IPi4vqwA8",
+  "usage": {
+    "promptTokenCount": 336,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1626,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 336
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038801",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 336,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 5.45,
+  "output": "output/imagegen/unit-3-lesson-v6/a03-gptvz.png",
+  "sha256": "98ba24222601a4a4d5889f43db7d05f14572c537ae76fc88ef3add9d85d55989",
+  "byte_count": 964640,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}

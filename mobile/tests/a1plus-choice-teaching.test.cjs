@@ -145,10 +145,11 @@ test('conversation decisions use ordinary contrast teaching and keep semantic im
 // The 2026-11-17 remade gap-lesson mission beats moved the total to 3067; the earlier outputs were proven byte-identical first.
 // The 2026-11-17 Unit 1 pets and friends mission beats moved the total to 3073; the earlier outputs were proven byte-identical first.
 // 2026-11-18: 7.9 gained good and bad (3070); outside 7.9 only the five Good morning / goodbye hints changed, by decision, to name the whole greeting.
-test('all 3070 established A1 ordinary wrong-choice outputs remain unchanged', () => {
+// 2026-11-18: the alphabet lessons 3.15 and 3.16 added 55 (3125); the earlier 3070 were proven byte-identical first.
+test('all 3125 established A1 ordinary wrong-choice outputs remain unchanged', () => {
   const course = JSON.parse(fs.readFileSync(path.join(__dirname, '../src/generated/a1-course.json'), 'utf8'));
   const results = course.flatMap(lesson => lesson.cards).filter(card => card.options.length >= 2 && !card.interaction_type?.startsWith('complete'))
     .flatMap(card => wrongOptions(card).map(option => [card.slide_id, option.id, lessonMistakeHint(card, option.id)]));
-  assert.equal(results.length, 3070);
+  assert.equal(results.length, 3125);
   assert.equal(crypto.createHash('sha256').update(JSON.stringify(results)).digest('hex'), fixture.a1BaselineSha256);
 });

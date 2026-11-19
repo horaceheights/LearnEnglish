@@ -332,7 +332,8 @@ class PersistentCardAudioTests(unittest.TestCase):
             # 2026-11-15: coverage-gap lesson 2.12 In the Classroom (Luis and narrator fields).
             # 2026-11-15: coverage-gap lessons 4.13 to 4.15 (months, birthday and more at home; Ana, Luis and narrator fields).
             # 2026-11-16: the last seven gap lessons give Luis his 6.13, 7.9 and narrator-pair lines (+23).
-            Counter({'male-character': 821, 'luis': 450, 'diego': 49}),
+            # 2026-11-18: Luis asks and spells his name in the alphabet lesson 3.16 (+16).
+            Counter({'male-character': 821, 'luis': 466, 'diego': 49}),
             Counter(asset.speaker_role for asset, _card in selected),
         )
         # 2026-09-29: four current-action exchanges replace 3.3's old fragment drills.
@@ -355,11 +356,14 @@ class PersistentCardAudioTests(unittest.TestCase):
         # 2026-11-14: the extended Unit 4 review gives Luis five 4.11 verb lines (+10 assets, +4 jobs).
         # 2026-11-18: 7.9 good and bad moved its cards; Luis has five fewer lines there (-5 assets).
         # These are reviewed inventory pins, not spending approval or a cap.
-        self.assertEqual(1320, len(selected))
-        self.assertEqual(277, len(jobs))
-        self.assertEqual(277, sum(len(job.request_fragments()) for job in jobs))
+        # 2026-11-18: Luis's lines in the alphabet lesson 3.16 (+16 assets).
+        self.assertEqual(1336, len(selected))
+        # 2026-11-18: two distinct Luis lines in 3.16 (How do you spell your name? and L, U, I, S).
+        self.assertEqual(279, len(jobs))
+        self.assertEqual(279, sum(len(job.request_fragments()) for job in jobs))
         # 2026-09-29: 4.3's male question names the phone instead of "it" (+7).
-        self.assertEqual(6830, sum(job.estimated_character_cost() for job in jobs))
+        # 2026-11-18: the two 3.16 Luis lines (+37 characters).
+        self.assertEqual(6867, sum(job.estimated_character_cost() for job in jobs))
         self.assertEqual(
             {"male-conversational"},
             {job.profile.narrator for job in jobs},

@@ -208,6 +208,19 @@ assert.match(lessonMistakeHint({...card('', 'You are happy.', 'You is happy.'), 
 assert.doesNotMatch(lessonMistakeHint({...card('', 'I do not study.', 'I study.'), stage:'Recognize'}, 'wrong'), /gusta/);
 assert.doesNotMatch(lessonMistakeHint({...card('', 'He is not a child.', 'He is a child.'), stage:'Recognize'}, 'wrong'), /acción|ocurre/);
 
+// 2026-11-18 alphabet lessons: a confused letter is explained by how both letters sound, and two
+// different spelled words by what each one spells. The pronoun "I" and the article "a" stay words.
+{
+  const letters = (text, stage = 'Recognize') => ({ stage, prompt: '', audio_text: '', correct_option_id: 'right',
+    options: [{ id: 'right', label: text[0], image_url: '' }, { id: 'wrong', label: text[1], image_url: '' }] });
+  assert.equal(lessonMistakeHint(letters(['R, E, D', 'R, I, D'], 'Listen'), 'wrong'),
+    'Elegiste “R, I, D”: la I suena “ai”. Lo escuchado es “R, E, D”: la E suena “i”.');
+  assert.equal(lessonMistakeHint(letters(['It is G.', 'It is J.']), 'wrong'),
+    'Elegiste “It is J”: la J suena “yei”. La respuesta es “It is G”: la G suena “yi”.');
+  assert.match(lessonMistakeHint(letters(['B, double O, K', 'B, double U, K']), 'wrong'), /la U suena “iu”.+la O suena “ou”/);
+  assert.match(lessonMistakeHint(letters(['D, O, G', 'L, U, I, S']), 'wrong'), /se lee “Luis”.+se lee “dog” \(perro\)/);
+  assert.doesNotMatch(lessonMistakeHint(letters(['I', 'A']), 'wrong'), /suena/);
+}
 // 2026-11-18: good has a meaning ("bueno o buena"), but a greeting is explained whole, never word by word.
 {
   const lessons = require('../src/generated/a1-course.json');
