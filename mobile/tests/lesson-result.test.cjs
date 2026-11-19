@@ -38,6 +38,18 @@ test('restarting and reviewing never revoke a previously earned pass; next lesso
   assert.equal(model.nextCourseLesson(lessons,'1.10').id,'2.1');
   assert.equal(model.nextCourseLesson(lessons,'7.10'),null);
 });
+test('next lesson stays inside its own course and carries the course-menu name', () => {
+  const lessons = [{id:'a1-last',course_id:'a1'},{id:'plus-1',course_id:'a1-plus'},{id:'plus-2',course_id:'a1-plus'},
+    {id:'de-1',course_id:'de-a1'},{id:'legacy-a',level:'Beginner A1'},{id:'legacy-b',level:'Beginner A1'}];
+  assert.equal(model.nextCourseLesson(lessons,'a1-last'),null, 'the last A1 lesson must not open A1+');
+  assert.equal(model.nextCourseLesson(lessons,'plus-1').id,'plus-2');
+  assert.equal(model.nextCourseLesson(lessons,'plus-2'),null, 'the last A1+ lesson must not open German');
+  assert.equal(model.nextCourseLesson(lessons,'legacy-a').id,'legacy-b', 'summaries without course_id group by level');
+  assert.equal(model.nextCourseLesson(lessons,'missing'),null);
+  assert.equal(model.courseLessonName({title:'1.2 What people do',sub_lesson_id:'1.2',sub_lesson_title:'What people do'}),'1.2 What people do');
+  assert.equal(model.courseLessonName({title:'2.1 Places Around Me',sub_lesson_id:'2.1'}),'2.1 Places Around Me');
+  assert.equal(model.courseLessonName({title:'Final mission'}),'Final mission');
+});
 test('immutable original result rejects changed grades and impossible recovered activities', () => {
   assert.throws(()=>model.mergeLessonResult(initial(),initial({initialScore:8})), /no puede cambiar/);
   assert.equal(model.parseLessonResult(initial({recoveredCards:[0]})),null);

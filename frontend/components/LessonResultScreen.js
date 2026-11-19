@@ -31,7 +31,7 @@ export function LessonGoodbye({ onDone }) {
   </div></main>;
 }
 
-export default function LessonResultScreen({ result, lessonLabel, hasNext, onNext, onLessons, onRestart,
+export default function LessonResultScreen({ result, lessonLabel, hasNext, nextLessonName = "", onNext, onLessons, onRestart,
   onReview, onExit, celebrate, saving, error, onRetrySave, lesson, catalog = [] }) {
   const summary = resultSummary(result);
   const { play, stop } = useStaticSfx();
@@ -71,7 +71,10 @@ export default function LessonResultScreen({ result, lessonLabel, hasNext, onNex
         {!summary.passed ? <h2>¿Qué quieres hacer?</h2> : null}
         <div className={styles.actions}>
           {summary.passed ? <>
-            {hasNext ? <button disabled={disabled} className={styles.primary} onClick={onNext}>Continuar</button> : null}
+            {hasNext ? <button disabled={disabled} className={styles.primary} onClick={onNext}>
+              Continuar
+              {nextLessonName ? <span className={styles.detail}>Siguiente lección: {nextLessonName}</span> : null}
+            </button> : null}
             <button disabled={disabled} className={hasNext ? styles.secondary : styles.primary} onClick={onLessons}>Volver a las lecciones</button>
             {summary.afterReview && remainingReviewCards(result).length ? <button disabled={disabled} className={styles.secondary} onClick={onReview}>Seguir repasando hasta el 100%</button> : null}
           </> : <>

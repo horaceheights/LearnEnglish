@@ -3,6 +3,9 @@ import test from 'node:test';
 import { element as e, lessonHarness } from './native-lesson-harness.mjs';
 
 const noop = () => {};
+// A long real A1+ name, so narrow phones prove the name wraps instead of clipping.
+const NEXT_NAME = '1.6 Always, usually, sometimes, never';
+const NEXT_LABEL = `Continuar. Siguiente lección: ${NEXT_NAME}`;
 function renderResult(width, height, score, extra = {}) {
   const h = lessonHarness({width,height,fontScale:extra.fontScale || 1}, {sourceTransform: (file, source) => {
     if (!file.endsWith('LessonResultScreen.tsx')) return source;
@@ -15,7 +18,7 @@ function renderResult(width, height, score, extra = {}) {
   const { LessonResultScreen } = h.load('components/LessonResultScreen.tsx');
   return h.render(() => e(LessonResultScreen, {result:{id:'r',userId:'u',lessonId:'l',totalCards:10,initialScore:score,
     missedCards:Array.from({length:10-score},(_,i)=>score+i),ungradedCards:[],recoveredCards:[],completedAt:'2026-09-20T10:00:00Z'},
-    lessonLabel:'UNIT 1 | LESSON 1.10',hasNext:true,width,height,active:true,celebrate:false,saving:false,error:'',
+    lessonLabel:'UNIT 1 | LESSON 1.10',hasNext:true,nextLessonName:NEXT_NAME,width,height,active:true,celebrate:false,saving:false,error:'',
     onNext:noop,onLessons:noop,onRestart:noop,onReview:noop,onExit:noop,onRetrySave:noop,...extra}), width,height);
 }
 
@@ -29,10 +32,15 @@ for (const [width,height] of [[390,844],[320,640],[844,390],[1024,768]]) {
       if (r.type==='Pressable') assert.ok(r.box.height>=48 && r.box.width>=48, `small action ${r.props.accessibilityLabel}`);
     }
     const labels=records.filter(r=>r.type==='Pressable').map(r=>r.props.accessibilityLabel);
-    assert.equal(labels.includes('Continuar'),score>=8);
+    assert.equal(labels.includes(NEXT_LABEL),score>=8);
+    assert.equal(records.some(r=>r.text===`Siguiente lección: ${NEXT_NAME}`),score>=8, 'a pass names the next lesson on the button');
     assert.equal(labels.includes('Repasar solo los errores. Recomendado'),score<8);
   });
 }
+test('without a known next lesson the pass keeps a plain Continuar',()=>{
+  const labels=renderResult(390,844,9,{nextLessonName:''}).filter(r=>r.type==='Pressable').map(r=>r.props.accessibilityLabel);
+  assert.ok(labels.includes('Continuar'));
+});
 test('a storage failure disables leaving and presents a save retry',()=>{
   const records=renderResult(390,844,8,{error:'Sin espacio'});
   const actions=records.filter(r=>r.type==='Pressable');

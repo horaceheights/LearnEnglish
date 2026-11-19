@@ -43,9 +43,10 @@ import {
 } from '../api';
 import { LessonCardView, textAnswerStackNeedsScroll } from '../components/LessonCardView';
 import { LessonResultScreen, LessonGoodbye } from '../components/LessonResultScreen';
-import { newLessonRunId, nextCourseLesson, recoverLessonCard, remainingReviewCards, type LessonResult } from '../lessonResult';
+import { courseLessonName, newLessonRunId, nextCourseLesson, recoverLessonCard, remainingReviewCards, type LessonResult } from '../lessonResult';
 import { lessonResults, syncLocalLessonResults } from '../localLessonResults';
 import canonicalCourse from '../generated/a1-course.json';
+import { courseLessonSequence } from '../previewLessons';
 import { MissionCompletion } from '../components/MissionCompletion';
 import { createDialoguePlaylistController, type DialoguePlaylistStatus } from '../lessonDialoguePlaylist';
 import { MissionGameSurface } from '../components/MissionGameSurface';
@@ -365,7 +366,8 @@ export function LessonScreen({
   const [resultError, setResultError] = useState('');
   const [showGoodbye, setShowGoodbye] = useState(false);
   const [celebrateResult, setCelebrateResult] = useState(false);
-  const nextLessonId = nextCourseLesson(canonicalCourse, lessonId)?.id ?? null;
+  const followingLesson = nextCourseLesson(courseLessonSequence, lessonId);
+  const nextLessonId = followingLesson?.id ?? null;
   const startedSessionRef = useRef('');
   const correctChoiceHandledRef = useRef(false);
   const cardTranslateX = useRef(new Animated.Value(0)).current;
@@ -3212,7 +3214,7 @@ export function LessonScreen({
     }
     return <SafeAreaView style={styles.safeArea}><StatusBar hidden />
       {lessonResult ? <LessonResultScreen result={lessonResult} lesson={lesson} catalog={canonicalCourse as Lesson[]} lessonLabel={lessonLocationLabel(lesson)}
-        hasNext={Boolean(nextLessonId && onNext)} width={viewportWidth} height={viewportHeight}
+        hasNext={Boolean(nextLessonId && onNext)} nextLessonName={followingLesson ? courseLessonName(followingLesson) : ''} width={viewportWidth} height={viewportHeight}
         active={isAppActive} celebrate={celebrateResult} saving={resultSaving} error={resultError} offline={isOffline}
         onNext={() => void leaveResult(() => nextLessonId && onNext?.(nextLessonId))}
         onLessons={() => void leaveResult(onExit)}

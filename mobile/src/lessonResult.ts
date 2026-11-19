@@ -87,9 +87,22 @@ export function resultSignature(result: LessonResult): string {
     result.recoveredCards, result.completedAt, result.reviewAvailable !== false]);
 }
 
-export function nextCourseLesson<T extends { id: string }>(lessons: readonly T[], lessonId: string): T | null {
+type CourseLesson = { id: string; course_id?: string | null; level?: string | null };
+const courseOf = (lesson: CourseLesson) => lesson.course_id || lesson.level || '';
+
+/** The lesson after `lessonId` in the same course; progression never crosses into another course. */
+export function nextCourseLesson<T extends CourseLesson>(lessons: readonly T[], lessonId: string): T | null {
   const index = lessons.findIndex((lesson) => lesson.id === lessonId);
-  return index >= 0 ? lessons[index + 1] ?? null : null;
+  if (index < 0) return null;
+  const course = courseOf(lessons[index]);
+  return lessons.slice(index + 1).find((lesson) => courseOf(lesson) === course) ?? null;
+}
+
+/** The name the course menu shows, e.g. "1.2 What people do". */
+export function courseLessonName(lesson: { title: string; sub_lesson_id?: string | null; sub_lesson_title?: string | null }): string {
+  const name = (lesson.sub_lesson_title || lesson.title).trim();
+  const number = lesson.sub_lesson_id?.trim() || '';
+  return number && !name.startsWith(number) ? `${number} ${name}` : name;
 }
 
 export function localResultProgress(results: readonly LessonResult[]) {
