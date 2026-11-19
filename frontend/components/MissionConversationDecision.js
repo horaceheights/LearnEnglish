@@ -7,6 +7,8 @@ import TeachingClocks from "./TeachingClocks";
 import { visibleClockCues } from "../../mobile/src/teachingClock";
 import { lessonMistakeHint } from "../../mobile/src/lessonMistakeHints";
 import { TutorButton } from "./TutorButton";
+import { useManualSentenceTranslation } from "../../mobile/src/hooks/useManualSentenceTranslation";
+import { OPTION_TRANSLATION_BUTTON_LABEL, optionTranslationText, optionTranslationsAvailable } from "../../mobile/src/optionTranslations";
 
 export default function MissionConversationDecision(props) {
   const { card, paused, interactionReady, cueUnavailable, imageSrc, resolveImage, onReplay, onTutor, tutorAnchorRef } = props;
@@ -17,11 +19,17 @@ export default function MissionConversationDecision(props) {
   const hint = state.phase === "wrong" ? lessonMistakeHint(card, state.selectedId) : "";
   const hasResponse = Boolean(card.answer_audio_text || card.answer_audio_turns?.length);
   const replayDisabled = paused || !["choosing", "wrong"].includes(state.phase);
+  // Traducir (user decision 2026-11-18): written replies show their Spanish for 3 s, on demand only.
+  const optionTranslation = useManualSentenceTranslation(card.slide_id);
+  const showTranslate = !completion && optionTranslationsAvailable(card);
+  const translationsVisible = showTranslate && optionTranslation.visible;
   return <section className="decision">
     <div className="decision-rail">
       <div className="instruction"><span>{completion?.context_es || CONVERSATION_DECISION_INSTRUCTION}</span>
         {!completion ? <button aria-label="Repetir la conversación en inglés" disabled={replayDisabled} onClick={onReplay} type="button">🔊</button> : null}
       </div>
+      {showTranslate ? <button className="translate" data-option-translate aria-label="Traducir las opciones al español"
+        aria-pressed={translationsVisible} onClick={() => optionTranslation.open()} type="button">文A {OPTION_TRANSLATION_BUTTON_LABEL}</button> : null}
       {card.context_es && !completion ? <p>{card.context_es}</p> : null}
       {cueUnavailable && !completion && state.phase !== "responding" ? <p role="alert">No se pudo reproducir el audio completo. Toca la bocina para volver a escuchar.</p> : null}
       {state.phase === "responding" ? <p aria-live="polite">{hasResponse ? '✓ Escucha la respuesta…' : '✓ ¡Bien!'}</p> : null}
@@ -46,7 +54,9 @@ export default function MissionConversationDecision(props) {
             aria-label={option.image_url ? `Imagen ${index + 1}` : option.label || ""}
             aria-pressed={state.selectedId === option.id} disabled={disabled} onClick={() => controller.choose(option.id)}
             className={state.selectedId === option.id ? (state.phase === "wrong" ? "wrong" : "correct") : ""}>
-            {option.image_url ? <Image alt={`Imagen ${index + 1}`} fill sizes="(max-width: 760px) 90vw, 600px" src={resolveImage(option.image_url)} style={{ objectFit: "contain" }} unoptimized /> : option.label}
+            {option.image_url ? <Image alt={`Imagen ${index + 1}`} fill sizes="(max-width: 760px) 90vw, 600px" src={resolveImage(option.image_url)} style={{ objectFit: "contain" }} unoptimized /> : <>{option.label}
+              {optionTranslationText(option, translationsVisible) ? <span className="option-translation" data-option-translation aria-live="polite">
+                {optionTranslationText(option, translationsVisible)}</span> : null}</>}
           </button>)}
         </div>
       </>}
@@ -57,6 +67,9 @@ export default function MissionConversationDecision(props) {
       .instruction { align-items:center; display:flex; font-size:14px; font-weight:600; gap:8px; line-height:1.3; }
       .instruction span { flex:1; }
       .instruction button { background:transparent; color:#247b78; font-size:25px; padding:0; width:48px; }
+      .decision-rail > .translate { background:#eef7f4; border:1px solid #9fcfc2; border-radius:16px; color:#176b5d; display:block; font-size:14px; font-weight:800; margin:2px auto 4px; min-height:32px; padding:4px 14px; }
+      .decision-rail > .translate[aria-pressed="true"] { background:#d6efe8; border-color:#23856f; }
+      .option-translation { color:#4d5a60; display:block; font-size:15px; font-weight:700; line-height:1.25; margin-top:4px; }
       .decision-body { display:flex; flex:1; flex-direction:column; gap:8px; min-height:0; }
       .hero { flex:1; min-height:60px; position:relative; overflow:hidden; border-radius:16px; }
       .options { display:flex; flex-direction:column; gap:8px; }
