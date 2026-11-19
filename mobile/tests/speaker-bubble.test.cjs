@@ -23,7 +23,8 @@ const { bubbleLayout, cardHasCastLine, lineSpeaker, optionSpeaker, speakerAnchor
 const courses = JSON.parse(read('mobile/src/generated/all-courses.json'));
 // Lessons whose photos have been reviewed for the bubble. A rebuilt lesson joins this list when its
 // photos are registered (docs/product/new-content-engine.md); A1 photos follow in a later sweep.
-const REGISTERED_LESSONS = [1, 2, 3, 4, 5, 6, 7, 8].map(n => `a1plus-unit-1-lesson-1-${n}`);
+// The 1.13 mission keeps its own markers and draws no bubble.
+const REGISTERED_LESSONS = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map(n => `a1plus-unit-1-lesson-1-${n}`);
 const lessons = courses.filter(lesson => REGISTERED_LESSONS.includes(lesson.id));
 const cardImages = card => [card.prompt_image_url, ...(card.options || []).map(option => option.image_url),
   ...['audio_turns', 'answer_audio_turns', 'success_audio_turns'].flatMap(key => (card[key] || []).map(turn => turn.image_url))]
@@ -96,13 +97,14 @@ test('the registry is reviewed, bound to the exact runtime images and covers eve
     const file = path.join(root, 'Lessons/Lesson1/images', url.slice('/lesson-assets/'.length));
     assert.ok(fs.existsSync(file), url);
     assert.equal(crypto.createHash('sha256').update(fs.readFileSync(file)).digest('hex'), photo.sha256, `${url} changed: review its speakers again`);
-    assert.ok(Number.isInteger(photo.people) && photo.people >= 1, url);
+    // A photo with no person (1.12's dog) records people 0: nobody in it can talk.
+    assert.ok(Number.isInteger(photo.people) && photo.people >= 0, url);
     assert.ok(photo.observed.length >= 20, url);
     for (const [role, anchor] of Object.entries(photo.anchors)) {
       assert.ok(CAST_SPEAKERS.includes(role), `${url} ${role}`);
       assert.ok(anchor.x > 0 && anchor.x < 1 && anchor.y > 0 && anchor.y < 1, `${url} ${role}`);
     }
-    if (photo.people === 1) assert.deepEqual([photo.owner, photo.anchors], [null, {}], url);
+    if (photo.people <= 1) assert.deepEqual([photo.owner, photo.anchors], [null, {}], url);
     if (photo.owner) assert.ok(photo.anchors[photo.owner], `${url}: the owner needs an anchor`);
   }
   const used = new Set(lessons.flatMap(lesson => lesson.cards.flatMap(cardImages)));

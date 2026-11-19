@@ -24,7 +24,10 @@ test('installed listening cards explain the heard evidence, including the report
   // lesson 1.3 on 2026-11-10 with ten instead of seven, lesson 1.5 on 2026-11-11 with ten
   // instead of six, lesson 1.6 on 2026-11-12 with ten instead of seven, lesson 1.7 on
   // 2026-11-13 with ten instead of eight, and lesson 1.8 on 2026-11-18 with ten instead of fourteen.
-  assert.equal(cards.length, 113);
+  // On 2026-11-18 1.9 was rebuilt with ten instead of six, 1.10 built with ten (it replaced a lesson
+  // with five), 1.11 with ten (it replaced the old review's 23), and the new 1.12 review has twenty;
+  // the old 1.12 mission became the 1.13 mission, which has no Listen stage.
+  assert.equal(cards.length, 129);
   for (const card of cards) {
     assert.ok(!card.context_es, `${card.slide_id}: Spanish scenario text returned.`);
     for (const option of wrongOptions(card)) {
