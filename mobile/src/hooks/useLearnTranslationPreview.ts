@@ -17,30 +17,42 @@ export function learnTranslationText(card: LessonCard | undefined, lineTranslati
   return !tapped && learnTranslationPreviewDuration(card) ? card?.spanish_translation?.trim() ?? '' : lineTranslation;
 }
 
+// User decision (2026-11-19): the Spanish stays while the card's voice speaks and for one second
+// after it stops, never less than the authored minimum (two seconds). A question alone takes about
+// 1.5-2.7 s, so a fixed two-second window hid the translation before the answer was heard.
+export const LEARN_TRANSLATION_HOLD_MS = 1000;
+// Playback that never reports its end must not strand the subtitle on screen.
+export const LEARN_TRANSLATION_MAX_MS = 12000;
+
 // Count visible time, not time behind a briefing, unloaded picture or background app.
-// Replays and rotation keep the same card key and cannot buy another preview.
-export function useLearnTranslationPreview(card: LessonCard | undefined, cardKey: string, ready: boolean) {
+// A short gap between spoken lines restarts the one-second hold rather than ending it.
+// Once hidden, the card's preview is spent: replays and rotation cannot bring it back.
+export function useLearnTranslationPreview(card: LessonCard | undefined, cardKey: string, ready: boolean, speaking = false) {
   const duration = learnTranslationPreviewDuration(card);
-  const session = useRef({ key: '', remaining: 0 });
+  const session = useRef({ key: '', minimum: 0, cap: 0, hold: 0, spent: false });
   const [visibleKey, setVisibleKey] = useState<string | null>(null);
   useEffect(() => {
     if (session.current.key !== cardKey) {
-      session.current = { key: cardKey, remaining: duration };
+      session.current = { key: cardKey, minimum: duration, cap: LEARN_TRANSLATION_MAX_MS, hold: LEARN_TRANSLATION_HOLD_MS, spent: false };
       setVisibleKey(null);
     }
-    if (!duration || !ready || session.current.remaining <= 0) return;
     const current = session.current;
+    if (!duration || !ready || current.spent) return;
     const started = Date.now();
     setVisibleKey(cardKey);
+    const wait = speaking ? current.cap : Math.min(current.cap, Math.max(current.minimum, current.hold));
     const timer = setTimeout(() => {
-      current.remaining = 0;
+      current.spent = true;
       setVisibleKey(null);
-    }, current.remaining);
+    }, wait);
     return () => {
       clearTimeout(timer);
-      current.remaining = Math.max(0, current.remaining - (Date.now() - started));
+      const elapsed = Date.now() - started;
+      current.minimum = Math.max(0, current.minimum - elapsed);
+      current.cap = Math.max(0, current.cap - elapsed);
+      current.hold = speaking ? LEARN_TRANSLATION_HOLD_MS : Math.max(0, current.hold - elapsed);
       setVisibleKey(null);
     };
-  }, [cardKey, duration, ready]);
+  }, [cardKey, duration, ready, speaking]);
   return { enabled: duration > 0, visible: Boolean(duration && ready && visibleKey === cardKey) };
 }

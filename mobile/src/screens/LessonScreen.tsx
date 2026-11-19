@@ -1727,7 +1727,8 @@ export function LessonScreen({
   const helpCardKey = `${lessonId}:${cardIndex}:${cardRunId}`;
   const learnTranslation = useLearnTranslationPreview(currentCard, helpCardKey,
     loadedTeachingImageKey === helpCardKey && isAppActive && cardAudio.ready
-      && !isPageTurning && !sectionBriefing && !showHelp && !isComplete && !isCompletedSectionPicker);
+      && !isPageTurning && !sectionBriefing && !showHelp && !isComplete && !isCompletedSectionPicker,
+    courseAudioPlaybackStatus.playing);
   // Written-choice Recognize and Listen cards: Traducir shows every choice's Spanish
   // for the shared three-second window, only when tapped (2026-11-18). Mission
   // conversation decisions carry their own button in MissionConversationDecision.

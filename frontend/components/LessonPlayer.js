@@ -2464,7 +2464,9 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
   const showHelp = help.visible;
   const learnTranslation = useLearnTranslationPreview(currentCard, teachingCardKey,
     loadedTeachingImageKey === teachingCardKey && started && !isComplete && !isPageTurning
-      && helpDocumentVisible && !showHelp && !tutor.visible);
+      && helpDocumentVisible && !showHelp && !tutor.visible,
+    // The card's spoken prompt sets this key when it ends; a replay clears it when it starts.
+    Boolean(hasPromptAutoplay) && helpAudioReadyKey !== helpCardKey);
   const teachingTranslationVisible = learnTranslation.visible || manualTeachingTranslationKey === teachingCardKey;
   // Written-choice Recognize and Listen cards: Traducir shows each choice's Spanish
   // for the shared three-second window, only when tapped (user decision 2026-11-18).
