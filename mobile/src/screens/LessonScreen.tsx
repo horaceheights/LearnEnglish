@@ -132,7 +132,7 @@ import { cardClockCues, visibleClockCues } from '../teachingClock';
 import { lineSpeaker } from '../speakerBubble';
 import { learnTranslationText, useLearnTranslationPreview } from '../hooks/useLearnTranslationPreview';
 import { useManualSentenceTranslation } from '../hooks/useManualSentenceTranslation';
-import { OPTION_TRANSLATION_BUTTON_LABEL, recognizeOptionTranslationsAvailable } from '../optionTranslations';
+import { OPTION_TRANSLATION_BUTTON_LABEL, optionTranslationsAvailable } from '../optionTranslations';
 import type { LearnerProfile, Lesson, LessonCard } from '../types';
 
 const SUCCESS_CHIME = require('../../assets/sfx/person-found-v2.mp3');
@@ -1726,10 +1726,11 @@ export function LessonScreen({
   const learnTranslation = useLearnTranslationPreview(currentCard, helpCardKey,
     loadedTeachingImageKey === helpCardKey && isAppActive && cardAudio.ready
       && !isPageTurning && !sectionBriefing && !showHelp && !isComplete && !isCompletedSectionPicker);
-  // Photo-to-sentence Recognize cards: Traducir shows every choice's Spanish
-  // for the shared three-second window, only when tapped (2026-11-18).
+  // Written-choice Recognize and Listen cards: Traducir shows every choice's Spanish
+  // for the shared three-second window, only when tapped (2026-11-18). Mission
+  // conversation decisions carry their own button in MissionConversationDecision.
   const showOptionTranslateButton = !isMissionGameCard && !isSentenceCard
-    && recognizeOptionTranslationsAvailable(currentCard);
+    && optionTranslationsAvailable(currentCard);
   const optionTranslation = useManualSentenceTranslation(helpCardKey);
 
   const openSentenceTranslation = useCallback(() => {
@@ -1766,8 +1767,9 @@ export function LessonScreen({
     if (!showOptionTranslateButton) return;
     help.interact();
     optionTranslation.open();
-    if (!useCompactHeaderInstruction && visiblePromptText.trim()) openSentenceTranslation();
-  }, [help.interact, openSentenceTranslation, optionTranslation.open, showOptionTranslateButton,
+    // A Listen prompt is the heard cue, so it is never translated.
+    if (currentCard?.stage === 'Recognize' && !useCompactHeaderInstruction && visiblePromptText.trim()) openSentenceTranslation();
+  }, [currentCard?.stage, help.interact, openSentenceTranslation, optionTranslation.open, showOptionTranslateButton,
     useCompactHeaderInstruction, visiblePromptText]);
 
   const handleReplayButtonPress = useCallback(() => {

@@ -1,6 +1,8 @@
-// Traducir on Reconoce photo-to-sentence cards (user decision 2026-11-18): one
-// labelled button shows every written choice's authored Spanish for the shared
-// three-second window, on demand only, before or after answering.
+// Traducir on every slide where the learner picks written English (user decisions
+// 2026-11-18): Reconoce and Escucha text choices and mission conversation replies.
+// One labelled button shows every written choice's authored Spanish for the shared
+// three-second window, on demand only, before or after answering. Completa keeps
+// its own sentence tap.
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
@@ -17,7 +19,8 @@ const {
   OPTION_TRANSLATION_MAX_LINES,
   optionTranslationLineCount,
   optionTranslationText,
-  recognizeOptionTranslationsAvailable,
+  optionTranslationsAvailable,
+  writtenChoiceCard,
 } = api;
 
 const written = (...pairs) => pairs.map(([label, spanish_translation], index) => (
@@ -28,22 +31,27 @@ const card = (overrides = {}) => ({
   ...overrides,
 });
 
-test('only Recognize photo-to-sentence cards whose every choice has Spanish offer Traducir', () => {
+test('every written-choice Recognize, Listen or reply card whose choices have Spanish offers Traducir', () => {
   assert.equal(OPTION_TRANSLATION_BUTTON_LABEL, 'Traducir');
-  assert.equal(recognizeOptionTranslationsAvailable(card()), true);
-  assert.equal(recognizeOptionTranslationsAvailable(card({ prompt: 'What is it?' })), true,
+  assert.equal(optionTranslationsAvailable(card()), true);
+  assert.equal(optionTranslationsAvailable(card({ prompt: 'What is it?' })), true,
     'A question above the photo still offers the choices in Spanish.');
-  assert.equal(recognizeOptionTranslationsAvailable(card({ stage: 'Listen' })), false, 'Listen hides answer text.');
-  assert.equal(recognizeOptionTranslationsAvailable(card({ prompt_image_url: '' })), false);
-  assert.equal(recognizeOptionTranslationsAvailable(card({ mission_game: { kind: 'find' } })), false);
-  assert.equal(recognizeOptionTranslationsAvailable(card({
+  assert.equal(optionTranslationsAvailable(card({ stage: 'Listen', prompt_image_url: '' })), true,
+    'Escucha written choices offer Traducir too.');
+  assert.equal(optionTranslationsAvailable(card({ prompt_image_url: '' })), true);
+  assert.equal(optionTranslationsAvailable(card({ stage: 'Listen', mission_game: { kind: 'conversation-decision' } })), true,
+    'Mission conversation replies offer Traducir.');
+  assert.equal(optionTranslationsAvailable(card({ stage: 'Listen', mission_game: { kind: 'crowd-search' } })), false,
+    'Scene searches answer by tapping the photo, not text.');
+  assert.equal(optionTranslationsAvailable(card({ stage: 'Use' })), false, 'Completa keeps its sentence tap.');
+  assert.equal(optionTranslationsAvailable(card({
     options: written(['It is a bag.', 'Es una bolsa.'], ['It is a pen.', '']),
   })), false, 'A missing translation hides the button rather than showing a fallback.');
-  assert.equal(recognizeOptionTranslationsAvailable(card({
+  assert.equal(optionTranslationsAvailable(card({
     options: [{ id: 'a', image_url: '/a.webp', label: 'A bag', spanish_translation: 'Una bolsa' },
       { id: 'b', image_url: '/b.webp', label: 'A pen', spanish_translation: 'Un bolígrafo' }],
   })), false, 'Picture choices are not written choices.');
-  assert.equal(recognizeOptionTranslationsAvailable(null), false);
+  assert.equal(optionTranslationsAvailable(null), false);
 });
 
 test('the Spanish shows only inside the open window and every tile reserves the same band', () => {
@@ -58,32 +66,40 @@ test('the Spanish shows only inside the open window and every tile reserves the 
   assert.equal(optionTranslationLineCount(written(['A', '']), 280, 15), 0);
 });
 
-test('every catalog photo-to-sentence Recognize card offers Traducir with distinct Spanish', () => {
+test('every catalog written-choice card offers Traducir with distinct Spanish', () => {
   const catalog = JSON.parse(fs.readFileSync(path.join(root, 'src/generated/all-courses.json'), 'utf8'));
-  let qualifying = 0;
+  const counts = { Recognize: 0, Listen: 0, decision: 0 };
   for (const lesson of catalog) {
     for (const current of lesson.cards) {
-      const photoToSentence = current.stage === 'Recognize' && current.prompt_image_url && !current.mission_game
-        && current.options.length >= 2 && current.options.every(option => !option.image_url && option.label);
-      if (!photoToSentence) continue;
-      qualifying += 1;
-      assert.equal(recognizeOptionTranslationsAvailable(current), true, `${lesson.id}/${current.slide_id}`);
+      if (!writtenChoiceCard(current)) continue;
+      counts[current.mission_game ? 'decision' : current.stage] += 1;
+      assert.equal(optionTranslationsAvailable(current), true, `${lesson.id}/${current.slide_id}`);
       const spanish = current.options.map(option => option.spanish_translation.trim());
       assert.equal(new Set(spanish).size, spanish.length, `${lesson.id}/${current.slide_id}: distinct Spanish`);
       for (const value of spanish) {
-        assert.doesNotMatch(value, /^¡?Elige\b|Traducción no disponible/, `${lesson.id}/${current.slide_id}`);
+        assert.doesNotMatch(value, /^¡?Elige|Traducción no disponible/, `${lesson.id}/${current.slide_id}`);
       }
     }
   }
-  assert.ok(qualifying > 600, `${qualifying} photo-to-sentence cards`);
+  assert.ok(counts.Recognize > 600 && counts.Listen > 550 && counts.decision >= 12, JSON.stringify(counts));
 });
 
 test('both clients open Traducir only from its button, through the shared three-second window', () => {
   const screen = fs.readFileSync(path.join(root, 'src/screens/LessonScreen.tsx'), 'utf8');
   const cardView = fs.readFileSync(path.join(root, 'src/components/LessonCardView.tsx'), 'utf8');
   const web = fs.readFileSync(path.join(root, '../frontend/components/LessonPlayer.js'), 'utf8');
+  const decisions = [fs.readFileSync(path.join(root, 'src/components/MissionConversationDecision.tsx'), 'utf8'),
+    fs.readFileSync(path.join(root, '../frontend/components/MissionConversationDecision.js'), 'utf8')];
+  for (const source of decisions) {
+    assert.match(source, /const optionTranslation = useManualSentenceTranslation\(card\.slide_id\)/);
+    assert.match(source, /optionTranslationsAvailable\(card\)/);
+    assert.match(source, /optionTranslation\.open\(\)/);
+    assert.match(source, /optionTranslationText\(option, translationsVisible\)/);
+  }
+  assert.match(screen, /if \(currentCard\?\.stage === 'Recognize' && !useCompactHeaderInstruction/,
+    'A Listen prompt is the heard cue and is never translated.');
   for (const source of [screen, web]) {
-    assert.match(source, /recognizeOptionTranslationsAvailable\(currentCard\)/);
+    assert.match(source, /optionTranslationsAvailable\(currentCard\)/);
     assert.match(source, /const optionTranslation = useManualSentenceTranslation\(/,
       'The shared hook gives the 3 s window, resets per card and never opens on mount.');
     assert.doesNotMatch(source, /optionTranslation\.open\(\)[^;\n]*(?:choose|handleChoice|onSelect)\(/,

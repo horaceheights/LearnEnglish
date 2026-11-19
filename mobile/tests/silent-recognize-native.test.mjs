@@ -14,10 +14,10 @@ import { View, Text, Pressable, Animated } from 'react-native';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { isSilentWrittenRecognize, isWrittenRecognize, recognizeAnswerReplayText } from '../lessonPromptPresentation';
 import { lessonHeaderPromptText, usesCompactRecognizeInstruction } from '../lessonInstructions';
-import { OPTION_TRANSLATION_BUTTON_LABEL, recognizeOptionTranslationsAvailable } from '../optionTranslations';
+import { OPTION_TRANSLATION_BUTTON_LABEL, optionTranslationsAvailable } from '../optionTranslations';
 import { learnTranslationText } from '../hooks/useLearnTranslationPreview';
 export function Header({ currentCard, result, viewport, styles, showSentenceTranslation, learnTranslation = { enabled: false, visible: false } }) {
-  const showOptionTranslateButton = recognizeOptionTranslationsAvailable(currentCard);
+  const showOptionTranslateButton = optionTranslationsAvailable(currentCard);
   const optionTranslation = { visible: false, open() {} }, handleOptionTranslatePress = () => {};
   const { width, height, fontScale } = viewport;
   const usesLessonPhoneLandscape = width > height && height < 600;

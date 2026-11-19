@@ -188,9 +188,9 @@ def _choice(slide: str, stage: str, item: dict, pool: list[dict], count: int, *,
     spec = {"recipe": "choice", "slide_id": slide, "stage": stage,
             "options": [_option(each, image=image, suffix=slide.lower(), captions=captions) for each in options],
             "answer": options.index(item)}
-    if stage == "Recognize" and not image:
-        # Written choices under a photo carry their authored Spanish for the
-        # on-demand Traducir button (user decision 2026-11-18).
+    if stage in ("Recognize", "Listen") and not image:
+        # Written choices carry their authored Spanish for the on-demand
+        # Traducir button (user decisions 2026-11-18).
         for option, each in zip(spec["options"], options):
             if not str(each.get("es") or "").strip():
                 raise BriefError(f"{slide}: written choice {each['text']!r} needs its Spanish 'es'.")

@@ -1,25 +1,33 @@
 import type { ChoiceOption, LessonCard } from './types';
 
-// User decision (2026-11-18): a Recognize card that shows one photo above
-// written choices offers a labelled Traducir button. On demand only, before or
-// after answering, it shows each choice's authored Spanish under its English for
-// the ordinary three-second sentence-translation window. It never opens by itself.
+// User decisions (2026-11-18): every slide where the learner picks written English
+// offers a labelled Traducir button: Recognize and Listen text choices, and mission
+// conversation decisions. On demand only, before or after answering, it shows each
+// choice's authored Spanish under its English for the ordinary three-second
+// sentence-translation window. It never opens by itself. Completa word tiles keep
+// their own sentence tap instead.
 export const OPTION_TRANSLATION_BUTTON_LABEL = 'Traducir';
 
-type OptionTranslationCard = Pick<LessonCard, 'stage' | 'prompt_image_url' | 'options' | 'mission_game'>;
+const TRANSLATED_CHOICE_STAGES = new Set(['Recognize', 'Listen']);
+
+type OptionTranslationCard = Pick<LessonCard, 'stage' | 'options' | 'mission_game'>;
 
 function writtenChoice(option: ChoiceOption) {
   return !option.image_url?.trim() && Boolean(option.label?.trim());
 }
 
-/** True only when every written choice under the photo carries authored Spanish. */
-export function recognizeOptionTranslationsAvailable(card?: OptionTranslationCard | null): boolean {
+/** A slide whose answer is one of two or more written English choices. */
+export function writtenChoiceCard(card?: OptionTranslationCard | null): boolean {
   return Boolean(card)
-    && card!.stage === 'Recognize'
-    && !card!.mission_game
-    && Boolean(card!.prompt_image_url?.trim())
+    && TRANSLATED_CHOICE_STAGES.has(card!.stage)
+    && (!card!.mission_game || card!.mission_game.kind === 'conversation-decision')
     && card!.options.length >= 2
-    && card!.options.every(option => writtenChoice(option) && Boolean(option.spanish_translation?.trim()));
+    && card!.options.every(writtenChoice);
+}
+
+/** True only when every written choice carries authored Spanish. */
+export function optionTranslationsAvailable(card?: OptionTranslationCard | null): boolean {
+  return writtenChoiceCard(card) && card!.options.every(option => Boolean(option.spanish_translation?.trim()));
 }
 
 export const OPTION_TRANSLATION_MAX_LINES = 3;
