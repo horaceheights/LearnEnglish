@@ -10,6 +10,10 @@ SpanGlish teaches both ways. The user approved a Spanish course for English spea
 - Pronunciation feedback uses the backend's `messages.en` for English courses.
 - The AI tutor (Liam) explains English in Spanish, so it stays off in English-language courses until an English-speaking tutor is approved.
 - Spanish cards carry `target_language: "es"`; the speech allow-list accepts `es-MX`; Spanish prompts may use `¿` and `¡`. The Spanish course registers in `backend/courses.json` and the release manifest with its first lessons, after its Unit 1 mock and narrator audition are approved.
+- Spanish Unit 1 batch 1 (lessons 1.1–1.5, `es-a1`) was approved by the user on 2026-11-19 at two gates: text and photos, then all 86 recordings after listening. The lessons port English A1 card by card on reused A1 photos, following `docs/planning/spanish-unit-1-mock.md`. There are no lone-pronoun Learn cards. `niño` already means boy, so A1's "a child" cards teach `los niños` (children). "They are" + a noun is `Son…`, with no `ellos`. 1.3 R1/A1 contrast two pairs (`El niño y la niña` / `El hombre y la mujer`), because the answer-choice guardrail rejects one pair against single people.
+- Spanish narration alternates two native Mexican narrators within each section: odd cards Pamela (`es-teacher`), even cards Enrique Mondragón (`es-co-teacher`), on the standard v4 generation profile. Each take passes a blind Spanish transcription that ignores accent marks and ¿¡, before the user's listening gate.
+- Spanish mistake feedback is English, from `mobile/src/spanishTeaching.ts`. It covers word order, article and noun agreement, `es`/`está` and one person vs more than one. As with German, a word outside these patterns gets no invented rule and blocks the course check.
+- Defaults pending a native Mexican speaker: `bebiendo`, not `tomando`. Subject pronouns are kept in taught sentences, except `Son…`.
 
 ## German pilot course — approved 2026-11-18
 

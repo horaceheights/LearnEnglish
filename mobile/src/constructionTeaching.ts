@@ -1,5 +1,6 @@
 import type { LessonCard } from './types';
 import { germanConstructionPlan } from './germanTeaching';
+import { spanishConstructionPlan } from './spanishTeaching';
 
 // These are teaching patterns, not guesses based on a word appearing in a card.
 // Every word of a generated construction must belong to a supported pattern.
@@ -784,6 +785,7 @@ export const awaitingConstructionRetry = (card: LessonCard | null | undefined, r
 
 export function constructionTeachingPlan(card: LessonCard) {
   if (card.target_language === 'de') return germanConstructionPlan(card);
+  if (card.target_language === 'es') return spanishConstructionPlan(card);
   const ids = card.correct_option_ids || [];
   const labels = ids.map(id => card.options.find(option => option.id === id)?.label || '');
   const tokenSlots: number[] = [];
@@ -841,7 +843,7 @@ export function constructionMistakeHint(card: LessonCard, selected: string[]): s
   // Unsupported authored patterns are release-blocking in the course audit.
   // Do not invent a grammatical rule if unvalidated content reaches the client.
   if (!plan.supported || !why) return '';
-  // German course cards are for English speakers, so their feedback is English.
-  if (card.target_language === 'de') return `You put ${quote(actual[index])} where ${quote(plan.labels[index])} goes. ${why}`;
+  // German and Spanish course cards are for English speakers, so their feedback is English.
+  if (card.target_language === 'de' || card.target_language === 'es') return `You put ${quote(actual[index])} where ${quote(plan.labels[index])} goes. ${why}`;
   return `Pusiste ${quote(actual[index])} donde va ${quote(plan.labels[index])}. ${why}`;
 }

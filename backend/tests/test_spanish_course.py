@@ -24,4 +24,4 @@ class CourseLanguageTests(unittest.TestCase):
 
     def test_only_courses_for_english_speakers_run_in_english(self):
         courses = json.loads((ROOT / "backend/courses.json").read_text(encoding="utf-8"))
-        self.assertEqual({c["id"]: c.get("uiLanguage") for c in courses if c.get("uiLanguage")}, {"de-a1": "en"})
+        self.assertEqual({c["id"]: c.get("uiLanguage") for c in courses if c.get("uiLanguage")}, {"de-a1": "en", "es-a1": "en"})
