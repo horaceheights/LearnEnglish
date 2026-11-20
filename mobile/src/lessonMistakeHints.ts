@@ -99,6 +99,11 @@ const MEANINGS: Record<string, string> = {
   eighth: 'octavo', ninth: 'noveno', tenth: 'décimo',
   buses: 'autobuses', watches: 'relojes', men: 'hombres', women: 'mujeres',
   favorite: 'favorito', ones: 'los, las (más de uno)',
+  // A1+ 2.11-2.13 (2026-11-20): comparatives with than, classroom commands, light and dark colors.
+  taller: 'más alto o más alta', shorter: 'más bajo o más baja', bigger: 'más grande',
+  smaller: 'más pequeño o más pequeña', than: 'que', light: 'claro', dark: 'oscuro',
+  'sit down': 'sentarse', 'stand up': 'levantarse', 'sits down': 'se sienta', 'stands up': 'se levanta',
+  studies: 'estudia',
   // A1 5.11 (2026-11-14): buying things.
   money: 'dinero', buy: 'comprar', pay: 'pagar', price: 'precio', cheap: 'barato o barata', expensive: 'caro o cara',
   // A1 5.12 (2026-11-15): the tens from thirty to one hundred.
@@ -269,6 +274,17 @@ const PERSON_PRONOUNS: Record<string, { meaning: string; scope: string }> = {
 // Reviewed descriptions for image-only choices whose semantic IDs cannot be
 // explained accurately by a single vocabulary contrast.
 const IMAGE_CHOICE_MEANINGS: Record<string, string> = {
+  // A1+ 2.12 (2026-11-20): classroom commands, each pictured by a student doing it.
+  'please sit down': 'sentarse', 'please stand up': 'levantarse', 'write your name': 'escribir tu nombre',
+  "don't eat in the classroom": 'no comer en el salón de clases', "don't use your phone": 'no usar el teléfono',
+  "don't write on the desk": 'no escribir en el pupitre',
+  // A1+ 2.14 (2026-11-20): the review's photos of new people, each named whole.
+  'the woman goes to the gym': 'una mujer que va al gimnasio', 'he goes to work by bike': 'un hombre que va al trabajo en bicicleta',
+  'she has a camera': 'una chica con una cámara', 'he lives on the third floor': 'un niño que vive en el tercer piso',
+  'she wants the yellow ones': 'una mujer que quiere las manzanas amarillas',
+  'her favorite color is yellow': 'una mujer cuyo color favorito es el amarillo',
+  'the girl is taller than the boy': 'una niña más alta que un niño', 'her shirt is light blue': 'una camisa azul claro',
+  'the women have watches': 'dos mujeres con relojes',
   'luis go work': 'Luis yendo al trabajo', 'luis work': 'Luis trabajando',
   like: 'algo que le gusta', 'do not like': 'algo que no le gusta',
   'likes bananas': 'gusto por los plátanos', 'likes apples': 'gusto por las manzanas',

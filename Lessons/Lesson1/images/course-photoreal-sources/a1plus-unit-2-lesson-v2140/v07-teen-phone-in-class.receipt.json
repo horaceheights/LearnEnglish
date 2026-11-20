@@ -1,0 +1,55 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "7babe28d-7541-441e-895d-dadb90d25fda",
+  "asset_id": "v07-teen-phone-in-class",
+  "pack_sha256": "f8efb3b5cd3bfe60d9bf068b43654025a4bf879fd56ef370e21bd6371d90f99e",
+  "started_at": "2026-11-20T15:44:47.663864+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, screens, clothes, bags, machines, vehicles or license plates.\n\nThe person is a new character who appears in no earlier course photo; give them an ordinary, friendly everyday look.\n\nOnly this one person is in the photo; there is nobody else, even far in the background.\n\nThe person's face is fully visible in three-quarter view, looking at what they are doing, not at the camera.\n\nIt is clearly daytime with soft natural light.\n\nKeep the person and the thing that carries the meaning inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nIn a bright classroom with light wooden desks, large windows and a blank whiteboard with nothing on it, a teenage boy of about sixteen with short blond hair and a red hoodie sits at a student desk and looks down at a smartphone that he holds in both hands under the edge of the desk; the screen faces him, away from the camera. A closed notebook lies on the desk. All the other desks are empty.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "7moAa5zABtHVz7IPgdPM8Q4",
+  "usage": {
+    "promptTokenCount": 346,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1636,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 346
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038804",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 346,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 6.7,
+  "output": "output/imagegen/a1plus-unit-2-lesson-v2140/v07-teen-phone-in-class.png",
+  "sha256": "a4e2d47bf4739c2ae5452cdd47b01345e169306acde4149edcd6d727316d9ad0",
+  "byte_count": 1212533,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}

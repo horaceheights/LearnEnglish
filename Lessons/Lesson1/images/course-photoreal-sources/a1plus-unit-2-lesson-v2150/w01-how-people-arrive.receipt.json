@@ -1,0 +1,55 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "bf941eb0-c8f0-44f7-876e-f2b7afc0ffec",
+  "asset_id": "w01-how-people-arrive",
+  "pack_sha256": "17f0fd4af21d925dce4584409fba1dd443e68c773f3a7277ece1280f704d017b",
+  "started_at": "2026-11-20T15:42:47.553648+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, screens, clothes, bags, machines, vehicles or license plates.\n\nThe setting is the same big sunny city park on a weekend morning in every photo of this set: short green grass, tall leafy trees, a wide light-grey paved path, a small calm lake and a few wooden benches and picnic tables, with no signs, letters or numbers anywhere.\n\nThis is a wide scene for a listening game: the learner hears one sentence and taps the person, group or thing it describes, so the four described subjects must be clearly separate from each other, spread across the width of the photo, none hidden behind another, none cut off by the photo's edges, with their heads well below the top edge. Nobody looks at the camera.\n\nIt is clearly daytime with soft natural light.\n\nFour different people arrive at the park on the street right beside the park entrance, each one alone and clearly separate, in one row from LEFT to RIGHT with wide space between them, each seen whole: a man of about thirty in a red T-shirt RIDES A BICYCLE; a woman of about sixty in a blue dress WALKS on the sidewalk with a small handbag; a young woman of about twenty-five in a white shirt STEPS OUT OF a small red car whose door is open; and a boy of about twelve in a yellow T-shirt STEPS DOWN from the open door of a white city bus that stands at the RIGHT edge with a blank destination display. Every vehicle is plain, with no letters, numbers or license plates.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "dmoAa-a4C4L0z7IPm4Dy8A0",
+  "usage": {
+    "promptTokenCount": 434,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1724,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 434
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038830",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 434,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 9.83,
+  "output": "output/imagegen/a1plus-unit-2-lesson-v2150/w01-how-people-arrive.png",
+  "sha256": "1f8ffc075e12173eb5c536b499a4537a2a83cb8fb04ae237c7332f68b87403e3",
+  "byte_count": 2188302,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}

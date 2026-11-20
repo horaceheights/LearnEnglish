@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "pack": "a1plus-unit-2-lesson-2-11-comparatives-photos",
+  "revision": 1,
+  "output_namespace": "a1plus-unit-2-lesson-v2110",
+  "authorization": "2026-11-19: the user approved the A1+ Unit 2 plan (A1+ 2.Y follows A1 2.Y) and, asked how to build it, chose \"Straight to Preview\" (\"As in 1.9-1.13: no stops. I build the lessons in batches with media pre-approved, and you review everything in Preview.\"). Gemini is the approved image tool (2026-09-23); after the 2.5 Pro photos the user said \"lets switch to flash for any other images\". On 2026-11-20 the user said \"Start Batch C when Preview is done\".",
+  "image_settings": {
+    "provider": "google-gemini",
+    "model": "gemini-2.5-flash-image",
+    "aspect_ratio": "3:2",
+    "image_size": "1K",
+    "runtime_size": "1536x1024",
+    "runtime_format": "webp",
+    "n": 1
+  },
+  "production": {
+    "price_per_image_usd": "0.0387",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing (checked 2026-11-16: Gemini 2.5 Flash Image, about $0.039 per image)",
+    "planned_images": 3,
+    "expected_cost_usd": "0.12",
+    "requested_ceiling_usd": "0.35",
+    "ceiling_note": "The renderer reserves US$0.20 before each request; each request is sent on its own, and the expected spend for the pack is about US$0.12.",
+    "no_automatic_retries": true,
+    "order": "Generate c01 first and check at 360 and 180 px that the brown dog is clearly bigger and both coats are solid colors; then c02 (no digit or letter on the bus) and c03 (old and young obvious)."
+  },
+  "shared_prompts": {
+    "photo": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, screens, clothes, bags, machines, vehicles or license plates.",
+    "photo_numeral": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, logos or brand marks anywhere, and no number anywhere except the one large numeral described: no other signs, buttons, plaques, door numbers or license plates show any digit.",
+    "safe_center": "Keep the person and the thing that carries the meaning inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.",
+    "solo": "Only this one person is in the photo; there is nobody else, even far in the background.",
+    "nobody": "There are no people anywhere in the photo, not even far in the background or inside the vehicles.",
+    "face": "The person's face is fully visible in three-quarter view, looking at what they are doing, not at the camera.",
+    "daytime": "It is clearly daytime with soft natural light.",
+    "pair": "Only these two people are in the photo; there is nobody else, even far in the background.",
+    "classroom": "The setting is the same bright, modern classroom in every photo of this set: rows of light wooden student desks with matching light wooden chairs, large windows on the LEFT letting in daylight, a plain pale-green wall behind, and a large blank white whiteboard with nothing written or drawn on it. All the other desks are empty."
+  },
+  "assets": [
+    {
+      "id": "c01-big-brown-dog-small-white-dog",
+      "order": 1,
+      "item": "The brown dog is bigger than the white dog. / The white dog is smaller than the brown dog.",
+      "shared": [
+        "photo",
+        "nobody",
+        "daytime",
+        "safe_center"
+      ],
+      "prompt": "On a short green lawn in a park, two dogs sit side by side on the grass and face the camera, about one body-length apart, both whole and fully inside the photo. On the LEFT is a big dog: a large Labrador-type dog with a solid, even chocolate-brown coat. On the RIGHT is a small dog: a small fluffy dog with a solid, pure white coat, whose head reaches only to the big dog's chest. The camera is low, at the height of the dogs, so the size difference is obvious at a glance. There is no other animal and no object on the lawn; trees are soft and far behind."
+    },
+    {
+      "id": "c02-bus-and-small-car",
+      "order": 2,
+      "item": "The bus is bigger than the car. / The car is smaller than the bus.",
+      "shared": [
+        "photo",
+        "nobody",
+        "daytime"
+      ],
+      "prompt": "A quiet city street seen exactly from the side, at the height of the vehicles. A long city bus and a small car stand one behind the other along the curb, both facing LEFT, with a clear gap of road between them: the bus on the LEFT, the small car on the RIGHT. The bus is plain white with one wide blue stripe along its side, and its destination display above the windshield is dark and blank. The car is a small, bright red two-door hatchback, about one third as long as the bus and much lower. Both vehicles are whole and completely inside the photo. Behind them is a plain light building wall with no shop signs. Nobody is on the sidewalk, and the bus and the car are empty."
+    },
+    {
+      "id": "c03-grandfather-and-boy-bench",
+      "order": 3,
+      "item": "The grandfather is old. The boy is young. / The grandfather is older than the boy. / The boy is younger than the grandfather.",
+      "shared": [
+        "photo",
+        "pair",
+        "daytime",
+        "safe_center"
+      ],
+      "prompt": "In a sunny park, a grandfather and his grandson sit side by side on a wooden park bench, smiling at each other. On the LEFT is the grandfather: clearly old, about seventy-five, with white hair, a white mustache, deep wrinkles and a beige cardigan over a white shirt. On the RIGHT is the boy: clearly young, about eight years old, with short dark hair, a blue-and-white striped T-shirt and shorts; his feet do not reach the ground. Both are seen whole from head to shoes, in three-quarter view, their faces fully visible."
+    }
+  ]
+}

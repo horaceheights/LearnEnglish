@@ -1,0 +1,727 @@
+{
+  "brief_version": 1,
+  "follows": {
+    "course": "a1",
+    "lesson": "2.13",
+    "title": "More Colors"
+  },
+  "note": "A1+ Unit 2 Lesson 2.13, built on 2026-11-20 under the A1+ lesson standards approved 2026-10-27 and the user's 2026-11-09 rule that every A1+ lesson follows up the A1 lesson with the same number. The user approved the A1+ Unit 2 plan on 2026-11-19 (A1+ 2.Y follows A1 2.Y, one grammar step each) and chose \"Straight to Preview\": no per-lesson gates, Gemini 2.5 Flash photos and ElevenLabs audio pre-approved, reviewed in Preview. Batch C (2.11-2.15) was started on 2026-11-20 on the user's \"Start Batch C when Preview is done\". Three pairs of photos differ only in light or dark: Ana holds a light blue and then a dark blue bag, Diego wears a light green and then a dark green shirt, and Luis has a light brown and then a dark brown dog. The dark photo is a Gemini edit of the light one that changes only the color. Learn plays each pair as two lines over their own photos. Banks keep the sentence and change only light or dark; picture cards set the light photo against the dark one.",
+  "target": "backend/lessons/a1_plus/unit_2/a1plus-unit-2-lesson-2-13.yaml",
+  "captions": false,
+  "narrators": [
+    "teacher",
+    "co-teacher"
+  ],
+  "answer_audio_policy": "authored-only",
+  "speak_delivery": "a1-pronunciation-v1",
+  "lesson": {
+    "id": "a1plus-unit-2-lesson-2-13",
+    "title": "2.13 Light blue, dark blue",
+    "level": "A1+",
+    "unit_id": "a1plus-unit-2",
+    "unit_title": "Places, things and how we describe them",
+    "unit_outcome": "Say where people go and how they get there, talk about the things people have, point things out and compare them, put things in order, and ask about favorites.",
+    "lesson_id": "a1plus-unit-2-lesson-2-13",
+    "lesson_title": "Light blue, dark blue",
+    "sub_lesson_id": "2.13",
+    "sub_lesson_title": "Light blue, dark blue",
+    "goal": "Say whether a color is light or dark (My bag is light blue. / The dog is dark brown. / It's dark green.).",
+    "vocabulary": [
+      "light",
+      "dark"
+    ],
+    "review_vocabulary": [
+      "my",
+      "his",
+      "bag",
+      "shirt",
+      "dog",
+      "is",
+      "has",
+      "a",
+      "the",
+      "blue",
+      "green",
+      "brown",
+      "color",
+      "what",
+      "your",
+      "It's",
+      "favorite",
+      "Ana",
+      "Diego"
+    ],
+    "grammar_function": "A follow-up of A1 2.13 More Colors: A1 adds brown, pink, purple and gray; A1+ 2.13 puts light or dark before a color (light blue, dark blue). Each scene has two photos that differ only in that one color, made as an edit of the first: Ana's bag, Diego's shirt and Luis's dog, light and then dark. It brings back A1+ 2.4's It's (What color is your bag? It's light blue.) and 2.8's favorite (Diego: My favorite color is dark green.).",
+    "prerequisite": "A1 2.8 and 2.13 colors; A1 What color is it?; A1+ 2.4 It's; A1+ 2.8 favorite; A1 bag, shirt, dog; A1 has.",
+    "speaking_outcome": "Say light with a clear l and dark with a long a (LIGHT blue, DARK blue). Do not require native-like speed.",
+    "content_revision": 1,
+    "learn_context_groups": [
+      {
+        "kind": "contrast",
+        "targets": [
+          "light",
+          "dark"
+        ],
+        "models": [
+          {
+            "slide_id": "L1",
+            "text": "My bag is light blue. My bag is dark blue.",
+            "turns": [
+              "My bag is light blue.",
+              "My bag is dark blue."
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "contrast",
+        "targets": [
+          "light",
+          "dark"
+        ],
+        "models": [
+          {
+            "slide_id": "L2",
+            "text": "My shirt is light green. My shirt is dark green.",
+            "turns": [
+              "My shirt is light green.",
+              "My shirt is dark green."
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "contrast",
+        "targets": [
+          "light",
+          "dark"
+        ],
+        "models": [
+          {
+            "slide_id": "L3",
+            "text": "The dog is light brown. The dog is dark brown.",
+            "turns": [
+              "The dog is light brown.",
+              "The dog is dark brown."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "items": [
+    {
+      "id": "m-k01",
+      "text": "My bag is light blue.",
+      "es": "Mi bolsa es azul claro.",
+      "image": "/lesson-assets/a1plus-unit-2-k01-79cef51d02502bfc.webp",
+      "kind": "shade",
+      "learn": false,
+      "speaker": "ana",
+      "accepts": {
+        "subject-variety": "The lesson tells light from dark: a bank keeps the sentence and changes only light or dark.",
+        "action-variety": "The lesson tells light from dark: a bank keeps the sentence and changes only light or dark."
+      },
+      "blanks": [
+        "light",
+        "blue"
+      ],
+      "prefer": [
+        "My bag is dark blue."
+      ]
+    },
+    {
+      "id": "h-k01",
+      "text": "Ana has a light blue bag.",
+      "es": "Ana tiene una bolsa azul claro.",
+      "image": "/lesson-assets/a1plus-unit-2-k01-79cef51d02502bfc.webp",
+      "kind": "said-bag",
+      "learn": false,
+      "image_choices": false,
+      "speaker": "co-teacher",
+      "accepts": {
+        "subject-variety": "The lesson tells light from dark: a bank keeps the sentence and changes only light or dark.",
+        "action-variety": "The lesson tells light from dark: a bank keeps the sentence and changes only light or dark."
+      },
+      "blanks": [
+        "light",
+        "blue"
+      ],
+      "prefer": [
+        "Ana has a dark blue bag.",
+        "Ana has a light green bag."
+      ]
+    },
+    {
+      "id": "m-k02",
+      "text": "My bag is dark blue.",
+      "es": "Mi bolsa es azul oscuro.",
+      "image": "/lesson-assets/a1plus-unit-2-k02-dafbd5435cb26eed.webp",
+      "kind": "shade",
+      "learn": false,
+      "speaker": "ana",
+      "accepts": {
+        "subject-variety": "The lesson tells light from dark: a bank keeps the sentence and changes only light or dark.",
+        "action-variety": "The lesson tells light from dark: a bank keeps the sentence and changes only light or dark."
+      },
+      "blanks": [
+        "dark",
+        "blue"
+      ],
+      "prefer": [
+        "My bag is light blue."
+      ]
+    },
+    {
+      "id": "h-k02",
+      "text": "Ana has a dark blue bag.",
+      "es": "Ana tiene una bolsa azul oscuro.",
+      "image": "/lesson-assets/a1plus-unit-2-k02-dafbd5435cb26eed.webp",
+      "kind": "said-bag",
+      "learn": false,
+      "image_choices": false,
+      "speaker": "co-teacher",
+      "accepts": {
+        "subject-variety": "The lesson tells light from dark: a bank keeps the sentence and changes only light or dark.",
+        "action-variety": "The lesson tells light from dark: a bank keeps the sentence and changes only light or dark."
+      },
+      "blanks": [
+        "dark",
+        "blue"
+      ],
+      "prefer": [
+        "Ana has a light blue bag.",
+        "Ana has a dark green bag."
+      ]
+    },
+    {
+      "id": "m-k03",
+      "text": "My shirt is light green.",
+      "es": "Mi camisa es verde claro.",
+      "image": "/lesson-assets/a1plus-unit-2-k03-c57fb10a69aa333d.webp",
+      "kind": "shade",
+      "learn": false,
+      "speaker": "diego",
+      "accepts": {
+        "subject-variety": "The lesson tells light from dark: a bank keeps the sentence and changes only light or dark.",
+        "action-variety": "The lesson tells light from dark: a bank keeps the sentence and changes only light or dark."
+      },
+      "blanks": [
+        "light",
+        "green"
+      ],
+      "prefer": [
+        "My shirt is dark green."
+      ]
+    },
+    {
+      "id": "h-k03",
+      "text": "His shirt is light green.",
+      "es": "Su camisa es verde claro.",
+      "image": "/lesson-assets/a1plus-unit-2-k03-c57fb10a69aa333d.webp",
+      "kind": "said-shirt",
+      "learn": false,
+      "image_choices": false,
+      "speaker": "co-teacher",
+      "accepts": {
+        "subject-variety": "The lesson tells light from dark: a bank keeps the sentence and changes only light or dark.",
+        "action-variety": "The lesson tells light from dark: a bank keeps the sentence and changes only light or dark."
+      },
+      "blanks": [
+        "light",
+        "green"
+      ],
+      "prefer": [
+        "His shirt is dark green.",
+        "His shirt is light blue."
+      ]
+    },
+    {
+      "id": "m-k04",
+      "text": "My shirt is dark green.",
+      "es": "Mi camisa es verde oscuro.",
+      "image": "/lesson-assets/a1plus-unit-2-k04-6d33c99179c07e13.webp",
+      "kind": "shade",
+      "learn": false,
+      "speaker": "diego",
+      "accepts": {
+        "subject-variety": "The lesson tells light from dark: a bank keeps the sentence and changes only light or dark.",
+        "action-variety": "The lesson tells light from dark: a bank keeps the sentence and changes only light or dark."
+      },
+      "blanks": [
+        "dark",
+        "green"
+      ],
+      "prefer": [
+        "My shirt is light green."
+      ]
+    },
+    {
+      "id": "h-k04",
+      "text": "His shirt is dark green.",
+      "es": "Su camisa es verde oscuro.",
+      "image": "/lesson-assets/a1plus-unit-2-k04-6d33c99179c07e13.webp",
+      "kind": "said-shirt",
+      "learn": false,
+      "image_choices": false,
+      "speaker": "co-teacher",
+      "accepts": {
+        "subject-variety": "The lesson tells light from dark: a bank keeps the sentence and changes only light or dark.",
+        "action-variety": "The lesson tells light from dark: a bank keeps the sentence and changes only light or dark."
+      },
+      "blanks": [
+        "dark",
+        "green"
+      ],
+      "prefer": [
+        "His shirt is light green.",
+        "His shirt is dark blue."
+      ]
+    },
+    {
+      "id": "m-k05",
+      "text": "The dog is light brown.",
+      "es": "El perro es café claro.",
+      "image": "/lesson-assets/a1plus-unit-2-k05-1f050ecd1201be0e.webp",
+      "kind": "shade",
+      "learn": false,
+      "speaker": "teacher",
+      "accepts": {
+        "subject-variety": "The lesson tells light from dark: a bank keeps the sentence and changes only light or dark.",
+        "action-variety": "The lesson tells light from dark: a bank keeps the sentence and changes only light or dark."
+      },
+      "blanks": [
+        "light",
+        "brown"
+      ],
+      "prefer": [
+        "The dog is dark brown."
+      ]
+    },
+    {
+      "id": "m-k06",
+      "text": "The dog is dark brown.",
+      "es": "El perro es café oscuro.",
+      "image": "/lesson-assets/a1plus-unit-2-k06-1e462537bf6f3a52.webp",
+      "kind": "shade",
+      "learn": false,
+      "speaker": "teacher",
+      "accepts": {
+        "subject-variety": "The lesson tells light from dark: a bank keeps the sentence and changes only light or dark.",
+        "action-variety": "The lesson tells light from dark: a bank keeps the sentence and changes only light or dark."
+      },
+      "blanks": [
+        "dark",
+        "brown"
+      ],
+      "prefer": [
+        "The dog is light brown."
+      ]
+    },
+    {
+      "id": "r-k01",
+      "text": "It's light blue.",
+      "es": "Es azul claro.",
+      "image": "/lesson-assets/a1plus-unit-2-k01-79cef51d02502bfc.webp",
+      "kind": "color-bag",
+      "learn": false,
+      "use": false,
+      "image_choices": false,
+      "speaker": "ana",
+      "question": "What color is your bag?",
+      "question_es": "¿De qué color es tu bolsa?",
+      "question_speaker": "luis",
+      "accepts": {
+        "subject-variety": "Listen asks what color something is; the answer banks change only light or dark.",
+        "action-variety": "Listen asks what color something is; the answer banks change only light or dark.",
+        "conversational-response": "Listen asks what color something is; the answer banks change only light or dark."
+      },
+      "prefer": [
+        "It's dark blue.",
+        "It's light green."
+      ]
+    },
+    {
+      "id": "r-k02",
+      "text": "It's dark blue.",
+      "es": "Es azul oscuro.",
+      "image": "/lesson-assets/a1plus-unit-2-k02-dafbd5435cb26eed.webp",
+      "kind": "color-bag",
+      "learn": false,
+      "use": false,
+      "image_choices": false,
+      "speaker": "ana",
+      "question": "What color is your bag?",
+      "question_es": "¿De qué color es tu bolsa?",
+      "question_speaker": "luis",
+      "accepts": {
+        "subject-variety": "Listen asks what color something is; the answer banks change only light or dark.",
+        "action-variety": "Listen asks what color something is; the answer banks change only light or dark.",
+        "conversational-response": "Listen asks what color something is; the answer banks change only light or dark."
+      },
+      "prefer": [
+        "It's light blue.",
+        "It's dark green."
+      ]
+    },
+    {
+      "id": "r-k05",
+      "text": "It's light brown.",
+      "es": "Es café claro.",
+      "image": "/lesson-assets/a1plus-unit-2-k05-1f050ecd1201be0e.webp",
+      "kind": "color-dog",
+      "learn": false,
+      "use": false,
+      "image_choices": false,
+      "speaker": "co-teacher",
+      "question": "What color is the dog?",
+      "question_es": "¿De qué color es el perro?",
+      "question_speaker": "teacher",
+      "accepts": {
+        "subject-variety": "Listen asks what color something is; the answer banks change only light or dark.",
+        "action-variety": "Listen asks what color something is; the answer banks change only light or dark.",
+        "conversational-response": "Listen asks what color something is; the answer banks change only light or dark."
+      },
+      "prefer": [
+        "It's dark brown.",
+        "It's light gray."
+      ]
+    },
+    {
+      "id": "r-k06",
+      "text": "It's dark brown.",
+      "es": "Es café oscuro.",
+      "image": "/lesson-assets/a1plus-unit-2-k06-1e462537bf6f3a52.webp",
+      "kind": "color-dog",
+      "learn": false,
+      "use": false,
+      "image_choices": false,
+      "speaker": "co-teacher",
+      "question": "What color is the dog?",
+      "question_es": "¿De qué color es el perro?",
+      "question_speaker": "teacher",
+      "accepts": {
+        "subject-variety": "Listen asks what color something is; the answer banks change only light or dark.",
+        "action-variety": "Listen asks what color something is; the answer banks change only light or dark.",
+        "conversational-response": "Listen asks what color something is; the answer banks change only light or dark."
+      },
+      "prefer": [
+        "It's light brown.",
+        "It's dark gray."
+      ]
+    },
+    {
+      "id": "f-k04",
+      "text": "My favorite color is dark green.",
+      "es": "Mi color favorito es el verde oscuro.",
+      "image": "/lesson-assets/a1plus-unit-2-k04-6d33c99179c07e13.webp",
+      "kind": "favorite",
+      "learn": false,
+      "image_choices": false,
+      "speaker": "diego",
+      "accepts": {
+        "subject-variety": "The lesson tells light from dark: a bank keeps the sentence and changes only light or dark.",
+        "action-variety": "The lesson tells light from dark: a bank keeps the sentence and changes only light or dark."
+      },
+      "blanks": [
+        "dark",
+        "green"
+      ],
+      "prefer": [
+        "My favorite color is light green.",
+        "My favorite color is dark blue."
+      ]
+    },
+    {
+      "id": "l-bag",
+      "text": "My bag is light blue. My bag is dark blue.",
+      "es": "Mi bolsa es azul claro. Mi bolsa es azul oscuro.",
+      "image": "/lesson-assets/a1plus-unit-2-k02-dafbd5435cb26eed.webp",
+      "kind": "model",
+      "choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "My bag is light blue.",
+          "speaker": "ana",
+          "image": "/lesson-assets/a1plus-unit-2-k01-79cef51d02502bfc.webp"
+        },
+        {
+          "text": "My bag is dark blue.",
+          "speaker": "ana",
+          "image": "/lesson-assets/a1plus-unit-2-k02-dafbd5435cb26eed.webp"
+        }
+      ]
+    },
+    {
+      "id": "l-shirt",
+      "text": "My shirt is light green. My shirt is dark green.",
+      "es": "Mi camisa es verde claro. Mi camisa es verde oscuro.",
+      "image": "/lesson-assets/a1plus-unit-2-k04-6d33c99179c07e13.webp",
+      "kind": "model",
+      "choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "My shirt is light green.",
+          "speaker": "diego",
+          "image": "/lesson-assets/a1plus-unit-2-k03-c57fb10a69aa333d.webp"
+        },
+        {
+          "text": "My shirt is dark green.",
+          "speaker": "diego",
+          "image": "/lesson-assets/a1plus-unit-2-k04-6d33c99179c07e13.webp"
+        }
+      ]
+    },
+    {
+      "id": "l-dog",
+      "text": "The dog is light brown. The dog is dark brown.",
+      "es": "El perro es café claro. El perro es café oscuro.",
+      "image": "/lesson-assets/a1plus-unit-2-k06-1e462537bf6f3a52.webp",
+      "kind": "model",
+      "choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "The dog is light brown.",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-2-k05-1f050ecd1201be0e.webp"
+        },
+        {
+          "text": "The dog is dark brown.",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-2-k06-1e462537bf6f3a52.webp"
+        }
+      ]
+    }
+  ],
+  "pool": [
+    {
+      "text": "My bag is dark blue.",
+      "es": "Mi bolsa es azul oscuro.",
+      "image": "/lesson-assets/a1plus-unit-2-k01-79cef51d02502bfc.webp",
+      "kind": "shade",
+      "image_choices": false
+    },
+    {
+      "text": "Ana has a dark blue bag.",
+      "es": "Ana tiene una bolsa azul oscuro.",
+      "image": "/lesson-assets/a1plus-unit-2-k01-79cef51d02502bfc.webp",
+      "kind": "said-bag",
+      "image_choices": false
+    },
+    {
+      "text": "Ana has a light green bag.",
+      "es": "Ana tiene una bolsa verde claro.",
+      "image": "/lesson-assets/a1plus-unit-2-k01-79cef51d02502bfc.webp",
+      "kind": "said-bag",
+      "image_choices": false
+    },
+    {
+      "text": "My bag is light blue.",
+      "es": "Mi bolsa es azul claro.",
+      "image": "/lesson-assets/a1plus-unit-2-k02-dafbd5435cb26eed.webp",
+      "kind": "shade",
+      "image_choices": false
+    },
+    {
+      "text": "Ana has a light blue bag.",
+      "es": "Ana tiene una bolsa azul claro.",
+      "image": "/lesson-assets/a1plus-unit-2-k02-dafbd5435cb26eed.webp",
+      "kind": "said-bag",
+      "image_choices": false
+    },
+    {
+      "text": "Ana has a dark green bag.",
+      "es": "Ana tiene una bolsa verde oscuro.",
+      "image": "/lesson-assets/a1plus-unit-2-k02-dafbd5435cb26eed.webp",
+      "kind": "said-bag",
+      "image_choices": false
+    },
+    {
+      "text": "My shirt is dark green.",
+      "es": "Mi camisa es verde oscuro.",
+      "image": "/lesson-assets/a1plus-unit-2-k03-c57fb10a69aa333d.webp",
+      "kind": "shade",
+      "image_choices": false
+    },
+    {
+      "text": "His shirt is dark green.",
+      "es": "Su camisa es verde oscuro.",
+      "image": "/lesson-assets/a1plus-unit-2-k03-c57fb10a69aa333d.webp",
+      "kind": "said-shirt",
+      "image_choices": false
+    },
+    {
+      "text": "His shirt is light blue.",
+      "es": "Su camisa es azul claro.",
+      "image": "/lesson-assets/a1plus-unit-2-k03-c57fb10a69aa333d.webp",
+      "kind": "said-shirt",
+      "image_choices": false
+    },
+    {
+      "text": "My shirt is light green.",
+      "es": "Mi camisa es verde claro.",
+      "image": "/lesson-assets/a1plus-unit-2-k04-6d33c99179c07e13.webp",
+      "kind": "shade",
+      "image_choices": false
+    },
+    {
+      "text": "His shirt is light green.",
+      "es": "Su camisa es verde claro.",
+      "image": "/lesson-assets/a1plus-unit-2-k04-6d33c99179c07e13.webp",
+      "kind": "said-shirt",
+      "image_choices": false
+    },
+    {
+      "text": "His shirt is dark blue.",
+      "es": "Su camisa es azul oscuro.",
+      "image": "/lesson-assets/a1plus-unit-2-k04-6d33c99179c07e13.webp",
+      "kind": "said-shirt",
+      "image_choices": false
+    },
+    {
+      "text": "The dog is dark brown.",
+      "es": "El perro es café oscuro.",
+      "image": "/lesson-assets/a1plus-unit-2-k05-1f050ecd1201be0e.webp",
+      "kind": "shade",
+      "image_choices": false
+    },
+    {
+      "text": "The dog is light brown.",
+      "es": "El perro es café claro.",
+      "image": "/lesson-assets/a1plus-unit-2-k06-1e462537bf6f3a52.webp",
+      "kind": "shade",
+      "image_choices": false
+    },
+    {
+      "text": "It's dark blue.",
+      "es": "Es azul oscuro.",
+      "image": "/lesson-assets/a1plus-unit-2-k01-79cef51d02502bfc.webp",
+      "kind": "color-bag",
+      "image_choices": false
+    },
+    {
+      "text": "It's light green.",
+      "es": "Es verde claro.",
+      "image": "/lesson-assets/a1plus-unit-2-k01-79cef51d02502bfc.webp",
+      "kind": "color-bag",
+      "image_choices": false
+    },
+    {
+      "text": "It's light blue.",
+      "es": "Es azul claro.",
+      "image": "/lesson-assets/a1plus-unit-2-k02-dafbd5435cb26eed.webp",
+      "kind": "color-bag",
+      "image_choices": false
+    },
+    {
+      "text": "It's dark green.",
+      "es": "Es verde oscuro.",
+      "image": "/lesson-assets/a1plus-unit-2-k02-dafbd5435cb26eed.webp",
+      "kind": "color-bag",
+      "image_choices": false
+    },
+    {
+      "text": "It's dark brown.",
+      "es": "Es café oscuro.",
+      "image": "/lesson-assets/a1plus-unit-2-k05-1f050ecd1201be0e.webp",
+      "kind": "color-dog",
+      "image_choices": false
+    },
+    {
+      "text": "It's light gray.",
+      "es": "Es gris claro.",
+      "image": "/lesson-assets/a1plus-unit-2-k05-1f050ecd1201be0e.webp",
+      "kind": "color-dog",
+      "image_choices": false
+    },
+    {
+      "text": "It's light brown.",
+      "es": "Es café claro.",
+      "image": "/lesson-assets/a1plus-unit-2-k06-1e462537bf6f3a52.webp",
+      "kind": "color-dog",
+      "image_choices": false
+    },
+    {
+      "text": "It's dark gray.",
+      "es": "Es gris oscuro.",
+      "image": "/lesson-assets/a1plus-unit-2-k06-1e462537bf6f3a52.webp",
+      "kind": "color-dog",
+      "image_choices": false
+    },
+    {
+      "text": "My favorite color is light green.",
+      "es": "Mi color favorito es el verde claro.",
+      "image": "/lesson-assets/a1plus-unit-2-k04-6d33c99179c07e13.webp",
+      "kind": "favorite",
+      "image_choices": false
+    },
+    {
+      "text": "My favorite color is dark blue.",
+      "es": "Mi color favorito es el azul oscuro.",
+      "image": "/lesson-assets/a1plus-unit-2-k04-6d33c99179c07e13.webp",
+      "kind": "favorite",
+      "image_choices": false
+    }
+  ],
+  "layout": {
+    "Recognize": 11,
+    "Listen": 10,
+    "Speak": 8,
+    "Use": 8
+  },
+  "stage_sequences": {
+    "Learn": [
+      "l-bag",
+      "l-shirt",
+      "l-dog"
+    ],
+    "Recognize": [
+      "m-k01",
+      "h-k03",
+      "m-k06",
+      "r-k01",
+      "m-k04",
+      "h-k01",
+      "m-k02",
+      "f-k04",
+      "m-k05",
+      "r-k06",
+      "m-k03"
+    ],
+    "Listen": [
+      "m-k02",
+      "r-k05",
+      "h-k04",
+      "m-k03",
+      "r-k02",
+      "h-k02",
+      "m-k06",
+      "f-k04",
+      "m-k01",
+      "r-k01"
+    ],
+    "Speak": [
+      "m-k01",
+      "m-k02",
+      "m-k03",
+      "m-k04",
+      "m-k05",
+      "m-k06",
+      "f-k04",
+      "h-k01"
+    ],
+    "Use": [
+      "m-k01",
+      "h-k02",
+      "m-k04",
+      "h-k03",
+      "m-k06",
+      "f-k04",
+      "m-k02",
+      "m-k05"
+    ]
+  }
+}

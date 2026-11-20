@@ -1,0 +1,62 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "b8418549-214a-488e-a44c-0dec8315a2fb",
+  "asset_id": "k02-ana-dark-blue-bag",
+  "pack_sha256": "18fd4ed24ffae745b330a2049ecb3a291616b54e10c34737c49f2212e743e12c",
+  "started_at": "2026-11-20T15:04:31.617537+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, screens, clothes, bags, machines, vehicles or license plates.\n\nEdit Image 1. Change ONLY the color of the leather tote bag she holds (bag body and both handles) to a deep, dark navy blue. Keep everything else exactly as it is: the same person, face, hair, pose, hands, expression, clothes, light, framing and background, pixel for pixel where possible. The new color is one solid, even color with no pattern, so a learner sees at once on a small phone screen that it is DARK blue, next to the light blue of Image 1.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/course-photoreal-sources/a1plus-unit-2-lesson-v2130/staged/k01-ana-light-blue-bag.png",
+    "sha256": "046a098a9890c384fd86fc3a27e8b15e4d1f89f55d4ac9ac53199768f8bbf9ce"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "fmEAa9upFfmtz7IPovnyqA0",
+  "usage": {
+    "promptTokenCount": 500,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1790,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 242
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038850",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 500,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 8.01,
+  "output": "output/imagegen/a1plus-unit-2-lesson-v2131/k02-ana-dark-blue-bag.png",
+  "sha256": "96c00dffb0d8f4277407241253987142b12d8fe9fc56c513f6c5e0e1357e1a02",
+  "byte_count": 1116297,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}
