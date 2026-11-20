@@ -139,26 +139,6 @@ function teachClause(text: string): ClausePlan {
     relations.push({ start, end, explanation: why });
     for (let i = start; i < end; i++) explanations[i] = why;
   };
-  // Spelling (2026-11-18 alphabet lessons 3.15-3.16). A spelled group or word ("A, H, J, K",
-  // "B, double O, K") keeps its letters in one fixed order; "It is E." names one letter.
-  const spelled = text.trim().replace(/[.!?]+$/, '');
-  if (tokens.length >= 2 && tokens.every(token => /^[A-Z]$/.test(token) || token === 'double') && text.includes(',')) {
-    teach(0, tokens.length, `Las letras van una después de otra en este orden: ${spelled}.`);
-    return { explanations, relations, supported: true };
-  }
-  const letter = /^It is ([A-Z])$/.exec(spelled)?.[1];
-  if (letter) {
-    teach(0, 3, `Decimos “It is ${letter}” (es la ${letter}): primero “It is” y después la letra.`);
-    return { explanations, relations, supported: true };
-  }
-  const spellQuestions: Record<string, string> = {
-    'How do you spell your name?': 'En “How do you spell your name?”, “your” (tu) va antes de “name” (nombre), como en “What is your name?”.',
-    'How do you spell it?': 'En “How do you spell it?”, después de “How do you” va el verbo “spell” (escribir letra por letra) y al final “it” (eso).',
-  };
-  if (spellQuestions[text.trim()]) {
-    teach(0, tokens.length, spellQuestions[text.trim()]);
-    return { explanations, relations, supported: true };
-  }
   const nominal = (start: number, end: number): boolean => {
     if (start >= end) return false;
     const and = keys.indexOf('and', start);

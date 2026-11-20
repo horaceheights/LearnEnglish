@@ -91,6 +91,24 @@ test('Spanish course cards explain Spanish order, agreement, es/está and one-or
   assert.equal(spanishChoiceHint(serEstar, 'wrong'),
     'You heard “Él está comiendo”: He is eating. “es” says who someone is; “está” says what someone is doing.');
   assert.equal(lessonMistakeHint(number, 'wrong'), spanishChoiceHint(number, 'wrong'));
+  // Spanish 1.6-1.9: family nouns, -ando family actions, "no" before the verb, and who-questions.
+  for (const supported of ['Ellos son los abuelos.', 'Los abuelos y los nietos', 'Los padres están hablando. Ellos están hablando.',
+    'Un hermano está estudiando.', 'Ellos no están durmiendo. Ellos están hablando.', 'Ellos no están sentados.',
+    '¿Quiénes son ellos?', '¿Quién es ella?']) {
+    assert.equal(constructionTeachingPlan(card(supported)).supported, true, supported);
+  }
+  for (const unsupported of ['¿Quiénes es ellos?', '¿Quién es ellos?', 'Él no es el padre.', 'La padre está cocinando.']) {
+    assert.equal(constructionTeachingPlan(card(unsupported)).supported, false, unsupported);
+  }
+  const negation = card('Él no está cocinando.');
+  assert.equal(constructionMistakeHint(negation, swap(negation, 1, 2)),
+    'You put “está” where “no” goes. “no” comes before the verb: Spanish says “no está”, English says “is not”.');
+  const question = card('¿Quiénes son ellos?');
+  assert.equal(constructionMistakeHint(question, swap(question, 0, 2)),
+    'You put “ellos” where “Quiénes” goes. “Quiénes” asks who about more than one person, so the question starts with it.');
+  const notDoing = choice('Ella no está leyendo.', 'Ella está leyendo.', 'She is not reading.');
+  assert.equal(spanishChoiceHint(notDoing, 'wrong'),
+    'You heard “Ella no está leyendo”: She is not reading. “no” before the verb means “not”.');
 });
 
 function construction(target) {
