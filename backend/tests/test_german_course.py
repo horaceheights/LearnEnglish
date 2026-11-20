@@ -36,14 +36,41 @@ class GermanCourseTests(unittest.TestCase):
         self.assertTrue(lessons)
         for lesson in lessons:
             self.assertEqual(lesson.level, "Deutsch A1")
+            mission = lesson.id == "de-a1-unit-1-lesson-1-14"
             position = {}
-            for card in lesson.cards:
+            for index, card in enumerate(lesson.cards):
                 position[card.stage] = position.get(card.stage, 0) + 1
-                expected = "de-teacher" if position[card.stage] % 2 else "de-co-teacher"
+                if mission:
+                    # Mission beats alternate by beat; every closing voice-gate question is Carola's.
+                    expected = "de-teacher" if card.stage == "Speak" or index % 2 == 0 else "de-co-teacher"
+                else:
+                    expected = "de-teacher" if position[card.stage] % 2 else "de-co-teacher"
                 self.assertEqual(card.target_language, "de", (lesson.id, card.slide_id))
                 self.assertEqual(card.audio_speaker, expected, (lesson.id, card.slide_id))
                 for asset in card.audio_assets:
+                    if mission and "mission-intro" in asset.id:
+                        # The English briefing is read by the English teacher for the English-speaking learner.
+                        self.assertIn(asset.speaker_role, {"teacher", expected}, asset.id)
+                        continue
                     self.assertEqual(asset.speaker_role, expected, asset.id)
+
+    def test_unit_1_has_fourteen_lessons_ending_in_review_and_mission(self):
+        # User approval "Approve, generate", 2026-11-19.
+        ids = [lesson.id for lesson in COURSE_LESSONS["de-a1"].values()]
+        self.assertEqual(sorted(ids), sorted(f"de-a1-unit-1-lesson-1-{n}" for n in range(1, 15)))
+        mission = COURSE_LESSONS["de-a1"]["de-a1-unit-1-lesson-1-14"]
+        self.assertEqual(len(mission.cards), 24)
+        self.assertEqual(len(COURSE_LESSONS["de-a1"]["de-a1-unit-1-lesson-1-13"].cards), 62)
+
+    def test_animals_eat_with_fressen_never_essen(self):
+        animals = ("hund", "katze", "vogel", "kaninchen")
+        for lesson in COURSE_LESSONS["de-a1"].values():
+            for card in lesson.cards:
+                for sentence in (card.audio_text or "").split("."):
+                    words = _speech_words(sentence)
+                    for animal in animals:
+                        if animal in words and len(words) <= 4 and words[-1] in {"isst", "essen"}:
+                            self.fail((lesson.id, card.slide_id, sentence))
 
     def test_english_courses_never_carry_the_german_flag(self):
         for course_id in ("a1", "a1-plus"):

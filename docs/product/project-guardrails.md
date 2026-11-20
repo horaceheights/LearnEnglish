@@ -13,7 +13,7 @@ SpanGlish teaches both ways. The user approved a Spanish course for English spea
 
 ## German pilot course — approved 2026-11-18
 
-The user chose a German course built on the same engine and photo library, shipped first as a Preview pilot of German Unit 1 lessons 1.1–1.3 for review. The lesson-by-lesson design basis is [`docs/planning/german-unit-1-mock.md`](../planning/german-unit-1-mock.md) (a feasibility mock, not approved curriculum beyond the pilot).
+The user chose a German course built on the same engine and photo library, shipped first as a Preview pilot of German Unit 1 lessons 1.1–1.3 for review. The lesson-by-lesson design basis is [`docs/planning/german-unit-1-mock.md`](../planning/german-unit-1-mock.md) (a feasibility mock, not approved curriculum beyond Unit 1).
 
 - German is its own registered course, `de-a1` ("Deutsch A1 (beta)", level `Deutsch A1`), with its own unit and lesson identities. It never changes A1 or A1+ content, and its lessons follow German grammar order rather than translating English lessons one to one.
 - The learner is an English speaker: every card's help text (`spanish_translation`, option translations) is English. Since 2026-11-19 the app shell is English too (see "Course app language" below).
@@ -25,6 +25,11 @@ The user chose a German course built on the same engine and photo library, shipp
 - German Learn cards never teach a pronoun as an isolated word (`Er`, `Sie`): the speech model read lone pronouns as English. Pronouns are introduced inside sentences (`Er ist ein Junge.`).
 - The pilot reuses existing course photos only. Their German review contexts start as `pending-human-review`; agent review is not human approval. German 1.4 adds one new Gemini Flash photo (the same boy and girl asleep side by side, approved 2026-11-19); it shows the full 3:2 frame only and is never used in a four-photo grid, because the centered 4:5 crop clips the girl.
 - German Unit 1 continues in the mock's order: 1.4 one or two people (rennt/rennen, sitzt/sitzen, schwimmt/schwimmen, schläft/schlafen), 1.5 children and babies with `sind`, 1.6 brothers, sisters and adults (`erwachsen`, `die Erwachsenen`). Each batch passes a text-and-photo gate, then a recordings gate, before shipping.
+- German Unit 1 is complete with 1.7–1.14 (user approval "Approve, generate", 2026-11-19): 1.7 parents and grandparents, 1.8 family actions, 1.9 `nicht` after the verb, 1.10 `Wer ist er? / Wer sind sie?`, 1.11 pets, 1.12 friends and people, 1.13 the 62-card story review and 1.14 the 24-beat mission "Everyone to the Celebration!".
+  - Animals take `frisst`/`fressen`, never `isst`/`essen`; a sentence pairing a person and an animal names both verbs (`Der Ehemann isst und der Vogel frisst.`).
+  - A female friend is `die Freundin`, plural `die Freundinnen`; `kein` is deferred, so a negative is always `nicht` after the verb.
+  - Mission briefing, chapters and instructions are English for the English-speaking learner; beats alternate the two German narrators, and every closing voice-gate question is read by Carola (`de-teacher`), whose card speaker matches the turn speaker.
+  - A native German speaker checks the text before any lesson beyond Unit 1 is built.
 
 ## A1+ lesson standards — approved 2026-10-27
 
