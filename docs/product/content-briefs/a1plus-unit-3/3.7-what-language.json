@@ -1,0 +1,642 @@
+{
+  "brief_version": 1,
+  "follows": {
+    "course": "a1",
+    "lesson": "3.7",
+    "title": "Where Are You From?"
+  },
+  "note": "A1+ Unit 3 Lesson 3.7, built on 2026-11-20 under the A1+ lesson standards approved 2026-10-27 and the user's 2026-11-09 rule that every A1+ lesson follows up the A1 lesson with the same number. The user approved the A1+ Unit 3 map on 2026-11-20 (A1+ 3.Y follows A1 3.Y, one step each; A1 Unit 3 has sixteen lessons after the alphabet lessons were removed the same day) and asked for the Unit 2 deal: straight to Preview in batches, Gemini 2.5 Flash photos and ElevenLabs audio pre-approved, no per-lesson gates, reviewed in Preview. No new photos. Country cards reuse A1 3.7-3.8's travel-desk photos, whose flags and printed country names are A1's reviewed text; cast lines reuse 3.1's café photos and 3.9's work photos.",
+  "target": "backend/lessons/a1_plus/unit_3/a1plus-unit-3-lesson-3-7.yaml",
+  "captions": false,
+  "narrators": [
+    "teacher",
+    "co-teacher"
+  ],
+  "answer_audio_policy": "authored-only",
+  "speak_delivery": "a1-pronunciation-v1",
+  "lesson": {
+    "id": "a1plus-unit-3-lesson-3-7",
+    "title": "3.7 What language do you speak?",
+    "level": "A1+",
+    "unit_id": "a1plus-unit-3",
+    "unit_title": "Meeting people and talking about them",
+    "unit_outcome": "Introduce people and answer introductions, use the short forms of be, answer yes/no questions in short, compare ages, talk about languages, nationalities and jobs, describe people, say whose things are, give an address and say what you want to be.",
+    "lesson_id": "a1plus-unit-3-lesson-3-7",
+    "lesson_title": "What language do you speak?",
+    "sub_lesson_id": "3.7",
+    "sub_lesson_title": "What language do you speak?",
+    "goal": "Ask and say which languages people speak (What language do you speak? I speak Spanish and English.).",
+    "vocabulary": [
+      "speak",
+      "English",
+      "What language"
+    ],
+    "review_vocabulary": [
+      "Mexico",
+      "the United States",
+      "Canada",
+      "Spain",
+      "Spanish",
+      "people",
+      "in",
+      "and",
+      "I",
+      "we",
+      "speaks",
+      "do you"
+    ],
+    "grammar_function": "A follow-up of A1 3.7 Where Are You From?: A1 asks where people are from (Where are you from? I am from Mexico.); A1+ 3.7 asks what language they speak. It adds no new grammar relationship: What + language opens A1 4.8's do you question (What language do you speak?), and speak takes A1+ 1.2's -s (Diego speaks Spanish.). Spanish, the A1 nationality, is also the language. A1 3.7-3.8's country photos, with their flags, show where people speak Spanish or English; the cast's languages follow their A1 countries (Ana Mexican, Luis American, Sofia Canadian, Diego Spanish) and are always said, never guessed from a picture. The 3.1 newcomer asks Ana and Diego.",
+    "prerequisite": "A1 3.7-3.8 countries and nationalities; A1 4.8 Do you …?; A1 1.11 people; A1+ 1.2 the he/she -s; A1+ 3.1 the café newcomer; A1+ 3.2 we.",
+    "speaking_outcome": "Say speak with a long ee and English as ING-glish, two syllables. Do not require native-like speed.",
+    "content_revision": 1,
+    "learn_context_groups": [
+      {
+        "kind": "sequence",
+        "targets": [
+          "speak"
+        ],
+        "models": [
+          {
+            "slide_id": "L1",
+            "text": "In Mexico, people speak Spanish."
+          }
+        ]
+      },
+      {
+        "kind": "sequence",
+        "targets": [
+          "English",
+          "speak"
+        ],
+        "models": [
+          {
+            "slide_id": "L2",
+            "text": "In the United States, people speak English."
+          }
+        ]
+      },
+      {
+        "kind": "exchange",
+        "targets": [
+          "What language"
+        ],
+        "models": [
+          {
+            "slide_id": "L3",
+            "text": "What language do you speak? I speak Spanish.",
+            "turns": [
+              "What language do you speak?",
+              "I speak Spanish."
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "exchange",
+        "targets": [
+          "What language",
+          "English"
+        ],
+        "models": [
+          {
+            "slide_id": "L4",
+            "text": "What language do you speak? I speak Spanish and English.",
+            "turns": [
+              "What language do you speak?",
+              "I speak Spanish and English."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "items": [
+    {
+      "id": "l-speak",
+      "text": "In Mexico, people speak Spanish.",
+      "es": "En México se habla español.",
+      "image": "/lesson-assets/a1_scene_mexico-country_c17ee27.webp",
+      "kind": "sequence",
+      "choices": false,
+      "use": false,
+      "speaker": "teacher"
+    },
+    {
+      "id": "l-english",
+      "text": "In the United States, people speak English.",
+      "es": "En Estados Unidos se habla inglés.",
+      "image": "/lesson-assets/a1_scene_us-country_69518e5.webp",
+      "kind": "sequence",
+      "choices": false,
+      "use": false,
+      "speaker": "co-teacher"
+    },
+    {
+      "id": "l-what",
+      "text": "What language do you speak? I speak Spanish.",
+      "es": "¿Qué idioma hablas? Hablo español.",
+      "image": "/lesson-assets/a1plus-unit-3-h02-060c6c5ee57b406d.webp",
+      "kind": "exchange",
+      "choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "What language do you speak?",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-3-h02-060c6c5ee57b406d.webp"
+        },
+        {
+          "text": "I speak Spanish.",
+          "speaker": "diego",
+          "image": "/lesson-assets/a1plus-unit-3-h02-060c6c5ee57b406d.webp"
+        }
+      ]
+    },
+    {
+      "id": "l-and",
+      "text": "What language do you speak? I speak Spanish and English.",
+      "es": "¿Qué idioma hablas? Hablo español e inglés.",
+      "image": "/lesson-assets/a1plus-unit-3-h01-c91fbdfb6c1c001c.webp",
+      "kind": "exchange",
+      "choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "What language do you speak?",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-3-h01-c91fbdfb6c1c001c.webp"
+        },
+        {
+          "text": "I speak Spanish and English.",
+          "speaker": "ana",
+          "image": "/lesson-assets/a1plus-unit-3-h01-c91fbdfb6c1c001c.webp"
+        }
+      ]
+    },
+    {
+      "id": "c-mx",
+      "text": "In Mexico, people speak Spanish.",
+      "es": "En México se habla español.",
+      "image": "/lesson-assets/a1_scene_mexico-country_c17ee27.webp",
+      "kind": "country",
+      "accepts": {
+        "subject-variety": "The bank keeps the frame and changes the country the picture shows, or the language.",
+        "action-variety": "The bank keeps the frame and changes the country the picture shows, or the language.",
+        "conversational-response": "The bank keeps the frame and changes the country the picture shows, or the language.",
+        "reading-load": "The bank keeps the frame and changes the country the picture shows, or the language."
+      },
+      "prefer": [
+        "In Mexico, people speak English."
+      ],
+      "use": false,
+      "learn": false
+    },
+    {
+      "id": "c-us",
+      "text": "In the United States, people speak English.",
+      "es": "En Estados Unidos se habla inglés.",
+      "image": "/lesson-assets/a1_scene_us-country_69518e5.webp",
+      "kind": "country",
+      "accepts": {
+        "subject-variety": "The bank keeps the frame and changes the country the picture shows, or the language.",
+        "action-variety": "The bank keeps the frame and changes the country the picture shows, or the language.",
+        "conversational-response": "The bank keeps the frame and changes the country the picture shows, or the language.",
+        "reading-load": "The bank keeps the frame and changes the country the picture shows, or the language."
+      },
+      "prefer": [
+        "In the United States, people speak Spanish."
+      ],
+      "use": false,
+      "learn": false
+    },
+    {
+      "id": "c-ca",
+      "text": "In Canada, people speak English.",
+      "es": "En Canadá se habla inglés.",
+      "image": "/lesson-assets/a1_scene_canada-country_3aa8b25.webp",
+      "kind": "country",
+      "accepts": {
+        "subject-variety": "The bank keeps the frame and changes the country the picture shows, or the language.",
+        "action-variety": "The bank keeps the frame and changes the country the picture shows, or the language.",
+        "conversational-response": "The bank keeps the frame and changes the country the picture shows, or the language.",
+        "reading-load": "The bank keeps the frame and changes the country the picture shows, or the language."
+      },
+      "prefer": [
+        "In Canada, people speak Spanish."
+      ],
+      "use": true,
+      "learn": false
+    },
+    {
+      "id": "c-es",
+      "text": "In Spain, people speak Spanish.",
+      "es": "En España se habla español.",
+      "image": "/lesson-assets/a1_scene_spain-country_b3549fd.webp",
+      "kind": "country",
+      "accepts": {
+        "subject-variety": "The bank keeps the frame and changes the country the picture shows, or the language.",
+        "action-variety": "The bank keeps the frame and changes the country the picture shows, or the language.",
+        "conversational-response": "The bank keeps the frame and changes the country the picture shows, or the language.",
+        "reading-load": "The bank keeps the frame and changes the country the picture shows, or the language."
+      },
+      "prefer": [
+        "In Spain, people speak English."
+      ],
+      "use": true,
+      "learn": false
+    },
+    {
+      "id": "s-ana",
+      "text": "Ana speaks Spanish and English.",
+      "es": "Ana habla español e inglés.",
+      "image": "/lesson-assets/a1plus-unit-3-h01-c91fbdfb6c1c001c.webp",
+      "kind": "speaks",
+      "speaker": "teacher",
+      "accepts": {
+        "subject-variety": "Listen sets one language against another for the same person; the answer is what was heard.",
+        "action-variety": "Listen sets one language against another for the same person; the answer is what was heard.",
+        "conversational-response": "Listen sets one language against another for the same person; the answer is what was heard.",
+        "reading-load": "Listen sets one language against another for the same person; the answer is what was heard."
+      },
+      "prefer": [
+        "Ana speaks English.",
+        "Diego speaks Spanish and English."
+      ],
+      "blanks": [
+        "speaks",
+        "Spanish"
+      ],
+      "learn": false
+    },
+    {
+      "id": "s-diego",
+      "text": "Diego speaks Spanish.",
+      "es": "Diego habla español.",
+      "image": "/lesson-assets/a1plus-unit-3-h02-060c6c5ee57b406d.webp",
+      "kind": "speaks",
+      "speaker": "co-teacher",
+      "accepts": {
+        "subject-variety": "Listen sets one language against another for the same person; the answer is what was heard.",
+        "action-variety": "Listen sets one language against another for the same person; the answer is what was heard.",
+        "conversational-response": "Listen sets one language against another for the same person; the answer is what was heard.",
+        "reading-load": "Listen sets one language against another for the same person; the answer is what was heard."
+      },
+      "prefer": [
+        "Diego speaks English.",
+        "Ana speaks Spanish."
+      ],
+      "blanks": [
+        "speaks",
+        "Spanish"
+      ],
+      "learn": false
+    },
+    {
+      "id": "s-sofia",
+      "text": "Sofia speaks English.",
+      "es": "Sofía habla inglés.",
+      "image": "/lesson-assets/a1plus-unit-3-j02-b6ea448f561de0f4.webp",
+      "kind": "speaks",
+      "speaker": "teacher",
+      "accepts": {
+        "subject-variety": "Listen sets one language against another for the same person; the answer is what was heard.",
+        "action-variety": "Listen sets one language against another for the same person; the answer is what was heard.",
+        "conversational-response": "Listen sets one language against another for the same person; the answer is what was heard.",
+        "reading-load": "Listen sets one language against another for the same person; the answer is what was heard."
+      },
+      "prefer": [
+        "Sofia speaks Spanish.",
+        "Luis speaks English."
+      ],
+      "blanks": [
+        "speaks",
+        "English"
+      ],
+      "learn": false
+    },
+    {
+      "id": "s-luis",
+      "text": "Luis speaks English.",
+      "es": "Luis habla inglés.",
+      "image": "/lesson-assets/a1plus-unit-3-j03-52d3ff19ce24e5ae.webp",
+      "kind": "speaks",
+      "speaker": "co-teacher",
+      "accepts": {
+        "subject-variety": "Listen sets one language against another for the same person; the answer is what was heard.",
+        "action-variety": "Listen sets one language against another for the same person; the answer is what was heard.",
+        "conversational-response": "Listen sets one language against another for the same person; the answer is what was heard.",
+        "reading-load": "Listen sets one language against another for the same person; the answer is what was heard."
+      },
+      "prefer": [
+        "Luis speaks Spanish.",
+        "Sofia speaks English."
+      ],
+      "blanks": [
+        "speaks",
+        "English"
+      ],
+      "learn": false
+    },
+    {
+      "id": "r-ana",
+      "text": "I speak Spanish and English.",
+      "es": "Hablo español e inglés.",
+      "image": "/lesson-assets/a1plus-unit-3-h01-c91fbdfb6c1c001c.webp",
+      "kind": "reply",
+      "speaker": "ana",
+      "image_choices": false,
+      "question": "What language do you speak?",
+      "question_es": "¿Qué idioma hablas?",
+      "question_speaker": "co-teacher",
+      "accepts": {
+        "subject-variety": "Listen sets one language against another for the same person; the answer is what was heard.",
+        "action-variety": "Listen sets one language against another for the same person; the answer is what was heard.",
+        "conversational-response": "Listen sets one language against another for the same person; the answer is what was heard.",
+        "reading-load": "Listen sets one language against another for the same person; the answer is what was heard."
+      },
+      "prefer": [
+        "We speak Spanish and English."
+      ],
+      "learn": false
+    },
+    {
+      "id": "r-diego",
+      "text": "I speak Spanish.",
+      "es": "Hablo español.",
+      "image": "/lesson-assets/a1plus-unit-3-h02-060c6c5ee57b406d.webp",
+      "kind": "reply",
+      "speaker": "diego",
+      "image_choices": false,
+      "question": "What language do you speak?",
+      "question_es": "¿Qué idioma hablas?",
+      "question_speaker": "teacher",
+      "accepts": {
+        "subject-variety": "Listen sets one language against another for the same person; the answer is what was heard.",
+        "action-variety": "Listen sets one language against another for the same person; the answer is what was heard.",
+        "conversational-response": "Listen sets one language against another for the same person; the answer is what was heard.",
+        "reading-load": "Listen sets one language against another for the same person; the answer is what was heard."
+      },
+      "prefer": [
+        "I speak English."
+      ],
+      "learn": false
+    },
+    {
+      "id": "r-we",
+      "text": "We speak English.",
+      "es": "Hablamos inglés.",
+      "image": "/lesson-assets/a1plus-unit-3-i02-928ea057d6b6f357.webp",
+      "kind": "reply",
+      "speaker": "luis",
+      "image_choices": false,
+      "question": "What language do you speak, Luis and Sofia?",
+      "question_es": "¿Qué idioma hablan, Luis y Sofía?",
+      "question_speaker": "co-teacher",
+      "accepts": {
+        "subject-variety": "Listen sets one language against another for the same person; the answer is what was heard.",
+        "action-variety": "Listen sets one language against another for the same person; the answer is what was heard.",
+        "conversational-response": "Listen sets one language against another for the same person; the answer is what was heard.",
+        "reading-load": "Listen sets one language against another for the same person; the answer is what was heard."
+      },
+      "prefer": [
+        "We speak Spanish."
+      ],
+      "learn": false
+    },
+    {
+      "id": "x-lang",
+      "text": "What language do you speak? I speak Spanish.",
+      "es": "¿Qué idioma hablas? Hablo español.",
+      "image": "/lesson-assets/a1plus-unit-3-h02-060c6c5ee57b406d.webp",
+      "kind": "exch",
+      "turns": [
+        {
+          "text": "What language do you speak?",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-3-h02-060c6c5ee57b406d.webp"
+        },
+        {
+          "text": "I speak Spanish.",
+          "speaker": "diego",
+          "image": "/lesson-assets/a1plus-unit-3-h02-060c6c5ee57b406d.webp"
+        }
+      ],
+      "image_choices": false,
+      "accepts": {
+        "subject-variety": "Listen sets one language against another for the same person; the answer is what was heard.",
+        "action-variety": "Listen sets one language against another for the same person; the answer is what was heard.",
+        "conversational-response": "Listen sets one language against another for the same person; the answer is what was heard.",
+        "reading-load": "Listen sets one language against another for the same person; the answer is what was heard."
+      },
+      "prefer": [
+        "What language do you speak? I speak English."
+      ],
+      "learn": false
+    },
+    {
+      "id": "x-lang2",
+      "text": "What language do you speak? We speak English.",
+      "es": "¿Qué idioma hablan? Hablamos inglés.",
+      "image": "/lesson-assets/a1plus-unit-3-i02-928ea057d6b6f357.webp",
+      "kind": "exch",
+      "turns": [
+        {
+          "text": "What language do you speak?",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-3-i02-928ea057d6b6f357.webp"
+        },
+        {
+          "text": "We speak English.",
+          "speaker": "luis",
+          "image": "/lesson-assets/a1plus-unit-3-i02-928ea057d6b6f357.webp"
+        }
+      ],
+      "image_choices": false,
+      "accepts": {
+        "subject-variety": "Listen sets one language against another for the same person; the answer is what was heard.",
+        "action-variety": "Listen sets one language against another for the same person; the answer is what was heard.",
+        "conversational-response": "Listen sets one language against another for the same person; the answer is what was heard.",
+        "reading-load": "Listen sets one language against another for the same person; the answer is what was heard."
+      },
+      "prefer": [
+        "What language do you speak? We speak Spanish."
+      ],
+      "learn": false
+    },
+    {
+      "id": "q-lang",
+      "text": "What language do you speak?",
+      "es": "¿Qué idioma hablas?",
+      "image": "/lesson-assets/a1plus-unit-3-h02-060c6c5ee57b406d.webp",
+      "kind": "question",
+      "speaker": "teacher",
+      "choices": false,
+      "learn": false
+    }
+  ],
+  "pool": [
+    {
+      "text": "In Mexico, people speak English.",
+      "es": "En México se habla inglés.",
+      "image": "/lesson-assets/a1_scene_mexico-country_c17ee27.webp",
+      "kind": "country",
+      "image_choices": false
+    },
+    {
+      "text": "In the United States, people speak Spanish.",
+      "es": "En Estados Unidos se habla español.",
+      "image": "/lesson-assets/a1_scene_us-country_69518e5.webp",
+      "kind": "country",
+      "image_choices": false
+    },
+    {
+      "text": "In Canada, people speak Spanish.",
+      "es": "En Canadá se habla español.",
+      "image": "/lesson-assets/a1_scene_canada-country_3aa8b25.webp",
+      "kind": "country",
+      "image_choices": false
+    },
+    {
+      "text": "In Spain, people speak English.",
+      "es": "En España se habla inglés.",
+      "image": "/lesson-assets/a1_scene_spain-country_b3549fd.webp",
+      "kind": "country",
+      "image_choices": false
+    },
+    {
+      "text": "Ana speaks English.",
+      "es": "Ana habla inglés.",
+      "image": "/lesson-assets/a1plus-unit-3-h01-c91fbdfb6c1c001c.webp",
+      "kind": "speaks",
+      "image_choices": false
+    },
+    {
+      "text": "Diego speaks Spanish and English.",
+      "es": "Diego habla español e inglés.",
+      "image": "/lesson-assets/a1plus-unit-3-h01-c91fbdfb6c1c001c.webp",
+      "kind": "speaks",
+      "image_choices": false
+    },
+    {
+      "text": "Diego speaks English.",
+      "es": "Diego habla inglés.",
+      "image": "/lesson-assets/a1plus-unit-3-h02-060c6c5ee57b406d.webp",
+      "kind": "speaks",
+      "image_choices": false
+    },
+    {
+      "text": "Ana speaks Spanish.",
+      "es": "Ana habla español.",
+      "image": "/lesson-assets/a1plus-unit-3-h02-060c6c5ee57b406d.webp",
+      "kind": "speaks",
+      "image_choices": false
+    },
+    {
+      "text": "Sofia speaks Spanish.",
+      "es": "Sofía habla español.",
+      "image": "/lesson-assets/a1plus-unit-3-j02-b6ea448f561de0f4.webp",
+      "kind": "speaks",
+      "image_choices": false
+    },
+    {
+      "text": "Luis speaks Spanish.",
+      "es": "Luis habla español.",
+      "image": "/lesson-assets/a1plus-unit-3-j03-52d3ff19ce24e5ae.webp",
+      "kind": "speaks",
+      "image_choices": false
+    },
+    {
+      "text": "We speak Spanish and English.",
+      "es": "Hablamos español e inglés.",
+      "image": "/lesson-assets/a1plus-unit-3-h01-c91fbdfb6c1c001c.webp",
+      "kind": "reply",
+      "image_choices": false
+    },
+    {
+      "text": "I speak English.",
+      "es": "Hablo inglés.",
+      "image": "/lesson-assets/a1plus-unit-3-h02-060c6c5ee57b406d.webp",
+      "kind": "reply",
+      "image_choices": false
+    },
+    {
+      "text": "We speak Spanish.",
+      "es": "Hablamos español.",
+      "image": "/lesson-assets/a1plus-unit-3-i02-928ea057d6b6f357.webp",
+      "kind": "reply",
+      "image_choices": false
+    },
+    {
+      "text": "What language do you speak? I speak English.",
+      "es": "¿Qué idioma hablas? Hablo inglés.",
+      "image": "/lesson-assets/a1plus-unit-3-h02-060c6c5ee57b406d.webp",
+      "kind": "exch",
+      "image_choices": false
+    },
+    {
+      "text": "What language do you speak? We speak Spanish.",
+      "es": "¿Qué idioma hablan? Hablamos español.",
+      "image": "/lesson-assets/a1plus-unit-3-i02-928ea057d6b6f357.webp",
+      "kind": "exch",
+      "image_choices": false
+    }
+  ],
+  "layout": {
+    "Recognize": 10,
+    "Listen": 10,
+    "Speak": 8,
+    "Use": 8
+  },
+  "stage_sequences": {
+    "Learn": [
+      "l-speak",
+      "l-english",
+      "l-what",
+      "l-and"
+    ],
+    "Recognize": [
+      "c-mx",
+      "x-lang",
+      "c-ca",
+      "c-es",
+      "s-diego",
+      "x-lang2",
+      "c-es",
+      "c-us",
+      "s-ana",
+      "c-ca"
+    ],
+    "Listen": [
+      "c-es",
+      "s-luis",
+      "x-lang",
+      "c-us",
+      "s-sofia",
+      "r-diego",
+      "c-ca",
+      "s-diego",
+      "x-lang2",
+      "s-ana"
+    ],
+    "Speak": [
+      "r-diego",
+      "r-ana",
+      "q-lang",
+      "s-diego",
+      "r-we",
+      "s-ana",
+      "c-mx",
+      "s-sofia"
+    ],
+    "Use": [
+      "r-diego",
+      "s-diego",
+      "r-we",
+      "s-sofia",
+      "q-lang",
+      "r-ana",
+      "c-es",
+      "s-luis"
+    ]
+  }
+}

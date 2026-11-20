@@ -1,0 +1,707 @@
+{
+  "brief_version": 1,
+  "follows": {
+    "course": "a1",
+    "lesson": "3.3",
+    "title": "Am, Is, and Are"
+  },
+  "note": "A1+ Unit 3 Lesson 3.3, built on 2026-11-20 under the A1+ lesson standards approved 2026-10-27 and the user's 2026-11-09 rule that every A1+ lesson follows up the A1 lesson with the same number. The user approved the A1+ Unit 3 map on 2026-11-20 (A1+ 3.Y follows A1 3.Y, one step each; A1 Unit 3 has sixteen lessons after the alphabet lessons were removed the same day) and asked for the Unit 2 deal: straight to Preview in batches, Gemini 2.5 Flash photos and ElevenLabs audio pre-approved, no per-lesson gates, reviewed in Preview. The cast's A1+ Unit 1 and 2 action photos come back with the short forms: Luis drinks coffee and watches TV, Diego eats an apple and runs, Ana reads, cooks and rides her bike, Sofia writes, and Sofia and Luis run and swim together. A they're line is never set against he's or she's on the photo of both, because each of those is also true there; it changes the action instead. No new photos.",
+  "target": "backend/lessons/a1_plus/unit_3/a1plus-unit-3-lesson-3-3.yaml",
+  "captions": false,
+  "narrators": [
+    "teacher",
+    "co-teacher"
+  ],
+  "answer_audio_policy": "authored-only",
+  "speak_delivery": "a1-pronunciation-v1",
+  "lesson": {
+    "id": "a1plus-unit-3-lesson-3-3",
+    "title": "3.3 He's, she's, they're",
+    "level": "A1+",
+    "unit_id": "a1plus-unit-3",
+    "unit_title": "Meeting people and talking about them",
+    "unit_outcome": "Introduce people and answer introductions, use the short forms of be, answer yes/no questions in short, compare ages, talk about languages, nationalities and jobs, describe people, say whose things are, give an address and say what you want to be.",
+    "lesson_id": "a1plus-unit-3-lesson-3-3",
+    "lesson_title": "He's, she's, they're",
+    "sub_lesson_id": "3.3",
+    "sub_lesson_title": "He's, she's, they're",
+    "goal": "Say what people are doing with the short forms he's, she's and they're (He's drinking coffee. / They're running.), and ask What's she doing?",
+    "vocabulary": [
+      "he's",
+      "she's",
+      "they're"
+    ],
+    "review_vocabulary": [
+      "he",
+      "she",
+      "they",
+      "is",
+      "are",
+      "what's",
+      "doing",
+      "drinking",
+      "eating",
+      "reading",
+      "writing",
+      "cooking",
+      "running",
+      "swimming",
+      "watching TV",
+      "riding",
+      "coffee",
+      "apple",
+      "dinner",
+      "bike",
+      "now",
+      "drinks",
+      "reads"
+    ],
+    "grammar_function": "A follow-up of A1 3.3 Am, Is, and Are: A1 asks What is she doing? and answers She is reading. with the full forms; A1+ 3.3 uses the short forms. The one new grammar relationship is the contraction of is and are after he, she and they with -ing (He's drinking coffee. / They're running.), taught against the full forms, with A1+ 2.4's What's in the question (What's she doing?). Listen sets it against A1+ 1.2's habit (He drinks coffee.). The short form he's is is, never a possessive.",
+    "prerequisite": "A1 3.3 What is she doing? She is …-ing; A1 1.2 the -ing actions; A1 7.6 watch TV and ride a bike; A1 4.12 now; A1+ 1.2 drinks, reads; A1+ 2.4 What's; A1+ 3.2 I'm, you're, we're.",
+    "speaking_outcome": "Say he's and she's with a final z sound (heez, sheez) and they're like there; keep the -ing clear. Do not require native-like speed.",
+    "content_revision": 1,
+    "learn_context_groups": [
+      {
+        "kind": "contrast",
+        "targets": [
+          "he's"
+        ],
+        "models": [
+          {
+            "slide_id": "L1",
+            "text": "He is drinking coffee. He's drinking coffee.",
+            "turns": [
+              "He is drinking coffee.",
+              "He's drinking coffee."
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "contrast",
+        "targets": [
+          "she's"
+        ],
+        "models": [
+          {
+            "slide_id": "L2",
+            "text": "She is reading. She's reading.",
+            "turns": [
+              "She is reading.",
+              "She's reading."
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "contrast",
+        "targets": [
+          "they're"
+        ],
+        "models": [
+          {
+            "slide_id": "L3",
+            "text": "They are running. They're running.",
+            "turns": [
+              "They are running.",
+              "They're running."
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "exchange",
+        "targets": [
+          "she's"
+        ],
+        "models": [
+          {
+            "slide_id": "L4",
+            "text": "What's she doing? She's cooking dinner.",
+            "turns": [
+              "What's she doing?",
+              "She's cooking dinner."
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "exchange",
+        "targets": [
+          "they're"
+        ],
+        "models": [
+          {
+            "slide_id": "L5",
+            "text": "What are they doing? They're swimming.",
+            "turns": [
+              "What are they doing?",
+              "They're swimming."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "items": [
+    {
+      "id": "l-hes",
+      "text": "He is drinking coffee. He's drinking coffee.",
+      "es": "Está tomando café. Está tomando café.",
+      "image": "/lesson-assets/a1plus-unit-1-q01-135c3f8f772bcbe4.webp",
+      "kind": "contrast",
+      "choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "He is drinking coffee.",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-1-q01-135c3f8f772bcbe4.webp"
+        },
+        {
+          "text": "He's drinking coffee.",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-1-q01-135c3f8f772bcbe4.webp"
+        }
+      ]
+    },
+    {
+      "id": "l-shes",
+      "text": "She is reading. She's reading.",
+      "es": "Está leyendo. Está leyendo.",
+      "image": "/lesson-assets/a1plus-unit-1-q02-c2b4398b65207eff.webp",
+      "kind": "contrast",
+      "choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "She is reading.",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-1-q02-c2b4398b65207eff.webp"
+        },
+        {
+          "text": "She's reading.",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-1-q02-c2b4398b65207eff.webp"
+        }
+      ]
+    },
+    {
+      "id": "l-theyre",
+      "text": "They are running. They're running.",
+      "es": "Están corriendo. Están corriendo.",
+      "image": "/lesson-assets/a1plus-unit-1-s03-eb8f34195803a0a8.webp",
+      "kind": "contrast",
+      "choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "They are running.",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-1-s03-eb8f34195803a0a8.webp"
+        },
+        {
+          "text": "They're running.",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-1-s03-eb8f34195803a0a8.webp"
+        }
+      ]
+    },
+    {
+      "id": "l-whats",
+      "text": "What's she doing? She's cooking dinner.",
+      "es": "¿Qué está haciendo? Está cocinando la cena.",
+      "image": "/lesson-assets/a1plus-unit-1-e01-475ff38c766cace5.webp",
+      "kind": "exchange",
+      "choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "What's she doing?",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-1-e01-475ff38c766cace5.webp"
+        },
+        {
+          "text": "She's cooking dinner.",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-1-e01-475ff38c766cace5.webp"
+        }
+      ]
+    },
+    {
+      "id": "l-what-they",
+      "text": "What are they doing? They're swimming.",
+      "es": "¿Qué están haciendo? Están nadando.",
+      "image": "/lesson-assets/a1plus-unit-1-s01-2ebd24dc956daca4.webp",
+      "kind": "exchange",
+      "choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "What are they doing?",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-1-s01-2ebd24dc956daca4.webp"
+        },
+        {
+          "text": "They're swimming.",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-1-s01-2ebd24dc956daca4.webp"
+        }
+      ]
+    },
+    {
+      "id": "d-coffee",
+      "text": "He's drinking coffee.",
+      "es": "Él está tomando café.",
+      "image": "/lesson-assets/a1plus-unit-1-q01-135c3f8f772bcbe4.webp",
+      "kind": "doing",
+      "accepts": {
+        "action-variety": "The bank keeps the action the picture shows and changes only he's, she's or they're, the lesson's new form.",
+        "subject-variety": "The bank keeps they're (or he's, she's) and changes only the action the picture shows."
+      },
+      "prefer": [
+        "She's drinking coffee.",
+        "They're drinking coffee."
+      ],
+      "avoid": [],
+      "blanks": [
+        "He's",
+        "drinking"
+      ],
+      "learn": false
+    },
+    {
+      "id": "d-apple",
+      "text": "He's eating an apple.",
+      "es": "Él está comiendo una manzana.",
+      "image": "/lesson-assets/a1plus-unit-1-q04-ded74a2cb6021167.webp",
+      "kind": "doing",
+      "accepts": {
+        "action-variety": "The bank keeps the action the picture shows and changes only he's, she's or they're, the lesson's new form.",
+        "subject-variety": "The bank keeps they're (or he's, she's) and changes only the action the picture shows."
+      },
+      "prefer": [
+        "She's eating an apple.",
+        "They're eating an apple."
+      ],
+      "avoid": [],
+      "blanks": [
+        "He's",
+        "eating"
+      ],
+      "learn": false
+    },
+    {
+      "id": "d-tv",
+      "text": "He's watching TV.",
+      "es": "Él está viendo la televisión.",
+      "image": "/lesson-assets/a1plus-unit-1-e03-404d00e7aea3f372.webp",
+      "kind": "doing",
+      "accepts": {
+        "action-variety": "The bank keeps the action the picture shows and changes only he's, she's or they're, the lesson's new form.",
+        "subject-variety": "The bank keeps they're (or he's, she's) and changes only the action the picture shows."
+      },
+      "prefer": [
+        "She's watching TV.",
+        "They're watching TV."
+      ],
+      "avoid": [],
+      "learn": false
+    },
+    {
+      "id": "d-diego-run",
+      "text": "He's running.",
+      "es": "Él está corriendo.",
+      "image": "/lesson-assets/a1plus-unit-1-s04-1055dd20fb2b0977.webp",
+      "kind": "doing",
+      "accepts": {
+        "action-variety": "The bank keeps the action the picture shows and changes only he's, she's or they're, the lesson's new form.",
+        "subject-variety": "The bank keeps they're (or he's, she's) and changes only the action the picture shows."
+      },
+      "prefer": [
+        "She's running."
+      ],
+      "avoid": [
+        "They're running."
+      ],
+      "learn": false
+    },
+    {
+      "id": "d-read",
+      "text": "She's reading.",
+      "es": "Ella está leyendo.",
+      "image": "/lesson-assets/a1plus-unit-1-q02-c2b4398b65207eff.webp",
+      "kind": "doing",
+      "accepts": {
+        "action-variety": "The bank keeps the action the picture shows and changes only he's, she's or they're, the lesson's new form.",
+        "subject-variety": "The bank keeps they're (or he's, she's) and changes only the action the picture shows."
+      },
+      "prefer": [
+        "He's reading.",
+        "They're reading."
+      ],
+      "avoid": [],
+      "learn": false
+    },
+    {
+      "id": "d-write",
+      "text": "She's writing.",
+      "es": "Ella está escribiendo.",
+      "image": "/lesson-assets/a1plus-unit-1-q03-7d520a07846a47b8.webp",
+      "kind": "doing",
+      "accepts": {
+        "action-variety": "The bank keeps the action the picture shows and changes only he's, she's or they're, the lesson's new form.",
+        "subject-variety": "The bank keeps they're (or he's, she's) and changes only the action the picture shows."
+      },
+      "prefer": [
+        "He's writing.",
+        "They're writing."
+      ],
+      "avoid": [],
+      "learn": false
+    },
+    {
+      "id": "d-cook",
+      "text": "She's cooking dinner.",
+      "es": "Ella está cocinando la cena.",
+      "image": "/lesson-assets/a1plus-unit-1-e01-475ff38c766cace5.webp",
+      "kind": "doing",
+      "accepts": {
+        "action-variety": "The bank keeps the action the picture shows and changes only he's, she's or they're, the lesson's new form.",
+        "subject-variety": "The bank keeps they're (or he's, she's) and changes only the action the picture shows."
+      },
+      "prefer": [
+        "He's cooking dinner.",
+        "They're cooking dinner."
+      ],
+      "avoid": [],
+      "blanks": [
+        "She's",
+        "cooking"
+      ],
+      "learn": false
+    },
+    {
+      "id": "d-bike",
+      "text": "She's riding her bike.",
+      "es": "Ella está andando en bicicleta.",
+      "image": "/lesson-assets/a1plus-unit-2-r01-f09016e66cbd30a8.webp",
+      "kind": "doing",
+      "accepts": {
+        "action-variety": "The bank keeps the action the picture shows and changes only he's, she's or they're, the lesson's new form.",
+        "subject-variety": "The bank keeps they're (or he's, she's) and changes only the action the picture shows."
+      },
+      "prefer": [
+        "He's riding his bike.",
+        "They're riding their bikes."
+      ],
+      "avoid": [],
+      "learn": false
+    },
+    {
+      "id": "d-run",
+      "text": "They're running.",
+      "es": "Ellos están corriendo.",
+      "image": "/lesson-assets/a1plus-unit-1-s03-eb8f34195803a0a8.webp",
+      "kind": "doing",
+      "accepts": {
+        "action-variety": "The bank keeps the action the picture shows and changes only he's, she's or they're, the lesson's new form.",
+        "subject-variety": "The bank keeps they're (or he's, she's) and changes only the action the picture shows."
+      },
+      "prefer": [
+        "They're swimming.",
+        "They're cooking dinner."
+      ],
+      "avoid": [
+        "He's running.",
+        "She's running."
+      ],
+      "learn": false
+    },
+    {
+      "id": "d-swim",
+      "text": "They're swimming.",
+      "es": "Ellos están nadando.",
+      "image": "/lesson-assets/a1plus-unit-1-s01-2ebd24dc956daca4.webp",
+      "kind": "doing",
+      "accepts": {
+        "action-variety": "The bank keeps the action the picture shows and changes only he's, she's or they're, the lesson's new form.",
+        "subject-variety": "The bank keeps they're (or he's, she's) and changes only the action the picture shows."
+      },
+      "prefer": [
+        "They're running.",
+        "They're watching TV."
+      ],
+      "avoid": [
+        "He's running.",
+        "She's running."
+      ],
+      "learn": false
+    },
+    {
+      "id": "x-coffee",
+      "text": "He's drinking coffee now.",
+      "es": "Ahora él está tomando café.",
+      "image": "/lesson-assets/a1plus-unit-1-q01-135c3f8f772bcbe4.webp",
+      "kind": "heard",
+      "image_choices": false,
+      "use": false,
+      "accepts": {
+        "subject-variety": "Listen sets the short form against the habit (A1+ 1.2) and another person; the answer is what was heard.",
+        "action-variety": "Listen sets the short form against the habit (A1+ 1.2) and another person; the answer is what was heard."
+      },
+      "prefer": [
+        "He drinks coffee.",
+        "She's drinking coffee now."
+      ],
+      "learn": false
+    },
+    {
+      "id": "x-read",
+      "text": "She's reading a book.",
+      "es": "Ella está leyendo un libro.",
+      "image": "/lesson-assets/a1plus-unit-1-q02-c2b4398b65207eff.webp",
+      "kind": "heard",
+      "image_choices": false,
+      "use": false,
+      "accepts": {
+        "subject-variety": "Listen sets the short form against the habit (A1+ 1.2) and another person; the answer is what was heard.",
+        "action-variety": "Listen sets the short form against the habit (A1+ 1.2) and another person; the answer is what was heard."
+      },
+      "prefer": [
+        "She reads a book.",
+        "He's reading a book."
+      ],
+      "learn": false
+    },
+    {
+      "id": "q-she",
+      "text": "What's she doing?",
+      "es": "¿Qué está haciendo?",
+      "image": "/lesson-assets/a1plus-unit-1-q03-7d520a07846a47b8.webp",
+      "kind": "question",
+      "speaker": "teacher",
+      "choices": false,
+      "use": false,
+      "learn": false
+    },
+    {
+      "id": "q-they",
+      "text": "What are they doing?",
+      "es": "¿Qué están haciendo?",
+      "image": "/lesson-assets/a1plus-unit-1-s03-eb8f34195803a0a8.webp",
+      "kind": "question",
+      "speaker": "co-teacher",
+      "choices": false,
+      "use": false,
+      "learn": false
+    }
+  ],
+  "pool": [
+    {
+      "text": "She's drinking coffee.",
+      "es": "Ella está tomando café.",
+      "image": "/lesson-assets/a1plus-unit-1-q01-135c3f8f772bcbe4.webp",
+      "kind": "doing",
+      "image_choices": false
+    },
+    {
+      "text": "They're drinking coffee.",
+      "es": "Ellos están tomando café.",
+      "image": "/lesson-assets/a1plus-unit-1-q01-135c3f8f772bcbe4.webp",
+      "kind": "doing",
+      "image_choices": false
+    },
+    {
+      "text": "She's eating an apple.",
+      "es": "Ella está comiendo una manzana.",
+      "image": "/lesson-assets/a1plus-unit-1-q04-ded74a2cb6021167.webp",
+      "kind": "doing",
+      "image_choices": false
+    },
+    {
+      "text": "They're eating an apple.",
+      "es": "Ellos están comiendo una manzana.",
+      "image": "/lesson-assets/a1plus-unit-1-q04-ded74a2cb6021167.webp",
+      "kind": "doing",
+      "image_choices": false
+    },
+    {
+      "text": "She's watching TV.",
+      "es": "Ella está viendo la televisión.",
+      "image": "/lesson-assets/a1plus-unit-1-e03-404d00e7aea3f372.webp",
+      "kind": "doing",
+      "image_choices": false
+    },
+    {
+      "text": "They're watching TV.",
+      "es": "Ellos están viendo la televisión.",
+      "image": "/lesson-assets/a1plus-unit-1-e03-404d00e7aea3f372.webp",
+      "kind": "doing",
+      "image_choices": false
+    },
+    {
+      "text": "She's running.",
+      "es": "Ella está corriendo.",
+      "image": "/lesson-assets/a1plus-unit-1-s04-1055dd20fb2b0977.webp",
+      "kind": "doing",
+      "image_choices": false
+    },
+    {
+      "text": "He's reading.",
+      "es": "Él está leyendo.",
+      "image": "/lesson-assets/a1plus-unit-1-q02-c2b4398b65207eff.webp",
+      "kind": "doing",
+      "image_choices": false
+    },
+    {
+      "text": "They're reading.",
+      "es": "Ellos están leyendo.",
+      "image": "/lesson-assets/a1plus-unit-1-q02-c2b4398b65207eff.webp",
+      "kind": "doing",
+      "image_choices": false
+    },
+    {
+      "text": "He's writing.",
+      "es": "Él está escribiendo.",
+      "image": "/lesson-assets/a1plus-unit-1-q03-7d520a07846a47b8.webp",
+      "kind": "doing",
+      "image_choices": false
+    },
+    {
+      "text": "They're writing.",
+      "es": "Ellos están escribiendo.",
+      "image": "/lesson-assets/a1plus-unit-1-q03-7d520a07846a47b8.webp",
+      "kind": "doing",
+      "image_choices": false
+    },
+    {
+      "text": "He's cooking dinner.",
+      "es": "Él está cocinando la cena.",
+      "image": "/lesson-assets/a1plus-unit-1-e01-475ff38c766cace5.webp",
+      "kind": "doing",
+      "image_choices": false
+    },
+    {
+      "text": "They're cooking dinner.",
+      "es": "Ellos están cocinando la cena.",
+      "image": "/lesson-assets/a1plus-unit-1-e01-475ff38c766cace5.webp",
+      "kind": "doing",
+      "image_choices": false
+    },
+    {
+      "text": "He's riding his bike.",
+      "es": "Él está andando en bicicleta.",
+      "image": "/lesson-assets/a1plus-unit-2-r01-f09016e66cbd30a8.webp",
+      "kind": "doing",
+      "image_choices": false
+    },
+    {
+      "text": "They're riding their bikes.",
+      "es": "Ellos están andando en bicicleta.",
+      "image": "/lesson-assets/a1plus-unit-2-r01-f09016e66cbd30a8.webp",
+      "kind": "doing",
+      "image_choices": false
+    },
+    {
+      "text": "They're cooking dinner.",
+      "es": "Ellos están cocinando la cena.",
+      "image": "/lesson-assets/a1plus-unit-1-s03-eb8f34195803a0a8.webp",
+      "kind": "doing",
+      "image_choices": false
+    },
+    {
+      "text": "They're watching TV.",
+      "es": "Ellos están viendo la televisión.",
+      "image": "/lesson-assets/a1plus-unit-1-s01-2ebd24dc956daca4.webp",
+      "kind": "doing",
+      "image_choices": false
+    },
+    {
+      "text": "He drinks coffee.",
+      "es": "Él toma café.",
+      "image": "/lesson-assets/a1plus-unit-1-q01-135c3f8f772bcbe4.webp",
+      "kind": "heard",
+      "image_choices": false
+    },
+    {
+      "text": "She's drinking coffee now.",
+      "es": "Ahora ella está tomando café.",
+      "image": "/lesson-assets/a1plus-unit-1-q01-135c3f8f772bcbe4.webp",
+      "kind": "heard",
+      "image_choices": false
+    },
+    {
+      "text": "She reads a book.",
+      "es": "Ella lee un libro.",
+      "image": "/lesson-assets/a1plus-unit-1-q02-c2b4398b65207eff.webp",
+      "kind": "heard",
+      "image_choices": false
+    },
+    {
+      "text": "He's reading a book.",
+      "es": "Él está leyendo un libro.",
+      "image": "/lesson-assets/a1plus-unit-1-q02-c2b4398b65207eff.webp",
+      "kind": "heard",
+      "image_choices": false
+    }
+  ],
+  "layout": {
+    "Recognize": 10,
+    "Listen": 10,
+    "Speak": 8,
+    "Use": 7
+  },
+  "stage_sequences": {
+    "Learn": [
+      "l-hes",
+      "l-shes",
+      "l-theyre",
+      "l-whats",
+      "l-what-they"
+    ],
+    "Recognize": [
+      "d-coffee",
+      "d-read",
+      "d-run",
+      "d-apple",
+      "d-write",
+      "d-swim",
+      "d-cook",
+      "d-tv",
+      "d-bike",
+      "d-diego-run"
+    ],
+    "Listen": [
+      "d-read",
+      "d-tv",
+      "x-coffee",
+      "d-swim",
+      "d-apple",
+      "d-write",
+      "d-run",
+      "d-bike",
+      "x-read",
+      "d-coffee"
+    ],
+    "Speak": [
+      "d-coffee",
+      "d-read",
+      "d-run",
+      "q-she",
+      "d-apple",
+      "d-swim",
+      "q-they",
+      "d-cook"
+    ],
+    "Use": [
+      "d-coffee",
+      "d-cook",
+      "d-apple",
+      "d-run",
+      "d-tv",
+      "d-write",
+      "d-swim"
+    ]
+  }
+}

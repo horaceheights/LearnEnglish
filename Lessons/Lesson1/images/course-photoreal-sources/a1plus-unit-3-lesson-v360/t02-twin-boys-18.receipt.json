@@ -1,0 +1,55 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "d44cec36-caa6-4302-8a35-6127ca3fc3b1",
+  "asset_id": "t02-twin-boys-18",
+  "pack_sha256": "5a67289d9232f29ade34d14f6eba75ed67f9eed0f58a3e154e110c139b640832",
+  "started_at": "2026-11-20T18:54:21.282731+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, logos or brand marks anywhere, and no number anywhere except the candle numbers described: no other candles, cards, signs, clocks, screens or clothes show any digit.\n\nKeep the people and the thing that carries the meaning inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nOnly these two people are in the photo; there is nobody else, even far in the background.\n\nIt is clearly daytime with soft natural light.\n\nTwo real young people sit side by side at a light wooden table in a bright, tidy family living room, both smiling at the camera. In front of each person is their own small round white birthday cake on a white plate, and on each cake stand two large, thick number candles, each candle as tall as the person's hand, with a small flame. Each person's cake is directly in front of that person, the two cakes a hand's width apart. The candle numbers face the camera, are upright, sharp and easy to read even on a small phone screen. Nothing else is on the table.\n\nOn the LEFT and on the RIGHT sit identical twin brothers of about eighteen: the same face, the same short black curly hair and the same navy T-shirt, so they clearly look like twins. On both cakes the two orange number candles read 18 (a 1 and an 8, side by side).",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "W5cAa-m5Jajpz7IP36LaoA8",
+  "usage": {
+    "promptTokenCount": 412,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1702,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 412
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038824",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 412,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 7.74,
+  "output": "output/imagegen/a1plus-unit-3-lesson-v360/t02-twin-boys-18.png",
+  "sha256": "542d4b025bfd23072b9cf19aa9ad0376eed364c3bdd0fe30a4c10842551c3b2b",
+  "byte_count": 1336425,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}
