@@ -28,8 +28,8 @@ test('additional registered courses explain every reachable construction swap', 
         const result = constructionMistakeHint(card, swap(card, a, b));
         if (plan.labels[a] === plan.labels[b]) assert.equal(result, '', context);
         else {
-          // German course cards teach English speakers, so their frame is English.
-          const frame = card.target_language === 'de' ? 'You put ' : 'Pusiste ';
+          // German and Spanish course cards teach English speakers, so their frame is English.
+          const frame = card.target_language === 'de' || card.target_language === 'es' ? 'You put ' : 'Pusiste ';
           assert.ok(result.startsWith(frame), `${context}: missing specific correction`);
           assert.ok(result.length <= 230, `${context}: ${result.length} characters: ${result}`);
           assert.doesNotMatch(result, /undefined|“\s*”/, context);
@@ -61,6 +61,36 @@ test('German course cards explain German order and the one-or-two-people verb in
   assert.equal(germanChoiceHint(choice, 'liest'),
     'You heard “Sie lesen”: They are reading. “liest” is for one person; “lesen” is for two.');
   assert.equal(lessonMistakeHint(choice, 'liest'), germanChoiceHint(choice, 'liest'));
+});
+
+test('Spanish course cards explain Spanish order, agreement, es/está and one-or-more in English', () => {
+  const { spanishChoiceHint } = require('../src/spanishTeaching.ts');
+  const card = (target) => {
+    const labels = target.match(/[a-zà-öø-ÿ]+/gi);
+    const options = labels.map((label, index) => ({ id: String(index), label, image_url: '' }));
+    return { stage: 'Use', interaction_type: 'complete-sentence', target_language: 'es', prompt: target.replace(/[a-zà-öø-ÿ]+/gi, '___'),
+      options, correct_option_id: '0', correct_option_ids: options.map(option => option.id), answer_audio_text: target, audio_text: target };
+  };
+  const pronounFirst = card('Él es un niño.');
+  assert.equal(constructionMistakeHint(pronounFirst, swap(pronounFirst, 0, 1)),
+    'You put “es” where “Él” goes. The verb comes right after who it is about: “Él es”.');
+  for (const supported of ['El niño y la niña están escribiendo. Ellos están escribiendo.', 'Son una familia.', 'Son bebés.',
+    'Los adultos están sentados.', 'El hombre está sentado.', 'Ellas son hermanas.']) {
+    assert.equal(constructionTeachingPlan(card(supported)).supported, true, supported);
+  }
+  // Agreement errors and unknown words never get an invented rule.
+  for (const unsupported of ['La niño está comiendo.', 'Ellos está comiendo.', 'El hombre está sentados.', 'El perro está corriendo.']) {
+    assert.equal(constructionTeachingPlan(card(unsupported)).supported, false, unsupported);
+  }
+  const choice = (correct, wrong, english) => ({ stage: 'Listen', target_language: 'es', audio_text: correct, spanish_translation: english,
+    correct_option_id: 'right', options: [{ id: 'right', label: correct }, { id: 'wrong', label: wrong }] });
+  const number = choice('Ellos están comiendo.', 'Ellos está comiendo.', 'They are eating.');
+  assert.equal(spanishChoiceHint(number, 'wrong'),
+    'You heard “Ellos están comiendo”: They are eating. “está” is for one person; “están” is for more than one.');
+  const serEstar = choice('Él está comiendo.', 'Él es comiendo.', 'He is eating.');
+  assert.equal(spanishChoiceHint(serEstar, 'wrong'),
+    'You heard “Él está comiendo”: He is eating. “es” says who someone is; “está” says what someone is doing.');
+  assert.equal(lessonMistakeHint(number, 'wrong'), spanishChoiceHint(number, 'wrong'));
 });
 
 function construction(target) {

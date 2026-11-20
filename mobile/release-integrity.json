@@ -90,14 +90,24 @@
       "lessonsByUnit": {
         "de-a1-unit-1": 6
       }
+    },
+    {
+      "courseId": "es-a1",
+      "path": "mobile/src/generated/es-a1-course.json",
+      "expectedGitBlob": "0a249f039caed2319388e4c5f99d68106e180169",
+      "lessonCount": 5,
+      "unitCount": 1,
+      "lessonsByUnit": {
+        "es-a1-unit-1": 5
+      }
     }
   ],
   "combinedCatalog": {
     "courseId": "complete-catalog",
     "path": "mobile/src/generated/all-courses.json",
-    "expectedGitBlob": "43c1fd634cb9a474a3860423c137170d9ed23a73",
-    "lessonCount": 133,
-    "unitCount": 10,
+    "expectedGitBlob": "e1ce9139833c81a2dfeed0f597af41740766a5dc",
+    "lessonCount": 138,
+    "unitCount": 11,
     "lessonsByUnit": {
       "unit-1": 13,
       "unit-2": 15,
@@ -108,11 +118,12 @@
       "unit-7": 15,
       "a1plus-unit-1": 13,
       "a1plus-unit-2": 5,
-      "de-a1-unit-1": 6
+      "de-a1-unit-1": 6,
+      "es-a1-unit-1": 5
     }
   },
   "courseIndex": {
     "path": "mobile/src/generated/course-catalogs.json",
-    "expectedGitBlob": "bccb55410bc6b9adec8cb67d4f93380ceb075936"
+    "expectedGitBlob": "6b74760c93e922a808823ef1770fa3e5e2bd911c"
   }
 }
