@@ -36,8 +36,7 @@ class UnitParityTests(unittest.TestCase):
         recorded = {(unit, f["id"]) for unit, contract in contracts["units"].items()
                     for f in contract["functions"] if mission_deferral(f)}
         # 2026-11-17: every unit mission now practises its coverage-gap lessons; no deferral is left.
-        # 2026-11-18: the alphabet lessons 3.15 and 3.16 stay out of the Unit 3 mission by user decision.
-        self.assertEqual(recorded, {("3", "alphabet"), ("3", "spelling")})
+        self.assertEqual(recorded, set())
         lessons = [json.loads(path.read_text(encoding="utf-8-sig"))
                    for path in sorted((CONTRACTS.parents[2] / "backend/lessons/unit_2").glob("*.yaml"))]
         result = audit(lessons, {**contracts, "units": {"2": contracts["units"]["2"]}}, CONTRACTS.parents[2] / "Lessons/Lesson1/images")
