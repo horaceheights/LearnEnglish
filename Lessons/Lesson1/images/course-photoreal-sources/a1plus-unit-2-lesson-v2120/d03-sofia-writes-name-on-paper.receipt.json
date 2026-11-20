@@ -1,0 +1,62 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "821e0d56-f007-4b87-a2ee-64f957e85184",
+  "asset_id": "d03-sofia-writes-name-on-paper",
+  "pack_sha256": "8566abca50a1ddf7a90323bbb6b924d3bd95494140cbb9b1b69bcb372275d9d9",
+  "started_at": "2026-11-20T15:00:52.141782+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, screens, clothes, bags, machines, vehicles or license plates.\n\nThe setting is the same bright, modern classroom in every photo of this set: rows of light wooden student desks with matching light wooden chairs, large windows on the LEFT letting in daylight, a plain pale-green wall behind, and a large blank white whiteboard with nothing written or drawn on it. All the other desks are empty.\n\nOnly this one person is in the photo; there is nobody else, even far in the background.\n\nThe person's face is fully visible in three-quarter view, looking at what they are doing, not at the camera.\n\nIt is clearly daytime with soft natural light.\n\nKeep the person and the thing that carries the meaning inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nImage 1 shows Sofia. Keep her face, long curly dark hair, warm brown skin and build exactly. Create a new photograph of her: she sits at one student desk and writes with a yellow pencil at the very top of a single white sheet of paper that lies on the desk; the pencil tip touches the paper. At the top of the sheet there is one short handwritten line that is only a soft grey scribble, not readable letters, and the rest of the sheet is blank. The camera is close and slightly above, so the paper, the pencil and her hand are large and clear. She wears her bright blue blazer over a white blouse.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1plus-unit-1-q03-7d520a07846a47b8.webp",
+    "sha256": "7d520a07846a47b8e8389c3226f3b3639d7eed0d257318b08e4f9b77c5b2258b"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "omAAa63iOpTAqtsP_uqqoAI",
+  "usage": {
+    "promptTokenCount": 695,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1985,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 437
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038908",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 695,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 10.29,
+  "output": "output/imagegen/a1plus-unit-2-lesson-v2120/d03-sofia-writes-name-on-paper.png",
+  "sha256": "d78f31fc8cfe8a561e68c4cf8b7f4e29e771b7045ee66e94c45b468a06cba7e3",
+  "byte_count": 1181865,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}

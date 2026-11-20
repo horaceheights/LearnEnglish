@@ -1,0 +1,55 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "5a7b11e0-3c1f-49ed-8ac6-0070a15818d2",
+  "asset_id": "w04-taller-and-older-close",
+  "pack_sha256": "e5c3fdb89fc3e12aaf0d9a7d8863a6b943749235552e0fd29e69ab1f39f81172",
+  "started_at": "2026-11-20T16:21:51.645400+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, screens, clothes, bags, machines, vehicles or license plates.\n\nThe setting is the same big sunny city park on a weekend morning in every photo of this set: short green grass, tall leafy trees, a wide light-grey paved path, a small calm lake and a few wooden benches and picnic tables, with no signs, letters or numbers anywhere.\n\nThis is a wide scene for a listening game: the learner hears one sentence and taps the person, group or thing it describes on a small phone screen. The camera is CLOSE, so the four described subjects are LARGE and fill the whole width of the photo from the left edge to the right edge, each one clearly separate from the others, none hidden behind another, none cut off by the photo's edges, with every head well below the top edge. Nobody looks at the camera. There are no other people in the photo, not even far in the background.\n\nIt is clearly daytime with soft natural light.\n\nTwo pairs of people stand on the grass of the park, all four seen whole from head to shoes, the tallest person about four fifths of the photo's height. The LEFT pair stands side by side: a very TALL young man of about thirty in a green T-shirt and, beside him, a SHORT young woman of about thirty in a red dress, whose head reaches only his shoulder. Then there is a clear empty gap of grass. The RIGHT pair stands side by side: a white-haired GRANDFATHER of about seventy-five in a beige cardigan and, beside him, a little BOY of about six in an orange T-shirt, holding the grandfather's hand.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "nnMAa5uuBouLqtsP48zj6AM",
+  "usage": {
+    "promptTokenCount": 460,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1750,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 460
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038838",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 460,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 8.38,
+  "output": "output/imagegen/a1plus-unit-2-lesson-v2152/w04-taller-and-older-close.png",
+  "sha256": "67a229ecc51ca89a3b8566e93bc04ec61630557c9b3b734047505fdb5cb8303a",
+  "byte_count": 2335125,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}

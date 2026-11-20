@@ -1,0 +1,55 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "7cc3a354-d6b4-4603-a65f-000cc0fab3f1",
+  "asset_id": "v08-two-women-watches",
+  "pack_sha256": "f8efb3b5cd3bfe60d9bf068b43654025a4bf879fd56ef370e21bd6371d90f99e",
+  "started_at": "2026-11-20T15:44:57.051864+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, screens, clothes, bags, machines, vehicles or license plates.\n\nThe person is a new character who appears in no earlier course photo; give them an ordinary, friendly everyday look.\n\nOnly these two people are in the photo; there is nobody else, even far in the background.\n\nIt is clearly daytime with soft natural light.\n\nKeep the person and the thing that carries the meaning inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nAt a small round table outside a café, two women of about thirty sit side by side, smiling, each lifting her left wrist to look at the big round wristwatch she wears; both watches are large and clear in the photo. One woman has long brown hair and a white blouse; the other has short black hair and a green blouse. Two coffee cups stand on the table. Their faces are visible in three-quarter view.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "92oAa67QJ8ujqtsP7MuzWA",
+  "usage": {
+    "promptTokenCount": 322,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1612,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 322
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038797",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 322,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 14.89,
+  "output": "output/imagegen/a1plus-unit-2-lesson-v2140/v08-two-women-watches.png",
+  "sha256": "5c07c3f2d9e84055c49f0ca5cd71cc192be6e6c7e5dd15c2ddc9e5e517714d17",
+  "byte_count": 1541958,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}

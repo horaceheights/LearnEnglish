@@ -1,0 +1,875 @@
+{
+  "brief_version": 1,
+  "follows": {
+    "course": "a1",
+    "lesson": "2.11",
+    "title": "Big and Small"
+  },
+  "note": "A1+ Unit 2 Lesson 2.11, built on 2026-11-20 under the A1+ lesson standards approved 2026-10-27 and the user's 2026-11-09 rule that every A1+ lesson follows up the A1 lesson with the same number. The user approved the A1+ Unit 2 plan on 2026-11-19 (A1+ 2.Y follows A1 2.Y, one grammar step each) and chose \"Straight to Preview\": no per-lesson gates, Gemini 2.5 Flash photos and ElevenLabs audio pre-approved, reviewed in Preview. Batch C (2.11-2.15) was started on 2026-11-20 on the user's \"Start Batch C when Preview is done\". Each photo shows two people or two things side by side, so the comparison can be seen at once: Sofia beside Luis (A1+ 1.1), Luis with his older brother and with his younger brother (A1+ 1.5, Luis speaks), a long bus beside a small car, a big brown dog beside a small white dog and a grandfather beside a boy. Sentence banks keep the sentence and change only the comparative; Who/Which questions are answered with the person or thing (Which dog is bigger? The brown one., A1+ 2.10). The two-dog sentences have nine words, so they stay out of Speak and Use. No photo goes into a four-picture card, because each shows two things across the frame.",
+  "target": "backend/lessons/a1_plus/unit_2/a1plus-unit-2-lesson-2-11.yaml",
+  "captions": false,
+  "narrators": [
+    "teacher",
+    "co-teacher"
+  ],
+  "answer_audio_policy": "authored-only",
+  "speak_delivery": "a1-pronunciation-v1",
+  "lesson": {
+    "id": "a1plus-unit-2-lesson-2-11",
+    "title": "2.11 Taller than Sofia",
+    "level": "A1+",
+    "unit_id": "a1plus-unit-2",
+    "unit_title": "Places, things and how we describe them",
+    "unit_outcome": "Say where people go and how they get there, talk about the things people have, point things out and compare them, put things in order, and ask about favorites.",
+    "lesson_id": "a1plus-unit-2-lesson-2-11",
+    "lesson_title": "Taller than Sofia",
+    "sub_lesson_id": "2.11",
+    "sub_lesson_title": "Taller than Sofia",
+    "goal": "Compare two people or two things with -er than (Luis is taller than Sofia. / The bus is bigger than the car. / I am older than my brother.).",
+    "vocabulary": [
+      "than",
+      "taller",
+      "shorter",
+      "bigger",
+      "smaller"
+    ],
+    "review_vocabulary": [
+      "older",
+      "younger",
+      "old",
+      "young",
+      "tall",
+      "short",
+      "big",
+      "small",
+      "is",
+      "am",
+      "I",
+      "my",
+      "me",
+      "brother",
+      "the",
+      "bus",
+      "car",
+      "dog",
+      "brown",
+      "white",
+      "grandfather",
+      "boy",
+      "who",
+      "which",
+      "or",
+      "one",
+      "ones"
+    ],
+    "grammar_function": "A follow-up of A1 2.11 Big and Small: A1 says It is a big dog. / It is a small dog. about one thing at a time; A1+ 2.11 compares two in one photo with the -er form and than (The brown dog is bigger than the white dog.). big doubles its g (bigger). It brings back A1+ 1.1's tall, short, old and young and 1.5's older and younger, now with than (My brother is older than me.). Two people or two things share each photo: Sofia beside Luis (1.1), Luis with his older and his younger brother (1.5), a bus beside a car, a big brown dog beside a small white dog, and a grandfather beside a boy on a bench.",
+    "prerequisite": "A1 2.11 big, small; A1+ 1.1 tall, short, old, young; A1+ 1.5 older, younger, my brother; A1 2.2 bus, car; A1 1.10 dog; A1 brown, white; A1+ 2.10 the brown one; A1 2.12 or.",
+    "speaking_outcome": "Say than with a soft th and a weak vowel (thən), linked to the comparative (TALLer than). Do not require native-like speed.",
+    "content_revision": 1,
+    "learn_context_groups": [
+      {
+        "kind": "sequence",
+        "targets": [
+          "taller",
+          "than"
+        ],
+        "models": [
+          {
+            "slide_id": "L1",
+            "text": "Luis is taller than Sofia."
+          }
+        ]
+      },
+      {
+        "kind": "sequence",
+        "targets": [
+          "shorter",
+          "than"
+        ],
+        "models": [
+          {
+            "slide_id": "L2",
+            "text": "Sofia is shorter than Luis."
+          }
+        ]
+      },
+      {
+        "kind": "sequence",
+        "targets": [
+          "bigger",
+          "than"
+        ],
+        "models": [
+          {
+            "slide_id": "L3",
+            "text": "The bus is bigger than the car."
+          }
+        ]
+      },
+      {
+        "kind": "sequence",
+        "targets": [
+          "smaller",
+          "than"
+        ],
+        "models": [
+          {
+            "slide_id": "L4",
+            "text": "The car is smaller than the bus."
+          }
+        ]
+      },
+      {
+        "kind": "sequence",
+        "targets": [
+          "than"
+        ],
+        "models": [
+          {
+            "slide_id": "L5",
+            "text": "I am older than my brother."
+          }
+        ]
+      }
+    ]
+  },
+  "items": [
+    {
+      "id": "a-p02",
+      "text": "Luis is taller than Sofia.",
+      "es": "Luis es más alto que Sofía.",
+      "image": "/lesson-assets/a1plus-unit-1-p02-094cffd8654fde7e.webp",
+      "kind": "compare",
+      "learn": false,
+      "speaker": "co-teacher",
+      "accepts": {
+        "subject-variety": "The lesson compares two people or two things in one photo: a bank keeps the sentence and changes only the comparative (taller/shorter, bigger/smaller, older/younger).",
+        "action-variety": "The lesson compares two people or two things in one photo: a bank keeps the sentence and changes only the comparative (taller/shorter, bigger/smaller, older/younger)."
+      },
+      "four_card": false,
+      "prefer": [
+        "Luis is shorter than Sofia."
+      ],
+      "avoid": [
+        "Sofia is shorter than Luis."
+      ],
+      "blanks": [
+        "taller",
+        "than"
+      ]
+    },
+    {
+      "id": "b-p02",
+      "text": "Sofia is shorter than Luis.",
+      "es": "Sofía es más baja que Luis.",
+      "image": "/lesson-assets/a1plus-unit-1-p02-094cffd8654fde7e.webp",
+      "kind": "compare",
+      "learn": false,
+      "speaker": "teacher",
+      "accepts": {
+        "subject-variety": "The lesson compares two people or two things in one photo: a bank keeps the sentence and changes only the comparative (taller/shorter, bigger/smaller, older/younger).",
+        "action-variety": "The lesson compares two people or two things in one photo: a bank keeps the sentence and changes only the comparative (taller/shorter, bigger/smaller, older/younger)."
+      },
+      "four_card": false,
+      "prefer": [
+        "Sofia is taller than Luis."
+      ],
+      "avoid": [
+        "Luis is taller than Sofia."
+      ],
+      "blanks": [
+        "shorter",
+        "than"
+      ]
+    },
+    {
+      "id": "a-c02",
+      "text": "The bus is bigger than the car.",
+      "es": "El autobús es más grande que el carro.",
+      "image": "/lesson-assets/a1plus-unit-2-c02-ba3cadb3b0a2587f.webp",
+      "kind": "compare",
+      "learn": false,
+      "speaker": "co-teacher",
+      "accepts": {
+        "subject-variety": "The lesson compares two people or two things in one photo: a bank keeps the sentence and changes only the comparative (taller/shorter, bigger/smaller, older/younger).",
+        "action-variety": "The lesson compares two people or two things in one photo: a bank keeps the sentence and changes only the comparative (taller/shorter, bigger/smaller, older/younger)."
+      },
+      "four_card": false,
+      "prefer": [
+        "The bus is smaller than the car."
+      ],
+      "avoid": [
+        "The car is smaller than the bus."
+      ],
+      "blanks": [
+        "bigger",
+        "than"
+      ]
+    },
+    {
+      "id": "b-c02",
+      "text": "The car is smaller than the bus.",
+      "es": "El carro es más pequeño que el autobús.",
+      "image": "/lesson-assets/a1plus-unit-2-c02-ba3cadb3b0a2587f.webp",
+      "kind": "compare",
+      "learn": false,
+      "speaker": "teacher",
+      "accepts": {
+        "subject-variety": "The lesson compares two people or two things in one photo: a bank keeps the sentence and changes only the comparative (taller/shorter, bigger/smaller, older/younger).",
+        "action-variety": "The lesson compares two people or two things in one photo: a bank keeps the sentence and changes only the comparative (taller/shorter, bigger/smaller, older/younger)."
+      },
+      "four_card": false,
+      "prefer": [
+        "The car is bigger than the bus."
+      ],
+      "avoid": [
+        "The bus is bigger than the car."
+      ],
+      "blanks": [
+        "smaller",
+        "than"
+      ]
+    },
+    {
+      "id": "a-c03",
+      "text": "The grandfather is older than the boy.",
+      "es": "El abuelo es mayor que el niño.",
+      "image": "/lesson-assets/a1plus-unit-2-c03-55e7b1e25d0b26da.webp",
+      "kind": "compare",
+      "learn": false,
+      "speaker": "teacher",
+      "accepts": {
+        "subject-variety": "The lesson compares two people or two things in one photo: a bank keeps the sentence and changes only the comparative (taller/shorter, bigger/smaller, older/younger).",
+        "action-variety": "The lesson compares two people or two things in one photo: a bank keeps the sentence and changes only the comparative (taller/shorter, bigger/smaller, older/younger)."
+      },
+      "four_card": false,
+      "prefer": [
+        "The grandfather is younger than the boy."
+      ],
+      "avoid": [
+        "The boy is younger than the grandfather."
+      ],
+      "blanks": [
+        "older",
+        "than"
+      ]
+    },
+    {
+      "id": "b-c03",
+      "text": "The boy is younger than the grandfather.",
+      "es": "El niño es menor que el abuelo.",
+      "image": "/lesson-assets/a1plus-unit-2-c03-55e7b1e25d0b26da.webp",
+      "kind": "compare",
+      "learn": false,
+      "speaker": "co-teacher",
+      "accepts": {
+        "subject-variety": "The lesson compares two people or two things in one photo: a bank keeps the sentence and changes only the comparative (taller/shorter, bigger/smaller, older/younger).",
+        "action-variety": "The lesson compares two people or two things in one photo: a bank keeps the sentence and changes only the comparative (taller/shorter, bigger/smaller, older/younger)."
+      },
+      "four_card": false,
+      "prefer": [
+        "The boy is older than the grandfather."
+      ],
+      "avoid": [
+        "The grandfather is older than the boy."
+      ],
+      "blanks": [
+        "younger",
+        "than"
+      ]
+    },
+    {
+      "id": "a-g05",
+      "text": "My brother is older than me.",
+      "es": "Mi hermano es mayor que yo.",
+      "image": "/lesson-assets/a1plus-unit-1-g05-6d99e453d89e2973.webp",
+      "kind": "compare",
+      "learn": false,
+      "speaker": "luis",
+      "accepts": {
+        "subject-variety": "The lesson compares two people or two things in one photo: a bank keeps the sentence and changes only the comparative (taller/shorter, bigger/smaller, older/younger).",
+        "action-variety": "The lesson compares two people or two things in one photo: a bank keeps the sentence and changes only the comparative (taller/shorter, bigger/smaller, older/younger)."
+      },
+      "four_card": false,
+      "prefer": [
+        "My brother is younger than me."
+      ],
+      "avoid": [
+        "I am younger than my brother."
+      ],
+      "blanks": [
+        "older",
+        "than"
+      ]
+    },
+    {
+      "id": "b-g05",
+      "text": "I am younger than my brother.",
+      "es": "Soy menor que mi hermano.",
+      "image": "/lesson-assets/a1plus-unit-1-g05-6d99e453d89e2973.webp",
+      "kind": "compare",
+      "learn": false,
+      "speaker": "luis",
+      "accepts": {
+        "subject-variety": "The lesson compares two people or two things in one photo: a bank keeps the sentence and changes only the comparative (taller/shorter, bigger/smaller, older/younger).",
+        "action-variety": "The lesson compares two people or two things in one photo: a bank keeps the sentence and changes only the comparative (taller/shorter, bigger/smaller, older/younger)."
+      },
+      "four_card": false,
+      "prefer": [
+        "I am older than my brother."
+      ],
+      "avoid": [
+        "My brother is older than me."
+      ],
+      "blanks": [
+        "younger",
+        "than"
+      ]
+    },
+    {
+      "id": "a-g06",
+      "text": "I am older than my brother.",
+      "es": "Soy mayor que mi hermano.",
+      "image": "/lesson-assets/a1plus-unit-1-g06-5614633158152642.webp",
+      "kind": "compare",
+      "learn": false,
+      "speaker": "luis",
+      "accepts": {
+        "subject-variety": "The lesson compares two people or two things in one photo: a bank keeps the sentence and changes only the comparative (taller/shorter, bigger/smaller, older/younger).",
+        "action-variety": "The lesson compares two people or two things in one photo: a bank keeps the sentence and changes only the comparative (taller/shorter, bigger/smaller, older/younger)."
+      },
+      "four_card": false,
+      "prefer": [
+        "I am younger than my brother."
+      ],
+      "avoid": [
+        "My brother is younger than me."
+      ],
+      "blanks": [
+        "older",
+        "than"
+      ]
+    },
+    {
+      "id": "b-g06",
+      "text": "My brother is younger than me.",
+      "es": "Mi hermano es menor que yo.",
+      "image": "/lesson-assets/a1plus-unit-1-g06-5614633158152642.webp",
+      "kind": "compare",
+      "learn": false,
+      "speaker": "luis",
+      "accepts": {
+        "subject-variety": "The lesson compares two people or two things in one photo: a bank keeps the sentence and changes only the comparative (taller/shorter, bigger/smaller, older/younger).",
+        "action-variety": "The lesson compares two people or two things in one photo: a bank keeps the sentence and changes only the comparative (taller/shorter, bigger/smaller, older/younger)."
+      },
+      "four_card": false,
+      "prefer": [
+        "My brother is older than me."
+      ],
+      "avoid": [
+        "I am older than my brother."
+      ],
+      "blanks": [
+        "younger",
+        "than"
+      ]
+    },
+    {
+      "id": "a-c01",
+      "text": "The brown dog is bigger than the white dog.",
+      "es": "El perro café es más grande que el perro blanco.",
+      "image": "/lesson-assets/a1plus-unit-2-c01-33b1a040ce5ef1f6.webp",
+      "kind": "compare",
+      "learn": false,
+      "speaker": "co-teacher",
+      "accepts": {
+        "subject-variety": "The lesson compares two people or two things in one photo: a bank keeps the sentence and changes only the comparative (taller/shorter, bigger/smaller, older/younger).",
+        "action-variety": "The lesson compares two people or two things in one photo: a bank keeps the sentence and changes only the comparative (taller/shorter, bigger/smaller, older/younger)."
+      },
+      "four_card": false,
+      "prefer": [
+        "The brown dog is smaller than the white dog."
+      ],
+      "avoid": [
+        "The white dog is smaller than the brown dog."
+      ],
+      "use": false
+    },
+    {
+      "id": "b-c01",
+      "text": "The white dog is smaller than the brown dog.",
+      "es": "El perro blanco es más pequeño que el perro café.",
+      "image": "/lesson-assets/a1plus-unit-2-c01-33b1a040ce5ef1f6.webp",
+      "kind": "compare",
+      "learn": false,
+      "speaker": "teacher",
+      "accepts": {
+        "subject-variety": "The lesson compares two people or two things in one photo: a bank keeps the sentence and changes only the comparative (taller/shorter, bigger/smaller, older/younger).",
+        "action-variety": "The lesson compares two people or two things in one photo: a bank keeps the sentence and changes only the comparative (taller/shorter, bigger/smaller, older/younger)."
+      },
+      "four_card": false,
+      "prefer": [
+        "The white dog is bigger than the brown dog."
+      ],
+      "avoid": [
+        "The brown dog is bigger than the white dog."
+      ],
+      "use": false
+    },
+    {
+      "id": "r-p02",
+      "text": "Luis is taller.",
+      "es": "Luis es más alto.",
+      "image": "/lesson-assets/a1plus-unit-1-p02-094cffd8654fde7e.webp",
+      "kind": "who-r-p02",
+      "learn": false,
+      "use": false,
+      "image_choices": false,
+      "speaker": "co-teacher",
+      "question": "Who is taller, Luis or Sofia?",
+      "question_es": "¿Quién es más alto, Luis o Sofía?",
+      "question_speaker": "teacher",
+      "accepts": {
+        "subject-variety": "Listen asks who or which is bigger, taller or younger; the banks keep the answer and change only the person or thing.",
+        "action-variety": "Listen asks who or which is bigger, taller or younger; the banks keep the answer and change only the person or thing.",
+        "conversational-response": "Listen asks who or which is bigger, taller or younger; the banks keep the answer and change only the person or thing."
+      },
+      "four_card": false,
+      "prefer": [
+        "Sofia is taller."
+      ]
+    },
+    {
+      "id": "q-p02",
+      "text": "Sofia is shorter.",
+      "es": "Sofía es más baja.",
+      "image": "/lesson-assets/a1plus-unit-1-p02-094cffd8654fde7e.webp",
+      "kind": "who-q-p02",
+      "learn": false,
+      "use": false,
+      "image_choices": false,
+      "speaker": "co-teacher",
+      "question": "Who is shorter, Luis or Sofia?",
+      "question_es": "¿Quién es más bajo, Luis o Sofía?",
+      "question_speaker": "teacher",
+      "accepts": {
+        "subject-variety": "Listen asks who or which is bigger, taller or younger; the banks keep the answer and change only the person or thing.",
+        "action-variety": "Listen asks who or which is bigger, taller or younger; the banks keep the answer and change only the person or thing.",
+        "conversational-response": "Listen asks who or which is bigger, taller or younger; the banks keep the answer and change only the person or thing."
+      },
+      "four_card": false,
+      "prefer": [
+        "Luis is shorter."
+      ]
+    },
+    {
+      "id": "r-c01",
+      "text": "The white one.",
+      "es": "El blanco.",
+      "image": "/lesson-assets/a1plus-unit-2-c01-33b1a040ce5ef1f6.webp",
+      "kind": "who-r-c01",
+      "learn": false,
+      "use": false,
+      "image_choices": false,
+      "speaker": "co-teacher",
+      "question": "Which dog is smaller?",
+      "question_es": "¿Qué perro es más pequeño?",
+      "question_speaker": "teacher",
+      "accepts": {
+        "subject-variety": "Listen asks who or which is bigger, taller or younger; the banks keep the answer and change only the person or thing.",
+        "action-variety": "Listen asks who or which is bigger, taller or younger; the banks keep the answer and change only the person or thing.",
+        "conversational-response": "Listen asks who or which is bigger, taller or younger; the banks keep the answer and change only the person or thing."
+      },
+      "four_card": false,
+      "prefer": [
+        "The brown one.",
+        "The white ones."
+      ]
+    },
+    {
+      "id": "r-c02",
+      "text": "The bus is bigger.",
+      "es": "El autobús es más grande.",
+      "image": "/lesson-assets/a1plus-unit-2-c02-ba3cadb3b0a2587f.webp",
+      "kind": "who-r-c02",
+      "learn": false,
+      "use": false,
+      "image_choices": false,
+      "speaker": "co-teacher",
+      "question": "Which is bigger, the bus or the car?",
+      "question_es": "¿Qué es más grande, el autobús o el carro?",
+      "question_speaker": "teacher",
+      "accepts": {
+        "subject-variety": "Listen asks who or which is bigger, taller or younger; the banks keep the answer and change only the person or thing.",
+        "action-variety": "Listen asks who or which is bigger, taller or younger; the banks keep the answer and change only the person or thing.",
+        "conversational-response": "Listen asks who or which is bigger, taller or younger; the banks keep the answer and change only the person or thing."
+      },
+      "four_card": false,
+      "prefer": [
+        "The car is bigger."
+      ]
+    },
+    {
+      "id": "r-c03",
+      "text": "The boy is younger.",
+      "es": "El niño es menor.",
+      "image": "/lesson-assets/a1plus-unit-2-c03-55e7b1e25d0b26da.webp",
+      "kind": "who-r-c03",
+      "learn": false,
+      "use": false,
+      "image_choices": false,
+      "speaker": "co-teacher",
+      "question": "Who is younger, the grandfather or the boy?",
+      "question_es": "¿Quién es menor, el abuelo o el niño?",
+      "question_speaker": "teacher",
+      "accepts": {
+        "subject-variety": "Listen asks who or which is bigger, taller or younger; the banks keep the answer and change only the person or thing.",
+        "action-variety": "Listen asks who or which is bigger, taller or younger; the banks keep the answer and change only the person or thing.",
+        "conversational-response": "Listen asks who or which is bigger, taller or younger; the banks keep the answer and change only the person or thing."
+      },
+      "four_card": false,
+      "prefer": [
+        "The grandfather is younger."
+      ]
+    },
+    {
+      "id": "o-short",
+      "text": "Sofia is short.",
+      "es": "Sofía es baja.",
+      "image": "/lesson-assets/a1plus-unit-1-p02-094cffd8654fde7e.webp",
+      "kind": "o-short-adj",
+      "learn": false,
+      "image_choices": false,
+      "speaker": "co-teacher",
+      "accepts": {
+        "subject-variety": "The lesson compares two people or two things in one photo: a bank keeps the sentence and changes only the comparative (taller/shorter, bigger/smaller, older/younger).",
+        "action-variety": "The lesson compares two people or two things in one photo: a bank keeps the sentence and changes only the comparative (taller/shorter, bigger/smaller, older/younger)."
+      },
+      "four_card": false,
+      "prefer": [
+        "Sofia is tall."
+      ]
+    },
+    {
+      "id": "o-old",
+      "text": "The grandfather is old.",
+      "es": "El abuelo es mayor.",
+      "image": "/lesson-assets/a1plus-unit-2-c03-55e7b1e25d0b26da.webp",
+      "kind": "o-old-adj",
+      "learn": false,
+      "image_choices": false,
+      "speaker": "co-teacher",
+      "accepts": {
+        "subject-variety": "The lesson compares two people or two things in one photo: a bank keeps the sentence and changes only the comparative (taller/shorter, bigger/smaller, older/younger).",
+        "action-variety": "The lesson compares two people or two things in one photo: a bank keeps the sentence and changes only the comparative (taller/shorter, bigger/smaller, older/younger)."
+      },
+      "four_card": false,
+      "prefer": [
+        "The grandfather is young."
+      ]
+    },
+    {
+      "id": "o-young",
+      "text": "The boy is young.",
+      "es": "El niño es joven.",
+      "image": "/lesson-assets/a1plus-unit-2-c03-55e7b1e25d0b26da.webp",
+      "kind": "o-young-adj",
+      "learn": false,
+      "image_choices": false,
+      "speaker": "co-teacher",
+      "accepts": {
+        "subject-variety": "The lesson compares two people or two things in one photo: a bank keeps the sentence and changes only the comparative (taller/shorter, bigger/smaller, older/younger).",
+        "action-variety": "The lesson compares two people or two things in one photo: a bank keeps the sentence and changes only the comparative (taller/shorter, bigger/smaller, older/younger)."
+      },
+      "four_card": false,
+      "prefer": [
+        "The boy is old."
+      ]
+    },
+    {
+      "id": "l-taller",
+      "text": "Luis is taller than Sofia.",
+      "es": "Luis es más alto que Sofía.",
+      "image": "/lesson-assets/a1plus-unit-1-p02-094cffd8654fde7e.webp",
+      "kind": "model",
+      "choices": false,
+      "use": false,
+      "speaker": "co-teacher",
+      "four_card": false
+    },
+    {
+      "id": "l-shorter",
+      "text": "Sofia is shorter than Luis.",
+      "es": "Sofía es más baja que Luis.",
+      "image": "/lesson-assets/a1plus-unit-1-p02-094cffd8654fde7e.webp",
+      "kind": "model",
+      "choices": false,
+      "use": false,
+      "speaker": "teacher",
+      "four_card": false
+    },
+    {
+      "id": "l-bigger",
+      "text": "The bus is bigger than the car.",
+      "es": "El autobús es más grande que el carro.",
+      "image": "/lesson-assets/a1plus-unit-2-c02-ba3cadb3b0a2587f.webp",
+      "kind": "model",
+      "choices": false,
+      "use": false,
+      "speaker": "teacher",
+      "four_card": false
+    },
+    {
+      "id": "l-smaller",
+      "text": "The car is smaller than the bus.",
+      "es": "El carro es más pequeño que el autobús.",
+      "image": "/lesson-assets/a1plus-unit-2-c02-ba3cadb3b0a2587f.webp",
+      "kind": "model",
+      "choices": false,
+      "use": false,
+      "speaker": "co-teacher",
+      "four_card": false
+    },
+    {
+      "id": "l-older",
+      "text": "I am older than my brother.",
+      "es": "Soy mayor que mi hermano.",
+      "image": "/lesson-assets/a1plus-unit-1-g06-5614633158152642.webp",
+      "kind": "model",
+      "choices": false,
+      "use": false,
+      "speaker": "luis",
+      "four_card": false
+    }
+  ],
+  "pool": [
+    {
+      "text": "Luis is shorter than Sofia.",
+      "es": "Luis es más bajo que Sofía.",
+      "image": "/lesson-assets/a1plus-unit-1-p02-094cffd8654fde7e.webp",
+      "kind": "compare",
+      "image_choices": false,
+      "four_card": false
+    },
+    {
+      "text": "Sofia is taller than Luis.",
+      "es": "Sofía es más alta que Luis.",
+      "image": "/lesson-assets/a1plus-unit-1-p02-094cffd8654fde7e.webp",
+      "kind": "compare",
+      "image_choices": false,
+      "four_card": false
+    },
+    {
+      "text": "The bus is smaller than the car.",
+      "es": "El autobús es más pequeño que el carro.",
+      "image": "/lesson-assets/a1plus-unit-2-c02-ba3cadb3b0a2587f.webp",
+      "kind": "compare",
+      "image_choices": false,
+      "four_card": false
+    },
+    {
+      "text": "The car is bigger than the bus.",
+      "es": "El carro es más grande que el autobús.",
+      "image": "/lesson-assets/a1plus-unit-2-c02-ba3cadb3b0a2587f.webp",
+      "kind": "compare",
+      "image_choices": false,
+      "four_card": false
+    },
+    {
+      "text": "The grandfather is younger than the boy.",
+      "es": "El abuelo es menor que el niño.",
+      "image": "/lesson-assets/a1plus-unit-2-c03-55e7b1e25d0b26da.webp",
+      "kind": "compare",
+      "image_choices": false,
+      "four_card": false
+    },
+    {
+      "text": "The boy is older than the grandfather.",
+      "es": "El niño es mayor que el abuelo.",
+      "image": "/lesson-assets/a1plus-unit-2-c03-55e7b1e25d0b26da.webp",
+      "kind": "compare",
+      "image_choices": false,
+      "four_card": false
+    },
+    {
+      "text": "My brother is younger than me.",
+      "es": "Mi hermano es menor que yo.",
+      "image": "/lesson-assets/a1plus-unit-1-g05-6d99e453d89e2973.webp",
+      "kind": "compare",
+      "image_choices": false,
+      "four_card": false
+    },
+    {
+      "text": "I am older than my brother.",
+      "es": "Soy mayor que mi hermano.",
+      "image": "/lesson-assets/a1plus-unit-1-g05-6d99e453d89e2973.webp",
+      "kind": "compare",
+      "image_choices": false,
+      "four_card": false
+    },
+    {
+      "text": "I am younger than my brother.",
+      "es": "Soy menor que mi hermano.",
+      "image": "/lesson-assets/a1plus-unit-1-g06-5614633158152642.webp",
+      "kind": "compare",
+      "image_choices": false,
+      "four_card": false
+    },
+    {
+      "text": "My brother is older than me.",
+      "es": "Mi hermano es mayor que yo.",
+      "image": "/lesson-assets/a1plus-unit-1-g06-5614633158152642.webp",
+      "kind": "compare",
+      "image_choices": false,
+      "four_card": false
+    },
+    {
+      "text": "The brown dog is smaller than the white dog.",
+      "es": "El perro café es más pequeño que el perro blanco.",
+      "image": "/lesson-assets/a1plus-unit-2-c01-33b1a040ce5ef1f6.webp",
+      "kind": "compare",
+      "image_choices": false,
+      "four_card": false
+    },
+    {
+      "text": "The white dog is bigger than the brown dog.",
+      "es": "El perro blanco es más grande que el perro café.",
+      "image": "/lesson-assets/a1plus-unit-2-c01-33b1a040ce5ef1f6.webp",
+      "kind": "compare",
+      "image_choices": false,
+      "four_card": false
+    },
+    {
+      "text": "Sofia is taller.",
+      "es": "Sofía es más alta.",
+      "image": "/lesson-assets/a1plus-unit-1-p02-094cffd8654fde7e.webp",
+      "kind": "who-r-p02",
+      "image_choices": false,
+      "four_card": false
+    },
+    {
+      "text": "Luis is shorter.",
+      "es": "Luis es más bajo.",
+      "image": "/lesson-assets/a1plus-unit-1-p02-094cffd8654fde7e.webp",
+      "kind": "who-q-p02",
+      "image_choices": false,
+      "four_card": false
+    },
+    {
+      "text": "The brown one.",
+      "es": "El café.",
+      "image": "/lesson-assets/a1plus-unit-2-c01-33b1a040ce5ef1f6.webp",
+      "kind": "who-r-c01",
+      "image_choices": false,
+      "four_card": false
+    },
+    {
+      "text": "The white ones.",
+      "es": "Los blancos.",
+      "image": "/lesson-assets/a1plus-unit-2-c01-33b1a040ce5ef1f6.webp",
+      "kind": "who-r-c01",
+      "image_choices": false,
+      "four_card": false
+    },
+    {
+      "text": "The car is bigger.",
+      "es": "El carro es más grande.",
+      "image": "/lesson-assets/a1plus-unit-2-c02-ba3cadb3b0a2587f.webp",
+      "kind": "who-r-c02",
+      "image_choices": false,
+      "four_card": false
+    },
+    {
+      "text": "The grandfather is younger.",
+      "es": "El abuelo es menor.",
+      "image": "/lesson-assets/a1plus-unit-2-c03-55e7b1e25d0b26da.webp",
+      "kind": "who-r-c03",
+      "image_choices": false,
+      "four_card": false
+    },
+    {
+      "text": "Sofia is tall.",
+      "es": "Sofía es alta.",
+      "image": "/lesson-assets/a1plus-unit-1-p02-094cffd8654fde7e.webp",
+      "kind": "o-short-adj",
+      "image_choices": false,
+      "four_card": false
+    },
+    {
+      "text": "The grandfather is young.",
+      "es": "El abuelo es joven.",
+      "image": "/lesson-assets/a1plus-unit-2-c03-55e7b1e25d0b26da.webp",
+      "kind": "o-old-adj",
+      "image_choices": false,
+      "four_card": false
+    },
+    {
+      "text": "The boy is old.",
+      "es": "El niño es mayor.",
+      "image": "/lesson-assets/a1plus-unit-2-c03-55e7b1e25d0b26da.webp",
+      "kind": "o-young-adj",
+      "image_choices": false,
+      "four_card": false
+    }
+  ],
+  "layout": {
+    "Recognize": 11,
+    "Listen": 10,
+    "Speak": 8,
+    "Use": 8
+  },
+  "stage_sequences": {
+    "Learn": [
+      "l-taller",
+      "l-shorter",
+      "l-bigger",
+      "l-smaller",
+      "l-older"
+    ],
+    "Recognize": [
+      "a-p02",
+      "r-c01",
+      "a-c02",
+      "b-p02",
+      "b-c01",
+      "r-p02",
+      "b-c03",
+      "q-p02",
+      "a-g06",
+      "r-c02",
+      "b-c02"
+    ],
+    "Listen": [
+      "a-c01",
+      "q-p02",
+      "r-c02",
+      "a-c03",
+      "r-p02",
+      "b-c02",
+      "a-g05",
+      "r-c01",
+      "b-p02",
+      "a-p02"
+    ],
+    "Speak": [
+      "a-p02",
+      "b-p02",
+      "a-c02",
+      "b-c02",
+      "a-c03",
+      "o-old",
+      "o-short",
+      "o-young"
+    ],
+    "Use": [
+      "a-p02",
+      "b-c02",
+      "a-c03",
+      "b-g05",
+      "a-g06",
+      "b-p02",
+      "a-c02",
+      "b-c03"
+    ]
+  }
+}

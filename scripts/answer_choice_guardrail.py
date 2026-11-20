@@ -28,6 +28,7 @@ VERBS = {
     "need": "needs needed", "understand": "understands understood",
     "help": "helps helped", "cross": "crosses crossed", "turn": "turns turned",
     "repeat": "repeats repeated", "speak": "speaks spoke",
+    "stand": "stands stood", "use": "uses",
 }
 FINITE = {form: root for root, forms in VERBS.items() for form in [root, *forms.split()]}
 PROGRESSIVE = dict(zip(
