@@ -1,0 +1,55 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "fa1c75cf-be16-45eb-b56f-db7e9e457e51",
+  "asset_id": "w03-light-and-dark-bags-close",
+  "pack_sha256": "e5c3fdb89fc3e12aaf0d9a7d8863a6b943749235552e0fd29e69ab1f39f81172",
+  "started_at": "2026-11-20T16:21:34.098070+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, screens, clothes, bags, machines, vehicles or license plates.\n\nThe setting is the same big sunny city park on a weekend morning in every photo of this set: short green grass, tall leafy trees, a wide light-grey paved path, a small calm lake and a few wooden benches and picnic tables, with no signs, letters or numbers anywhere.\n\nThis is a wide scene for a listening game: the learner hears one sentence and taps the person, group or thing it describes on a small phone screen. The camera is CLOSE, so the four described subjects are LARGE and fill the whole width of the photo from the left edge to the right edge, each one clearly separate from the others, none hidden behind another, none cut off by the photo's edges, with every head well below the top edge. Nobody looks at the camera. There are no other people in the photo, not even far in the background.\n\nIt is clearly daytime with soft natural light.\n\nFour people of about thirty stand side by side on the grass of the park, seen from the knees up, each about two thirds of the photo's height, with a small gap between them. Each holds ONE large plain tote bag in front of their chest with both hands, and each bag is big in the photo. From LEFT to RIGHT: a woman with a LIGHT BLUE bag (the pale blue of a clear sky); a man with a DARK BLUE bag (deep navy); a woman with a LIGHT GREEN bag (pale mint green, clearly GREEN, never white or grey); and a man with a DARK GREEN bag (deep forest green). All four wear plain white T-shirts and grey trousers, so the four bags are the only blue or green things on the people, and light against dark is obvious at a glance.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "jHMAa4PLIP2smtkPs8KyoAI",
+  "usage": {
+    "promptTokenCount": 486,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1776,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 486
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038846",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 486,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 7.81,
+  "output": "output/imagegen/a1plus-unit-2-lesson-v2152/w03-light-and-dark-bags-close.png",
+  "sha256": "268c1409062ea75d8dd65e3f5e48c76f81eaabb0e8d71954abaadeca3ac05e0a",
+  "byte_count": 2117952,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}

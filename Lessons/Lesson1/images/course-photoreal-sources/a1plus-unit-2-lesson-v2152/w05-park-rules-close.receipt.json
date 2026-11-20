@@ -1,0 +1,55 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "5c9a90ff-9356-477b-9a0b-a222223cac0a",
+  "asset_id": "w05-park-rules-close",
+  "pack_sha256": "e5c3fdb89fc3e12aaf0d9a7d8863a6b943749235552e0fd29e69ab1f39f81172",
+  "started_at": "2026-11-20T16:22:03.123561+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, screens, clothes, bags, machines, vehicles or license plates.\n\nThe setting is the same big sunny city park on a weekend morning in every photo of this set: short green grass, tall leafy trees, a wide light-grey paved path, a small calm lake and a few wooden benches and picnic tables, with no signs, letters or numbers anywhere.\n\nThis is a wide scene for a listening game: the learner hears one sentence and taps the person, group or thing it describes on a small phone screen. The camera is CLOSE, so the four described subjects are LARGE and fill the whole width of the photo from the left edge to the right edge, each one clearly separate from the others, none hidden behind another, none cut off by the photo's edges, with every head well below the top edge. Nobody looks at the camera. There are no other people in the photo, not even far in the background.\n\nIt is clearly daytime with soft natural light.\n\nAt the edge of the park lake, four rule-breakers fill the photo from LEFT to RIGHT, each large and easy to see: at the LEFT, a boy of about ten SWIMS in the lake close to the shore, his head, shoulders and arms big and clear above the water; next, a girl of about eight stands on the grass and DRAWS with a piece of pink chalk directly on a low plain white wall, which is covered in colorful chalk swirls, a big yellow sun and a flower (pictures only, no letters and no shapes like letters); next, a man of about forty SITS ON TOP of a wooden picnic table, his shoes on the bench; and at the RIGHT, two teenage boys PLAY FOOTBALL on the grass close to the camera, a black-and-white ball at their feet.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "qXMAa6eOHfmtz7IPovnyqA0",
+  "usage": {
+    "promptTokenCount": 486,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1776,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 486
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038846",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 486,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 7.4,
+  "output": "output/imagegen/a1plus-unit-2-lesson-v2152/w05-park-rules-close.png",
+  "sha256": "042e0d275f041411d0efce1bcac8e99c4123abdbc953a9d4ee6291a3b8856a59",
+  "byte_count": 2225699,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}
