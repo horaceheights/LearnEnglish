@@ -1,0 +1,641 @@
+{
+  "brief_version": 1,
+  "follows": {
+    "course": "a1",
+    "lesson": "2.9",
+    "title": "Count and Describe"
+  },
+  "note": "A1+ Unit 2 Lesson 2.9, built on 2026-11-19 under the A1+ lesson standards approved 2026-10-27 and the user's 2026-11-09 rule that every A1+ lesson follows up the A1 lesson with the same number. The user approved the A1+ Unit 2 plan on 2026-11-19 (A1+ 2.Y follows A1 2.Y, one grammar step each) and chose \"Straight to Preview\": no per-lesson gates, Gemini 2.5 Flash photos and ElevenLabs audio pre-approved, reviewed in Preview. Batch B (2.6-2.10) was started on the user's \"Start Batch B\". Learn plays the singular and the plural as two lines with their own photos (One bus. over A1's bus photo, then Two buses. over two buses at a stop; one watch from A1+ 2.3, then three watches; A1's man and woman, then two men walking and three women on a park bench). Picture cards set the singular photo against the plural photo (It is a bus. / They are buses.), so the plural form is what decides; count cards change only the number; How many …? replies change only the number.",
+  "target": "backend/lessons/a1_plus/unit_2/a1plus-unit-2-lesson-2-9.yaml",
+  "captions": false,
+  "narrators": [
+    "teacher",
+    "co-teacher"
+  ],
+  "answer_audio_policy": "authored-only",
+  "speak_delivery": "a1-pronunciation-v1",
+  "lesson": {
+    "id": "a1plus-unit-2-lesson-2-9",
+    "title": "2.9 Buses, watches, men and women",
+    "level": "A1+",
+    "unit_id": "a1plus-unit-2",
+    "unit_title": "Places, things and how we describe them",
+    "unit_outcome": "Say where people go and how they get there, talk about the things people have, point things out and compare them, put things in order, and ask about favorites.",
+    "lesson_id": "a1plus-unit-2-lesson-2-9",
+    "lesson_title": "Buses, watches, men and women",
+    "sub_lesson_id": "2.9",
+    "sub_lesson_title": "Buses, watches, men and women",
+    "goal": "Say more than one with the -es plural and the irregular plurals men and women (One bus. Two buses. / One man. Two men. / They are women.).",
+    "vocabulary": [
+      "buses",
+      "watches",
+      "men",
+      "women"
+    ],
+    "review_vocabulary": [
+      "one",
+      "two",
+      "three",
+      "bus",
+      "watch",
+      "man",
+      "woman",
+      "it",
+      "is",
+      "a",
+      "he",
+      "she",
+      "they",
+      "are",
+      "at",
+      "on",
+      "in",
+      "the",
+      "bus stop",
+      "table",
+      "street",
+      "park",
+      "how many"
+    ],
+    "grammar_function": "A follow-up of A1 2.9 Count and Describe: A1 adds -s for more than one (two books, three cars); A1+ 2.9 adds the two plural spellings it left out: -es after s and ch (bus, buses; watch, watches) and the irregular man, men and woman, women. Learn sets each singular photo against its plural photo (One bus. / Two buses.), and practice says They are …, the count, and where they are.",
+    "prerequisite": "A1 2.9 plural -s; A1 2.2 bus; A1+ 2.3 watch; A1 1.1 man, woman; A1 2.6-2.7 numbers; A1+ 1.5 How many …?",
+    "speaking_outcome": "Say buses and watches with an extra syllable (BUS-iz, WATCH-iz); say men like 'men' and women like 'WIM-in'. Do not require native-like speed.",
+    "content_revision": 1,
+    "learn_context_groups": [
+      {
+        "kind": "contrast",
+        "targets": [
+          "buses"
+        ],
+        "models": [
+          {
+            "slide_id": "L1",
+            "text": "One bus. Two buses.",
+            "turns": [
+              "One bus.",
+              "Two buses."
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "contrast",
+        "targets": [
+          "watches"
+        ],
+        "models": [
+          {
+            "slide_id": "L2",
+            "text": "One watch. Three watches.",
+            "turns": [
+              "One watch.",
+              "Three watches."
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "contrast",
+        "targets": [
+          "men"
+        ],
+        "models": [
+          {
+            "slide_id": "L3",
+            "text": "One man. Two men.",
+            "turns": [
+              "One man.",
+              "Two men."
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "contrast",
+        "targets": [
+          "women"
+        ],
+        "models": [
+          {
+            "slide_id": "L4",
+            "text": "One woman. Three women.",
+            "turns": [
+              "One woman.",
+              "Three women."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "items": [
+    {
+      "id": "l-buses",
+      "text": "One bus. Two buses.",
+      "es": "Un autobús. Dos autobuses.",
+      "image": "/lesson-assets/a1plus-unit-2-b01-5a93fac99eddffbe.webp",
+      "kind": "model",
+      "choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "One bus.",
+          "speaker": "teacher",
+          "image": "/lesson-assets/place_bus.webp"
+        },
+        {
+          "text": "Two buses.",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-2-b01-5a93fac99eddffbe.webp"
+        }
+      ]
+    },
+    {
+      "id": "kp-bus",
+      "text": "They are buses.",
+      "es": "Son autobuses.",
+      "image": "/lesson-assets/a1plus-unit-2-b01-5a93fac99eddffbe.webp",
+      "kind": "they",
+      "learn": false,
+      "accepts": {
+        "subject-variety": "The lesson sets one thing against several: a bank keeps the sentence frame and changes the number.",
+        "action-variety": "The lesson sets one thing against several: a bank keeps the sentence frame and changes the number."
+      },
+      "blanks": [
+        "are",
+        "buses"
+      ]
+    },
+    {
+      "id": "ks-bus",
+      "text": "It is a bus.",
+      "es": "Es un autobús.",
+      "image": "/lesson-assets/place_bus.webp",
+      "kind": "they",
+      "learn": false,
+      "use": false,
+      "accepts": {
+        "subject-variety": "The lesson sets one thing against several: a bank keeps the sentence frame and changes the number.",
+        "action-variety": "The lesson sets one thing against several: a bank keeps the sentence frame and changes the number."
+      }
+    },
+    {
+      "id": "p-bus",
+      "text": "Two buses are at the bus stop.",
+      "es": "Dos autobuses están en la parada.",
+      "image": "/lesson-assets/a1plus-unit-2-b01-5a93fac99eddffbe.webp",
+      "kind": "place",
+      "learn": false,
+      "accepts": {
+        "subject-variety": "The lesson sets one thing against several: a bank keeps the sentence frame and changes the number.",
+        "action-variety": "The lesson sets one thing against several: a bank keeps the sentence frame and changes the number."
+      },
+      "blanks": [
+        "Two",
+        "buses"
+      ]
+    },
+    {
+      "id": "c-bus",
+      "text": "Two buses.",
+      "es": "Dos autobuses.",
+      "image": "/lesson-assets/a1plus-unit-2-b01-5a93fac99eddffbe.webp",
+      "kind": "count",
+      "learn": false,
+      "use": false,
+      "image_choices": false,
+      "accepts": {
+        "subject-variety": "The lesson sets one thing against several: a bank keeps the sentence frame and changes the number.",
+        "action-variety": "The lesson sets one thing against several: a bank keeps the sentence frame and changes the number."
+      },
+      "prefer": [
+        "Three buses."
+      ]
+    },
+    {
+      "id": "l-watches",
+      "text": "One watch. Three watches.",
+      "es": "Un reloj. Tres relojes.",
+      "image": "/lesson-assets/a1plus-unit-2-b02-e8e7ff09d096abd2.webp",
+      "kind": "model",
+      "choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "One watch.",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-2-o01-df408e2610563b16.webp"
+        },
+        {
+          "text": "Three watches.",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-2-b02-e8e7ff09d096abd2.webp"
+        }
+      ]
+    },
+    {
+      "id": "kp-watch",
+      "text": "They are watches.",
+      "es": "Son relojes.",
+      "image": "/lesson-assets/a1plus-unit-2-b02-e8e7ff09d096abd2.webp",
+      "kind": "they",
+      "learn": false,
+      "accepts": {
+        "subject-variety": "The lesson sets one thing against several: a bank keeps the sentence frame and changes the number.",
+        "action-variety": "The lesson sets one thing against several: a bank keeps the sentence frame and changes the number."
+      },
+      "blanks": [
+        "are",
+        "watches"
+      ]
+    },
+    {
+      "id": "ks-watch",
+      "text": "It is a watch.",
+      "es": "Es un reloj.",
+      "image": "/lesson-assets/a1plus-unit-2-o01-df408e2610563b16.webp",
+      "kind": "they",
+      "learn": false,
+      "use": false,
+      "accepts": {
+        "subject-variety": "The lesson sets one thing against several: a bank keeps the sentence frame and changes the number.",
+        "action-variety": "The lesson sets one thing against several: a bank keeps the sentence frame and changes the number."
+      }
+    },
+    {
+      "id": "p-watch",
+      "text": "Three watches are on the table.",
+      "es": "Tres relojes están en la mesa.",
+      "image": "/lesson-assets/a1plus-unit-2-b02-e8e7ff09d096abd2.webp",
+      "kind": "place",
+      "learn": false,
+      "accepts": {
+        "subject-variety": "The lesson sets one thing against several: a bank keeps the sentence frame and changes the number.",
+        "action-variety": "The lesson sets one thing against several: a bank keeps the sentence frame and changes the number."
+      },
+      "blanks": [
+        "Three",
+        "watches"
+      ]
+    },
+    {
+      "id": "c-watch",
+      "text": "Three watches.",
+      "es": "Tres relojes.",
+      "image": "/lesson-assets/a1plus-unit-2-b02-e8e7ff09d096abd2.webp",
+      "kind": "count",
+      "learn": false,
+      "use": false,
+      "image_choices": false,
+      "accepts": {
+        "subject-variety": "The lesson sets one thing against several: a bank keeps the sentence frame and changes the number.",
+        "action-variety": "The lesson sets one thing against several: a bank keeps the sentence frame and changes the number."
+      },
+      "prefer": [
+        "Two watches."
+      ]
+    },
+    {
+      "id": "l-men",
+      "text": "One man. Two men.",
+      "es": "Un hombre. Dos hombres.",
+      "image": "/lesson-assets/a1plus-unit-2-b03-fd757f42ae43be4a.webp",
+      "kind": "model",
+      "choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "One man.",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1_l1_man_alt.webp"
+        },
+        {
+          "text": "Two men.",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-2-b03-fd757f42ae43be4a.webp"
+        }
+      ]
+    },
+    {
+      "id": "kp-man",
+      "text": "They are men.",
+      "es": "Son hombres.",
+      "image": "/lesson-assets/a1plus-unit-2-b03-fd757f42ae43be4a.webp",
+      "kind": "they",
+      "learn": false,
+      "accepts": {
+        "subject-variety": "The lesson sets one thing against several: a bank keeps the sentence frame and changes the number.",
+        "action-variety": "The lesson sets one thing against several: a bank keeps the sentence frame and changes the number."
+      },
+      "blanks": [
+        "are",
+        "men"
+      ]
+    },
+    {
+      "id": "ks-man",
+      "text": "He is a man.",
+      "es": "Es un hombre.",
+      "image": "/lesson-assets/a1_l1_man_alt.webp",
+      "kind": "they",
+      "learn": false,
+      "use": false,
+      "accepts": {
+        "subject-variety": "The lesson sets one thing against several: a bank keeps the sentence frame and changes the number.",
+        "action-variety": "The lesson sets one thing against several: a bank keeps the sentence frame and changes the number."
+      }
+    },
+    {
+      "id": "p-man",
+      "text": "Two men are on the street.",
+      "es": "Dos hombres están en la calle.",
+      "image": "/lesson-assets/a1plus-unit-2-b03-fd757f42ae43be4a.webp",
+      "kind": "place",
+      "learn": false,
+      "accepts": {
+        "subject-variety": "The lesson sets one thing against several: a bank keeps the sentence frame and changes the number.",
+        "action-variety": "The lesson sets one thing against several: a bank keeps the sentence frame and changes the number."
+      },
+      "blanks": [
+        "Two",
+        "men"
+      ]
+    },
+    {
+      "id": "c-man",
+      "text": "Two men.",
+      "es": "Dos hombres.",
+      "image": "/lesson-assets/a1plus-unit-2-b03-fd757f42ae43be4a.webp",
+      "kind": "count",
+      "learn": false,
+      "use": false,
+      "image_choices": false,
+      "accepts": {
+        "subject-variety": "The lesson sets one thing against several: a bank keeps the sentence frame and changes the number.",
+        "action-variety": "The lesson sets one thing against several: a bank keeps the sentence frame and changes the number."
+      },
+      "prefer": [
+        "Three men."
+      ]
+    },
+    {
+      "id": "l-women",
+      "text": "One woman. Three women.",
+      "es": "Una mujer. Tres mujeres.",
+      "image": "/lesson-assets/a1plus-unit-2-b04-4d1ef9d1ea104365.webp",
+      "kind": "model",
+      "choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "One woman.",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1_l1_woman_alt.webp"
+        },
+        {
+          "text": "Three women.",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-2-b04-4d1ef9d1ea104365.webp"
+        }
+      ]
+    },
+    {
+      "id": "kp-woman",
+      "text": "They are women.",
+      "es": "Son mujeres.",
+      "image": "/lesson-assets/a1plus-unit-2-b04-4d1ef9d1ea104365.webp",
+      "kind": "they",
+      "learn": false,
+      "accepts": {
+        "subject-variety": "The lesson sets one thing against several: a bank keeps the sentence frame and changes the number.",
+        "action-variety": "The lesson sets one thing against several: a bank keeps the sentence frame and changes the number."
+      },
+      "blanks": [
+        "are",
+        "women"
+      ]
+    },
+    {
+      "id": "ks-woman",
+      "text": "She is a woman.",
+      "es": "Es una mujer.",
+      "image": "/lesson-assets/a1_l1_woman_alt.webp",
+      "kind": "they",
+      "learn": false,
+      "use": false,
+      "accepts": {
+        "subject-variety": "The lesson sets one thing against several: a bank keeps the sentence frame and changes the number.",
+        "action-variety": "The lesson sets one thing against several: a bank keeps the sentence frame and changes the number."
+      }
+    },
+    {
+      "id": "p-woman",
+      "text": "Three women are in the park.",
+      "es": "Tres mujeres están en el parque.",
+      "image": "/lesson-assets/a1plus-unit-2-b04-4d1ef9d1ea104365.webp",
+      "kind": "place",
+      "learn": false,
+      "accepts": {
+        "subject-variety": "The lesson sets one thing against several: a bank keeps the sentence frame and changes the number.",
+        "action-variety": "The lesson sets one thing against several: a bank keeps the sentence frame and changes the number."
+      },
+      "blanks": [
+        "Three",
+        "women"
+      ]
+    },
+    {
+      "id": "c-woman",
+      "text": "Three women.",
+      "es": "Tres mujeres.",
+      "image": "/lesson-assets/a1plus-unit-2-b04-4d1ef9d1ea104365.webp",
+      "kind": "count",
+      "learn": false,
+      "use": false,
+      "image_choices": false,
+      "accepts": {
+        "subject-variety": "The lesson sets one thing against several: a bank keeps the sentence frame and changes the number.",
+        "action-variety": "The lesson sets one thing against several: a bank keeps the sentence frame and changes the number."
+      },
+      "prefer": [
+        "Two women."
+      ]
+    },
+    {
+      "id": "r-bus",
+      "text": "Two buses.",
+      "es": "Dos autobuses.",
+      "image": "/lesson-assets/a1plus-unit-2-b01-5a93fac99eddffbe.webp",
+      "kind": "howmany-bus",
+      "learn": false,
+      "use": false,
+      "image_choices": false,
+      "speaker": "co-teacher",
+      "question": "How many buses are at the bus stop?",
+      "question_es": "¿Cuántos autobuses están en la parada?",
+      "question_speaker": "teacher",
+      "accepts": {
+        "subject-variety": "Listen asks how many; the answer is what was heard.",
+        "action-variety": "Listen asks how many; the answer is what was heard.",
+        "conversational-response": "Listen asks how many; the answer is what was heard."
+      },
+      "prefer": [
+        "Three buses."
+      ]
+    },
+    {
+      "id": "r-watch",
+      "text": "Three watches.",
+      "es": "Tres relojes.",
+      "image": "/lesson-assets/a1plus-unit-2-b02-e8e7ff09d096abd2.webp",
+      "kind": "howmany-watch",
+      "learn": false,
+      "use": false,
+      "image_choices": false,
+      "speaker": "co-teacher",
+      "question": "How many watches are on the table?",
+      "question_es": "¿Cuántos relojes están en la mesa?",
+      "question_speaker": "teacher",
+      "accepts": {
+        "subject-variety": "Listen asks how many; the answer is what was heard.",
+        "action-variety": "Listen asks how many; the answer is what was heard.",
+        "conversational-response": "Listen asks how many; the answer is what was heard."
+      },
+      "prefer": [
+        "Two watches."
+      ]
+    },
+    {
+      "id": "r-woman",
+      "text": "Three women.",
+      "es": "Tres mujeres.",
+      "image": "/lesson-assets/a1plus-unit-2-b04-4d1ef9d1ea104365.webp",
+      "kind": "howmany-woman",
+      "learn": false,
+      "use": false,
+      "image_choices": false,
+      "speaker": "co-teacher",
+      "question": "How many women are in the park?",
+      "question_es": "¿Cuántas mujeres están en el parque?",
+      "question_speaker": "teacher",
+      "accepts": {
+        "subject-variety": "Listen asks how many; the answer is what was heard.",
+        "action-variety": "Listen asks how many; the answer is what was heard.",
+        "conversational-response": "Listen asks how many; the answer is what was heard."
+      },
+      "prefer": [
+        "Two women."
+      ]
+    }
+  ],
+  "pool": [
+    {
+      "text": "Three buses.",
+      "es": "Tres autobuses.",
+      "image": "/lesson-assets/a1plus-unit-2-b01-5a93fac99eddffbe.webp",
+      "kind": "count",
+      "image_choices": false
+    },
+    {
+      "text": "Two watches.",
+      "es": "Dos relojes.",
+      "image": "/lesson-assets/a1plus-unit-2-b02-e8e7ff09d096abd2.webp",
+      "kind": "count",
+      "image_choices": false
+    },
+    {
+      "text": "Three men.",
+      "es": "Tres hombres.",
+      "image": "/lesson-assets/a1plus-unit-2-b03-fd757f42ae43be4a.webp",
+      "kind": "count",
+      "image_choices": false
+    },
+    {
+      "text": "Two women.",
+      "es": "Dos mujeres.",
+      "image": "/lesson-assets/a1plus-unit-2-b04-4d1ef9d1ea104365.webp",
+      "kind": "count",
+      "image_choices": false
+    },
+    {
+      "text": "Three buses.",
+      "es": "Tres autobuses.",
+      "image": "/lesson-assets/a1plus-unit-2-b01-5a93fac99eddffbe.webp",
+      "kind": "howmany-bus",
+      "image_choices": false
+    },
+    {
+      "text": "Two watches.",
+      "es": "Dos relojes.",
+      "image": "/lesson-assets/a1plus-unit-2-b02-e8e7ff09d096abd2.webp",
+      "kind": "howmany-watch",
+      "image_choices": false
+    },
+    {
+      "text": "Two women.",
+      "es": "Dos mujeres.",
+      "image": "/lesson-assets/a1plus-unit-2-b04-4d1ef9d1ea104365.webp",
+      "kind": "howmany-woman",
+      "image_choices": false
+    }
+  ],
+  "layout": {
+    "Recognize": 11,
+    "Listen": 10,
+    "Speak": 8,
+    "Use": 8
+  },
+  "stage_sequences": {
+    "Learn": [
+      "l-buses",
+      "l-watches",
+      "l-men",
+      "l-women"
+    ],
+    "Recognize": [
+      "kp-bus",
+      "c-watch",
+      "p-man",
+      "ks-woman",
+      "c-bus",
+      "kp-watch",
+      "p-woman",
+      "c-man",
+      "kp-man",
+      "ks-bus",
+      "c-woman"
+    ],
+    "Listen": [
+      "kp-woman",
+      "p-bus",
+      "r-watch",
+      "ks-man",
+      "kp-bus",
+      "r-woman",
+      "p-watch",
+      "r-bus",
+      "kp-watch",
+      "p-man"
+    ],
+    "Speak": [
+      "kp-bus",
+      "kp-watch",
+      "kp-man",
+      "kp-woman",
+      "p-bus",
+      "p-man",
+      "p-woman",
+      "p-watch"
+    ],
+    "Use": [
+      "kp-bus",
+      "p-watch",
+      "kp-man",
+      "p-woman",
+      "kp-watch",
+      "p-bus",
+      "kp-woman",
+      "p-man"
+    ]
+  }
+}

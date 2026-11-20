@@ -1,0 +1,62 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "30436c5e-82a6-45ab-8b56-066f86d020ca",
+  "asset_id": "v03-sofia-pink",
+  "pack_sha256": "379d37ebe296a5310b051d262c0b9cbee318f0ee4d392eb0d3f5a3196e3cd73c",
+  "started_at": "2026-11-20T02:11:32.581153+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, screens, clothes, bags, machines, vehicles or license plates.\n\nKeep the person and the thing that carries the meaning inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nOnly this one person is in the photo; there is nobody else, even far in the background.\n\nThe person's face is fully visible in three-quarter view, looking at what they are doing, not at the camera.\n\nIt is clearly daytime with soft natural light.\n\nImage 1 shows Sofia. Keep her face, long curly dark hair, warm brown skin and build exactly. Create a new photograph of her: She paints a wall of her living room with a paint roller on a long handle, in a white blouse with the sleeves rolled up and jeans. More than half of the wall is already painted a strong, bright PINK, and she rolls more PINK paint onto the last white part. An open can of PINK paint stands on a cloth on the floor. She is smiling and looks at the wall. The PINK wall fills most of the background, and no other strong color is in the photo.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1plus-unit-1-q03-7d520a07846a47b8.webp",
+    "sha256": "7d520a07846a47b8e8389c3226f3b3639d7eed0d257318b08e4f9b77c5b2258b"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "Vaz_aoS-BryJqtsPi4WC-Qs",
+  "usage": {
+    "promptTokenCount": 624,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1914,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 366
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038887",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 624,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 8.27,
+  "output": "output/imagegen/a1plus-unit-2-lesson-v280/v03-sofia-pink.png",
+  "sha256": "0b521333f826cead922788bf0b6d33d998d8865346b79da295b6070afd773a6e",
+  "byte_count": 1125888,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}

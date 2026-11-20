@@ -62,6 +62,10 @@ for (const noun of words('apartment garden floor wall stairs roof toilet key')) 
 for (const noun of words('money price')) NOUNS.add(noun);
 // A1+ 2.1 and 2.3 (2026-11-19): places people go (the gym, the pool) and things they have.
 for (const noun of words('gym pool watch wallet headphones camera')) NOUNS.add(noun);
+// A1+ 2.8 and 2.9 (2026-11-19): a favorite color; the -es and irregular plurals.
+for (const noun of words('color buses watches men women')) NOUNS.add(noun);
+// A1+ 2.6 and 2.7 (2026-11-19): ordinal numbers between "the" and a noun (the second floor).
+const ORDINALS = set('second third fourth fifth sixth seventh eighth ninth tenth');
 for (const noun of words('address')) NOUNS.add(noun);
 const COMPOUND_NOUNS: Record<string, string> = { 'post office': 'oficina de correos', 'movie theater': 'cine', 'bus stop': 'parada de autobús', 'next stop': 'próxima parada', 'police officer': 'policía' };
 const STATES = set('red blue green yellow black white happy sad tired hungry thirsty sunny rainy cold hot windy cloudy mexican spanish american canadian');
@@ -77,6 +81,8 @@ for (const description of words('big small new used same different')) DESCRIPTIO
 for (const description of words('cheap expensive')) DESCRIPTIONS.add(description);
 // A1 7.9 (2026-11-15): how someone is (I am fine.) and how something is (The apple is good.); 7.10: It is warm.
 for (const description of words('good bad great fine sick angry afraid warm')) DESCRIPTIONS.add(description);
+// A1+ 2.8 (2026-11-19): favorite before a noun (my favorite color).
+DESCRIPTIONS.add('favorite');
 for (const state of DESCRIPTIONS) STATES.add(state);
 const OWNERS = set('mine yours ours');
 const OWNER_MEANINGS: Record<string, string> = { mine: 'mío', yours: 'tuyo', ours: 'nuestro' };
@@ -169,6 +175,7 @@ function teachClause(text: string): ClausePlan {
     const owner = keys[head]?.endsWith("'s") && NOUNS.has(keys[head].slice(0, -2)) ? head : -1;
     if (owner >= 0) head++;
     if (keys[head] === 'united' && keys[head + 1] === 'states') head++;
+    const ordinal = head > start && ORDINALS.has(keys[head]) ? head++ : -1;
     if (COLORS.has(keys[head])) head++;
     const described = DESCRIPTIONS.has(keys[head]) ? head++ : -1;
     if (['living', 'dining'].includes(keys[head]) && keys[head + 1] === 'room') head++;
@@ -176,7 +183,9 @@ function teachClause(text: string): ClausePlan {
     // "The red one": after a color, "one" stands in for the noun already named; A1+ 2.5 (2026-11-19)
     // adds "this one" and "that one" (This one is red, but that one is blue.).
     const pointed = keys[head] === 'one' && head === start + 1 && ['this', 'that'].includes(keys[start]);
-    const standIn = keys[head] === 'one' && head > start && (COLORS.has(keys[head - 1]) || pointed);
+    // A1+ 2.10 (2026-11-19): "ones" stands in for more than one thing (the red ones).
+    const standIn = (keys[head] === 'one' || keys[head] === 'ones') && head > start
+      && (COLORS.has(keys[head - 1]) || pointed);
     if (head !== end - 1 || !(NOUNS.has(keys[head]) || standIn)) return false;
     if (owner >= 0) {
       teach(start, end, `En ${quote(phrase(start, end))}, ${quote(tokens[owner])} indica de quién es: el dueño con 's va antes del nombre ${quote(phrase(owner + 1, end))}.`);
@@ -186,8 +195,12 @@ function teachClause(text: string): ClausePlan {
       const first = keys[start];
       const why = pointed
         ? `En ${quote(phrase(start, end))}, ${quote(tokens[start])} señala lo que está ${keys[start] === 'this' ? 'cerca' : 'lejos'} y va antes de “one”, que reemplaza al nombre para no repetirlo.`
+        : standIn && keys[head] === 'ones'
+        ? `En ${quote(phrase(start, end))}, el color va antes de “ones”, que reemplaza a las cosas ya nombradas para no repetirlas.`
         : standIn
         ? `En ${quote(phrase(start, end))}, el color va antes de “one”, que reemplaza al nombre para no repetirlo.`
+        : ordinal >= 0
+        ? `En ${quote(phrase(start, end))}, ${quote(tokens[ordinal])} dice el orden (primero, segundo…) y va entre ${quote(tokens[start])} y el nombre.`
         : COLORS.has(first) || COLORS.has(keys[start + 1])
         ? `En ${quote(phrase(start, end))}, ${NUMBERS.has(first) ? 'la cantidad va primero, después el color y al final el nombre' : 'el color va antes del nombre que describe'}.`
         : described >= 0
@@ -676,6 +689,19 @@ function teachClause(text: string): ClausePlan {
   if (joined === "what's this" && text.trim().endsWith('?')) {
     teach(0, 2, '“What’s” es la forma corta de “what is”: pregunta qué es y va antes de “this”, lo que señalamos.');
     return { explanations, relations, supported: true };
+  }
+  // A1+ 2.8 (2026-11-19): What's your favorite color? asks with the short form before what we ask about.
+  if (keys[0] === "what's" && keys.length > 2 && text.trim().endsWith('?') && nominal(1, keys.length)) {
+    teach(0, 1, '“What’s” es la forma corta de “what is”: la pregunta empieza con él.');
+    teach(1, keys.length, `${quote(phrase(1, keys.length))} es lo que preguntamos; va después de “What’s”.`);
+    return { explanations, relations, supported: explanations.every(Boolean) };
+  }
+  // A1+ 2.10 (2026-11-19): Which ones do you want? asks which group someone chooses.
+  const whichDo = /^which (ones?) do you want$/.exec(joined);
+  if (whichDo && text.trim().endsWith('?')) {
+    teach(0, 2, `${quote(phrase(0, 2))} pregunta cuál${whichDo[1] === 'ones' ? 'es' : ''} y va primero, antes de “do you want”.`);
+    teach(2, keys.length, '“do you want” va después: “do” antes de “you”, y al final “want”, lo que quieres.');
+    return { explanations, relations, supported: explanations.every(Boolean) };
   }
   const shortIs = keys[0] === "it's" ? 1 : keys[0] === 'it' && keys[1] === "isn't" ? 2 : 0;
   if (shortIs && keys.length > shortIs && !text.trim().endsWith('?')) {

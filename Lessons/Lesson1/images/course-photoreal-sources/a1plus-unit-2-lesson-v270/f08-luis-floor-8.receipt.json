@@ -1,0 +1,62 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "91877310-10f3-4920-a1f5-7335cfa72ac0",
+  "asset_id": "f08-luis-floor-8",
+  "pack_sha256": "afc06ef262eb3d4a46551ed8bb14f0d3e5b7c2eea4f08736802a6e42adb3d483",
+  "started_at": "2026-11-20T02:10:45.060288+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, logos or brand marks anywhere, and no number anywhere except the one large numeral described: no other signs, buttons, plaques, door numbers or license plates show any digit.\n\nOnly this one person is in the photo; there is nobody else, even far in the background.\n\nThe person's face is fully visible in three-quarter view, looking at what they are doing, not at the camera.\n\nIt is clearly daytime with soft natural light.\n\nImage 1 shows Luis. Keep his face, short dark curly hair, clean-shaven face, warm medium-brown skin and build exactly. Create a new photograph of him: He has just come home. He stands in the small, bright elevator lobby of his apartment building, beside the closed metal elevator door, in his navy T-shirt and jeans. On the plain light wall right next to the elevator door there is one very large dark numeral 8, painted on the wall, about as tall as his head, sharp and easy to read on a phone. The numeral 8 and his face are both inside the central 55 percent of the photo width. Daylight comes from a window at the side.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1plus-unit-1-q01-135c3f8f772bcbe4.webp",
+    "sha256": "135c3f8f772bcbe472b8cec719eb02318a7d52ce1c7152a94c6952aeb78566c2"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "Jaz_ao6rHuutqtsPtr7sOA",
+  "usage": {
+    "promptTokenCount": 605,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1895,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 347
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038882",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 605,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 8.0,
+  "output": "output/imagegen/a1plus-unit-2-lesson-v270/f08-luis-floor-8.png",
+  "sha256": "d1229de8438149d7dd5b79132fa96f91f87b036124d22563d2ac32c4538ec00b",
+  "byte_count": 1369236,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}

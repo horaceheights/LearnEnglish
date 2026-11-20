@@ -1,0 +1,619 @@
+{
+  "brief_version": 1,
+  "follows": {
+    "course": "a1",
+    "lesson": "2.10",
+    "title": "These and Those"
+  },
+  "note": "A1+ Unit 2 Lesson 2.10, built on 2026-11-19 under the A1+ lesson standards approved 2026-10-27 and the user's 2026-11-09 rule that every A1+ lesson follows up the A1 lesson with the same number. The user approved the A1+ Unit 2 plan on 2026-11-19 (A1+ 2.Y follows A1 2.Y, one grammar step each) and chose \"Straight to Preview\": no per-lesson gates, Gemini 2.5 Flash photos and ElevenLabs audio pre-approved, reviewed in Preview. Batch B (2.6-2.10) was started on the user's \"Start Batch B\". Each cast member holds the group they choose, and the other color of the same thing stays beside them: Sofia a red shoe (black shoes beside her), Ana green apples (red apples), Diego two white cups (two black cups). Luis holds one blue book (two red books beside him), so his line keeps A1's one. The other voice pair asks Which ones do you want?; the person in the photo answers The red ones.; reply banks set the other color and one against ones. Nobody points: the hands show the choice.",
+  "target": "backend/lessons/a1_plus/unit_2/a1plus-unit-2-lesson-2-10.yaml",
+  "captions": false,
+  "narrators": [
+    "teacher",
+    "co-teacher"
+  ],
+  "answer_audio_policy": "authored-only",
+  "speak_delivery": "a1-pronunciation-v1",
+  "lesson": {
+    "id": "a1plus-unit-2-lesson-2-10",
+    "title": "2.10 Which ones?",
+    "level": "A1+",
+    "unit_id": "a1plus-unit-2",
+    "unit_title": "Places, things and how we describe them",
+    "unit_outcome": "Say where people go and how they get there, talk about the things people have, point things out and compare them, put things in order, and ask about favorites.",
+    "lesson_id": "a1plus-unit-2-lesson-2-10",
+    "lesson_title": "Which ones?",
+    "sub_lesson_id": "2.10",
+    "sub_lesson_title": "Which ones?",
+    "goal": "Choose between two groups with ones (Which ones do you want? The red ones. / I want the green ones.), next to A1's one (Which one? The blue one.).",
+    "vocabulary": [
+      "ones",
+      "Which ones"
+    ],
+    "review_vocabulary": [
+      "which",
+      "one",
+      "the",
+      "I",
+      "want",
+      "wants",
+      "do",
+      "you",
+      "he",
+      "she",
+      "red",
+      "black",
+      "green",
+      "blue",
+      "white"
+    ],
+    "grammar_function": "A follow-up of A1 2.10 These and Those: A1 asks Which one? and answers The blue one.; A1+ 2.10 adds the plural ones for more than one thing (Which ones do you want? The red ones.). Each cast member holds the group they want while the other color stays beside them: Sofia red shoes (black beside her), Ana green apples (red), Diego white cups (black). Luis holds one blue book, so his line keeps A1's one (Which one do you want? The blue one.) next to the plural.",
+    "prerequisite": "A1 2.10 Which one? The blue one.; A1 5.x I want, he wants; A1 7.3 shoes; A1 5.x apples; A1 5.14 cup; A1 2.3 book; A1 colors.",
+    "speaking_outcome": "Say ones like 'wunz', linked to the color (the RED ones). Do not require native-like speed.",
+    "content_revision": 1,
+    "learn_context_groups": [
+      {
+        "kind": "exchange",
+        "targets": [
+          "Which ones",
+          "ones"
+        ],
+        "models": [
+          {
+            "slide_id": "L1",
+            "text": "Which ones do you want? The red ones.",
+            "turns": [
+              "Which ones do you want?",
+              "The red ones."
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "sequence",
+        "targets": [
+          "ones"
+        ],
+        "models": [
+          {
+            "slide_id": "L2",
+            "text": "I want the green ones."
+          }
+        ]
+      },
+      {
+        "kind": "sequence",
+        "targets": [
+          "ones"
+        ],
+        "models": [
+          {
+            "slide_id": "L3",
+            "text": "I want the white ones."
+          }
+        ]
+      }
+    ]
+  },
+  "items": [
+    {
+      "id": "a-w01",
+      "text": "The red ones.",
+      "es": "Los rojos.",
+      "image": "/lesson-assets/a1plus-unit-2-w01-b2c2e50e21089f18.webp",
+      "kind": "which-w01",
+      "learn": false,
+      "use": false,
+      "image_choices": false,
+      "speaker": "sofia",
+      "question": "Which ones do you want?",
+      "question_es": "¿Cuáles quieres?",
+      "question_speaker": "diego",
+      "accepts": {
+        "subject-variety": "Listen asks which ones; the answer names the group in the speaker's hands.",
+        "action-variety": "Listen asks which ones; the answer names the group in the speaker's hands.",
+        "conversational-response": "Listen asks which ones; the answer names the group in the speaker's hands."
+      },
+      "prefer": [
+        "The black ones.",
+        "The red one."
+      ]
+    },
+    {
+      "id": "i-w01",
+      "text": "I want the red ones.",
+      "es": "Quiero los rojos.",
+      "image": "/lesson-assets/a1plus-unit-2-w01-b2c2e50e21089f18.webp",
+      "kind": "want",
+      "learn": false,
+      "speaker": "sofia",
+      "accepts": {
+        "subject-variety": "The lesson chooses between two groups: a bank keeps the sentence and changes the color or one/ones.",
+        "action-variety": "The lesson chooses between two groups: a bank keeps the sentence and changes the color or one/ones."
+      },
+      "blanks": [
+        "red",
+        "ones"
+      ],
+      "listening_turns": [
+        {
+          "text": "Which ones do you want?",
+          "speaker": "diego",
+          "image": "/lesson-assets/a1plus-unit-2-w01-b2c2e50e21089f18.webp"
+        },
+        {
+          "text": "I want the red ones.",
+          "speaker": "sofia",
+          "image": "/lesson-assets/a1plus-unit-2-w01-b2c2e50e21089f18.webp"
+        }
+      ]
+    },
+    {
+      "id": "t-w01",
+      "text": "She wants the red ones.",
+      "es": "Ella quiere los rojos.",
+      "image": "/lesson-assets/a1plus-unit-2-w01-b2c2e50e21089f18.webp",
+      "kind": "wants-w01",
+      "learn": false,
+      "image_choices": false,
+      "accepts": {
+        "subject-variety": "The lesson chooses between two groups: a bank keeps the sentence and changes the color or one/ones.",
+        "action-variety": "The lesson chooses between two groups: a bank keeps the sentence and changes the color or one/ones."
+      },
+      "blanks": [
+        "red",
+        "ones"
+      ],
+      "prefer": [
+        "She wants the black ones.",
+        "She wants the red one."
+      ]
+    },
+    {
+      "id": "a-w02",
+      "text": "The green ones.",
+      "es": "Las verdes.",
+      "image": "/lesson-assets/a1plus-unit-2-w02-aa3f2fba1ae36933.webp",
+      "kind": "which-w02",
+      "learn": false,
+      "use": false,
+      "image_choices": false,
+      "speaker": "ana",
+      "question": "Which ones do you want?",
+      "question_es": "¿Cuáles quieres?",
+      "question_speaker": "luis",
+      "accepts": {
+        "subject-variety": "Listen asks which ones; the answer names the group in the speaker's hands.",
+        "action-variety": "Listen asks which ones; the answer names the group in the speaker's hands.",
+        "conversational-response": "Listen asks which ones; the answer names the group in the speaker's hands."
+      },
+      "prefer": [
+        "The red ones.",
+        "The green one."
+      ]
+    },
+    {
+      "id": "i-w02",
+      "text": "I want the green ones.",
+      "es": "Quiero las verdes.",
+      "image": "/lesson-assets/a1plus-unit-2-w02-aa3f2fba1ae36933.webp",
+      "kind": "want",
+      "learn": false,
+      "speaker": "ana",
+      "accepts": {
+        "subject-variety": "The lesson chooses between two groups: a bank keeps the sentence and changes the color or one/ones.",
+        "action-variety": "The lesson chooses between two groups: a bank keeps the sentence and changes the color or one/ones."
+      },
+      "blanks": [
+        "green",
+        "ones"
+      ],
+      "listening_turns": [
+        {
+          "text": "Which ones do you want?",
+          "speaker": "luis",
+          "image": "/lesson-assets/a1plus-unit-2-w02-aa3f2fba1ae36933.webp"
+        },
+        {
+          "text": "I want the green ones.",
+          "speaker": "ana",
+          "image": "/lesson-assets/a1plus-unit-2-w02-aa3f2fba1ae36933.webp"
+        }
+      ]
+    },
+    {
+      "id": "t-w02",
+      "text": "She wants the green ones.",
+      "es": "Ella quiere las verdes.",
+      "image": "/lesson-assets/a1plus-unit-2-w02-aa3f2fba1ae36933.webp",
+      "kind": "wants-w02",
+      "learn": false,
+      "image_choices": false,
+      "accepts": {
+        "subject-variety": "The lesson chooses between two groups: a bank keeps the sentence and changes the color or one/ones.",
+        "action-variety": "The lesson chooses between two groups: a bank keeps the sentence and changes the color or one/ones."
+      },
+      "blanks": [
+        "green",
+        "ones"
+      ],
+      "prefer": [
+        "She wants the red ones.",
+        "She wants the green one."
+      ]
+    },
+    {
+      "id": "a-w03",
+      "text": "The blue one.",
+      "es": "El azul.",
+      "image": "/lesson-assets/a1plus-unit-2-w03-35187916681c2f92.webp",
+      "kind": "which-w03",
+      "learn": false,
+      "use": false,
+      "image_choices": false,
+      "speaker": "luis",
+      "question": "Which one do you want?",
+      "question_es": "¿Cuál quieres?",
+      "question_speaker": "ana",
+      "accepts": {
+        "subject-variety": "Listen asks which ones; the answer names the group in the speaker's hands.",
+        "action-variety": "Listen asks which ones; the answer names the group in the speaker's hands.",
+        "conversational-response": "Listen asks which ones; the answer names the group in the speaker's hands."
+      },
+      "prefer": [
+        "The red one.",
+        "The blue ones."
+      ]
+    },
+    {
+      "id": "i-w03",
+      "text": "I want the blue one.",
+      "es": "Quiero el azul.",
+      "image": "/lesson-assets/a1plus-unit-2-w03-35187916681c2f92.webp",
+      "kind": "want",
+      "learn": false,
+      "speaker": "luis",
+      "accepts": {
+        "subject-variety": "The lesson chooses between two groups: a bank keeps the sentence and changes the color or one/ones.",
+        "action-variety": "The lesson chooses between two groups: a bank keeps the sentence and changes the color or one/ones."
+      },
+      "blanks": [
+        "blue",
+        "one"
+      ],
+      "listening_turns": [
+        {
+          "text": "Which one do you want?",
+          "speaker": "ana",
+          "image": "/lesson-assets/a1plus-unit-2-w03-35187916681c2f92.webp"
+        },
+        {
+          "text": "I want the blue one.",
+          "speaker": "luis",
+          "image": "/lesson-assets/a1plus-unit-2-w03-35187916681c2f92.webp"
+        }
+      ]
+    },
+    {
+      "id": "t-w03",
+      "text": "He wants the blue one.",
+      "es": "Él quiere el azul.",
+      "image": "/lesson-assets/a1plus-unit-2-w03-35187916681c2f92.webp",
+      "kind": "wants-w03",
+      "learn": false,
+      "image_choices": false,
+      "accepts": {
+        "subject-variety": "The lesson chooses between two groups: a bank keeps the sentence and changes the color or one/ones.",
+        "action-variety": "The lesson chooses between two groups: a bank keeps the sentence and changes the color or one/ones."
+      },
+      "blanks": [
+        "blue",
+        "one"
+      ],
+      "prefer": [
+        "He wants the red one.",
+        "He wants the blue ones."
+      ]
+    },
+    {
+      "id": "a-w04",
+      "text": "The white ones.",
+      "es": "Las blancas.",
+      "image": "/lesson-assets/a1plus-unit-2-w04-91eb780318682e99.webp",
+      "kind": "which-w04",
+      "learn": false,
+      "use": false,
+      "image_choices": false,
+      "speaker": "diego",
+      "question": "Which ones do you want?",
+      "question_es": "¿Cuáles quieres?",
+      "question_speaker": "sofia",
+      "accepts": {
+        "subject-variety": "Listen asks which ones; the answer names the group in the speaker's hands.",
+        "action-variety": "Listen asks which ones; the answer names the group in the speaker's hands.",
+        "conversational-response": "Listen asks which ones; the answer names the group in the speaker's hands."
+      },
+      "prefer": [
+        "The black ones.",
+        "The white one."
+      ]
+    },
+    {
+      "id": "i-w04",
+      "text": "I want the white ones.",
+      "es": "Quiero las blancas.",
+      "image": "/lesson-assets/a1plus-unit-2-w04-91eb780318682e99.webp",
+      "kind": "want",
+      "learn": false,
+      "speaker": "diego",
+      "accepts": {
+        "subject-variety": "The lesson chooses between two groups: a bank keeps the sentence and changes the color or one/ones.",
+        "action-variety": "The lesson chooses between two groups: a bank keeps the sentence and changes the color or one/ones."
+      },
+      "blanks": [
+        "white",
+        "ones"
+      ],
+      "listening_turns": [
+        {
+          "text": "Which ones do you want?",
+          "speaker": "sofia",
+          "image": "/lesson-assets/a1plus-unit-2-w04-91eb780318682e99.webp"
+        },
+        {
+          "text": "I want the white ones.",
+          "speaker": "diego",
+          "image": "/lesson-assets/a1plus-unit-2-w04-91eb780318682e99.webp"
+        }
+      ]
+    },
+    {
+      "id": "t-w04",
+      "text": "He wants the white ones.",
+      "es": "Él quiere las blancas.",
+      "image": "/lesson-assets/a1plus-unit-2-w04-91eb780318682e99.webp",
+      "kind": "wants-w04",
+      "learn": false,
+      "image_choices": false,
+      "accepts": {
+        "subject-variety": "The lesson chooses between two groups: a bank keeps the sentence and changes the color or one/ones.",
+        "action-variety": "The lesson chooses between two groups: a bank keeps the sentence and changes the color or one/ones."
+      },
+      "blanks": [
+        "white",
+        "ones"
+      ],
+      "prefer": [
+        "He wants the black ones.",
+        "He wants the white one."
+      ]
+    },
+    {
+      "id": "q-ones",
+      "text": "Which ones do you want?",
+      "es": "¿Cuáles quieres?",
+      "image": "/lesson-assets/a1plus-unit-2-w01-b2c2e50e21089f18.webp",
+      "kind": "question",
+      "learn": false,
+      "choices": false,
+      "speaker": "diego",
+      "blanks": [
+        "Which",
+        "ones"
+      ]
+    },
+    {
+      "id": "l-which",
+      "text": "Which ones do you want? The red ones.",
+      "es": "¿Cuáles quieres? Los rojos.",
+      "image": "/lesson-assets/a1plus-unit-2-w01-b2c2e50e21089f18.webp",
+      "kind": "model",
+      "choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "Which ones do you want?",
+          "speaker": "diego",
+          "image": "/lesson-assets/a1plus-unit-2-w01-b2c2e50e21089f18.webp"
+        },
+        {
+          "text": "The red ones.",
+          "speaker": "sofia",
+          "image": "/lesson-assets/a1plus-unit-2-w01-b2c2e50e21089f18.webp"
+        }
+      ]
+    },
+    {
+      "id": "l-green",
+      "text": "I want the green ones.",
+      "es": "Quiero las verdes.",
+      "image": "/lesson-assets/a1plus-unit-2-w02-aa3f2fba1ae36933.webp",
+      "kind": "model",
+      "choices": false,
+      "use": false,
+      "speaker": "ana"
+    },
+    {
+      "id": "l-white",
+      "text": "I want the white ones.",
+      "es": "Quiero las blancas.",
+      "image": "/lesson-assets/a1plus-unit-2-w04-91eb780318682e99.webp",
+      "kind": "model",
+      "choices": false,
+      "use": false,
+      "speaker": "diego"
+    }
+  ],
+  "pool": [
+    {
+      "text": "The black ones.",
+      "es": "Los negros.",
+      "image": "/lesson-assets/a1plus-unit-2-w01-b2c2e50e21089f18.webp",
+      "kind": "which-w01",
+      "image_choices": false
+    },
+    {
+      "text": "The red one.",
+      "es": "El rojo.",
+      "image": "/lesson-assets/a1plus-unit-2-w01-b2c2e50e21089f18.webp",
+      "kind": "which-w01",
+      "image_choices": false
+    },
+    {
+      "text": "She wants the black ones.",
+      "es": "Ella quiere los negros.",
+      "image": "/lesson-assets/a1plus-unit-2-w01-b2c2e50e21089f18.webp",
+      "kind": "wants-w01",
+      "image_choices": false
+    },
+    {
+      "text": "She wants the red one.",
+      "es": "Ella quiere el rojo.",
+      "image": "/lesson-assets/a1plus-unit-2-w01-b2c2e50e21089f18.webp",
+      "kind": "wants-w01",
+      "image_choices": false
+    },
+    {
+      "text": "The red ones.",
+      "es": "Las rojas.",
+      "image": "/lesson-assets/a1plus-unit-2-w02-aa3f2fba1ae36933.webp",
+      "kind": "which-w02",
+      "image_choices": false
+    },
+    {
+      "text": "The green one.",
+      "es": "La verde.",
+      "image": "/lesson-assets/a1plus-unit-2-w02-aa3f2fba1ae36933.webp",
+      "kind": "which-w02",
+      "image_choices": false
+    },
+    {
+      "text": "She wants the red ones.",
+      "es": "Ella quiere las rojas.",
+      "image": "/lesson-assets/a1plus-unit-2-w02-aa3f2fba1ae36933.webp",
+      "kind": "wants-w02",
+      "image_choices": false
+    },
+    {
+      "text": "She wants the green one.",
+      "es": "Ella quiere la verde.",
+      "image": "/lesson-assets/a1plus-unit-2-w02-aa3f2fba1ae36933.webp",
+      "kind": "wants-w02",
+      "image_choices": false
+    },
+    {
+      "text": "The red one.",
+      "es": "El rojo.",
+      "image": "/lesson-assets/a1plus-unit-2-w03-35187916681c2f92.webp",
+      "kind": "which-w03",
+      "image_choices": false
+    },
+    {
+      "text": "The blue ones.",
+      "es": "Los azules.",
+      "image": "/lesson-assets/a1plus-unit-2-w03-35187916681c2f92.webp",
+      "kind": "which-w03",
+      "image_choices": false
+    },
+    {
+      "text": "He wants the red one.",
+      "es": "Él quiere el rojo.",
+      "image": "/lesson-assets/a1plus-unit-2-w03-35187916681c2f92.webp",
+      "kind": "wants-w03",
+      "image_choices": false
+    },
+    {
+      "text": "He wants the blue ones.",
+      "es": "Él quiere los azules.",
+      "image": "/lesson-assets/a1plus-unit-2-w03-35187916681c2f92.webp",
+      "kind": "wants-w03",
+      "image_choices": false
+    },
+    {
+      "text": "The black ones.",
+      "es": "Las negras.",
+      "image": "/lesson-assets/a1plus-unit-2-w04-91eb780318682e99.webp",
+      "kind": "which-w04",
+      "image_choices": false
+    },
+    {
+      "text": "The white one.",
+      "es": "La blanca.",
+      "image": "/lesson-assets/a1plus-unit-2-w04-91eb780318682e99.webp",
+      "kind": "which-w04",
+      "image_choices": false
+    },
+    {
+      "text": "He wants the black ones.",
+      "es": "Él quiere las negras.",
+      "image": "/lesson-assets/a1plus-unit-2-w04-91eb780318682e99.webp",
+      "kind": "wants-w04",
+      "image_choices": false
+    },
+    {
+      "text": "He wants the white one.",
+      "es": "Él quiere la blanca.",
+      "image": "/lesson-assets/a1plus-unit-2-w04-91eb780318682e99.webp",
+      "kind": "wants-w04",
+      "image_choices": false
+    }
+  ],
+  "layout": {
+    "Recognize": 11,
+    "Listen": 10,
+    "Speak": 8,
+    "Use": 8
+  },
+  "stage_sequences": {
+    "Learn": [
+      "l-which",
+      "l-green",
+      "l-white"
+    ],
+    "Recognize": [
+      "i-w01",
+      "t-w02",
+      "i-w03",
+      "a-w04",
+      "i-w04",
+      "t-w01",
+      "i-w02",
+      "a-w02",
+      "t-w03",
+      "a-w01",
+      "t-w04"
+    ],
+    "Listen": [
+      "i-w02",
+      "a-w03",
+      "t-w04",
+      "i-w01",
+      "a-w01",
+      "t-w03",
+      "i-w04",
+      "a-w02",
+      "i-w03",
+      "a-w04"
+    ],
+    "Speak": [
+      "i-w01",
+      "i-w02",
+      "i-w03",
+      "i-w04",
+      "q-ones",
+      "t-w01",
+      "t-w04",
+      "t-w02"
+    ],
+    "Use": [
+      "i-w01",
+      "t-w02",
+      "q-ones",
+      "i-w03",
+      "t-w04",
+      "i-w02",
+      "t-w01",
+      "i-w04"
+    ]
+  }
+}

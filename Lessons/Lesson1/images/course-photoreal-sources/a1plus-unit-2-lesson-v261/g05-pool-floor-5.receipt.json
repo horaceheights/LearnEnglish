@@ -1,0 +1,55 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "1f7e1bef-2697-48d7-b02d-49d56a6c6880",
+  "asset_id": "g05-pool-floor-5",
+  "pack_sha256": "b817a7a2d9e7f208644b692e4cb87bbf54e89e459bd5527e1ac27242bdfa9eae",
+  "started_at": "2026-11-20T02:09:58.552147+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, logos or brand marks anywhere, and no number anywhere except the one large numeral described: no other signs, buttons, plaques, door numbers or license plates show any digit.\n\nThere are no people anywhere in the photo, not even far in the background or inside the vehicles.\n\nIt is clearly daytime with soft natural light.\n\nThe small, bright elevator lobby on one floor of a tall city building: the closed metal elevator door on the left. Beyond it, through a big clear glass wall, an indoor swimming pool with clear blue water and lane lines, under big windows. On the plain light wall right next to the elevator door there is one very large dark numeral 5, painted on the wall, sharp and easy to read on a phone. The numeral 5 and the pool behind the glass are both inside the central 55 percent of the photo width. Nobody is in the photo.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "9qv_apnpK_mfz7IP2KH2qQc",
+  "usage": {
+    "promptTokenCount": 290,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1580,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 290
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038787",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 290,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 5.71,
+  "output": "output/imagegen/a1plus-unit-2-lesson-v261/g05-pool-floor-5.png",
+  "sha256": "88c2737cfa8b075083706b9b6bc89cab5c54ad3fea3e1a584587486473979989",
+  "byte_count": 1201149,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}

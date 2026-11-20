@@ -1,0 +1,55 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "ae960d48-f571-4521-8eec-d16fcd0b161a",
+  "asset_id": "g03-store-floor-3",
+  "pack_sha256": "b817a7a2d9e7f208644b692e4cb87bbf54e89e459bd5527e1ac27242bdfa9eae",
+  "started_at": "2026-11-20T02:09:43.297842+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, logos or brand marks anywhere, and no number anywhere except the one large numeral described: no other signs, buttons, plaques, door numbers or license plates show any digit.\n\nThere are no people anywhere in the photo, not even far in the background or inside the vehicles.\n\nIt is clearly daytime with soft natural light.\n\nThe small, bright elevator lobby on one floor of a tall city building: the closed metal elevator door on the left. Beyond it, through a big clear glass wall, a clothing store with racks of shirts and jackets and shelves of shoes. On the plain light wall right next to the elevator door there is one very large dark numeral 3, painted on the wall, sharp and easy to read on a phone. The numeral 3 and the store behind the glass are both inside the central 55 percent of the photo width. Nobody is in the photo.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "56v_aryuGYLrz7IP4a3Y6A4",
+  "usage": {
+    "promptTokenCount": 288,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1578,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 288
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038786",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 288,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 6.01,
+  "output": "output/imagegen/a1plus-unit-2-lesson-v261/g03-store-floor-3.png",
+  "sha256": "b268ea85245992050491b9b3678b7999b18f71093314dacf6e9ab1147a1c1781",
+  "byte_count": 1378192,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}
