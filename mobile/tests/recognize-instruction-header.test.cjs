@@ -141,7 +141,7 @@ assert.equal(instructionApi.usesCompactRecognizeInstruction('Recognize', 'Where 
 assert.equal(instructionApi.usesCompactRecognizeInstruction('Learn', 'There is'), false);
 assert.match(
   instructionSource,
-  /export function recognizeChoiceInstruction[\s\S]*CHOOSE_CORRECT_WORD_INSTRUCTION[\s\S]*CHOOSE_CORRECT_PHRASE_INSTRUCTION[\s\S]*export function lessonHeaderPromptText\(\s*lessonId: string,\s*stage: string,\s*prompt: string,[\s\S]*usesCompactRecognizeInstruction\(stage, prompt\)\) return recognizeChoiceInstruction\(options\)/,
+  /export function recognizeChoiceInstruction[\s\S]*CHOOSE_CORRECT_WORD_INSTRUCTION[\s\S]*CHOOSE_CORRECT_PHRASE_INSTRUCTION[\s\S]*export function lessonHeaderPromptText\(\s*lessonId: string,\s*stage: string,\s*prompt: string,[\s\S]*usesCompactRecognizeInstruction\(stage, prompt\)\) return recognizeChoiceInstruction\(options, language\)/,
   'The shared header copy resolver must fill the otherwise empty third line.',
 );
 assert.match(
@@ -151,12 +151,12 @@ assert.match(
 );
 assert.match(
   screenSource,
-  /styles\.contentHeaderPhraseBox[\s\S]*?\{isPronunciation[\s\S]*?pronunciationInstruction\(\)[\s\S]*?: renderPrompt\(\)\}/,
+  /styles\.contentHeaderPhraseBox[\s\S]*?\{isPronunciation[\s\S]*?pronunciationInstruction\(lang\)[\s\S]*?: renderPrompt\(\)\}/,
   'An empty Recognize prompt must render its instruction in the shared importance box.',
 );
 assert.match(
   screenSource,
-  /lessonHeaderPromptText\(lesson\.id, currentCard\.stage, displayedPrompt, currentCard\.options\)/,
+  /lessonHeaderPromptText\(lesson\.id, currentCard\.stage, displayedPrompt, currentCard\.options, lang\)/,
   'The rendered third line must use the shared header copy resolver.',
 );
 assert.match(

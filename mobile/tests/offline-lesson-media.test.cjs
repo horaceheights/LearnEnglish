@@ -41,7 +41,7 @@ assert.doesNotMatch(lessonScreenSource, /single_card_completed_without_audio/);
 
 assert.match(
   lessonScreenSource,
-  /!isPronunciation[\s\S]*?offlinePronunciationPromptedRef\.current[\s\S]*?Alert\.alert\(\s*'Advertencia'/,
+  /!isPronunciation[\s\S]*?offlinePronunciationPromptedRef\.current[\s\S]*?Alert\.alert\(\s*ui\(lang, 'Advertencia'\)/,
   'The connection warning must be gated to Speak/pronunciation cards.',
 );
 assert.match(
@@ -49,8 +49,8 @@ assert.match(
   /'Tu conexión se perdió\. Continuaremos sin calificación de pronunciación; solo podrás escuchar tu respuesta\.'/,
   'The warning must explain the exact offline pronunciation behavior.',
 );
-assert.match(lessonScreenSource, /style: 'destructive', text: 'Salir'/);
-assert.match(lessonScreenSource, /text: 'Continuar'/);
+assert.match(lessonScreenSource, /style: 'destructive', text: ui\(lang, 'Salir'\)/);
+assert.match(lessonScreenSource, /text: ui\(lang, 'Continuar'\)/);
 assert.match(lessonScreenSource, /\{ cancelable: false \}/);
 assert.match(
   lessonScreenSource,
@@ -80,7 +80,7 @@ const offlineReviewStart = finishCaptureSource.indexOf('if (offlinePracticeEnabl
 const scoringStart = finishCaptureSource.indexOf('const nextResult = await scorePronunciation');
 assert.ok(offlineReviewStart >= 0 && scoringStart > offlineReviewStart);
 const offlineReviewSource = finishCaptureSource.slice(offlineReviewStart, scoringStart);
-assert.match(offlineReviewSource, /setMessage\('Escucha tu respuesta\.'\)/);
+assert.match(offlineReviewSource, /setMessage\(ui\(lang, 'Escucha tu respuesta\.'\)\)/);
 assert.match(offlineReviewSource, /await playAttemptRecording\(recordingUri, runId\)/);
 assert.match(offlineReviewSource, /onUnavailable\(\);\s*return;/);
 assert.doesNotMatch(offlineReviewSource, /scorePronunciation|setResult\(nextResult\)|onAttempted/);

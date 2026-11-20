@@ -22,9 +22,9 @@ assert.match(appSource, /<CourseScreen[\s\S]*?onHome=\{\(\) => setScreen\(\{ nam
 assert.match(accountSource, /<BrandHeader[\s\S]*?onLogoPress=/);
 assert.match(profileSource, /<BrandHeader[\s\S]*?onLogoPress=\{onCancel\}/);
 assert.match(brandHeaderSource, /accessibilityLabel="Ir a Inicio"/);
-assert.match(courseSource, /accessibilityLabel="Ir a Inicio"[\s\S]*?onPress=\{onHome\}[\s\S]*?spanglish-header-logo/);
+assert.match(courseSource, /accessibilityLabel=\{ui\(lang, 'Ir a Inicio'\)\}[\s\S]*?onPress=\{onHome\}[\s\S]*?spanglish-header-logo/);
 
-assert.match(lessonSource, /accessibilityLabel="Salir de la lección e ir a Inicio"/);
+assert.match(lessonSource, /accessibilityLabel=\{ui\(lang, 'Salir de la lección e ir a Inicio'\)\}/);
 assert.match(lessonSource, /'¿Salir de la lección\?'/);
 assert.match(lessonSource, /'¿Quieres salir de la lección y volver a Inicio\?'/);
 assert.ok(

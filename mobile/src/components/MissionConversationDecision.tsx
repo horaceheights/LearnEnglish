@@ -9,7 +9,9 @@ import { lessonMistakeHint } from '../lessonMistakeHints';
 import { OptionMediaImage } from './OptionMediaImage';
 import { TutorButton } from './TutorButton';
 import { useManualSentenceTranslation } from '../hooks/useManualSentenceTranslation';
-import { OPTION_TRANSLATION_BUTTON_LABEL, optionTranslationText, optionTranslationsAvailable } from '../optionTranslations';
+import { optionTranslationButtonLabel, optionTranslationText, optionTranslationsAvailable } from '../optionTranslations';
+import { ui } from '../uiText';
+import { useUiLanguage } from '../uiLanguage';
 
 type Props = {
   card: LessonCard;
@@ -29,6 +31,7 @@ type Props = {
 };
 
 export function MissionConversationDecision(props: Props) {
+  const lang = useUiLanguage();
   const { card, paused, interactionReady, cueUnavailable, onReplay, onTutor, onTutorInset, landscapeHeader } = props;
   const { state, controller } = useMissionConversationDecision(card, interactionReady, paused, props);
   const { width, height } = useWindowDimensions();
@@ -48,7 +51,7 @@ export function MissionConversationDecision(props: Props) {
   const translationsVisible = showTranslate && optionTranslation.visible;
   const mistakeFeedback = hint ? <View accessibilityLiveRegion="polite" style={styles.feedback}>
     <ScrollView style={styles.explanation} contentContainerStyle={styles.explanationContent}>
-      <Text style={styles.encouragement}>Cuando te equivocas, también aprendes.</Text>
+      <Text style={styles.encouragement}>{ui(lang, 'Cuando te equivocas, también aprendes.')}</Text>
       <Text style={styles.hint}>× {hint}</Text>
     </ScrollView>
     <View style={styles.actions}>
@@ -60,36 +63,36 @@ export function MissionConversationDecision(props: Props) {
     <View style={landscape ? styles.rail : undefined}>
       {landscape ? landscapeHeader : null}
       <View onLayout={event => onTutorInset?.(landscape ? 0 : event.nativeEvent.layout.height + 8)} style={styles.instruction}>
-        <Text style={styles.direction}>{completion?.context_es || CONVERSATION_DECISION_INSTRUCTION}</Text>
-        {!completion ? <Pressable accessibilityRole="button" accessibilityLabel="Repetir la conversación en inglés"
+        <Text style={styles.direction}>{completion?.context_es || ui(lang, CONVERSATION_DECISION_INSTRUCTION)}</Text>
+        {!completion ? <Pressable accessibilityRole="button" accessibilityLabel={ui(lang, 'Repetir la conversación en inglés')}
           disabled={replayDisabled} onPress={onReplay} style={styles.speaker}>
           <Ionicons name="volume-high" color="#247b78" size={28} />
         </Pressable> : null}
       </View>
-      {showTranslate ? <Pressable accessibilityRole="button" accessibilityLabel="Traducir las opciones al español"
-        accessibilityHint="Muestra las opciones en español por unos segundos." hitSlop={{ bottom: 8, left: 6, right: 6, top: 8 }}
+      {showTranslate ? <Pressable accessibilityRole="button" accessibilityLabel={ui(lang, 'Traducir las opciones al español')}
+        accessibilityHint={ui(lang, 'Muestra las opciones en español por unos segundos.')} hitSlop={{ bottom: 8, left: 6, right: 6, top: 8 }}
         onPress={() => optionTranslation.open()}
         style={({ pressed }) => [styles.translate, translationsVisible ? styles.translateActive : null, pressed ? styles.translatePressed : null]}>
         <Ionicons color="#23856f" name="language" size={15} />
-        <Text maxFontSizeMultiplier={1.2} style={styles.translateLabel}>{OPTION_TRANSLATION_BUTTON_LABEL}</Text>
+        <Text maxFontSizeMultiplier={1.2} style={styles.translateLabel}>{optionTranslationButtonLabel(lang)}</Text>
       </Pressable> : null}
-      {cueUnavailable && !completion && !busy ? <Text accessibilityLiveRegion="assertive" style={styles.error}>No se pudo reproducir el audio completo. Toca la bocina para volver a escuchar.</Text> : null}
-      {busy ? <Text accessibilityLiveRegion="polite" style={styles.status}>{hasResponse ? '✓ Escucha la respuesta…' : '✓ ¡Bien!'}</Text> : null}
+      {cueUnavailable && !completion && !busy ? <Text accessibilityLiveRegion="assertive" style={styles.error}>{ui(lang, 'No se pudo reproducir el audio completo. Toca la bocina para volver a escuchar.')}</Text> : null}
+      {busy ? <Text accessibilityLiveRegion="polite" style={styles.status}>{hasResponse ? ui(lang, '✓ Escucha la respuesta…') : ui(lang, '✓ ¡Bien!')}</Text> : null}
     </View>
     <View style={styles.body} onLayout={({ nativeEvent }) => setBodySize(current =>
       current.width === nativeEvent.layout.width && current.height === nativeEvent.layout.height ? current
         : { width: nativeEvent.layout.width, height: nativeEvent.layout.height })}>
       {mistakeFeedback || (state.phase === 'response-error' ? <View accessibilityLiveRegion="assertive" style={styles.feedback}>
-        <Text style={styles.hint}>{hasResponse ? 'La respuesta no se pudo escuchar completa.' : 'La continuación se interrumpió.'}</Text>
-        <Pressable accessibilityRole="button" disabled={paused} onPress={() => controller.retryResponse()} style={styles.retry}><Text style={styles.buttonText}>{hasResponse ? 'Repetir respuesta' : 'Continuar'}</Text></Pressable>
+        <Text style={styles.hint}>{hasResponse ? ui(lang, 'La respuesta no se pudo escuchar completa.') : ui(lang, 'La continuación se interrumpió.')}</Text>
+        <Pressable accessibilityRole="button" disabled={paused} onPress={() => controller.retryResponse()} style={styles.retry}><Text style={styles.buttonText}>{hasResponse ? ui(lang, 'Repetir respuesta') : 'Continuar'}</Text></Pressable>
       </View> : completion ? <>
         <View style={styles.hero}><OptionMediaImage imageUrl={completion.image_url} accessibilityLabel={completion.context_es} /></View>
-        <Pressable accessibilityRole="button" accessibilityLabel="Continuar la historia" disabled={paused}
-          onPress={() => controller.continue()} style={styles.retry}><Text style={styles.buttonText}>Continuar →</Text></Pressable>
+        <Pressable accessibilityRole="button" accessibilityLabel={ui(lang, 'Continuar la historia')} disabled={paused}
+          onPress={() => controller.continue()} style={styles.retry}><Text style={styles.buttonText}>{ui(lang, 'Continuar →')}</Text></Pressable>
       </> : <>
         {!images && props.imageUrl ? <View style={styles.hero}><OptionMediaImage imageUrl={props.imageUrl}
-          clockCues={visibleClockCues(card, props.clockCues, state.phase === 'responding')} accessibilityLabel="Escena de la conversación" /></View> : null}
-        {!interactionReady && !cueUnavailable && state.phase === 'choosing' ? <Text accessibilityLiveRegion="polite" style={styles.status}>Escucha…</Text> : null}
+          clockCues={visibleClockCues(card, props.clockCues, state.phase === 'responding')} accessibilityLabel={ui(lang, 'Escena de la conversación')} /></View> : null}
+        {!interactionReady && !cueUnavailable && state.phase === 'choosing' ? <Text accessibilityLiveRegion="polite" style={styles.status}>{ui(lang, 'Escucha…')}</Text> : null}
         <View style={[styles.options, images ? styles.imageOptions : null]}>
           {state.options.map((option, index) => <Pressable key={option.id} accessibilityRole="button"
             accessibilityLabel={option.image_url ? `Imagen ${index + 1}` : option.label || ''}

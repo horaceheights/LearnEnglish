@@ -201,6 +201,9 @@ def main() -> None:
          # Only a course that speaks another language declares its speech
          # locale; the English courses keep the backend's default.
          **({"speechLocale": descriptor["speechLocale"]} if descriptor.get("speechLocale") else {}),
+         # A course for English speakers runs its app screens in English;
+         # courses without a uiLanguage keep the Spanish app shell.
+         **({"uiLanguage": descriptor["uiLanguage"]} if descriptor.get("uiLanguage") else {}),
          "lessonIds": list(COURSE_LESSONS[descriptor["id"]])}
         for descriptor in COURSE_DESCRIPTORS
     ], ensure_ascii=True, indent=2) + "\n", encoding="utf-8")

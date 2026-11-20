@@ -6,6 +6,8 @@ import { Pressable, StyleSheet, View } from 'react-native';
 import { lessonStageShortLabel } from '../lessonInstructions';
 import { LESSON_STAGE_COLORS, lessonStageColorForSegment } from '../lessonStageTheme';
 import type { LessonCard } from '../types';
+import { ui } from '../uiText';
+import { useUiLanguage } from '../uiLanguage';
 
 type Props = {
   allComplete?: boolean;
@@ -57,6 +59,7 @@ export function StageJourney({
   maxVisitedIndex = currentIndex,
   onStagePress,
 }: Props) {
+  const lang = useUiLanguage();
   const segments = useMemo<StageSegment[]>(() => {
     const grouped: StageSegment[] = [];
     cards.forEach((card, index) => {
@@ -67,13 +70,13 @@ export function StageJourney({
       }
       grouped.push({
         end: index,
-        label: lessonStageShortLabel(lessonId, card.stage),
+        label: lessonStageShortLabel(lessonId, card.stage, lang),
         stage: card.stage,
         start: index,
       });
     });
     return grouped;
-  }, [cards, lessonId]);
+  }, [cards, lang, lessonId]);
 
   const activeSegmentIndex = Math.max(
     0,
@@ -96,7 +99,7 @@ export function StageJourney({
           const foregroundColor = color === LESSON_STAGE_COLORS[4] ? '#3d2a00' : '#fff';
           return (
             <Pressable
-              accessibilityLabel={`Ir a la sección ${segment.label}${isComplete ? ', completada' : isActive ? ', sección actual' : !isUnlocked ? ', bloqueada' : ''}`}
+              accessibilityLabel={`${ui(lang, 'Ir a la sección {label}', { label: segment.label })}${isComplete ? ui(lang, ', completada') : isActive ? ui(lang, ', sección actual') : !isUnlocked ? ui(lang, ', bloqueada') : ''}`}
               accessibilityRole="button"
               accessibilityState={{ disabled: !isUnlocked, selected: isActive }}
               disabled={!isUnlocked || !onStagePress}

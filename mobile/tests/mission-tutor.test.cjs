@@ -18,12 +18,16 @@ function harness(platform) {
     useMemo(fn,deps) { const i=cursor++;if(!same(slots[i]?.deps,deps))slots[i]={deps,value:fn()};return slots[i].value; },
     useCallback(fn,deps) { return react.useMemo(()=>fn,deps); },
     useEffect(fn,deps) { const i=cursor++;if(!same(slots[i]?.deps,deps))effects.push(()=>{slots[i]?.cleanup?.();slots[i]={deps,cleanup:fn()};}); },
+    // Course app language context (2026-11-19): the default (Spanish) applies.
+    createContext(value) { return {value,Provider:'Fragment'}; },
+    useContext(context) { return context.value; },
   };
   const noop=()=>{};
   const jsx=(type,props,key)=>({type,props,key});
   const setTimer=(fn,delay)=>{timers.set(fn,now+delay);return fn;};
   function load(relative) {
     const file=path.resolve(root,relative);if(modules.has(file))return modules.get(file);
+    if(file.endsWith('.json'))return JSON.parse(fs.readFileSync(file,'utf8'));
     const api={};modules.set(file,api);
     const source=ts.transpileModule(fs.readFileSync(file,'utf8'),{fileName:file.replace(/\.mjs$/,'.js'),compilerOptions:{jsx:ts.JsxEmit.ReactJSX,module:ts.ModuleKind.CommonJS,target:ts.ScriptTarget.ES2022}}).outputText;
     const req=id=>{

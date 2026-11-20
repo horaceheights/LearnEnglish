@@ -11,6 +11,8 @@ import { TutorButton } from './TutorButton';
 import { useMissionTransition } from '../hooks/useMissionTransition';
 import type { TutorMissionFocus } from '../lessonTutor';
 import { MissionConversationDecision } from './MissionConversationDecision';
+import { ui } from '../uiText';
+import { useUiLanguage } from '../uiLanguage';
 
 type Result = 'correct' | 'wrong' | null;
 
@@ -51,6 +53,7 @@ function TargetDot({
   marker: HeadMarker;
   target: MissionGameTarget;
 }) {
+  const lang = useUiLanguage();
   const reduceMotion = useReducedMotion();
   const pulse = useRef(new Animated.Value(0)).current;
   const { collective, width: targetWidth, height: targetHeight } = marker;
@@ -81,7 +84,7 @@ function TargetDot({
 
   return (
     <Pressable
-      accessibilityHint={target.subject_kind === 'object' ? 'Escucha la frase y toca si describe este objeto, lugar o grupo.' : 'Escucha la frase y toca si describe a esta persona o grupo.'}
+      accessibilityHint={target.subject_kind === 'object' ? ui(lang, 'Escucha la frase y toca si describe este objeto, lugar o grupo.') : ui(lang, 'Escucha la frase y toca si describe a esta persona o grupo.')}
       accessibilityLabel={target.label_es || 'Persona'}
       accessibilityRole="button"
       accessibilityState={{ disabled, selected: isSolved }}
@@ -151,6 +154,7 @@ export function MissionGameSurface({
   onDecisionAdvance,
   onDecisionRetry,
 }: Props) {
+  const lang = useUiLanguage();
   const { height: viewportHeight, width: viewportWidth } = useWindowDimensions();
   const game = card.mission_game;
   const [cueIndex, setCueIndex] = useState(0);
@@ -171,15 +175,15 @@ export function MissionGameSurface({
   const landscapeInstruction = game.targets.every(target => target.subject_kind === 'object')
     ? game.instruction_es
     : game.targets.every((target) => (target.head_anchors?.length ?? 1) > 1)
-    ? 'Escucha y toca al grupo.'
+    ? ui(lang, 'Escucha y toca al grupo.')
     : game.targets.some((target) => (target.head_anchors?.length ?? 1) > 1)
-      ? 'Escucha y toca a la persona o al grupo.'
-      : 'Escucha y toca a la persona.';
+      ? ui(lang, 'Escucha y toca a la persona o al grupo.')
+      : ui(lang, 'Escucha y toca a la persona.');
   const resolving = Boolean(feedback);
   const disabled = paused || !interactionReady || resolving || showCompletionScene || result === 'correct';
   const cueProgress = useMemo(
-    () => `${Math.min(cueIndex + 1, game.cues.length)} de ${game.cues.length}`,
-    [cueIndex, game.cues.length],
+    () => ui(lang, '{current} de {total}', { current: Math.min(cueIndex + 1, game.cues.length), total: game.cues.length }),
+    [cueIndex, game.cues.length, lang],
   );
   const sceneFrame = useMemo(
     () => fitMissionHeadScene(
@@ -211,7 +215,7 @@ export function MissionGameSurface({
     setSubmittedTarget(target.id);
     if (target.id !== currentCue.target_id) {
       setWrongTargetId(target.id);
-      setFeedback('Escucha otra vez. Tus aciertos siguen guardados.');
+      setFeedback(ui(lang, 'Escucha otra vez. Tus aciertos siguen guardados.'));
       onMisstep([target.id]);
       scheduleTransition(() => {
         setWrongTargetId(null);
@@ -268,17 +272,17 @@ export function MissionGameSurface({
       <View style={[styles.instructionCopy, useLandscapeGameRail ? styles.instructionCopyLandscape : null]}>
         <View style={[styles.instructionMeta, useLandscapeGameRail ? styles.instructionMetaLandscape : null]}>
           {!useLandscapeGameRail ? <Text style={styles.kindLabel}>{missionChallengeLabel(game)}</Text> : null}
-          <Text style={styles.cueProgress}>{completionScene ? 'LA HISTORIA CONTINÚA' : `PISTA ${cueProgress}`}</Text>
+          <Text style={styles.cueProgress}>{completionScene ? ui(lang, 'LA HISTORIA CONTINÚA') : `PISTA ${cueProgress}`}</Text>
         </View>
         <Text accessibilityLiveRegion={completionScene || useLandscapeGameRail ? 'polite' : 'none'} adjustsFontSizeToFit minimumFontScale={0.78} numberOfLines={useLandscapeGameRail ? 4 : completionScene ? 3 : 2} style={styles.instruction}>
           {completionScene ? completionScene.context_es : useLandscapeGameRail && feedback ? feedback
-            : useLandscapeGameRail && cueUnavailable ? 'Toca el botón de sonido para escuchar otra vez.'
+            : useLandscapeGameRail && cueUnavailable ? ui(lang, 'Toca el botón de sonido para escuchar otra vez.')
               : useLandscapeGameRail ? landscapeInstruction : game.instruction_es}
         </Text>
       </View>
       {completionScene ? <Pressable
         accessibilityRole="button"
-        accessibilityLabel="Continuar la historia"
+        accessibilityLabel={ui(lang, 'Continuar la historia')}
         disabled={paused || result === 'correct'}
         onPress={() => {
           if (selectionLockRef.current) return;
@@ -287,8 +291,8 @@ export function MissionGameSurface({
         }}
         style={styles.audioButton}
       ><Ionicons color="#fff" name="arrow-forward" size={23} /></Pressable> : <Pressable
-        accessibilityHint="Reproduce otra vez la frase en inglés."
-        accessibilityLabel="Repetir la frase"
+        accessibilityHint={ui(lang, 'Reproduce otra vez la frase en inglés.')}
+        accessibilityLabel={ui(lang, 'Repetir la frase')}
         accessibilityRole="button"
         disabled={paused || resolving || result === 'correct'}
       hitSlop={useLandscapeGameRail ? 0 : 7}
@@ -352,19 +356,19 @@ export function MissionGameSurface({
               width: sceneFrame.imageWidth + 8, height: sceneFrame.imageHeight + 8,
             }]}>
               <View style={styles.sceneCanvas}>
-              <OptionMediaImage accessibilityLabel={completionScene?.context_es || 'Escena de la misión'} imageUrl={heroImageUrl} />
+              <OptionMediaImage accessibilityLabel={completionScene?.context_es || ui(lang, 'Escena de la misión')} imageUrl={heroImageUrl} />
 
               {!completionScene && !useLandscapeGameRail && !interactionReady && !feedback && !cueUnavailable ? (
                 <View pointerEvents="none" style={styles.listeningBadge}>
                   <Ionicons color="#fff" name="ear" size={18} />
-                  <Text style={styles.listeningText}>Escucha…</Text>
+                  <Text style={styles.listeningText}>{ui(lang, 'Escucha…')}</Text>
                 </View>
               ) : null}
 
               {!completionScene && !useLandscapeGameRail && cueUnavailable && !feedback ? (
                 <View accessibilityLiveRegion="assertive" pointerEvents="none" style={styles.retryBadge}>
                   <Ionicons color="#fff" name="volume-high" size={19} />
-                  <Text style={styles.retryText}>El audio no se pudo reproducir. Toca el botón de sonido.</Text>
+                  <Text style={styles.retryText}>{ui(lang, 'El audio no se pudo reproducir. Toca el botón de sonido.')}</Text>
                 </View>
               ) : null}
 

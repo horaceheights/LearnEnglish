@@ -3,6 +3,8 @@ import { Image, Pressable, StyleSheet, Text, useWindowDimensions, View } from 'r
 
 import { lessonImageSource } from '../lessonImageSources';
 import type { MissionPresentation } from '../types';
+import { ui } from '../uiText';
+import { useUiLanguage } from '../uiLanguage';
 
 type Props = {
   onExit: () => void;
@@ -14,13 +16,14 @@ type Props = {
 };
 
 export function MissionKickoff({ onExit, onReplay, onStart, presentation, ready, challengeCount }: Props) {
+  const lang = useUiLanguage();
   const { height, width } = useWindowDimensions();
   const compact = height < 720 || width > height;
 
   return (
     <View style={[styles.page, compact ? styles.pageCompact : null]}>
       <View style={styles.topRow}>
-        <Pressable accessibilityLabel="Salir de la misión" accessibilityRole="button" onPress={onExit} style={styles.exitButton}>
+        <Pressable accessibilityLabel={ui(lang, 'Salir de la misión')} accessibilityRole="button" onPress={onExit} style={styles.exitButton}>
           <Ionicons color="#244c45" name="arrow-back" size={22} />
         </Pressable>
         <Text style={styles.label}>{presentation.label}</Text>
@@ -48,7 +51,7 @@ export function MissionKickoff({ onExit, onReplay, onStart, presentation, ready,
         </View>
       </View>
 
-      <View accessibilityLabel="Lo que harás en la misión" style={styles.objectives}>
+      <View accessibilityLabel={ui(lang, 'Lo que harás en la misión')} style={styles.objectives}>
         {presentation.objectives.map((objective, index) => (
           <View key={objective} style={styles.objective}>
             <View style={[styles.objectiveIcon, { backgroundColor: ['#e8754c', '#2e8b77', '#7862ae'][index % 3] }]}>
@@ -62,14 +65,14 @@ export function MissionKickoff({ onExit, onReplay, onStart, presentation, ready,
       <View accessibilityLiveRegion="polite" style={styles.startGuide}>
         <Ionicons color="#d56c45" name={ready ? 'checkmark-circle' : 'ear'} size={20} />
         <Text style={styles.startGuideText}>
-          {ready ? 'Listo. En cada reto, escucha en inglés y toca la respuesta.' : 'Escucha primero cómo funciona la misión…'}
+          {ready ? ui(lang, 'Listo. En cada reto, escucha en inglés y toca la respuesta.') : ui(lang, 'Escucha primero cómo funciona la misión…')}
         </Text>
       </View>
 
       <View style={styles.actions}>
         <Pressable accessibilityRole="button" onPress={onReplay} style={styles.replayButton}>
           <Ionicons color="#24594e" name="volume-high" size={20} />
-          <Text style={styles.replayText}>Escuchar otra vez</Text>
+          <Text style={styles.replayText}>{ui(lang, 'Escuchar otra vez')}</Text>
         </Pressable>
         <Pressable
           accessibilityRole="button"
@@ -78,7 +81,7 @@ export function MissionKickoff({ onExit, onReplay, onStart, presentation, ready,
           onPress={onStart}
           style={[styles.startButton, !ready ? styles.startButtonDisabled : null]}
         >
-          <Text style={styles.startText}>{ready ? 'Comenzar misión' : 'Escuchando…'}</Text>
+          <Text style={styles.startText}>{ready ? ui(lang, 'Comenzar misión') : ui(lang, 'Escuchando…')}</Text>
           <Ionicons color="#fff" name={ready ? 'arrow-forward' : 'ear'} size={20} />
         </Pressable>
       </View>

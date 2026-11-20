@@ -2,6 +2,7 @@ import { lessonStageLabel, listeningChoiceInstruction } from './lessonInstructio
 import { isMissionLesson } from './missionExperience';
 import { lessonStageColorForSegment } from './lessonStageTheme';
 import type { Lesson, LessonCard } from './types';
+import type { UiLanguage } from './uiText';
 
 // A briefing is derived from the authored stage boundaries, never authored as a
 // card. Lesson card counts are pinned by the backend structure tests and the
@@ -71,7 +72,43 @@ const FALLBACK_COPY: StageCopy = {
   summary: 'Terminaste esta sección.',
 };
 
-function stageCopy(stage: string): StageCopy {
+// English copy for courses taught to English speakers (uiLanguage "en", 2026-11-19).
+const ENGLISH_STAGE_COPY: Record<string, StageCopy> = {
+  Learn: {
+    intro: 'Meet the new words with their picture and sound.',
+    mechanic: 'This section is automatic: just watch and listen.',
+    summary: 'You met the new words in this lesson.',
+  },
+  Listen: {
+    intro: 'Now you only listen. Train your ear without reading the answer.',
+    mechanic: 'Listen and choose! Tap 🔊 to replay.',
+    summary: 'You understood the language by listening, without reading it.',
+  },
+  Recognize: {
+    intro: 'Now it’s your turn to choose. Sometimes you pick the photo and sometimes the sentence.',
+    mechanic: 'Tap the right answer. If you make a mistake, we explain why.',
+    summary: 'You recognized the words in photos and sentences.',
+  },
+  Speak: {
+    intro: 'Now you speak. Listen to the example and repeat it aloud.',
+    mechanic: 'You’ll use the microphone. Find a quiet place.',
+    summary: 'You said the sentences aloud.',
+  },
+  Use: {
+    intro: 'To finish, build the sentences with your own words.',
+    mechanic: 'Tap each word to place it; tap it again to send it back.',
+    summary: 'You built full sentences with what you learned.',
+  },
+};
+
+const ENGLISH_FALLBACK_COPY: StageCopy = {
+  intro: 'Keep practicing what you learned.',
+  mechanic: 'Tap the right answer.',
+  summary: 'You finished this section.',
+};
+
+function stageCopy(stage: string, language: UiLanguage = 'es'): StageCopy {
+  if (language === 'en') return ENGLISH_STAGE_COPY[stage] || ENGLISH_FALLBACK_COPY;
   return STAGE_COPY[stage] || FALLBACK_COPY;
 }
 
@@ -163,16 +200,19 @@ function doneChipsFor(lesson: Lesson, segment: StageSegment) {
   return phrases.length > 0 ? phrases : vocabulary.slice(0, MAX_PHRASE_CHIPS);
 }
 
-function listenMechanic(lesson: Lesson, segment: StageSegment) {
+function listenMechanic(lesson: Lesson, segment: StageSegment, language: UiLanguage = 'es') {
   // Reuse the shared photo/phrase rule so the briefing cannot drift from the
   // instruction the learner then sees on the card itself.
   const options = lesson.cards[segment.start]?.options ?? [];
-  return `${listeningChoiceInstruction(options)} Toca 🔊 para repetir.`;
+  return language === 'en'
+    ? `${listeningChoiceInstruction(options, language)} Tap 🔊 to replay.`
+    : `${listeningChoiceInstruction(options)} Toca 🔊 para repetir.`;
 }
 
 export function sectionBriefingForBoundary(
   lesson: Lesson | null | undefined,
   fromIndex: number | null,
+  language: UiLanguage = 'es',
 ): SectionBriefing | null {
   if (!lesson || !Array.isArray(lesson.cards) || lesson.cards.length === 0) return null;
   // Missions present one continuous story and must never show the stage journey.
@@ -193,9 +233,9 @@ export function sectionBriefingForBoundary(
   if (!nextSegment) return null;
 
   const doneSegment = isOpening ? null : segmentAt(segments, fromIndex);
-  const copy = stageCopy(nextSegment.stage);
+  const copy = stageCopy(nextSegment.stage, language);
   const mechanic = nextSegment.stage === 'Listen'
-    ? listenMechanic(lesson, nextSegment)
+    ? listenMechanic(lesson, nextSegment, language)
     : copy.mechanic;
 
   return {
@@ -203,15 +243,15 @@ export function sectionBriefingForBoundary(
     doneChips: doneSegment
       ? doneChipsFor(lesson, doneSegment)
       : uniqueInOrder(Array.isArray(lesson.vocabulary) ? lesson.vocabulary : [], MAX_CHIPS),
-    doneLabel: doneSegment ? lessonStageLabel(lesson.id, doneSegment.stage) : null,
+    doneLabel: doneSegment ? lessonStageLabel(lesson.id, doneSegment.stage, language) : null,
     doneSegmentIndex: doneSegment ? doneSegment.index : null,
     doneStage: doneSegment ? doneSegment.stage : null,
-    doneSummary: doneSegment ? stageCopy(doneSegment.stage).summary : null,
+    doneSummary: doneSegment ? stageCopy(doneSegment.stage, language).summary : null,
     kind: isOpening ? 'opening' : 'bridge',
     nextCardIndex,
     nextCount: nextSegment.end - nextSegment.start + 1,
     nextIntro: copy.intro,
-    nextLabel: lessonStageLabel(lesson.id, nextSegment.stage),
+    nextLabel: lessonStageLabel(lesson.id, nextSegment.stage, language),
     nextMechanic: mechanic,
     nextSegmentIndex: nextSegment.index,
     nextStage: nextSegment.stage,

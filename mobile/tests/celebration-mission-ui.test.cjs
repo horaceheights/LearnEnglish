@@ -117,7 +117,7 @@ assert.match(pronunciation, /presentation === 'mission-voice-gate'/);
 // syllable recognition and final word grade (see mission-voice-feedback.test.mjs).
 assert.match(pronunciation, /answer=\{phase === 'model' \? null : missionAnswerSegments\(/);
 assert.match(voicePresentation, /answer && !unavailable \? <Text/);
-assert.match(pronunciation, /phase === 'ready' \? 'Prepárate…'\s*: phase === 'listening' \? 'Lee la frase en voz alta\.'/);
+assert.match(pronunciation, /phase === 'ready' \? ui\(lang, 'Prepárate…'\)\s*: phase === 'listening' \? ui\(lang, 'Lee la frase en voz alta\.'\)/);
 assert.match(pronunciation, /Mission recall requires exactly one question turn/);
 assert.match(pronunciation, /phase === 'model' \? \(audioTurns\?\.\[0\]\?\.turn\.image_url/);
 assert.match(pronunciation, /mediaAspectRatio=\{missionVoiceGate && !isLandscape \? 1\.35 : 3 \/ 2\}/);

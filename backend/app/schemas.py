@@ -109,7 +109,7 @@ class LessonCard(BaseModel):
     context_es: str | None = Field(default=None, min_length=1, max_length=240)
     # Set only on German course cards (German grammar feedback in English);
     # omitted otherwise so English exports stay byte-identical.
-    target_language: Literal["de"] | None = None
+    target_language: Literal["de", "es"] | None = None
     stage: str
     correct_option_id: str
     correct_option_ids: list[str] = Field(default_factory=list)
@@ -211,7 +211,7 @@ class LessonCard(BaseModel):
         # English tiles are ASCII letters and behave exactly as before.
         if any(option.image_url or not re.fullmatch(r"(?:[^\W\d_]+(?:'[^\W\d_]+)?|[aApP]\.m\.)", option.label or "") for option in self.options):
             raise ValueError("Sentence construction tiles must contain one word each.")
-        if re.sub(r"___|[\s.!?,]", "", self.prompt) or self.prompt.count("___") != len(ids):
+        if re.sub(r"___|[\s.!?,¿¡]", "", self.prompt) or self.prompt.count("___") != len(ids):
             raise ValueError("Sentence construction must hide every word behind its own blank.")
         labels = {option.id: option.label for option in self.options}
         words = iter(labels[option_id] for option_id in ordered)

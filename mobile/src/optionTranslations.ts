@@ -7,6 +7,12 @@ import type { ChoiceOption, LessonCard } from './types';
 // sentence-translation window. It never opens by itself. Completa word tiles keep
 // their own sentence tap instead.
 export const OPTION_TRANSLATION_BUTTON_LABEL = 'Traducir';
+// Courses for English speakers (uiLanguage "en", 2026-11-19) label it in English.
+export const OPTION_TRANSLATION_BUTTON_LABEL_ENGLISH = 'Translate';
+
+export function optionTranslationButtonLabel(language: 'es' | 'en' = 'es') {
+  return language === 'en' ? OPTION_TRANSLATION_BUTTON_LABEL_ENGLISH : OPTION_TRANSLATION_BUTTON_LABEL;
+}
 
 const TRANSLATED_CHOICE_STAGES = new Set(['Recognize', 'Listen']);
 

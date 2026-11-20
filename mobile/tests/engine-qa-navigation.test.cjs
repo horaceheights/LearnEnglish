@@ -123,6 +123,9 @@ const modules = {
   '../updates': { releaseVersionLabel: () => 'Versión de prueba' },
   '../components/PlayfulLoading': { PlayfulLoading: 'PlayfulLoading' },
   '../hooks/useConnectivity': { useConnectivity: () => false },
+  // Course app language (2026-11-19): the A1 course keeps Spanish.
+  '../uiLanguage': { uiLanguageForCourse: () => 'es', UiLanguageContext: { Provider: 'Provider' } },
+  '../uiText': { ui: (_language, text, values) => (values ? text.replace(/\{(\w+)\}/g, (_, key) => String(values[key] ?? '')) : text) },
 };
 const courseModule = { exports: {} };
 vm.runInNewContext(ts.transpileModule(courseSource, {

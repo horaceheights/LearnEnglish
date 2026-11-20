@@ -10,6 +10,7 @@ function loader(overrides = {}) {
   function load(file) {
     file = path.resolve(root, file);
     if (modules.has(file)) return modules.get(file);
+    if (file.endsWith('.json')) return JSON.parse(fs.readFileSync(file, 'utf8'));
     const module = { exports: {} };
     modules.set(file, module.exports);
     const code = ts.transpileModule(fs.readFileSync(file, 'utf8'), { fileName: file,
@@ -278,6 +279,9 @@ function harness(platform, completion = false, imageOptions = false, translated 
     // The Traducir window (useManualSentenceTranslation) memoizes its opener.
     useCallback(fn, deps) { return react.useMemo(() => fn, deps); },
     useEffect(fn, deps) { const i = cursor++; if (!same(slots[i]?.deps, deps)) effects.push(() => { slots[i]?.cleanup?.(); slots[i] = { deps, cleanup: fn(), effect: fn }; }); },
+    // Course app language context (2026-11-19): the default (Spanish) applies.
+    createContext(value) { return { value, Provider: 'Fragment' }; },
+    useContext(context) { return context.value; },
   };
   const jsx = (type, props, key) => ({ type, props, key });
   const load = loader({ react, 'react/jsx-runtime': { jsx, jsxs: jsx, Fragment: 'Fragment' },

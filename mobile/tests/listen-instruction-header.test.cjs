@@ -62,8 +62,8 @@ for (const count of [2, 3, 4]) {
 }
 assert.equal(listeningChoiceInstruction([]), '¡Escucha y elige!');
 assert.equal(listeningChoiceInstruction([{ image_url: 'photo.webp' }, {}]), '¡Escucha y elige!');
-assert.match(screenSource, /const localizedPrompt = useCompactListenInstruction\s*\? listeningChoiceInstruction\(currentCard\.options\)/);
-assert.match(screenSource, /`Instrucción: \$\{listeningChoiceInstruction\(currentCard\.options\)\}`/);
+assert.match(screenSource, /const localizedPrompt = useCompactListenInstruction\s*\? listeningChoiceInstruction\(currentCard\.options, lang\)/);
+assert.match(screenSource, /ui\(lang, 'Instrucción: \{text\}', \{ text: listeningChoiceInstruction\(currentCard\.options, lang\) \}\)/);
 assert.ok(
   listenCards.every((card) => card.prompt.trim() === 'Listen and choose.'),
   'Every standard-lesson Listen card must use the shared authored instruction contract.',
@@ -101,7 +101,7 @@ assert.match(screenSource, /if \(useCompactHeaderInstruction\) return localizedP
   'Instruction copy bypasses learning-word highlighting and animations.');
 assert.match(
   instructionSource,
-  /const instruction = SPANISH_INSTRUCTION_PROMPTS\[prompt\.trim\(\)\];\s*if \(instruction\) return instruction;\s*if \(!usesSpanishInstructions\(lessonId\)\) return prompt;/,
+  /const instruction = SPANISH_INSTRUCTION_PROMPTS\[prompt\.trim\(\)\];\s*if \(instruction\) return inLanguage\(language, instruction\);\s*if \(!usesSpanishInstructions\(lessonId\)\) return prompt;/,
   'The approved Listen instruction must localize in every unit while other prompts retain existing language behavior.',
 );
 

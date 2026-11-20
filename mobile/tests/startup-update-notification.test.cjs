@@ -35,7 +35,7 @@ test('the startup popup is one-time and shows only the current version and commi
 });
 
 test('the Actualizar menu shows the same version and commit without other identifiers', () => {
-  assert.match(courseSource, /<Text style=\{styles\.menuOptionTitle\}>Actualizar<\/Text>[\s\S]*?releaseVersionLabel\(currentVersion\)/);
+  assert.match(courseSource, /<Text style=\{styles\.menuOptionTitle\}>\{ui\(lang, 'Actualizar'\)\}<\/Text>[\s\S]*?releaseVersionLabel\(currentVersion\)/);
   assert.doesNotMatch(courseSource, /installedVersion|currentBuild|Build:/);
 });
 

@@ -26,7 +26,10 @@ export function lessonHarness(viewport, options = {}) {
     }];
   };
   const react = { useState: state, useRef: value => state({ current: value })[0], useMemo: fn => fn(), useCallback: fn => fn, useEffectEvent: fn => fn,
-    useEffect: () => {}, useLayoutEffect: () => {}, Fragment: 'Fragment' };
+    useEffect: () => {}, useLayoutEffect: () => {}, Fragment: 'Fragment',
+    // Course app language (2026-11-19): contexts render their default unless a test picks a language.
+    createContext: value => ({ value, Provider: props => element('Fragment', { children: props.children }) }),
+    useContext: context => options.uiLanguage ?? context.value };
   class Value { setValue() {} interpolate() { return 0; } getTranslateTransform() { return []; } }
   const rn = { AppState: { currentState: 'active' }, Platform: { OS: 'android' }, KeyboardAvoidingView: 'View', ActivityIndicator: 'View', Switch: 'Switch', TextInput: 'TextInput', Modal: props => props.visible ? element('Fragment', { children: props.children }) : null, View: 'View', Text: 'Text', Pressable: 'Pressable', ScrollView: 'ScrollView', Image: 'Image',
     useWindowDimensions: () => viewport, StyleSheet: { create: x => x, absoluteFill: { position: 'absolute', top: 0, bottom: 0, left: 0, right: 0 } },

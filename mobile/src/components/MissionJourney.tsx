@@ -3,6 +3,8 @@ import { StyleSheet, Text, View } from 'react-native';
 
 import type { MissionChapterProgress } from '../missionExperience';
 import type { MissionPresentation } from '../types';
+import { ui } from '../uiText';
+import { useUiLanguage } from '../uiLanguage';
 
 type Props = {
   chapters: MissionChapterProgress[];
@@ -29,13 +31,14 @@ export function MissionJourney({
   step,
   total,
 }: Props) {
+  const lang = useUiLanguage();
   const activeChapter = chapters.find((chapter) => chapter.isActive) ?? chapters[0];
   const progress = total > 0 ? Math.min(100, Math.max(0, (step / total) * 100)) : 0;
 
   return (
     <View
       accessible
-      accessibilityLabel={`${presentation.label}: ${presentation.title}. ${activeChapter?.title ?? ''}. Paso ${step} de ${total}.`}
+      accessibilityLabel={ui(lang, '{label}: {title}. {chapter}. Paso {step} de {total}.', { label: presentation.label, title: presentation.title, chapter: activeChapter?.title ?? '', step, total })}
       style={[styles.container, compact ? styles.containerCompact : null]}
     >
       <View style={styles.headingRow}>

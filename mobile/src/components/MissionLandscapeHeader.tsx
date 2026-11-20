@@ -1,5 +1,7 @@
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { ui } from '../uiText';
+import { useUiLanguage } from '../uiLanguage';
 
 type Props = {
   location: string;
@@ -13,22 +15,23 @@ type Props = {
 
 // Phone landscape owns its complete chrome. The portrait header stays unchanged.
 export function MissionLandscapeHeader({ location, title, step, total, onBack, onHome, onMenu }: Props) {
+  const lang = useUiLanguage();
   return (
     <View style={styles.header}>
       <View style={styles.navigation}>
-        <Pressable accessibilityLabel="Volver a lecciones" accessibilityRole="button" onPress={onBack} style={styles.button}>
+        <Pressable accessibilityLabel={ui(lang, 'Volver a lecciones')} accessibilityRole="button" onPress={onBack} style={styles.button}>
           <Ionicons color="#245f53" name="arrow-back" size={24} />
         </Pressable>
         <Pressable accessibilityLabel="SpanGlish: inicio" accessibilityRole="button" onPress={onHome} style={styles.brand}>
           <Text adjustsFontSizeToFit maxFontSizeMultiplier={1} minimumFontScale={0.75} numberOfLines={1} style={styles.brandText}>SpanGlish!</Text>
         </Pressable>
-        <Pressable accessibilityLabel="Ayuda y opciones de la misión" accessibilityRole="button" onPress={onMenu} style={styles.button}>
+        <Pressable accessibilityLabel={ui(lang, 'Ayuda y opciones de la misión')} accessibilityRole="button" onPress={onMenu} style={styles.button}>
           <Ionicons color="#245f53" name="ellipsis-horizontal" size={24} />
         </Pressable>
       </View>
       <View style={styles.progressRow}>
         <Text adjustsFontSizeToFit minimumFontScale={0.85} numberOfLines={1} style={styles.location}>{location}</Text>
-        <Text accessibilityLabel={`Reto ${step} de ${total}`} style={styles.counter}>{step}/{total}</Text>
+        <Text accessibilityLabel={ui(lang, 'Reto {step} de {total}', { step, total })} style={styles.counter}>{step}/{total}</Text>
       </View>
       <Text adjustsFontSizeToFit minimumFontScale={0.85} numberOfLines={2} style={styles.title}>{title}</Text>
         <View style={styles.track}>

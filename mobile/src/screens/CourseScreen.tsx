@@ -30,6 +30,8 @@ import { practiceAvailable } from '../lessonPractice';
 import { useConnectivity } from '../hooks/useConnectivity';
 import { setDiagnosticContext } from '../diagnostics';
 import { lessonImageSource } from '../lessonImageSources';
+import { ui } from '../uiText';
+import { UiLanguageContext, uiLanguageForCourse } from '../uiLanguage';
 import { getPreviewLessonMetadata, mergePreviewLessonSummaries, previewCourseCatalogs } from '../previewLessons';
 import type { LearnerProfile, LessonProgress, LessonSummary } from '../types';
 import {
@@ -651,6 +653,8 @@ export function CourseScreen({ profile, onHome, onOpenLesson, onViewProfile, onS
     return [id, { id, title: previewCourseCatalogs.find(course => course.id === id)?.title || lesson.level }];
   })).values()], [lessons]);
   const activeCourseId = selectedCourseId || courses[0]?.id;
+  // The selected course decides the home screen's language (2026-11-19).
+  const lang = uiLanguageForCourse(activeCourseId);
   const courseLessons = useMemo(() => lessons.filter(lesson =>
     (lesson.course_id || lesson.level) === activeCourseId), [lessons, activeCourseId]);
   const isOffline = useConnectivity();
@@ -706,7 +710,7 @@ export function CourseScreen({ profile, onHome, onOpenLesson, onViewProfile, onS
         mergeCourseProgress(progressResult || [], localResultProgress(localResults)),
       );
     } catch (loadError) {
-      setError(loadError instanceof Error ? loadError.message : 'No pudimos cargar las lecciones. Inténtalo otra vez.');
+      setError(loadError instanceof Error ? loadError.message : ui(lang, 'No pudimos cargar las lecciones. Inténtalo otra vez.'));
     } finally {
       setIsLoading(false);
     }
@@ -748,11 +752,11 @@ export function CourseScreen({ profile, onHome, onOpenLesson, onViewProfile, onS
   const confirmSignOut = () => {
     setIsAccountMenuOpen(false);
     Alert.alert(
-      '¿Cerrar sesión?',
-      'Volverás a la pantalla de acceso. Tu progreso permanecerá guardado.',
+      ui(lang, '¿Cerrar sesión?'),
+      ui(lang, 'Volverás a la pantalla de acceso. Tu progreso permanecerá guardado.'),
       [
-        { style: 'cancel', text: 'Cancelar' },
-        { onPress: onSignOut, style: 'destructive', text: 'Cerrar sesión' },
+        { style: 'cancel', text: ui(lang, 'Cancelar') },
+        { onPress: onSignOut, style: 'destructive', text: ui(lang, 'Cerrar sesión') },
       ],
     );
   };
@@ -760,14 +764,14 @@ export function CourseScreen({ profile, onHome, onOpenLesson, onViewProfile, onS
   const confirmExit = useCallback(() => {
     setIsAccountMenuOpen(false);
     Alert.alert(
-      '¿Salir de SpanGlish?',
-      'Tu usuario quedará guardado para la próxima vez.',
+      ui(lang, '¿Salir de SpanGlish?'),
+      ui(lang, 'Tu usuario quedará guardado para la próxima vez.'),
       [
-        { style: 'cancel', text: 'Cancelar' },
-        { onPress: () => BackHandler.exitApp(), style: 'destructive', text: 'Salir' },
+        { style: 'cancel', text: ui(lang, 'Cancelar') },
+        { onPress: () => BackHandler.exitApp(), style: 'destructive', text: ui(lang, 'Salir') },
       ],
     );
-  }, []);
+  }, [lang]);
 
   useEffect(() => {
     const subscription = BackHandler.addEventListener('hardwareBackPress', () => {
@@ -790,8 +794,8 @@ export function CourseScreen({ profile, onHome, onOpenLesson, onViewProfile, onS
     setIsAccountMenuOpen(false);
     if (!canUseEasUpdates) {
       Alert.alert(
-        'Actualizaciones en desarrollo',
-        'Esta compilación recibe los cambios directamente desde Metro. Las actualizaciones instalables se comprueban en las compilaciones preview y production.',
+        ui(lang, 'Actualizaciones en desarrollo'),
+        ui(lang, 'Esta compilación recibe los cambios directamente desde Metro. Las actualizaciones instalables se comprueban en las compilaciones preview y production.'),
       );
       return;
     }
@@ -807,7 +811,7 @@ export function CourseScreen({ profile, onHome, onOpenLesson, onViewProfile, onS
       const update = await Updates.checkForUpdateAsync();
       if (!update.isAvailable) {
         setUpdateStatus('idle');
-        Alert.alert('SpanGlish está actualizado', releaseVersionLabel(currentVersion));
+        Alert.alert(ui(lang, 'SpanGlish está actualizado'), releaseVersionLabel(currentVersion));
         return;
       }
 
@@ -815,14 +819,14 @@ export function CourseScreen({ profile, onHome, onOpenLesson, onViewProfile, onS
       const fetchedUpdate = await Updates.fetchUpdateAsync();
       if (!fetchedUpdate.isNew) {
         setUpdateStatus('idle');
-        Alert.alert('SpanGlish está actualizado', releaseVersionLabel(currentVersion));
+        Alert.alert(ui(lang, 'SpanGlish está actualizado'), releaseVersionLabel(currentVersion));
         return;
       }
       await saveUpdateReceiptBeforeReload(fetchedUpdate.manifest.id);
       await Updates.reloadAsync();
     } catch {
       setUpdateStatus('idle');
-      Alert.alert('No pudimos actualizar', 'Revisa tu conexión a internet e inténtalo otra vez.');
+      Alert.alert(ui(lang, 'No pudimos actualizar'), ui(lang, 'Revisa tu conexión a internet e inténtalo otra vez.'));
     }
   };
 
@@ -832,14 +836,14 @@ export function CourseScreen({ profile, onHome, onOpenLesson, onViewProfile, onS
     const isCurrent = lesson.id === currentLesson?.id;
     const progress = progressByLesson[lesson.id];
     const isLocked = globalIndex > 0 && !progressByLesson[courseLessons[globalIndex - 1].id]?.passed;
-    const status = isLocked ? 'Bloqueada' : progress?.passed ? 'Completada' : progress ? 'Repetir' : 'Disponible';
+    const status = isLocked ? ui(lang, 'Bloqueada') : progress?.passed ? ui(lang, 'Completada') : progress ? ui(lang, 'Repetir') : ui(lang, 'Disponible');
     const scoreLabel = progress
-      ? `Puntaje ${progress.score}/${progress.total_cards} (${progress.percentage}%)`
+      ? ui(lang, 'Puntaje {score}/{total} ({percentage}%)', { score: progress.score, total: progress.total_cards, percentage: progress.percentage })
       : '';
     const lessonStepNumber = lesson.sub_lesson_id?.split('.')[1] || String(globalIndex + 1);
     return (
       <Pressable
-        accessibilityHint={isLocked ? 'Completa la lección anterior con al menos 80 por ciento' : 'Abre esta lección'}
+        accessibilityHint={isLocked ? ui(lang, 'Completa la lección anterior con al menos 80 por ciento') : ui(lang, 'Abre esta lección')}
         accessibilityLabel={`${lessonName(lesson)}. ${status}.${scoreLabel ? ` ${scoreLabel}.` : ''} ${visual.description}`}
         accessibilityRole="button"
         accessibilityState={{ disabled: isLocked }}
@@ -890,21 +894,22 @@ export function CourseScreen({ profile, onHome, onOpenLesson, onViewProfile, onS
   };
 
   return (
+    <UiLanguageContext.Provider value={lang}>
     <SafeAreaView style={styles.safeArea}>
       <ScrollView contentContainerStyle={styles.page}>
         {isPreviewBuild ? (
           <View accessibilityRole="alert" style={styles.previewBanner}>
             <MaterialIcons color="#7a3e00" name="science" size={20} />
             <View style={styles.previewBannerCopy}>
-              <Text style={styles.previewBannerTitle}>VERSIÓN DE PRUEBA</Text>
-              <Text style={styles.previewBannerText}>Estos cambios todavía no se han enviado a los testers.</Text>
+              <Text style={styles.previewBannerTitle}>{ui(lang, 'VERSIÓN DE PRUEBA')}</Text>
+              <Text style={styles.previewBannerText}>{ui(lang, 'Estos cambios todavía no se han enviado a los testers.')}</Text>
             </View>
           </View>
         ) : null}
         <View style={[styles.topBar, onOpenQA ? styles.topBarWithQA : null]}>
           <View style={[styles.brandBlock, onOpenQA ? styles.brandBlockWithQA : null]}>
             <Pressable
-              accessibilityLabel="Ir a Inicio"
+              accessibilityLabel={ui(lang, 'Ir a Inicio')}
               accessibilityRole="button"
               onPress={onHome}
               style={({ pressed }) => pressed ? styles.pressed : null}
@@ -918,14 +923,14 @@ export function CourseScreen({ profile, onHome, onOpenLesson, onViewProfile, onS
               />
             </Pressable>
             <View style={styles.greetingBlock}>
-              <Text style={styles.routeLabel}>TU RUTA DE INGLÉS</Text>
+              <Text style={styles.routeLabel}>{ui(lang, 'TU RUTA DE INGLÉS')}</Text>
               <Text numberOfLines={1} style={styles.greeting}>{profile.displayName}</Text>
             </View>
           </View>
           <View style={styles.headerActions}>
             {onOpenQA ? (
               <Pressable
-                accessibilityHint="Abre las herramientas internas de prueba"
+                accessibilityHint={ui(lang, 'Abre las herramientas internas de prueba')}
                 accessibilityLabel="QA test"
                 accessibilityRole="button"
                 onPress={openQA}
@@ -936,8 +941,8 @@ export function CourseScreen({ profile, onHome, onOpenLesson, onViewProfile, onS
               </Pressable>
             ) : null}
             <Pressable
-              accessibilityHint="Abre el menú de opciones"
-              accessibilityLabel="Opciones"
+              accessibilityHint={ui(lang, 'Abre el menú de opciones')}
+              accessibilityLabel={ui(lang, 'Opciones')}
               accessibilityRole="button"
               onPress={() => setIsAccountMenuOpen(true)}
               style={({ pressed }) => [styles.settingsButton, isAccountMenuOpen ? styles.settingsButtonOpen : null, pressed ? styles.pressed : null]}
@@ -959,7 +964,7 @@ export function CourseScreen({ profile, onHome, onOpenLesson, onViewProfile, onS
         >
           <View style={styles.accountMenuBackdrop}>
             <Pressable
-              accessibilityLabel="Cerrar menú de cuenta"
+              accessibilityLabel={ui(lang, 'Cerrar menú de cuenta')}
               accessibilityRole="button"
               onPress={() => setIsAccountMenuOpen(false)}
               style={StyleSheet.absoluteFill}
@@ -978,10 +983,10 @@ export function CourseScreen({ profile, onHome, onOpenLesson, onViewProfile, onS
                   <Text style={styles.menuAvatarText}>{profile.displayName.trim().charAt(0).toUpperCase() || 'P'}</Text>
                 </View>
                 <View style={styles.menuIdentityCopy}>
-                  <Text style={styles.menuEyebrow}>CUENTA ACTUAL</Text>
+                  <Text style={styles.menuEyebrow}>{ui(lang, 'CUENTA ACTUAL')}</Text>
                   <Text numberOfLines={1} style={styles.menuName}>{profile.displayName}</Text>
                 </View>
-                <Pressable accessibilityLabel="Cerrar" accessibilityRole="button" onPress={() => setIsAccountMenuOpen(false)} style={styles.menuClose}>
+                <Pressable accessibilityLabel={ui(lang, 'Cerrar')} accessibilityRole="button" onPress={() => setIsAccountMenuOpen(false)} style={styles.menuClose}>
                   <Text style={styles.menuCloseText}>×</Text>
                 </Pressable>
               </View>
@@ -989,8 +994,8 @@ export function CourseScreen({ profile, onHome, onOpenLesson, onViewProfile, onS
               <Pressable accessibilityRole="button" onPress={openProfile} style={({ pressed }) => [styles.menuOption, pressed ? styles.menuOptionPressed : null]}>
                 <View style={[styles.menuOptionMark, styles.menuOptionMarkProfile]}><Text style={styles.menuOptionMarkText}>P</Text></View>
                 <View style={styles.menuOptionCopy}>
-                  <Text style={styles.menuOptionTitle}>Ver perfil</Text>
-                  <Text style={styles.menuOptionDescription}>Consulta tu información y preferencias.</Text>
+                  <Text style={styles.menuOptionTitle}>{ui(lang, 'Ver perfil')}</Text>
+                  <Text style={styles.menuOptionDescription}>{ui(lang, 'Consulta tu información y preferencias.')}</Text>
                 </View>
                 <Text style={styles.menuOptionArrow}>&gt;</Text>
               </Pressable>
@@ -1012,16 +1017,16 @@ export function CourseScreen({ profile, onHome, onOpenLesson, onViewProfile, onS
                     : <ActivityIndicator color="#16766f" size="small" />}
                 </View>
                 <View style={styles.menuOptionCopy}>
-                  <Text style={styles.menuOptionTitle}>Actualizar</Text>
+                  <Text style={styles.menuOptionTitle}>{ui(lang, 'Actualizar')}</Text>
                   {updateStatus === 'idle' ? (
                     <Text style={styles.menuVersion}>{releaseVersionLabel(currentVersion)}</Text>
                   ) : null}
                   <Text style={styles.menuOptionDescription}>
                     {updateStatus === 'checking'
-                      ? 'Buscando una versión nueva…'
+                      ? ui(lang, 'Buscando una versión nueva…')
                       : updateStatus === 'downloading'
-                        ? 'Instalando y reiniciando…'
-                        : 'Busca e instala la versión más reciente.'}
+                        ? ui(lang, 'Instalando y reiniciando…')
+                        : ui(lang, 'Busca e instala la versión más reciente.')}
                   </Text>
                 </View>
                 {updateStatus === 'idle' ? <Text style={styles.menuOptionArrow}>&gt;</Text> : null}
@@ -1032,8 +1037,8 @@ export function CourseScreen({ profile, onHome, onOpenLesson, onViewProfile, onS
                   <MaterialIcons color="#9b5d27" name="logout" size={18} />
                 </View>
                 <View style={styles.menuOptionCopy}>
-                  <Text style={styles.menuOptionTitle}>Cerrar sesión</Text>
-                  <Text style={styles.menuOptionDescription}>Vuelve a la pantalla de acceso.</Text>
+                  <Text style={styles.menuOptionTitle}>{ui(lang, 'Cerrar sesión')}</Text>
+                  <Text style={styles.menuOptionDescription}>{ui(lang, 'Vuelve a la pantalla de acceso.')}</Text>
                 </View>
                 <Text style={styles.menuOptionArrow}>&gt;</Text>
               </Pressable>
@@ -1041,8 +1046,8 @@ export function CourseScreen({ profile, onHome, onOpenLesson, onViewProfile, onS
               <Pressable accessibilityRole="button" onPress={confirmExit} style={({ pressed }) => [styles.menuOption, styles.menuOptionExit, pressed ? styles.menuOptionPressed : null]}>
                 <View style={[styles.menuOptionMark, styles.menuOptionMarkExit]}><Text style={styles.menuOptionMarkText}>X</Text></View>
                 <View style={styles.menuOptionCopy}>
-                  <Text style={[styles.menuOptionTitle, styles.menuOptionTitleExit]}>Salir</Text>
-                  <Text style={styles.menuOptionDescription}>Cierra la app y conserva este usuario.</Text>
+                  <Text style={[styles.menuOptionTitle, styles.menuOptionTitleExit]}>{ui(lang, 'Salir')}</Text>
+                  <Text style={styles.menuOptionDescription}>{ui(lang, 'Cierra la app y conserva este usuario.')}</Text>
                 </View>
                 </Pressable>
               </ScrollView>
@@ -1052,23 +1057,23 @@ export function CourseScreen({ profile, onHome, onOpenLesson, onViewProfile, onS
 
         {error ? (
           <View style={styles.errorPanel}>
-            <Text style={styles.error}>{error}</Text>
+            <Text style={styles.error}>{ui(lang, error)}</Text>
             <Pressable accessibilityRole="button" onPress={load} style={styles.retryButton}>
-              <Text style={styles.retry}>Reintentar</Text>
+              <Text style={styles.retry}>{ui(lang, 'Reintentar')}</Text>
             </Pressable>
           </View>
         ) : null}
 
         {isLoading && !lessons.length && !error ? (
           <View style={styles.loadingPanel}>
-            <PlayfulLoading label="Preparando tus lecciones…" />
+            <PlayfulLoading label={ui(lang, 'Preparando tus lecciones…')} />
           </View>
         ) : null}
 
         {currentLesson ? (
           <Pressable
-            accessibilityHint="Abre la lección donde continuaste la última vez"
-            accessibilityLabel={`Continuar con ${lessonName(currentLesson)}`}
+            accessibilityHint={ui(lang, 'Abre la lección donde continuaste la última vez')}
+            accessibilityLabel={ui(lang, 'Continuar con {name}', { name: lessonName(currentLesson) })}
             accessibilityRole="button"
             onPress={() => openLesson(currentLesson.id)}
             style={({ pressed }) => [styles.continueCard, pressed ? styles.pressed : null]}
@@ -1081,7 +1086,7 @@ export function CourseScreen({ profile, onHome, onOpenLesson, onViewProfile, onS
               />
             </View>
             <View style={styles.continueCopy}>
-              <Text style={styles.continueEyebrow}>{recentLessonId ? 'CONTINUAR APRENDIENDO' : 'EMPIEZA AQUÍ'}</Text>
+              <Text style={styles.continueEyebrow}>{recentLessonId ? ui(lang, 'CONTINUAR APRENDIENDO') : ui(lang, 'EMPIEZA AQUÍ')}</Text>
               <Text numberOfLines={2} style={styles.continueTitle}>{lessonName(currentLesson)}</Text>
               <Text numberOfLines={1} style={styles.continueDescription}>{currentVisual.description}</Text>
             </View>
@@ -1089,7 +1094,7 @@ export function CourseScreen({ profile, onHome, onOpenLesson, onViewProfile, onS
               {loadingLessonId === currentLesson.id ? (
                 <ActivityIndicator color="#fff" size="small" />
               ) : (
-                <Text style={styles.continueArrow}>Ir</Text>
+                <Text style={styles.continueArrow}>{ui(lang, 'Ir')}</Text>
               )}
             </View>
           </Pressable>
@@ -1108,7 +1113,7 @@ export function CourseScreen({ profile, onHome, onOpenLesson, onViewProfile, onS
             <View style={styles.courseSection}>
               <Pressable accessibilityRole="button" onPress={() => setSelectedUnitId(null)} style={styles.allUnitsButton}>
                 <MaterialIcons color="#16766f" name="arrow-back" size={20} />
-                <Text style={styles.allUnitsButtonText}>Todas las unidades</Text>
+                <Text style={styles.allUnitsButtonText}>{ui(lang, 'Todas las unidades')}</Text>
               </Pressable>
               <View style={[styles.unitHeader, { backgroundColor: UNIT_VISUALS[selectedUnit.id]?.color || '#ffe1ad' }]}>
                 <View style={styles.unitNumber}><Text style={styles.unitNumberText}>{unitNumber(selectedUnit.lessons[0])}</Text></View>
@@ -1120,7 +1125,7 @@ export function CourseScreen({ profile, onHome, onOpenLesson, onViewProfile, onS
                   <Text numberOfLines={2} style={styles.unitTitle}>{unitName(selectedUnit.lessons[0])}</Text>
                   <Text style={styles.unitDescription}>{UNIT_VISUALS[selectedUnit.id]?.description}</Text>
                 </View>
-                <Text style={styles.lessonCount}>{selectedUnit.lessons.length} lecciones</Text>
+                <Text style={styles.lessonCount}>{ui(lang, '{count} lecciones', { count: selectedUnit.lessons.length })}</Text>
               </View>
               {practiceAvailable(selectedUnit.lessons[0]) ? <LessonPracticeEntry key={selectedUnit.id}
                 lesson={selectedUnit.lessons[0]} scope={profile.userId + ':' + selectedUnit.id}
@@ -1133,10 +1138,10 @@ export function CourseScreen({ profile, onHome, onOpenLesson, onViewProfile, onS
             <View style={styles.unitsSection}>
               <View style={styles.unitsHeading}>
                 <View>
-                  <Text style={styles.unitsEyebrow}>CURSO {courses.find(course => course.id === activeCourseId)?.title}</Text>
-                  <Text style={styles.unitsTitle}>Elige una unidad</Text>
+                  <Text style={styles.unitsEyebrow}>{ui(lang, 'CURSO {title}', { title: courses.find(course => course.id === activeCourseId)?.title ?? '' })}</Text>
+                  <Text style={styles.unitsTitle}>{ui(lang, 'Elige una unidad')}</Text>
                 </View>
-                <Text style={styles.unitsCount}>{unitGroups.length} unidades</Text>
+                <Text style={styles.unitsCount}>{ui(lang, '{count} unidades', { count: unitGroups.length })}</Text>
               </View>
               <View style={[styles.unitCards, useTwoColumns ? styles.unitCardsWide : null]}>
                 {unitGroups.map((unit) => {
@@ -1146,7 +1151,7 @@ export function CourseScreen({ profile, onHome, onOpenLesson, onViewProfile, onS
                   const isCurrentUnit = unit.id === currentLesson?.unit_id;
                   return (
                     <Pressable
-                      accessibilityLabel={`Unit ${unitNumber(firstLesson)}. ${unitName(firstLesson)}. ${completed} de ${unit.lessons.length} lecciones completadas.`}
+                      accessibilityLabel={ui(lang, 'Unit {number}. {name}. {completed} de {total} lecciones completadas.', { number: unitNumber(firstLesson), name: unitName(firstLesson), completed, total: unit.lessons.length })}
                       accessibilityRole="button"
                       key={unit.id}
                       onPress={() => setSelectedUnitId(unit.id)}
@@ -1159,7 +1164,7 @@ export function CourseScreen({ profile, onHome, onOpenLesson, onViewProfile, onS
                         <Text style={styles.unitCardEyebrow}>UNIT {unitNumber(firstLesson)}</Text>
                         <Text numberOfLines={2} style={styles.unitCardTitle}>{unitName(firstLesson)}</Text>
                         <Text numberOfLines={2} style={styles.unitCardDescription}>{visual.description}</Text>
-                        <Text style={styles.unitCardProgress}>{completed}/{unit.lessons.length} completadas</Text>
+                        <Text style={styles.unitCardProgress}>{ui(lang, '{completed}/{total} completadas', { completed, total: unit.lessons.length })}</Text>
                       </View>
                       <MaterialIcons color="#16766f" name="chevron-right" size={26} />
                     </Pressable>
@@ -1170,9 +1175,10 @@ export function CourseScreen({ profile, onHome, onOpenLesson, onViewProfile, onS
           )
         ) : null}
 
-        <Text style={styles.aiNote}>Las voces de práctica pueden ser generadas con IA.</Text>
+        <Text style={styles.aiNote}>{ui(lang, 'Las voces de práctica pueden ser generadas con IA.')}</Text>
       </ScrollView>
     </SafeAreaView>
+    </UiLanguageContext.Provider>
   );
 }
 

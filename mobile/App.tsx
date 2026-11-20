@@ -25,6 +25,7 @@ import { clearLocalProfile } from './src/profile';
 import { CourseScreen } from './src/screens/CourseScreen';
 import { EngineQAScreen } from './src/screens/EngineQAScreen';
 import { LessonScreen } from './src/screens/LessonScreen';
+import { UiLanguageContext, uiLanguageForLesson } from './src/uiLanguage';
 import { useConnectivity } from './src/hooks/useConnectivity';
 import { syncLocalLessonResults } from './src/localLessonResults';
 import { ProfileScreen } from './src/screens/ProfileScreen';
@@ -126,7 +127,9 @@ function AppContent({ accountProfile, signOut }: { accountProfile: LearnerProfil
   const hasQaAccess = accountProfile.qaAccess === true;
 
   if (screen.name === 'lesson') {
+    // A lesson runs in its course's app language (2026-11-19).
     return (
+      <UiLanguageContext.Provider value={uiLanguageForLesson(screen.lessonId)}>
       <LessonScreen
         key={screen.lessonId}
         initialCardIndex={screen.initialCardIndex}
@@ -138,6 +141,7 @@ function AppContent({ accountProfile, signOut }: { accountProfile: LearnerProfil
         profile={profile}
         qaMode={screen.qaMode}
       />
+      </UiLanguageContext.Provider>
     );
   }
 

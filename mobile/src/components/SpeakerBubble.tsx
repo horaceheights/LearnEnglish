@@ -2,6 +2,8 @@ import { useEffect, useRef, useState } from 'react';
 import { Animated, Easing, StyleSheet, View } from 'react-native';
 
 import { bubbleLayout, type SpeakerAnchor } from '../speakerBubble';
+import { ui } from '../uiText';
+import { useUiLanguage } from '../uiLanguage';
 
 /**
  * A small speech bubble over the person who is talking (user decision, 2026-11-12). It is drawn
@@ -9,6 +11,7 @@ import { bubbleLayout, type SpeakerAnchor } from '../speakerBubble';
  * that person's voice plays.
  */
 export function SpeakerBubble({ anchor, speaking = false }: { anchor: SpeakerAnchor | null; speaking?: boolean }) {
+  const lang = useUiLanguage();
   const [frame, setFrame] = useState({ width: 0, height: 0 });
   const pulse = useRef(new Animated.Value(1)).current;
 
@@ -34,7 +37,7 @@ export function SpeakerBubble({ anchor, speaking = false }: { anchor: SpeakerAnc
       const { width, height } = event.nativeEvent.layout;
       if (width !== frame.width || height !== frame.height) setFrame({ width, height });
     }}>
-    {layout ? <Animated.View accessible accessibilityRole="image" accessibilityLabel="Persona que habla"
+    {layout ? <Animated.View accessible accessibilityRole="image" accessibilityLabel={ui(lang, 'Persona que habla')}
       testID="speaker-bubble"
       style={[styles.bubble, {
         left: layout.left, top: layout.top, width: layout.width, height: layout.height + layout.tail,
