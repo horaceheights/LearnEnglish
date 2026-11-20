@@ -251,16 +251,6 @@ const VISUALS: Record<string, { image: string; description: string; color: strin
     description: 'Más trabajos: mesero, policía, artista y mecánica.',
     color: '#e5eefb',
   },
-  'lesson-3-15-the-alphabet': {
-    image: 'a1_photo_u3_alphabet_ahjk_v1.webp',
-    description: 'El alfabeto: las 26 letras en grupos que suenan igual.',
-    color: '#e5eefb',
-  },
-  'lesson-3-16-how-do-you-spell-it': {
-    image: 'a1_photo_u3_alphabet_double_l_v1.webp',
-    description: 'Cómo se escribe: deletrear nombres y palabras.',
-    color: '#e5eefb',
-  },
   'lesson-3-9-unit-3-review': {
     image: 'a1_scene_job-dialogue-driver_acd1aee.webp',
     description: 'Repaso de información personal.',

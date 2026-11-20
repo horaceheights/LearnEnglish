@@ -321,10 +321,6 @@ COURSE_SYLLABLES = {
 # the CMU Pronouncing Dictionary and reviewed for the course's names and café
 # label so pacing remains deterministic for every canonical lesson prompt.
 COURSE_SYLLABLES.update({
-    # 2026-11-18 alphabet lessons 3.15-3.16: letter names (W is "double-u") and spelling words.
-    "b": 1, "c": 1, "d": 1, "e": 1, "f": 1, "g": 1, "h": 1, "j": 1, "k": 1, "l": 1, "n": 1,
-    "o": 1, "q": 1, "r": 1, "s": 1, "t": 1, "u": 1, "v": 1, "w": 3, "x": 1, "y": 1, "z": 1,
-    "spell": 1, "double": 2,
     # Approved Unit 7 targets. These counts do not change native v4 playback.
     "coat": 1, "dance": 1, "draw": 1, "fast": 1, "fingers": 2,
     "football": 2, "gloves": 1, "nose": 1, "paint": 1, "photos": 2,
