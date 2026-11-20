@@ -101,7 +101,7 @@ const MEANINGS: Record<string, string> = {
   "aren't": 'no están o no son', too: 'también',
   // A1+ 3.6-3.9 (2026-11-20): twins and both, languages, and where people work.
   twins: 'gemelos o gemelas', both: 'los dos o las dos', speaks: 'habla', english: 'inglés', language: 'idioma',
-  works: 'trabaja', drives: 'maneja',
+  drives: 'maneja',
   // A1+ 2.6-2.10 (2026-11-19): ordinal numbers, the -es and irregular plurals, favorite and ones.
   second: 'segundo', third: 'tercero', fourth: 'cuarto', fifth: 'quinto', sixth: 'sexto', seventh: 'séptimo',
   eighth: 'octavo', ninth: 'noveno', tenth: 'décimo',
