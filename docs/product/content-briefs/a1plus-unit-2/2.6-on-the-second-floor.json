@@ -1,0 +1,610 @@
+{
+  "brief_version": 1,
+  "follows": {
+    "course": "a1",
+    "lesson": "2.6",
+    "title": "Numbers 1-5"
+  },
+  "note": "A1+ Unit 2 Lesson 2.6, built on 2026-11-19 under the A1+ lesson standards approved 2026-10-27 and the user's 2026-11-09 rule that every A1+ lesson follows up the A1 lesson with the same number. The user approved the A1+ Unit 2 plan on 2026-11-19 (A1+ 2.Y follows A1 2.Y, one grammar step each) and chose \"Straight to Preview\": no per-lesson gates, Gemini 2.5 Flash photos and ElevenLabs audio pre-approved, reviewed in Preview. Batch B (2.6-2.10) was started on the user's \"Start Batch B\". Each photo is the elevator lobby of one floor, with a large floor number on the wall beside the elevator and the place behind a glass wall: a gym (2), a clothing store (3), a restaurant (4) and an indoor pool (5). Nobody is in the photos, so the teacher and the co-teacher read every line. Picture cards choose the floor by its number (It is the fourth floor.); sentence cards keep the place and change only the floor; Where is the …? replies change only the floor. An earlier plan with five cars at a traffic light was dropped because the image tool drew four cars, not five.",
+  "target": "backend/lessons/a1_plus/unit_2/a1plus-unit-2-lesson-2-6.yaml",
+  "captions": false,
+  "narrators": [
+    "teacher",
+    "co-teacher"
+  ],
+  "answer_audio_policy": "authored-only",
+  "speak_delivery": "a1-pronunciation-v1",
+  "lesson": {
+    "id": "a1plus-unit-2-lesson-2-6",
+    "title": "2.6 On the second floor",
+    "level": "A1+",
+    "unit_id": "a1plus-unit-2",
+    "unit_title": "Places, things and how we describe them",
+    "unit_outcome": "Say where people go and how they get there, talk about the things people have, point things out and compare them, put things in order, and ask about favorites.",
+    "lesson_id": "a1plus-unit-2-lesson-2-6",
+    "lesson_title": "On the second floor",
+    "sub_lesson_id": "2.6",
+    "sub_lesson_title": "On the second floor",
+    "goal": "Say which floor a place is on with second, third, fourth and fifth (The gym is on the second floor. / Where is the pool? It is on the fifth floor.).",
+    "vocabulary": [
+      "second",
+      "third",
+      "fourth",
+      "fifth"
+    ],
+    "review_vocabulary": [
+      "the",
+      "is",
+      "on",
+      "floor",
+      "it",
+      "where",
+      "gym",
+      "store",
+      "restaurant",
+      "pool",
+      "first"
+    ],
+    "grammar_function": "A follow-up of A1 2.6 Numbers 1-5: A1 counts one to five; A1+ 2.6 puts things in order with the ordinal numbers second, third, fourth and fifth, after the + before a noun (the second floor). A1 already says First, … for the first step of a routine. Each photo shows the elevator lobby of one floor of a building, with the floor number on the wall and the place behind a glass wall: the gym on 2, a store on 3, a restaurant on 4 and a pool on 5.",
+    "prerequisite": "A1 2.6 one to five; A1 4.6 First, …; A1 4.15 the floor; A1 2.1 store, restaurant; A1+ 2.1 gym, pool; A1 Where is …?",
+    "speaking_outcome": "Say second with a clear d, third with th and a long er, fourth with th at the end, fifth with f-th at the end. Do not require native-like speed.",
+    "content_revision": 1,
+    "learn_context_groups": [
+      {
+        "kind": "sequence",
+        "targets": [
+          "second"
+        ],
+        "models": [
+          {
+            "slide_id": "L1",
+            "text": "The gym is on the second floor."
+          }
+        ]
+      },
+      {
+        "kind": "sequence",
+        "targets": [
+          "third"
+        ],
+        "models": [
+          {
+            "slide_id": "L2",
+            "text": "The store is on the third floor."
+          }
+        ]
+      },
+      {
+        "kind": "sequence",
+        "targets": [
+          "fourth"
+        ],
+        "models": [
+          {
+            "slide_id": "L3",
+            "text": "The restaurant is on the fourth floor."
+          }
+        ]
+      },
+      {
+        "kind": "sequence",
+        "targets": [
+          "fifth"
+        ],
+        "models": [
+          {
+            "slide_id": "L4",
+            "text": "The pool is on the fifth floor."
+          }
+        ]
+      }
+    ]
+  },
+  "items": [
+    {
+      "id": "l-second",
+      "text": "The gym is on the second floor.",
+      "es": "El gimnasio está en el segundo piso.",
+      "image": "/lesson-assets/a1plus-unit-2-g02-019f9656dc184dfa.webp",
+      "kind": "model",
+      "choices": false,
+      "use": false,
+      "speaker": "teacher"
+    },
+    {
+      "id": "s-g02",
+      "text": "The gym is on the second floor.",
+      "es": "El gimnasio está en el segundo piso.",
+      "image": "/lesson-assets/a1plus-unit-2-g02-019f9656dc184dfa.webp",
+      "kind": "where",
+      "learn": false,
+      "image_choices": false,
+      "accepts": {
+        "subject-variety": "The lesson puts places on floors: a bank keeps the place and changes only the floor.",
+        "action-variety": "The lesson puts places on floors: a bank keeps the place and changes only the floor."
+      },
+      "blanks": [
+        "second",
+        "floor"
+      ],
+      "prefer": [
+        "The gym is on the third floor.",
+        "The gym is on the fourth floor."
+      ]
+    },
+    {
+      "id": "o-g02",
+      "text": "It is the second floor.",
+      "es": "Es el segundo piso.",
+      "image": "/lesson-assets/a1plus-unit-2-g02-019f9656dc184dfa.webp",
+      "kind": "floor",
+      "learn": false,
+      "accepts": {
+        "subject-variety": "The lesson puts places on floors: a bank keeps the place and changes only the floor.",
+        "action-variety": "The lesson puts places on floors: a bank keeps the place and changes only the floor."
+      },
+      "blanks": [
+        "second",
+        "floor"
+      ]
+    },
+    {
+      "id": "r-g02",
+      "text": "It is on the second floor.",
+      "es": "Está en el segundo piso.",
+      "image": "/lesson-assets/a1plus-unit-2-g02-019f9656dc184dfa.webp",
+      "kind": "reply",
+      "learn": false,
+      "use": false,
+      "image_choices": false,
+      "speaker": "co-teacher",
+      "question": "Where is the gym?",
+      "question_es": "¿Dónde está el gimnasio?",
+      "question_speaker": "teacher",
+      "accepts": {
+        "subject-variety": "Listen asks where a place is; the banks keep It is on the … floor and change only the floor.",
+        "action-variety": "Listen asks where a place is; the banks keep It is on the … floor and change only the floor.",
+        "conversational-response": "Listen asks where a place is; the banks keep It is on the … floor and change only the floor."
+      },
+      "prefer": [
+        "It is on the third floor.",
+        "It is on the fourth floor."
+      ]
+    },
+    {
+      "id": "q-g02",
+      "text": "Where is the gym?",
+      "es": "¿Dónde está el gimnasio?",
+      "image": "/lesson-assets/a1plus-unit-2-g02-019f9656dc184dfa.webp",
+      "kind": "question",
+      "learn": false,
+      "choices": false,
+      "blanks": [
+        "Where",
+        "is"
+      ]
+    },
+    {
+      "id": "l-third",
+      "text": "The store is on the third floor.",
+      "es": "La tienda está en el tercer piso.",
+      "image": "/lesson-assets/a1plus-unit-2-g03-ccb0dd75588a3828.webp",
+      "kind": "model",
+      "choices": false,
+      "use": false,
+      "speaker": "co-teacher"
+    },
+    {
+      "id": "s-g03",
+      "text": "The store is on the third floor.",
+      "es": "La tienda está en el tercer piso.",
+      "image": "/lesson-assets/a1plus-unit-2-g03-ccb0dd75588a3828.webp",
+      "kind": "where",
+      "learn": false,
+      "image_choices": false,
+      "accepts": {
+        "subject-variety": "The lesson puts places on floors: a bank keeps the place and changes only the floor.",
+        "action-variety": "The lesson puts places on floors: a bank keeps the place and changes only the floor."
+      },
+      "blanks": [
+        "third",
+        "floor"
+      ],
+      "prefer": [
+        "The store is on the second floor.",
+        "The store is on the fourth floor."
+      ]
+    },
+    {
+      "id": "o-g03",
+      "text": "It is the third floor.",
+      "es": "Es el tercer piso.",
+      "image": "/lesson-assets/a1plus-unit-2-g03-ccb0dd75588a3828.webp",
+      "kind": "floor",
+      "learn": false,
+      "accepts": {
+        "subject-variety": "The lesson puts places on floors: a bank keeps the place and changes only the floor.",
+        "action-variety": "The lesson puts places on floors: a bank keeps the place and changes only the floor."
+      },
+      "blanks": [
+        "third",
+        "floor"
+      ]
+    },
+    {
+      "id": "r-g03",
+      "text": "It is on the third floor.",
+      "es": "Está en el tercer piso.",
+      "image": "/lesson-assets/a1plus-unit-2-g03-ccb0dd75588a3828.webp",
+      "kind": "reply",
+      "learn": false,
+      "use": false,
+      "image_choices": false,
+      "speaker": "co-teacher",
+      "question": "Where is the store?",
+      "question_es": "¿Dónde está la tienda?",
+      "question_speaker": "teacher",
+      "accepts": {
+        "subject-variety": "Listen asks where a place is; the banks keep It is on the … floor and change only the floor.",
+        "action-variety": "Listen asks where a place is; the banks keep It is on the … floor and change only the floor.",
+        "conversational-response": "Listen asks where a place is; the banks keep It is on the … floor and change only the floor."
+      },
+      "prefer": [
+        "It is on the second floor.",
+        "It is on the fourth floor."
+      ]
+    },
+    {
+      "id": "q-g03",
+      "text": "Where is the store?",
+      "es": "¿Dónde está la tienda?",
+      "image": "/lesson-assets/a1plus-unit-2-g03-ccb0dd75588a3828.webp",
+      "kind": "question",
+      "learn": false,
+      "choices": false,
+      "blanks": [
+        "Where",
+        "is"
+      ]
+    },
+    {
+      "id": "l-fourth",
+      "text": "The restaurant is on the fourth floor.",
+      "es": "El restaurante está en el cuarto piso.",
+      "image": "/lesson-assets/a1plus-unit-2-g04-e9e0b48d24552a25.webp",
+      "kind": "model",
+      "choices": false,
+      "use": false,
+      "speaker": "teacher"
+    },
+    {
+      "id": "s-g04",
+      "text": "The restaurant is on the fourth floor.",
+      "es": "El restaurante está en el cuarto piso.",
+      "image": "/lesson-assets/a1plus-unit-2-g04-e9e0b48d24552a25.webp",
+      "kind": "where",
+      "learn": false,
+      "image_choices": false,
+      "accepts": {
+        "subject-variety": "The lesson puts places on floors: a bank keeps the place and changes only the floor.",
+        "action-variety": "The lesson puts places on floors: a bank keeps the place and changes only the floor."
+      },
+      "blanks": [
+        "fourth",
+        "floor"
+      ],
+      "prefer": [
+        "The restaurant is on the second floor.",
+        "The restaurant is on the third floor."
+      ]
+    },
+    {
+      "id": "o-g04",
+      "text": "It is the fourth floor.",
+      "es": "Es el cuarto piso.",
+      "image": "/lesson-assets/a1plus-unit-2-g04-e9e0b48d24552a25.webp",
+      "kind": "floor",
+      "learn": false,
+      "accepts": {
+        "subject-variety": "The lesson puts places on floors: a bank keeps the place and changes only the floor.",
+        "action-variety": "The lesson puts places on floors: a bank keeps the place and changes only the floor."
+      },
+      "blanks": [
+        "fourth",
+        "floor"
+      ]
+    },
+    {
+      "id": "r-g04",
+      "text": "It is on the fourth floor.",
+      "es": "Está en el cuarto piso.",
+      "image": "/lesson-assets/a1plus-unit-2-g04-e9e0b48d24552a25.webp",
+      "kind": "reply",
+      "learn": false,
+      "use": false,
+      "image_choices": false,
+      "speaker": "co-teacher",
+      "question": "Where is the restaurant?",
+      "question_es": "¿Dónde está el restaurante?",
+      "question_speaker": "teacher",
+      "accepts": {
+        "subject-variety": "Listen asks where a place is; the banks keep It is on the … floor and change only the floor.",
+        "action-variety": "Listen asks where a place is; the banks keep It is on the … floor and change only the floor.",
+        "conversational-response": "Listen asks where a place is; the banks keep It is on the … floor and change only the floor."
+      },
+      "prefer": [
+        "It is on the second floor.",
+        "It is on the third floor."
+      ]
+    },
+    {
+      "id": "q-g04",
+      "text": "Where is the restaurant?",
+      "es": "¿Dónde está el restaurante?",
+      "image": "/lesson-assets/a1plus-unit-2-g04-e9e0b48d24552a25.webp",
+      "kind": "question",
+      "learn": false,
+      "choices": false,
+      "blanks": [
+        "Where",
+        "is"
+      ]
+    },
+    {
+      "id": "l-fifth",
+      "text": "The pool is on the fifth floor.",
+      "es": "La piscina está en el quinto piso.",
+      "image": "/lesson-assets/a1plus-unit-2-g05-698bddc661c2769a.webp",
+      "kind": "model",
+      "choices": false,
+      "use": false,
+      "speaker": "co-teacher"
+    },
+    {
+      "id": "s-g05",
+      "text": "The pool is on the fifth floor.",
+      "es": "La piscina está en el quinto piso.",
+      "image": "/lesson-assets/a1plus-unit-2-g05-698bddc661c2769a.webp",
+      "kind": "where",
+      "learn": false,
+      "image_choices": false,
+      "accepts": {
+        "subject-variety": "The lesson puts places on floors: a bank keeps the place and changes only the floor.",
+        "action-variety": "The lesson puts places on floors: a bank keeps the place and changes only the floor."
+      },
+      "blanks": [
+        "fifth",
+        "floor"
+      ],
+      "prefer": [
+        "The pool is on the second floor.",
+        "The pool is on the third floor."
+      ]
+    },
+    {
+      "id": "o-g05",
+      "text": "It is the fifth floor.",
+      "es": "Es el quinto piso.",
+      "image": "/lesson-assets/a1plus-unit-2-g05-698bddc661c2769a.webp",
+      "kind": "floor",
+      "learn": false,
+      "accepts": {
+        "subject-variety": "The lesson puts places on floors: a bank keeps the place and changes only the floor.",
+        "action-variety": "The lesson puts places on floors: a bank keeps the place and changes only the floor."
+      },
+      "blanks": [
+        "fifth",
+        "floor"
+      ]
+    },
+    {
+      "id": "r-g05",
+      "text": "It is on the fifth floor.",
+      "es": "Está en el quinto piso.",
+      "image": "/lesson-assets/a1plus-unit-2-g05-698bddc661c2769a.webp",
+      "kind": "reply",
+      "learn": false,
+      "use": false,
+      "image_choices": false,
+      "speaker": "co-teacher",
+      "question": "Where is the pool?",
+      "question_es": "¿Dónde está la piscina?",
+      "question_speaker": "teacher",
+      "accepts": {
+        "subject-variety": "Listen asks where a place is; the banks keep It is on the … floor and change only the floor.",
+        "action-variety": "Listen asks where a place is; the banks keep It is on the … floor and change only the floor.",
+        "conversational-response": "Listen asks where a place is; the banks keep It is on the … floor and change only the floor."
+      },
+      "prefer": [
+        "It is on the second floor.",
+        "It is on the third floor."
+      ]
+    },
+    {
+      "id": "q-g05",
+      "text": "Where is the pool?",
+      "es": "¿Dónde está la piscina?",
+      "image": "/lesson-assets/a1plus-unit-2-g05-698bddc661c2769a.webp",
+      "kind": "question",
+      "learn": false,
+      "choices": false,
+      "blanks": [
+        "Where",
+        "is"
+      ]
+    }
+  ],
+  "pool": [
+    {
+      "text": "The gym is on the third floor.",
+      "es": "El gimnasio está en el tercer piso.",
+      "image": "/lesson-assets/a1plus-unit-2-g02-019f9656dc184dfa.webp",
+      "kind": "where",
+      "image_choices": false
+    },
+    {
+      "text": "The gym is on the fourth floor.",
+      "es": "El gimnasio está en el cuarto piso.",
+      "image": "/lesson-assets/a1plus-unit-2-g02-019f9656dc184dfa.webp",
+      "kind": "where",
+      "image_choices": false
+    },
+    {
+      "text": "The gym is on the fifth floor.",
+      "es": "El gimnasio está en el quinto piso.",
+      "image": "/lesson-assets/a1plus-unit-2-g02-019f9656dc184dfa.webp",
+      "kind": "where",
+      "image_choices": false
+    },
+    {
+      "text": "The store is on the second floor.",
+      "es": "La tienda está en el segundo piso.",
+      "image": "/lesson-assets/a1plus-unit-2-g03-ccb0dd75588a3828.webp",
+      "kind": "where",
+      "image_choices": false
+    },
+    {
+      "text": "The store is on the fourth floor.",
+      "es": "La tienda está en el cuarto piso.",
+      "image": "/lesson-assets/a1plus-unit-2-g03-ccb0dd75588a3828.webp",
+      "kind": "where",
+      "image_choices": false
+    },
+    {
+      "text": "The store is on the fifth floor.",
+      "es": "La tienda está en el quinto piso.",
+      "image": "/lesson-assets/a1plus-unit-2-g03-ccb0dd75588a3828.webp",
+      "kind": "where",
+      "image_choices": false
+    },
+    {
+      "text": "The restaurant is on the second floor.",
+      "es": "El restaurante está en el segundo piso.",
+      "image": "/lesson-assets/a1plus-unit-2-g04-e9e0b48d24552a25.webp",
+      "kind": "where",
+      "image_choices": false
+    },
+    {
+      "text": "The restaurant is on the third floor.",
+      "es": "El restaurante está en el tercer piso.",
+      "image": "/lesson-assets/a1plus-unit-2-g04-e9e0b48d24552a25.webp",
+      "kind": "where",
+      "image_choices": false
+    },
+    {
+      "text": "The restaurant is on the fifth floor.",
+      "es": "El restaurante está en el quinto piso.",
+      "image": "/lesson-assets/a1plus-unit-2-g04-e9e0b48d24552a25.webp",
+      "kind": "where",
+      "image_choices": false
+    },
+    {
+      "text": "The pool is on the second floor.",
+      "es": "La piscina está en el segundo piso.",
+      "image": "/lesson-assets/a1plus-unit-2-g05-698bddc661c2769a.webp",
+      "kind": "where",
+      "image_choices": false
+    },
+    {
+      "text": "The pool is on the third floor.",
+      "es": "La piscina está en el tercer piso.",
+      "image": "/lesson-assets/a1plus-unit-2-g05-698bddc661c2769a.webp",
+      "kind": "where",
+      "image_choices": false
+    },
+    {
+      "text": "The pool is on the fourth floor.",
+      "es": "La piscina está en el cuarto piso.",
+      "image": "/lesson-assets/a1plus-unit-2-g05-698bddc661c2769a.webp",
+      "kind": "where",
+      "image_choices": false
+    },
+    {
+      "text": "It is on the second floor.",
+      "es": "Está en el segundo piso.",
+      "image": "/lesson-assets/a1plus-unit-2-g02-019f9656dc184dfa.webp",
+      "kind": "reply",
+      "image_choices": false
+    },
+    {
+      "text": "It is on the third floor.",
+      "es": "Está en el tercer piso.",
+      "image": "/lesson-assets/a1plus-unit-2-g02-019f9656dc184dfa.webp",
+      "kind": "reply",
+      "image_choices": false
+    },
+    {
+      "text": "It is on the fourth floor.",
+      "es": "Está en el cuarto piso.",
+      "image": "/lesson-assets/a1plus-unit-2-g02-019f9656dc184dfa.webp",
+      "kind": "reply",
+      "image_choices": false
+    },
+    {
+      "text": "It is on the fifth floor.",
+      "es": "Está en el quinto piso.",
+      "image": "/lesson-assets/a1plus-unit-2-g02-019f9656dc184dfa.webp",
+      "kind": "reply",
+      "image_choices": false
+    }
+  ],
+  "layout": {
+    "Recognize": 11,
+    "Listen": 10,
+    "Speak": 8,
+    "Use": 8
+  },
+  "stage_sequences": {
+    "Learn": [
+      "l-second",
+      "l-third",
+      "l-fourth",
+      "l-fifth"
+    ],
+    "Recognize": [
+      "o-g02",
+      "s-g03",
+      "o-g05",
+      "r-g04",
+      "o-g04",
+      "s-g02",
+      "o-g03",
+      "r-g03",
+      "s-g05",
+      "r-g02",
+      "s-g04"
+    ],
+    "Listen": [
+      "o-g04",
+      "r-g02",
+      "s-g05",
+      "o-g02",
+      "r-g04",
+      "s-g03",
+      "o-g05",
+      "r-g05",
+      "s-g02",
+      "o-g03"
+    ],
+    "Speak": [
+      "s-g02",
+      "s-g03",
+      "s-g04",
+      "s-g05",
+      "q-g02",
+      "q-g05",
+      "o-g03",
+      "o-g04"
+    ],
+    "Use": [
+      "s-g02",
+      "o-g03",
+      "q-g04",
+      "s-g05",
+      "o-g02",
+      "q-g03",
+      "s-g04",
+      "o-g05"
+    ]
+  }
+}

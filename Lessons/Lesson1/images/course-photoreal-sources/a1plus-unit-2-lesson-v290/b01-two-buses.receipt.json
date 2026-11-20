@@ -1,0 +1,55 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "439f7660-167c-4dd0-870a-de3a34cf6508",
+  "asset_id": "b01-two-buses",
+  "pack_sha256": "10b76e5378172bc0a8180d20530dc7e301dc5f9e729b0ee86e2962217758e7d8",
+  "started_at": "2026-11-20T02:11:52.237343+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, screens, clothes, bags, machines, vehicles or license plates.\n\nThere are no people anywhere in the photo, not even far in the background or inside the vehicles.\n\nIt is clearly daytime with soft natural light.\n\nExactly TWO big city buses, the same model and the same plain white-and-blue color, stand one behind the other at a bus stop on a city street, seen from the side and a little in front, both buses whole and clearly two separate buses. A bus stop shelter with a bench stands on the sidewalk. There is no third bus and no other vehicle. The empty shelter has no posters.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "aKz_auC3EtyjqtsPhPDWwQo",
+  "usage": {
+    "promptTokenCount": 248,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1538,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 248
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038774",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 248,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 5.75,
+  "output": "output/imagegen/a1plus-unit-2-lesson-v290/b01-two-buses.png",
+  "sha256": "e5698d2f9b5c400ba169afc13710f13d070c4e08b46b72740994fea9fdf031a8",
+  "byte_count": 1775430,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}

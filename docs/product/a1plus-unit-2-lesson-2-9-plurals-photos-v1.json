@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "pack": "a1plus-unit-2-lesson-2-9-plurals-photos",
+  "revision": 1,
+  "output_namespace": "a1plus-unit-2-lesson-v290",
+  "authorization": "2026-11-19: the user approved the A1+ Unit 2 plan (A1+ 2.Y follows A1 2.Y) and, asked how to build it, chose \"Straight to Preview\" (\"As in 1.9-1.13: no stops. I build the lessons in batches with media pre-approved, and you review everything in Preview.\"). Gemini is the approved image tool (2026-09-23); after the 2.5 Pro photos the user said \"lets switch to flash for any other images\". The user then said \"Start Batch B\".",
+  "image_settings": {
+    "provider": "google-gemini",
+    "model": "gemini-2.5-flash-image",
+    "aspect_ratio": "3:2",
+    "image_size": "1K",
+    "runtime_size": "1536x1024",
+    "runtime_format": "webp",
+    "n": 1
+  },
+  "production": {
+    "price_per_image_usd": "0.0387",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing (checked 2026-11-16: Gemini 2.5 Flash Image, about $0.039 per image)",
+    "planned_images": 4,
+    "expected_cost_usd": "0.15",
+    "requested_ceiling_usd": "0.40",
+    "ceiling_note": "The renderer reserves US$0.20 before each request; each request is sent on its own, and the expected spend for the pack is about US$0.15.",
+    "no_automatic_retries": true,
+    "order": "Generate b01-b04; count the buses, watches, men and women at 180 px. Reject any photo with the wrong count."
+  },
+  "shared_prompts": {
+    "photo": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, screens, clothes, bags, machines, vehicles or license plates.",
+    "photo_numeral": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, logos or brand marks anywhere, and no number anywhere except the one large numeral described: no other signs, buttons, plaques, door numbers or license plates show any digit.",
+    "safe_center": "Keep the person and the thing that carries the meaning inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.",
+    "solo": "Only this one person is in the photo; there is nobody else, even far in the background.",
+    "nobody": "There are no people anywhere in the photo, not even far in the background or inside the vehicles.",
+    "face": "The person's face is fully visible in three-quarter view, looking at what they are doing, not at the camera.",
+    "daytime": "It is clearly daytime with soft natural light."
+  },
+  "assets": [
+    {
+      "id": "b01-two-buses",
+      "order": 1,
+      "item": "Two buses are at the bus stop.",
+      "shared": [
+        "photo",
+        "nobody",
+        "daytime"
+      ],
+      "prompt": "Exactly TWO big city buses, the same model and the same plain white-and-blue color, stand one behind the other at a bus stop on a city street, seen from the side and a little in front, both buses whole and clearly two separate buses. A bus stop shelter with a bench stands on the sidewalk. There is no third bus and no other vehicle. The empty shelter has no posters."
+    },
+    {
+      "id": "b02-three-watches",
+      "order": 2,
+      "item": "Three watches are on the table.",
+      "shared": [
+        "photo",
+        "nobody",
+        "daytime"
+      ],
+      "prompt": "A still life: exactly THREE wristwatches lie side by side on a plain light wooden table, photographed from a slightly raised angle, large and sharp, with a softly blurred plain wall behind: a silver watch with a black leather strap, a gold watch with a brown strap and a black sports watch. The dials have plain hands and no numerals or markings. Nothing else is on the table."
+    },
+    {
+      "id": "b03-two-men",
+      "order": 3,
+      "item": "Two men are on the street.",
+      "shared": [
+        "photo",
+        "daytime"
+      ],
+      "prompt": "Exactly TWO adult men walk side by side on a quiet city sidewalk toward the camera, talking and smiling: one in a grey jacket and one in a dark blue sweater. Both are large, whole from head to knees and sharp, inside the central 55 percent of the photo width. There is nobody else in the photo, even far in the background."
+    },
+    {
+      "id": "b04-three-women",
+      "order": 4,
+      "item": "Three women are in the park.",
+      "shared": [
+        "photo",
+        "daytime"
+      ],
+      "prompt": "Exactly THREE adult women sit side by side on a wooden park bench, talking and laughing, in a green park with trees behind them: one in a red sweater, one in a white shirt and one in a yellow jacket. All three are large, whole and sharp, inside the central 60 percent of the photo width. There is nobody else in the photo, even far in the background."
+    }
+  ]
+}

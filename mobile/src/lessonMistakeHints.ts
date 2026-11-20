@@ -94,6 +94,11 @@ const MEANINGS: Record<string, string> = {
   watch: 'reloj', wallet: 'cartera', headphones: 'audífonos', camera: 'cámara',
   // A1+ 2.4 (2026-11-19): the short forms of be, so "what's" is never read as a possessive.
   "what's": 'qué es', "it's": 'es', "isn't": 'no es',
+  // A1+ 2.6-2.10 (2026-11-19): ordinal numbers, the -es and irregular plurals, favorite and ones.
+  second: 'segundo', third: 'tercero', fourth: 'cuarto', fifth: 'quinto', sixth: 'sexto', seventh: 'séptimo',
+  eighth: 'octavo', ninth: 'noveno', tenth: 'décimo',
+  buses: 'autobuses', watches: 'relojes', men: 'hombres', women: 'mujeres',
+  favorite: 'favorito', ones: 'los, las (más de uno)',
   // A1 5.11 (2026-11-14): buying things.
   money: 'dinero', buy: 'comprar', pay: 'pagar', price: 'precio', cheap: 'barato o barata', expensive: 'caro o cara',
   // A1 5.12 (2026-11-15): the tens from thirty to one hundred.

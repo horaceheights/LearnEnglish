@@ -1,0 +1,109 @@
+{
+  "schema_version": 1,
+  "pack": "a1plus-unit-2-lesson-2-8-favorite-photos",
+  "revision": 1,
+  "output_namespace": "a1plus-unit-2-lesson-v280",
+  "authorization": "2026-11-19: the user approved the A1+ Unit 2 plan (A1+ 2.Y follows A1 2.Y) and, asked how to build it, chose \"Straight to Preview\" (\"As in 1.9-1.13: no stops. I build the lessons in batches with media pre-approved, and you review everything in Preview.\"). Gemini is the approved image tool (2026-09-23); after the 2.5 Pro photos the user said \"lets switch to flash for any other images\". The user then said \"Start Batch B\".",
+  "image_settings": {
+    "provider": "google-gemini",
+    "model": "gemini-2.5-flash-image",
+    "aspect_ratio": "3:2",
+    "image_size": "1K",
+    "runtime_size": "1536x1024",
+    "runtime_format": "webp",
+    "n": 1
+  },
+  "production": {
+    "price_per_image_usd": "0.0387",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing (checked 2026-11-16: Gemini 2.5 Flash Image, about $0.039 per image)",
+    "planned_images": 4,
+    "expected_cost_usd": "0.15",
+    "requested_ceiling_usd": "0.40",
+    "ceiling_note": "The renderer reserves US$0.20 before each request; each request is sent on its own, and the expected spend for the pack is about US$0.15.",
+    "no_automatic_retries": true,
+    "order": "Generate v01 first; check the wall color reads at 180 px and the face matches the reference; then v02-v04."
+  },
+  "shared_prompts": {
+    "photo": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, screens, clothes, bags, machines, vehicles or license plates.",
+    "photo_numeral": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, logos or brand marks anywhere, and no number anywhere except the one large numeral described: no other signs, buttons, plaques, door numbers or license plates show any digit.",
+    "safe_center": "Keep the person and the thing that carries the meaning inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.",
+    "solo": "Only this one person is in the photo; there is nobody else, even far in the background.",
+    "nobody": "There are no people anywhere in the photo, not even far in the background or inside the vehicles.",
+    "face": "The person's face is fully visible in three-quarter view, looking at what they are doing, not at the camera.",
+    "daytime": "It is clearly daytime with soft natural light."
+  },
+  "assets": [
+    {
+      "id": "v01-ana-purple",
+      "order": 1,
+      "item": "My favorite color is purple. / Her favorite color is purple.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "solo",
+        "face",
+        "daytime"
+      ],
+      "prompt": "Image 1 shows Ana. Keep her face, long dark wavy hair, light-olive skin and build exactly. Create a new photograph of her: She paints a wall of her living room with a paint roller on a long handle, in her sage-green overshirt over a white top and jeans. More than half of the wall is already painted a strong, bright PURPLE, and she rolls more PURPLE paint onto the last white part. An open can of PURPLE paint stands on a cloth on the floor. She is smiling and looks at the wall. The PURPLE wall fills most of the background, and no other strong color is in the photo.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-q02-c2b4398b65207eff.webp",
+        "sha256": "c2b4398b65207effa51e51260cc607c38ada48caea82f14eb872e4c9c8b5d0d5",
+        "observed_description": "Ana (long dark wavy hair, light-olive skin, sage-green overshirt over a white top, jeans) sits on a light-grey sofa and reads an open hardcover book (A1+ 1.2)."
+      }
+    },
+    {
+      "id": "v02-luis-yellow",
+      "order": 2,
+      "item": "My favorite color is yellow. / His favorite color is yellow.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "solo",
+        "face",
+        "daytime"
+      ],
+      "prompt": "Image 1 shows Luis. Keep his face, short dark curly hair, clean-shaven face, warm medium-brown skin and build exactly. Create a new photograph of him: He paints a wall of his living room with a paint roller on a long handle, in his navy T-shirt and jeans. More than half of the wall is already painted a strong, bright YELLOW, and he rolls more YELLOW paint onto the last white part. An open can of YELLOW paint stands on a cloth on the floor. He is smiling and looks at the wall. The YELLOW wall fills most of the background, and no other strong color is in the photo.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-q01-135c3f8f772bcbe4.webp",
+        "sha256": "135c3f8f772bcbe472b8cec719eb02318a7d52ce1c7152a94c6952aeb78566c2",
+        "observed_description": "Luis (short dark curly hair, clean-shaven, warm medium-brown skin, navy crew-neck T-shirt) drinks coffee from a white mug at a wooden table in his bright kitchen (A1+ 1.2)."
+      }
+    },
+    {
+      "id": "v03-sofia-pink",
+      "order": 3,
+      "item": "My favorite color is pink. / Her favorite color is pink.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "solo",
+        "face",
+        "daytime"
+      ],
+      "prompt": "Image 1 shows Sofia. Keep her face, long curly dark hair, warm brown skin and build exactly. Create a new photograph of her: She paints a wall of her living room with a paint roller on a long handle, in a white blouse with the sleeves rolled up and jeans. More than half of the wall is already painted a strong, bright PINK, and she rolls more PINK paint onto the last white part. An open can of PINK paint stands on a cloth on the floor. She is smiling and looks at the wall. The PINK wall fills most of the background, and no other strong color is in the photo.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-q03-7d520a07846a47b8.webp",
+        "sha256": "7d520a07846a47b8e8389c3226f3b3639d7eed0d257318b08e4f9b77c5b2258b",
+        "observed_description": "Sofia (long curly dark hair, warm brown skin, white blouse under a bright blue blazer) writes in a large notebook at a wooden desk by a bright window in her home study (A1+ 1.2)."
+      }
+    },
+    {
+      "id": "v04-diego-green",
+      "order": 4,
+      "item": "My favorite color is green. / His favorite color is green.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "solo",
+        "face",
+        "daytime"
+      ],
+      "prompt": "Image 1 shows Diego. Keep his face, dark curly hair with a little grey, short full beard, skin tone and build exactly. Create a new photograph of him: He paints a wall of his living room with a paint roller on a long handle, in his burgundy button shirt with the sleeves rolled up and dark trousers. More than half of the wall is already painted a strong, bright GREEN, and he rolls more GREEN paint onto the last white part. An open can of GREEN paint stands on a cloth on the floor. He is smiling and looks at the wall. The GREEN wall fills most of the background, and no other strong color is in the photo.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-q04-ded74a2cb6021167.webp",
+        "sha256": "ded74a2cb6021167d6af2351e9012476d36c1b0936ca9f4f4b6dee68783bb9e2",
+        "observed_description": "Diego (dark curly hair with a little grey, short full beard, burgundy button shirt) sits at a wooden kitchen table and bites a red apple (A1+ 1.2)."
+      }
+    }
+  ]
+}

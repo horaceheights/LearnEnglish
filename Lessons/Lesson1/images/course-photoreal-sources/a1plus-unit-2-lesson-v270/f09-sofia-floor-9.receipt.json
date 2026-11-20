@@ -1,0 +1,62 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "59b76938-d3c7-4021-a376-76fc97430a12",
+  "asset_id": "f09-sofia-floor-9",
+  "pack_sha256": "afc06ef262eb3d4a46551ed8bb14f0d3e5b7c2eea4f08736802a6e42adb3d483",
+  "started_at": "2026-11-20T02:10:54.902182+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, logos or brand marks anywhere, and no number anywhere except the one large numeral described: no other signs, buttons, plaques, door numbers or license plates show any digit.\n\nOnly this one person is in the photo; there is nobody else, even far in the background.\n\nThe person's face is fully visible in three-quarter view, looking at what they are doing, not at the camera.\n\nIt is clearly daytime with soft natural light.\n\nImage 1 shows Sofia. Keep her face, long curly dark hair, warm brown skin and build exactly. Create a new photograph of her: She has just come home. She stands in the small, bright elevator lobby of her apartment building, beside the closed metal elevator door, in her white blouse and bright blue blazer. On the plain light wall right next to the elevator door there is one very large dark numeral 9, painted on the wall, about as tall as her head, sharp and easy to read on a phone. The numeral 9 and her face are both inside the central 55 percent of the photo width. Daylight comes from a window at the side.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1plus-unit-1-q03-7d520a07846a47b8.webp",
+    "sha256": "7d520a07846a47b8e8389c3226f3b3639d7eed0d257318b08e4f9b77c5b2258b"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "L6z_at2bGdyLqtsPz5vlqAw",
+  "usage": {
+    "promptTokenCount": 597,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1887,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 339
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038879",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 597,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 8.43,
+  "output": "output/imagegen/a1plus-unit-2-lesson-v270/f09-sofia-floor-9.png",
+  "sha256": "240c10994ea5e6f0c584dd82b9d173282c972a10eb07cbbb19977183e2848db0",
+  "byte_count": 1246035,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}

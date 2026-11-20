@@ -1,0 +1,982 @@
+{
+  "brief_version": 1,
+  "follows": {
+    "course": "a1",
+    "lesson": "2.7",
+    "title": "Numbers 6-10"
+  },
+  "note": "A1+ Unit 2 Lesson 2.7, built on 2026-11-19 under the A1+ lesson standards approved 2026-10-27 and the user's 2026-11-09 rule that every A1+ lesson follows up the A1 lesson with the same number. The user approved the A1+ Unit 2 plan on 2026-11-19 (A1+ 2.Y follows A1 2.Y, one grammar step each) and chose \"Straight to Preview\": no per-lesson gates, Gemini 2.5 Flash photos and ElevenLabs audio pre-approved, reviewed in Preview. Batch B (2.6-2.10) was started on the user's \"Start Batch B\". Each cast member stands beside the elevator on the floor where they live, with the floor number large on the wall: Ana (6), Diego (7), Luis (8), Sofia (9); an empty office lobby shows 10. The person in the photo says I live on …; the teacher asks Where does … live? and the co-teacher answers; Where do you live? is asked by the other voice pair. Sentence banks keep the person and change only the floor. A Listen card brings back A1+ 1.4's aunt and 1.9's Where does … live? (Where does your aunt live? She lives in Canada.).",
+  "target": "backend/lessons/a1_plus/unit_2/a1plus-unit-2-lesson-2-7.yaml",
+  "captions": false,
+  "narrators": [
+    "teacher",
+    "co-teacher"
+  ],
+  "answer_audio_policy": "authored-only",
+  "speak_delivery": "a1-pronunciation-v1",
+  "lesson": {
+    "id": "a1plus-unit-2-lesson-2-7",
+    "title": "2.7 On the seventh floor",
+    "level": "A1+",
+    "unit_id": "a1plus-unit-2",
+    "unit_title": "Places, things and how we describe them",
+    "unit_outcome": "Say where people go and how they get there, talk about the things people have, point things out and compare them, put things in order, and ask about favorites.",
+    "lesson_id": "a1plus-unit-2-lesson-2-7",
+    "lesson_title": "On the seventh floor",
+    "sub_lesson_id": "2.7",
+    "sub_lesson_title": "On the seventh floor",
+    "goal": "Say which floor someone lives on with sixth to tenth (I live on the seventh floor. / Where does Diego live? He lives on the seventh floor.).",
+    "vocabulary": [
+      "sixth",
+      "seventh",
+      "eighth",
+      "ninth",
+      "tenth"
+    ],
+    "review_vocabulary": [
+      "I",
+      "live",
+      "lives",
+      "on",
+      "the",
+      "floor",
+      "where",
+      "do",
+      "does",
+      "you",
+      "he",
+      "she",
+      "office",
+      "aunt",
+      "my",
+      "in",
+      "Canada",
+      "it",
+      "is"
+    ],
+    "grammar_function": "A follow-up of A1 2.7 Numbers 6-10: A1 counts six to ten; A1+ 2.7 adds the ordinal numbers sixth to tenth, in the order of A1+ 2.6's second to fifth (the seventh floor), about where people live (I live on the seventh floor.), with A1+ 1.9's Where does … live?. Each cast member stands by the elevator on the floor where they live, with the floor number on the wall: Ana on 6, Diego on 7, Luis on 8 and Sofia on 9; Diego's office (A1+ 2.1) is on 10.",
+    "prerequisite": "A1 2.7 six to ten; A1+ 2.6 second to fifth; A1 4.15 floor; A1+ 1.4 lives in, aunt; A1+ 1.9 Where does … live?; A1+ 2.1 office.",
+    "speaking_outcome": "Say sixth with x-th at the end, seventh with three syllables (SEV-en-th), eighth like eight + th, ninth with a long i, tenth with th at the end. Do not require native-like speed.",
+    "content_revision": 1,
+    "learn_context_groups": [
+      {
+        "kind": "sequence",
+        "targets": [
+          "sixth"
+        ],
+        "models": [
+          {
+            "slide_id": "L1",
+            "text": "I live on the sixth floor."
+          }
+        ]
+      },
+      {
+        "kind": "sequence",
+        "targets": [
+          "seventh"
+        ],
+        "models": [
+          {
+            "slide_id": "L2",
+            "text": "I live on the seventh floor."
+          }
+        ]
+      },
+      {
+        "kind": "sequence",
+        "targets": [
+          "eighth"
+        ],
+        "models": [
+          {
+            "slide_id": "L3",
+            "text": "I live on the eighth floor."
+          }
+        ]
+      },
+      {
+        "kind": "sequence",
+        "targets": [
+          "ninth"
+        ],
+        "models": [
+          {
+            "slide_id": "L4",
+            "text": "I live on the ninth floor."
+          }
+        ]
+      },
+      {
+        "kind": "sequence",
+        "targets": [
+          "tenth"
+        ],
+        "models": [
+          {
+            "slide_id": "L5",
+            "text": "The office is on the tenth floor."
+          }
+        ]
+      }
+    ]
+  },
+  "items": [
+    {
+      "id": "l-sixth",
+      "text": "I live on the sixth floor.",
+      "es": "Vivo en el sexto piso.",
+      "image": "/lesson-assets/a1plus-unit-2-f06-2565f804540d9d4d.webp",
+      "kind": "model",
+      "choices": false,
+      "use": false,
+      "speaker": "ana"
+    },
+    {
+      "id": "i-f06",
+      "text": "I live on the sixth floor.",
+      "es": "Vivo en el sexto piso.",
+      "image": "/lesson-assets/a1plus-unit-2-f06-2565f804540d9d4d.webp",
+      "kind": "mine",
+      "learn": false,
+      "speaker": "ana",
+      "accepts": {
+        "subject-variety": "The lesson says who lives on which floor: a bank keeps the person and changes only the floor.",
+        "action-variety": "The lesson says who lives on which floor: a bank keeps the person and changes only the floor."
+      },
+      "blanks": [
+        "sixth",
+        "floor"
+      ]
+    },
+    {
+      "id": "n-f06",
+      "text": "Ana lives on the sixth floor.",
+      "es": "Ana vive en el sexto piso.",
+      "image": "/lesson-assets/a1plus-unit-2-f06-2565f804540d9d4d.webp",
+      "kind": "named",
+      "learn": false,
+      "image_choices": false,
+      "accepts": {
+        "subject-variety": "The lesson says who lives on which floor: a bank keeps the person and changes only the floor.",
+        "action-variety": "The lesson says who lives on which floor: a bank keeps the person and changes only the floor."
+      },
+      "blanks": [
+        "sixth",
+        "floor"
+      ],
+      "prefer": [
+        "Ana lives on the seventh floor.",
+        "Ana lives on the eighth floor."
+      ]
+    },
+    {
+      "id": "d-f06",
+      "text": "She lives on the sixth floor.",
+      "es": "Ella vive en el sexto piso.",
+      "image": "/lesson-assets/a1plus-unit-2-f06-2565f804540d9d4d.webp",
+      "kind": "does",
+      "learn": false,
+      "use": false,
+      "image_choices": false,
+      "speaker": "co-teacher",
+      "question": "Where does Ana live?",
+      "question_es": "¿Dónde vive Ana?",
+      "question_speaker": "teacher",
+      "accepts": {
+        "subject-variety": "Listen asks where someone lives; the banks keep the person and change only the floor.",
+        "action-variety": "Listen asks where someone lives; the banks keep the person and change only the floor.",
+        "conversational-response": "Listen asks where someone lives; the banks keep the person and change only the floor."
+      },
+      "prefer": [
+        "She lives on the seventh floor.",
+        "She lives on the eighth floor."
+      ]
+    },
+    {
+      "id": "y-f06",
+      "text": "I live on the sixth floor.",
+      "es": "Vivo en el sexto piso.",
+      "image": "/lesson-assets/a1plus-unit-2-f06-2565f804540d9d4d.webp",
+      "kind": "reply",
+      "learn": false,
+      "use": false,
+      "image_choices": false,
+      "speaker": "ana",
+      "question": "Where do you live?",
+      "question_es": "¿Dónde vives?",
+      "question_speaker": "luis",
+      "accepts": {
+        "subject-variety": "Listen asks where someone lives; the banks keep the person and change only the floor.",
+        "action-variety": "Listen asks where someone lives; the banks keep the person and change only the floor.",
+        "conversational-response": "Listen asks where someone lives; the banks keep the person and change only the floor."
+      },
+      "prefer": [
+        "I live on the seventh floor.",
+        "I live on the eighth floor."
+      ]
+    },
+    {
+      "id": "q-f06",
+      "text": "Where does Ana live?",
+      "es": "¿Dónde vive Ana?",
+      "image": "/lesson-assets/a1plus-unit-2-f06-2565f804540d9d4d.webp",
+      "kind": "question",
+      "learn": false,
+      "choices": false,
+      "blanks": [
+        "does",
+        "Ana"
+      ]
+    },
+    {
+      "id": "l-seventh",
+      "text": "I live on the seventh floor.",
+      "es": "Vivo en el séptimo piso.",
+      "image": "/lesson-assets/a1plus-unit-2-f07-4a03310ba0206784.webp",
+      "kind": "model",
+      "choices": false,
+      "use": false,
+      "speaker": "diego"
+    },
+    {
+      "id": "i-f07",
+      "text": "I live on the seventh floor.",
+      "es": "Vivo en el séptimo piso.",
+      "image": "/lesson-assets/a1plus-unit-2-f07-4a03310ba0206784.webp",
+      "kind": "mine",
+      "learn": false,
+      "speaker": "diego",
+      "accepts": {
+        "subject-variety": "The lesson says who lives on which floor: a bank keeps the person and changes only the floor.",
+        "action-variety": "The lesson says who lives on which floor: a bank keeps the person and changes only the floor."
+      },
+      "blanks": [
+        "seventh",
+        "floor"
+      ]
+    },
+    {
+      "id": "n-f07",
+      "text": "Diego lives on the seventh floor.",
+      "es": "Diego vive en el séptimo piso.",
+      "image": "/lesson-assets/a1plus-unit-2-f07-4a03310ba0206784.webp",
+      "kind": "named",
+      "learn": false,
+      "image_choices": false,
+      "accepts": {
+        "subject-variety": "The lesson says who lives on which floor: a bank keeps the person and changes only the floor.",
+        "action-variety": "The lesson says who lives on which floor: a bank keeps the person and changes only the floor."
+      },
+      "blanks": [
+        "seventh",
+        "floor"
+      ],
+      "prefer": [
+        "Diego lives on the sixth floor.",
+        "Diego lives on the eighth floor."
+      ]
+    },
+    {
+      "id": "d-f07",
+      "text": "He lives on the seventh floor.",
+      "es": "Él vive en el séptimo piso.",
+      "image": "/lesson-assets/a1plus-unit-2-f07-4a03310ba0206784.webp",
+      "kind": "does",
+      "learn": false,
+      "use": false,
+      "image_choices": false,
+      "speaker": "co-teacher",
+      "question": "Where does Diego live?",
+      "question_es": "¿Dónde vive Diego?",
+      "question_speaker": "teacher",
+      "accepts": {
+        "subject-variety": "Listen asks where someone lives; the banks keep the person and change only the floor.",
+        "action-variety": "Listen asks where someone lives; the banks keep the person and change only the floor.",
+        "conversational-response": "Listen asks where someone lives; the banks keep the person and change only the floor."
+      },
+      "prefer": [
+        "He lives on the sixth floor.",
+        "He lives on the eighth floor."
+      ]
+    },
+    {
+      "id": "y-f07",
+      "text": "I live on the seventh floor.",
+      "es": "Vivo en el séptimo piso.",
+      "image": "/lesson-assets/a1plus-unit-2-f07-4a03310ba0206784.webp",
+      "kind": "reply",
+      "learn": false,
+      "use": false,
+      "image_choices": false,
+      "speaker": "diego",
+      "question": "Where do you live?",
+      "question_es": "¿Dónde vives?",
+      "question_speaker": "sofia",
+      "accepts": {
+        "subject-variety": "Listen asks where someone lives; the banks keep the person and change only the floor.",
+        "action-variety": "Listen asks where someone lives; the banks keep the person and change only the floor.",
+        "conversational-response": "Listen asks where someone lives; the banks keep the person and change only the floor."
+      },
+      "prefer": [
+        "I live on the sixth floor.",
+        "I live on the eighth floor."
+      ]
+    },
+    {
+      "id": "q-f07",
+      "text": "Where does Diego live?",
+      "es": "¿Dónde vive Diego?",
+      "image": "/lesson-assets/a1plus-unit-2-f07-4a03310ba0206784.webp",
+      "kind": "question",
+      "learn": false,
+      "choices": false,
+      "blanks": [
+        "does",
+        "Diego"
+      ]
+    },
+    {
+      "id": "l-eighth",
+      "text": "I live on the eighth floor.",
+      "es": "Vivo en el octavo piso.",
+      "image": "/lesson-assets/a1plus-unit-2-f08-1ceca4d4945563be.webp",
+      "kind": "model",
+      "choices": false,
+      "use": false,
+      "speaker": "luis"
+    },
+    {
+      "id": "i-f08",
+      "text": "I live on the eighth floor.",
+      "es": "Vivo en el octavo piso.",
+      "image": "/lesson-assets/a1plus-unit-2-f08-1ceca4d4945563be.webp",
+      "kind": "mine",
+      "learn": false,
+      "speaker": "luis",
+      "accepts": {
+        "subject-variety": "The lesson says who lives on which floor: a bank keeps the person and changes only the floor.",
+        "action-variety": "The lesson says who lives on which floor: a bank keeps the person and changes only the floor."
+      },
+      "blanks": [
+        "eighth",
+        "floor"
+      ]
+    },
+    {
+      "id": "n-f08",
+      "text": "Luis lives on the eighth floor.",
+      "es": "Luis vive en el octavo piso.",
+      "image": "/lesson-assets/a1plus-unit-2-f08-1ceca4d4945563be.webp",
+      "kind": "named",
+      "learn": false,
+      "image_choices": false,
+      "accepts": {
+        "subject-variety": "The lesson says who lives on which floor: a bank keeps the person and changes only the floor.",
+        "action-variety": "The lesson says who lives on which floor: a bank keeps the person and changes only the floor."
+      },
+      "blanks": [
+        "eighth",
+        "floor"
+      ],
+      "prefer": [
+        "Luis lives on the sixth floor.",
+        "Luis lives on the seventh floor."
+      ]
+    },
+    {
+      "id": "d-f08",
+      "text": "He lives on the eighth floor.",
+      "es": "Él vive en el octavo piso.",
+      "image": "/lesson-assets/a1plus-unit-2-f08-1ceca4d4945563be.webp",
+      "kind": "does",
+      "learn": false,
+      "use": false,
+      "image_choices": false,
+      "speaker": "co-teacher",
+      "question": "Where does Luis live?",
+      "question_es": "¿Dónde vive Luis?",
+      "question_speaker": "teacher",
+      "accepts": {
+        "subject-variety": "Listen asks where someone lives; the banks keep the person and change only the floor.",
+        "action-variety": "Listen asks where someone lives; the banks keep the person and change only the floor.",
+        "conversational-response": "Listen asks where someone lives; the banks keep the person and change only the floor."
+      },
+      "prefer": [
+        "He lives on the sixth floor.",
+        "He lives on the seventh floor."
+      ]
+    },
+    {
+      "id": "y-f08",
+      "text": "I live on the eighth floor.",
+      "es": "Vivo en el octavo piso.",
+      "image": "/lesson-assets/a1plus-unit-2-f08-1ceca4d4945563be.webp",
+      "kind": "reply",
+      "learn": false,
+      "use": false,
+      "image_choices": false,
+      "speaker": "luis",
+      "question": "Where do you live?",
+      "question_es": "¿Dónde vives?",
+      "question_speaker": "ana",
+      "accepts": {
+        "subject-variety": "Listen asks where someone lives; the banks keep the person and change only the floor.",
+        "action-variety": "Listen asks where someone lives; the banks keep the person and change only the floor.",
+        "conversational-response": "Listen asks where someone lives; the banks keep the person and change only the floor."
+      },
+      "prefer": [
+        "I live on the sixth floor.",
+        "I live on the seventh floor."
+      ]
+    },
+    {
+      "id": "q-f08",
+      "text": "Where does Luis live?",
+      "es": "¿Dónde vive Luis?",
+      "image": "/lesson-assets/a1plus-unit-2-f08-1ceca4d4945563be.webp",
+      "kind": "question",
+      "learn": false,
+      "choices": false,
+      "blanks": [
+        "does",
+        "Luis"
+      ]
+    },
+    {
+      "id": "l-ninth",
+      "text": "I live on the ninth floor.",
+      "es": "Vivo en el noveno piso.",
+      "image": "/lesson-assets/a1plus-unit-2-f09-d011daa457df1b6d.webp",
+      "kind": "model",
+      "choices": false,
+      "use": false,
+      "speaker": "sofia"
+    },
+    {
+      "id": "i-f09",
+      "text": "I live on the ninth floor.",
+      "es": "Vivo en el noveno piso.",
+      "image": "/lesson-assets/a1plus-unit-2-f09-d011daa457df1b6d.webp",
+      "kind": "mine",
+      "learn": false,
+      "speaker": "sofia",
+      "accepts": {
+        "subject-variety": "The lesson says who lives on which floor: a bank keeps the person and changes only the floor.",
+        "action-variety": "The lesson says who lives on which floor: a bank keeps the person and changes only the floor."
+      },
+      "blanks": [
+        "ninth",
+        "floor"
+      ]
+    },
+    {
+      "id": "n-f09",
+      "text": "Sofia lives on the ninth floor.",
+      "es": "Sofía vive en el noveno piso.",
+      "image": "/lesson-assets/a1plus-unit-2-f09-d011daa457df1b6d.webp",
+      "kind": "named",
+      "learn": false,
+      "image_choices": false,
+      "accepts": {
+        "subject-variety": "The lesson says who lives on which floor: a bank keeps the person and changes only the floor.",
+        "action-variety": "The lesson says who lives on which floor: a bank keeps the person and changes only the floor."
+      },
+      "blanks": [
+        "ninth",
+        "floor"
+      ],
+      "prefer": [
+        "Sofia lives on the sixth floor.",
+        "Sofia lives on the seventh floor."
+      ]
+    },
+    {
+      "id": "d-f09",
+      "text": "She lives on the ninth floor.",
+      "es": "Ella vive en el noveno piso.",
+      "image": "/lesson-assets/a1plus-unit-2-f09-d011daa457df1b6d.webp",
+      "kind": "does",
+      "learn": false,
+      "use": false,
+      "image_choices": false,
+      "speaker": "co-teacher",
+      "question": "Where does Sofia live?",
+      "question_es": "¿Dónde vive Sofía?",
+      "question_speaker": "teacher",
+      "accepts": {
+        "subject-variety": "Listen asks where someone lives; the banks keep the person and change only the floor.",
+        "action-variety": "Listen asks where someone lives; the banks keep the person and change only the floor.",
+        "conversational-response": "Listen asks where someone lives; the banks keep the person and change only the floor."
+      },
+      "prefer": [
+        "She lives on the sixth floor.",
+        "She lives on the seventh floor."
+      ]
+    },
+    {
+      "id": "y-f09",
+      "text": "I live on the ninth floor.",
+      "es": "Vivo en el noveno piso.",
+      "image": "/lesson-assets/a1plus-unit-2-f09-d011daa457df1b6d.webp",
+      "kind": "reply",
+      "learn": false,
+      "use": false,
+      "image_choices": false,
+      "speaker": "sofia",
+      "question": "Where do you live?",
+      "question_es": "¿Dónde vives?",
+      "question_speaker": "diego",
+      "accepts": {
+        "subject-variety": "Listen asks where someone lives; the banks keep the person and change only the floor.",
+        "action-variety": "Listen asks where someone lives; the banks keep the person and change only the floor.",
+        "conversational-response": "Listen asks where someone lives; the banks keep the person and change only the floor."
+      },
+      "prefer": [
+        "I live on the sixth floor.",
+        "I live on the seventh floor."
+      ]
+    },
+    {
+      "id": "q-f09",
+      "text": "Where does Sofia live?",
+      "es": "¿Dónde vive Sofía?",
+      "image": "/lesson-assets/a1plus-unit-2-f09-d011daa457df1b6d.webp",
+      "kind": "question",
+      "learn": false,
+      "choices": false,
+      "blanks": [
+        "does",
+        "Sofia"
+      ]
+    },
+    {
+      "id": "l-tenth",
+      "text": "The office is on the tenth floor.",
+      "es": "La oficina está en el décimo piso.",
+      "image": "/lesson-assets/a1plus-unit-2-f10-6bf60fd4f43fe962.webp",
+      "kind": "model",
+      "choices": false,
+      "use": false,
+      "speaker": "teacher"
+    },
+    {
+      "id": "o-office",
+      "text": "The office is on the tenth floor.",
+      "es": "La oficina está en el décimo piso.",
+      "image": "/lesson-assets/a1plus-unit-2-f10-6bf60fd4f43fe962.webp",
+      "kind": "office",
+      "learn": false,
+      "image_choices": false,
+      "blanks": [
+        "tenth",
+        "floor"
+      ],
+      "prefer": [
+        "The office is on the ninth floor.",
+        "The office is on the sixth floor."
+      ]
+    },
+    {
+      "id": "t-tenth",
+      "text": "It is the tenth floor.",
+      "es": "Es el décimo piso.",
+      "image": "/lesson-assets/a1plus-unit-2-f10-6bf60fd4f43fe962.webp",
+      "kind": "floor",
+      "learn": false,
+      "use": false
+    },
+    {
+      "id": "r-office",
+      "text": "It is on the tenth floor.",
+      "es": "Está en el décimo piso.",
+      "image": "/lesson-assets/a1plus-unit-2-f10-6bf60fd4f43fe962.webp",
+      "kind": "officereply",
+      "learn": false,
+      "use": false,
+      "image_choices": false,
+      "speaker": "co-teacher",
+      "question": "Where is the office?",
+      "question_es": "¿Dónde está la oficina?",
+      "question_speaker": "teacher",
+      "accepts": {
+        "subject-variety": "Listen asks where someone lives; the banks keep the person and change only the floor.",
+        "action-variety": "Listen asks where someone lives; the banks keep the person and change only the floor.",
+        "conversational-response": "Listen asks where someone lives; the banks keep the person and change only the floor."
+      },
+      "prefer": [
+        "It is on the ninth floor.",
+        "It is on the sixth floor."
+      ]
+    },
+    {
+      "id": "x-aunt",
+      "text": "She lives in Canada.",
+      "es": "Vive en Canadá.",
+      "image": "/lesson-assets/a1plus-unit-1-k01-74c66f74ce4ad390.webp",
+      "kind": "aunt",
+      "learn": false,
+      "use": false,
+      "image_choices": false,
+      "speaker": "ana",
+      "question": "Where does your aunt live?",
+      "question_es": "¿Dónde vive tu tía?",
+      "question_speaker": "luis",
+      "accepts": {
+        "subject-variety": "Ana's aunt lives in Canada and her uncle in Mexico (A1+ 1.4); the answer is what was heard.",
+        "action-variety": "Ana's aunt lives in Canada and her uncle in Mexico (A1+ 1.4); the answer is what was heard.",
+        "conversational-response": "Ana's aunt lives in Canada and her uncle in Mexico (A1+ 1.4); the answer is what was heard."
+      },
+      "prefer": [
+        "She lives in Mexico."
+      ]
+    },
+    {
+      "id": "s-aunt",
+      "text": "My aunt lives in Canada.",
+      "es": "Mi tía vive en Canadá.",
+      "image": "/lesson-assets/a1plus-unit-1-k01-74c66f74ce4ad390.webp",
+      "kind": "auntsay",
+      "learn": false,
+      "choices": false,
+      "speaker": "ana",
+      "blanks": [
+        "aunt",
+        "lives"
+      ]
+    }
+  ],
+  "pool": [
+    {
+      "text": "Ana lives on the seventh floor.",
+      "es": "Ana vive en el séptimo piso.",
+      "image": "/lesson-assets/a1plus-unit-2-f06-2565f804540d9d4d.webp",
+      "kind": "named",
+      "image_choices": false
+    },
+    {
+      "text": "Ana lives on the eighth floor.",
+      "es": "Ana vive en el octavo piso.",
+      "image": "/lesson-assets/a1plus-unit-2-f06-2565f804540d9d4d.webp",
+      "kind": "named",
+      "image_choices": false
+    },
+    {
+      "text": "Ana lives on the ninth floor.",
+      "es": "Ana vive en el noveno piso.",
+      "image": "/lesson-assets/a1plus-unit-2-f06-2565f804540d9d4d.webp",
+      "kind": "named",
+      "image_choices": false
+    },
+    {
+      "text": "Ana lives on the tenth floor.",
+      "es": "Ana vive en el décimo piso.",
+      "image": "/lesson-assets/a1plus-unit-2-f06-2565f804540d9d4d.webp",
+      "kind": "named",
+      "image_choices": false
+    },
+    {
+      "text": "Diego lives on the sixth floor.",
+      "es": "Diego vive en el sexto piso.",
+      "image": "/lesson-assets/a1plus-unit-2-f07-4a03310ba0206784.webp",
+      "kind": "named",
+      "image_choices": false
+    },
+    {
+      "text": "Diego lives on the eighth floor.",
+      "es": "Diego vive en el octavo piso.",
+      "image": "/lesson-assets/a1plus-unit-2-f07-4a03310ba0206784.webp",
+      "kind": "named",
+      "image_choices": false
+    },
+    {
+      "text": "Diego lives on the ninth floor.",
+      "es": "Diego vive en el noveno piso.",
+      "image": "/lesson-assets/a1plus-unit-2-f07-4a03310ba0206784.webp",
+      "kind": "named",
+      "image_choices": false
+    },
+    {
+      "text": "Diego lives on the tenth floor.",
+      "es": "Diego vive en el décimo piso.",
+      "image": "/lesson-assets/a1plus-unit-2-f07-4a03310ba0206784.webp",
+      "kind": "named",
+      "image_choices": false
+    },
+    {
+      "text": "Luis lives on the sixth floor.",
+      "es": "Luis vive en el sexto piso.",
+      "image": "/lesson-assets/a1plus-unit-2-f08-1ceca4d4945563be.webp",
+      "kind": "named",
+      "image_choices": false
+    },
+    {
+      "text": "Luis lives on the seventh floor.",
+      "es": "Luis vive en el séptimo piso.",
+      "image": "/lesson-assets/a1plus-unit-2-f08-1ceca4d4945563be.webp",
+      "kind": "named",
+      "image_choices": false
+    },
+    {
+      "text": "Luis lives on the ninth floor.",
+      "es": "Luis vive en el noveno piso.",
+      "image": "/lesson-assets/a1plus-unit-2-f08-1ceca4d4945563be.webp",
+      "kind": "named",
+      "image_choices": false
+    },
+    {
+      "text": "Luis lives on the tenth floor.",
+      "es": "Luis vive en el décimo piso.",
+      "image": "/lesson-assets/a1plus-unit-2-f08-1ceca4d4945563be.webp",
+      "kind": "named",
+      "image_choices": false
+    },
+    {
+      "text": "Sofia lives on the sixth floor.",
+      "es": "Sofía vive en el sexto piso.",
+      "image": "/lesson-assets/a1plus-unit-2-f09-d011daa457df1b6d.webp",
+      "kind": "named",
+      "image_choices": false
+    },
+    {
+      "text": "Sofia lives on the seventh floor.",
+      "es": "Sofía vive en el séptimo piso.",
+      "image": "/lesson-assets/a1plus-unit-2-f09-d011daa457df1b6d.webp",
+      "kind": "named",
+      "image_choices": false
+    },
+    {
+      "text": "Sofia lives on the eighth floor.",
+      "es": "Sofía vive en el octavo piso.",
+      "image": "/lesson-assets/a1plus-unit-2-f09-d011daa457df1b6d.webp",
+      "kind": "named",
+      "image_choices": false
+    },
+    {
+      "text": "Sofia lives on the tenth floor.",
+      "es": "Sofía vive en el décimo piso.",
+      "image": "/lesson-assets/a1plus-unit-2-f09-d011daa457df1b6d.webp",
+      "kind": "named",
+      "image_choices": false
+    },
+    {
+      "text": "He lives on the sixth floor.",
+      "es": "Él vive en el sexto piso.",
+      "image": "/lesson-assets/a1plus-unit-2-f06-2565f804540d9d4d.webp",
+      "kind": "does",
+      "image_choices": false
+    },
+    {
+      "text": "She lives on the sixth floor.",
+      "es": "Ella vive en el sexto piso.",
+      "image": "/lesson-assets/a1plus-unit-2-f06-2565f804540d9d4d.webp",
+      "kind": "does",
+      "image_choices": false
+    },
+    {
+      "text": "I live on the sixth floor.",
+      "es": "Vivo en el sexto piso.",
+      "image": "/lesson-assets/a1plus-unit-2-f06-2565f804540d9d4d.webp",
+      "kind": "reply",
+      "image_choices": false
+    },
+    {
+      "text": "He lives on the seventh floor.",
+      "es": "Él vive en el séptimo piso.",
+      "image": "/lesson-assets/a1plus-unit-2-f06-2565f804540d9d4d.webp",
+      "kind": "does",
+      "image_choices": false
+    },
+    {
+      "text": "She lives on the seventh floor.",
+      "es": "Ella vive en el séptimo piso.",
+      "image": "/lesson-assets/a1plus-unit-2-f06-2565f804540d9d4d.webp",
+      "kind": "does",
+      "image_choices": false
+    },
+    {
+      "text": "I live on the seventh floor.",
+      "es": "Vivo en el séptimo piso.",
+      "image": "/lesson-assets/a1plus-unit-2-f06-2565f804540d9d4d.webp",
+      "kind": "reply",
+      "image_choices": false
+    },
+    {
+      "text": "He lives on the eighth floor.",
+      "es": "Él vive en el octavo piso.",
+      "image": "/lesson-assets/a1plus-unit-2-f06-2565f804540d9d4d.webp",
+      "kind": "does",
+      "image_choices": false
+    },
+    {
+      "text": "She lives on the eighth floor.",
+      "es": "Ella vive en el octavo piso.",
+      "image": "/lesson-assets/a1plus-unit-2-f06-2565f804540d9d4d.webp",
+      "kind": "does",
+      "image_choices": false
+    },
+    {
+      "text": "I live on the eighth floor.",
+      "es": "Vivo en el octavo piso.",
+      "image": "/lesson-assets/a1plus-unit-2-f06-2565f804540d9d4d.webp",
+      "kind": "reply",
+      "image_choices": false
+    },
+    {
+      "text": "He lives on the ninth floor.",
+      "es": "Él vive en el noveno piso.",
+      "image": "/lesson-assets/a1plus-unit-2-f06-2565f804540d9d4d.webp",
+      "kind": "does",
+      "image_choices": false
+    },
+    {
+      "text": "She lives on the ninth floor.",
+      "es": "Ella vive en el noveno piso.",
+      "image": "/lesson-assets/a1plus-unit-2-f06-2565f804540d9d4d.webp",
+      "kind": "does",
+      "image_choices": false
+    },
+    {
+      "text": "I live on the ninth floor.",
+      "es": "Vivo en el noveno piso.",
+      "image": "/lesson-assets/a1plus-unit-2-f06-2565f804540d9d4d.webp",
+      "kind": "reply",
+      "image_choices": false
+    },
+    {
+      "text": "He lives on the tenth floor.",
+      "es": "Él vive en el décimo piso.",
+      "image": "/lesson-assets/a1plus-unit-2-f06-2565f804540d9d4d.webp",
+      "kind": "does",
+      "image_choices": false
+    },
+    {
+      "text": "She lives on the tenth floor.",
+      "es": "Ella vive en el décimo piso.",
+      "image": "/lesson-assets/a1plus-unit-2-f06-2565f804540d9d4d.webp",
+      "kind": "does",
+      "image_choices": false
+    },
+    {
+      "text": "I live on the tenth floor.",
+      "es": "Vivo en el décimo piso.",
+      "image": "/lesson-assets/a1plus-unit-2-f06-2565f804540d9d4d.webp",
+      "kind": "reply",
+      "image_choices": false
+    },
+    {
+      "text": "The office is on the ninth floor.",
+      "es": "La oficina está en el noveno piso.",
+      "image": "/lesson-assets/a1plus-unit-2-f10-6bf60fd4f43fe962.webp",
+      "kind": "office",
+      "image_choices": false
+    },
+    {
+      "text": "The office is on the sixth floor.",
+      "es": "La oficina está en el sexto piso.",
+      "image": "/lesson-assets/a1plus-unit-2-f10-6bf60fd4f43fe962.webp",
+      "kind": "office",
+      "image_choices": false
+    },
+    {
+      "text": "The office is on the eighth floor.",
+      "es": "La oficina está en el octavo piso.",
+      "image": "/lesson-assets/a1plus-unit-2-f10-6bf60fd4f43fe962.webp",
+      "kind": "office",
+      "image_choices": false
+    },
+    {
+      "text": "It is the fifth floor.",
+      "es": "Es el quinto piso.",
+      "image": "/lesson-assets/a1plus-unit-2-g05-698bddc661c2769a.webp",
+      "kind": "floor"
+    },
+    {
+      "text": "It is the fourth floor.",
+      "es": "Es el cuarto piso.",
+      "image": "/lesson-assets/a1plus-unit-2-g04-e9e0b48d24552a25.webp",
+      "kind": "floor"
+    },
+    {
+      "text": "It is on the ninth floor.",
+      "es": "Está en el noveno piso.",
+      "image": "/lesson-assets/a1plus-unit-2-f10-6bf60fd4f43fe962.webp",
+      "kind": "officereply",
+      "image_choices": false
+    },
+    {
+      "text": "It is on the sixth floor.",
+      "es": "Está en el sexto piso.",
+      "image": "/lesson-assets/a1plus-unit-2-f10-6bf60fd4f43fe962.webp",
+      "kind": "officereply",
+      "image_choices": false
+    },
+    {
+      "text": "She lives in Mexico.",
+      "es": "Vive en México.",
+      "image": "/lesson-assets/a1plus-unit-1-k01-74c66f74ce4ad390.webp",
+      "kind": "aunt",
+      "image_choices": false
+    }
+  ],
+  "layout": {
+    "Recognize": 11,
+    "Listen": 10,
+    "Speak": 8,
+    "Use": 8
+  },
+  "stage_sequences": {
+    "Learn": [
+      "l-sixth",
+      "l-seventh",
+      "l-eighth",
+      "l-ninth",
+      "l-tenth"
+    ],
+    "Recognize": [
+      "i-f07",
+      "n-f06",
+      "i-f09",
+      "d-f08",
+      "t-tenth",
+      "n-f07",
+      "i-f08",
+      "y-f06",
+      "d-f06",
+      "r-office",
+      "n-f09"
+    ],
+    "Listen": [
+      "i-f06",
+      "d-f07",
+      "n-f08",
+      "t-tenth",
+      "x-aunt",
+      "n-f06",
+      "i-f08",
+      "y-f09",
+      "r-office",
+      "d-f09"
+    ],
+    "Speak": [
+      "i-f06",
+      "i-f07",
+      "i-f08",
+      "i-f09",
+      "s-aunt",
+      "q-f07",
+      "n-f09",
+      "o-office"
+    ],
+    "Use": [
+      "i-f06",
+      "n-f07",
+      "q-f08",
+      "i-f09",
+      "o-office",
+      "s-aunt",
+      "n-f08",
+      "i-f07"
+    ]
+  }
+}

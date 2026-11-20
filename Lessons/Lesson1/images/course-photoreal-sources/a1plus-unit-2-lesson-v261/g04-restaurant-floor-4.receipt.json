@@ -1,0 +1,55 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "b1e5d228-4bc0-4cc4-9292-d01fba5d13e5",
+  "asset_id": "g04-restaurant-floor-4",
+  "pack_sha256": "b817a7a2d9e7f208644b692e4cb87bbf54e89e459bd5527e1ac27242bdfa9eae",
+  "started_at": "2026-11-20T02:09:51.117757+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, logos or brand marks anywhere, and no number anywhere except the one large numeral described: no other signs, buttons, plaques, door numbers or license plates show any digit.\n\nThere are no people anywhere in the photo, not even far in the background or inside the vehicles.\n\nIt is clearly daytime with soft natural light.\n\nThe small, bright elevator lobby on one floor of a tall city building: the closed metal elevator door on the left. Beyond it, through a big clear glass wall, a restaurant with small tables, chairs and white plates and glasses set on the tables. On the plain light wall right next to the elevator door there is one very large dark numeral 4, painted on the wall, sharp and easy to read on a phone. The numeral 4 and the restaurant behind the glass are both inside the central 55 percent of the photo width. Nobody is in the photo.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "76v_aoT9DaSHz7IPyqXUoQ0",
+  "usage": {
+    "promptTokenCount": 291,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1581,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 291
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038787",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 291,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 5.72,
+  "output": "output/imagegen/a1plus-unit-2-lesson-v261/g04-restaurant-floor-4.png",
+  "sha256": "9fa0a92b9bbdbe742bf7101380f3f4f146288012f4f0a7bd3712720c4ac88c48",
+  "byte_count": 1487131,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}
