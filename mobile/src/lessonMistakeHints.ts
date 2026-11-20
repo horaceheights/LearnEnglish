@@ -421,8 +421,6 @@ const CHOICE_CONCEPTS: Record<string, string> = {
   'we study english every day': 'nosotros estudiando inglés a diario',
   'what is it': 'qué es un objeto', 'what is your job': 'cuál es tu trabajo',
   'what is your name': 'cómo te llamas',
-  'how do you spell your name': 'cómo se escribe tu nombre, letra por letra',
-  'how do you spell it': 'cómo se escribe esa palabra, letra por letra',
   'what is your name my name is ana': 'preguntar el nombre y responder Ana',
   'where are you from': 'de dónde eres',
   'where is the bathroom': 'dónde está el baño',
@@ -780,60 +778,6 @@ function imageChoiceContrast(card: LessonCard, correctId: string, wrongId: strin
   return '';
 }
 
-/** English letter names as a Spanish speaker would write their sound (2026-11-18 alphabet lessons). */
-const LETTER_SOUNDS: Record<string, string> = {
-  a: 'ei', b: 'bi', c: 'si', d: 'di', e: 'i', f: 'ef', g: 'yi', h: 'eich', i: 'ai', j: 'yei', k: 'kei',
-  l: 'el', m: 'em', n: 'en', o: 'ou', p: 'pi', q: 'kiu', r: 'ar', s: 'es', t: 'ti', u: 'iu', v: 'vi',
-  w: 'dábliu', x: 'ex', y: 'uai', z: 'zi',
-};
-
-/** The letters of a spelled answer such as "A, H, J, K" or "B, double O, K"; null for ordinary words. */
-function letterSequence(text: string): string[] | null {
-  const words = normalized(text).replace(/[.!?]/g, '').split(/[\s,-]+/).filter(Boolean);
-  const letters: string[] = [];
-  for (let index = 0; index < words.length; index += 1) {
-    const doubled = words[index] === 'double' && /^[a-z]$/.test(words[index + 1] || '');
-    if (doubled) index += 1;
-    if (!/^[a-z]$/.test(words[index])) return null;
-    letters.push(...(doubled ? [words[index], words[index]] : [words[index]]));
-  }
-  return letters.length ? letters : null;
-}
-
-/** Two spelled answers are told apart by the first letter that differs and how each one sounds.
- * The pronoun "I" and the article "a" alone are words, not spelling, so two of them never match. */
-function letterChoiceHint(card: LessonCard, correctText: string, wrongText: string): string {
-  let [right, mistake] = [letterSequence(correctText), letterSequence(wrongText)];
-  // A shared frame such as "It is E." against "It is I." differs only in its letter.
-  if (!right || !mistake) [right, mistake] = contrast(correctText, wrongText).map(letterSequence);
-  if (!right || !mistake || right.join() === mistake.join()) return '';
-  if (right.length === 1 && mistake.length === 1 && ['a', 'i'].includes(right[0]) && ['a', 'i'].includes(mistake[0])) return '';
-  const index = right.findIndex((letter, position) => letter !== mistake[position]);
-  const [expected, chosen] = index >= 0 && mistake[index]
-    ? [right[index], mistake[index]]
-    : [right[0], mistake[0]];
-  // A caption-free picture option arrives as its lower-case concept ("b double o k", "it is g"); write it as shown.
-  const shown = (text: string) => {
-    if (text !== text.toLowerCase()) return text.trim().replace(/[.!?]+$/, '');
-    const parts = text.split(/\s+/).map(word => word.length === 1 ? word.toUpperCase() : word);
-    if (parts.every(word => word.length === 1 || word === 'double')) return parts.join(', ').replace(/double, /g, 'double ');
-    return parts.join(' ').replace(/^./, first => first.toUpperCase());
-  };
-  const source = /listen/i.test(card.stage) ? 'Lo escuchado es' : 'La respuesta es';
-  // Two different spelled words (a dog against Luis) differ in meaning, not in one confusable letter.
-  const differences = right.filter((letter, position) => letter !== mistake[position]).length + Math.abs(right.length - mistake.length);
-  const word = (letters: string[]) => {
-    const joined = letters.join('');
-    const translated = MEANINGS[joined];
-    // A name means itself ("ana" is Ana); a word adds its Spanish meaning.
-    return translated.toLowerCase() === joined ? `“${translated}”` : `“${joined}” (${translated})`;
-  };
-  if (differences > 1 && MEANINGS[right.join('')] && MEANINGS[mistake.join('')]) {
-    return `Elegiste “${shown(wrongText)}”, que se lee ${word(mistake)}. ${source} “${shown(correctText)}”, que se lee ${word(right)}.`;
-  }
-  return `Elegiste “${shown(wrongText)}”: la ${chosen.toUpperCase()} suena “${LETTER_SOUNDS[chosen]}”. ${source} “${shown(correctText)}”: la ${expected.toUpperCase()} suena “${LETTER_SOUNDS[expected]}”.`;
-}
-
 /** Teach the first mistaken slot, or the meaning that distinguishes the choices.
  * Prompt audio may be a question or contain blanks; it is never the answer source.
  */
@@ -859,11 +803,6 @@ export function lessonMistakeHint(card: LessonCard, selected?: string | string[]
   const correct = labels[slot] || target;
   const wrong = wrongOption?.label || '';
   const ordinaryChoice = !card.mission_game || card.mission_game.kind === 'conversation-decision';
-  if (!isCompletion && ordinaryChoice && correctOption && wrongOption) {
-    const letterHint = letterChoiceHint(card,
-      correctOption.label || imageOptionConcept(correctOption.id), wrongOption.label || imageOptionConcept(wrongOption.id));
-    if (letterHint) return letterHint;
-  }
   if (!isCompletion && ordinaryChoice && correctOption && wrongOption) {
     const relationHint = relationalChoiceHint(card, correctOption, wrongOption);
     if (relationHint && relationHint.length <= 140) return relationHint;

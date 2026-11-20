@@ -2,6 +2,8 @@
 
 Date: 2026-11-13. Status: **draft for discussion**. Nothing here is approved, and no lesson, spine or guardrail changes with it. It follows the gaps in [coverage-benchmark-and-topic-map.md](coverage-benchmark-and-topic-map.md).
 
+**2026-11-20:** the alphabet candidate below was built as A1 3.15 and 3.16 on 2026-11-18 and removed on 2026-11-20 by the user's decision ("they are no good"). Do not rebuild it, in A1 or A1+; see the guardrails decision log.
+
 ## 1. Summary
 
 23 candidate lessons would add 164 new items to A1, in three priority groups.
