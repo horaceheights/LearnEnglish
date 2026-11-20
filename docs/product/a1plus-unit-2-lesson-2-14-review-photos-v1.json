@@ -1,0 +1,152 @@
+{
+  "schema_version": 1,
+  "pack": "a1plus-unit-2-lesson-2-14-review-photos",
+  "revision": 1,
+  "output_namespace": "a1plus-unit-2-lesson-v2140",
+  "authorization": "2026-11-19: the user approved the A1+ Unit 2 plan (A1+ 2.Y follows A1 2.Y) and, asked how to build it, chose \"Straight to Preview\" (\"As in 1.9-1.13: no stops. I build the lessons in batches with media pre-approved, and you review everything in Preview.\"). Gemini is the approved image tool (2026-09-23); after the 2.5 Pro photos the user said \"lets switch to flash for any other images\". On 2026-11-20 the user said \"Start Batch C when Preview is done\".",
+  "image_settings": {
+    "provider": "google-gemini",
+    "model": "gemini-2.5-flash-image",
+    "aspect_ratio": "3:2",
+    "image_size": "1K",
+    "runtime_size": "1536x1024",
+    "runtime_format": "webp",
+    "n": 1
+  },
+  "production": {
+    "price_per_image_usd": "0.0387",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing (checked 2026-11-16: Gemini 2.5 Flash Image, about $0.039 per image)",
+    "planned_images": 8,
+    "expected_cost_usd": "0.31",
+    "requested_ceiling_usd": "0.55",
+    "ceiling_note": "The renderer reserves US$0.20 before each request; each request is sent on its own, and the expected spend for the pack is about US$0.31.",
+    "no_automatic_retries": true,
+    "order": "Generate v01 first and check that the gym reads at 180 px; then v02-v08. Check v04's single numeral, v06's height and light/dark blue at 180 px, and that every person is new."
+  },
+  "shared_prompts": {
+    "photo": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, screens, clothes, bags, machines, vehicles or license plates.",
+    "photo_numeral": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, logos or brand marks anywhere, and no number anywhere except the one large numeral described: no other signs, buttons, plaques, door numbers or license plates show any digit.",
+    "safe_center": "Keep the person and the thing that carries the meaning inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.",
+    "solo": "Only this one person is in the photo; there is nobody else, even far in the background.",
+    "nobody": "There are no people anywhere in the photo, not even far in the background or inside the vehicles.",
+    "face": "The person's face is fully visible in three-quarter view, looking at what they are doing, not at the camera.",
+    "daytime": "It is clearly daytime with soft natural light.",
+    "pair": "Only these two people are in the photo; there is nobody else, even far in the background.",
+    "stranger": "The person is a new character who appears in no earlier course photo; give them an ordinary, friendly everyday look.",
+    "park": "The setting is the same big sunny city park on a weekend morning in every photo of this set: short green grass, tall leafy trees, a wide light-grey paved path, a small calm lake and a few wooden benches and picnic tables, with no signs, letters or numbers anywhere.",
+    "scene4": "This is a wide scene for a listening game: the learner hears one sentence and taps the person, group or thing it describes, so the four described subjects must be clearly separate from each other, spread across the width of the photo, none hidden behind another, none cut off by the photo's edges, with their heads well below the top edge. Nobody looks at the camera.",
+    "asks": "The person is a recurring course character who asks the learner a friendly question: they look straight at the camera with a warm, open expression and one hand slightly raised, palm up."
+  },
+  "assets": [
+    {
+      "id": "v01-woman-at-the-gym",
+      "order": 1,
+      "item": "The woman goes to the gym.",
+      "shared": [
+        "photo",
+        "stranger",
+        "solo",
+        "face",
+        "daytime",
+        "safe_center"
+      ],
+      "prompt": "In a bright, modern gym with exercise machines and a rack of dumbbells behind her, a woman of about thirty-five with short red hair, a grey sports top and black leggings lifts one dumbbell in each hand at shoulder height. She is seen from head to knees, and the gym around her is clear at a glance."
+    },
+    {
+      "id": "v02-man-cycles-to-work",
+      "order": 2,
+      "item": "He goes to work by bike. / How does he go to work? He goes by bike.",
+      "shared": [
+        "photo",
+        "stranger",
+        "solo",
+        "face",
+        "daytime",
+        "safe_center"
+      ],
+      "prompt": "On a quiet city street in the morning, a man of about forty in a white shirt, a dark tie and dark trousers, with a black backpack, rides a bicycle toward a tall glass office building behind him. He is seen from the side, the whole bicycle and both wheels clearly inside the photo, his hands on the handlebars and his feet on the pedals."
+    },
+    {
+      "id": "v03-girl-with-camera",
+      "order": 3,
+      "item": "She has a camera. / It isn't a phone. It's a camera.",
+      "shared": [
+        "photo",
+        "stranger",
+        "solo",
+        "face",
+        "daytime",
+        "safe_center"
+      ],
+      "prompt": "In a sunny park, a teenage girl of about fifteen with a long black braid and a yellow T-shirt holds a black camera with a big round lens in both hands at chest height and looks down at it. The camera is large and clear in the photo; she holds nothing else."
+    },
+    {
+      "id": "v04-boy-third-floor",
+      "order": 4,
+      "item": "He lives on the third floor.",
+      "shared": [
+        "photo_numeral",
+        "stranger",
+        "solo",
+        "face",
+        "daytime",
+        "safe_center"
+      ],
+      "prompt": "A boy of about ten with short curly brown hair, a green hoodie and a red backpack stands in the small, bright elevator lobby of his apartment building, beside the closed metal elevator door. On the plain light wall right next to the elevator door there is one very large dark numeral 3, painted on the wall, about as tall as his head, sharp and easy to read on a phone. The numeral 3 and his face are both inside the central 55 percent of the photo width."
+    },
+    {
+      "id": "v05-woman-yellow-apples",
+      "order": 5,
+      "item": "She wants the yellow ones. / Her favorite color is yellow.",
+      "shared": [
+        "photo",
+        "stranger",
+        "solo",
+        "face",
+        "daytime",
+        "safe_center"
+      ],
+      "prompt": "At an outdoor fruit market stall, a woman of about fifty with short grey hair and a bright yellow sweater holds a paper bag full of YELLOW apples up in front of her with both hands, smiling at them. Beside her on the stall is one wooden crate full of RED apples. The yellow apples, the red apples and her face are all large and clear; there is no other fruit."
+    },
+    {
+      "id": "v06-girl-taller-boy",
+      "order": 6,
+      "item": "The girl is taller than the boy. / Her shirt is light blue, but his shirt is dark blue.",
+      "shared": [
+        "photo",
+        "stranger",
+        "pair",
+        "daytime",
+        "safe_center"
+      ],
+      "prompt": "On a sunny sidewalk in front of a plain light wall, a girl of about twelve and her little brother of about seven stand side by side, smiling, both seen from head to shoes in three-quarter view, their faces fully visible. The girl on the LEFT is clearly taller, by a whole head. She wears a plain LIGHT blue (pale sky-blue) T-shirt; the boy on the RIGHT wears a plain DARK blue (deep navy) T-shirt. Both wear grey shorts, so the only blue things are the two T-shirts."
+    },
+    {
+      "id": "v07-teen-phone-in-class",
+      "order": 7,
+      "item": "Don't use your phone.",
+      "shared": [
+        "photo",
+        "stranger",
+        "solo",
+        "face",
+        "daytime",
+        "safe_center"
+      ],
+      "prompt": "In a bright classroom with light wooden desks, large windows and a blank whiteboard with nothing on it, a teenage boy of about sixteen with short blond hair and a red hoodie sits at a student desk and looks down at a smartphone that he holds in both hands under the edge of the desk; the screen faces him, away from the camera. A closed notebook lies on the desk. All the other desks are empty."
+    },
+    {
+      "id": "v08-two-women-watches",
+      "order": 8,
+      "item": "The women have watches.",
+      "shared": [
+        "photo",
+        "stranger",
+        "pair",
+        "daytime",
+        "safe_center"
+      ],
+      "prompt": "At a small round table outside a café, two women of about thirty sit side by side, smiling, each lifting her left wrist to look at the big round wristwatch she wears; both watches are large and clear in the photo. One woman has long brown hair and a white blouse; the other has short black hair and a green blouse. Two coffee cups stand on the table. Their faces are visible in three-quarter view."
+    }
+  ]
+}

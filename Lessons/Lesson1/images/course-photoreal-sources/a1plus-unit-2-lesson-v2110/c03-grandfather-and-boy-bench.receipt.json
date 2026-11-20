@@ -1,0 +1,55 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "c178480e-bf90-4296-8b9f-9ffa0bdb9ee9",
+  "asset_id": "c03-grandfather-and-boy-bench",
+  "pack_sha256": "14fd7694db53290a46d5263773f83b4a27cc94971027bbe7a65ad61fe2f535ff",
+  "started_at": "2026-11-20T15:00:28.113478+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, screens, clothes, bags, machines, vehicles or license plates.\n\nOnly these two people are in the photo; there is nobody else, even far in the background.\n\nIt is clearly daytime with soft natural light.\n\nKeep the person and the thing that carries the meaning inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nIn a sunny park, a grandfather and his grandson sit side by side on a wooden park bench, smiling at each other. On the LEFT is the grandfather: clearly old, about seventy-five, with white hair, a white mustache, deep wrinkles and a beige cardigan over a white shirt. On the RIGHT is the boy: clearly young, about eight years old, with short dark hair, a blue-and-white striped T-shirt and shorts; his feet do not reach the ground. Both are seen whole from head to shoes, in three-quarter view, their faces fully visible.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "imAAa7iyLojQz7IPmsSomQ4",
+  "usage": {
+    "promptTokenCount": 332,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1622,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 332
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038800",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 332,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 9.22,
+  "output": "output/imagegen/a1plus-unit-2-lesson-v2110/c03-grandfather-and-boy-bench.png",
+  "sha256": "e88c96a20922b1ba297a2e7487e03b7282a0279797c566e04001e07caf86f59a",
+  "byte_count": 2301702,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}

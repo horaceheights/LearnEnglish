@@ -1,0 +1,55 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "66f85b25-4ee2-4876-9398-1cae1d9b2981",
+  "asset_id": "c01-big-brown-dog-small-white-dog",
+  "pack_sha256": "14fd7694db53290a46d5263773f83b4a27cc94971027bbe7a65ad61fe2f535ff",
+  "started_at": "2026-11-20T14:59:17.170600+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, screens, clothes, bags, machines, vehicles or license plates.\n\nThere are no people anywhere in the photo, not even far in the background or inside the vehicles.\n\nIt is clearly daytime with soft natural light.\n\nKeep the person and the thing that carries the meaning inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nOn a short green lawn in a park, two dogs sit side by side on the grass and face the camera, about one body-length apart, both whole and fully inside the photo. On the LEFT is a big dog: a large Labrador-type dog with a solid, even chocolate-brown coat. On the RIGHT is a small dog: a small fluffy dog with a solid, pure white coat, whose head reaches only to the big dog's chest. The camera is low, at the height of the dogs, so the size difference is obvious at a glance. There is no other animal and no object on the lawn; trees are soft and far behind.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "Q2AAa8_COOvjz7IP2I3mkQ4",
+  "usage": {
+    "promptTokenCount": 347,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1637,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 347
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038804",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 347,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 7.56,
+  "output": "output/imagegen/a1plus-unit-2-lesson-v2110/c01-big-brown-dog-small-white-dog.png",
+  "sha256": "674de7d18370b35e02173849dbf2b57fd1abbcf1a03de480ef527870f8ed5457",
+  "byte_count": 1530191,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}

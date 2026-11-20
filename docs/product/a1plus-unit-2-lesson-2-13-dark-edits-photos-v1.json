@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "pack": "a1plus-unit-2-lesson-2-13-dark-edits-photos",
+  "revision": 1,
+  "output_namespace": "a1plus-unit-2-lesson-v2131",
+  "authorization": "2026-11-19: the user approved the A1+ Unit 2 plan (A1+ 2.Y follows A1 2.Y) and, asked how to build it, chose \"Straight to Preview\" (\"As in 1.9-1.13: no stops. I build the lessons in batches with media pre-approved, and you review everything in Preview.\"). Gemini is the approved image tool (2026-09-23); after the 2.5 Pro photos the user said \"lets switch to flash for any other images\". On 2026-11-20 the user said \"Start Batch C when Preview is done\".",
+  "image_settings": {
+    "provider": "google-gemini",
+    "model": "gemini-2.5-flash-image",
+    "aspect_ratio": "3:2",
+    "image_size": "1K",
+    "runtime_size": "1536x1024",
+    "runtime_format": "webp",
+    "n": 1
+  },
+  "production": {
+    "price_per_image_usd": "0.0387",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing (checked 2026-11-16: Gemini 2.5 Flash Image, about $0.039 per image)",
+    "planned_images": 3,
+    "expected_cost_usd": "0.12",
+    "requested_ceiling_usd": "0.35",
+    "ceiling_note": "The renderer reserves US$0.20 before each request; each request is sent on its own, and the expected spend for the pack is about US$0.12.",
+    "no_automatic_retries": true,
+    "order": "Edit k02, k04 and k06 one at a time; each must read as DARK at 180 px and differ from its base only in that one color. Reject any edit that changes the face, the pose or another color."
+  },
+  "shared_prompts": {
+    "photo": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, screens, clothes, bags, machines, vehicles or license plates.",
+    "photo_numeral": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, logos or brand marks anywhere, and no number anywhere except the one large numeral described: no other signs, buttons, plaques, door numbers or license plates show any digit.",
+    "safe_center": "Keep the person and the thing that carries the meaning inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.",
+    "solo": "Only this one person is in the photo; there is nobody else, even far in the background.",
+    "nobody": "There are no people anywhere in the photo, not even far in the background or inside the vehicles.",
+    "face": "The person's face is fully visible in three-quarter view, looking at what they are doing, not at the camera.",
+    "daytime": "It is clearly daytime with soft natural light."
+  },
+  "assets": [
+    {
+      "id": "k02-ana-dark-blue-bag",
+      "order": 1,
+      "item": "Ana has a dark blue bag. / My bag is dark blue.",
+      "shared": [
+        "photo"
+      ],
+      "prompt": "Edit Image 1. Change ONLY the color of the leather tote bag she holds (bag body and both handles) to a deep, dark navy blue. Keep everything else exactly as it is: the same person, face, hair, pose, hands, expression, clothes, light, framing and background, pixel for pixel where possible. The new color is one solid, even color with no pattern, so a learner sees at once on a small phone screen that it is DARK blue, next to the light blue of Image 1.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/course-photoreal-sources/a1plus-unit-2-lesson-v2130/staged/k01-ana-light-blue-bag.png",
+        "sha256": "046a098a9890c384fd86fc3a27e8b15e4d1f89f55d4ac9ac53199768f8bbf9ce",
+        "observed_description": "k01 (reviewed): Ana in a white T-shirt and jeans holds a large plain pale sky-blue leather tote in front of her in a white hallway, smiling down at it."
+      }
+    },
+    {
+      "id": "k04-diego-dark-green-shirt",
+      "order": 2,
+      "item": "My shirt is dark green. / My favorite color is dark green.",
+      "shared": [
+        "photo"
+      ],
+      "prompt": "Edit Image 1. Change ONLY the color of his button shirt (the whole shirt, collar, sleeves and buttons placket) to a deep, dark forest green. Keep everything else exactly as it is: the same person, face, hair, pose, hands, expression, clothes, light, framing and background, pixel for pixel where possible. The new color is one solid, even color with no pattern, so a learner sees at once on a small phone screen that it is DARK green, next to the light green of Image 1.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/course-photoreal-sources/a1plus-unit-2-lesson-v2130/staged/k03-diego-light-green-shirt.png",
+        "sha256": "893180ffd753c4cac9aa5bee5d39ff11156824669464afabfec20a703425ef62",
+        "observed_description": "k03 (reviewed): Diego in a solid pale mint-green button shirt stands against a plain white wall, smiling and holding the shirt front with one hand."
+      }
+    },
+    {
+      "id": "k06-luis-dark-brown-dog",
+      "order": 3,
+      "item": "The dog is dark brown.",
+      "shared": [
+        "photo"
+      ],
+      "prompt": "Edit Image 1. Change ONLY the color of the dog's whole coat (its fur everywhere, ears, legs and tail; keep its eyes and nose) to a deep, dark chocolate brown. Keep everything else exactly as it is: the same person, face, hair, pose, hands, expression, clothes, light, framing and background, pixel for pixel where possible. The new color is one solid, even color with no pattern, so a learner sees at once on a small phone screen that it is DARK brown, next to the light brown of Image 1.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/course-photoreal-sources/a1plus-unit-2-lesson-v2130/staged/k05-luis-light-brown-dog.png",
+        "sha256": "c9efeb92741b6f354e21941e1d4a727ecbbb4a78d30798866c9a5b4e6bfcdd2b",
+        "observed_description": "k05 (reviewed): Luis in a navy T-shirt crouches on a grey park path behind a medium-size short-haired dog with a solid pale tan coat, holding its leash."
+      }
+    }
+  ]
+}

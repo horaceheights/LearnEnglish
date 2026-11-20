@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "pack": "a1plus-unit-2-lesson-2-15-mission-close-photos",
+  "revision": 2,
+  "output_namespace": "a1plus-unit-2-lesson-v2152",
+  "authorization": "2026-11-19: the user approved the A1+ Unit 2 plan (A1+ 2.Y follows A1 2.Y) and, asked how to build it, chose \"Straight to Preview\" (\"As in 1.9-1.13: no stops. I build the lessons in batches with media pre-approved, and you review everything in Preview.\"). Gemini is the approved image tool (2026-09-23); after the 2.5 Pro photos the user said \"lets switch to flash for any other images\". On 2026-11-20 the user said \"Start Batch C when Preview is done\".",
+  "image_settings": {
+    "provider": "google-gemini",
+    "model": "gemini-2.5-flash-image",
+    "aspect_ratio": "3:2",
+    "image_size": "1K",
+    "runtime_size": "1536x1024",
+    "runtime_format": "webp",
+    "n": 1
+  },
+  "production": {
+    "price_per_image_usd": "0.0387",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing (checked 2026-11-16: Gemini 2.5 Flash Image, about $0.039 per image)",
+    "planned_images": 3,
+    "expected_cost_usd": "0.12",
+    "requested_ceiling_usd": "0.35",
+    "ceiling_note": "The renderer reserves US$0.20 before each request; each request is sent on its own, and the expected spend for the pack is about US$0.12.",
+    "no_automatic_retries": true,
+    "order": "Generate the three one at a time; each target must be large enough to tap on a phone (about a fifth of the photo width), with light green clearly green in w03 and no letter-like chalk shapes in w05. Revision 2 repeats revision 1's prompts in a new namespace: revision 1's first request was refused with HTTP 429 RESOURCE_EXHAUSTED (no image, no charge), which closes its namespace."
+  },
+  "shared_prompts": {
+    "photo": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, screens, clothes, bags, machines, vehicles or license plates.",
+    "photo_numeral": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, logos or brand marks anywhere, and no number anywhere except the one large numeral described: no other signs, buttons, plaques, door numbers or license plates show any digit.",
+    "safe_center": "Keep the person and the thing that carries the meaning inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.",
+    "solo": "Only this one person is in the photo; there is nobody else, even far in the background.",
+    "nobody": "There are no people anywhere in the photo, not even far in the background or inside the vehicles.",
+    "face": "The person's face is fully visible in three-quarter view, looking at what they are doing, not at the camera.",
+    "daytime": "It is clearly daytime with soft natural light.",
+    "park": "The setting is the same big sunny city park on a weekend morning in every photo of this set: short green grass, tall leafy trees, a wide light-grey paved path, a small calm lake and a few wooden benches and picnic tables, with no signs, letters or numbers anywhere.",
+    "scene4close": "This is a wide scene for a listening game: the learner hears one sentence and taps the person, group or thing it describes on a small phone screen. The camera is CLOSE, so the four described subjects are LARGE and fill the whole width of the photo from the left edge to the right edge, each one clearly separate from the others, none hidden behind another, none cut off by the photo's edges, with every head well below the top edge. Nobody looks at the camera. There are no other people in the photo, not even far in the background."
+  },
+  "assets": [
+    {
+      "id": "w03-light-and-dark-bags-close",
+      "order": 1,
+      "item": "Her bag is light blue. / His bag is dark blue. / Her bag is light green. / His bag is dark green.",
+      "shared": [
+        "photo",
+        "park",
+        "scene4close",
+        "daytime"
+      ],
+      "prompt": "Four people of about thirty stand side by side on the grass of the park, seen from the knees up, each about two thirds of the photo's height, with a small gap between them. Each holds ONE large plain tote bag in front of their chest with both hands, and each bag is big in the photo. From LEFT to RIGHT: a woman with a LIGHT BLUE bag (the pale blue of a clear sky); a man with a DARK BLUE bag (deep navy); a woman with a LIGHT GREEN bag (pale mint green, clearly GREEN, never white or grey); and a man with a DARK GREEN bag (deep forest green). All four wear plain white T-shirts and grey trousers, so the four bags are the only blue or green things on the people, and light against dark is obvious at a glance."
+    },
+    {
+      "id": "w04-taller-and-older-close",
+      "order": 2,
+      "item": "The man is taller than the woman. / The woman is shorter than the man. / The grandfather is older than the boy. / The boy is younger than the grandfather.",
+      "shared": [
+        "photo",
+        "park",
+        "scene4close",
+        "daytime"
+      ],
+      "prompt": "Two pairs of people stand on the grass of the park, all four seen whole from head to shoes, the tallest person about four fifths of the photo's height. The LEFT pair stands side by side: a very TALL young man of about thirty in a green T-shirt and, beside him, a SHORT young woman of about thirty in a red dress, whose head reaches only his shoulder. Then there is a clear empty gap of grass. The RIGHT pair stands side by side: a white-haired GRANDFATHER of about seventy-five in a beige cardigan and, beside him, a little BOY of about six in an orange T-shirt, holding the grandfather's hand."
+    },
+    {
+      "id": "w05-park-rules-close",
+      "order": 3,
+      "item": "Don't swim in the lake. / Don't write on the wall. / Don't sit on the table. / Don't play football here.",
+      "shared": [
+        "photo",
+        "park",
+        "scene4close",
+        "daytime"
+      ],
+      "prompt": "At the edge of the park lake, four rule-breakers fill the photo from LEFT to RIGHT, each large and easy to see: at the LEFT, a boy of about ten SWIMS in the lake close to the shore, his head, shoulders and arms big and clear above the water; next, a girl of about eight stands on the grass and DRAWS with a piece of pink chalk directly on a low plain white wall, which is covered in colorful chalk swirls, a big yellow sun and a flower (pictures only, no letters and no shapes like letters); next, a man of about forty SITS ON TOP of a wooden picnic table, his shoes on the bench; and at the RIGHT, two teenage boys PLAY FOOTBALL on the grass close to the camera, a black-and-white ball at their feet."
+    }
+  ]
+}

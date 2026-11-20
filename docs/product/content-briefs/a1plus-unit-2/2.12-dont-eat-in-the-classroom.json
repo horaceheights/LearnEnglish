@@ -1,0 +1,531 @@
+{
+  "brief_version": 1,
+  "follows": {
+    "course": "a1",
+    "lesson": "2.12",
+    "title": "In the Classroom"
+  },
+  "note": "A1+ Unit 2 Lesson 2.12, built on 2026-11-20 under the A1+ lesson standards approved 2026-10-27 and the user's 2026-11-09 rule that every A1+ lesson follows up the A1 lesson with the same number. The user approved the A1+ Unit 2 plan on 2026-11-19 (A1+ 2.Y follows A1 2.Y, one grammar step each) and chose \"Straight to Preview\": no per-lesson gates, Gemini 2.5 Flash photos and ElevenLabs audio pre-approved, reviewed in Preview. Batch C (2.11-2.15) was started on 2026-11-20 on the user's \"Start Batch C when Preview is done\". Each photo shows one cast member in the same classroom doing what the command names: Diego seated and standing, Sofia writing her name on paper and scribbling on the desk, Luis eating a sandwich and Ana using her phone. The teacher is never pictured; the teacher's voice gives the commands and the co-teacher says what the student does. Command banks set the positive against the negative (Don't use your phone. / Use your phone.) and Sit down against Stand up.",
+  "target": "backend/lessons/a1_plus/unit_2/a1plus-unit-2-lesson-2-12.yaml",
+  "captions": false,
+  "narrators": [
+    "teacher",
+    "co-teacher"
+  ],
+  "answer_audio_policy": "authored-only",
+  "speak_delivery": "a1-pronunciation-v1",
+  "lesson": {
+    "id": "a1plus-unit-2-lesson-2-12",
+    "title": "2.12 Don't eat in the classroom",
+    "level": "A1+",
+    "unit_id": "a1plus-unit-2",
+    "unit_title": "Places, things and how we describe them",
+    "unit_outcome": "Say where people go and how they get there, talk about the things people have, point things out and compare them, put things in order, and ask about favorites.",
+    "lesson_id": "a1plus-unit-2-lesson-2-12",
+    "lesson_title": "Don't eat in the classroom",
+    "sub_lesson_id": "2.12",
+    "sub_lesson_title": "Don't eat in the classroom",
+    "goal": "Understand and say classroom commands, and Don't for what not to do (Sit down. / Write your name. / Don't eat in the classroom.).",
+    "vocabulary": [
+      "Sit down",
+      "Stand up",
+      "write",
+      "Don't"
+    ],
+    "review_vocabulary": [
+      "your",
+      "name",
+      "eat",
+      "use",
+      "phone",
+      "in",
+      "on",
+      "the",
+      "classroom",
+      "desk",
+      "Diego",
+      "Sofia",
+      "sits",
+      "stands",
+      "writes",
+      "her",
+      "studies"
+    ],
+    "grammar_function": "A follow-up of A1 2.12 In the Classroom: A1 names the classroom, the desk and the things on it; A1+ 2.12 gives classroom commands with the base form of the verb and no subject (Sit down. / Write your name.), and Don't before the verb for what not to do (Don't eat in the classroom.), A1+ 1.8's don't now in a command. The teacher's voice gives each command to the student in the photo, who is doing what the command names: Diego sits at his desk and stands beside it, Sofia writes her name on paper and scribbles on the desk, Luis eats a sandwich and Ana uses her phone. The co-teacher says what the student does, bringing back A1+ 1.2's writes and 1.7's studies.",
+    "prerequisite": "A1 2.12 classroom, desk, paper; A1 3.x your name; A1+ 1.8 don't; A1+ 1.2 writes; A1+ 1.7 studies; A1 5.x eat; A1 phone; A1 use.",
+    "speaking_outcome": "Say Don't with a clear t before the verb (DON'T eat), and Sit down / Stand up as one phrase with the stress on the second word. Do not require native-like speed.",
+    "content_revision": 1,
+    "learn_context_groups": [
+      {
+        "kind": "sequence",
+        "targets": [
+          "Sit down"
+        ],
+        "models": [
+          {
+            "slide_id": "L1",
+            "text": "Sit down."
+          }
+        ]
+      },
+      {
+        "kind": "sequence",
+        "targets": [
+          "Stand up"
+        ],
+        "models": [
+          {
+            "slide_id": "L2",
+            "text": "Stand up."
+          }
+        ]
+      },
+      {
+        "kind": "sequence",
+        "targets": [
+          "write"
+        ],
+        "models": [
+          {
+            "slide_id": "L3",
+            "text": "Write your name."
+          }
+        ]
+      },
+      {
+        "kind": "sequence",
+        "targets": [
+          "Don't"
+        ],
+        "models": [
+          {
+            "slide_id": "L4",
+            "text": "Don't eat in the classroom."
+          }
+        ]
+      },
+      {
+        "kind": "sequence",
+        "targets": [
+          "Don't",
+          "write"
+        ],
+        "models": [
+          {
+            "slide_id": "L5",
+            "text": "Don't write on the desk."
+          }
+        ]
+      }
+    ]
+  },
+  "items": [
+    {
+      "id": "c-d01",
+      "text": "Please sit down.",
+      "es": "Siéntate, por favor.",
+      "image": "/lesson-assets/a1plus-unit-2-d01-110b987720f6a165.webp",
+      "kind": "command",
+      "learn": false,
+      "speaker": "teacher",
+      "accepts": {
+        "subject-variety": "The teacher tells a student what to do or not to do: a bank keeps the command and changes only Don't or the action.",
+        "action-variety": "The teacher tells a student what to do or not to do: a bank keeps the command and changes only Don't or the action.",
+        "conversational-response": "The teacher tells a student what to do or not to do: a bank keeps the command and changes only Don't or the action."
+      },
+      "prefer": [
+        "Please stand up.",
+        "Write your name."
+      ],
+      "blanks": [
+        "sit",
+        "down"
+      ]
+    },
+    {
+      "id": "c-d02",
+      "text": "Please stand up.",
+      "es": "Levántate, por favor.",
+      "image": "/lesson-assets/a1plus-unit-2-d02-fe0357705f102836.webp",
+      "kind": "command",
+      "learn": false,
+      "speaker": "teacher",
+      "accepts": {
+        "subject-variety": "The teacher tells a student what to do or not to do: a bank keeps the command and changes only Don't or the action.",
+        "action-variety": "The teacher tells a student what to do or not to do: a bank keeps the command and changes only Don't or the action.",
+        "conversational-response": "The teacher tells a student what to do or not to do: a bank keeps the command and changes only Don't or the action."
+      },
+      "prefer": [
+        "Please sit down.",
+        "Write your name."
+      ],
+      "blanks": [
+        "stand",
+        "up"
+      ]
+    },
+    {
+      "id": "c-d03",
+      "text": "Write your name.",
+      "es": "Escribe tu nombre.",
+      "image": "/lesson-assets/a1plus-unit-2-d03-45466f9472cdeab7.webp",
+      "kind": "command",
+      "learn": false,
+      "speaker": "teacher",
+      "accepts": {
+        "subject-variety": "The teacher tells a student what to do or not to do: a bank keeps the command and changes only Don't or the action.",
+        "action-variety": "The teacher tells a student what to do or not to do: a bank keeps the command and changes only Don't or the action.",
+        "conversational-response": "The teacher tells a student what to do or not to do: a bank keeps the command and changes only Don't or the action."
+      },
+      "prefer": [
+        "Don't write your name."
+      ],
+      "blanks": [
+        "Write",
+        "your"
+      ]
+    },
+    {
+      "id": "c-d05",
+      "text": "Don't eat in the classroom.",
+      "es": "No comas en el salón de clases.",
+      "image": "/lesson-assets/a1plus-unit-2-d05-0976d3d94fe8568e.webp",
+      "kind": "command",
+      "learn": false,
+      "speaker": "teacher",
+      "accepts": {
+        "subject-variety": "The teacher tells a student what to do or not to do: a bank keeps the command and changes only Don't or the action.",
+        "action-variety": "The teacher tells a student what to do or not to do: a bank keeps the command and changes only Don't or the action.",
+        "conversational-response": "The teacher tells a student what to do or not to do: a bank keeps the command and changes only Don't or the action."
+      },
+      "prefer": [
+        "Eat in the classroom.",
+        "Don't use your phone.",
+        "Don't write on the desk.",
+        "Please sit down."
+      ],
+      "blanks": [
+        "Don't",
+        "eat"
+      ]
+    },
+    {
+      "id": "c-d06",
+      "text": "Don't use your phone.",
+      "es": "No uses tu teléfono.",
+      "image": "/lesson-assets/a1plus-unit-2-d06-8a0fa0ebd33f20f1.webp",
+      "kind": "command",
+      "learn": false,
+      "speaker": "teacher",
+      "accepts": {
+        "subject-variety": "The teacher tells a student what to do or not to do: a bank keeps the command and changes only Don't or the action.",
+        "action-variety": "The teacher tells a student what to do or not to do: a bank keeps the command and changes only Don't or the action.",
+        "conversational-response": "The teacher tells a student what to do or not to do: a bank keeps the command and changes only Don't or the action."
+      },
+      "prefer": [
+        "Use your phone.",
+        "Don't eat in the classroom.",
+        "Don't write on the desk.",
+        "Please stand up."
+      ],
+      "blanks": [
+        "Don't",
+        "use"
+      ]
+    },
+    {
+      "id": "c-d07",
+      "text": "Don't write on the desk.",
+      "es": "No escribas en el pupitre.",
+      "image": "/lesson-assets/a1plus-unit-2-d07-e9f9a5daf07e3e8d.webp",
+      "kind": "command",
+      "learn": false,
+      "speaker": "teacher",
+      "accepts": {
+        "subject-variety": "The teacher tells a student what to do or not to do: a bank keeps the command and changes only Don't or the action.",
+        "action-variety": "The teacher tells a student what to do or not to do: a bank keeps the command and changes only Don't or the action.",
+        "conversational-response": "The teacher tells a student what to do or not to do: a bank keeps the command and changes only Don't or the action."
+      },
+      "prefer": [
+        "Write on the desk.",
+        "Don't use your phone.",
+        "Don't eat in the classroom.",
+        "Please sit down."
+      ],
+      "blanks": [
+        "Don't",
+        "write"
+      ]
+    },
+    {
+      "id": "n-d01",
+      "text": "Diego sits down.",
+      "es": "Diego se sienta.",
+      "image": "/lesson-assets/a1plus-unit-2-d01-110b987720f6a165.webp",
+      "kind": "does",
+      "learn": false,
+      "image_choices": false,
+      "speaker": "co-teacher",
+      "accepts": {
+        "subject-variety": "The teacher tells a student what to do or not to do: a bank keeps the command and changes only Don't or the action.",
+        "action-variety": "The teacher tells a student what to do or not to do: a bank keeps the command and changes only Don't or the action.",
+        "conversational-response": "The teacher tells a student what to do or not to do: a bank keeps the command and changes only Don't or the action."
+      },
+      "blanks": [
+        "sits",
+        "down"
+      ],
+      "prefer": [
+        "Diego stands up."
+      ]
+    },
+    {
+      "id": "n-d02",
+      "text": "Diego stands up.",
+      "es": "Diego se levanta.",
+      "image": "/lesson-assets/a1plus-unit-2-d02-fe0357705f102836.webp",
+      "kind": "does",
+      "learn": false,
+      "image_choices": false,
+      "speaker": "co-teacher",
+      "accepts": {
+        "subject-variety": "The teacher tells a student what to do or not to do: a bank keeps the command and changes only Don't or the action.",
+        "action-variety": "The teacher tells a student what to do or not to do: a bank keeps the command and changes only Don't or the action.",
+        "conversational-response": "The teacher tells a student what to do or not to do: a bank keeps the command and changes only Don't or the action."
+      },
+      "blanks": [
+        "stands",
+        "up"
+      ],
+      "prefer": [
+        "Diego sits down."
+      ]
+    },
+    {
+      "id": "n-d03",
+      "text": "Sofia writes her name.",
+      "es": "Sofía escribe su nombre.",
+      "image": "/lesson-assets/a1plus-unit-2-d03-45466f9472cdeab7.webp",
+      "kind": "does",
+      "learn": false,
+      "image_choices": false,
+      "speaker": "co-teacher",
+      "accepts": {
+        "subject-variety": "The teacher tells a student what to do or not to do: a bank keeps the command and changes only Don't or the action.",
+        "action-variety": "The teacher tells a student what to do or not to do: a bank keeps the command and changes only Don't or the action.",
+        "conversational-response": "The teacher tells a student what to do or not to do: a bank keeps the command and changes only Don't or the action."
+      },
+      "blanks": [
+        "writes",
+        "her"
+      ],
+      "prefer": [
+        "Sofia reads her name."
+      ]
+    },
+    {
+      "id": "n-studies",
+      "text": "Diego studies in the classroom.",
+      "es": "Diego estudia en el salón de clases.",
+      "image": "/lesson-assets/a1plus-unit-2-d01-110b987720f6a165.webp",
+      "kind": "studies",
+      "learn": false,
+      "image_choices": false,
+      "speaker": "co-teacher",
+      "accepts": {
+        "subject-variety": "The teacher tells a student what to do or not to do: a bank keeps the command and changes only Don't or the action.",
+        "action-variety": "The teacher tells a student what to do or not to do: a bank keeps the command and changes only Don't or the action.",
+        "conversational-response": "The teacher tells a student what to do or not to do: a bank keeps the command and changes only Don't or the action."
+      },
+      "blanks": [
+        "studies",
+        "in"
+      ],
+      "prefer": [
+        "Diego eats in the classroom."
+      ]
+    },
+    {
+      "id": "l-sit",
+      "text": "Sit down.",
+      "es": "Siéntate.",
+      "image": "/lesson-assets/a1plus-unit-2-d01-110b987720f6a165.webp",
+      "kind": "model",
+      "choices": false,
+      "use": false,
+      "speaker": "teacher"
+    },
+    {
+      "id": "l-stand",
+      "text": "Stand up.",
+      "es": "Levántate.",
+      "image": "/lesson-assets/a1plus-unit-2-d02-fe0357705f102836.webp",
+      "kind": "model",
+      "choices": false,
+      "use": false,
+      "speaker": "teacher"
+    },
+    {
+      "id": "l-write",
+      "text": "Write your name.",
+      "es": "Escribe tu nombre.",
+      "image": "/lesson-assets/a1plus-unit-2-d03-45466f9472cdeab7.webp",
+      "kind": "model",
+      "choices": false,
+      "use": false,
+      "speaker": "teacher"
+    },
+    {
+      "id": "l-dont-eat",
+      "text": "Don't eat in the classroom.",
+      "es": "No comas en el salón de clases.",
+      "image": "/lesson-assets/a1plus-unit-2-d05-0976d3d94fe8568e.webp",
+      "kind": "model",
+      "choices": false,
+      "use": false,
+      "speaker": "teacher"
+    },
+    {
+      "id": "l-dont-write",
+      "text": "Don't write on the desk.",
+      "es": "No escribas en el pupitre.",
+      "image": "/lesson-assets/a1plus-unit-2-d07-e9f9a5daf07e3e8d.webp",
+      "kind": "model",
+      "choices": false,
+      "use": false,
+      "speaker": "teacher"
+    }
+  ],
+  "pool": [
+    {
+      "text": "Please stand up.",
+      "es": "Levántate, por favor.",
+      "image": "/lesson-assets/a1plus-unit-2-d01-110b987720f6a165.webp",
+      "kind": "command",
+      "image_choices": false
+    },
+    {
+      "text": "Please sit down.",
+      "es": "Siéntate, por favor.",
+      "image": "/lesson-assets/a1plus-unit-2-d02-fe0357705f102836.webp",
+      "kind": "command",
+      "image_choices": false
+    },
+    {
+      "text": "Don't write your name.",
+      "es": "No escribas tu nombre.",
+      "image": "/lesson-assets/a1plus-unit-2-d03-45466f9472cdeab7.webp",
+      "kind": "command",
+      "image_choices": false
+    },
+    {
+      "text": "Eat in the classroom.",
+      "es": "Come en el salón de clases.",
+      "image": "/lesson-assets/a1plus-unit-2-d05-0976d3d94fe8568e.webp",
+      "kind": "command",
+      "image_choices": false
+    },
+    {
+      "text": "Use your phone.",
+      "es": "Usa tu teléfono.",
+      "image": "/lesson-assets/a1plus-unit-2-d06-8a0fa0ebd33f20f1.webp",
+      "kind": "command",
+      "image_choices": false
+    },
+    {
+      "text": "Write on the desk.",
+      "es": "Escribe en el pupitre.",
+      "image": "/lesson-assets/a1plus-unit-2-d07-e9f9a5daf07e3e8d.webp",
+      "kind": "command",
+      "image_choices": false
+    },
+    {
+      "text": "Diego stands up.",
+      "es": "Diego se levanta.",
+      "image": "/lesson-assets/a1plus-unit-2-d01-110b987720f6a165.webp",
+      "kind": "does",
+      "image_choices": false
+    },
+    {
+      "text": "Diego sits down.",
+      "es": "Diego se sienta.",
+      "image": "/lesson-assets/a1plus-unit-2-d02-fe0357705f102836.webp",
+      "kind": "does",
+      "image_choices": false
+    },
+    {
+      "text": "Sofia reads her name.",
+      "es": "Sofía lee su nombre.",
+      "image": "/lesson-assets/a1plus-unit-2-d03-45466f9472cdeab7.webp",
+      "kind": "does",
+      "image_choices": false
+    },
+    {
+      "text": "Diego eats in the classroom.",
+      "es": "Diego come en el salón de clases.",
+      "image": "/lesson-assets/a1plus-unit-2-d01-110b987720f6a165.webp",
+      "kind": "studies",
+      "image_choices": false
+    }
+  ],
+  "layout": {
+    "Recognize": 11,
+    "Listen": 10,
+    "Speak": 8,
+    "Use": 8
+  },
+  "stage_sequences": {
+    "Learn": [
+      "l-sit",
+      "l-stand",
+      "l-write",
+      "l-dont-eat",
+      "l-dont-write"
+    ],
+    "Recognize": [
+      "c-d05",
+      "n-d03",
+      "c-d01",
+      "c-d02",
+      "c-d07",
+      "n-d01",
+      "c-d02",
+      "c-d01",
+      "c-d06",
+      "n-studies",
+      "c-d03"
+    ],
+    "Listen": [
+      "c-d07",
+      "c-d01",
+      "c-d02",
+      "c-d05",
+      "n-d03",
+      "c-d01",
+      "c-d06",
+      "c-d02",
+      "n-studies",
+      "c-d03"
+    ],
+    "Speak": [
+      "c-d01",
+      "c-d02",
+      "c-d03",
+      "c-d05",
+      "c-d06",
+      "c-d07",
+      "n-d03",
+      "n-studies"
+    ],
+    "Use": [
+      "c-d03",
+      "c-d05",
+      "c-d06",
+      "c-d07",
+      "c-d01",
+      "c-d02",
+      "n-d03",
+      "n-studies"
+    ]
+  }
+}

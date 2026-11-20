@@ -1,0 +1,55 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "e74477e3-f416-4cb7-ba8e-d945703b5567",
+  "asset_id": "v04-boy-third-floor",
+  "pack_sha256": "f8efb3b5cd3bfe60d9bf068b43654025a4bf879fd56ef370e21bd6371d90f99e",
+  "started_at": "2026-11-20T15:44:10.396213+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, logos or brand marks anywhere, and no number anywhere except the one large numeral described: no other signs, buttons, plaques, door numbers or license plates show any digit.\n\nThe person is a new character who appears in no earlier course photo; give them an ordinary, friendly everyday look.\n\nOnly this one person is in the photo; there is nobody else, even far in the background.\n\nThe person's face is fully visible in three-quarter view, looking at what they are doing, not at the camera.\n\nIt is clearly daytime with soft natural light.\n\nKeep the person and the thing that carries the meaning inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nA boy of about ten with short curly brown hair, a green hoodie and a red backpack stands in the small, bright elevator lobby of his apartment building, beside the closed metal elevator door. On the plain light wall right next to the elevator door there is one very large dark numeral 3, painted on the wall, about as tall as his head, sharp and easy to read on a phone. The numeral 3 and his face are both inside the central 55 percent of the photo width.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "yWoAa7eKENvVz7IPzv_vmA4",
+  "usage": {
+    "promptTokenCount": 373,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1663,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 373
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038812",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 373,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 9.45,
+  "output": "output/imagegen/a1plus-unit-2-lesson-v2140/v04-boy-third-floor.png",
+  "sha256": "c10857e1c7d2bbeda8997ccd70bf523d343885b171fd20e330b9232173bf842c",
+  "byte_count": 1387040,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}
