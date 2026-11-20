@@ -19,6 +19,8 @@ const COLORS = set('red blue green yellow black white');
 const NOUNS = set('boy girl man woman baby babies child children adult adults brother brothers sister sisters father mother parents grandfather grandmother grandparents grandchildren family park restaurant hospital store house street bridge bus car cars bike book books pen pens chair chairs table phone phones bag bags kitchen bedroom room bed lamp door computer sofa apple apples banana grapes strawberry strawberries orange oranges egg eggs rice milk bread fish juice water chicken food breakfast lunch dinner tea coffee dollar dollars station pharmacy bank library train taxi head eyes mouth arms hands legs feet jacket shoes shirt dress skirt pants socks boots umbrella hat name job face teeth help bathroom music school work night morning afternoon evening day mexico canada ana luis sofia english tv monday tuesday wednesday thursday friday saturday sunday today');
 for (const noun of words('teacher doctor nurse driver cook farmer left right')) NOUNS.add(noun);
 for (const noun of words('spain diego states')) NOUNS.add(noun);
+// A1+ 3.6 (2026-11-20): twins.
+NOUNS.add('twins');
 for (const noun of words('home window clothes')) NOUNS.add(noun);
 NOUNS.add('shower');
 // Unit 5 (2026-09-26): fruit and food words that its constructions name.
@@ -84,6 +86,8 @@ for (const description of words('cheap expensive')) DESCRIPTIONS.add(description
 for (const description of words('good bad great fine sick angry afraid warm')) DESCRIPTIONS.add(description);
 // A1+ 2.8 (2026-11-19): favorite before a noun (my favorite color).
 DESCRIPTIONS.add('favorite');
+// A1+ 3.8 (2026-11-20): a nationality before a noun (a Mexican teacher, two Spanish men).
+for (const description of words('mexican canadian american spanish')) DESCRIPTIONS.add(description);
 for (const state of DESCRIPTIONS) STATES.add(state);
 const OWNERS = set('mine yours ours');
 const OWNER_MEANINGS: Record<string, string> = { mine: 'mío', yours: 'tuyo', ours: 'nuestro' };
@@ -679,6 +683,56 @@ function teachClause(text: string): ClausePlan {
     teach(0, 4, '“Nice to meet you” (mucho gusto) es una frase fija: “Nice to meet” va antes de “you”.');
     if (meet[1] === 'too') teach(4, 5, '“Too” (también) va al final: responde a quien ya dijo “Nice to meet you”.');
     else if (meet[1]) teach(4, 5, `${quote(tokens[4])}, el nombre de la persona saludada, va al final.`);
+    return { explanations, relations, supported: true };
+  }
+  // A1+ 3.6 (2026-11-20): two people's ages in common (They are both sixteen. / They are not the same age.).
+  const both = /^(they|we) are both ([a-z]+)$/.exec(joined);
+  if (both && NUMBERS.has(both[2]) && !text.trim().endsWith('?')) {
+    teach(0, 2, `En esta afirmación, primero ${quote(tokens[0])}, de quiénes hablamos, y después ${quote(tokens[1])}.`);
+    teach(2, 3, `“both” (los dos) va después de ${quote(tokens[1])} y antes de lo que tienen en común.`);
+    teach(3, 4, `${quote(tokens[3])} es la edad de los dos y cierra la frase.`);
+    return { explanations, relations, supported: true };
+  }
+  const sameAge = /^(they|we) are (not )?the same age$/.exec(joined);
+  if (sameAge && !text.trim().endsWith('?')) {
+    const at = sameAge[2] ? 3 : 2;
+    teach(0, 2, `En esta afirmación, primero ${quote(tokens[0])}, de quiénes hablamos, y después ${quote(tokens[1])}.`);
+    if (sameAge[2]) teach(2, 3, `“not” niega y va después de ${quote(tokens[1])}, antes de “the same age”.`);
+    teach(at, at + 3, '“the same age” (la misma edad) va junto, en este orden: “the”, “same” y al final “age”.');
+    return { explanations, relations, supported: true };
+  }
+  // A1+ 3.7 (2026-11-20): what language people speak, and where.
+  const speak = /^(i|we|you|they|he|she|ana|luis|sofia|diego) (speak|speaks) (spanish|english)(?: and (spanish|english))?$/.exec(joined);
+  if (speak && (speak[2] === 'speaks') === ['he', 'she', 'ana', 'luis', 'sofia', 'diego'].includes(speak[1])) {
+    teach(0, 1, `${quote(tokens[0])} indica quién habla y va antes de ${quote(tokens[1])}.`);
+    teach(1, 2, speak[2] === 'speaks'
+      ? `Con ${quote(tokens[0])} el verbo lleva -s: ${quote(tokens[1])} va después de quién habla.`
+      : `${quote(tokens[1])} (hablar) va después de ${quote(tokens[0])} y antes del idioma.`);
+    teach(2, keys.length, speak[4]
+      ? `Los idiomas van después de ${quote(tokens[1])}, unidos por “and”.`
+      : `${quote(tokens[2])} es el idioma y va después de ${quote(tokens[1])}.`);
+    return { explanations, relations, supported: true };
+  }
+  const country = /^in (mexico|spain|canada|the united states) people speak (spanish|english)$/.exec(joined);
+  if (country) {
+    const end = keys.indexOf('people');
+    teach(0, end, `${quote(phrase(0, end))} dice dónde y abre la frase, antes de “people”.`);
+    teach(end, end + 2, '“people speak” (la gente habla) va después del lugar: primero “people” y después “speak”.');
+    teach(end + 2, keys.length, `${quote(tokens[end + 2])} es el idioma y cierra la frase.`);
+    return { explanations, relations, supported: true };
+  }
+  if (joined === 'what language do you speak' && text.trim().endsWith('?')) {
+    teach(0, 2, '“What language” (qué idioma) abre la pregunta.');
+    teach(2, 4, '“do you” va después de “What language”, como en “Do you …?”.');
+    teach(4, 5, '“speak” (hablar) cierra la pregunta.');
+    return { explanations, relations, supported: true };
+  }
+  // A1+ 3.9 (2026-11-20): What do you do? / What does she do? asks about someone's work.
+  const doWhat = /^what (do you|does (?:he|she|ana|luis|sofia|diego)) do$/.exec(joined);
+  if (doWhat && text.trim().endsWith('?')) {
+    teach(0, 1, '“What” abre la pregunta.');
+    teach(1, 3, `${quote(phrase(1, 3))} va después de “What”: ${keys[1] === 'does' ? '“does” con he, she o un nombre' : '“do” con you'}.`);
+    teach(3, 4, 'El último “do” es el verbo hacer y cierra la pregunta: pregunta a qué se dedica.');
     return { explanations, relations, supported: true };
   }
   // A1+ 3.5 (2026-11-20): how much older or younger, a number of years before the comparative

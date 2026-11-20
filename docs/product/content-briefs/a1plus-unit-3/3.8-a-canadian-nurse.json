@@ -1,0 +1,469 @@
+{
+  "brief_version": 1,
+  "follows": {
+    "course": "a1",
+    "lesson": "3.8",
+    "title": "Canada and Spain"
+  },
+  "note": "A1+ Unit 3 Lesson 3.8, built on 2026-11-20 under the A1+ lesson standards approved 2026-10-27 and the user's 2026-11-09 rule that every A1+ lesson follows up the A1 lesson with the same number. The user approved the A1+ Unit 3 map on 2026-11-20 (A1+ 3.Y follows A1 3.Y, one step each; A1 Unit 3 has sixteen lessons after the alphabet lessons were removed the same day) and asked for the Unit 2 deal: straight to Preview in batches, Gemini 2.5 Flash photos and ElevenLabs audio pre-approved, no per-lesson gates, reviewed in Preview. No new photos beyond 3.9's work photos, built together with this lesson: Ana in a classroom, Sofia in a hospital and Luis at the wheel of a bus, plus A1+ 1.5's Diego and his brother in Spain.",
+  "target": "backend/lessons/a1_plus/unit_3/a1plus-unit-3-lesson-3-8.yaml",
+  "captions": false,
+  "narrators": [
+    "teacher",
+    "co-teacher"
+  ],
+  "answer_audio_policy": "authored-only",
+  "speak_delivery": "a1-pronunciation-v1",
+  "lesson": {
+    "id": "a1plus-unit-3-lesson-3-8",
+    "title": "3.8 A Canadian nurse",
+    "level": "A1+",
+    "unit_id": "a1plus-unit-3",
+    "unit_title": "Meeting people and talking about them",
+    "unit_outcome": "Introduce people and answer introductions, use the short forms of be, answer yes/no questions in short, compare ages, talk about languages, nationalities and jobs, describe people, say whose things are, give an address and say what you want to be.",
+    "lesson_id": "a1plus-unit-3-lesson-3-8",
+    "lesson_title": "A Canadian nurse",
+    "sub_lesson_id": "3.8",
+    "sub_lesson_title": "A Canadian nurse",
+    "goal": "Put a nationality before a noun, with a or an and never with -s (Sofia is a Canadian nurse. / Luis is an American driver. / They're two Spanish men.).",
+    "vocabulary": [
+      "Mexican teacher",
+      "Canadian nurse",
+      "American driver",
+      "Spanish men"
+    ],
+    "review_vocabulary": [
+      "Mexican",
+      "Canadian",
+      "American",
+      "Spanish",
+      "teacher",
+      "nurse",
+      "driver",
+      "men",
+      "brothers",
+      "a",
+      "an",
+      "I'm",
+      "we're",
+      "they're",
+      "two"
+    ],
+    "grammar_function": "A follow-up of A1 3.8 Canada and Spain: A1 says a nationality after be (I am Canadian.); A1+ 3.8 puts the nationality before a noun (a Canadian nurse). The one new grammar relationship is that word order, with an before American, and an adjective that never takes -s when its noun does (two Spanish men, never Spanishes). The cast's nationalities are A1's (Ana Mexican, Sofia Canadian, Luis American, Diego Spanish); the new work photos show Ana teaching, Sofia nursing and Luis driving a bus, and 1.5's photo of Diego and his brother in Spain. Picture banks change the job or the people; nationality is told apart in Listen.",
+    "prerequisite": "A1 3.7-3.8 nationalities; A1 3.9 teacher, nurse, driver; A1 2.6 two; A1+ 1.5 brothers; A1+ 2.9 men and women; A1+ 3.2 I'm, we're; A1+ 3.3 they're.",
+    "speaking_outcome": "Say an American as one group (a-nAmerican); stress the noun after the nationality. Do not require native-like speed.",
+    "content_revision": 1,
+    "learn_context_groups": [
+      {
+        "kind": "sequence",
+        "targets": [
+          "Mexican teacher"
+        ],
+        "models": [
+          {
+            "slide_id": "L1",
+            "text": "Ana is a Mexican teacher."
+          }
+        ]
+      },
+      {
+        "kind": "sequence",
+        "targets": [
+          "Canadian nurse"
+        ],
+        "models": [
+          {
+            "slide_id": "L2",
+            "text": "Sofia is a Canadian nurse."
+          }
+        ]
+      },
+      {
+        "kind": "sequence",
+        "targets": [
+          "American driver"
+        ],
+        "models": [
+          {
+            "slide_id": "L3",
+            "text": "Luis is an American driver."
+          }
+        ]
+      },
+      {
+        "kind": "sequence",
+        "targets": [
+          "Spanish men"
+        ],
+        "models": [
+          {
+            "slide_id": "L4",
+            "text": "They're two Spanish men."
+          }
+        ]
+      }
+    ]
+  },
+  "items": [
+    {
+      "id": "l-mex",
+      "text": "Ana is a Mexican teacher.",
+      "es": "Ana es una maestra mexicana.",
+      "image": "/lesson-assets/a1plus-unit-3-j01-9685ec0d21efbc0d.webp",
+      "kind": "sequence",
+      "choices": false,
+      "use": false,
+      "speaker": "teacher"
+    },
+    {
+      "id": "l-can",
+      "text": "Sofia is a Canadian nurse.",
+      "es": "Sofía es una enfermera canadiense.",
+      "image": "/lesson-assets/a1plus-unit-3-j02-b6ea448f561de0f4.webp",
+      "kind": "sequence",
+      "choices": false,
+      "use": false,
+      "speaker": "co-teacher"
+    },
+    {
+      "id": "l-am",
+      "text": "Luis is an American driver.",
+      "es": "Luis es un conductor estadounidense.",
+      "image": "/lesson-assets/a1plus-unit-3-j03-52d3ff19ce24e5ae.webp",
+      "kind": "sequence",
+      "choices": false,
+      "use": false,
+      "speaker": "teacher"
+    },
+    {
+      "id": "l-men",
+      "text": "They're two Spanish men.",
+      "es": "Son dos hombres españoles.",
+      "image": "/lesson-assets/a1plus-unit-1-g07-a86a53af0604c407.webp",
+      "kind": "sequence",
+      "choices": false,
+      "use": false,
+      "speaker": "co-teacher"
+    },
+    {
+      "id": "n-ana",
+      "text": "Ana is a Mexican teacher.",
+      "es": "Ana es una maestra mexicana.",
+      "image": "/lesson-assets/a1plus-unit-3-j01-9685ec0d21efbc0d.webp",
+      "kind": "natjob",
+      "speaker": "teacher",
+      "accepts": {
+        "subject-variety": "The bank keeps the nationality before the noun and changes only what the picture shows.",
+        "action-variety": "The bank keeps the nationality before the noun and changes only what the picture shows.",
+        "conversational-response": "The bank keeps the nationality before the noun and changes only what the picture shows.",
+        "reading-load": "The bank keeps the nationality before the noun and changes only what the picture shows."
+      },
+      "prefer": [
+        "Ana is a Mexican nurse."
+      ],
+      "blanks": [
+        "Mexican",
+        "teacher"
+      ],
+      "learn": false
+    },
+    {
+      "id": "n-sofia",
+      "text": "Sofia is a Canadian nurse.",
+      "es": "Sofía es una enfermera canadiense.",
+      "image": "/lesson-assets/a1plus-unit-3-j02-b6ea448f561de0f4.webp",
+      "kind": "natjob",
+      "speaker": "co-teacher",
+      "accepts": {
+        "subject-variety": "The bank keeps the nationality before the noun and changes only what the picture shows.",
+        "action-variety": "The bank keeps the nationality before the noun and changes only what the picture shows.",
+        "conversational-response": "The bank keeps the nationality before the noun and changes only what the picture shows.",
+        "reading-load": "The bank keeps the nationality before the noun and changes only what the picture shows."
+      },
+      "prefer": [
+        "Sofia is a Canadian teacher."
+      ],
+      "blanks": [
+        "Canadian",
+        "nurse"
+      ],
+      "learn": false
+    },
+    {
+      "id": "n-luis",
+      "text": "Luis is an American driver.",
+      "es": "Luis es un conductor estadounidense.",
+      "image": "/lesson-assets/a1plus-unit-3-j03-52d3ff19ce24e5ae.webp",
+      "kind": "natjob",
+      "speaker": "teacher",
+      "accepts": {
+        "subject-variety": "The bank keeps the nationality before the noun and changes only what the picture shows.",
+        "action-variety": "The bank keeps the nationality before the noun and changes only what the picture shows.",
+        "conversational-response": "The bank keeps the nationality before the noun and changes only what the picture shows.",
+        "reading-load": "The bank keeps the nationality before the noun and changes only what the picture shows."
+      },
+      "prefer": [
+        "Luis is an American teacher."
+      ],
+      "blanks": [
+        "American",
+        "driver"
+      ],
+      "learn": false
+    },
+    {
+      "id": "n-men",
+      "text": "They're two Spanish men.",
+      "es": "Son dos hombres españoles.",
+      "image": "/lesson-assets/a1plus-unit-1-g07-a86a53af0604c407.webp",
+      "kind": "natjob",
+      "speaker": "co-teacher",
+      "accepts": {
+        "subject-variety": "The bank keeps the nationality before the noun and changes only what the picture shows.",
+        "action-variety": "The bank keeps the nationality before the noun and changes only what the picture shows.",
+        "conversational-response": "The bank keeps the nationality before the noun and changes only what the picture shows.",
+        "reading-load": "The bank keeps the nationality before the noun and changes only what the picture shows."
+      },
+      "prefer": [
+        "They're two Spanish women."
+      ],
+      "blanks": [
+        "Spanish",
+        "men"
+      ],
+      "learn": false
+    },
+    {
+      "id": "i-ana",
+      "text": "I'm a Mexican teacher.",
+      "es": "Soy una maestra mexicana.",
+      "image": "/lesson-assets/a1plus-unit-3-j01-9685ec0d21efbc0d.webp",
+      "kind": "mine",
+      "speaker": "ana",
+      "accepts": {
+        "subject-variety": "Listen keeps the job and changes the nationality; the answer is what was heard.",
+        "action-variety": "Listen keeps the job and changes the nationality; the answer is what was heard.",
+        "conversational-response": "Listen keeps the job and changes the nationality; the answer is what was heard.",
+        "reading-load": "Listen keeps the job and changes the nationality; the answer is what was heard."
+      },
+      "prefer": [
+        "I'm a Mexican nurse.",
+        "I'm a Canadian teacher."
+      ],
+      "learn": false
+    },
+    {
+      "id": "i-sofia",
+      "text": "I'm a Canadian nurse.",
+      "es": "Soy una enfermera canadiense.",
+      "image": "/lesson-assets/a1plus-unit-3-j02-b6ea448f561de0f4.webp",
+      "kind": "mine",
+      "speaker": "sofia",
+      "accepts": {
+        "subject-variety": "Listen keeps the job and changes the nationality; the answer is what was heard.",
+        "action-variety": "Listen keeps the job and changes the nationality; the answer is what was heard.",
+        "conversational-response": "Listen keeps the job and changes the nationality; the answer is what was heard.",
+        "reading-load": "Listen keeps the job and changes the nationality; the answer is what was heard."
+      },
+      "prefer": [
+        "I'm a Canadian driver.",
+        "I'm a Mexican nurse."
+      ],
+      "learn": false
+    },
+    {
+      "id": "i-luis",
+      "text": "I'm an American driver.",
+      "es": "Soy un conductor estadounidense.",
+      "image": "/lesson-assets/a1plus-unit-3-j03-52d3ff19ce24e5ae.webp",
+      "kind": "mine",
+      "speaker": "luis",
+      "accepts": {
+        "subject-variety": "Listen keeps the job and changes the nationality; the answer is what was heard.",
+        "action-variety": "Listen keeps the job and changes the nationality; the answer is what was heard.",
+        "conversational-response": "Listen keeps the job and changes the nationality; the answer is what was heard.",
+        "reading-load": "Listen keeps the job and changes the nationality; the answer is what was heard."
+      },
+      "prefer": [
+        "I'm an American nurse.",
+        "I'm a Spanish driver."
+      ],
+      "learn": false
+    },
+    {
+      "id": "i-diego",
+      "text": "We're Spanish brothers.",
+      "es": "Somos hermanos españoles.",
+      "image": "/lesson-assets/a1plus-unit-1-g07-a86a53af0604c407.webp",
+      "kind": "mine",
+      "speaker": "diego",
+      "accepts": {
+        "subject-variety": "Listen keeps the job and changes the nationality; the answer is what was heard.",
+        "action-variety": "Listen keeps the job and changes the nationality; the answer is what was heard.",
+        "conversational-response": "Listen keeps the job and changes the nationality; the answer is what was heard.",
+        "reading-load": "Listen keeps the job and changes the nationality; the answer is what was heard."
+      },
+      "prefer": [
+        "We're Mexican brothers."
+      ],
+      "learn": false
+    },
+    {
+      "id": "x-nat",
+      "text": "Diego is Spanish. He's a Spanish man.",
+      "es": "Diego es español. Es un hombre español.",
+      "image": "/lesson-assets/a1plus-unit-1-p04-0e1c0e7417a05c7b.webp",
+      "kind": "heard",
+      "speaker": "teacher",
+      "image_choices": false,
+      "use": false,
+      "accepts": {
+        "subject-variety": "Listen keeps the job and changes the nationality; the answer is what was heard.",
+        "action-variety": "Listen keeps the job and changes the nationality; the answer is what was heard.",
+        "conversational-response": "Listen keeps the job and changes the nationality; the answer is what was heard.",
+        "reading-load": "Listen keeps the job and changes the nationality; the answer is what was heard."
+      },
+      "prefer": [
+        "Diego is Mexican. He's a Mexican man."
+      ],
+      "learn": false
+    }
+  ],
+  "pool": [
+    {
+      "text": "Ana is a Mexican nurse.",
+      "es": "Ana es una enfermera mexicana.",
+      "image": "/lesson-assets/a1plus-unit-3-j01-9685ec0d21efbc0d.webp",
+      "kind": "natjob",
+      "image_choices": false
+    },
+    {
+      "text": "Sofia is a Canadian teacher.",
+      "es": "Sofía es una maestra canadiense.",
+      "image": "/lesson-assets/a1plus-unit-3-j02-b6ea448f561de0f4.webp",
+      "kind": "natjob",
+      "image_choices": false
+    },
+    {
+      "text": "Luis is an American teacher.",
+      "es": "Luis es un maestro estadounidense.",
+      "image": "/lesson-assets/a1plus-unit-3-j03-52d3ff19ce24e5ae.webp",
+      "kind": "natjob",
+      "image_choices": false
+    },
+    {
+      "text": "They're two Spanish women.",
+      "es": "Son dos mujeres españolas.",
+      "image": "/lesson-assets/a1plus-unit-1-g07-a86a53af0604c407.webp",
+      "kind": "natjob",
+      "image_choices": false
+    },
+    {
+      "text": "I'm a Mexican nurse.",
+      "es": "Soy una enfermera mexicana.",
+      "image": "/lesson-assets/a1plus-unit-3-j01-9685ec0d21efbc0d.webp",
+      "kind": "mine",
+      "image_choices": false
+    },
+    {
+      "text": "I'm a Canadian teacher.",
+      "es": "Soy una maestra canadiense.",
+      "image": "/lesson-assets/a1plus-unit-3-j01-9685ec0d21efbc0d.webp",
+      "kind": "mine",
+      "image_choices": false
+    },
+    {
+      "text": "I'm a Canadian driver.",
+      "es": "Soy una conductora canadiense.",
+      "image": "/lesson-assets/a1plus-unit-3-j02-b6ea448f561de0f4.webp",
+      "kind": "mine",
+      "image_choices": false
+    },
+    {
+      "text": "I'm an American nurse.",
+      "es": "Soy un enfermero estadounidense.",
+      "image": "/lesson-assets/a1plus-unit-3-j03-52d3ff19ce24e5ae.webp",
+      "kind": "mine",
+      "image_choices": false
+    },
+    {
+      "text": "I'm a Spanish driver.",
+      "es": "Soy un conductor español.",
+      "image": "/lesson-assets/a1plus-unit-3-j03-52d3ff19ce24e5ae.webp",
+      "kind": "mine",
+      "image_choices": false
+    },
+    {
+      "text": "We're Mexican brothers.",
+      "es": "Somos hermanos mexicanos.",
+      "image": "/lesson-assets/a1plus-unit-1-g07-a86a53af0604c407.webp",
+      "kind": "mine",
+      "image_choices": false
+    },
+    {
+      "text": "Diego is Mexican. He's a Mexican man.",
+      "es": "Diego es mexicano. Es un hombre mexicano.",
+      "image": "/lesson-assets/a1plus-unit-1-p04-0e1c0e7417a05c7b.webp",
+      "kind": "heard",
+      "image_choices": false
+    }
+  ],
+  "layout": {
+    "Recognize": 10,
+    "Listen": 10,
+    "Speak": 8,
+    "Use": 8
+  },
+  "stage_sequences": {
+    "Learn": [
+      "l-mex",
+      "l-can",
+      "l-am",
+      "l-men"
+    ],
+    "Recognize": [
+      "n-ana",
+      "i-sofia",
+      "n-luis",
+      "i-diego",
+      "n-men",
+      "i-ana",
+      "n-sofia",
+      "i-luis",
+      "n-ana",
+      "n-men"
+    ],
+    "Listen": [
+      "n-sofia",
+      "n-men",
+      "i-luis",
+      "n-ana",
+      "n-luis",
+      "x-nat",
+      "i-sofia",
+      "n-men",
+      "i-ana",
+      "n-luis"
+    ],
+    "Speak": [
+      "i-ana",
+      "i-sofia",
+      "i-luis",
+      "i-diego",
+      "n-ana",
+      "n-sofia",
+      "n-luis",
+      "n-men"
+    ],
+    "Use": [
+      "n-ana",
+      "n-sofia",
+      "n-luis",
+      "n-men",
+      "i-ana",
+      "i-sofia",
+      "i-luis",
+      "i-diego"
+    ]
+  }
+}

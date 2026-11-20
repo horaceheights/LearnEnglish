@@ -1,0 +1,703 @@
+{
+  "brief_version": 1,
+  "follows": {
+    "course": "a1",
+    "lesson": "3.9",
+    "title": "Professions"
+  },
+  "note": "A1+ Unit 3 Lesson 3.9, built on 2026-11-20 under the A1+ lesson standards approved 2026-10-27 and the user's 2026-11-09 rule that every A1+ lesson follows up the A1 lesson with the same number. The user approved the A1+ Unit 3 map on 2026-11-20 (A1+ 3.Y follows A1 3.Y, one step each; A1 Unit 3 has sixteen lessons after the alphabet lessons were removed the same day) and asked for the Unit 2 deal: straight to Preview in batches, Gemini 2.5 Flash photos and ElevenLabs audio pre-approved, no per-lesson gates, reviewed in Preview. Three new work photos (Gemini 2.5 Flash): Ana teaching in a classroom with a blank chalkboard, Sofia in nurse scrubs by a hospital bed, Luis at the wheel of a city bus; Diego's office photo is A1+ 2.1's. The asker's voice differs from the answerer's.",
+  "target": "backend/lessons/a1_plus/unit_3/a1plus-unit-3-lesson-3-9.yaml",
+  "captions": false,
+  "narrators": [
+    "teacher",
+    "co-teacher"
+  ],
+  "answer_audio_policy": "authored-only",
+  "speak_delivery": "a1-pronunciation-v1",
+  "lesson": {
+    "id": "a1plus-unit-3-lesson-3-9",
+    "title": "3.9 What do you do?",
+    "level": "A1+",
+    "unit_id": "a1plus-unit-3",
+    "unit_title": "Meeting people and talking about them",
+    "unit_outcome": "Introduce people and answer introductions, use the short forms of be, answer yes/no questions in short, compare ages, talk about languages, nationalities and jobs, describe people, say whose things are, give an address and say what you want to be.",
+    "lesson_id": "a1plus-unit-3-lesson-3-9",
+    "lesson_title": "What do you do?",
+    "sub_lesson_id": "3.9",
+    "sub_lesson_title": "What do you do?",
+    "goal": "Ask about someone's work with What do you do? / What does she do? and answer with a job and where people work (She's a nurse. She works in a hospital.).",
+    "vocabulary": [
+      "What do you do?",
+      "What does",
+      "works in"
+    ],
+    "review_vocabulary": [
+      "teacher",
+      "nurse",
+      "driver",
+      "school",
+      "hospital",
+      "office",
+      "bus",
+      "drives",
+      "I'm",
+      "she's",
+      "he's",
+      "work",
+      "a",
+      "an"
+    ],
+    "grammar_function": "A follow-up of A1 3.9 Professions: A1 asks What is your job? and answers I am a teacher.; A1+ 3.9 asks the way people usually do. The one new grammar relationship is What + do/does + subject + do? (What do you do? / What does Ana do?), answered with a job (She's a teacher.) or with works in + a place (She works in a hospital.). Ana is a teacher in a school, Sofia a nurse in a hospital, Luis drives a bus and Diego works in an office (A1+ 2.1).",
+    "prerequisite": "A1 3.9 jobs and What is your job?; A1 2.1 school and hospital; A1 4.8 do; A1+ 1.7 works; A1+ 1.9 Does…?; A1+ 2.1 the office; A1+ 3.3 he's and she's.",
+    "speaking_outcome": "In What do you do? the second do is stressed; in What does she do? keep does short (duz). Do not require native-like speed.",
+    "content_revision": 1,
+    "learn_context_groups": [
+      {
+        "kind": "exchange",
+        "targets": [
+          "What do you do?"
+        ],
+        "models": [
+          {
+            "slide_id": "L1",
+            "text": "What do you do? I'm a nurse.",
+            "turns": [
+              "What do you do?",
+              "I'm a nurse."
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "exchange",
+        "targets": [
+          "What does"
+        ],
+        "models": [
+          {
+            "slide_id": "L2",
+            "text": "What does Ana do? She's a teacher.",
+            "turns": [
+              "What does Ana do?",
+              "She's a teacher."
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "sequence",
+        "targets": [
+          "works in"
+        ],
+        "models": [
+          {
+            "slide_id": "L3",
+            "text": "She works in a hospital."
+          }
+        ]
+      },
+      {
+        "kind": "sequence",
+        "targets": [
+          "works in"
+        ],
+        "models": [
+          {
+            "slide_id": "L4",
+            "text": "He works in an office."
+          }
+        ]
+      }
+    ]
+  },
+  "items": [
+    {
+      "id": "l-you-do",
+      "text": "What do you do? I'm a nurse.",
+      "es": "¿A qué te dedicas? Soy enfermera.",
+      "image": "/lesson-assets/a1plus-unit-3-j02-b6ea448f561de0f4.webp",
+      "kind": "exchange",
+      "choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "What do you do?",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-3-j02-b6ea448f561de0f4.webp"
+        },
+        {
+          "text": "I'm a nurse.",
+          "speaker": "sofia",
+          "image": "/lesson-assets/a1plus-unit-3-j02-b6ea448f561de0f4.webp"
+        }
+      ]
+    },
+    {
+      "id": "l-she-do",
+      "text": "What does Ana do? She's a teacher.",
+      "es": "¿A qué se dedica Ana? Es maestra.",
+      "image": "/lesson-assets/a1plus-unit-3-j01-9685ec0d21efbc0d.webp",
+      "kind": "exchange",
+      "choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "What does Ana do?",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-3-j01-9685ec0d21efbc0d.webp"
+        },
+        {
+          "text": "She's a teacher.",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-3-j01-9685ec0d21efbc0d.webp"
+        }
+      ]
+    },
+    {
+      "id": "l-works",
+      "text": "She works in a hospital.",
+      "es": "Ella trabaja en un hospital.",
+      "image": "/lesson-assets/a1plus-unit-3-j02-b6ea448f561de0f4.webp",
+      "kind": "sequence",
+      "choices": false,
+      "use": false,
+      "speaker": "teacher"
+    },
+    {
+      "id": "l-office",
+      "text": "He works in an office.",
+      "es": "Él trabaja en una oficina.",
+      "image": "/lesson-assets/a1plus-unit-2-p02-4f9df2712ec9cb2c.webp",
+      "kind": "sequence",
+      "choices": false,
+      "use": false,
+      "speaker": "co-teacher"
+    },
+    {
+      "id": "w-school",
+      "text": "She works in a school.",
+      "es": "Trabaja en una escuela.",
+      "image": "/lesson-assets/a1plus-unit-3-j01-9685ec0d21efbc0d.webp",
+      "kind": "work",
+      "speaker": "teacher",
+      "accepts": {
+        "subject-variety": "The bank keeps works in and changes the place the picture shows.",
+        "action-variety": "The bank keeps works in and changes the place the picture shows.",
+        "conversational-response": "The bank keeps works in and changes the place the picture shows.",
+        "reading-load": "The bank keeps works in and changes the place the picture shows."
+      },
+      "prefer": [
+        "She works in a hospital."
+      ],
+      "blanks": [
+        "works",
+        "in"
+      ],
+      "use": true,
+      "learn": false
+    },
+    {
+      "id": "w-hospital",
+      "text": "She works in a hospital.",
+      "es": "Trabaja en un hospital.",
+      "image": "/lesson-assets/a1plus-unit-3-j02-b6ea448f561de0f4.webp",
+      "kind": "work",
+      "speaker": "teacher",
+      "accepts": {
+        "subject-variety": "The bank keeps works in and changes the place the picture shows.",
+        "action-variety": "The bank keeps works in and changes the place the picture shows.",
+        "conversational-response": "The bank keeps works in and changes the place the picture shows.",
+        "reading-load": "The bank keeps works in and changes the place the picture shows."
+      },
+      "prefer": [
+        "She works in a school."
+      ],
+      "blanks": [
+        "works",
+        "in"
+      ],
+      "use": true,
+      "learn": false
+    },
+    {
+      "id": "w-office",
+      "text": "He works in an office.",
+      "es": "Trabaja en una oficina.",
+      "image": "/lesson-assets/a1plus-unit-2-p02-4f9df2712ec9cb2c.webp",
+      "kind": "work",
+      "speaker": "teacher",
+      "accepts": {
+        "subject-variety": "The bank keeps works in and changes the place the picture shows.",
+        "action-variety": "The bank keeps works in and changes the place the picture shows.",
+        "conversational-response": "The bank keeps works in and changes the place the picture shows.",
+        "reading-load": "The bank keeps works in and changes the place the picture shows."
+      },
+      "prefer": [
+        "He works in a school."
+      ],
+      "blanks": [
+        "works",
+        "in"
+      ],
+      "use": true,
+      "learn": false
+    },
+    {
+      "id": "w-bus",
+      "text": "He drives a bus.",
+      "es": "Maneja un autobús.",
+      "image": "/lesson-assets/a1plus-unit-3-j03-52d3ff19ce24e5ae.webp",
+      "kind": "work",
+      "speaker": "teacher",
+      "accepts": {
+        "subject-variety": "The bank keeps works in and changes the place the picture shows.",
+        "action-variety": "The bank keeps works in and changes the place the picture shows.",
+        "conversational-response": "The bank keeps works in and changes the place the picture shows.",
+        "reading-load": "The bank keeps works in and changes the place the picture shows."
+      },
+      "prefer": [
+        "He drives a car."
+      ],
+      "blanks": [
+        "drives",
+        "a"
+      ],
+      "use": false,
+      "learn": false
+    },
+    {
+      "id": "j-ana",
+      "text": "She's a teacher.",
+      "es": "Es maestra.",
+      "image": "/lesson-assets/a1plus-unit-3-j01-9685ec0d21efbc0d.webp",
+      "kind": "job",
+      "speaker": "teacher",
+      "question": "What does Ana do?",
+      "question_es": "¿A qué se dedica Ana?",
+      "question_speaker": "co-teacher",
+      "accepts": {
+        "subject-variety": "A reply keeps the question's person and changes the job the picture shows.",
+        "action-variety": "A reply keeps the question's person and changes the job the picture shows.",
+        "conversational-response": "A reply keeps the question's person and changes the job the picture shows.",
+        "reading-load": "A reply keeps the question's person and changes the job the picture shows."
+      },
+      "prefer": [
+        "She's a nurse.",
+        "He's a teacher."
+      ],
+      "use": false,
+      "learn": false
+    },
+    {
+      "id": "j-sofia",
+      "text": "She's a nurse.",
+      "es": "Es enfermera.",
+      "image": "/lesson-assets/a1plus-unit-3-j02-b6ea448f561de0f4.webp",
+      "kind": "job",
+      "speaker": "teacher",
+      "question": "What does Sofia do?",
+      "question_es": "¿A qué se dedica Sofía?",
+      "question_speaker": "co-teacher",
+      "accepts": {
+        "subject-variety": "A reply keeps the question's person and changes the job the picture shows.",
+        "action-variety": "A reply keeps the question's person and changes the job the picture shows.",
+        "conversational-response": "A reply keeps the question's person and changes the job the picture shows.",
+        "reading-load": "A reply keeps the question's person and changes the job the picture shows."
+      },
+      "prefer": [
+        "She's a teacher.",
+        "She's a driver."
+      ],
+      "use": false,
+      "learn": false
+    },
+    {
+      "id": "j-luis",
+      "text": "He's a driver.",
+      "es": "Es conductor.",
+      "image": "/lesson-assets/a1plus-unit-3-j03-52d3ff19ce24e5ae.webp",
+      "kind": "job",
+      "speaker": "teacher",
+      "question": "What does Luis do?",
+      "question_es": "¿A qué se dedica Luis?",
+      "question_speaker": "co-teacher",
+      "accepts": {
+        "subject-variety": "A reply keeps the question's person and changes the job the picture shows.",
+        "action-variety": "A reply keeps the question's person and changes the job the picture shows.",
+        "conversational-response": "A reply keeps the question's person and changes the job the picture shows.",
+        "reading-load": "A reply keeps the question's person and changes the job the picture shows."
+      },
+      "prefer": [
+        "He's a nurse.",
+        "She's a driver."
+      ],
+      "use": false,
+      "learn": false
+    },
+    {
+      "id": "i-sofia",
+      "text": "I'm a nurse. I work in a hospital.",
+      "es": "Soy enfermera. Trabajo en un hospital.",
+      "image": "/lesson-assets/a1plus-unit-3-j02-b6ea448f561de0f4.webp",
+      "kind": "mine",
+      "speaker": "sofia",
+      "accepts": {
+        "subject-variety": "A reply keeps the question's person and changes the job the picture shows.",
+        "action-variety": "A reply keeps the question's person and changes the job the picture shows.",
+        "conversational-response": "A reply keeps the question's person and changes the job the picture shows.",
+        "reading-load": "A reply keeps the question's person and changes the job the picture shows."
+      },
+      "prefer": [
+        "I'm a teacher. I work in a school."
+      ],
+      "use": false,
+      "learn": false
+    },
+    {
+      "id": "i-ana",
+      "text": "I'm a teacher. I work in a school.",
+      "es": "Soy maestra. Trabajo en una escuela.",
+      "image": "/lesson-assets/a1plus-unit-3-j01-9685ec0d21efbc0d.webp",
+      "kind": "mine",
+      "speaker": "ana",
+      "accepts": {
+        "subject-variety": "A reply keeps the question's person and changes the job the picture shows.",
+        "action-variety": "A reply keeps the question's person and changes the job the picture shows.",
+        "conversational-response": "A reply keeps the question's person and changes the job the picture shows.",
+        "reading-load": "A reply keeps the question's person and changes the job the picture shows."
+      },
+      "prefer": [
+        "I'm a nurse. I work in a hospital."
+      ],
+      "use": false,
+      "learn": false
+    },
+    {
+      "id": "i-diego",
+      "text": "I work in an office.",
+      "es": "Trabajo en una oficina.",
+      "image": "/lesson-assets/a1plus-unit-2-p02-4f9df2712ec9cb2c.webp",
+      "kind": "mine",
+      "speaker": "diego",
+      "accepts": {
+        "subject-variety": "A reply keeps the question's person and changes the job the picture shows.",
+        "action-variety": "A reply keeps the question's person and changes the job the picture shows.",
+        "conversational-response": "A reply keeps the question's person and changes the job the picture shows.",
+        "reading-load": "A reply keeps the question's person and changes the job the picture shows."
+      },
+      "prefer": [
+        "I work in a hospital."
+      ],
+      "use": false,
+      "learn": false
+    },
+    {
+      "id": "x-you",
+      "text": "What do you do? I'm a nurse.",
+      "es": "¿A qué te dedicas? Soy enfermera.",
+      "image": "/lesson-assets/a1plus-unit-3-j02-b6ea448f561de0f4.webp",
+      "kind": "exch",
+      "turns": [
+        {
+          "text": "What do you do?",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-3-j02-b6ea448f561de0f4.webp"
+        },
+        {
+          "text": "I'm a nurse.",
+          "speaker": "sofia",
+          "image": "/lesson-assets/a1plus-unit-3-j02-b6ea448f561de0f4.webp"
+        }
+      ],
+      "image_choices": false,
+      "accepts": {
+        "subject-variety": "A reply keeps the question's person and changes the job the picture shows.",
+        "action-variety": "A reply keeps the question's person and changes the job the picture shows.",
+        "conversational-response": "A reply keeps the question's person and changes the job the picture shows.",
+        "reading-load": "A reply keeps the question's person and changes the job the picture shows."
+      },
+      "prefer": [
+        "What do you do? I'm a teacher.",
+        "What do you do? I'm a driver."
+      ],
+      "learn": false
+    },
+    {
+      "id": "x-you2",
+      "text": "What do you do? I'm a teacher.",
+      "es": "¿A qué te dedicas? Soy maestra.",
+      "image": "/lesson-assets/a1plus-unit-3-j01-9685ec0d21efbc0d.webp",
+      "kind": "exch3",
+      "turns": [
+        {
+          "text": "What do you do?",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-3-j01-9685ec0d21efbc0d.webp"
+        },
+        {
+          "text": "I'm a teacher.",
+          "speaker": "ana",
+          "image": "/lesson-assets/a1plus-unit-3-j01-9685ec0d21efbc0d.webp"
+        }
+      ],
+      "image_choices": false,
+      "accepts": {
+        "subject-variety": "A reply keeps the question's person and changes the job the picture shows.",
+        "action-variety": "A reply keeps the question's person and changes the job the picture shows.",
+        "conversational-response": "A reply keeps the question's person and changes the job the picture shows.",
+        "reading-load": "A reply keeps the question's person and changes the job the picture shows."
+      },
+      "prefer": [
+        "What do you do? I'm a nurse.",
+        "What do you do? I'm a driver."
+      ],
+      "learn": false
+    },
+    {
+      "id": "x-ana",
+      "text": "What does Ana do? She's a teacher.",
+      "es": "¿A qué se dedica Ana? Es maestra.",
+      "image": "/lesson-assets/a1plus-unit-3-j01-9685ec0d21efbc0d.webp",
+      "kind": "exch2",
+      "turns": [
+        {
+          "text": "What does Ana do?",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-3-j01-9685ec0d21efbc0d.webp"
+        },
+        {
+          "text": "She's a teacher.",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-3-j01-9685ec0d21efbc0d.webp"
+        }
+      ],
+      "image_choices": false,
+      "accepts": {
+        "subject-variety": "A reply keeps the question's person and changes the job the picture shows.",
+        "action-variety": "A reply keeps the question's person and changes the job the picture shows.",
+        "conversational-response": "A reply keeps the question's person and changes the job the picture shows.",
+        "reading-load": "A reply keeps the question's person and changes the job the picture shows."
+      },
+      "prefer": [
+        "What does Ana do? She's a nurse.",
+        "What does Ana do? She's a driver."
+      ],
+      "learn": false
+    },
+    {
+      "id": "q-you",
+      "text": "What do you do?",
+      "es": "¿A qué te dedicas?",
+      "image": "/lesson-assets/a1plus-unit-3-j02-b6ea448f561de0f4.webp",
+      "kind": "question",
+      "speaker": "co-teacher",
+      "choices": false,
+      "learn": false
+    },
+    {
+      "id": "q-she",
+      "text": "What does she do?",
+      "es": "¿A qué se dedica ella?",
+      "image": "/lesson-assets/a1plus-unit-3-j01-9685ec0d21efbc0d.webp",
+      "kind": "question",
+      "speaker": "teacher",
+      "choices": false,
+      "learn": false
+    },
+    {
+      "id": "q-he",
+      "text": "What does he do?",
+      "es": "¿A qué se dedica él?",
+      "image": "/lesson-assets/a1plus-unit-3-j03-52d3ff19ce24e5ae.webp",
+      "kind": "question",
+      "speaker": "co-teacher",
+      "choices": false,
+      "learn": false
+    },
+    {
+      "id": "q-ana",
+      "text": "What does Ana do?",
+      "es": "¿A qué se dedica Ana?",
+      "image": "/lesson-assets/a1plus-unit-3-j01-9685ec0d21efbc0d.webp",
+      "kind": "question",
+      "speaker": "co-teacher",
+      "choices": false,
+      "learn": false
+    },
+    {
+      "id": "q-sofia",
+      "text": "What does Sofia do?",
+      "es": "¿A qué se dedica Sofía?",
+      "image": "/lesson-assets/a1plus-unit-3-j02-b6ea448f561de0f4.webp",
+      "kind": "question",
+      "speaker": "teacher",
+      "choices": false,
+      "learn": false
+    }
+  ],
+  "pool": [
+    {
+      "text": "She works in a hospital.",
+      "es": "Ella trabaja en un hospital.",
+      "image": "/lesson-assets/a1plus-unit-3-j01-9685ec0d21efbc0d.webp",
+      "kind": "work",
+      "image_choices": false
+    },
+    {
+      "text": "She works in a school.",
+      "es": "Ella trabaja en una escuela.",
+      "image": "/lesson-assets/a1plus-unit-3-j02-b6ea448f561de0f4.webp",
+      "kind": "work",
+      "image_choices": false
+    },
+    {
+      "text": "He works in a school.",
+      "es": "Él trabaja en una escuela.",
+      "image": "/lesson-assets/a1plus-unit-2-p02-4f9df2712ec9cb2c.webp",
+      "kind": "work",
+      "image_choices": false
+    },
+    {
+      "text": "He drives a car.",
+      "es": "Maneja un carro.",
+      "image": "/lesson-assets/a1plus-unit-3-j03-52d3ff19ce24e5ae.webp",
+      "kind": "work",
+      "image_choices": false
+    },
+    {
+      "text": "She's a nurse.",
+      "es": "Es enfermera.",
+      "image": "/lesson-assets/a1plus-unit-3-j01-9685ec0d21efbc0d.webp",
+      "kind": "job",
+      "image_choices": false
+    },
+    {
+      "text": "He's a teacher.",
+      "es": "Él es maestro.",
+      "image": "/lesson-assets/a1plus-unit-3-j01-9685ec0d21efbc0d.webp",
+      "kind": "job",
+      "image_choices": false
+    },
+    {
+      "text": "She's a teacher.",
+      "es": "Es maestra.",
+      "image": "/lesson-assets/a1plus-unit-3-j02-b6ea448f561de0f4.webp",
+      "kind": "job",
+      "image_choices": false
+    },
+    {
+      "text": "She's a driver.",
+      "es": "Es conductora.",
+      "image": "/lesson-assets/a1plus-unit-3-j02-b6ea448f561de0f4.webp",
+      "kind": "job",
+      "image_choices": false
+    },
+    {
+      "text": "He's a nurse.",
+      "es": "Es enfermero.",
+      "image": "/lesson-assets/a1plus-unit-3-j03-52d3ff19ce24e5ae.webp",
+      "kind": "job",
+      "image_choices": false
+    },
+    {
+      "text": "What do you do? I'm a teacher.",
+      "es": "¿A qué te dedicas? Soy maestra.",
+      "image": "/lesson-assets/a1plus-unit-3-j02-b6ea448f561de0f4.webp",
+      "kind": "exch",
+      "image_choices": false
+    },
+    {
+      "text": "What do you do? I'm a driver.",
+      "es": "¿A qué te dedicas? Soy conductora.",
+      "image": "/lesson-assets/a1plus-unit-3-j02-b6ea448f561de0f4.webp",
+      "kind": "exch",
+      "image_choices": false
+    },
+    {
+      "text": "What do you do? I'm a nurse.",
+      "es": "¿A qué te dedicas? Soy enfermera.",
+      "image": "/lesson-assets/a1plus-unit-3-j01-9685ec0d21efbc0d.webp",
+      "kind": "exch3",
+      "image_choices": false
+    },
+    {
+      "text": "What do you do? I'm a driver.",
+      "es": "¿A qué te dedicas? Soy conductora.",
+      "image": "/lesson-assets/a1plus-unit-3-j01-9685ec0d21efbc0d.webp",
+      "kind": "exch3",
+      "image_choices": false
+    },
+    {
+      "text": "What does Ana do? She's a nurse.",
+      "es": "¿A qué se dedica Ana? Es enfermera.",
+      "image": "/lesson-assets/a1plus-unit-3-j01-9685ec0d21efbc0d.webp",
+      "kind": "exch2",
+      "image_choices": false
+    },
+    {
+      "text": "What does Ana do? She's a driver.",
+      "es": "¿A qué se dedica Ana? Es conductora.",
+      "image": "/lesson-assets/a1plus-unit-3-j01-9685ec0d21efbc0d.webp",
+      "kind": "exch2",
+      "image_choices": false
+    }
+  ],
+  "layout": {
+    "Recognize": 10,
+    "Listen": 10,
+    "Speak": 8,
+    "Use": 8
+  },
+  "stage_sequences": {
+    "Learn": [
+      "l-you-do",
+      "l-she-do",
+      "l-works",
+      "l-office"
+    ],
+    "Recognize": [
+      "w-school",
+      "j-sofia",
+      "w-hospital",
+      "x-you2",
+      "w-office",
+      "x-ana",
+      "w-bus",
+      "i-sofia",
+      "w-hospital",
+      "x-you"
+    ],
+    "Listen": [
+      "w-hospital",
+      "w-office",
+      "x-you",
+      "w-bus",
+      "w-school",
+      "x-you2",
+      "w-hospital",
+      "w-office",
+      "x-ana",
+      "w-school"
+    ],
+    "Speak": [
+      "q-you",
+      "i-sofia",
+      "q-she",
+      "j-ana",
+      "q-he",
+      "i-diego",
+      "w-office",
+      "i-ana"
+    ],
+    "Use": [
+      "w-school",
+      "w-hospital",
+      "w-office",
+      "q-you",
+      "q-she",
+      "q-he",
+      "q-ana",
+      "q-sofia"
+    ]
+  }
+}

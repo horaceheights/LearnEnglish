@@ -99,6 +99,9 @@ const MEANINGS: Record<string, string> = {
   "i'm": 'yo estoy o yo soy', "you're": 'tú estás o tú eres', "we're": 'nosotros estamos o somos',
   "he's": 'él está o él es', "she's": 'ella está o ella es', "they're": 'ellos están o son',
   "aren't": 'no están o no son', too: 'también',
+  // A1+ 3.6-3.9 (2026-11-20): twins and both, languages, and where people work.
+  twins: 'gemelos o gemelas', both: 'los dos o las dos', speaks: 'habla', english: 'inglés', language: 'idioma',
+  works: 'trabaja', drives: 'maneja',
   // A1+ 2.6-2.10 (2026-11-19): ordinal numbers, the -es and irregular plurals, favorite and ones.
   second: 'segundo', third: 'tercero', fourth: 'cuarto', fifth: 'quinto', sixth: 'sexto', seventh: 'séptimo',
   eighth: 'octavo', ninth: 'noveno', tenth: 'décimo',
@@ -242,6 +245,10 @@ const MEANINGS: Record<string, string> = {
 function normalized(value?: string | null) {
   return String(value || '').trim().toLowerCase().replace(/[?.!,]+$/g, '');
 }
+
+// A1+ 3.10 (2026-11-20): hair is long or short (largo, corto); alone, short is A1+ 1.1's height (bajo o baja).
+const HAIR_LENGTH: Record<string, string> = { long: 'largo', short: 'corto' };
+const wordMeaning = (text: string) => meaning(text);
 
 function meaning(text: string) {
   const key = normalized(text);
@@ -619,6 +626,9 @@ function wordChoiceContrast(correct: string, wrong: string, isAudioChoice: boole
     const selected = wrongPeriod === 'a' ? 'antes del mediodía' : 'después del mediodía';
     return `“${wrongPeriod}.m.” indica ${selected}; ${isAudioChoice ? 'escuchaste' : 'la imagen muestra'} una hora ${expected}, indicada con “${rightPeriod}.m.”.`;
   }
+  // A1+ 3.10 (2026-11-20): after "hair is", long and short describe the hair (largo, corto), not a person's height.
+  const aboutHair = /\bhair is\b/i.test(correct) && /\bhair is\b/i.test(wrong);
+  const meaning = (word: string) => aboutHair && HAIR_LENGTH[word] ? HAIR_LENGTH[word] : wordMeaning(word);
   const correctWords = normalized(correct).replace(/[?.!,]/g, '').split(/\s+/);
   const wrongWords = normalized(wrong).replace(/[?.!,]/g, '').split(/\s+/);
   while (correctWords.length && wrongWords.length && correctWords[0] === wrongWords[0]) {
@@ -748,6 +758,7 @@ function imageChoiceContrast(card: LessonCard, correctId: string, wrongId: strin
   const known = (words: string[], word: string) => {
     if (word === 'watch' && words.includes('tv')) return '';
     if (word === 'office' && words[words.indexOf(word) - 1] === 'post') return '';
+    if (HAIR_LENGTH[word] && words.includes('hair')) return HAIR_LENGTH[word];
     return meaning(word);
   };
   const difference = expected.find((word, index) => word !== selected[index] && known(expected, word) && known(selected, selected[index] || ''));
@@ -756,9 +767,9 @@ function imageChoiceContrast(card: LessonCard, correctId: string, wrongId: strin
   const extraWrong = selected.find(word => !expected.includes(word) && known(selected, word));
   const evidenceWord = difference && wrongDifference ? difference : extraExpected;
   const mistakenWord = difference && wrongDifference ? wrongDifference : extraWrong;
-  if (evidenceWord && mistakenWord && meaning(mistakenWord)) {
+  if (evidenceWord && mistakenWord && known(selected, mistakenWord)) {
     const answer = /listen/i.test(card.stage) ? 'La frase escuchada' : 'La frase';
-    return `La imagen elegida muestra “${mistakenWord}” (${meaning(mistakenWord)}); ${answer.toLowerCase()} pide “${evidenceWord}” (${meaning(evidenceWord)}).`;
+    return `La imagen elegida muestra “${mistakenWord}” (${known(selected, mistakenWord)}); ${answer.toLowerCase()} pide “${evidenceWord}” (${known(expected, evidenceWord)}).`;
   }
   // A two-word place such as "living room" against "dining room" differs only in its first word.
   const split = expected.findIndex((word, index) => word !== selected[index]);
