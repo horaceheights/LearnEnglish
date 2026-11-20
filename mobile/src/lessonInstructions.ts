@@ -43,6 +43,34 @@ const SPANISH_STAGE_LABELS: Record<string, string> = {
   'What Is It?': 'Aprende a preguntar',
 };
 
+import type { UiLanguage } from './uiText';
+
+// Courses for English speakers (uiLanguage "en", user decision 2026-11-19) show
+// English stage names and instructions. Kept inline: this module has no runtime imports.
+const ENGLISH_STAGE_LABELS: Record<string, string> = {
+  'Use': 'Complete',
+  'Listen To Picture': 'Listen and choose',
+  'What Is It?': 'Learn to ask',
+};
+const SHORT_ENGLISH_STAGE_LABELS: Record<string, string> = {
+  'Use': 'Complete',
+  'Listen To Picture': 'Listen',
+  'Pronunciation Practice': 'Pronounce',
+  'Pronunciation': 'Pronounce',
+};
+const ENGLISH_INSTRUCTIONS: Record<string, string> = {
+  '¡Elige la frase que corresponde a la imagen!': 'Choose the sentence that matches the picture!',
+  '¡Elige la palabra que corresponde a la imagen!': 'Choose the word that matches the picture!',
+  '¡Escucha y repite!': 'Listen and repeat!',
+  '¡Escucha y elige!': 'Listen and choose!',
+  '¡Escucha y elige la foto!': 'Listen and choose the photo!',
+  '¡Escucha y elige la frase!': 'Listen and choose the sentence!',
+};
+
+function inLanguage(language: UiLanguage, spanish: string) {
+  return language === 'en' ? ENGLISH_INSTRUCTIONS[spanish] ?? spanish : spanish;
+}
+
 const LISTEN_AND_CHOOSE_PROMPT = 'Listen and choose.';
 const CHOOSE_CORRECT_PHRASE_INSTRUCTION = '¡Elige la frase que corresponde a la imagen!';
 const CHOOSE_CORRECT_WORD_INSTRUCTION = '¡Elige la palabra que corresponde a la imagen!';
@@ -97,35 +125,38 @@ export function usesSpanishInstructions(lessonId: string) {
 }
 
 // Stage names are Spanish in every unit, as they were first in Unit 1.
-export function lessonStageLabel(_lessonId: string, stage: string) {
+export function lessonStageLabel(_lessonId: string, stage: string, language: UiLanguage = 'es') {
+  if (language === 'en') return ENGLISH_STAGE_LABELS[stage] || stage;
   return SPANISH_STAGE_LABELS[stage] || stage;
 }
 
-export function lessonStageShortLabel(lessonId: string, stage: string) {
+export function lessonStageShortLabel(lessonId: string, stage: string, language: UiLanguage = 'es') {
+  if (language === 'en') return SHORT_ENGLISH_STAGE_LABELS[stage] || lessonStageLabel(lessonId, stage, language);
   return SHORT_SPANISH_STAGE_LABELS[stage] || lessonStageLabel(lessonId, stage);
 }
 
-export function lessonPromptText(lessonId: string, prompt: string) {
+export function lessonPromptText(lessonId: string, prompt: string, language: UiLanguage = 'es') {
   const instruction = SPANISH_INSTRUCTION_PROMPTS[prompt.trim()];
-  if (instruction) return instruction;
+  if (instruction) return inLanguage(language, instruction);
   if (!usesSpanishInstructions(lessonId)) return prompt;
   return prompt;
 }
 
 export function usesCompactListenInstruction(stage: string, prompt: string) {
   const listeningInstruction = prompt.trim() === LISTEN_AND_CHOOSE_PROMPT
-    || prompt.trim() === SPANISH_INSTRUCTION_PROMPTS[LISTEN_AND_CHOOSE_PROMPT];
+    || prompt.trim() === SPANISH_INSTRUCTION_PROMPTS[LISTEN_AND_CHOOSE_PROMPT]
+    || prompt.trim() === ENGLISH_INSTRUCTIONS[SPANISH_INSTRUCTION_PROMPTS[LISTEN_AND_CHOOSE_PROMPT]];
   return (stage === 'Listen' || stage === 'Recognize') && listeningInstruction;
 }
 
-export function listeningChoiceInstruction(options: readonly { image_url?: string | null }[]) {
+export function listeningChoiceInstruction(options: readonly { image_url?: string | null }[], language: UiLanguage = 'es') {
   if (options.length > 0 && options.every((option) => option.image_url)) {
-    return '¡Escucha y elige la foto!';
+    return inLanguage(language, '¡Escucha y elige la foto!');
   }
   if (options.length > 0 && options.every((option) => !option.image_url)) {
-    return '¡Escucha y elige la frase!';
+    return inLanguage(language, '¡Escucha y elige la frase!');
   }
-  return SPANISH_INSTRUCTION_PROMPTS[LISTEN_AND_CHOOSE_PROMPT];
+  return inLanguage(language, SPANISH_INSTRUCTION_PROMPTS[LISTEN_AND_CHOOSE_PROMPT]);
 }
 
 export function usesCompactRecognizeInstruction(stage: string, prompt: string) {
@@ -139,11 +170,11 @@ export function usesCompactSpeakInstruction(stage: string) {
 
 // Single-word choices (colors, numbers, "Hello." or "Goodbye.") ask for the word;
 // everything else asks for the phrase, as in Lesson 1.1.
-export function recognizeChoiceInstruction(options: readonly { label?: string | null }[]) {
+export function recognizeChoiceInstruction(options: readonly { label?: string | null }[], language: UiLanguage = 'es') {
   const labels = options.map((option) => (option.label ?? '').trim().replace(/[.!?]+$/, ''));
-  return labels.length > 0 && labels.every((label) => label && !/\s/.test(label))
+  return inLanguage(language, labels.length > 0 && labels.every((label) => label && !/\s/.test(label))
     ? CHOOSE_CORRECT_WORD_INSTRUCTION
-    : CHOOSE_CORRECT_PHRASE_INSTRUCTION;
+    : CHOOSE_CORRECT_PHRASE_INSTRUCTION);
 }
 
 export function lessonHeaderPromptText(
@@ -151,9 +182,10 @@ export function lessonHeaderPromptText(
   stage: string,
   prompt: string,
   options: readonly { label?: string | null }[] = [],
+  language: UiLanguage = 'es',
 ) {
-  if (usesCompactRecognizeInstruction(stage, prompt)) return recognizeChoiceInstruction(options);
-  return lessonPromptText(lessonId, prompt);
+  if (usesCompactRecognizeInstruction(stage, prompt)) return recognizeChoiceInstruction(options, language);
+  return lessonPromptText(lessonId, prompt, language);
 }
 
 export function completionEquivalenceFocusWords(prompt: string, selectedAnswer: string) {
@@ -173,6 +205,6 @@ export function completionEquivalenceFocusWords(prompt: string, selectedAnswer: 
     .filter((word) => !SUBJECT_FOCUS_STOP_WORDS.has(word));
 }
 
-export function pronunciationInstruction() {
-  return LISTEN_AND_REPEAT_INSTRUCTION;
+export function pronunciationInstruction(language: UiLanguage = 'es') {
+  return inLanguage(language, LISTEN_AND_REPEAT_INSTRUCTION);
 }

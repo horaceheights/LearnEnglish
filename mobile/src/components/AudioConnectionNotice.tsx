@@ -1,26 +1,29 @@
 import { ActivityIndicator, Modal, Pressable, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
+import { ui } from '../uiText';
+import { useUiLanguage } from '../uiLanguage';
 
 type Props = { visible: boolean; waiting: boolean; busy: boolean; onRetry(): void; onExit(): void };
 
 export function AudioConnectionNotice({ visible, waiting, busy, onRetry, onExit }: Props) {
+  const lang = useUiLanguage();
   const { width, height } = useWindowDimensions();
   const compact = width > height;
   return <Modal transparent visible={visible} animationType="fade" onRequestClose={onExit}>
     <View style={styles.backdrop}>
       <View accessibilityViewIsModal style={[styles.panel, compact && styles.panelCompact]}>
         <Text accessibilityRole="header" accessibilityLiveRegion="polite" style={styles.title}>
-          {waiting ? 'Esperando conexión' : 'Cargando audio…'}
+          {waiting ? ui(lang, 'Esperando conexión') : ui(lang, 'Cargando audio…')}
         </Text>
         <Text style={styles.copy}>
           {waiting
-            ? 'Sin conexión, vuelve cuando haya señal.'
-            : 'Un momento. Estamos preparando el audio de esta actividad.'}
+            ? ui(lang, 'Sin conexión, vuelve cuando haya señal.')
+            : ui(lang, 'Un momento. Estamos preparando el audio de esta actividad.')}
         </Text>
-        <Text style={styles.saved}>Tu lugar y tus respuestas se conservan.</Text>
-        {busy ? <ActivityIndicator color="#23856f" accessibilityLabel="Cargando audio" /> : null}
+        <Text style={styles.saved}>{ui(lang, 'Tu lugar y tus respuestas se conservan.')}</Text>
+        {busy ? <ActivityIndicator color="#23856f" accessibilityLabel={ui(lang, 'Cargando audio')} /> : null}
         <View style={styles.actions}>
           <Pressable accessibilityRole="button" disabled={busy} onPress={onRetry} style={[styles.retry, busy && styles.disabled]}>
-            <Text style={styles.retryText}>{busy ? 'Cargando…' : 'Reintentar'}</Text>
+            <Text style={styles.retryText}>{busy ? ui(lang, 'Cargando…') : ui(lang, 'Reintentar')}</Text>
           </Pressable>
           <Pressable accessibilityRole="button" onPress={onExit} style={styles.exit}>
             <Text style={styles.exitText}>Salir</Text>

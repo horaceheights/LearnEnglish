@@ -89,7 +89,7 @@ assert.match(
 );
 assert.match(
   instructionSource,
-  /export function pronunciationInstruction\(\)\s*\{\s*return LISTEN_AND_REPEAT_INSTRUCTION;/,
+  /export function pronunciationInstruction\(language: UiLanguage = 'es'\)\s*\{\s*return inLanguage\(language, LISTEN_AND_REPEAT_INSTRUCTION\);/,
   'Every unit must receive the same approved Spanish Speak instruction.',
 );
 assert.doesNotMatch(
@@ -109,7 +109,7 @@ assert.match(
 );
 assert.match(
   screenSource,
-  /\{isPronunciation[\s\S]*?currentCard\.mission_game\?\.instruction_es \|\| pronunciationInstruction\(\)[\s\S]*?: renderPrompt\(\)\}/,
+  /\{isPronunciation[\s\S]*?currentCard\.mission_game\?\.instruction_es \|\| pronunciationInstruction\(lang\)[\s\S]*?: renderPrompt\(\)\}/,
   'Standard pronunciation headers use the shared instruction while missions use their exact authored action.',
 );
 assert.match(

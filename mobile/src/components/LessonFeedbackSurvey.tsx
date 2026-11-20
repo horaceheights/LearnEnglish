@@ -31,6 +31,8 @@ import {
   stopNativeRecording,
   type SpeechLevelEvent,
 } from '../../modules/spanglish-speech/src';
+import { ui } from '../uiText';
+import { useUiLanguage } from '../uiLanguage';
 
 const RECORDING_OPTIONS: RecordingOptions = {
   ...RecordingPresets.HIGH_QUALITY,
@@ -68,6 +70,7 @@ export function LessonFeedbackSurvey({
   viewportHeight,
   onDone,
 }: Props) {
+  const lang = useUiLanguage();
   const recorder = useAudioRecorder(RECORDING_OPTIONS);
   const recorderState = useAudioRecorderState(recorder, 100);
   const cuePlayer = useAudioPlayer(READY_CUE, {
@@ -124,15 +127,15 @@ export function LessonFeedbackSurvey({
       if (!permission.granted) {
         setPhase('idle');
         Alert.alert(
-          'Micrófono necesario',
+          ui(lang, 'Micrófono necesario'),
           permission.canAskAgain
-            ? 'Permite el micrófono para enviar un comentario hablado.'
-            : 'El permiso está desactivado. Abre Ajustes y activa el micrófono para SpanGlish.',
+            ? ui(lang, 'Permite el micrófono para enviar un comentario hablado.')
+            : ui(lang, 'El permiso está desactivado. Abre Ajustes y activa el micrófono para SpanGlish.'),
           permission.canAskAgain
-            ? [{ text: 'Entendido' }]
+            ? [{ text: ui(lang, 'Entendido') }]
             : [
-                { style: 'cancel', text: 'Cancelar' },
-                { onPress: () => void Linking.openSettings(), text: 'Abrir Ajustes' },
+                { style: 'cancel', text: ui(lang, 'Cancelar') },
+                { onPress: () => void Linking.openSettings(), text: ui(lang, 'Abrir Ajustes') },
               ],
         );
         return;
@@ -168,7 +171,7 @@ export function LessonFeedbackSurvey({
       captureDiagnosticError(recordingError, 'feedback_recording_start');
       if (mountedRef.current) {
         setPhase('idle');
-        setError('No pudimos abrir el micrófono. Inténtalo otra vez.');
+        setError(ui(lang, 'No pudimos abrir el micrófono. Inténtalo otra vez.'));
       }
     }
   }, [cuePlayer, phase, recorder]);
@@ -192,7 +195,7 @@ export function LessonFeedbackSurvey({
       if (mountedRef.current) setComment(transcript);
     } catch (transcriptionError) {
       captureDiagnosticError(transcriptionError, 'feedback_transcription');
-      if (mountedRef.current) setError('No pudimos transcribirlo. Puedes grabar otra vez.');
+      if (mountedRef.current) setError(ui(lang, 'No pudimos transcribirlo. Puedes grabar otra vez.'));
     } finally {
       recordingActiveRef.current = false;
       if (recordingUri) {
@@ -208,7 +211,7 @@ export function LessonFeedbackSurvey({
 
   const submit = useCallback(async () => {
     if (!clarity || !support || isSaving) {
-      if (!clarity || !support) setError('Selecciona una respuesta para las primeras dos preguntas.');
+      if (!clarity || !support) setError(ui(lang, 'Selecciona una respuesta para las primeras dos preguntas.'));
       return;
     }
     setIsSaving(true);
@@ -231,7 +234,7 @@ export function LessonFeedbackSurvey({
       onDone();
     } catch (saveError) {
       captureDiagnosticError(saveError, 'feedback_save', { lesson_id: lessonId });
-      setError('No pudimos guardar tus comentarios. Inténtalo otra vez.');
+      setError(ui(lang, 'No pudimos guardar tus comentarios. Inténtalo otra vez.'));
     } finally {
       if (mountedRef.current) setIsSaving(false);
     }
@@ -245,8 +248,8 @@ export function LessonFeedbackSurvey({
     >
       <View style={styles.headingRow}>
         <View>
-          <Text style={styles.eyebrow}>TU OPINIÓN NOS AYUDA</Text>
-          <Text style={styles.title}>Ayúdanos a mejorar esta lección</Text>
+          <Text style={styles.eyebrow}>{ui(lang, 'TU OPINIÓN NOS AYUDA')}</Text>
+          <Text style={styles.title}>{ui(lang, 'Ayúdanos a mejorar esta lección')}</Text>
         </View>
       </View>
 
@@ -254,21 +257,21 @@ export function LessonFeedbackSurvey({
         <Question
           options={CLARITY_OPTIONS}
           selected={clarity}
-          title="1. ¿Qué tan fácil fue entender esta lección?"
+          title={ui(lang, '1. ¿Qué tan fácil fue entender esta lección?')}
           onSelect={setClarity}
         />
         <Question
           options={SUPPORT_OPTIONS}
           selected={support}
-          title="2. ¿Las imágenes y el audio te ayudaron?"
+          title={ui(lang, '2. ¿Las imágenes y el audio te ayudaron?')}
           onSelect={setSupport}
         />
       </View>
 
       <View style={[styles.voiceCard, isPortrait ? styles.voiceCardPortrait : null]}>
         <View style={styles.voiceCopy}>
-          <Text style={styles.questionTitle}>3. ¿Qué te confundió o qué podemos mejorar?</Text>
-          <Text style={styles.hint}>Opcional · habla con confianza; guardaremos el texto, no la grabación.</Text>
+          <Text style={styles.questionTitle}>{ui(lang, '3. ¿Qué te confundió o qué podemos mejorar?')}</Text>
+          <Text style={styles.hint}>{ui(lang, 'Opcional · habla con confianza; guardaremos el texto, no la grabación.')}</Text>
         </View>
         <Pressable
           accessibilityRole="button"
@@ -281,7 +284,7 @@ export function LessonFeedbackSurvey({
           )}
         </Pressable>
         <View
-          accessibilityLabel={phase === 'recording' ? 'El micrófono está escuchando' : undefined}
+          accessibilityLabel={phase === 'recording' ? ui(lang, 'El micrófono está escuchando') : undefined}
           accessibilityLiveRegion="polite"
           style={[styles.recordingSignal, phase === 'recording' ? styles.recordingSignalActive : null]}
         >
@@ -305,13 +308,13 @@ export function LessonFeedbackSurvey({
             ))}
           </View>
           <Text style={styles.recordingLabel}>
-            {phase === 'recording' ? 'Escuchando…' : 'Listo para escuchar'}
+            {phase === 'recording' ? ui(lang, 'Escuchando…') : ui(lang, 'Listo para escuchar')}
           </Text>
         </View>
         <TextInput
           multiline
           onChangeText={setComment}
-          placeholder="Tu comentario aparecerá aquí…"
+          placeholder={ui(lang, 'Tu comentario aparecerá aquí…')}
           style={styles.transcript}
           value={comment}
         />
@@ -325,7 +328,7 @@ export function LessonFeedbackSurvey({
           onPress={submit}
           style={[styles.submitButton, isSaving || phase !== 'idle' ? styles.disabled : null]}
         >
-          {isSaving ? <ActivityIndicator color="#fff" /> : <Text style={styles.submitText}>Enviar comentarios</Text>}
+          {isSaving ? <ActivityIndicator color="#fff" /> : <Text style={styles.submitText}>{ui(lang, 'Enviar comentarios')}</Text>}
         </Pressable>
       </View>
       <View style={styles.skipRow}>
@@ -335,7 +338,7 @@ export function LessonFeedbackSurvey({
           onPress={onDone}
           style={[styles.skipButton, isSaving || phase !== 'idle' ? styles.disabled : null]}
         >
-          <Text style={styles.skipText}>Ahora no</Text>
+          <Text style={styles.skipText}>{ui(lang, 'Ahora no')}</Text>
         </Pressable>
       </View>
     </ScrollView>
@@ -353,6 +356,7 @@ function Question({
   title: string;
   onSelect: (value: string) => void;
 }) {
+  const lang = useUiLanguage();
   return (
     <View style={styles.questionCard}>
       <Text style={styles.questionTitle}>{title}</Text>
@@ -364,7 +368,7 @@ function Question({
             onPress={() => onSelect(option)}
             style={[styles.option, selected === option ? styles.optionSelected : null]}
           >
-            <Text style={[styles.optionText, selected === option ? styles.optionTextSelected : null]}>{option}</Text>
+            <Text style={[styles.optionText, selected === option ? styles.optionTextSelected : null]}>{ui(lang, option)}</Text>
           </Pressable>
         ))}
       </View>

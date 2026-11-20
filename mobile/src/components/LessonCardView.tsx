@@ -9,7 +9,7 @@ import { lessonActionVideo, type LessonActionVideo as LessonActionVideoSource } 
 import { lessonVideoUrl, type CourseAudioProvider, type CourseAudioVoice } from '../config';
 import type { CourseAudioTurnPlayback } from '../courseAudioSources';
 import { useReducedMotion } from '../hooks/useReducedMotion';
-import { COMPLETION_RETRY_HELP, lessonHelpText, type PromptInteractionMode } from '../lessonHelp';
+import { completionRetryHelp, lessonHelpText, type PromptInteractionMode } from '../lessonHelp';
 import { optionTranslationLineCount, optionTranslationText } from '../optionTranslations';
 import { lessonMistakeHint } from '../lessonMistakeHints';
 import { isWrittenRecognize } from '../lessonPromptPresentation';
@@ -28,6 +28,8 @@ import {
 import { OptionMediaImage } from './OptionMediaImage';
 import { PronunciationPractice } from './PronunciationPractice';
 import type { ReactNode } from 'react';
+import { ui } from '../uiText';
+import { useUiLanguage } from '../uiLanguage';
 
 const TEXT_OPTION_THEMES = [
   { accent: '#6947ad', background: '#f3effc', border: '#b9a8df' },
@@ -145,6 +147,7 @@ export function LessonCardView({
   allowVerticalGrowth = false,
   optionTranslationsVisible = false,
 }: Props) {
+  const lang = useUiLanguage();
   const { height: viewportHeight, width: viewportWidth, fontScale } = useWindowDimensions();
   const reduceMotion = useReducedMotion();
   const isPronunciation = card.stage === 'Pronunciation Practice' || card.stage === 'Speak';
@@ -530,8 +533,8 @@ export function LessonCardView({
   const writtenRecognitionAnswer = result === 'correct' && isWrittenRecognize(card)
     ? card.answer_audio_text?.trim() || '' : '';
   const correctChoiceFeedback = writtenRecognitionAnswer
-    ? `${writtenRecognitionAnswer}\nCorrecto. Vamos a la siguiente tarjeta…`
-    : 'Correcto. Vamos a la siguiente tarjeta…';
+    ? `${writtenRecognitionAnswer}\n${ui(lang, 'Correcto. Vamos a la siguiente tarjeta…')}`
+    : ui(lang, 'Correcto. Vamos a la siguiente tarjeta…');
   const answerFeedback = (result ? (
             <View
               accessible={!awaitingRetry && !(result === 'wrong' && onTutor)}
@@ -553,7 +556,7 @@ export function LessonCardView({
               ]}>
                 {result === 'correct'
                   ? correctChoiceFeedback
-                  : 'Cuando te equivocas, también aprendes.'}
+                  : ui(lang, 'Cuando te equivocas, también aprendes.')}
               </Text>
               {result === 'wrong' && onTutor && !hasSidePrompt ? <TutorButton more onPress={onTutor} /> : null}
               </View>
@@ -584,7 +587,7 @@ export function LessonCardView({
                 </View>
                 <Text style={styles.missionVoiceCounter}>VOZ {missionVoiceGate.step}/{missionVoiceGate.total}</Text>
               </View> : null}
-              <View accessibilityLabel={`Voz ${missionVoiceGate.step} de ${missionVoiceGate.total}`} style={styles.missionVoiceLocks}>
+              <View accessibilityLabel={ui(lang, 'Voz {step} de {total}', { step: missionVoiceGate.step, total: missionVoiceGate.total })} style={styles.missionVoiceLocks}>
                 {Array.from({ length: missionVoiceGate.total }, (_item, index) => {
                   const complete = index < missionVoiceGate.step - 1;
                   const active = index === missionVoiceGate.step - 1;
@@ -886,7 +889,7 @@ export function LessonCardView({
         <View style={styles.help}>
           <Text maxFontSizeMultiplier={1.3} accessibilityRole="header" style={styles.helpTitle}>Ayuda</Text>
           <Text maxFontSizeMultiplier={1.3} accessibilityLiveRegion="polite" style={styles.helpText}>
-            {awaitingRetry ? COMPLETION_RETRY_HELP : lessonHelpText(card, promptInteractionMode)}
+            {awaitingRetry ? completionRetryHelp(lang) : lessonHelpText(card, promptInteractionMode, lang)}
           </Text>
         </View>
       ) : null}
@@ -923,6 +926,7 @@ function MissionDraggableTile({
   option: ChoiceOption;
   selected: boolean;
 }) {
+  const lang = useUiLanguage();
   const drag = useRef(new Animated.ValueXY()).current;
   const tileRef = useRef<View | null>(null);
   const originRef = useRef<MissionDropBounds | null>(null);
@@ -999,8 +1003,8 @@ function MissionDraggableTile({
     >
       <Pressable
         accessibilityHint={selected
-          ? 'Esta ficha ya está en la respuesta.'
-          : 'Toca o arrastra esta ficha al área de respuesta.'}
+          ? ui(lang, 'Esta ficha ya está en la respuesta.')
+          : ui(lang, 'Toca o arrastra esta ficha al área de respuesta.')}
         accessibilityLabel={`Ficha ${option.label || option.id}`}
         accessibilityRole="button"
         accessibilityState={{ disabled: tileDisabled, selected }}
@@ -1038,6 +1042,7 @@ function MissionTileBuilder({
   result: 'correct' | 'wrong' | null;
   selectedIds: string[];
 }) {
+  const lang = useUiLanguage();
   const dropZoneRef = useRef<View | null>(null);
   const dropBoundsRef = useRef<MissionDropBounds | null>(null);
   const correctIds = card.correct_option_ids?.length
@@ -1068,10 +1073,10 @@ function MissionTileBuilder({
   return (
     <View style={styles.missionBoard}>
       <Text style={styles.missionInstruction}>
-        {isWordParts ? 'Forma la palabra' : 'Ordena la oración'}
+        {isWordParts ? ui(lang, 'Forma la palabra') : ui(lang, 'Ordena la oración')}
       </Text>
       <View
-        accessibilityLabel={`Respuesta: ${selectedLabels.join(isWordParts ? '-' : ' ') || 'vacía'}`}
+        accessibilityLabel={ui(lang, 'Respuesta: {text}', { text: selectedLabels.join(isWordParts ? '-' : ' ') || ui(lang, 'vacía') })}
         accessibilityLiveRegion="polite"
         accessible
         onLayout={() => measureDropZone()}
@@ -1115,7 +1120,7 @@ function MissionTileBuilder({
       </View>
       <View style={styles.missionControls}>
         <Pressable
-          accessibilityLabel="Deshacer última ficha"
+          accessibilityLabel={ui(lang, 'Deshacer última ficha')}
           accessibilityRole="button"
           accessibilityState={{ disabled: disabled || selectedIds.length === 0 }}
           disabled={disabled || selectedIds.length === 0}
@@ -1143,7 +1148,7 @@ function MissionTileBuilder({
           <Text style={styles.missionControlText}>Reiniciar</Text>
         </Pressable>
       </View>
-      <Text style={styles.missionTapHint}>Toca o arrastra las fichas en orden.</Text>
+      <Text style={styles.missionTapHint}>{ui(lang, 'Toca o arrastra las fichas en orden.')}</Text>
     </View>
   );
 }

@@ -4,6 +4,8 @@ import Ionicons from '@expo/vector-icons/Ionicons';
 import type { MissionAnswerSegment } from '../missionVoiceAnswer';
 import { OptionMediaImage } from './OptionMediaImage';
 import type { TeachingClock } from '../types';
+import { ui } from '../uiText';
+import { useUiLanguage } from '../uiLanguage';
 
 export type MissionVoiceStage =
   | 'asking' | 'ready' | 'listening' | 'checking' | 'passed' | 'retry' | 'coached' | 'waiting';
@@ -70,6 +72,7 @@ export function MissionVoicePresentation({
   successLabel?: string;
   clockCues?: TeachingClock[];
 }) {
+  const lang = useUiLanguage();
   const [slot, setSlot] = useState({ width: 0, height: 0 });
   const micPop = useRef(new Animated.Value(1)).current;
   const imageWidth = Math.max(0, Math.min(slot.width - 4, (slot.height - 4) * 1.5));
@@ -91,9 +94,9 @@ export function MissionVoicePresentation({
     return () => pop.stop();
   }, [micPop, reduceMotion, stage]);
 
-  const label = accepted ? successLabel : STAGE_LABELS[stage];
+  const label = ui(lang, accepted ? successLabel : STAGE_LABELS[stage]);
   // Denied microphone access turns the replay control into the way back to recording.
-  const replayText = unavailable ? 'Reintentar' : permissionNeeded ? 'Activar micrófono' : 'Repetir pregunta';
+  const replayText = unavailable ? 'Reintentar' : permissionNeeded ? ui(lang, 'Activar micrófono') : ui(lang, 'Repetir pregunta');
   const badgeScale = stage === 'ready' ? micPop : accepted ? successScale : 1;
   // The level bars belong to the live microphone, so they appear only while it
   // opens, listens and grades; the settled states keep the full width for copy.
@@ -105,7 +108,7 @@ export function MissionVoicePresentation({
           ? current : { width: layout.width, height: layout.height })}>
         {imageWidth > 0 ? <View style={[styles.scene, accepted ? styles.sceneAccepted : null,
           { width: imageWidth + 4, height: imageWidth / 1.5 + 4 }]}>
-          <OptionMediaImage accessibilityLabel={stage === 'asking' ? 'Escucha la pregunta.' : 'Mira la escena y responde.'}
+          <OptionMediaImage accessibilityLabel={stage === 'asking' ? ui(lang, 'Escucha la pregunta.') : ui(lang, 'Mira la escena y responde.')}
             imageUrl={imageUrl} clockCues={clockCues} />
           {accepted ? (
             <Animated.View pointerEvents="none" style={[styles.successBadge, { transform: [{ scale: successScale }] }]}>
@@ -142,14 +145,14 @@ export function MissionVoicePresentation({
         </Text> : null}
         {!accepted ? <View style={styles.actions}>
           <Pressable accessibilityRole="button"
-            accessibilityLabel={replayText === 'Repetir pregunta' ? 'Repetir la pregunta' : replayText}
+            accessibilityLabel={replayText === ui(lang, 'Repetir pregunta') ? ui(lang, 'Repetir la pregunta') : replayText}
             disabled={replayDisabled || (unavailable && offline)} onPress={onReplay}
             style={[styles.replay, replayDisabled ? styles.disabled : null]}>
             <Ionicons name={permissionNeeded && !unavailable ? 'mic' : 'volume-high'} size={20} color="#fff" />
             <Text style={styles.replayText}>{replayText}</Text>
           </Pressable>
           {unavailable ? <Pressable accessibilityRole="button" onPress={onContinue} style={styles.replay}>
-            <Text style={styles.replayText}>Continuar sin calificar</Text>
+            <Text style={styles.replayText}>{ui(lang, 'Continuar sin calificar')}</Text>
           </Pressable> : null}
         </View> : null}
       </View>

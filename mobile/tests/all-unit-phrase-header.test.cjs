@@ -29,7 +29,7 @@ assert.doesNotMatch(
 );
 assert.match(
   screenSource,
-  /styles\.lessonStatusPhraseBox[\s\S]*?<View style=\{styles\.lessonContext\}>[\s\S]*?\{lessonLocation\}[\s\S]*?lessonStageLabel\(lesson\.id, currentCard\.stage\)/,
+  /styles\.lessonStatusPhraseBox[\s\S]*?<View style=\{styles\.lessonContext\}>[\s\S]*?\{lessonLocation\}[\s\S]*?lessonStageLabel\(lesson\.id, currentCard\.stage, lang\)/,
   'Every card must place lesson and active-section context in the illustrated panel.',
 );
 assert.match(

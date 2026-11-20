@@ -20,6 +20,8 @@ import {
 import { useVideoPlayer, VideoView } from 'expo-video';
 
 import { getPronunciationStreamingToken, scorePronunciation } from '../api';
+import { ui, type UiLanguage } from '../uiText';
+import { useUiLanguage } from '../uiLanguage';
 import { speechLocaleForLevel } from '../courseSpeech';
 import {
   courseAudioAssetIdFromVoice,
@@ -124,18 +126,18 @@ const SUCCESS_CHIME = require('../../assets/sfx/voice-confirm-v2.mp3');
 const READY_CUE_VOLUME = 0.38;
 const SUCCESS_CHIME_VOLUME = 0.4;
 
-function showMicrophonePermissionAlert(canAskAgain: boolean) {
+function showMicrophonePermissionAlert(canAskAgain: boolean, lang: UiLanguage) {
   const message = canAskAgain
-    ? 'Permite que SpanGlish use el micrófono para continuar automáticamente.'
-    : 'El permiso está desactivado. Abre Ajustes y activa el micrófono para SpanGlish.';
+    ? ui(lang, 'Permite que SpanGlish use el micrófono para continuar automáticamente.')
+    : ui(lang, 'El permiso está desactivado. Abre Ajustes y activa el micrófono para SpanGlish.');
   Alert.alert(
-    'Micrófono necesario',
+    ui(lang, 'Micrófono necesario'),
     message,
     canAskAgain
-      ? [{ text: 'Entendido' }]
+      ? [{ text: ui(lang, 'Entendido') }]
       : [
-          { style: 'cancel', text: 'Cancelar' },
-          { onPress: () => void Linking.openSettings(), text: 'Abrir Ajustes' },
+          { style: 'cancel', text: ui(lang, 'Cancelar') },
+          { onPress: () => void Linking.openSettings(), text: ui(lang, 'Abrir Ajustes') },
         ],
   );
 }
@@ -275,6 +277,7 @@ export function PronunciationPractice({
   onPassed,
   onUnavailable,
 }: Props) {
+  const lang = useUiLanguage();
   const { height: viewportHeight, width: viewportWidth } = useWindowDimensions();
   const missionVoiceGate = presentation === 'mission-voice-gate';
   const reduceMotion = useReducedMotion();
@@ -327,7 +330,7 @@ export function PronunciationPractice({
     ? { ...modelPlaylistStatus, error: null }
     : modelStatus;
   const [phase, setPhase] = useState<Phase>('model');
-  const [message, setMessage] = useState('Escucha la frase.');
+  const [message, setMessage] = useState(ui(lang, 'Escucha la frase.'));
   const [result, setResult] = useState<PronunciationResult | null>(null);
   const [attempt, setAttempt] = useState(0);
   const [liveLevel, setLiveLevel] = useState(0);
@@ -558,7 +561,7 @@ export function PronunciationPractice({
     }
   }, [successChimePlayer]);
 
-  const showUnavailableState = useCallback((reason = 'La pronunciación necesita internet para reproducir y calificar tu voz.') => {
+  const showUnavailableState = useCallback((reason = ui(lang, 'La pronunciación necesita internet para reproducir y calificar tu voz.')) => {
     runIdRef.current += 1;
     if (retryTimer.current) clearTimeout(retryTimer.current);
     if (modelLoadTimer.current) clearTimeout(modelLoadTimer.current);
@@ -599,7 +602,7 @@ export function PronunciationPractice({
     setNoSpeechFailure(false);
     setServiceUnavailable(false);
     setPhase('retry');
-    setMessage('La práctica se pausó. Volveremos a empezar esta frase.');
+    setMessage(ui(lang, 'La práctica se pausó. Volveremos a empezar esta frase.'));
   }, [discardLocalRecording, discardNativeRecording, stopTransientPlayback]);
 
   const playModel = useCallback(async (runId = runIdRef.current) => {
@@ -624,7 +627,7 @@ export function PronunciationPractice({
     setNoSpeechFailure(false);
     setServiceUnavailable(false);
     setPhase('model');
-    setMessage(missionVoiceGate ? 'Escucha la pregunta.' : attemptRef.current ? 'Escucha otra vez…' : 'Escucha la frase.');
+    setMessage(missionVoiceGate ? ui(lang, 'Escucha la pregunta.') : attemptRef.current ? ui(lang, 'Escucha otra vez…') : ui(lang, 'Escucha la frase.'));
     heardSpeech.current = false;
     silenceStartedAt.current = null;
     captureFinishing.current = false;
@@ -683,7 +686,7 @@ export function PronunciationPractice({
             { attempt: attemptRef.current + 1 },
             'warning',
           );
-          showUnavailableState('No pudimos reproducir la frase. Revisa tu conexión e inténtalo otra vez.');
+          showUnavailableState(ui(lang, 'No pudimos reproducir la frase. Revisa tu conexión e inténtalo otra vez.'));
         }, MODEL_AUDIO_LOAD_TIMEOUT_MS);
         return;
       }
@@ -720,14 +723,14 @@ export function PronunciationPractice({
           { attempt: attemptRef.current + 1 },
           'warning',
         );
-        showUnavailableState('No pudimos reproducir la frase. Revisa tu conexión e inténtalo otra vez.');
+        showUnavailableState(ui(lang, 'No pudimos reproducir la frase. Revisa tu conexión e inténtalo otra vez.'));
       }, MODEL_AUDIO_LOAD_TIMEOUT_MS);
     } catch (playbackError) {
       if (!isCurrentRun(runId)) return;
       captureDiagnosticError(playbackError, 'pronunciation_model_playback', {
         attempt: attemptRef.current + 1,
       });
-      showUnavailableState('No pudimos reproducir la frase. Revisa tu conexión e inténtalo otra vez.');
+      showUnavailableState(ui(lang, 'No pudimos reproducir la frase. Revisa tu conexión e inténtalo otra vez.'));
     }
   }, [audioProvider, audioTurns, audioVoice, discardNativeRecording, isAppActive, isCurrentRun, isOffline, missionVoiceGate, offlinePracticeEnabled, pauseForInterruption, phrase, resetVoiceEvidence, showUnavailableState]);
   const playModelEvent = useEffectEvent(playModel);
@@ -895,7 +898,7 @@ export function PronunciationPractice({
     noSpeechRound.current += 1;
     setResult(null);
     setPhase('retry');
-    setMessage('No puedo escucharte.');
+    setMessage(ui(lang, 'No puedo escucharte.'));
     if (noSpeechRound.current >= MAX_NO_SPEECH_ROUNDS) {
       setNoSpeechFailure(true);
       return;
@@ -944,7 +947,7 @@ export function PronunciationPractice({
       // Older dev clients can take several seconds to resolve stopAsync.
       // Show the intended silence feedback immediately while they finish.
       setPhase('retry');
-      setMessage('No puedo escucharte.');
+      setMessage(ui(lang, 'No puedo escucharte.'));
     }
     let recordingUri = '';
     try {
@@ -1031,7 +1034,7 @@ export function PronunciationPractice({
       });
       await completeGradedAttempt(
         accepted,
-        nextResult.feedback?.messages.es ?? (accepted ? 'Muy bien.' : 'Inténtalo otra vez.'),
+        nextResult.feedback?.messages[lang] ?? (accepted ? ui(lang, 'Muy bien.') : ui(lang, 'Inténtalo otra vez.')),
         recordingUri,
         runId,
       );
@@ -1045,7 +1048,7 @@ export function PronunciationPractice({
           attempt: attemptRef.current + 1,
           phrase_length: phrase.length,
         });
-        showUnavailableState('La grabación tardó demasiado en finalizar. Toca Reintentar.');
+        showUnavailableState(ui(lang, 'La grabación tardó demasiado en finalizar. Toca Reintentar.'));
         return;
       }
       if (!shouldScore || !heardSpeech.current || isExpectedNoSpeechRecognition(scoreError)) {
@@ -1061,7 +1064,7 @@ export function PronunciationPractice({
         phrase_length: phrase.length,
       });
       if (isExpectedConnectivityError(scoreError)) {
-        showUnavailableState('No pudimos calificar tu voz. Revisa tu conexión a internet.');
+        showUnavailableState(ui(lang, 'No pudimos calificar tu voz. Revisa tu conexión a internet.'));
         return;
       }
       handleNoSpeech(runId);
@@ -1095,7 +1098,7 @@ export function PronunciationPractice({
       setDiagnosticOperation('pronunciation_grading');
     } else {
       setPhase('retry');
-      setMessage('No puedo escucharte.');
+      setMessage(ui(lang, 'No puedo escucharte.'));
     }
     let recordingUri = '';
     try {
@@ -1113,7 +1116,7 @@ export function PronunciationPractice({
         setResult(null);
         setReviewingRecording(true);
         setPhase('retry');
-        setMessage('Escucha tu respuesta.');
+        setMessage(ui(lang, 'Escucha tu respuesta.'));
         addDiagnosticBreadcrumb('pronunciation_offline_recording_ready', {
           attempt: attemptRef.current + 1,
           recorder_finalize_ms: recorderFinalizeMs,
@@ -1121,7 +1124,7 @@ export function PronunciationPractice({
         await playAttemptRecording(recordingUri, runId);
         if (!isCurrentRun(runId)) return;
         setReviewingRecording(false);
-        setMessage('Práctica completada sin calificación.');
+        setMessage(ui(lang, 'Práctica completada sin calificación.'));
         await new Promise((resolve) => setTimeout(resolve, OFFLINE_REVIEW_FINISH_MS));
         if (!isCurrentRun(runId)) return;
         addDiagnosticBreadcrumb('pronunciation_offline_self_review_completed', {
@@ -1187,7 +1190,7 @@ export function PronunciationPractice({
       }
       await completeGradedAttempt(
         accepted,
-        nextResult.feedback?.messages.es ?? (accepted ? 'Muy bien.' : 'Inténtalo otra vez.'),
+        nextResult.feedback?.messages[lang] ?? (accepted ? ui(lang, 'Muy bien.') : ui(lang, 'Inténtalo otra vez.')),
         recordingUri,
         runId,
       );
@@ -1206,7 +1209,7 @@ export function PronunciationPractice({
         phrase_length: phrase.length,
       });
       if (isExpectedConnectivityError(scoreError)) {
-        showUnavailableState('No pudimos calificar tu voz. Revisa tu conexión a internet.');
+        showUnavailableState(ui(lang, 'No pudimos calificar tu voz. Revisa tu conexión a internet.'));
         return;
       }
       handleNoSpeech(runId);
@@ -1250,8 +1253,8 @@ export function PronunciationPractice({
       if (!isCurrentRun(runId)) return;
       if (!permission.granted) {
         setPhase('permission');
-        setMessage('Necesitamos permiso para escuchar tu pronunciación.');
-        showMicrophonePermissionAlert(permission.canAskAgain);
+        setMessage(ui(lang, 'Necesitamos permiso para escuchar tu pronunciación.'));
+        showMicrophonePermissionAlert(permission.canAskAgain, lang);
         return;
       }
       // Keep the ready cue in a playback-only session. On iOS, playing a cue
@@ -1268,7 +1271,7 @@ export function PronunciationPractice({
         ? await getPronunciationStreamingToken()
         : null;
       setPhase('ready');
-      setMessage('Prepárate…');
+      setMessage(ui(lang, 'Prepárate…'));
       // Ensure no model-audio tail can leak into the learner's microphone
       // window before the ready cue establishes the three-second boundary.
       modelPlayer.pause();
@@ -1307,7 +1310,7 @@ export function PronunciationPractice({
         setLiveLevel(0);
         setRecognizedSyllableKeys([]);
         setPhase('listening');
-        setMessage('Ahora tú…');
+        setMessage(ui(lang, 'Ahora tú…'));
         await startNativeSpeech({
           locale: speechLocaleForLevel(level) ?? streamingToken.locale,
           referenceText: phrase,
@@ -1317,7 +1320,7 @@ export function PronunciationPractice({
       } else {
         recorder.record();
         setPhase('listening');
-        setMessage('Ahora tú…');
+        setMessage(ui(lang, 'Ahora tú…'));
       }
       setDiagnosticOperation('pronunciation_recording');
       addDiagnosticBreadcrumb('pronunciation_recording_started', {
@@ -1332,9 +1335,9 @@ export function PronunciationPractice({
         attempt: attemptRef.current + 1,
       });
       if (isExpectedConnectivityError(recordingError)) {
-        showUnavailableState('No pudimos iniciar la pronunciación. Revisa tu conexión a internet.');
+        showUnavailableState(ui(lang, 'No pudimos iniciar la pronunciación. Revisa tu conexión a internet.'));
       } else {
-        scheduleRetry('No pudimos abrir el micrófono.', runId);
+        scheduleRetry(ui(lang, 'No pudimos abrir el micrófono.'), runId);
       }
     }
   }, [discardNativeRecording, isAppActive, isCurrentRun, isOffline, modelPlayer, offlinePracticeEnabled, pauseForInterruption, phrase, playReadyCueAndWait, recorder, resetVoiceEvidence, scheduleRetry, showUnavailableState]);
@@ -1775,7 +1778,7 @@ export function PronunciationPractice({
       if (modelLoadTimer.current) clearTimeout(modelLoadTimer.current);
       modelLoadTimer.current = null;
       modelWasPlaying.current = false;
-      showUnavailableState('No pudimos reproducir la frase. Revisa tu conexión e inténtalo otra vez.');
+      showUnavailableState(ui(lang, 'No pudimos reproducir la frase. Revisa tu conexión e inténtalo otra vez.'));
       return;
     }
     if (activeModelStatus.playing) {
@@ -1928,7 +1931,7 @@ export function PronunciationPractice({
   const gradingMascot = phase === 'checking' ? (
     <View style={styles.gradingMascotWrap}>
       <Image
-        accessibilityLabel="La profesora ardilla está calificando"
+        accessibilityLabel={ui(lang, 'La profesora ardilla está calificando')}
         resizeMode="contain"
         source={GRADING_MASCOT_FRAMES[gradingFrame]}
         style={styles.gradingMascot}
@@ -1939,7 +1942,7 @@ export function PronunciationPractice({
   const listeningMascot = phase === 'listening' ? (
     <View
       accessible
-      accessibilityLabel="Escuchando"
+      accessibilityLabel={ui(lang, 'Escuchando')}
       style={[styles.listeningMascotWrap, { height: listeningMascotHeight, width: listeningMascotWidth }]}
     >
       <Image
@@ -2006,7 +2009,7 @@ export function PronunciationPractice({
       : 'waiting';
     const missionMascot = phase === 'listening' || phase === 'checking' ? (
       <Image
-        accessibilityLabel={phase === 'listening' ? 'Escuchando' : 'La profesora ardilla está calificando'}
+        accessibilityLabel={phase === 'listening' ? ui(lang, 'Escuchando') : ui(lang, 'La profesora ardilla está calificando')}
         resizeMode="contain"
         source={phase === 'listening' ? LISTENING_MASCOT_FRAMES[listeningFrame] : GRADING_MASCOT_FRAMES[gradingFrame]}
         style={styles.missionMascot}
@@ -2024,12 +2027,12 @@ export function PronunciationPractice({
         result ? finalWordFeedback : null,
         phase === 'listening' || phase === 'checking',
       )}
-      message={phase === 'model' ? 'Escucha la pregunta.'
-        : phase === 'ready' ? 'Prepárate…'
-        : phase === 'listening' ? 'Lee la frase en voz alta.'
-        : result && passed ? result.feedback?.messages.es ?? '¡Muy bien!'
+      message={phase === 'model' ? ui(lang, 'Escucha la pregunta.')
+        : phase === 'ready' ? ui(lang, 'Prepárate…')
+        : phase === 'listening' ? ui(lang, 'Lee la frase en voz alta.')
+        : result && passed ? result.feedback?.messages[lang] ?? ui(lang, '¡Muy bien!')
         : message}
-      attemptLabel={attempt > 0 && phase !== 'success' ? `Intento ${attempt + 1}` : null}
+      attemptLabel={attempt > 0 && phase !== 'success' ? ui(lang, 'Intento {number}', { number: attempt + 1 }) : null}
       signal={signal}
       mascot={missionMascot}
       celebrate={Boolean(result && passed)}
@@ -2055,12 +2058,12 @@ export function PronunciationPractice({
 
   const activeMascot = missionVoiceGate ? null : listeningMascot ?? gradingMascot;
   const missionVoiceLabel = phase === 'listening'
-    ? 'TE ESCUCHAMOS'
+    ? ui(lang, 'TE ESCUCHAMOS')
     : phase === 'checking'
-      ? 'COMPROBANDO TU VOZ'
+      ? ui(lang, 'COMPROBANDO TU VOZ')
       : phase === 'success'
-        ? 'ENTRADA ACTIVADA'
-        : 'DI LA FRASE PARA ABRIR';
+        ? ui(lang, 'ENTRADA ACTIVADA')
+        : ui(lang, 'DI LA FRASE PARA ABRIR');
 
   return (
     <View style={[styles.container, missionVoiceGate ? styles.containerMission : null, compactLandscape ? styles.containerPhoneLandscape : null]}>
@@ -2111,8 +2114,8 @@ export function PronunciationPractice({
       ) : null}
       <View style={[styles.practiceControls, compactLandscape ? styles.practiceControlsPhoneLandscape : null]}>
       {!(compactLandscape && result) ? (<Pressable
-        accessibilityHint="Reproduce nuevamente el ejemplo en inglés"
-        accessibilityLabel="Repetir audio"
+        accessibilityHint={ui(lang, 'Reproduce nuevamente el ejemplo en inglés')}
+        accessibilityLabel={ui(lang, 'Repetir audio')}
         accessibilityRole="button"
         disabled={phase === 'checking' || phase === 'listening' || phase === 'ready' || reviewingRecording}
         onPress={() => phase === 'permission' ? void startListening() : playModel()}
@@ -2136,7 +2139,7 @@ export function PronunciationPractice({
         {missionVoiceGate && phase !== 'listening' && phase !== 'checking' && phase !== 'ready' ? (
           <View style={styles.missionReplayHint}>
             <Ionicons color="#78501c" name="volume-high" size={14} />
-            <Text style={styles.missionReplayHintText}>Toca para escuchar otra vez</Text>
+            <Text style={styles.missionReplayHintText}>{ui(lang, 'Toca para escuchar otra vez')}</Text>
           </View>
         ) : null}
         {phase === 'listening' ? (
@@ -2180,7 +2183,7 @@ export function PronunciationPractice({
       {serviceUnavailable ? (
         <View style={styles.offlineActions}>
           <Pressable
-            accessibilityLabel={isOffline ? 'Esperando conexión para reintentar' : 'Reintentar pronunciación'}
+            accessibilityLabel={isOffline ? ui(lang, 'Esperando conexión para reintentar') : ui(lang, 'Reintentar pronunciación')}
             accessibilityRole="button"
             disabled={isOffline}
             onPress={() => void playModel()}
@@ -2191,21 +2194,21 @@ export function PronunciationPractice({
               pressed ? styles.retryNoSpeechPressed : null,
             ]}
           >
-            <Text maxFontSizeMultiplier={compactLandscape ? 1.3 : undefined} style={styles.retryNoSpeechText}>{isOffline ? 'Esperando conexión' : 'Reintentar'}</Text>
+            <Text maxFontSizeMultiplier={compactLandscape ? 1.3 : undefined} style={styles.retryNoSpeechText}>{isOffline ? ui(lang, 'Esperando conexión') : ui(lang, 'Reintentar')}</Text>
           </Pressable>
           <Pressable
-            accessibilityHint="Continúa la lección sin sumar esta tarjeta al puntaje"
-            accessibilityLabel="Continuar sin calificar pronunciación"
+            accessibilityHint={ui(lang, 'Continúa la lección sin sumar esta tarjeta al puntaje')}
+            accessibilityLabel={ui(lang, 'Continuar sin calificar pronunciación')}
             accessibilityRole="button"
             onPress={onUnavailable}
             style={({ pressed }) => [styles.offlineContinue, compactLandscape ? styles.replayPhoneLandscape : null, pressed ? styles.retryNoSpeechPressed : null]}
           >
-            <Text maxFontSizeMultiplier={compactLandscape ? 1.3 : undefined} style={styles.offlineContinueText}>Continuar sin calificar</Text>
+            <Text maxFontSizeMultiplier={compactLandscape ? 1.3 : undefined} style={styles.offlineContinueText}>{ui(lang, 'Continuar sin calificar')}</Text>
           </Pressable>
         </View>
       ) : noSpeechFailure ? (
         <Pressable
-          accessibilityLabel="Reintentar pronunciación"
+          accessibilityLabel={ui(lang, 'Reintentar pronunciación')}
           accessibilityRole="button"
           onPress={() => {
             noSpeechRound.current = 0;
@@ -2213,7 +2216,7 @@ export function PronunciationPractice({
           }}
           style={({ pressed }) => [styles.retryNoSpeech, compactLandscape ? styles.replayPhoneLandscape : null, pressed ? styles.retryNoSpeechPressed : null]}
         >
-          <Text maxFontSizeMultiplier={compactLandscape ? 1.3 : undefined} style={styles.retryNoSpeechText}>Reintentar</Text>
+          <Text maxFontSizeMultiplier={compactLandscape ? 1.3 : undefined} style={styles.retryNoSpeechText}>{ui(lang, 'Reintentar')}</Text>
         </Pressable>
       ) : null}
       {result ? (
@@ -2228,7 +2231,7 @@ export function PronunciationPractice({
                 ]}
               >
                 {passed ? '✨ ' : ''}
-                {result.feedback?.messages.es ?? (passed ? '¡Muy bien!' : 'Escucha e inténtalo de nuevo.')}
+                {result.feedback?.messages[lang] ?? (passed ? ui(lang, '¡Muy bien!') : ui(lang, 'Escucha e inténtalo de nuevo.'))}
                 {passed ? ' ✨' : ''}
               </Animated.Text>
             </View>

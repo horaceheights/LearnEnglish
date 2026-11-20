@@ -14,7 +14,8 @@ import { View, Text, Pressable, Animated } from 'react-native';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { isSilentWrittenRecognize, isWrittenRecognize, recognizeAnswerReplayText } from '../lessonPromptPresentation';
 import { lessonHeaderPromptText, usesCompactRecognizeInstruction } from '../lessonInstructions';
-import { OPTION_TRANSLATION_BUTTON_LABEL, optionTranslationsAvailable } from '../optionTranslations';
+import { optionTranslationButtonLabel, optionTranslationsAvailable } from '../optionTranslations';
+import { ui } from '../uiText';
 import { learnTranslationText } from '../hooks/useLearnTranslationPreview';
 export function Header({ currentCard, result, viewport, styles, showSentenceTranslation, learnTranslation = { enabled: false, visible: false } }) {
   const showOptionTranslateButton = optionTranslationsAvailable(currentCard);
@@ -25,6 +26,7 @@ export function Header({ currentCard, result, viewport, styles, showSentenceTran
   const isPortrait = height >= width;
   const isMissionGameCard = false, isSentenceCard = false, isCompletedSectionPicker = false;
   const lesson = { id: 'fixture' };
+  const lang = 'es';
   const useCompactRecognizeInstruction = usesCompactRecognizeInstruction(currentCard.stage, currentCard.prompt);
   const useCompactHeaderInstruction = useCompactRecognizeInstruction;
   const useCompactListenInstruction = false, useCompactSpeakInstruction = false;

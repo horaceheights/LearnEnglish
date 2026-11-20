@@ -16,6 +16,8 @@ import { OptionMediaImage } from './OptionMediaImage';
 import { isPhoneLandscape } from '../lessonViewportLayout';
 import { lessonHelpText } from '../lessonHelp';
 import { ConstructionCelebration, useConstructionCelebration } from './ConstructionCelebration';
+import { ui } from '../uiText';
+import { useUiLanguage } from '../uiLanguage';
 
 type Bounds = TileBounds;
 type Flight = { label: string; path: TileFlightPath; slot: number };
@@ -52,6 +54,7 @@ type WordProps = {
 };
 
 function WordTile(props: WordProps) {
+  const lang = useUiLanguage();
   const latest = useRef(props); latest.current = props;
   const tile = useRef<View | null>(null);
   const sourceBounds = useRef<Bounds | undefined>(undefined);
@@ -73,11 +76,11 @@ function WordTile(props: WordProps) {
     style={[styles.wordTile, { minWidth: width }]}>
     <Pressable ref={(view) => { tile.current = view; props.register(view); }} disabled={disabled && !props.onTranslate}
       accessibilityRole={id || props.onTranslate ? 'button' : 'text'}
-      accessibilityLabel={props.onTranslate ? `${label}. Mostrar traducción` : slot === undefined ? `Ficha ${label}` : `Espacio ${slot + 1}: ${label || 'vacío'}`}
-      accessibilityHint={props.onTranslate ? 'Toca para ver la traducción completa.' : disabled ? undefined : slot === undefined ? 'Toca para colocar, o arrastra a un espacio.' : 'Toca para devolver, o arrastra para mover esta palabra.'}
+      accessibilityLabel={props.onTranslate ? ui(lang, '{text}. Mostrar traducción', { text: label }) : slot === undefined ? ui(lang, 'Ficha {text}', { text: label }) : ui(lang, 'Espacio {number}: {text}', { number: slot + 1, text: label || ui(lang, 'vacío') })}
+      accessibilityHint={props.onTranslate ? ui(lang, 'Toca para ver la traducción completa.') : disabled ? undefined : slot === undefined ? ui(lang, 'Toca para colocar, o arrastra a un espacio.') : ui(lang, 'Toca para devolver, o arrastra para mover esta palabra.')}
       accessibilityActions={id && !disabled ? [
-        ...Array.from({ length: props.count }, (_, index) => ({ name: `place-${index}`, label: `Mover al espacio ${index + 1}` })),
-        ...(slot === undefined ? [] : [{ name: 'return', label: 'Devolver a las palabras disponibles' }]),
+        ...Array.from({ length: props.count }, (_, index) => ({ name: `place-${index}`, label: ui(lang, 'Mover al espacio {number}', { number: index + 1 }) })),
+        ...(slot === undefined ? [] : [{ name: 'return', label: ui(lang, 'Devolver a las palabras disponibles') }]),
       ] : []}
       onAccessibilityAction={({ nativeEvent }) => {
         if (disabled) return;
@@ -97,6 +100,7 @@ function WordTile(props: WordProps) {
 }
 
 export function SentenceConstruction({ vocabulary = [], card, selected, result, disabled, showHelp, helpOpen, onChange, onReplay, onRetry, onTutor, activeTurnImageUrl, clockCues, speakerRole = null, speaking = false, playbackError }: Props) {
+  const lang = useUiLanguage();
 
   const viewport = useWindowDimensions();
   const reduceMotion = useReducedMotion();
@@ -215,14 +219,14 @@ export function SentenceConstruction({ vocabulary = [], card, selected, result, 
   const compact = !landscape && layout.scrollBank;
   const CardContainer = compact ? ScrollView : View;
   const SlotsContainer = landscape ? View : ScrollView;
-  const replayControl = <Pressable onPress={onReplay} accessibilityRole="button" accessibilityLabel="Repetir frase en inglés"
+  const replayControl = <Pressable onPress={onReplay} accessibilityRole="button" accessibilityLabel={ui(lang, 'Repetir frase en inglés')}
     style={[styles.replay, wideSlots ? styles.replayAbove : null, landscape ? styles.replayPhoneLandscape : null]}>
     <Ionicons name="volume-high" color="#278c73" size={28} />
   </Pressable>;
   return <View ref={root} style={[styles.root, landscape ? styles.landscape : null]} onLayout={event => setSize(event.nativeEvent.layout)}>
     <View testID="construction-sentence-surface" style={[styles.importance, landscape ? styles.importancePhoneLandscape : null, wideSlots && !landscape ? styles.importanceWide : null]}>
       {landscape ? <View style={styles.constructionToolbar}>
-      {landscape && result !== 'correct' ? <Pressable accessibilityRole="button" accessibilityLabel={result === 'wrong' ? 'Reintentar' : 'Deshacer último movimiento'}
+      {landscape && result !== 'correct' ? <Pressable accessibilityRole="button" accessibilityLabel={result === 'wrong' ? 'Reintentar' : ui(lang, 'Deshacer último movimiento')}
         disabled={result !== 'wrong' && (locked || !history.current.length)} style={styles.control}
         onPress={() => { if (result === 'wrong') { history.current = []; cancel(); stopFlight(); onRetry(); }
           else { const previous = history.current.pop(); if (previous && !locked) { stopFlight(); onChange(previous); } } }}>
@@ -232,7 +236,7 @@ export function SentenceConstruction({ vocabulary = [], card, selected, result, 
       {replayControl}
       </View> : null}
       <SlotsContainer ref={view => { slotPane.current = view; }}
-        style={!landscape ? styles.slotScroll : undefined} accessibilityLabel={result === 'correct' ? 'Frase completada' : 'Frase en construcción'}
+        style={!landscape ? styles.slotScroll : undefined} accessibilityLabel={result === 'correct' ? 'Frase completada' : ui(lang, 'Frase en construcción')}
         {...(!landscape ? { persistentScrollbar: true, scrollEnabled: !moving,
           onContentSizeChange: () => {
             if (translation.visible && slotPane.current && 'scrollToEnd' in slotPane.current) {
@@ -241,7 +245,7 @@ export function SentenceConstruction({ vocabulary = [], card, selected, result, 
           },
         } : {})}>
         <View style={styles.slots}>
-        {parts.map((part, index) => 'text' in part ? <Text key={`text-${index}`} accessibilityRole="button" accessibilityLabel={`${part.text}. Mostrar traducción`} onPress={translation.open} maxFontSizeMultiplier={landscape ? 1.3 : undefined} style={[styles.scaffold, { fontSize: layout.textSize }, scaffoldIndexes.has(index) ? { color: NEW_VOCABULARY_COLOR } : null]}>{part.text}</Text> :
+        {parts.map((part, index) => 'text' in part ? <Text key={`text-${index}`} accessibilityRole="button" accessibilityLabel={ui(lang, '{text}. Mostrar traducción', { text: part.text })} onPress={translation.open} maxFontSizeMultiplier={landscape ? 1.3 : undefined} style={[styles.scaffold, { fontSize: layout.textSize }, scaffoldIndexes.has(index) ? { color: NEW_VOCABULARY_COLOR } : null]}>{part.text}</Text> :
           <WordTile key={`slot-${part.slot}`} {...common} slot={part.slot} suffix={part.suffix}
             id={slots[part.slot] || ''} label={card.options.find(option => option.id === slots[part.slot])?.label || ''}
             register={view => { slotsRef.current[part.slot] = view; }} active={hover === part.slot}
@@ -256,18 +260,18 @@ export function SentenceConstruction({ vocabulary = [], card, selected, result, 
       {...(compact ? { contentContainerStyle: styles.cardContent, persistentScrollbar: true, scrollEnabled: !moving } : {})}>
       {!landscape ? <LessonMediaFrame maxHeight={Math.max(112, layout.imageHeight)}>
         <OptionMediaImage imageUrl={activeTurnImageUrl || card.prompt_image_url} clockCues={clockCues}
-          speakerRole={speakerRole} speaking={speaking} accessibilityLabel="Imagen de la frase" />
+          speakerRole={speakerRole} speaking={speaking} accessibilityLabel={ui(lang, 'Imagen de la frase')} />
       </LessonMediaFrame> : null}
-      {playbackError ? <Text accessibilityLiveRegion="assertive" style={styles.hint}>No se pudo escuchar la respuesta completa. Toca la bocina para repetir.</Text> : null}
+      {playbackError ? <Text accessibilityLiveRegion="assertive" style={styles.hint}>{ui(lang, 'No se pudo escuchar la respuesta completa. Toca la bocina para repetir.')}</Text> : null}
       {result === 'correct' ? <ConstructionCelebration lift={celebrationLift} compact={landscape} /> : <>
-      {!landscape && result !== 'wrong' ? <Text style={styles.hint}>{showHelp ? lessonHelpText(card, 'translation-on-tap') : 'Toca o arrastra. Devuelve aquí las palabras para corregir.'}</Text> : null}
+      {!landscape && result !== 'wrong' ? <Text style={styles.hint}>{showHelp ? lessonHelpText(card, 'translation-on-tap', lang) : ui(lang, 'Toca o arrastra. Devuelve aquí las palabras para corregir.')}</Text> : null}
       {(words.length > 0 || result !== 'wrong') ? <View ref={bank} collapsable={false} style={[styles.bank, hover === 'bank' ? styles.target : null]} accessibilityLabel="Palabras disponibles">
         {words.map(option => <WordTile key={option.id} {...common} id={option.id} label={option.label || ''}
           register={() => {}} active={false} hidden={moving?.id === option.id} correct={false} />)}
-        {!words.length ? <Text style={styles.hint}>Devuelve aquí una palabra para corregir.</Text> : null}
+        {!words.length ? <Text style={styles.hint}>{ui(lang, 'Devuelve aquí una palabra para corregir.')}</Text> : null}
       </View> : null}
       {!landscape && result !== 'wrong' ? <View style={styles.controls}>
-        <Pressable style={styles.control} disabled={locked || !history.current.length} accessibilityRole="button" accessibilityLabel="Deshacer último movimiento"
+        <Pressable style={styles.control} disabled={locked || !history.current.length} accessibilityRole="button" accessibilityLabel={ui(lang, 'Deshacer último movimiento')}
           onPress={() => { const previous = history.current.pop(); if (previous && !locked) { stopFlight(); onChange(previous); } }}><Text style={styles.controlText}>Deshacer</Text></Pressable>
       </View> : null}
       <Text maxFontSizeMultiplier={landscape ? 1.3 : undefined} accessibilityLiveRegion="polite"
