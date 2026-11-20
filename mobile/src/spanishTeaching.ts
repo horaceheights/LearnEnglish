@@ -57,8 +57,10 @@ function teachClause(text: string): ClausePlan {
     return { text: `${article} ${noun}`, plural: NOUN_KIND[key(noun)].endsWith('plural') };
   };
   if (!tokens.length) return { explanations, relations, supported: false };
-  if (key(tokens[0]) in QUESTION_WORDS) {
-    const [who, verb = '', pronoun = ''] = tokens;
+  if (key(tokens[0] || '') in QUESTION_WORDS) {
+    const who = tokens[0] || '';
+    const verb = tokens[1] || '';
+    const pronoun = tokens[2] || '';
     const many = QUESTION_WORDS[key(who)];
     const fits = tokens.length === 3 && key(verb) === (many ? 'son' : 'es')
       && PRONOUNS.has(key(pronoun)) && PLURAL_PRONOUNS.has(key(pronoun)) === many;
