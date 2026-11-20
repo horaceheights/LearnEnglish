@@ -34,7 +34,12 @@ The user chose a German course built on the same engine and photo library, shipp
   - Animals take `frisst`/`fressen`, never `isst`/`essen`; a sentence pairing a person and an animal names both verbs (`Der Ehemann isst und der Vogel frisst.`).
   - A female friend is `die Freundin`, plural `die Freundinnen`; `kein` is deferred, so a negative is always `nicht` after the verb.
   - Mission briefing, chapters and instructions are English for the English-speaking learner; beats alternate the two German narrators, and every closing voice-gate question is read by Carola (`de-teacher`), whose card speaker matches the turn speaker.
-  - A native German speaker checks the text before any lesson beyond Unit 1 is built.
+  - A native German speaker checks the text before German content reaches Production (user decision 2026-11-20, replacing "before any lesson beyond Unit 1 is built"); the check covers Units 1 and 2 together.
+- German Unit 2 follows the approved map of 2026-11-20 ("Approve, build"; text and recordings approved with "Approve, generate"): 2.1 places, 2.2 streets and transport with `kein`/`keine`, 2.3 things, 2.4 `Was ist das?`, 2.5 where people are (`im Park`, `in der Schule`, `im Restaurant`, `im Krankenhaus`), 2.6–2.7 numbers (`Das ist die Drei.`), 2.8 colors, 2.9 counted plurals, 2.10 `Das ist ein …` / `Das sind …`, 2.11 big and small, 2.12 the classroom, 2.13 more colors with `sehr`, 2.14 the 72-card review and 2.15 the 15-beat mission "Meeting in the Park".
+  - Every noun is taught with its article. Colors and sizes stay after `ist`/`sind` (`Das Auto ist rot.`); singular adjective endings (`ein roter Bus`) are deferred. The only ending taught is `-e` before a counted plural (`drei grüne Bücher`).
+  - `Das ist` / `Das sind` cover this/that and these/those; near/far contrasts and "Which one? The red one" are not taught in Unit 2.
+  - Backpack photos are `der Rucksack` (English help "backpack"); handbag, tote and pouch photos are `die Tasche` (English help "bag"). Pen is `der Kuli`, store `der Laden`, used `alt`, a role takes no article (`Sie ist Schülerin.`).
+  - German answer banks are measured with whole umlaut words and without the English sentence heuristics (`scripts/answer_choice_guardrail.py`).
 
 ## A1+ lesson standards — approved 2026-10-27
 
