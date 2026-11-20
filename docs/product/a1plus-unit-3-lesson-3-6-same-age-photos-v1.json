@@ -1,0 +1,87 @@
+{
+  "schema_version": 1,
+  "pack": "a1plus-unit-3-lesson-3-6-same-age-photos",
+  "revision": 1,
+  "output_namespace": "a1plus-unit-3-lesson-v360",
+  "authorization": "2026-11-20: the user asked to \"Start working on a1+ Unit 3, same deal\" (the Unit 2 deal: an approved map, then straight to Preview in batches with media pre-approved and reviewed in Preview) and approved the A1+ Unit 3 map (\"Approve this map\"). Gemini is the approved image tool (2026-09-23), Flash only (2026-11-17; \"lets switch to flash for any other images\", 2026-11-19).",
+  "image_settings": {
+    "provider": "google-gemini",
+    "model": "gemini-2.5-flash-image",
+    "aspect_ratio": "3:2",
+    "image_size": "1K",
+    "runtime_size": "1536x1024",
+    "runtime_format": "webp",
+    "n": 1
+  },
+  "production": {
+    "price_per_image_usd": "0.0387",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing (checked 2026-11-16: Gemini 2.5 Flash Image, about $0.039 per image)",
+    "planned_images": 4,
+    "expected_cost_usd": "0.15",
+    "requested_ceiling_usd": "0.40",
+    "ceiling_note": "The renderer reserves US$0.20 before each request; each request is sent on its own, and the expected spend for the pack is about US$0.15.",
+    "no_automatic_retries": true,
+    "order": "Generate t01 first; check that the twins read as identical and both candles read 16 at 360 px; then t02-t04."
+  },
+  "shared_prompts": {
+    "photo_numeral": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, logos or brand marks anywhere, and no number anywhere except the candle numbers described: no other candles, cards, signs, clocks, screens or clothes show any digit.",
+    "safe_center": "Keep the people and the thing that carries the meaning inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.",
+    "pair": "Only these two people are in the photo; there is nobody else, even far in the background.",
+    "daytime": "It is clearly daytime with soft natural light.",
+    "table": "Two real young people sit side by side at a light wooden table in a bright, tidy family living room, both smiling at the camera. In front of each person is their own small round white birthday cake on a white plate, and on each cake stand two large, thick number candles, each candle as tall as the person's hand, with a small flame. Each person's cake is directly in front of that person, the two cakes a hand's width apart. The candle numbers face the camera, are upright, sharp and easy to read even on a small phone screen. Nothing else is on the table."
+  },
+  "assets": [
+    {
+      "id": "t01-twin-girls-16",
+      "order": 1,
+      "item": "They're twins. They're both sixteen.",
+      "shared": [
+        "photo_numeral",
+        "safe_center",
+        "pair",
+        "daytime",
+        "table"
+      ],
+      "prompt": "On the LEFT and on the RIGHT sit identical twin sisters of about sixteen: the same face, the same long straight dark-brown hair and the same light-green T-shirt, so they clearly look like twins. On both cakes the two green number candles read 16 (a 1 and a 6, side by side)."
+    },
+    {
+      "id": "t02-twin-boys-18",
+      "order": 2,
+      "item": "They're twins. They're both eighteen.",
+      "shared": [
+        "photo_numeral",
+        "safe_center",
+        "pair",
+        "daytime",
+        "table"
+      ],
+      "prompt": "On the LEFT and on the RIGHT sit identical twin brothers of about eighteen: the same face, the same short black curly hair and the same navy T-shirt, so they clearly look like twins. On both cakes the two orange number candles read 18 (a 1 and an 8, side by side)."
+    },
+    {
+      "id": "t03-boy17-girl19",
+      "order": 3,
+      "item": "They aren't twins. They aren't the same age.",
+      "shared": [
+        "photo_numeral",
+        "safe_center",
+        "pair",
+        "daytime",
+        "table"
+      ],
+      "prompt": "On the LEFT sits a teenage boy of about seventeen with short light-brown hair in a red T-shirt; the two blue number candles on his cake read 17 (a 1 and a 7, side by side). On the RIGHT sits a young woman of about nineteen, his older sister, with long wavy black hair in a yellow T-shirt, who clearly looks different from him; the two pink number candles on her cake read 19 (a 1 and a 9, side by side)."
+    },
+    {
+      "id": "t04-friends-20",
+      "order": 4,
+      "item": "They're the same age. They aren't twins.",
+      "shared": [
+        "photo_numeral",
+        "safe_center",
+        "pair",
+        "daytime",
+        "table"
+      ],
+      "prompt": "On the LEFT sits a young woman of about twenty with short curly red hair and freckles in a white T-shirt; on the RIGHT sits a young woman of about twenty with long straight black hair in a purple T-shirt. They are friends and look completely different from each other, not like sisters. On both cakes the two white number candles read 20 (a 2 and a 0, side by side)."
+    }
+  ]
+}
