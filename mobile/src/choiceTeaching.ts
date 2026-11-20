@@ -151,6 +151,21 @@ export function relationalChoiceHint(card: LessonCard, correctOption: ChoiceOpti
       ? '“Is it…?” es una pregunta; lo que se dice aquí no pregunta: afirma con “it’s” o niega con “isn’t”.'
       : 'Aquí se pregunta con “Is it…?”; tu opción no pregunta: afirma o niega.';
   }
+  // A1+ 3.4 (2026-11-20): “aren't” is “are not”, so its short answer is explained with are, not is.
+  const arent = /\baren't\b/;
+  if (rightIsnt !== wrongIsnt && !rightNegative && !wrongNegative && arent.test(clean(rightIsnt ? rightPart : wrongPart))) {
+    return rightIsnt
+      ? '“Aren’t” es “are not”: niega. Tu opción lo afirma; aquí la frase dice que no.'
+      : 'Tu opción niega con “aren’t” (are not); aquí la frase lo afirma.';
+  }
+  // A1+ 3.1 (2026-11-20): “Nice to meet you, too.” answers someone who said “Nice to meet you.” first.
+  const withToo = (text: string) => /\btoo$/.test(clean(text));
+  const withoutToo = (text: string) => clean(text).replace(/\s*\btoo$/, '');
+  if (withToo(correct) !== withToo(wrong) && withoutToo(correct) === withoutToo(wrong)) {
+    return withToo(correct)
+      ? '“Too” significa también: “Nice to meet you, too” responde a quien ya dijo “Nice to meet you”.'
+      : 'Tu opción agrega “too” (también), que solo se usa al responder; aquí se dice primero, sin “too”.';
+  }
   if (rightIsnt !== wrongIsnt && !rightNegative && !wrongNegative) {
     return rightIsnt
       ? '“Isn’t” es “is not”: niega. Tu opción lo afirma; aquí la frase dice que no es.'
