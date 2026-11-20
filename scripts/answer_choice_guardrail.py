@@ -126,6 +126,30 @@ def bank_fingerprint(card):
     return hashlib.sha256(payload.encode("utf-8")).hexdigest()
 
 
+# German course cards: words keep their umlauts and ß, and the English sentence
+# and action heuristics do not apply (German "was" is "what", not English "was").
+GERMAN_TOKEN = re.compile(r"[^\W\d_]+|\d+")
+
+
+def analyze_german_bank(labels):
+    hard, conflicts = [], {}
+    pieces = [[s for s in re.split(r"[.!?;]+", label) if s.strip()] for label in labels]
+    forms = {"words" if all(len(GERMAN_TOKEN.findall(s)) == 1 for s in segs) else "phrases" for segs in pieces}
+    if len({tuple(GERMAN_TOKEN.findall(label.lower())) for label in labels}) != len(labels):
+        hard.append("duplicates an answer choice")
+    if len({len(segs) for segs in pieces}) != 1:
+        hard.append("mixes different numbers of sentences/utterances")
+    if forms == {"words", "phrases"}:
+        form = "lexical"
+        conflicts["lexical-phrase"] = "mixes single words and natural multiword vocabulary"
+    else:
+        form = next(iter(forms))
+    counts = [len(GERMAN_TOKEN.findall(label)) for label in labels]
+    if max(counts) - min(counts) > max(2, min(counts) // 2):
+        conflicts["reading-load"] = f"unequal reading load ({counts} words)"
+    return form, hard, conflicts
+
+
 def analyze_bank(card):
     """Return inferred form, unwaivable defects, and reviewable teaching conflicts."""
     options = value(card, "options", [])
@@ -137,6 +161,8 @@ def analyze_bank(card):
         return "images", hard, conflicts
     if not all(labels):
         return "invalid", ["missing option text or partially labeled image bank"], conflicts
+    if value(card, "target_language") == "de":
+        return analyze_german_bank(labels)
     forms = {text_form(label) for label in labels}
     if "mixed" in forms or (forms & {"words", "phrases"} and forms & {"sentences", "utterances"}):
         hard.append("mixes vocabulary/fragment choices with complete sentences or responses")
