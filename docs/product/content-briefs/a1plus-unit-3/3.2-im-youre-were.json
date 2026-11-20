@@ -1,0 +1,547 @@
+{
+  "brief_version": 1,
+  "follows": {
+    "course": "a1",
+    "lesson": "3.2",
+    "title": "I, You, and We"
+  },
+  "note": "A1+ Unit 3 Lesson 3.2, built on 2026-11-20 under the A1+ lesson standards approved 2026-10-27 and the user's 2026-11-09 rule that every A1+ lesson follows up the A1 lesson with the same number. The user approved the A1+ Unit 3 map on 2026-11-20 (A1+ 3.Y follows A1 3.Y, one step each; A1 Unit 3 has sixteen lessons after the alphabet lessons were removed the same day) and asked for the Unit 2 deal: straight to Preview in batches, Gemini 2.5 Flash photos and ElevenLabs audio pre-approved, no per-lesson gates, reviewed in Preview. The cast say where they are in A1+ 2.1's places (Luis at the gym, Diego at the office, Sofia in the park) and A1+ 1.3's pool; Sofia and Luis together say we're (running in the park, swimming, and as friends in 3.1's café). You're and I'm use A1+ 1.1's photo of Sofia and Luis back to back, where the speaker bubble shows who speaks. No new photos.",
+  "target": "backend/lessons/a1_plus/unit_3/a1plus-unit-3-lesson-3-2.yaml",
+  "captions": false,
+  "narrators": [
+    "teacher",
+    "co-teacher"
+  ],
+  "answer_audio_policy": "authored-only",
+  "speak_delivery": "a1-pronunciation-v1",
+  "lesson": {
+    "id": "a1plus-unit-3-lesson-3-2",
+    "title": "3.2 I'm, you're, we're",
+    "level": "A1+",
+    "unit_id": "a1plus-unit-3",
+    "unit_title": "Meeting people and talking about them",
+    "unit_outcome": "Introduce people and answer introductions, use the short forms of be, answer yes/no questions in short, compare ages, talk about languages, nationalities and jobs, describe people, say whose things are, give an address and say what you want to be.",
+    "lesson_id": "a1plus-unit-3-lesson-3-2",
+    "lesson_title": "I'm, you're, we're",
+    "sub_lesson_id": "3.2",
+    "sub_lesson_title": "I'm, you're, we're",
+    "goal": "Use the short forms I'm, you're and we're (I'm at the gym. / You're tall. / We're in the park.).",
+    "vocabulary": [
+      "I'm",
+      "you're",
+      "we're"
+    ],
+    "review_vocabulary": [
+      "I",
+      "am",
+      "you",
+      "are",
+      "we",
+      "at",
+      "in",
+      "the",
+      "gym",
+      "pool",
+      "office",
+      "park",
+      "tall",
+      "short",
+      "friends",
+      "where",
+      "go",
+      "to"
+    ],
+    "grammar_function": "A follow-up of A1 3.2 I, You, and We: A1 says I am, you are and we are; A1+ 3.2 uses the short forms people say. The one new grammar relationship is the contraction of am and are after I, you and we (I'm, you're, we're), taught against the full forms (I am at the gym. / I'm at the gym.). Speaker perspective stays explicit: a person alone says I'm, two people together say we're, and you're is said to the other person in the photo (Sofia and Luis back to back: You're tall. / I'm short.).",
+    "prerequisite": "A1 3.2 I am, you are, we are; A1 4.3 in; A1 4.10 at; A1 1.11 friends; A1+ 1.1 tall and short; A1+ 2.1 the gym, the pool, the office and the park, and go to.",
+    "speaking_outcome": "Say I'm as one syllable ending in m, you're like your, and we're like weer; never add a vowel between the pronoun and the short form. Do not require native-like speed.",
+    "content_revision": 1,
+    "learn_context_groups": [
+      {
+        "kind": "contrast",
+        "targets": [
+          "I'm"
+        ],
+        "models": [
+          {
+            "slide_id": "L1",
+            "text": "I am at the gym. I'm at the gym.",
+            "turns": [
+              "I am at the gym.",
+              "I'm at the gym."
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "contrast",
+        "targets": [
+          "you're"
+        ],
+        "models": [
+          {
+            "slide_id": "L2",
+            "text": "You are tall. You're tall.",
+            "turns": [
+              "You are tall.",
+              "You're tall."
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "contrast",
+        "targets": [
+          "we're"
+        ],
+        "models": [
+          {
+            "slide_id": "L3",
+            "text": "We are in the park. We're in the park.",
+            "turns": [
+              "We are in the park.",
+              "We're in the park."
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "exchange",
+        "targets": [
+          "I'm"
+        ],
+        "models": [
+          {
+            "slide_id": "L4",
+            "text": "Where are you? I'm at the office.",
+            "turns": [
+              "Where are you?",
+              "I'm at the office."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "items": [
+    {
+      "id": "l-im",
+      "text": "I am at the gym. I'm at the gym.",
+      "es": "Estoy en el gimnasio. Estoy en el gimnasio.",
+      "image": "/lesson-assets/a1plus-unit-2-p01-912dc10dce3e0e81.webp",
+      "kind": "contrast",
+      "choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "I am at the gym.",
+          "speaker": "luis",
+          "image": "/lesson-assets/a1plus-unit-2-p01-912dc10dce3e0e81.webp"
+        },
+        {
+          "text": "I'm at the gym.",
+          "speaker": "luis",
+          "image": "/lesson-assets/a1plus-unit-2-p01-912dc10dce3e0e81.webp"
+        }
+      ]
+    },
+    {
+      "id": "l-youre",
+      "text": "You are tall. You're tall.",
+      "es": "Eres alto. Eres alto.",
+      "image": "/lesson-assets/a1plus-unit-1-p02-094cffd8654fde7e.webp",
+      "kind": "contrast",
+      "choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "You are tall.",
+          "speaker": "sofia",
+          "image": "/lesson-assets/a1plus-unit-1-p02-094cffd8654fde7e.webp"
+        },
+        {
+          "text": "You're tall.",
+          "speaker": "sofia",
+          "image": "/lesson-assets/a1plus-unit-1-p02-094cffd8654fde7e.webp"
+        }
+      ]
+    },
+    {
+      "id": "l-were",
+      "text": "We are in the park. We're in the park.",
+      "es": "Estamos en el parque. Estamos en el parque.",
+      "image": "/lesson-assets/a1plus-unit-1-s03-eb8f34195803a0a8.webp",
+      "kind": "contrast",
+      "choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "We are in the park.",
+          "speaker": "sofia",
+          "image": "/lesson-assets/a1plus-unit-1-s03-eb8f34195803a0a8.webp"
+        },
+        {
+          "text": "We're in the park.",
+          "speaker": "sofia",
+          "image": "/lesson-assets/a1plus-unit-1-s03-eb8f34195803a0a8.webp"
+        }
+      ]
+    },
+    {
+      "id": "l-where",
+      "text": "Where are you? I'm at the office.",
+      "es": "¿Dónde estás? Estoy en la oficina.",
+      "image": "/lesson-assets/a1plus-unit-2-p02-4f9df2712ec9cb2c.webp",
+      "kind": "exchange",
+      "choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "Where are you?",
+          "speaker": "ana",
+          "image": "/lesson-assets/a1plus-unit-2-p02-4f9df2712ec9cb2c.webp"
+        },
+        {
+          "text": "I'm at the office.",
+          "speaker": "diego",
+          "image": "/lesson-assets/a1plus-unit-2-p02-4f9df2712ec9cb2c.webp"
+        }
+      ]
+    },
+    {
+      "id": "m-gym",
+      "text": "I'm at the gym.",
+      "es": "Estoy en el gimnasio.",
+      "image": "/lesson-assets/a1plus-unit-2-p01-912dc10dce3e0e81.webp",
+      "kind": "place",
+      "speaker": "luis",
+      "accepts": {
+        "subject-variety": "Listen sets I'm, you're and we're (or go and be) against each other; the answer is what was heard.",
+        "action-variety": "Listen sets I'm, you're and we're (or go and be) against each other; the answer is what was heard.",
+        "conversational-response": "Listen sets I'm, you're and we're (or go and be) against each other; the answer is what was heard.",
+        "reading-load": "Listen sets I'm, you're and we're (or go and be) against each other; the answer is what was heard."
+      },
+      "prefer": [
+        "We're at the gym."
+      ],
+      "blanks": [
+        "I'm",
+        "at"
+      ],
+      "learn": false
+    },
+    {
+      "id": "m-pool",
+      "text": "I'm in the pool.",
+      "es": "Estoy en la piscina.",
+      "image": "/lesson-assets/a1plus-unit-1-s02-6a10ecb13ff623c8.webp",
+      "kind": "place",
+      "speaker": "ana",
+      "accepts": {
+        "subject-variety": "Listen sets I'm, you're and we're (or go and be) against each other; the answer is what was heard.",
+        "action-variety": "Listen sets I'm, you're and we're (or go and be) against each other; the answer is what was heard.",
+        "conversational-response": "Listen sets I'm, you're and we're (or go and be) against each other; the answer is what was heard.",
+        "reading-load": "Listen sets I'm, you're and we're (or go and be) against each other; the answer is what was heard."
+      },
+      "prefer": [
+        "We're in the pool."
+      ],
+      "blanks": [
+        "I'm",
+        "in"
+      ],
+      "learn": false
+    },
+    {
+      "id": "m-office",
+      "text": "I'm at the office.",
+      "es": "Estoy en la oficina.",
+      "image": "/lesson-assets/a1plus-unit-2-p02-4f9df2712ec9cb2c.webp",
+      "kind": "place",
+      "speaker": "diego",
+      "accepts": {
+        "subject-variety": "Listen sets I'm, you're and we're (or go and be) against each other; the answer is what was heard.",
+        "action-variety": "Listen sets I'm, you're and we're (or go and be) against each other; the answer is what was heard.",
+        "conversational-response": "Listen sets I'm, you're and we're (or go and be) against each other; the answer is what was heard.",
+        "reading-load": "Listen sets I'm, you're and we're (or go and be) against each other; the answer is what was heard."
+      },
+      "prefer": [
+        "We're at the office."
+      ],
+      "blanks": [
+        "I'm",
+        "at"
+      ],
+      "learn": false
+    },
+    {
+      "id": "m-park",
+      "text": "I'm in the park.",
+      "es": "Estoy en el parque.",
+      "image": "/lesson-assets/a1plus-unit-2-p03-fd066bfcbd288353.webp",
+      "kind": "place",
+      "speaker": "sofia",
+      "accepts": {
+        "subject-variety": "Listen sets I'm, you're and we're (or go and be) against each other; the answer is what was heard.",
+        "action-variety": "Listen sets I'm, you're and we're (or go and be) against each other; the answer is what was heard.",
+        "conversational-response": "Listen sets I'm, you're and we're (or go and be) against each other; the answer is what was heard.",
+        "reading-load": "Listen sets I'm, you're and we're (or go and be) against each other; the answer is what was heard."
+      },
+      "prefer": [
+        "We're in the park."
+      ],
+      "blanks": [
+        "I'm",
+        "in"
+      ],
+      "learn": false
+    },
+    {
+      "id": "w-park",
+      "text": "We're in the park.",
+      "es": "Estamos en el parque.",
+      "image": "/lesson-assets/a1plus-unit-1-s03-eb8f34195803a0a8.webp",
+      "kind": "we",
+      "speaker": "sofia",
+      "blanks": [
+        "We're",
+        "in"
+      ],
+      "prefer": [
+        "We're in the pool.",
+        "We're at the gym."
+      ],
+      "learn": false
+    },
+    {
+      "id": "w-pool",
+      "text": "We're in the pool.",
+      "es": "Estamos en la piscina.",
+      "image": "/lesson-assets/a1plus-unit-1-s01-2ebd24dc956daca4.webp",
+      "kind": "we",
+      "speaker": "sofia",
+      "blanks": [
+        "We're",
+        "in"
+      ],
+      "prefer": [
+        "We're in the park.",
+        "We're at the office."
+      ],
+      "learn": false
+    },
+    {
+      "id": "w-friends",
+      "text": "We're friends.",
+      "es": "Somos amigos.",
+      "image": "/lesson-assets/a1plus-unit-3-i02-928ea057d6b6f357.webp",
+      "kind": "we-who",
+      "speaker": "luis",
+      "image_choices": false,
+      "prefer": [
+        "We're at the gym.",
+        "We're in the park."
+      ],
+      "learn": false
+    },
+    {
+      "id": "y-tall",
+      "text": "You're tall.",
+      "es": "Eres alto.",
+      "image": "/lesson-assets/a1plus-unit-1-p02-094cffd8654fde7e.webp",
+      "kind": "you",
+      "speaker": "sofia",
+      "image_choices": false,
+      "prefer": [
+        "You're short.",
+        "I'm tall."
+      ],
+      "learn": false
+    },
+    {
+      "id": "y-short",
+      "text": "You're short.",
+      "es": "Eres baja.",
+      "image": "/lesson-assets/a1plus-unit-1-p02-094cffd8654fde7e.webp",
+      "kind": "you",
+      "speaker": "luis",
+      "image_choices": false,
+      "prefer": [
+        "You're tall.",
+        "I'm short."
+      ],
+      "learn": false
+    },
+    {
+      "id": "i-short",
+      "text": "I'm short.",
+      "es": "Soy baja.",
+      "image": "/lesson-assets/a1plus-unit-1-p02-094cffd8654fde7e.webp",
+      "kind": "you",
+      "speaker": "sofia",
+      "image_choices": false,
+      "prefer": [
+        "I'm tall.",
+        "You're short."
+      ],
+      "learn": false
+    },
+    {
+      "id": "i-tall",
+      "text": "I'm tall.",
+      "es": "Soy alto.",
+      "image": "/lesson-assets/a1plus-unit-1-p02-094cffd8654fde7e.webp",
+      "kind": "you",
+      "speaker": "luis",
+      "image_choices": false,
+      "prefer": [
+        "I'm short.",
+        "You're tall."
+      ],
+      "learn": false
+    },
+    {
+      "id": "x-go",
+      "text": "I go to the gym.",
+      "es": "Voy al gimnasio.",
+      "image": "/lesson-assets/a1plus-unit-2-p01-912dc10dce3e0e81.webp",
+      "kind": "heard-place",
+      "speaker": "luis",
+      "image_choices": false,
+      "use": false,
+      "prefer": [
+        "I'm at the gym.",
+        "You're at the gym."
+      ],
+      "accepts": {
+        "subject-variety": "Listen sets I'm, you're and we're (or go and be) against each other; the answer is what was heard.",
+        "action-variety": "Listen sets I'm, you're and we're (or go and be) against each other; the answer is what was heard.",
+        "conversational-response": "Listen sets I'm, you're and we're (or go and be) against each other; the answer is what was heard.",
+        "reading-load": "Listen sets I'm, you're and we're (or go and be) against each other; the answer is what was heard."
+      },
+      "learn": false
+    }
+  ],
+  "pool": [
+    {
+      "text": "We're at the gym.",
+      "es": "Estamos en el gimnasio.",
+      "image": "/lesson-assets/a1plus-unit-2-p01-912dc10dce3e0e81.webp",
+      "kind": "place",
+      "image_choices": false
+    },
+    {
+      "text": "We're in the pool.",
+      "es": "Estamos en la piscina.",
+      "image": "/lesson-assets/a1plus-unit-1-s02-6a10ecb13ff623c8.webp",
+      "kind": "place",
+      "image_choices": false
+    },
+    {
+      "text": "We're at the office.",
+      "es": "Estamos en la oficina.",
+      "image": "/lesson-assets/a1plus-unit-2-p02-4f9df2712ec9cb2c.webp",
+      "kind": "place",
+      "image_choices": false
+    },
+    {
+      "text": "You're at the gym.",
+      "es": "Estás en el gimnasio.",
+      "image": "/lesson-assets/a1plus-unit-2-p01-912dc10dce3e0e81.webp",
+      "kind": "heard-place",
+      "image_choices": false
+    },
+    {
+      "text": "We're at the gym.",
+      "es": "Estamos en el gimnasio.",
+      "image": "/lesson-assets/a1plus-unit-2-p01-912dc10dce3e0e81.webp",
+      "kind": "we",
+      "image_choices": false
+    },
+    {
+      "text": "We're at the office.",
+      "es": "Estamos en la oficina.",
+      "image": "/lesson-assets/a1plus-unit-2-p02-4f9df2712ec9cb2c.webp",
+      "kind": "we",
+      "image_choices": false
+    },
+    {
+      "text": "We're at the gym.",
+      "es": "Estamos en el gimnasio.",
+      "image": "/lesson-assets/a1plus-unit-2-p01-912dc10dce3e0e81.webp",
+      "kind": "we-who",
+      "image_choices": false
+    },
+    {
+      "text": "We're in the park.",
+      "es": "Estamos en el parque.",
+      "image": "/lesson-assets/a1plus-unit-1-s03-eb8f34195803a0a8.webp",
+      "kind": "we-who",
+      "image_choices": false
+    },
+    {
+      "text": "I'm at the gym.",
+      "es": "Estoy en el gimnasio.",
+      "image": "/lesson-assets/a1plus-unit-2-p01-912dc10dce3e0e81.webp",
+      "kind": "heard-place",
+      "image_choices": false
+    }
+  ],
+  "layout": {
+    "Recognize": 10,
+    "Listen": 10,
+    "Speak": 8,
+    "Use": 8
+  },
+  "stage_sequences": {
+    "Learn": [
+      "l-im",
+      "l-youre",
+      "l-were",
+      "l-where"
+    ],
+    "Recognize": [
+      "m-gym",
+      "y-tall",
+      "w-park",
+      "m-office",
+      "m-pool",
+      "y-short",
+      "w-pool",
+      "i-short",
+      "m-park",
+      "w-friends"
+    ],
+    "Listen": [
+      "m-office",
+      "w-pool",
+      "x-go",
+      "m-gym",
+      "w-park",
+      "y-tall",
+      "m-pool",
+      "w-friends",
+      "y-short",
+      "m-park"
+    ],
+    "Speak": [
+      "m-gym",
+      "m-pool",
+      "y-tall",
+      "w-park",
+      "m-office",
+      "i-short",
+      "w-friends",
+      "y-short"
+    ],
+    "Use": [
+      "m-gym",
+      "w-park",
+      "m-office",
+      "w-pool",
+      "y-tall",
+      "i-short",
+      "w-friends",
+      "m-park"
+    ]
+  }
+}

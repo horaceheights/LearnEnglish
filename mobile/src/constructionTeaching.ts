@@ -19,6 +19,8 @@ const COLORS = set('red blue green yellow black white');
 const NOUNS = set('boy girl man woman baby babies child children adult adults brother brothers sister sisters father mother parents grandfather grandmother grandparents grandchildren family park restaurant hospital store house street bridge bus car cars bike book books pen pens chair chairs table phone phones bag bags kitchen bedroom room bed lamp door computer sofa apple apples banana grapes strawberry strawberries orange oranges egg eggs rice milk bread fish juice water chicken food breakfast lunch dinner tea coffee dollar dollars station pharmacy bank library train taxi head eyes mouth arms hands legs feet jacket shoes shirt dress skirt pants socks boots umbrella hat name job face teeth help bathroom music school work night morning afternoon evening day mexico canada ana luis sofia english tv monday tuesday wednesday thursday friday saturday sunday today');
 for (const noun of words('teacher doctor nurse driver cook farmer left right')) NOUNS.add(noun);
 for (const noun of words('spain diego states')) NOUNS.add(noun);
+// A1+ 3.6 (2026-11-20): twins.
+NOUNS.add('twins');
 for (const noun of words('home window clothes')) NOUNS.add(noun);
 NOUNS.add('shower');
 // Unit 5 (2026-09-26): fruit and food words that its constructions name.
@@ -93,6 +95,8 @@ for (const description of words('cheap expensive')) DESCRIPTIONS.add(description
 for (const description of words('good bad great fine sick angry afraid warm')) DESCRIPTIONS.add(description);
 // A1+ 2.8 (2026-11-19): favorite before a noun (my favorite color).
 DESCRIPTIONS.add('favorite');
+// A1+ 3.8 (2026-11-20): a nationality before a noun (a Mexican teacher, two Spanish men).
+for (const description of words('mexican canadian american spanish')) DESCRIPTIONS.add(description);
 for (const state of DESCRIPTIONS) STATES.add(state);
 const OWNERS = set('mine yours ours');
 const OWNER_MEANINGS: Record<string, string> = { mine: 'mío', yours: 'tuyo', ours: 'nuestro' };
@@ -711,6 +715,82 @@ function teachClause(text: string): ClausePlan {
     if (shortDo[2]) teach(3, 4, 'En la respuesta corta, “not” va al final, después de “do”, para decir que no.');
     return { explanations, relations, supported: true };
   }
+  // A1+ 3.1 (2026-11-20): introducing a friend (This is my friend Luis.) and the fixed reply
+  // Nice to meet you., with too when it answers (Nice to meet you, too.) or a name when it greets someone.
+  if (/^this is my friend [a-z]+$/.test(joined) && !text.trim().endsWith('?')) {
+    teach(0, 2, '“This is” presenta a una persona y va primero, antes de quién es.');
+    teach(2, 4, '“my friend” (mi amigo o amiga) va después de “This is” y antes del nombre.');
+    teach(4, 5, `${quote(tokens[4])} es el nombre de la persona y cierra la frase.`);
+    return { explanations, relations, supported: true };
+  }
+  const meet = /^nice to meet you(?: (too|[a-z]+))?$/.exec(joined);
+  if (meet && !text.trim().endsWith('?')) {
+    teach(0, 4, '“Nice to meet you” (mucho gusto) es una frase fija: “Nice to meet” va antes de “you”.');
+    if (meet[1] === 'too') teach(4, 5, '“Too” (también) va al final: responde a quien ya dijo “Nice to meet you”.');
+    else if (meet[1]) teach(4, 5, `${quote(tokens[4])}, el nombre de la persona saludada, va al final.`);
+    return { explanations, relations, supported: true };
+  }
+  // A1+ 3.6 (2026-11-20): two people's ages in common (They are both sixteen. / They are not the same age.).
+  const both = /^(they|we) are both ([a-z]+)$/.exec(joined);
+  if (both && NUMBERS.has(both[2]) && !text.trim().endsWith('?')) {
+    teach(0, 2, `En esta afirmación, primero ${quote(tokens[0])}, de quiénes hablamos, y después ${quote(tokens[1])}.`);
+    teach(2, 3, `“both” (los dos) va después de ${quote(tokens[1])} y antes de lo que tienen en común.`);
+    teach(3, 4, `${quote(tokens[3])} es la edad de los dos y cierra la frase.`);
+    return { explanations, relations, supported: true };
+  }
+  const sameAge = /^(they|we) are (not )?the same age$/.exec(joined);
+  if (sameAge && !text.trim().endsWith('?')) {
+    const at = sameAge[2] ? 3 : 2;
+    teach(0, 2, `En esta afirmación, primero ${quote(tokens[0])}, de quiénes hablamos, y después ${quote(tokens[1])}.`);
+    if (sameAge[2]) teach(2, 3, `“not” niega y va después de ${quote(tokens[1])}, antes de “the same age”.`);
+    teach(at, at + 3, '“the same age” (la misma edad) va junto, en este orden: “the”, “same” y al final “age”.');
+    return { explanations, relations, supported: true };
+  }
+  // A1+ 3.7 (2026-11-20): what language people speak, and where.
+  const speak = /^(i|we|you|they|he|she|ana|luis|sofia|diego) (speak|speaks) (spanish|english)(?: and (spanish|english))?$/.exec(joined);
+  if (speak && (speak[2] === 'speaks') === ['he', 'she', 'ana', 'luis', 'sofia', 'diego'].includes(speak[1])) {
+    teach(0, 1, `${quote(tokens[0])} indica quién habla y va antes de ${quote(tokens[1])}.`);
+    teach(1, 2, speak[2] === 'speaks'
+      ? `Con ${quote(tokens[0])} el verbo lleva -s: ${quote(tokens[1])} va después de quién habla.`
+      : `${quote(tokens[1])} (hablar) va después de ${quote(tokens[0])} y antes del idioma.`);
+    teach(2, keys.length, speak[4]
+      ? `Los idiomas van después de ${quote(tokens[1])}, unidos por “and”.`
+      : `${quote(tokens[2])} es el idioma y va después de ${quote(tokens[1])}.`);
+    return { explanations, relations, supported: true };
+  }
+  const country = /^in (mexico|spain|canada|the united states) people speak (spanish|english)$/.exec(joined);
+  if (country) {
+    const end = keys.indexOf('people');
+    teach(0, end, `${quote(phrase(0, end))} dice dónde y abre la frase, antes de “people”.`);
+    teach(end, end + 2, '“people speak” (la gente habla) va después del lugar: primero “people” y después “speak”.');
+    teach(end + 2, keys.length, `${quote(tokens[end + 2])} es el idioma y cierra la frase.`);
+    return { explanations, relations, supported: true };
+  }
+  if (joined === 'what language do you speak' && text.trim().endsWith('?')) {
+    teach(0, 2, '“What language” (qué idioma) abre la pregunta.');
+    teach(2, 4, '“do you” va después de “What language”, como en “Do you …?”.');
+    teach(4, 5, '“speak” (hablar) cierra la pregunta.');
+    return { explanations, relations, supported: true };
+  }
+  // A1+ 3.9 (2026-11-20): What do you do? / What does she do? asks about someone's work.
+  const doWhat = /^what (do you|does (?:he|she|ana|luis|sofia|diego)) do$/.exec(joined);
+  if (doWhat && text.trim().endsWith('?')) {
+    teach(0, 1, '“What” abre la pregunta.');
+    teach(1, 3, `${quote(phrase(1, 3))} va después de “What”: ${keys[1] === 'does' ? '“does” con he, she o un nombre' : '“do” con you'}.`);
+    teach(3, 4, 'El último “do” es el verbo hacer y cierra la pregunta: pregunta a qué se dedica.');
+    return { explanations, relations, supported: true };
+  }
+  // A1+ 3.5 (2026-11-20): how much older or younger, a number of years before the comparative
+  // (She is three years older than him.). Short forms reach this rule as their full forms.
+  const years = /^(he|she|i|you|we|they) (is|am|are) (two|three|four|five) years (older|younger) than (him|her|me|you|us|them)$/.exec(joined);
+  if (years && !text.trim().endsWith('?')) {
+    teach(0, 2, `En esta afirmación, primero ${quote(tokens[0])}, de quién hablamos, y después ${quote(tokens[1])}.`);
+    teach(2, 4, `${quote(phrase(2, 4))} dice cuánto: va después de ${quote(tokens[1])} y antes de ${quote(tokens[4])}.`);
+    teach(4, 6, `${quote(phrase(4, 6))} compara: ${quote(tokens[4])} va antes de “than”.`);
+    teach(6, 7, `${quote(tokens[6])} es con quién comparamos; va después de “than”.`);
+    relations.push({ start: 2, end: 6, explanation: `${quote(phrase(2, 4))} va antes de ${quote(phrase(4, 6))}: primero cuántos años, después la comparación.` });
+    return { explanations, relations, supported: true };
+  }
   // A1+ 2.4 (2026-11-19): the short forms of be. A1 writes the full forms, so these never meet an A1 card.
   if (joined === "what's this" && text.trim().endsWith('?')) {
     teach(0, 2, '“What’s” es la forma corta de “what is”: pregunta qué es y va antes de “this”, lo que señalamos.');
@@ -852,6 +932,19 @@ export function constructionTeachingPlan(card: LessonCard) {
     tokenCount += words(part).length;
     return part;
   }).join('');
+  const { explanations, relations, supported } = shortBePlan(target);
+  return {
+    target,
+    labels,
+    tokenSlots,
+    relations,
+    explanations: tokenSlots.map(index => explanations[index] || ''),
+    supported: slot === ids.length && labels.every(Boolean) && supported
+      && (!card.answer_audio_text || words(target).join(' ') === words(card.answer_audio_text).join(' ')),
+  };
+}
+
+function sentencePlan(target: string): ClausePlan {
   // A comma can join two complete statements, but does not split “No, thank
   // you”, a noun contrast, or the introductory “First,” / “Then,”.
   // Periods inside a.m./p.m. belong to one time token, not three clauses.
@@ -867,15 +960,75 @@ export function constructionTeachingPlan(card: LessonCard) {
     offset += plan.explanations.length;
     return result;
   });
-  return {
-    target,
-    labels,
-    tokenSlots,
-    relations,
-    explanations: tokenSlots.map(index => explanations[index] || ''),
-    supported: slot === ids.length && labels.every(Boolean) && plans.length > 0 && plans.every(plan => plan.supported)
-      && (!card.answer_audio_text || words(target).join(' ') === words(card.answer_audio_text).join(' ')),
-  };
+  return { explanations, relations, supported: plans.length > 0 && plans.every(plan => plan.supported) };
+}
+
+// A1+ 3.2-3.5 (2026-11-20): a person's short form of be (I'm, you're, we're, he's, she's, they're)
+// and aren't are taught through their full forms, which the patterns above already explain; the
+// short form is one tile, so it gets its own explanation and the full form's words are quoted as it.
+const SHORT_BE: Record<string, [string, string]> = {
+  "i'm": ['I', 'am'], "you're": ['you', 'are'], "we're": ['we', 'are'], "he's": ['he', 'is'],
+  "she's": ['she', 'is'], "they're": ['they', 'are'], "aren't": ['are', 'not'],
+};
+
+function shortBePlan(target: string): ClausePlan {
+  const pattern = /\b(?:i'm|you're|we're|he's|she's|they're|aren't)\b/gi;
+  if (!pattern.test(target.replace(/’/g, "'"))) return sentencePlan(target);
+  const map: number[] = []; // full-form word index -> short-form word index
+  const shorts: { index: number; label: string; halves: string[]; from: number }[] = [];
+  let wordIndex = 0;
+  const full = target.replace(/’/g, "'").replace(/[a-z]+(?:'[a-z]+)?/gi, (word: string) => {
+    const halves = SHORT_BE[word.toLowerCase()];
+    if (!halves) {
+      map.push(wordIndex++);
+      return word;
+    }
+    const first = /^[A-Z]/.test(word) ? halves[0][0].toUpperCase() + halves[0].slice(1) : halves[0];
+    shorts.push({ index: wordIndex, label: word, halves: [first, halves[1]], from: map.length });
+    map.push(wordIndex, wordIndex);
+    wordIndex++;
+    return `${first} ${halves[1]}`;
+  });
+  const plan = sentencePlan(full);
+  // The full form's verb (am, is, are; are not) is quoted as the short form nearest to the word being
+  // explained; a subject alone ("They" in "They aren't …") is its own tile and stays as it is.
+  const nearest = (position: number, test: (item: typeof shorts[number]) => boolean) => shorts
+    .filter(test).sort((a, b) => Math.abs(a.from - position) - Math.abs(b.from - position))[0];
+  const requote = (why: string, position: number) => why.replace(/“([^”]+)”/g, (match: string, quoted: string) => {
+    const parts = quoted.split(' ');
+    const out: string[] = [];
+    for (let i = 0; i < parts.length; i++) {
+      const word = parts[i].toLowerCase(), next = (parts[i + 1] || '').toLowerCase();
+      const pair = next && nearest(position, item => item.halves[0].toLowerCase() === word && item.halves[1] === next);
+      if (pair) { out.push(pair.label); i++; continue; }
+      const verb = ['am', 'is', 'are'].includes(word) && nearest(position, item => item.halves[0].toLowerCase() === word
+        || (item.halves[1] === word && item.halves[1] !== 'not'));
+      if (verb) {
+        out.push(verb.label);
+        if (next === 'not' && verb.halves[1] === 'not') i++;
+        continue;
+      }
+      out.push(parts[i]);
+    }
+    const rebuilt = out.filter((part, i) => part !== out[i - 1]).join(' ');
+    return rebuilt === quoted ? match : quote(rebuilt);
+  });
+  const explanations: string[] = Array.from({ length: wordIndex }, () => '');
+  plan.explanations.forEach((why, position) => {
+    if (!explanations[map[position]]) explanations[map[position]] = why ? requote(why, position) : '';
+  });
+  for (const item of shorts) {
+    const [subject, verb] = item.halves;
+    explanations[item.index] = verb === 'not'
+      ? `${quote(item.label)} es la forma corta de “are not”: niega y va justo después de quien hace la acción.`
+      : `${quote(item.label)} es la forma corta de “${subject} ${verb}”: el sujeto y el verbo van juntos en una sola palabra.`;
+  }
+  const relations = plan.relations.map(relation => ({
+    start: map[relation.start],
+    end: map[Math.max(relation.start, relation.end - 1)] + 1,
+    explanation: requote(relation.explanation, relation.start),
+  }));
+  return { explanations, relations, supported: plan.supported && explanations.every(Boolean) };
 }
 
 export function constructionMistakeHint(card: LessonCard, selected: string[]): string {

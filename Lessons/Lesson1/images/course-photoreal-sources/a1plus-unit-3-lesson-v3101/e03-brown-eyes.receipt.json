@@ -1,0 +1,55 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "aae76a67-8124-47ca-8805-7e74a7ed3135",
+  "asset_id": "e03-brown-eyes",
+  "pack_sha256": "1f0390d03f73c613d14c5347062951ee8e33e99dc9cdd2cc15d57a5f2cbbe0b9",
+  "started_at": "2026-11-20T19:30:47.899019+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, menus, screens, cups, clothes or bags.\n\nKeep the people and the thing that carries the meaning inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nOnly this one person is in the photo; there is nobody else, even far in the background.\n\nIt is clearly daytime with soft natural light.\n\nA close, sharp head-and-shoulders portrait of one real adult, looking straight at the camera in soft daylight against a plain light-grey wall. The face fills the middle of the photo, so the eyes are large, sharp and their color is unmistakable even on a small phone screen.\n\nA woman of about thirty with long straight black hair, medium-brown skin and warm, dark BROWN eyes, in a plain yellow T-shirt, smiling softly.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "5p8Aa9epCMSfz7IP57LV0Q8",
+  "usage": {
+    "promptTokenCount": 303,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1593,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 303
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038791",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 303,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 5.12,
+  "output": "output/imagegen/a1plus-unit-3-lesson-v3101/e03-brown-eyes.png",
+  "sha256": "f40029251e276c5c4b28216e1b2283e0c45ebb93d4e70f7f73758e0dfe6059a8",
+  "byte_count": 1303712,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}

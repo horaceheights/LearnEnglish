@@ -1,0 +1,62 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "f834484f-0c2c-46ef-9c79-0c92502a97da",
+  "asset_id": "i01-sofia-presents-luis",
+  "pack_sha256": "635917c375068da6072ab05598bfc760f4e5d73e396bd8a5fac58e15356b6c96",
+  "started_at": "2026-11-20T16:33:57.569758+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, menus, screens, cups, clothes or bags.\n\nKeep the people and the thing that carries the meaning inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nThe person they are meeting is NOT in the photo: they stand just outside the edge of the photo that is named, so no part of that person (no hand, arm, shoulder or shadow) is visible. Nobody looks at the camera.\n\nOnly these two people are in the photo; there is nobody else, even far in the background.\n\nIt is clearly daytime with soft natural light.\n\nThe place is a bright, simple neighborhood café with light wooden tables, a few plants and big windows; the tables behind them are empty.\n\nImage 1 shows Sofia (left) and Luis (right). Keep both faces, Sofia's dark curly hair in a high bun and warm brown skin, Luis's short dark curly hair and skin tone, their clothes (Sofia: bright blue blazer over a white blouse, black trousers; Luis: navy crew-neck T-shirt, khaki chinos) and their builds exactly; Luis is much taller than Sofia. Create a new photograph of the two of them: Sofia introduces Luis to a new person who stands just outside the LEFT edge of the photo. They stand close together near the middle of the photo, Luis on the left and Sofia on the right, both turned toward the left edge in three-quarter view. Luis smiles warmly and reaches his right hand out toward the left edge for a handshake, his arm bent and his open hand ready to shake. Sofia stands just behind his right shoulder, smiles, looks toward the left edge and holds her right hand open, palm up, toward Luis, the clear gesture of presenting him. Both faces are fully visible.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1plus-unit-1-p02-094cffd8654fde7e.webp",
+    "sha256": "094cffd8654fde7eacbcf5b643e8c43eebb30aff39e32cde627ca9861bda7b3d"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "dHYAa965GpGMqtsP8eyi2A4",
+  "usage": {
+    "promptTokenCount": 760,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 2050,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 502
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038928",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 760,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 9.62,
+  "output": "output/imagegen/a1plus-unit-3-lesson-v310/i01-sofia-presents-luis.png",
+  "sha256": "c5fd7d28dba9cb265678d40880c29f3b0f5cae9b095bdd9009d3c3efa1763103",
+  "byte_count": 1285855,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}

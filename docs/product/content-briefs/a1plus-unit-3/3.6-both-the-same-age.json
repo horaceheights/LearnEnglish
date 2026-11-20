@@ -1,0 +1,464 @@
+{
+  "brief_version": 1,
+  "follows": {
+    "course": "a1",
+    "lesson": "3.6",
+    "title": "Ages 16-20"
+  },
+  "note": "A1+ Unit 3 Lesson 3.6, built on 2026-11-20 under the A1+ lesson standards approved 2026-10-27 and the user's 2026-11-09 rule that every A1+ lesson follows up the A1 lesson with the same number. The user approved the A1+ Unit 3 map on 2026-11-20 (A1+ 3.Y follows A1 3.Y, one step each; A1 Unit 3 has sixteen lessons after the alphabet lessons were removed the same day) and asked for the Unit 2 deal: straight to Preview in batches, Gemini 2.5 Flash photos and ElevenLabs audio pre-approved, no per-lesson gates, reviewed in Preview. Four new photos: twin sisters (both 16), twin brothers (both 18), a brother of 17 and his sister of 19, and two friends who look nothing alike (both 20). They stay out of four-picture cards, where the candles are too small. Nobody in them speaks: the teacher and the co-teacher read every line.",
+  "target": "backend/lessons/a1_plus/unit_3/a1plus-unit-3-lesson-3-6.yaml",
+  "captions": false,
+  "narrators": [
+    "teacher",
+    "co-teacher"
+  ],
+  "answer_audio_policy": "authored-only",
+  "speak_delivery": "a1-pronunciation-v1",
+  "lesson": {
+    "id": "a1plus-unit-3-lesson-3-6",
+    "title": "3.6 Both the same age",
+    "level": "A1+",
+    "unit_id": "a1plus-unit-3",
+    "unit_title": "Meeting people and talking about them",
+    "unit_outcome": "Introduce people and answer introductions, use the short forms of be, answer yes/no questions in short, compare ages, talk about languages, nationalities and jobs, describe people, say whose things are, give an address and say what you want to be.",
+    "lesson_id": "a1plus-unit-3-lesson-3-6",
+    "lesson_title": "Both the same age",
+    "sub_lesson_id": "3.6",
+    "sub_lesson_title": "Both the same age",
+    "goal": "Say that two people are twins, are the same age, or are both sixteen (They're both sixteen.).",
+    "vocabulary": [
+      "twins",
+      "both",
+      "the same age"
+    ],
+    "review_vocabulary": [
+      "they're",
+      "they",
+      "aren't",
+      "are",
+      "she's",
+      "older",
+      "than",
+      "him",
+      "how old",
+      "sixteen",
+      "seventeen",
+      "eighteen",
+      "nineteen",
+      "twenty",
+      "years"
+    ],
+    "grammar_function": "A follow-up of A1 3.6 Ages 16-20: A1 asks How old is she? and answers with one age; A1+ 3.6 says what two ages have in common. It adds no new grammar relationship: both goes between they're and the age (They're both sixteen.), the same age follows they're as a description (They're the same age.), and twins is a noun after they're. Two pairs of twins and two other pairs sit behind birthday cakes with number candles from A1 3.6's range, so the ages can be read; twins and the same age are told apart in text, because a picture cannot show who is a twin. 3.4's aren't and 3.5's years older come back (They aren't the same age. She's two years older than him.).",
+    "prerequisite": "A1 3.6 sixteen to twenty and How old …?; A1+ 1.5 older; A1+ 3.3 they're; A1+ 3.4 aren't; A1+ 3.5 years older than.",
+    "speaking_outcome": "Say both with a long o and a soft th at the end; say the same age as one group. Do not require native-like speed.",
+    "content_revision": 1,
+    "learn_context_groups": [
+      {
+        "kind": "sequence",
+        "targets": [
+          "twins"
+        ],
+        "models": [
+          {
+            "slide_id": "L1",
+            "text": "They're twins."
+          }
+        ]
+      },
+      {
+        "kind": "contrast",
+        "targets": [
+          "both"
+        ],
+        "models": [
+          {
+            "slide_id": "L2",
+            "text": "They're sixteen. They're both sixteen.",
+            "turns": [
+              "They're sixteen.",
+              "They're both sixteen."
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "sequence",
+        "targets": [
+          "the same age"
+        ],
+        "models": [
+          {
+            "slide_id": "L3",
+            "text": "They're the same age."
+          }
+        ]
+      },
+      {
+        "kind": "exchange",
+        "targets": [
+          "the same age"
+        ],
+        "models": [
+          {
+            "slide_id": "L4",
+            "text": "Are they the same age? No, they aren't. She's two years older.",
+            "turns": [
+              "Are they the same age?",
+              "No, they aren't. She's two years older."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "items": [
+    {
+      "id": "l-twins",
+      "text": "They're twins.",
+      "es": "Son gemelas.",
+      "image": "/lesson-assets/a1plus-unit-3-t01-7b8833d155956330.webp",
+      "kind": "sequence",
+      "choices": false,
+      "use": false,
+      "speaker": "teacher"
+    },
+    {
+      "id": "l-both",
+      "text": "They're sixteen. They're both sixteen.",
+      "es": "Tienen dieciséis. Las dos tienen dieciséis.",
+      "image": "/lesson-assets/a1plus-unit-3-t01-7b8833d155956330.webp",
+      "kind": "contrast",
+      "choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "They're sixteen.",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-3-t01-7b8833d155956330.webp"
+        },
+        {
+          "text": "They're both sixteen.",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-3-t01-7b8833d155956330.webp"
+        }
+      ]
+    },
+    {
+      "id": "l-same",
+      "text": "They're the same age.",
+      "es": "Tienen la misma edad.",
+      "image": "/lesson-assets/a1plus-unit-3-t04-7c8f120e7a8a7574.webp",
+      "kind": "sequence",
+      "choices": false,
+      "use": false,
+      "speaker": "teacher"
+    },
+    {
+      "id": "l-not-same",
+      "text": "Are they the same age? No, they aren't. She's two years older.",
+      "es": "¿Tienen la misma edad? No. Ella es dos años mayor.",
+      "image": "/lesson-assets/a1plus-unit-3-t03-7a78395c87670c0b.webp",
+      "kind": "exchange",
+      "choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "Are they the same age?",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-3-t03-7a78395c87670c0b.webp"
+        },
+        {
+          "text": "No, they aren't. She's two years older.",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-3-t03-7a78395c87670c0b.webp"
+        }
+      ]
+    },
+    {
+      "id": "b16",
+      "text": "They're both sixteen.",
+      "es": "Las dos tienen dieciséis.",
+      "image": "/lesson-assets/a1plus-unit-3-t01-7b8833d155956330.webp",
+      "kind": "age",
+      "four_card": false,
+      "accepts": {
+        "subject-variety": "Listen sets both, the same age and twins against the plain statement; the answer is what was heard.",
+        "action-variety": "Listen sets both, the same age and twins against the plain statement; the answer is what was heard.",
+        "conversational-response": "Listen sets both, the same age and twins against the plain statement; the answer is what was heard.",
+        "reading-load": "Listen sets both, the same age and twins against the plain statement; the answer is what was heard."
+      },
+      "prefer": [
+        "They're both seventeen."
+      ],
+      "learn": false,
+      "blanks": [
+        "both",
+        "sixteen"
+      ]
+    },
+    {
+      "id": "b18",
+      "text": "They're both eighteen.",
+      "es": "Los dos tienen dieciocho.",
+      "image": "/lesson-assets/a1plus-unit-3-t02-1bdcc20c6c69dd8a.webp",
+      "kind": "age",
+      "four_card": false,
+      "accepts": {
+        "subject-variety": "Listen sets both, the same age and twins against the plain statement; the answer is what was heard.",
+        "action-variety": "Listen sets both, the same age and twins against the plain statement; the answer is what was heard.",
+        "conversational-response": "Listen sets both, the same age and twins against the plain statement; the answer is what was heard.",
+        "reading-load": "Listen sets both, the same age and twins against the plain statement; the answer is what was heard."
+      },
+      "prefer": [
+        "They're both nineteen."
+      ],
+      "question": "How old are they?",
+      "question_es": "¿Cuántos años tienen?",
+      "question_speaker": "teacher",
+      "speaker": "co-teacher",
+      "learn": false
+    },
+    {
+      "id": "b20",
+      "text": "They're both twenty.",
+      "es": "Las dos tienen veinte.",
+      "image": "/lesson-assets/a1plus-unit-3-t04-7c8f120e7a8a7574.webp",
+      "kind": "age",
+      "four_card": false,
+      "accepts": {
+        "subject-variety": "Listen sets both, the same age and twins against the plain statement; the answer is what was heard.",
+        "action-variety": "Listen sets both, the same age and twins against the plain statement; the answer is what was heard.",
+        "conversational-response": "Listen sets both, the same age and twins against the plain statement; the answer is what was heard.",
+        "reading-load": "Listen sets both, the same age and twins against the plain statement; the answer is what was heard."
+      },
+      "prefer": [
+        "They're both nineteen."
+      ],
+      "question": "How old are they?",
+      "question_es": "¿Cuántos años tienen?",
+      "question_speaker": "teacher",
+      "speaker": "co-teacher",
+      "learn": false
+    },
+    {
+      "id": "d19",
+      "text": "She's two years older than him.",
+      "es": "Ella es dos años mayor que él.",
+      "image": "/lesson-assets/a1plus-unit-3-t03-7a78395c87670c0b.webp",
+      "kind": "age",
+      "four_card": false,
+      "accepts": {
+        "subject-variety": "Listen sets both, the same age and twins against the plain statement; the answer is what was heard.",
+        "action-variety": "Listen sets both, the same age and twins against the plain statement; the answer is what was heard.",
+        "conversational-response": "Listen sets both, the same age and twins against the plain statement; the answer is what was heard.",
+        "reading-load": "Listen sets both, the same age and twins against the plain statement; the answer is what was heard."
+      },
+      "prefer": [
+        "She's two years younger than him.",
+        "He's two years older than her."
+      ],
+      "learn": false
+    },
+    {
+      "id": "tw1",
+      "text": "They're twins.",
+      "es": "Son gemelos.",
+      "image": "/lesson-assets/a1plus-unit-3-t02-1bdcc20c6c69dd8a.webp",
+      "kind": "pair",
+      "image_choices": false,
+      "prefer": [
+        "They aren't twins.",
+        "They aren't the same age."
+      ],
+      "learn": false
+    },
+    {
+      "id": "tw0",
+      "text": "They aren't twins.",
+      "es": "No son gemelas.",
+      "image": "/lesson-assets/a1plus-unit-3-t04-7c8f120e7a8a7574.webp",
+      "kind": "pair",
+      "image_choices": false,
+      "prefer": [
+        "They're twins."
+      ],
+      "avoid": [
+        "They're the same age."
+      ],
+      "learn": false
+    },
+    {
+      "id": "sm1",
+      "text": "They're the same age.",
+      "es": "Tienen la misma edad.",
+      "image": "/lesson-assets/a1plus-unit-3-t04-7c8f120e7a8a7574.webp",
+      "kind": "pair",
+      "image_choices": false,
+      "prefer": [
+        "They aren't the same age."
+      ],
+      "blanks": [
+        "same",
+        "age"
+      ],
+      "learn": false
+    },
+    {
+      "id": "sm0",
+      "text": "They aren't the same age.",
+      "es": "No tienen la misma edad.",
+      "image": "/lesson-assets/a1plus-unit-3-t03-7a78395c87670c0b.webp",
+      "kind": "pair",
+      "image_choices": false,
+      "prefer": [
+        "They're the same age.",
+        "They're twins."
+      ],
+      "learn": false
+    },
+    {
+      "id": "x-both",
+      "text": "They're both twenty.",
+      "es": "Las dos tienen veinte.",
+      "image": "/lesson-assets/a1plus-unit-3-t04-7c8f120e7a8a7574.webp",
+      "kind": "heard",
+      "image_choices": false,
+      "use": false,
+      "accepts": {
+        "subject-variety": "Listen sets both, the same age and twins against the plain statement; the answer is what was heard.",
+        "action-variety": "Listen sets both, the same age and twins against the plain statement; the answer is what was heard.",
+        "conversational-response": "Listen sets both, the same age and twins against the plain statement; the answer is what was heard.",
+        "reading-load": "Listen sets both, the same age and twins against the plain statement; the answer is what was heard."
+      },
+      "prefer": [
+        "They're twenty.",
+        "They're both nineteen."
+      ],
+      "learn": false
+    },
+    {
+      "id": "q-old",
+      "text": "How old are they?",
+      "es": "¿Cuántos años tienen?",
+      "image": "/lesson-assets/a1plus-unit-3-t02-1bdcc20c6c69dd8a.webp",
+      "kind": "question",
+      "speaker": "teacher",
+      "choices": false,
+      "use": false,
+      "learn": false
+    },
+    {
+      "id": "q-same",
+      "text": "Are they the same age?",
+      "es": "¿Tienen la misma edad?",
+      "image": "/lesson-assets/a1plus-unit-3-t03-7a78395c87670c0b.webp",
+      "kind": "question",
+      "speaker": "co-teacher",
+      "choices": false,
+      "use": false,
+      "learn": false
+    }
+  ],
+  "pool": [
+    {
+      "text": "They're both seventeen.",
+      "es": "Los dos tienen diecisiete.",
+      "image": "/lesson-assets/a1plus-unit-3-t01-7b8833d155956330.webp",
+      "kind": "age",
+      "image_choices": false
+    },
+    {
+      "text": "They're both nineteen.",
+      "es": "Los dos tienen diecinueve.",
+      "image": "/lesson-assets/a1plus-unit-3-t02-1bdcc20c6c69dd8a.webp",
+      "kind": "age",
+      "image_choices": false
+    },
+    {
+      "text": "She's two years younger than him.",
+      "es": "Ella es dos años menor que él.",
+      "image": "/lesson-assets/a1plus-unit-3-t03-7a78395c87670c0b.webp",
+      "kind": "age",
+      "image_choices": false
+    },
+    {
+      "text": "He's two years older than her.",
+      "es": "Él es dos años mayor que ella.",
+      "image": "/lesson-assets/a1plus-unit-3-t03-7a78395c87670c0b.webp",
+      "kind": "age",
+      "image_choices": false
+    },
+    {
+      "text": "They're twenty.",
+      "es": "Tienen veinte.",
+      "image": "/lesson-assets/a1plus-unit-3-t04-7c8f120e7a8a7574.webp",
+      "kind": "heard",
+      "image_choices": false
+    },
+    {
+      "text": "They're both nineteen.",
+      "es": "Las dos tienen diecinueve.",
+      "image": "/lesson-assets/a1plus-unit-3-t04-7c8f120e7a8a7574.webp",
+      "kind": "heard",
+      "image_choices": false
+    }
+  ],
+  "layout": {
+    "Recognize": 10,
+    "Listen": 10,
+    "Speak": 8,
+    "Use": 8
+  },
+  "stage_sequences": {
+    "Learn": [
+      "l-twins",
+      "l-both",
+      "l-same",
+      "l-not-same"
+    ],
+    "Recognize": [
+      "b16",
+      "tw1",
+      "b18",
+      "sm1",
+      "d19",
+      "tw0",
+      "b20",
+      "sm0",
+      "b16",
+      "b18"
+    ],
+    "Listen": [
+      "b18",
+      "d19",
+      "tw1",
+      "b16",
+      "b20",
+      "sm0",
+      "d19",
+      "b18",
+      "x-both",
+      "b20"
+    ],
+    "Speak": [
+      "tw1",
+      "b16",
+      "sm1",
+      "q-old",
+      "b18",
+      "sm0",
+      "q-same",
+      "b20"
+    ],
+    "Use": [
+      "b16",
+      "sm1",
+      "tw0",
+      "b18",
+      "tw1",
+      "sm0",
+      "b20",
+      "d19"
+    ]
+  }
+}

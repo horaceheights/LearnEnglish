@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "pack": "a1plus-unit-3-lesson-3-9-jobs-photos",
+  "revision": 1,
+  "output_namespace": "a1plus-unit-3-lesson-v390",
+  "authorization": "2026-11-20: the user asked to \"Start working on a1+ Unit 3, same deal\" (the Unit 2 deal: an approved map, then straight to Preview in batches with media pre-approved and reviewed in Preview) and approved the A1+ Unit 3 map (\"Approve this map\"). Gemini is the approved image tool (2026-09-23), Flash only (2026-11-17; \"lets switch to flash for any other images\", 2026-11-19).",
+  "image_settings": {
+    "provider": "google-gemini",
+    "model": "gemini-2.5-flash-image",
+    "aspect_ratio": "3:2",
+    "image_size": "1K",
+    "runtime_size": "1536x1024",
+    "runtime_format": "webp",
+    "n": 1
+  },
+  "production": {
+    "price_per_image_usd": "0.0387",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing (checked 2026-11-16: Gemini 2.5 Flash Image, about $0.039 per image)",
+    "planned_images": 3,
+    "expected_cost_usd": "0.12",
+    "requested_ceiling_usd": "0.35",
+    "ceiling_note": "The renderer reserves US$0.20 before each request; each request is sent on its own, and the expected spend for the pack is about US$0.12.",
+    "no_automatic_retries": true,
+    "order": "Generate j01 first; check the face against the reference and that the chalkboard is blank; then j02, j03."
+  },
+  "shared_prompts": {
+    "photo": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, menus, screens, cups, clothes or bags.",
+    "safe_center": "Keep the people and the thing that carries the meaning inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.",
+    "solo": "Only this one person is in the photo; there is nobody else, even far in the background.",
+    "face": "The person's face is fully visible in three-quarter view, looking at what they are doing, not at the camera.",
+    "daytime": "It is clearly daytime with soft natural light.",
+    "portrait": "A close, sharp head-and-shoulders portrait of one real adult, looking straight at the camera in soft daylight against a plain light-grey wall. The face fills the middle of the photo, so the eyes are large, sharp and their color is unmistakable even on a small phone screen."
+  },
+  "assets": [
+    {
+      "id": "j01-ana-teacher",
+      "order": 1,
+      "item": "She's a teacher. She works in a school. / a Mexican teacher",
+      "shared": [
+        "photo",
+        "safe_center",
+        "solo",
+        "face",
+        "daytime"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-q02-c2b4398b65207eff.webp",
+        "sha256": "c2b4398b65207effa51e51260cc607c38ada48caea82f14eb872e4c9c8b5d0d5",
+        "observed_description": "Ana (long dark wavy hair, light-olive skin, sage-green overshirt over a white top, jeans) sits on a light-grey sofa and reads an open hardcover book (A1+ 1.2)."
+      },
+      "prompt": "Image 1 shows Ana. Keep her face, long dark wavy hair, light-olive skin and build exactly, in her sage-green overshirt over a white top and jeans. Create a new photograph of her: she is a teacher and stands at the front of a bright, empty school classroom in the morning, holding an open book in one hand and gesturing kindly with the other toward the rows of empty student desks. A large green chalkboard behind her is completely blank, with nothing written or drawn on it. The classroom is obviously a school: rows of small student desks and chairs, a teacher's desk, big windows."
+    },
+    {
+      "id": "j02-sofia-nurse",
+      "order": 2,
+      "item": "She's a nurse. She works in a hospital. / a Canadian nurse",
+      "shared": [
+        "photo",
+        "safe_center",
+        "solo",
+        "face",
+        "daytime"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-q03-7d520a07846a47b8.webp",
+        "sha256": "7d520a07846a47b8e8389c3226f3b3639d7eed0d257318b08e4f9b77c5b2258b",
+        "observed_description": "Sofia (long curly dark hair, warm brown skin, white blouse under a bright blue blazer) writes in a large notebook at a wooden desk by a bright window in her home study (A1+ 1.2)."
+      },
+      "prompt": "Image 1 shows Sofia. Keep her face, long curly dark hair (tied back neatly), warm brown skin and build exactly. Create a new photograph of her: she is a nurse at work in a hospital, in plain light-blue nurse scrubs with a stethoscope around her neck, standing in a bright, clean hospital ward and smoothing the white sheet of an empty hospital bed with a metal frame. A medical monitor with a blank dark screen stands beside the bed. The place is obviously a hospital."
+    },
+    {
+      "id": "j03-luis-driver",
+      "order": 3,
+      "item": "He's a driver. He drives a bus. / an American driver",
+      "shared": [
+        "photo",
+        "safe_center",
+        "solo",
+        "face",
+        "daytime"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-q01-135c3f8f772bcbe4.webp",
+        "sha256": "135c3f8f772bcbe472b8cec719eb02318a7d52ce1c7152a94c6952aeb78566c2",
+        "observed_description": "Luis (short dark curly hair, clean-shaven, warm medium-brown skin, navy crew-neck T-shirt) drinks coffee from a white mug at a wooden table in his bright kitchen (A1+ 1.2)."
+      },
+      "prompt": "Image 1 shows Luis. Keep his face, short dark curly hair, clean-shaven face, warm medium-brown skin and build exactly. Create a new photograph of him: he is a bus driver at work, in a plain navy driver's uniform shirt, sitting in the driver's seat of an empty city bus with both hands on the big steering wheel, smiling. Seen from the side and slightly in front, through the open front door: the large steering wheel, the dashboard and the bus windshield are clearly visible, so he is obviously the bus driver. The rows of passenger seats behind him are empty."
+    }
+  ]
+}
