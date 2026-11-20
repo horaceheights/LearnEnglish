@@ -1,0 +1,529 @@
+{
+  "brief_version": 1,
+  "follows": {
+    "course": "a1",
+    "lesson": "3.1",
+    "title": "Greetings and Names"
+  },
+  "note": "A1+ Unit 3 Lesson 3.1, built on 2026-11-20 under the A1+ lesson standards approved 2026-10-27 and the user's 2026-11-09 rule that every A1+ lesson follows up the A1 lesson with the same number. The user approved the A1+ Unit 3 map on 2026-11-20 (A1+ 3.Y follows A1 3.Y, one step each; A1 Unit 3 has sixteen lessons after the alphabet lessons were removed the same day) and asked for the Unit 2 deal: straight to Preview in batches, Gemini 2.5 Flash photos and ElevenLabs audio pre-approved, no per-lesson gates, reviewed in Preview. Sofia presents Luis and Luis presents Sofia to a newcomer in a light-blue shirt in a café; the photos also show Ana and Diego reaching out to shake his hand. The newcomer never speaks a line of his own except Nice to meet you, which a narrator voices, because the cast's voices belong to the cast. Banks never set Luis against Sofia on a picture, because both appear in both café photos. Listen brings back A1+ 2.1's places. A unit's first lesson keeps Learn models to 8 words and Listen to 2 lines.",
+  "target": "backend/lessons/a1_plus/unit_3/a1plus-unit-3-lesson-3-1.yaml",
+  "captions": false,
+  "narrators": [
+    "teacher",
+    "co-teacher"
+  ],
+  "answer_audio_policy": "authored-only",
+  "speak_delivery": "a1-pronunciation-v1",
+  "lesson": {
+    "id": "a1plus-unit-3-lesson-3-1",
+    "title": "3.1 Nice to meet you",
+    "level": "A1+",
+    "unit_id": "a1plus-unit-3",
+    "unit_title": "Meeting people and talking about them",
+    "unit_outcome": "Introduce people and answer introductions, use the short forms of be, answer yes/no questions in short, compare ages, talk about languages, nationalities and jobs, describe people, say whose things are, give an address and say what you want to be.",
+    "lesson_id": "a1plus-unit-3-lesson-3-1",
+    "lesson_title": "Nice to meet you",
+    "sub_lesson_id": "3.1",
+    "sub_lesson_title": "Nice to meet you",
+    "goal": "Introduce a friend (This is my friend Luis.) and answer an introduction (Nice to meet you. / Nice to meet you, too.).",
+    "vocabulary": [
+      "This is my friend",
+      "Nice to meet you",
+      "too"
+    ],
+    "review_vocabulary": [
+      "this",
+      "is",
+      "my",
+      "friend",
+      "hello",
+      "goodbye",
+      "good morning",
+      "good night",
+      "see",
+      "tomorrow",
+      "What's your name?",
+      "My name is",
+      "he",
+      "she",
+      "goes",
+      "gym",
+      "pool",
+      "office",
+      "park"
+    ],
+    "grammar_function": "A follow-up of A1 3.1 Greetings and Names: A1 greets people and asks and gives a name (Hello. What is your name? My name is Ana.); A1+ 3.1 introduces one person to another. It adds no new grammar relationship: This is + my friend + a name presents a person (A1 2.5's This is for a thing, A1 1.11's friend), and the fixed replies Nice to meet you. and Nice to meet you, too. answer it. Sofia and Luis introduce each other to a newcomer in a café, and Ana and Diego meet him there.",
+    "prerequisite": "A1 3.1 hello, goodbye, good morning and What is your name? My name is …; A1 2.5 This is …; A1 1.11 friend; A1 4.10 night, A1 4.11 see and A1 4.12 tomorrow; A1+ 2.4 What's; A1+ 2.1 goes to the gym/pool/office/park.",
+    "speaking_outcome": "Say Nice to meet you as one phrase, meet and you joined (MEET-choo is fine), and too with a long u; stress friend and the name in This is my friend Luis. Do not require native-like speed.",
+    "content_revision": 1,
+    "learn_context_groups": [
+      {
+        "kind": "sequence",
+        "targets": [
+          "This is my friend"
+        ],
+        "models": [
+          {
+            "slide_id": "L1",
+            "text": "This is my friend Luis."
+          }
+        ]
+      },
+      {
+        "kind": "sequence",
+        "targets": [
+          "Nice to meet you"
+        ],
+        "models": [
+          {
+            "slide_id": "L2",
+            "text": "Nice to meet you."
+          }
+        ]
+      },
+      {
+        "kind": "sequence",
+        "targets": [
+          "This is my friend"
+        ],
+        "models": [
+          {
+            "slide_id": "L3",
+            "text": "This is my friend Sofia."
+          }
+        ]
+      },
+      {
+        "kind": "sequence",
+        "targets": [
+          "too",
+          "Nice to meet you"
+        ],
+        "models": [
+          {
+            "slide_id": "L4",
+            "text": "Nice to meet you, too."
+          }
+        ]
+      }
+    ]
+  },
+  "items": [
+    {
+      "id": "l-friend",
+      "text": "This is my friend Luis.",
+      "es": "Este es mi amigo Luis.",
+      "image": "/lesson-assets/a1plus-unit-3-i01-49d6d03a3e50b786.webp",
+      "kind": "sequence",
+      "choices": false,
+      "use": false,
+      "speaker": "sofia"
+    },
+    {
+      "id": "l-nice",
+      "text": "Nice to meet you.",
+      "es": "Mucho gusto.",
+      "image": "/lesson-assets/a1plus-unit-3-i01-49d6d03a3e50b786.webp",
+      "kind": "sequence",
+      "choices": false,
+      "use": false,
+      "speaker": "luis"
+    },
+    {
+      "id": "l-friend-s",
+      "text": "This is my friend Sofia.",
+      "es": "Esta es mi amiga Sofía.",
+      "image": "/lesson-assets/a1plus-unit-3-i02-928ea057d6b6f357.webp",
+      "kind": "sequence",
+      "choices": false,
+      "use": false,
+      "speaker": "luis"
+    },
+    {
+      "id": "l-too",
+      "text": "Nice to meet you, too.",
+      "es": "Mucho gusto también.",
+      "image": "/lesson-assets/a1plus-unit-3-h01-c91fbdfb6c1c001c.webp",
+      "kind": "sequence",
+      "choices": false,
+      "use": false,
+      "speaker": "ana"
+    },
+    {
+      "id": "n-luis",
+      "text": "This is my friend Luis.",
+      "es": "Este es mi amigo Luis.",
+      "image": "/lesson-assets/a1plus-unit-3-i01-49d6d03a3e50b786.webp",
+      "kind": "intro",
+      "speaker": "sofia",
+      "four_card": false,
+      "blanks": [
+        "my",
+        "friend"
+      ],
+      "avoid": [
+        "This is my friend Sofia."
+      ],
+      "learn": false
+    },
+    {
+      "id": "n-sofia",
+      "text": "This is my friend Sofia.",
+      "es": "Esta es mi amiga Sofía.",
+      "image": "/lesson-assets/a1plus-unit-3-i02-928ea057d6b6f357.webp",
+      "kind": "intro",
+      "speaker": "luis",
+      "blanks": [
+        "This",
+        "is"
+      ],
+      "avoid": [
+        "This is my friend Luis."
+      ],
+      "learn": false
+    },
+    {
+      "id": "n-ana",
+      "text": "This is my friend Ana.",
+      "es": "Esta es mi amiga Ana.",
+      "image": "/lesson-assets/a1plus-unit-3-h01-c91fbdfb6c1c001c.webp",
+      "kind": "intro",
+      "speaker": "luis",
+      "blanks": [
+        "friend",
+        "Ana"
+      ],
+      "learn": false
+    },
+    {
+      "id": "n-diego",
+      "text": "This is my friend Diego.",
+      "es": "Este es mi amigo Diego.",
+      "image": "/lesson-assets/a1plus-unit-3-h02-060c6c5ee57b406d.webp",
+      "kind": "intro",
+      "speaker": "sofia",
+      "blanks": [
+        "my",
+        "friend"
+      ],
+      "learn": false
+    },
+    {
+      "id": "g-nice",
+      "text": "Nice to meet you.",
+      "es": "Mucho gusto.",
+      "image": "/lesson-assets/a1plus-unit-3-i01-49d6d03a3e50b786.webp",
+      "kind": "greet",
+      "speaker": "luis",
+      "image_choices": false,
+      "accepts": {
+        "conversational-response": "Listen sets greetings against each other; the answer is what was heard.",
+        "reading-load": "Listen: the answer is what was heard, whatever its length."
+      },
+      "prefer": [
+        "Nice to meet you, too.",
+        "Good night."
+      ],
+      "learn": false
+    },
+    {
+      "id": "g-too",
+      "text": "Nice to meet you, too.",
+      "es": "Mucho gusto también.",
+      "image": "/lesson-assets/a1plus-unit-3-h01-c91fbdfb6c1c001c.webp",
+      "kind": "greet",
+      "speaker": "ana",
+      "image_choices": false,
+      "accepts": {
+        "conversational-response": "Listen sets greetings against each other; the answer is what was heard.",
+        "reading-load": "Listen: the answer is what was heard, whatever its length."
+      },
+      "prefer": [
+        "Good night.",
+        "See you tomorrow."
+      ],
+      "avoid": [
+        "Good morning."
+      ],
+      "blanks": [
+        "you",
+        "too"
+      ],
+      "learn": false
+    },
+    {
+      "id": "g-too-d",
+      "text": "Nice to meet you, too.",
+      "es": "Mucho gusto también.",
+      "image": "/lesson-assets/a1plus-unit-3-h02-060c6c5ee57b406d.webp",
+      "kind": "greet",
+      "speaker": "diego",
+      "image_choices": false,
+      "accepts": {
+        "conversational-response": "Listen sets greetings against each other; the answer is what was heard.",
+        "reading-load": "Listen: the answer is what was heard, whatever its length."
+      },
+      "prefer": [
+        "See you tomorrow.",
+        "Good night."
+      ],
+      "avoid": [
+        "Good morning."
+      ],
+      "use": false,
+      "learn": false
+    },
+    {
+      "id": "c-diego",
+      "text": "Nice to meet you, Diego.",
+      "es": "Mucho gusto, Diego.",
+      "image": "/lesson-assets/a1plus-unit-3-h02-060c6c5ee57b406d.webp",
+      "kind": "greet-name",
+      "speaker": "co-teacher",
+      "choices": false,
+      "learn": false
+    },
+    {
+      "id": "c-sofia",
+      "text": "Nice to meet you, Sofia.",
+      "es": "Mucho gusto, Sofía.",
+      "image": "/lesson-assets/a1plus-unit-3-i02-928ea057d6b6f357.webp",
+      "kind": "greet-name",
+      "speaker": "co-teacher",
+      "choices": false,
+      "learn": false
+    },
+    {
+      "id": "r-ana",
+      "text": "My name is Ana.",
+      "es": "Me llamo Ana.",
+      "image": "/lesson-assets/a1plus-unit-3-h01-c91fbdfb6c1c001c.webp",
+      "kind": "name",
+      "speaker": "ana",
+      "question": "What's your name?",
+      "question_es": "¿Cómo te llamas?",
+      "question_speaker": "co-teacher",
+      "use": false,
+      "learn": false
+    },
+    {
+      "id": "r-diego",
+      "text": "My name is Diego.",
+      "es": "Me llamo Diego.",
+      "image": "/lesson-assets/a1plus-unit-3-h02-060c6c5ee57b406d.webp",
+      "kind": "name",
+      "speaker": "diego",
+      "question": "What's your name?",
+      "question_es": "¿Cómo te llamas?",
+      "question_speaker": "co-teacher",
+      "use": false,
+      "learn": false
+    },
+    {
+      "id": "q-name",
+      "text": "What's your name?",
+      "es": "¿Cómo te llamas?",
+      "image": "/lesson-assets/a1plus-unit-3-h02-060c6c5ee57b406d.webp",
+      "kind": "question",
+      "speaker": "teacher",
+      "choices": false,
+      "use": false,
+      "learn": false
+    },
+    {
+      "id": "x-gym",
+      "text": "This is my friend Luis. He goes to the gym.",
+      "es": "Este es mi amigo Luis. Va al gimnasio.",
+      "image": "/lesson-assets/a1plus-unit-3-i01-49d6d03a3e50b786.webp",
+      "kind": "fact",
+      "speaker": "sofia",
+      "image_choices": false,
+      "use": false,
+      "prefer": [
+        "This is my friend Luis. He goes to the pool.",
+        "This is my friend Luis. He goes to the office."
+      ],
+      "accepts": {
+        "subject-variety": "Listen keeps the introduction and the person and changes only the place they go to (A1+ 2.1 retrieval); the answer is what was heard.",
+        "action-variety": "Listen keeps the introduction and the person and changes only the place they go to (A1+ 2.1 retrieval); the answer is what was heard."
+      },
+      "learn": false
+    },
+    {
+      "id": "x-pool",
+      "text": "This is my friend Ana. She goes to the pool.",
+      "es": "Esta es mi amiga Ana. Va a la piscina.",
+      "image": "/lesson-assets/a1plus-unit-3-h01-c91fbdfb6c1c001c.webp",
+      "kind": "fact",
+      "speaker": "luis",
+      "image_choices": false,
+      "use": false,
+      "prefer": [
+        "This is my friend Ana. She goes to the park.",
+        "This is my friend Ana. She goes to the gym."
+      ],
+      "accepts": {
+        "subject-variety": "Listen keeps the introduction and the person and changes only the place they go to (A1+ 2.1 retrieval); the answer is what was heard.",
+        "action-variety": "Listen keeps the introduction and the person and changes only the place they go to (A1+ 2.1 retrieval); the answer is what was heard."
+      },
+      "learn": false
+    },
+    {
+      "id": "x-office",
+      "text": "This is my friend Diego. He goes to the office.",
+      "es": "Este es mi amigo Diego. Va a la oficina.",
+      "image": "/lesson-assets/a1plus-unit-3-h02-060c6c5ee57b406d.webp",
+      "kind": "fact",
+      "speaker": "sofia",
+      "image_choices": false,
+      "use": false,
+      "prefer": [
+        "This is my friend Diego. He goes to the gym.",
+        "This is my friend Diego. He goes to the park."
+      ],
+      "accepts": {
+        "subject-variety": "Listen keeps the introduction and the person and changes only the place they go to (A1+ 2.1 retrieval); the answer is what was heard.",
+        "action-variety": "Listen keeps the introduction and the person and changes only the place they go to (A1+ 2.1 retrieval); the answer is what was heard."
+      },
+      "learn": false
+    }
+  ],
+  "pool": [
+    {
+      "text": "This is my friend Luis. He goes to the pool.",
+      "es": "Este es mi amigo Luis. Va a la piscina.",
+      "image": "/lesson-assets/a1plus-unit-3-i01-49d6d03a3e50b786.webp",
+      "kind": "fact",
+      "image_choices": false
+    },
+    {
+      "text": "This is my friend Luis. He goes to the office.",
+      "es": "Este es mi amigo Luis. Va a la oficina.",
+      "image": "/lesson-assets/a1plus-unit-3-i01-49d6d03a3e50b786.webp",
+      "kind": "fact",
+      "image_choices": false
+    },
+    {
+      "text": "This is my friend Ana. She goes to the park.",
+      "es": "Esta es mi amiga Ana. Va al parque.",
+      "image": "/lesson-assets/a1plus-unit-3-h01-c91fbdfb6c1c001c.webp",
+      "kind": "fact",
+      "image_choices": false
+    },
+    {
+      "text": "This is my friend Ana. She goes to the gym.",
+      "es": "Esta es mi amiga Ana. Va al gimnasio.",
+      "image": "/lesson-assets/a1plus-unit-3-h01-c91fbdfb6c1c001c.webp",
+      "kind": "fact",
+      "image_choices": false
+    },
+    {
+      "text": "This is my friend Diego. He goes to the gym.",
+      "es": "Este es mi amigo Diego. Va al gimnasio.",
+      "image": "/lesson-assets/a1plus-unit-3-h02-060c6c5ee57b406d.webp",
+      "kind": "fact",
+      "image_choices": false
+    },
+    {
+      "text": "This is my friend Diego. He goes to the park.",
+      "es": "Este es mi amigo Diego. Va al parque.",
+      "image": "/lesson-assets/a1plus-unit-3-h02-060c6c5ee57b406d.webp",
+      "kind": "fact",
+      "image_choices": false
+    },
+    {
+      "text": "Good night.",
+      "es": "Buenas noches.",
+      "image": "/lesson-assets/a1plus-unit-3-h01-c91fbdfb6c1c001c.webp",
+      "kind": "greet",
+      "image_choices": false
+    },
+    {
+      "text": "See you tomorrow.",
+      "es": "Hasta mañana.",
+      "image": "/lesson-assets/a1plus-unit-3-h01-c91fbdfb6c1c001c.webp",
+      "kind": "greet",
+      "image_choices": false
+    },
+    {
+      "text": "Good morning.",
+      "es": "Buenos días.",
+      "image": "/lesson-assets/a1plus-unit-3-h01-c91fbdfb6c1c001c.webp",
+      "kind": "greet",
+      "image_choices": false
+    },
+    {
+      "text": "My name is Sofia.",
+      "es": "Me llamo Sofía.",
+      "image": "/lesson-assets/a1plus-unit-3-i02-928ea057d6b6f357.webp",
+      "kind": "name",
+      "image_choices": false
+    },
+    {
+      "text": "My name is Luis.",
+      "es": "Me llamo Luis.",
+      "image": "/lesson-assets/a1plus-unit-3-i01-49d6d03a3e50b786.webp",
+      "kind": "name",
+      "image_choices": false,
+      "four_card": false
+    }
+  ],
+  "layout": {
+    "Recognize": 10,
+    "Listen": 10,
+    "Speak": 8,
+    "Use": 8
+  },
+  "stage_sequences": {
+    "Learn": [
+      "l-friend",
+      "l-nice",
+      "l-friend-s",
+      "l-too"
+    ],
+    "Recognize": [
+      "n-luis",
+      "g-too",
+      "n-sofia",
+      "n-diego",
+      "r-ana",
+      "g-too-d",
+      "n-diego",
+      "n-ana",
+      "r-diego",
+      "r-ana"
+    ],
+    "Listen": [
+      "x-gym",
+      "n-sofia",
+      "g-too",
+      "r-diego",
+      "x-pool",
+      "g-too-d",
+      "r-ana",
+      "g-nice",
+      "x-office",
+      "n-luis"
+    ],
+    "Speak": [
+      "n-luis",
+      "g-nice",
+      "n-sofia",
+      "g-too",
+      "q-name",
+      "r-diego",
+      "n-diego",
+      "g-too-d"
+    ],
+    "Use": [
+      "n-luis",
+      "g-nice",
+      "n-sofia",
+      "g-too",
+      "n-diego",
+      "c-diego",
+      "n-ana",
+      "c-sofia"
+    ]
+  }
+}

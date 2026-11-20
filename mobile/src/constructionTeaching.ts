@@ -666,6 +666,32 @@ function teachClause(text: string): ClausePlan {
     if (shortDo[2]) teach(3, 4, 'En la respuesta corta, “not” va al final, después de “do”, para decir que no.');
     return { explanations, relations, supported: true };
   }
+  // A1+ 3.1 (2026-11-20): introducing a friend (This is my friend Luis.) and the fixed reply
+  // Nice to meet you., with too when it answers (Nice to meet you, too.) or a name when it greets someone.
+  if (/^this is my friend [a-z]+$/.test(joined) && !text.trim().endsWith('?')) {
+    teach(0, 2, '“This is” presenta a una persona y va primero, antes de quién es.');
+    teach(2, 4, '“my friend” (mi amigo o amiga) va después de “This is” y antes del nombre.');
+    teach(4, 5, `${quote(tokens[4])} es el nombre de la persona y cierra la frase.`);
+    return { explanations, relations, supported: true };
+  }
+  const meet = /^nice to meet you(?: (too|[a-z]+))?$/.exec(joined);
+  if (meet && !text.trim().endsWith('?')) {
+    teach(0, 4, '“Nice to meet you” (mucho gusto) es una frase fija: “Nice to meet” va antes de “you”.');
+    if (meet[1] === 'too') teach(4, 5, '“Too” (también) va al final: responde a quien ya dijo “Nice to meet you”.');
+    else if (meet[1]) teach(4, 5, `${quote(tokens[4])}, el nombre de la persona saludada, va al final.`);
+    return { explanations, relations, supported: true };
+  }
+  // A1+ 3.5 (2026-11-20): how much older or younger, a number of years before the comparative
+  // (She is three years older than him.). Short forms reach this rule as their full forms.
+  const years = /^(he|she|i|you|we|they) (is|am|are) (two|three|four|five) years (older|younger) than (him|her|me|you|us|them)$/.exec(joined);
+  if (years && !text.trim().endsWith('?')) {
+    teach(0, 2, `En esta afirmación, primero ${quote(tokens[0])}, de quién hablamos, y después ${quote(tokens[1])}.`);
+    teach(2, 4, `${quote(phrase(2, 4))} dice cuánto: va después de ${quote(tokens[1])} y antes de ${quote(tokens[4])}.`);
+    teach(4, 6, `${quote(phrase(4, 6))} compara: ${quote(tokens[4])} va antes de “than”.`);
+    teach(6, 7, `${quote(tokens[6])} es con quién comparamos; va después de “than”.`);
+    relations.push({ start: 2, end: 6, explanation: `${quote(phrase(2, 4))} va antes de ${quote(phrase(4, 6))}: primero cuántos años, después la comparación.` });
+    return { explanations, relations, supported: true };
+  }
   // A1+ 2.4 (2026-11-19): the short forms of be. A1 writes the full forms, so these never meet an A1 card.
   if (joined === "what's this" && text.trim().endsWith('?')) {
     teach(0, 2, '“What’s” es la forma corta de “what is”: pregunta qué es y va antes de “this”, lo que señalamos.');
@@ -807,6 +833,19 @@ export function constructionTeachingPlan(card: LessonCard) {
     tokenCount += words(part).length;
     return part;
   }).join('');
+  const { explanations, relations, supported } = shortBePlan(target);
+  return {
+    target,
+    labels,
+    tokenSlots,
+    relations,
+    explanations: tokenSlots.map(index => explanations[index] || ''),
+    supported: slot === ids.length && labels.every(Boolean) && supported
+      && (!card.answer_audio_text || words(target).join(' ') === words(card.answer_audio_text).join(' ')),
+  };
+}
+
+function sentencePlan(target: string): ClausePlan {
   // A comma can join two complete statements, but does not split “No, thank
   // you”, a noun contrast, or the introductory “First,” / “Then,”.
   // Periods inside a.m./p.m. belong to one time token, not three clauses.
@@ -822,15 +861,75 @@ export function constructionTeachingPlan(card: LessonCard) {
     offset += plan.explanations.length;
     return result;
   });
-  return {
-    target,
-    labels,
-    tokenSlots,
-    relations,
-    explanations: tokenSlots.map(index => explanations[index] || ''),
-    supported: slot === ids.length && labels.every(Boolean) && plans.length > 0 && plans.every(plan => plan.supported)
-      && (!card.answer_audio_text || words(target).join(' ') === words(card.answer_audio_text).join(' ')),
-  };
+  return { explanations, relations, supported: plans.length > 0 && plans.every(plan => plan.supported) };
+}
+
+// A1+ 3.2-3.5 (2026-11-20): a person's short form of be (I'm, you're, we're, he's, she's, they're)
+// and aren't are taught through their full forms, which the patterns above already explain; the
+// short form is one tile, so it gets its own explanation and the full form's words are quoted as it.
+const SHORT_BE: Record<string, [string, string]> = {
+  "i'm": ['I', 'am'], "you're": ['you', 'are'], "we're": ['we', 'are'], "he's": ['he', 'is'],
+  "she's": ['she', 'is'], "they're": ['they', 'are'], "aren't": ['are', 'not'],
+};
+
+function shortBePlan(target: string): ClausePlan {
+  const pattern = /\b(?:i'm|you're|we're|he's|she's|they're|aren't)\b/gi;
+  if (!pattern.test(target.replace(/’/g, "'"))) return sentencePlan(target);
+  const map: number[] = []; // full-form word index -> short-form word index
+  const shorts: { index: number; label: string; halves: string[]; from: number }[] = [];
+  let wordIndex = 0;
+  const full = target.replace(/’/g, "'").replace(/[a-z]+(?:'[a-z]+)?/gi, (word: string) => {
+    const halves = SHORT_BE[word.toLowerCase()];
+    if (!halves) {
+      map.push(wordIndex++);
+      return word;
+    }
+    const first = /^[A-Z]/.test(word) ? halves[0][0].toUpperCase() + halves[0].slice(1) : halves[0];
+    shorts.push({ index: wordIndex, label: word, halves: [first, halves[1]], from: map.length });
+    map.push(wordIndex, wordIndex);
+    wordIndex++;
+    return `${first} ${halves[1]}`;
+  });
+  const plan = sentencePlan(full);
+  // The full form's verb (am, is, are; are not) is quoted as the short form nearest to the word being
+  // explained; a subject alone ("They" in "They aren't …") is its own tile and stays as it is.
+  const nearest = (position: number, test: (item: typeof shorts[number]) => boolean) => shorts
+    .filter(test).sort((a, b) => Math.abs(a.from - position) - Math.abs(b.from - position))[0];
+  const requote = (why: string, position: number) => why.replace(/“([^”]+)”/g, (match: string, quoted: string) => {
+    const parts = quoted.split(' ');
+    const out: string[] = [];
+    for (let i = 0; i < parts.length; i++) {
+      const word = parts[i].toLowerCase(), next = (parts[i + 1] || '').toLowerCase();
+      const pair = next && nearest(position, item => item.halves[0].toLowerCase() === word && item.halves[1] === next);
+      if (pair) { out.push(pair.label); i++; continue; }
+      const verb = ['am', 'is', 'are'].includes(word) && nearest(position, item => item.halves[0].toLowerCase() === word
+        || (item.halves[1] === word && item.halves[1] !== 'not'));
+      if (verb) {
+        out.push(verb.label);
+        if (next === 'not' && verb.halves[1] === 'not') i++;
+        continue;
+      }
+      out.push(parts[i]);
+    }
+    const rebuilt = out.filter((part, i) => part !== out[i - 1]).join(' ');
+    return rebuilt === quoted ? match : quote(rebuilt);
+  });
+  const explanations: string[] = Array.from({ length: wordIndex }, () => '');
+  plan.explanations.forEach((why, position) => {
+    if (!explanations[map[position]]) explanations[map[position]] = why ? requote(why, position) : '';
+  });
+  for (const item of shorts) {
+    const [subject, verb] = item.halves;
+    explanations[item.index] = verb === 'not'
+      ? `${quote(item.label)} es la forma corta de “are not”: niega y va justo después de quien hace la acción.`
+      : `${quote(item.label)} es la forma corta de “${subject} ${verb}”: el sujeto y el verbo van juntos en una sola palabra.`;
+  }
+  const relations = plan.relations.map(relation => ({
+    start: map[relation.start],
+    end: map[Math.max(relation.start, relation.end - 1)] + 1,
+    explanation: requote(relation.explanation, relation.start),
+  }));
+  return { explanations, relations, supported: plan.supported && explanations.every(Boolean) };
 }
 
 export function constructionMistakeHint(card: LessonCard, selected: string[]): string {

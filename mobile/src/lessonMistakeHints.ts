@@ -94,6 +94,11 @@ const MEANINGS: Record<string, string> = {
   watch: 'reloj', wallet: 'cartera', headphones: 'audífonos', camera: 'cámara',
   // A1+ 2.4 (2026-11-19): the short forms of be, so "what's" is never read as a possessive.
   "what's": 'qué es', "it's": 'es', "isn't": 'no es',
+  // A1+ 3.1-3.4 (2026-11-20): the short forms of be after a person, so "he's" is never read as a
+  // possessive, and too in "Nice to meet you, too."
+  "i'm": 'yo estoy o yo soy', "you're": 'tú estás o tú eres', "we're": 'nosotros estamos o somos',
+  "he's": 'él está o él es', "she's": 'ella está o ella es', "they're": 'ellos están o son',
+  "aren't": 'no están o no son', too: 'también',
   // A1+ 2.6-2.10 (2026-11-19): ordinal numbers, the -es and irregular plurals, favorite and ones.
   second: 'segundo', third: 'tercero', fourth: 'cuarto', fifth: 'quinto', sixth: 'sexto', seventh: 'séptimo',
   eighth: 'octavo', ninth: 'noveno', tenth: 'décimo',
