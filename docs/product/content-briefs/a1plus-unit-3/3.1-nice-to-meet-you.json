@@ -58,66 +58,51 @@
     "content_revision": 1,
     "learn_context_groups": [
       {
-        "kind": "exchange",
+        "kind": "sequence",
         "targets": [
           "This is my friend"
         ],
         "models": [
           {
             "slide_id": "L1",
-            "text": "This is my friend Luis. Nice to meet you.",
-            "turns": [
-              "This is my friend Luis.",
-              "Nice to meet you."
-            ]
+            "text": "This is my friend Luis."
           }
         ]
       },
       {
-        "kind": "exchange",
+        "kind": "sequence",
         "targets": [
           "Nice to meet you"
         ],
         "models": [
           {
             "slide_id": "L2",
-            "text": "This is my friend Sofia. Nice to meet you.",
-            "turns": [
-              "This is my friend Sofia.",
-              "Nice to meet you."
-            ]
+            "text": "Nice to meet you."
           }
         ]
       },
       {
-        "kind": "exchange",
+        "kind": "sequence",
         "targets": [
-          "too"
+          "This is my friend"
         ],
         "models": [
           {
             "slide_id": "L3",
-            "text": "Nice to meet you. Nice to meet you, too.",
-            "turns": [
-              "Nice to meet you.",
-              "Nice to meet you, too."
-            ]
+            "text": "This is my friend Sofia."
           }
         ]
       },
       {
-        "kind": "exchange",
+        "kind": "sequence",
         "targets": [
-          "too"
+          "too",
+          "Nice to meet you"
         ],
         "models": [
           {
             "slide_id": "L4",
-            "text": "Nice to meet you. Nice to meet you, too.",
-            "turns": [
-              "Nice to meet you.",
-              "Nice to meet you, too."
-            ]
+            "text": "Nice to meet you, too."
           }
         ]
       }
@@ -126,87 +111,43 @@
   "items": [
     {
       "id": "l-friend",
-      "text": "This is my friend Luis. Nice to meet you.",
-      "es": "Este es mi amigo Luis. Mucho gusto.",
+      "text": "This is my friend Luis.",
+      "es": "Este es mi amigo Luis.",
       "image": "/lesson-assets/a1plus-unit-3-i01-49d6d03a3e50b786.webp",
-      "kind": "exchange",
+      "kind": "sequence",
       "choices": false,
       "use": false,
-      "turns": [
-        {
-          "text": "This is my friend Luis.",
-          "speaker": "sofia",
-          "image": "/lesson-assets/a1plus-unit-3-i01-49d6d03a3e50b786.webp"
-        },
-        {
-          "text": "Nice to meet you.",
-          "speaker": "luis",
-          "image": "/lesson-assets/a1plus-unit-3-i01-49d6d03a3e50b786.webp"
-        }
-      ]
+      "speaker": "sofia"
     },
     {
       "id": "l-nice",
-      "text": "This is my friend Sofia. Nice to meet you.",
-      "es": "Esta es mi amiga Sofía. Mucho gusto.",
-      "image": "/lesson-assets/a1plus-unit-3-i02-928ea057d6b6f357.webp",
-      "kind": "exchange",
+      "text": "Nice to meet you.",
+      "es": "Mucho gusto.",
+      "image": "/lesson-assets/a1plus-unit-3-i01-49d6d03a3e50b786.webp",
+      "kind": "sequence",
       "choices": false,
       "use": false,
-      "turns": [
-        {
-          "text": "This is my friend Sofia.",
-          "speaker": "luis",
-          "image": "/lesson-assets/a1plus-unit-3-i02-928ea057d6b6f357.webp"
-        },
-        {
-          "text": "Nice to meet you.",
-          "speaker": "sofia",
-          "image": "/lesson-assets/a1plus-unit-3-i02-928ea057d6b6f357.webp"
-        }
-      ]
+      "speaker": "luis"
+    },
+    {
+      "id": "l-friend-s",
+      "text": "This is my friend Sofia.",
+      "es": "Esta es mi amiga Sofía.",
+      "image": "/lesson-assets/a1plus-unit-3-i02-928ea057d6b6f357.webp",
+      "kind": "sequence",
+      "choices": false,
+      "use": false,
+      "speaker": "luis"
     },
     {
       "id": "l-too",
-      "text": "Nice to meet you. Nice to meet you, too.",
-      "es": "Mucho gusto. Mucho gusto también.",
+      "text": "Nice to meet you, too.",
+      "es": "Mucho gusto también.",
       "image": "/lesson-assets/a1plus-unit-3-h01-c91fbdfb6c1c001c.webp",
-      "kind": "exchange",
+      "kind": "sequence",
       "choices": false,
       "use": false,
-      "turns": [
-        {
-          "text": "Nice to meet you.",
-          "speaker": "co-teacher",
-          "image": "/lesson-assets/a1plus-unit-3-h01-c91fbdfb6c1c001c.webp"
-        },
-        {
-          "text": "Nice to meet you, too.",
-          "speaker": "ana",
-          "image": "/lesson-assets/a1plus-unit-3-h01-c91fbdfb6c1c001c.webp"
-        }
-      ]
-    },
-    {
-      "id": "l-too-d",
-      "text": "Nice to meet you. Nice to meet you, too.",
-      "es": "Mucho gusto. Mucho gusto también.",
-      "image": "/lesson-assets/a1plus-unit-3-h02-060c6c5ee57b406d.webp",
-      "kind": "exchange",
-      "choices": false,
-      "use": false,
-      "turns": [
-        {
-          "text": "Nice to meet you.",
-          "speaker": "teacher",
-          "image": "/lesson-assets/a1plus-unit-3-h02-060c6c5ee57b406d.webp"
-        },
-        {
-          "text": "Nice to meet you, too.",
-          "speaker": "diego",
-          "image": "/lesson-assets/a1plus-unit-3-h02-060c6c5ee57b406d.webp"
-        }
-      ]
+      "speaker": "ana"
     },
     {
       "id": "n-luis",
@@ -536,8 +477,8 @@
     "Learn": [
       "l-friend",
       "l-nice",
-      "l-too",
-      "l-too-d"
+      "l-friend-s",
+      "l-too"
     ],
     "Recognize": [
       "n-luis",

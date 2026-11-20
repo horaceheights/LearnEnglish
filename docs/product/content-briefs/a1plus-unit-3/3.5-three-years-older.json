@@ -1,0 +1,508 @@
+{
+  "brief_version": 1,
+  "follows": {
+    "course": "a1",
+    "lesson": "3.5",
+    "title": "Ages 11-15"
+  },
+  "note": "A1+ Unit 3 Lesson 3.5, built on 2026-11-20 under the A1+ lesson standards approved 2026-10-27 and the user's 2026-11-09 rule that every A1+ lesson follows up the A1 lesson with the same number. The user approved the A1+ Unit 3 map on 2026-11-20 (A1+ 3.Y follows A1 3.Y, one step each; A1 Unit 3 has sixteen lessons after the alphabet lessons were removed the same day) and asked for the Unit 2 deal: straight to Preview in batches, Gemini 2.5 Flash photos and ElevenLabs audio pre-approved, no per-lesson gates, reviewed in Preview. Four new photos show a sister and a brother behind their own birthday cakes, with number candles from A1 3.5's range: 14 and 11, 15 and 13, 12 and 15, 11 and 15. Each sentence is true of one photo only. These photos never go in a four-picture card, because the candle numbers are small at that size; A1 3.5's one-child age photos carry the How old …? retrieval and the four-picture card. Nobody in the photos speaks: the teacher asks and the co-teacher answers.",
+  "target": "backend/lessons/a1_plus/unit_3/a1plus-unit-3-lesson-3-5.yaml",
+  "captions": false,
+  "narrators": [
+    "teacher",
+    "co-teacher"
+  ],
+  "answer_audio_policy": "authored-only",
+  "speak_delivery": "a1-pronunciation-v1",
+  "lesson": {
+    "id": "a1plus-unit-3-lesson-3-5",
+    "title": "3.5 Three years older",
+    "level": "A1+",
+    "unit_id": "a1plus-unit-3",
+    "unit_title": "Meeting people and talking about them",
+    "unit_outcome": "Introduce people and answer introductions, use the short forms of be, answer yes/no questions in short, compare ages, talk about languages, nationalities and jobs, describe people, say whose things are, give an address and say what you want to be.",
+    "lesson_id": "a1plus-unit-3-lesson-3-5",
+    "lesson_title": "Three years older",
+    "sub_lesson_id": "3.5",
+    "sub_lesson_title": "Three years older",
+    "goal": "Say how much older or younger someone is (She's three years older than him. / He's three years younger than her.).",
+    "vocabulary": [
+      "years older than",
+      "years younger than"
+    ],
+    "review_vocabulary": [
+      "older",
+      "younger",
+      "than",
+      "him",
+      "her",
+      "he's",
+      "she's",
+      "how old",
+      "two",
+      "three",
+      "four",
+      "eleven",
+      "twelve",
+      "thirteen",
+      "fourteen",
+      "fifteen"
+    ],
+    "grammar_function": "A follow-up of A1 3.5 Ages 11-15: A1 asks How old are you? and answers with a number of years old; A1+ 3.5 compares two ages. The one new grammar relationship is a number of years before A1+ 2.11's comparative (She's three years older than him. / He's three years younger than her.), taught against the comparative alone (She's older than him.). Each photo shows a sister and a brother, each behind a birthday cake with number candles, so the difference can be counted. The pronoun after than is A1+ 1.11's him or her.",
+    "prerequisite": "A1 3.5 How old …? and eleven to fifteen; A1 2.6 two to four; A1+ 1.5 older and younger; A1+ 1.11 him and her; A1+ 2.11 older than and younger than; A1+ 3.3 he's and she's.",
+    "speaking_outcome": "Say years with a clear y and a final z sound; keep older than and younger than as one group, with than unstressed. Do not require native-like speed.",
+    "content_revision": 1,
+    "learn_context_groups": [
+      {
+        "kind": "contrast",
+        "targets": [
+          "years older than"
+        ],
+        "models": [
+          {
+            "slide_id": "L1",
+            "text": "She's older than him. She's three years older than him.",
+            "turns": [
+              "She's older than him.",
+              "She's three years older than him."
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "contrast",
+        "targets": [
+          "years younger than"
+        ],
+        "models": [
+          {
+            "slide_id": "L2",
+            "text": "He's younger than her. He's three years younger than her.",
+            "turns": [
+              "He's younger than her.",
+              "He's three years younger than her."
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "exchange",
+        "targets": [
+          "years older than"
+        ],
+        "models": [
+          {
+            "slide_id": "L3",
+            "text": "How old is he? He's fifteen. He's two years older than her.",
+            "turns": [
+              "How old is he?",
+              "He's fifteen. He's two years older than her."
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "exchange",
+        "targets": [
+          "years younger than"
+        ],
+        "models": [
+          {
+            "slide_id": "L4",
+            "text": "How old is he? He's eleven. He's four years younger than her.",
+            "turns": [
+              "How old is he?",
+              "He's eleven. He's four years younger than her."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "items": [
+    {
+      "id": "l-older",
+      "text": "She's older than him. She's three years older than him.",
+      "es": "Ella es mayor que él. Ella es tres años mayor que él.",
+      "image": "/lesson-assets/a1plus-unit-3-a01-368a3bbf16036971.webp",
+      "kind": "contrast",
+      "choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "She's older than him.",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-3-a01-368a3bbf16036971.webp"
+        },
+        {
+          "text": "She's three years older than him.",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-3-a01-368a3bbf16036971.webp"
+        }
+      ]
+    },
+    {
+      "id": "l-younger",
+      "text": "He's younger than her. He's three years younger than her.",
+      "es": "Él es menor que ella. Él es tres años menor que ella.",
+      "image": "/lesson-assets/a1plus-unit-3-a01-368a3bbf16036971.webp",
+      "kind": "contrast",
+      "choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "He's younger than her.",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-3-a01-368a3bbf16036971.webp"
+        },
+        {
+          "text": "He's three years younger than her.",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-3-a01-368a3bbf16036971.webp"
+        }
+      ]
+    },
+    {
+      "id": "l-how-older",
+      "text": "How old is he? He's fifteen. He's two years older than her.",
+      "es": "¿Cuántos años tiene? Tiene quince. Es dos años mayor que ella.",
+      "image": "/lesson-assets/a1plus-unit-3-a02-0e682c061ffcb4f6.webp",
+      "kind": "exchange",
+      "choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "How old is he?",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-3-a02-0e682c061ffcb4f6.webp"
+        },
+        {
+          "text": "He's fifteen. He's two years older than her.",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-3-a02-0e682c061ffcb4f6.webp"
+        }
+      ]
+    },
+    {
+      "id": "l-how-younger",
+      "text": "How old is he? He's eleven. He's four years younger than her.",
+      "es": "¿Cuántos años tiene? Tiene once. Es cuatro años menor que ella.",
+      "image": "/lesson-assets/a1plus-unit-3-a04-09787bbdbc3439c9.webp",
+      "kind": "exchange",
+      "choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "How old is he?",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-3-a04-09787bbdbc3439c9.webp"
+        },
+        {
+          "text": "He's eleven. He's four years younger than her.",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-3-a04-09787bbdbc3439c9.webp"
+        }
+      ]
+    },
+    {
+      "id": "c1",
+      "text": "She's three years older than him.",
+      "es": "Ella es tres años mayor que él.",
+      "image": "/lesson-assets/a1plus-unit-3-a01-368a3bbf16036971.webp",
+      "kind": "compare",
+      "four_card": false,
+      "prefer": [
+        "She's two years older than him.",
+        "She's three years younger than him."
+      ],
+      "blanks": [
+        "years",
+        "older"
+      ],
+      "learn": false
+    },
+    {
+      "id": "c2",
+      "text": "He's three years younger than her.",
+      "es": "Él es tres años menor que ella.",
+      "image": "/lesson-assets/a1plus-unit-3-a01-368a3bbf16036971.webp",
+      "kind": "compare",
+      "four_card": false,
+      "prefer": [
+        "He's two years younger than her.",
+        "He's three years older than her."
+      ],
+      "blanks": [
+        "years",
+        "younger"
+      ],
+      "learn": false
+    },
+    {
+      "id": "c3",
+      "text": "He's two years older than her.",
+      "es": "Él es dos años mayor que ella.",
+      "image": "/lesson-assets/a1plus-unit-3-a02-0e682c061ffcb4f6.webp",
+      "kind": "compare",
+      "four_card": false,
+      "prefer": [
+        "He's three years older than her.",
+        "He's two years younger than her."
+      ],
+      "blanks": [
+        "years",
+        "older"
+      ],
+      "learn": false
+    },
+    {
+      "id": "c4",
+      "text": "She's two years younger than him.",
+      "es": "Ella es dos años menor que él.",
+      "image": "/lesson-assets/a1plus-unit-3-a02-0e682c061ffcb4f6.webp",
+      "kind": "compare",
+      "four_card": false,
+      "prefer": [
+        "She's three years younger than him.",
+        "She's two years older than him."
+      ],
+      "blanks": [
+        "years",
+        "younger"
+      ],
+      "learn": false
+    },
+    {
+      "id": "c5",
+      "text": "He's three years older than her.",
+      "es": "Él es tres años mayor que ella.",
+      "image": "/lesson-assets/a1plus-unit-3-a03-5fb833d81291a64e.webp",
+      "kind": "compare",
+      "four_card": false,
+      "prefer": [
+        "He's two years older than her.",
+        "He's three years younger than her."
+      ],
+      "blanks": [
+        "years",
+        "older"
+      ],
+      "learn": false
+    },
+    {
+      "id": "c6",
+      "text": "She's three years younger than him.",
+      "es": "Ella es tres años menor que él.",
+      "image": "/lesson-assets/a1plus-unit-3-a03-5fb833d81291a64e.webp",
+      "kind": "compare",
+      "four_card": false,
+      "prefer": [
+        "She's two years younger than him.",
+        "She's three years older than him."
+      ],
+      "blanks": [
+        "years",
+        "younger"
+      ],
+      "learn": false
+    },
+    {
+      "id": "c7",
+      "text": "She's four years older than him.",
+      "es": "Ella es cuatro años mayor que él.",
+      "image": "/lesson-assets/a1plus-unit-3-a04-09787bbdbc3439c9.webp",
+      "kind": "compare",
+      "four_card": false,
+      "prefer": [
+        "She's three years older than him.",
+        "She's four years younger than him."
+      ],
+      "blanks": [
+        "years",
+        "older"
+      ],
+      "learn": false
+    },
+    {
+      "id": "c8",
+      "text": "He's four years younger than her.",
+      "es": "Él es cuatro años menor que ella.",
+      "image": "/lesson-assets/a1plus-unit-3-a04-09787bbdbc3439c9.webp",
+      "kind": "compare",
+      "four_card": false,
+      "prefer": [
+        "He's three years younger than her.",
+        "He's four years older than her."
+      ],
+      "blanks": [
+        "years",
+        "younger"
+      ],
+      "learn": false
+    },
+    {
+      "id": "y11",
+      "text": "He's eleven.",
+      "es": "Tiene once años.",
+      "image": "/lesson-assets/a1_photo_u3_age_11_boy_v1.webp",
+      "kind": "age",
+      "speaker": "co-teacher",
+      "question": "How old is he?",
+      "question_es": "¿Cuántos años tiene él?",
+      "question_speaker": "teacher",
+      "use": false,
+      "learn": false
+    },
+    {
+      "id": "y12",
+      "text": "She's twelve.",
+      "es": "Tiene doce años.",
+      "image": "/lesson-assets/a1_photo_u3_age_12_girl_v1.webp",
+      "kind": "age",
+      "speaker": "co-teacher",
+      "question": "How old is she?",
+      "question_es": "¿Cuántos años tiene ella?",
+      "question_speaker": "teacher",
+      "use": false,
+      "learn": false
+    },
+    {
+      "id": "y13",
+      "text": "He's thirteen.",
+      "es": "Tiene trece años.",
+      "image": "/lesson-assets/a1_photo_u3_age_13_boy_v1.webp",
+      "kind": "age",
+      "speaker": "co-teacher",
+      "question": "How old is he?",
+      "question_es": "¿Cuántos años tiene él?",
+      "question_speaker": "teacher",
+      "use": false,
+      "learn": false
+    },
+    {
+      "id": "y14",
+      "text": "She's fourteen.",
+      "es": "Tiene catorce años.",
+      "image": "/lesson-assets/a1_photo_u3_age_14_girl_v1.webp",
+      "kind": "age",
+      "speaker": "co-teacher",
+      "question": "How old is she?",
+      "question_es": "¿Cuántos años tiene ella?",
+      "question_speaker": "teacher",
+      "use": false,
+      "learn": false
+    },
+    {
+      "id": "y15",
+      "text": "He's fifteen.",
+      "es": "Tiene quince años.",
+      "image": "/lesson-assets/a1_photo_u3_age_15_boy_v1.webp",
+      "kind": "age",
+      "speaker": "co-teacher",
+      "question": "How old is he?",
+      "question_es": "¿Cuántos años tiene él?",
+      "question_speaker": "teacher",
+      "use": false,
+      "learn": false
+    },
+    {
+      "id": "q-how",
+      "text": "How old is she?",
+      "es": "¿Cuántos años tiene ella?",
+      "image": "/lesson-assets/a1plus-unit-3-a01-368a3bbf16036971.webp",
+      "kind": "question",
+      "speaker": "teacher",
+      "choices": false,
+      "use": false,
+      "learn": false
+    }
+  ],
+  "pool": [
+    {
+      "text": "She's two years older than him.",
+      "es": "Ella es dos años mayor que él.",
+      "image": "/lesson-assets/a1plus-unit-3-a01-368a3bbf16036971.webp",
+      "kind": "compare",
+      "image_choices": false
+    },
+    {
+      "text": "He's two years younger than her.",
+      "es": "Él es dos años menor que ella.",
+      "image": "/lesson-assets/a1plus-unit-3-a01-368a3bbf16036971.webp",
+      "kind": "compare",
+      "image_choices": false
+    },
+    {
+      "text": "She's four years younger than him.",
+      "es": "Ella es cuatro años menor que él.",
+      "image": "/lesson-assets/a1plus-unit-3-a04-09787bbdbc3439c9.webp",
+      "kind": "compare",
+      "image_choices": false
+    },
+    {
+      "text": "He's four years older than her.",
+      "es": "Él es cuatro años mayor que ella.",
+      "image": "/lesson-assets/a1plus-unit-3-a04-09787bbdbc3439c9.webp",
+      "kind": "compare",
+      "image_choices": false
+    }
+  ],
+  "layout": {
+    "Recognize": 10,
+    "Listen": 10,
+    "Speak": 8,
+    "Use": 8
+  },
+  "stage_sequences": {
+    "Learn": [
+      "l-older",
+      "l-younger",
+      "l-how-older",
+      "l-how-younger"
+    ],
+    "Recognize": [
+      "c1",
+      "y14",
+      "c5",
+      "c2",
+      "y11",
+      "c6",
+      "c7",
+      "c3",
+      "y13",
+      "c8"
+    ],
+    "Listen": [
+      "c4",
+      "y12",
+      "c1",
+      "c8",
+      "y15",
+      "c5",
+      "c2",
+      "y14",
+      "c7",
+      "c6"
+    ],
+    "Speak": [
+      "c1",
+      "c3",
+      "q-how",
+      "c2",
+      "c5",
+      "y14",
+      "c7",
+      "c8"
+    ],
+    "Use": [
+      "c1",
+      "c2",
+      "c3",
+      "c4",
+      "c5",
+      "c6",
+      "c7",
+      "c8"
+    ]
+  }
+}
