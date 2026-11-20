@@ -12,7 +12,10 @@ const scApi = {};
 const teaching = {};
 const german = {};
 vm.runInNewContext(ts.transpileModule(fs.readFileSync(new URL('../src/germanTeaching.ts', import.meta.url), 'utf8'), { compilerOptions: { module: ts.ModuleKind.CommonJS } }).outputText, { exports: german });
-vm.runInNewContext(ts.transpileModule(fs.readFileSync(new URL('../src/constructionTeaching.ts', import.meta.url), 'utf8'), { compilerOptions: { module: ts.ModuleKind.CommonJS } }).outputText, { exports: teaching, require: id => { assert.equal(id, './germanTeaching'); return german; } });
+const spanish = {};
+vm.runInNewContext(ts.transpileModule(fs.readFileSync(new URL('../src/spanishTeaching.ts', import.meta.url), 'utf8'), { compilerOptions: { module: ts.ModuleKind.CommonJS } }).outputText, { exports: spanish });
+const courseTeachers = { './germanTeaching': german, './spanishTeaching': spanish };
+vm.runInNewContext(ts.transpileModule(fs.readFileSync(new URL('../src/constructionTeaching.ts', import.meta.url), 'utf8'), { compilerOptions: { module: ts.ModuleKind.CommonJS } }).outputText, { exports: teaching, require: id => { assert.ok(id in courseTeachers, id); return courseTeachers[id]; } });
 vm.runInNewContext(scCompiled, { exports: scApi, require: id => { assert.equal(id, './constructionTeaching'); return teaching; } });
 const { sentenceLayout } = scApi;
 
