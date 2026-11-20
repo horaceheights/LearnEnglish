@@ -13,15 +13,18 @@ const ARTICLES = set('der die das ein eine');
 const NOUNS = set('junge mädchen mann frau');
 // German 1.5-1.6: family nouns. Plurals can follow sind without an article.
 for (const noun of 'familie baby babys kind kinder bruder brüder schwester schwestern erwachsenen'.split(' ')) NOUNS.add(noun);
-const BARE_PLURALS = set('babys kinder brüder schwestern');
+// German 1.7-1.12: parents and grandparents, pets, friends and people.
+for (const noun of 'vater mutter eltern großvater großmutter großeltern enkelkinder hund katze vogel kaninchen haustier haustiere freundin freundinnen ehemann ehefrau sohn tochter person leute'.split(' ')) NOUNS.add(noun);
+const BARE_PLURALS = set('babys kinder brüder schwestern haustiere freundinnen');
 // Words that describe the person after ist/sind, with no article.
 const DESCRIPTIONS = set('erwachsen');
 const PRONOUNS = set('er sie');
-const VERBS = set('ist sind isst trinkt liest schreibt essen lesen schreiben rennt rennen sitzt sitzen schwimmt schwimmen schläft schlafen');
+const VERBS = set('ist sind isst trinkt liest schreibt essen lesen schreiben rennt rennen sitzt sitzen schwimmt schwimmen schläft schlafen spielt spielen lernt lernen arbeitet arbeiten kocht kochen redet reden frisst fressen');
 // One person against two: the verb ending is the only difference after sie.
 const NUMBER_PAIRS: Record<string, string> = {
   isst: 'essen', liest: 'lesen', schreibt: 'schreiben',
   rennt: 'rennen', sitzt: 'sitzen', schwimmt: 'schwimmen', schläft: 'schlafen', ist: 'sind',
+  spielt: 'spielen', lernt: 'lernen', arbeitet: 'arbeiten', kocht: 'kochen', redet: 'reden', frisst: 'fressen',
 };
 const quote = (text: string) => `“${text}”`;
 
@@ -45,6 +48,18 @@ function teachClause(text: string): ClausePlan {
   if (!tokens.length) return { explanations, relations, supported: false };
   let subject = '';
   const subjectStart = index;
+  if (key(tokens[0] || '') === 'wer') {
+    // German 1.10: Wer + ist/sind + er/sie asks who someone is.
+    const [wer = '', verb = '', pronoun = ''] = tokens;
+    if (tokens.length !== 3 || !['ist', 'sind'].includes(key(verb)) || !PRONOUNS.has(key(pronoun))) {
+      return { explanations, relations, supported: false };
+    }
+    explanations[0] = `${quote(wer)} means “who”, so it starts the question.`;
+    explanations[1] = `The verb comes second, right after ${quote(wer)}: ${quote(`${wer} ${verb}`)}.`;
+    explanations[2] = `${quote(pronoun)} is who you ask about, so it comes after ${quote(verb)}.`;
+    relations.push({ start: 0, end: 3, explanation: `A who-question: ${quote(wer)}, then the verb, then the person: ${quote(`${wer} ${verb} ${pronoun}`)}.` });
+    return { explanations, relations, supported: true };
+  }
   if (PRONOUNS.has(key(tokens[index]))) {
     subject = tokens[index];
     explanations[index] = `${quote(subject)} is who the sentence is about, so it comes first.`;
@@ -82,6 +97,19 @@ function teachClause(text: string): ClausePlan {
       }
       if (!complement) return { explanations, relations, supported: false };
       relations.push({ start: verbIndex, end: index, explanation: `After ${quote(verb)} comes what the person is: ${quote(complement)}.` });
+    } else if (key(tokens[index] || '') === 'und' && VERBS.has(key(tokens[index + 1] || ''))) {
+      // German 1.8: two actions, verb und verb.
+      const second = tokens[index + 1];
+      explanations[index] = `“und” joins the two actions ${quote(verb)} and ${quote(second)}.`;
+      explanations[index + 1] = `${quote(second)} is the second action, so it comes after “und”.`;
+      relations.push({ start: verbIndex, end: index + 2, explanation: `Two actions: ${quote(`${verb} und ${second}`)}.` });
+      index += 2;
+    }
+    if (key(tokens[index] || '') === 'nicht') {
+      // German 1.9: nicht goes after the verb, at the end of a short sentence.
+      explanations[index] = `${quote(tokens[index])} says the action is not happening; it goes after the verb ${quote(verb)}, at the end.`;
+      relations.push({ start: verbIndex, end: index + 1, explanation: `German puts “nicht” after the verb: ${quote(`${verb} ${tokens[index]}`)}.` });
+      index += 1;
     }
   }
   return { explanations, relations, supported: index === tokens.length && explanations.every(Boolean) };
