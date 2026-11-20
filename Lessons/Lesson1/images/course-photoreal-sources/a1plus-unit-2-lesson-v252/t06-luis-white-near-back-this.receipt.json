@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "f203e43f-c87a-42f3-9461-c8e5c676aa94",
+  "asset_id": "t06-luis-white-near-back-this",
+  "pack_sha256": "9a76c7aa52f3aef0b3be59c0c1c617da5359130967b4740a3c49967e0c4ed5f2",
+  "started_at": "2026-11-19T21:59:21.308861+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, numbers, logos or brand marks anywhere, not on signs, screens, clothes, bags, machines or vehicles. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos.\n\nOnly this one person is in the photo; there is nobody else, even far in the background.\n\nIt is clearly daytime with soft natural light.\n\nImage 1 shows Luis from behind in a courtyard, pointing down at a black bike against the far wall, with his left hand on the saddle of a white bike beside him. Keep everything exactly the same: his back, the back of his head (no face, no eyes), his body and legs, his left hand on the saddle, his clothes, the white bike, the black bike, the courtyard, the light and the camera position. Change only his right arm and his head: he no longer points; his right arm comes down and his right hand rests on the white bike's saddle next to his left hand, and he bends his head down and a little to the left to look at the white bike. Still only the back of his head shows.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/course-photoreal-sources/a1plus-unit-2-lesson-v252/staged/l02-luis-white-near-lowered-that.png",
+    "sha256": "ec6fcd289e0dc89fee37aad5a6dc47ddaf0a5d6f62ca1c8d08a6efb22045fccd"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "N3H_aoHuGInBqtsPuNSR-Qw",
+  "usage": {
+    "promptTokenCount": 576,
+    "candidatesTokenCount": 1277,
+    "totalTokenCount": 1999,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 318
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 146,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.136904",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 576,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 146
+  },
+  "elapsed_seconds": 22.23,
+  "output": "output/imagegen/a1plus-unit-2-lesson-v252/t06-luis-white-near-back-this.png",
+  "sha256": "a20501d6914e769eef961f3741ee5cf7f049b5a6a20c7f5e263a571d58999fcc",
+  "byte_count": 4517632,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

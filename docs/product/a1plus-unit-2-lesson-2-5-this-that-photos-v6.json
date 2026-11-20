@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "pack": "a1plus-unit-2-lesson-2-5-this-that-photos",
+  "revision": 6,
+  "output_namespace": "a1plus-unit-2-lesson-v252",
+  "authorization": "2026-11-19: the user approved the A1+ Unit 2 plan and chose \"Straight to Preview\" (media pre-approved, reviewed in Preview). Gemini is the approved image tool (2026-09-23), Flash only (2026-11-17). Later on 2026-11-19 the user found the first 2.5 photos unclear (\"the person is just looking at this one but person does not point at the other bag or item for that one. its just not clear\"), suggested \"maybe they need to be two image transitions?\" and approved the plan: a THIS/THAT pair per scene, the picture switching on *but*, side-on staging, and bikes instead of the cups. After the first render the user saw that the pointing photos point past the far things (\"they are pointing away from the things they are supposed to be pointing to\") and approved redoing them (\"Yes, redo them\"). Asked whether another image service was needed, the user chose to keep Gemini with a drawn guide and added: \"maybe just change the body postion abit towards the object too. do redo them all, just do one for testing\". After the guided Flash test (e23) the user said \"he is poinging parallel to the bike not towards the bike\", \"he needs to turn his body too\", \"his head\"; told that Flash keeps the edited photo's pose and that Pro is about US$0.14 a photo, the user answered \"Yes, test on Pro\" (one Luis test first; the user's 2026-11-17 Flash-only rule is lifted for this test).",
+  "image_settings": {
+    "provider": "google-gemini",
+    "model": "gemini-3-pro-image",
+    "aspect_ratio": "3:2",
+    "image_size": "2K",
+    "runtime_size": "1536x1024",
+    "runtime_format": "webp",
+    "n": 1
+  },
+  "supersedes": {
+    "pack": "docs/product/a1plus-unit-2-lesson-2-5-this-that-photos-v5.json",
+    "reason": "Flash kept the edited photo's pose: its guided test e23 left Luis pointing level, parallel to the black bike, with his body and head unturned. The THIS photos e01, e03, e05, e07 and e09 (v2, Flash) stay; the guides g01-g03 are those photos with the measured arm line drawn on."
+  },
+  "production": {
+    "price_per_image_usd": "0.134",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing (checked 2026-09-24 in the renderer)",
+    "planned_images": 3,
+    "expected_cost_usd": "0.41",
+    "requested_ceiling_usd": "0.60",
+    "ceiling_note": "Own namespace, so only Pro receipts count; the renderer reserves US$0.20 before each request.",
+    "no_automatic_retries": true,
+    "order": "Render p02 (Luis) alone as the user's test and show it; p01 and p03 only after the user accepts it. Check: no magenta anywhere, body and head turned to the far thing, the line from shoulder through fingertip lands near the middle of the far thing, five fingers, near thing still held, a gap before the far thing; inspect at 900/360/250/180 px. The colour swaps are then made with Flash from the installed accepted photos."
+  },
+  "shared_prompts": {
+    "photo": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, numbers, logos or brand marks anywhere, not on signs, screens, clothes, bags, machines or vehicles. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos.",
+    "solo": "Only this one person is in the photo; there is nobody else, even far in the background.",
+    "daytime": "It is clearly daytime with soft natural light.",
+    "near_far_scene": "The meaning of the photo is NEAR versus FAR. Exactly two things of the same kind are in the photo, and they differ only in color. The near one is with the person in the left part of the photo, large and sharp. The far one stands alone in the right third of the photo, clearly farther away, against a plain wall with nothing else around it; it is in focus and easy to recognize even on a small phone screen, and its center is about three quarters of the way across the photo, well clear of the right edge. The camera is at chest height and sees the whole scene from the side, so that the space between the person and the far thing runs from left to right across the photo: an arm pointed at the far thing would be seen side-on as a long line across the photo, never pointing toward the camera. The floor and wall between them are plain and empty. There is no mirror, no picture on the wall, no shelf of objects, and no third thing of that kind anywhere."
+  },
+  "assets": [
+    {
+      "id": "p01-ana-red-near-pro",
+      "order": 1,
+      "item": "That one is blue. / but that bag is blue. (turn 2)",
+      "shared": [
+        "photo",
+        "solo",
+        "daytime",
+        "near_far_scene"
+      ],
+      "prompt": "Image 1 is a photo of Ana with magenta guide marks drawn on it. Edit it into a clean, natural photograph of the same moment a second later, when Ana points at the blue bag. Keep exactly: Ana's face, identity, hair and clothes; the red bag in the same place, with the red bag on her shoulder and her other hand resting on it; the blue bag; the place, the light and the camera position. Change her pose in four ways. 1. She turns her body toward the blue bag: her chest and shoulders rotate to face the blue bag, on the right of the photo, as people do when they point at something, and her feet may turn with her body. 2. She turns her head and looks straight at the blue bag. 3. Her free arm (the one that is not on the red bag) is raised, straight, and lies exactly along the thick magenta guide line, from her shoulder down to the magenta dot, about 23 degrees below level. Her index fingertip is at the dot, and the finger continues the same line, along the dashed magenta marks, pointing at the middle of the blue bag, the other fingers curled. A straight line from her shoulder through her fingertip ends on the blue bag: not above it, not parallel to it, not on the ground in front of it. The fingertip stays far from the blue bag. 4. Remove every magenta mark: no magenta line, dash or dot remains anywhere, and the arm is natural skin and sleeve.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/course-photoreal-sources/a1plus-unit-2-lesson-v251/guides/g01-ana-guide.png",
+        "sha256": "b6c953338c4ed2e425bed0ac6288ba269e59febc7f4b42889c30a870b9aa0aff",
+        "observed_description": "e01 (Ana, red tote on her shoulder, hand on it; blue tote on the far chair) with a thick magenta arm guide from her far shoulder 23 degrees down toward the middle of the blue bag, ending at a dot, then a dashed line toward the bag."
+      }
+    },
+    {
+      "id": "p02-luis-white-near-pro",
+      "order": 2,
+      "item": "That one is black. / but that bike is black. (turn 2)",
+      "shared": [
+        "photo",
+        "solo",
+        "daytime",
+        "near_far_scene"
+      ],
+      "prompt": "Image 1 is a photo of Luis with magenta guide marks drawn on it. Edit it into a clean, natural photograph of the same moment a second later, when Luis points at the black bike. Keep exactly: Luis's face, identity, hair and clothes; the white bike in the same place, with his left hand still holding its saddle; the black bike; the place, the light and the camera position. Change his pose in four ways. 1. He turns his body toward the black bike: his chest and shoulders rotate to face the black bike, on the right of the photo, as people do when they point at something, and his feet may turn with his body. 2. He turns his head and looks straight at the black bike. 3. His right arm (the one whose hand was on the handlebar) is raised, straight, and lies exactly along the thick magenta guide line, from his shoulder down to the magenta dot, about 25 degrees below level. His index fingertip is at the dot, and the finger continues the same line, along the dashed magenta marks, pointing at the middle of the black bike, the other fingers curled. A straight line from his shoulder through his fingertip ends on the black bike: not above it, not parallel to it, not on the ground in front of it. The fingertip stays far from the black bike. 4. Remove every magenta mark: no magenta line, dash or dot remains anywhere, and the arm is natural skin and sleeve.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/course-photoreal-sources/a1plus-unit-2-lesson-v251/guides/g02-luis-guide.png",
+        "sha256": "4bf62ac04e7e12c2bdc9a32e6b27cb7b02a9ac82ed9ff7a32aaf8d20ebf5f4c8",
+        "observed_description": "e05 (Luis behind the white bike, hands on its saddle and handlebar; black bike against the far wall) with a thick magenta arm guide from his right shoulder 25 degrees down toward the middle of the black bike, ending at a dot, then a dashed line."
+      }
+    },
+    {
+      "id": "p03-diego-green-near-pro",
+      "order": 3,
+      "item": "That one is black. / but that chair is black. (turn 2)",
+      "shared": [
+        "photo",
+        "solo",
+        "daytime",
+        "near_far_scene"
+      ],
+      "prompt": "Image 1 is a photo of Diego with magenta guide marks drawn on it. Edit it into a clean, natural photograph of the same moment a second later, when Diego points at the black chair. Keep exactly: Diego's face, identity, hair and clothes; the green chair in the same place, with his other hand still on its backrest; the black chair; the place, the light and the camera position. Change his pose in four ways. 1. He turns his body toward the black chair: his chest and shoulders rotate to face the black chair, on the right of the photo, as people do when they point at something, and his feet may turn with his body. 2. He turns his head and looks straight at the black chair. 3. His arm nearer the black chair is raised, straight, and lies exactly along the thick magenta guide line, from his shoulder down to the magenta dot, about 27 degrees below level. His index fingertip is at the dot, and the finger continues the same line, along the dashed magenta marks, pointing at the middle of the black chair, the other fingers curled. A straight line from his shoulder through his fingertip ends on the black chair: not above it, not parallel to it, not on the ground in front of it. The fingertip stays far from the black chair. 4. Remove every magenta mark: no magenta line, dash or dot remains anywhere, and the arm is natural skin and sleeve.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/course-photoreal-sources/a1plus-unit-2-lesson-v251/guides/g03-diego-guide.png",
+        "sha256": "d8e0435bdf8d85520b5bb7b69bb407c5d56f686654f9d5997f4c72953b77b9c9",
+        "observed_description": "e09 (Diego with both hands on the green chair's backrest; black chair against the far wall) with a thick magenta arm guide from his right shoulder 27 degrees down toward the middle of the black chair, ending at a dot, then a dashed line."
+      }
+    }
+  ]
+}
