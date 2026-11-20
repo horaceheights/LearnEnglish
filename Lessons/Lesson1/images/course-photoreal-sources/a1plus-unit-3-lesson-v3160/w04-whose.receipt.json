@@ -1,0 +1,55 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "54233d26-fad9-44e4-988d-5062ca0270c4",
+  "asset_id": "w04-whose",
+  "pack_sha256": "3859b6705dc88098d985fdeca57157fb8790a8d95a2d2e7c0566446a33c194d9",
+  "started_at": "2026-11-20T22:04:30.803603+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, menus, screens, cups, clothes or bags.\n\nThe place is the big bright community room of an apartment building on the evening of a neighbors' international dinner: long tables with white tablecloths, warm string lights, plants and big windows.\n\nThere are no flags, banners or signs anywhere in the room.\n\nFour groups of guests stand across the room, each a little apart, each clearly holding their own thing, from left to right: a young man holding a guitar; a woman holding a big black camera up to show it; an older couple, a man and a woman, holding one big round birthday cake together between them; a teenage girl hugging three books to her chest. Each thing is big and obvious at a glance. Nobody else is in the photo.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "7MMAa_2tIsSfz7IP57LV0Q8",
+  "usage": {
+    "promptTokenCount": 277,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1567,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 277
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038783",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 277,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 6.7,
+  "output": "output/imagegen/a1plus-unit-3-lesson-v3160/w04-whose.png",
+  "sha256": "173e08a5978d5e02ea541c1ffdd3c469d2ff16e340ad1d82d8961b814d51e5b1",
+  "byte_count": 1589240,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}

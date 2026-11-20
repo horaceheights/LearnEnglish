@@ -1,0 +1,575 @@
+{
+  "brief_version": 1,
+  "follows": {
+    "course": "a1",
+    "lesson": "3.11",
+    "title": "Our and Their"
+  },
+  "note": "A1+ Unit 3 Lesson 3.11, built on 2026-11-20 under the A1+ lesson standards approved 2026-10-27 and the user's 2026-11-09 rule that every A1+ lesson follows up the A1 lesson with the same number. The user approved the A1+ Unit 3 map on 2026-11-20 (A1+ 3.Y follows A1 3.Y, one step each; A1 Unit 3 has sixteen lessons after the alphabet lessons were removed the same day) and asked for the Unit 2 deal: straight to Preview in batches, Gemini 2.5 Flash photos and ElevenLabs audio pre-approved, no per-lesson gates, reviewed in Preview. One new photo (Gemini 2.5 Flash): Sofia with a small red handbag and Luis with a big black travel bag, side by side. The cast's things come from A1+ 2.2-2.3 and their floors from 2.7; who owns a thing is always the person the picture shows with it.",
+  "target": "backend/lessons/a1_plus/unit_3/a1plus-unit-3-lesson-3-11.yaml",
+  "captions": false,
+  "narrators": [
+    "teacher",
+    "co-teacher"
+  ],
+  "answer_audio_policy": "authored-only",
+  "speak_delivery": "a1-pronunciation-v1",
+  "lesson": {
+    "id": "a1plus-unit-3-lesson-3-11",
+    "title": "3.11 Luis's bag is bigger",
+    "level": "A1+",
+    "unit_id": "a1plus-unit-3",
+    "unit_title": "Meeting people and talking about them",
+    "unit_outcome": "Introduce people and answer introductions, use the short forms of be, answer yes/no questions in short, compare ages, talk about languages, nationalities and jobs, describe people, say whose things are, give an address and say what you want to be.",
+    "lesson_id": "a1plus-unit-3-lesson-3-11",
+    "lesson_title": "Luis's bag is bigger",
+    "sub_lesson_id": "3.11",
+    "sub_lesson_title": "Luis's bag is bigger",
+    "goal": "Say whose thing it is with a name + 's (It's Ana's bike. / Luis's bag is bigger than Sofia's bag.).",
+    "vocabulary": [
+      "'s",
+      "Luis's"
+    ],
+    "review_vocabulary": [
+      "it's",
+      "they're",
+      "watch",
+      "wallet",
+      "camera",
+      "bike",
+      "car",
+      "headphones",
+      "bag",
+      "apartment",
+      "floor",
+      "sixth",
+      "seventh",
+      "eighth",
+      "ninth",
+      "bigger",
+      "smaller",
+      "than",
+      "but",
+      "black",
+      "red",
+      "her"
+    ],
+    "grammar_function": "A follow-up of A1 3.11 Our and Their: A1 says whose things are with our and their; A1+ 3.11 names the owner. The one new grammar relationship is a name + 's before the thing (Ana's bike, Luis's watch), taught against her (Her headphones are black. / Ana's headphones are black.). After a name that ends in an s sound, 's is spelled Luis's and said as one more syllable (LU-i-siz). The cast's things from A1+ 2.2-2.3 and their floors from A1+ 2.7 come back with 's (Ana's apartment is on the sixth floor.), and a new photo of Luis's big black bag and Sofia's small red bag brings back 2.11's bigger and smaller and 2.5's but.",
+    "prerequisite": "A1 3.10 his and her; A1 3.11 our and their; A1+ 2.2 bike and car; A1+ 2.3 watch, wallet, camera, headphones; A1+ 2.5 but; A1+ 2.7 floors; A1+ 2.11 bigger and smaller.",
+    "speaking_outcome": "Link 's to the name (AN-uhz, so-FEE-uhz); say Luis's with one more syllable (LU-i-siz). Do not require native-like speed.",
+    "content_revision": 1,
+    "learn_context_groups": [
+      {
+        "kind": "sequence",
+        "targets": [
+          "'s"
+        ],
+        "models": [
+          {
+            "slide_id": "L1",
+            "text": "It's Ana's bike."
+          }
+        ]
+      },
+      {
+        "kind": "sequence",
+        "targets": [
+          "Luis's"
+        ],
+        "models": [
+          {
+            "slide_id": "L2",
+            "text": "It's Luis's watch."
+          }
+        ]
+      },
+      {
+        "kind": "contrast",
+        "targets": [
+          "'s"
+        ],
+        "models": [
+          {
+            "slide_id": "L3",
+            "text": "Her headphones are black. Ana's headphones are black.",
+            "turns": [
+              "Her headphones are black.",
+              "Ana's headphones are black."
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "sequence",
+        "targets": [
+          "Luis's",
+          "'s"
+        ],
+        "models": [
+          {
+            "slide_id": "L4",
+            "text": "Luis's bag is bigger than Sofia's bag."
+          }
+        ]
+      }
+    ]
+  },
+  "items": [
+    {
+      "id": "l-ana",
+      "text": "It's Ana's bike.",
+      "es": "Es la bicicleta de Ana.",
+      "image": "/lesson-assets/a1plus-unit-2-r01-f09016e66cbd30a8.webp",
+      "kind": "sequence",
+      "choices": false,
+      "use": false,
+      "speaker": "teacher"
+    },
+    {
+      "id": "l-luis",
+      "text": "It's Luis's watch.",
+      "es": "Es el reloj de Luis.",
+      "image": "/lesson-assets/a1plus-unit-2-h01-9ecb67786559a2b0.webp",
+      "kind": "sequence",
+      "choices": false,
+      "use": false,
+      "speaker": "co-teacher"
+    },
+    {
+      "id": "l-her",
+      "text": "Her headphones are black. Ana's headphones are black.",
+      "es": "Sus audífonos son negros. Los audífonos de Ana son negros.",
+      "image": "/lesson-assets/a1plus-unit-2-h03-21995d19a2c990df.webp",
+      "kind": "contrast",
+      "choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "Her headphones are black.",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-2-h03-21995d19a2c990df.webp"
+        },
+        {
+          "text": "Ana's headphones are black.",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-2-h03-21995d19a2c990df.webp"
+        }
+      ]
+    },
+    {
+      "id": "l-bags",
+      "text": "Luis's bag is bigger than Sofia's bag.",
+      "es": "La bolsa de Luis es más grande que la bolsa de Sofía.",
+      "image": "/lesson-assets/a1plus-unit-3-n01-e16cb59a9db980a1.webp",
+      "kind": "sequence",
+      "choices": false,
+      "use": false,
+      "speaker": "teacher"
+    },
+    {
+      "id": "t-watch",
+      "text": "It's Luis's watch.",
+      "es": "Es el reloj de Luis.",
+      "image": "/lesson-assets/a1plus-unit-2-h01-9ecb67786559a2b0.webp",
+      "kind": "thing",
+      "accepts": {
+        "subject-variety": "The bank keeps the thing and changes only its owner; the picture shows whose it is.",
+        "action-variety": "The bank keeps the thing and changes only its owner; the picture shows whose it is.",
+        "conversational-response": "The bank keeps the thing and changes only its owner; the picture shows whose it is.",
+        "reading-load": "The bank keeps the thing and changes only its owner; the picture shows whose it is."
+      },
+      "prefer": [
+        "It's Diego's watch."
+      ],
+      "blanks": [
+        "Luis's",
+        "watch"
+      ],
+      "learn": false
+    },
+    {
+      "id": "t-wallet",
+      "text": "It's Diego's wallet.",
+      "es": "Es la cartera de Diego.",
+      "image": "/lesson-assets/a1plus-unit-2-h02-84caaeda1eaf7f4f.webp",
+      "kind": "thing",
+      "accepts": {
+        "subject-variety": "The bank keeps the thing and changes only its owner; the picture shows whose it is.",
+        "action-variety": "The bank keeps the thing and changes only its owner; the picture shows whose it is.",
+        "conversational-response": "The bank keeps the thing and changes only its owner; the picture shows whose it is.",
+        "reading-load": "The bank keeps the thing and changes only its owner; the picture shows whose it is."
+      },
+      "prefer": [
+        "It's Luis's wallet."
+      ],
+      "blanks": [
+        "Diego's",
+        "wallet"
+      ],
+      "learn": false
+    },
+    {
+      "id": "t-camera",
+      "text": "It's Sofia's camera.",
+      "es": "Es la cámara de Sofía.",
+      "image": "/lesson-assets/a1plus-unit-2-h04-c7fb5877da8d06c5.webp",
+      "kind": "thing",
+      "accepts": {
+        "subject-variety": "The bank keeps the thing and changes only its owner; the picture shows whose it is.",
+        "action-variety": "The bank keeps the thing and changes only its owner; the picture shows whose it is.",
+        "conversational-response": "The bank keeps the thing and changes only its owner; the picture shows whose it is.",
+        "reading-load": "The bank keeps the thing and changes only its owner; the picture shows whose it is."
+      },
+      "prefer": [
+        "It's Ana's camera."
+      ],
+      "blanks": [
+        "Sofia's",
+        "camera"
+      ],
+      "learn": false
+    },
+    {
+      "id": "t-bike",
+      "text": "It's Ana's bike.",
+      "es": "Es la bicicleta de Ana.",
+      "image": "/lesson-assets/a1plus-unit-2-r01-f09016e66cbd30a8.webp",
+      "kind": "thing",
+      "accepts": {
+        "subject-variety": "The bank keeps the thing and changes only its owner; the picture shows whose it is.",
+        "action-variety": "The bank keeps the thing and changes only its owner; the picture shows whose it is.",
+        "conversational-response": "The bank keeps the thing and changes only its owner; the picture shows whose it is.",
+        "reading-load": "The bank keeps the thing and changes only its owner; the picture shows whose it is."
+      },
+      "prefer": [
+        "It's Sofia's bike."
+      ],
+      "blanks": [
+        "Ana's",
+        "bike"
+      ],
+      "learn": false
+    },
+    {
+      "id": "t-car",
+      "text": "It's Luis's car.",
+      "es": "Es el carro de Luis.",
+      "image": "/lesson-assets/a1plus-unit-2-r03-25906e003b1ad6b1.webp",
+      "kind": "thing",
+      "accepts": {
+        "subject-variety": "The bank keeps the thing and changes only its owner; the picture shows whose it is.",
+        "action-variety": "The bank keeps the thing and changes only its owner; the picture shows whose it is.",
+        "conversational-response": "The bank keeps the thing and changes only its owner; the picture shows whose it is.",
+        "reading-load": "The bank keeps the thing and changes only its owner; the picture shows whose it is."
+      },
+      "prefer": [
+        "It's Diego's car."
+      ],
+      "blanks": [
+        "Luis's",
+        "car"
+      ],
+      "learn": false
+    },
+    {
+      "id": "t-phones",
+      "text": "They're Ana's headphones.",
+      "es": "Son los audífonos de Ana.",
+      "image": "/lesson-assets/a1plus-unit-2-h03-21995d19a2c990df.webp",
+      "kind": "things",
+      "image_choices": false,
+      "accepts": {
+        "subject-variety": "The bank keeps the thing and changes only its owner; the picture shows whose it is.",
+        "action-variety": "The bank keeps the thing and changes only its owner; the picture shows whose it is.",
+        "conversational-response": "The bank keeps the thing and changes only its owner; the picture shows whose it is.",
+        "reading-load": "The bank keeps the thing and changes only its owner; the picture shows whose it is."
+      },
+      "prefer": [
+        "They're Sofia's headphones.",
+        "They're Luis's headphones."
+      ],
+      "blanks": [
+        "Ana's",
+        "headphones"
+      ],
+      "learn": false
+    },
+    {
+      "id": "f-ana",
+      "text": "Ana's apartment is on the sixth floor.",
+      "es": "El departamento de Ana está en el sexto piso.",
+      "image": "/lesson-assets/a1plus-unit-2-f06-2565f804540d9d4d.webp",
+      "kind": "floor",
+      "accepts": {
+        "subject-variety": "The bank keeps the owner's apartment and changes only the floor the picture shows.",
+        "action-variety": "The bank keeps the owner's apartment and changes only the floor the picture shows.",
+        "conversational-response": "The bank keeps the owner's apartment and changes only the floor the picture shows.",
+        "reading-load": "The bank keeps the owner's apartment and changes only the floor the picture shows."
+      },
+      "four_card": false,
+      "blanks": [
+        "Ana's",
+        "apartment"
+      ],
+      "learn": false
+    },
+    {
+      "id": "f-diego",
+      "text": "Diego's apartment is on the seventh floor.",
+      "es": "El departamento de Diego está en el séptimo piso.",
+      "image": "/lesson-assets/a1plus-unit-2-f07-4a03310ba0206784.webp",
+      "kind": "floor",
+      "accepts": {
+        "subject-variety": "The bank keeps the owner's apartment and changes only the floor the picture shows.",
+        "action-variety": "The bank keeps the owner's apartment and changes only the floor the picture shows.",
+        "conversational-response": "The bank keeps the owner's apartment and changes only the floor the picture shows.",
+        "reading-load": "The bank keeps the owner's apartment and changes only the floor the picture shows."
+      },
+      "four_card": false,
+      "blanks": [
+        "Diego's",
+        "apartment"
+      ],
+      "learn": false
+    },
+    {
+      "id": "f-luis",
+      "text": "Luis's apartment is on the eighth floor.",
+      "es": "El departamento de Luis está en el octavo piso.",
+      "image": "/lesson-assets/a1plus-unit-2-f08-1ceca4d4945563be.webp",
+      "kind": "floor",
+      "accepts": {
+        "subject-variety": "The bank keeps the owner's apartment and changes only the floor the picture shows.",
+        "action-variety": "The bank keeps the owner's apartment and changes only the floor the picture shows.",
+        "conversational-response": "The bank keeps the owner's apartment and changes only the floor the picture shows.",
+        "reading-load": "The bank keeps the owner's apartment and changes only the floor the picture shows."
+      },
+      "four_card": false,
+      "blanks": [
+        "Luis's",
+        "apartment"
+      ],
+      "learn": false
+    },
+    {
+      "id": "f-sofia",
+      "text": "Sofia's apartment is on the ninth floor.",
+      "es": "El departamento de Sofía está en el noveno piso.",
+      "image": "/lesson-assets/a1plus-unit-2-f09-d011daa457df1b6d.webp",
+      "kind": "floor",
+      "accepts": {
+        "subject-variety": "The bank keeps the owner's apartment and changes only the floor the picture shows.",
+        "action-variety": "The bank keeps the owner's apartment and changes only the floor the picture shows.",
+        "conversational-response": "The bank keeps the owner's apartment and changes only the floor the picture shows.",
+        "reading-load": "The bank keeps the owner's apartment and changes only the floor the picture shows."
+      },
+      "four_card": false,
+      "blanks": [
+        "Sofia's",
+        "apartment"
+      ],
+      "learn": false
+    },
+    {
+      "id": "b-bigger",
+      "text": "Luis's bag is bigger than Sofia's bag.",
+      "es": "La bolsa de Luis es más grande que la bolsa de Sofía.",
+      "image": "/lesson-assets/a1plus-unit-3-n01-e16cb59a9db980a1.webp",
+      "kind": "size",
+      "image_choices": false,
+      "accepts": {
+        "subject-variety": "The bank keeps both owners and changes only the comparison the picture shows.",
+        "action-variety": "The bank keeps both owners and changes only the comparison the picture shows.",
+        "conversational-response": "The bank keeps both owners and changes only the comparison the picture shows.",
+        "reading-load": "The bank keeps both owners and changes only the comparison the picture shows."
+      },
+      "prefer": [
+        "Luis's bag is smaller than Sofia's bag."
+      ],
+      "blanks": [
+        "is",
+        "bigger"
+      ],
+      "learn": false
+    },
+    {
+      "id": "b-smaller",
+      "text": "Sofia's bag is smaller than Luis's bag.",
+      "es": "La bolsa de Sofía es más pequeña que la bolsa de Luis.",
+      "image": "/lesson-assets/a1plus-unit-3-n01-e16cb59a9db980a1.webp",
+      "kind": "size",
+      "image_choices": false,
+      "accepts": {
+        "subject-variety": "The bank keeps both owners and changes only the comparison the picture shows.",
+        "action-variety": "The bank keeps both owners and changes only the comparison the picture shows.",
+        "conversational-response": "The bank keeps both owners and changes only the comparison the picture shows.",
+        "reading-load": "The bank keeps both owners and changes only the comparison the picture shows."
+      },
+      "prefer": [
+        "Sofia's bag is bigger than Luis's bag."
+      ],
+      "blanks": [
+        "is",
+        "smaller"
+      ],
+      "learn": false
+    },
+    {
+      "id": "b-but",
+      "text": "Luis's bag is black, but Sofia's bag is red.",
+      "es": "La bolsa de Luis es negra, pero la bolsa de Sofía es roja.",
+      "image": "/lesson-assets/a1plus-unit-3-n01-e16cb59a9db980a1.webp",
+      "kind": "colors",
+      "image_choices": false,
+      "use": false,
+      "accepts": {
+        "subject-variety": "The bank keeps both owners and changes only the comparison the picture shows.",
+        "action-variety": "The bank keeps both owners and changes only the comparison the picture shows.",
+        "conversational-response": "The bank keeps both owners and changes only the comparison the picture shows.",
+        "reading-load": "The bank keeps both owners and changes only the comparison the picture shows."
+      },
+      "prefer": [
+        "Luis's bag is black, but Sofia's bag is blue.",
+        "Luis's bag is blue, but Sofia's bag is red."
+      ],
+      "learn": false
+    }
+  ],
+  "pool": [
+    {
+      "text": "It's Diego's watch.",
+      "es": "Es el reloj de Diego.",
+      "image": "/lesson-assets/a1plus-unit-2-h01-9ecb67786559a2b0.webp",
+      "kind": "thing",
+      "image_choices": false
+    },
+    {
+      "text": "It's Luis's wallet.",
+      "es": "Es la cartera de Luis.",
+      "image": "/lesson-assets/a1plus-unit-2-h02-84caaeda1eaf7f4f.webp",
+      "kind": "thing",
+      "image_choices": false
+    },
+    {
+      "text": "It's Ana's camera.",
+      "es": "Es la cámara de Ana.",
+      "image": "/lesson-assets/a1plus-unit-2-h04-c7fb5877da8d06c5.webp",
+      "kind": "thing",
+      "image_choices": false
+    },
+    {
+      "text": "It's Sofia's bike.",
+      "es": "Es la bicicleta de Sofía.",
+      "image": "/lesson-assets/a1plus-unit-2-r01-f09016e66cbd30a8.webp",
+      "kind": "thing",
+      "image_choices": false
+    },
+    {
+      "text": "It's Diego's car.",
+      "es": "Es el carro de Diego.",
+      "image": "/lesson-assets/a1plus-unit-2-r03-25906e003b1ad6b1.webp",
+      "kind": "thing",
+      "image_choices": false
+    },
+    {
+      "text": "They're Sofia's headphones.",
+      "es": "Son los audífonos de Sofía.",
+      "image": "/lesson-assets/a1plus-unit-2-h03-21995d19a2c990df.webp",
+      "kind": "things",
+      "image_choices": false
+    },
+    {
+      "text": "They're Luis's headphones.",
+      "es": "Son los audífonos de Luis.",
+      "image": "/lesson-assets/a1plus-unit-2-h03-21995d19a2c990df.webp",
+      "kind": "things",
+      "image_choices": false
+    },
+    {
+      "text": "Luis's bag is smaller than Sofia's bag.",
+      "es": "La bolsa de Luis es más pequeña que la bolsa de Sofía.",
+      "image": "/lesson-assets/a1plus-unit-3-n01-e16cb59a9db980a1.webp",
+      "kind": "size",
+      "image_choices": false
+    },
+    {
+      "text": "Sofia's bag is bigger than Luis's bag.",
+      "es": "La bolsa de Sofía es más grande que la bolsa de Luis.",
+      "image": "/lesson-assets/a1plus-unit-3-n01-e16cb59a9db980a1.webp",
+      "kind": "size",
+      "image_choices": false
+    },
+    {
+      "text": "Luis's bag is black, but Sofia's bag is blue.",
+      "es": "La bolsa de Luis es negra, pero la de Sofía es azul.",
+      "image": "/lesson-assets/a1plus-unit-3-n01-e16cb59a9db980a1.webp",
+      "kind": "colors",
+      "image_choices": false
+    },
+    {
+      "text": "Luis's bag is blue, but Sofia's bag is red.",
+      "es": "La bolsa de Luis es azul, pero la de Sofía es roja.",
+      "image": "/lesson-assets/a1plus-unit-3-n01-e16cb59a9db980a1.webp",
+      "kind": "colors",
+      "image_choices": false
+    }
+  ],
+  "layout": {
+    "Recognize": 10,
+    "Listen": 10,
+    "Speak": 8,
+    "Use": 8
+  },
+  "stage_sequences": {
+    "Learn": [
+      "l-ana",
+      "l-luis",
+      "l-her",
+      "l-bags"
+    ],
+    "Recognize": [
+      "t-watch",
+      "t-phones",
+      "f-ana",
+      "b-bigger",
+      "t-camera",
+      "t-wallet",
+      "f-luis",
+      "b-but",
+      "t-car",
+      "f-sofia"
+    ],
+    "Listen": [
+      "t-wallet",
+      "f-diego",
+      "t-phones",
+      "t-bike",
+      "b-smaller",
+      "t-watch",
+      "f-luis",
+      "b-but",
+      "t-camera",
+      "f-ana"
+    ],
+    "Speak": [
+      "t-watch",
+      "t-phones",
+      "f-diego",
+      "b-bigger",
+      "t-camera",
+      "b-but",
+      "f-luis",
+      "b-smaller"
+    ],
+    "Use": [
+      "t-watch",
+      "t-camera",
+      "t-wallet",
+      "f-sofia",
+      "b-bigger",
+      "t-bike",
+      "f-ana",
+      "b-smaller"
+    ]
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "5b2fdd7a-8915-43cf-bccc-20a881af4901",
+  "asset_id": "q03-diego-brother",
+  "pack_sha256": "3859b6705dc88098d985fdeca57157fb8790a8d95a2d2e7c0566446a33c194d9",
+  "started_at": "2026-11-20T22:05:22.592767+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, menus, screens, cups, clothes or bags.\n\nThe place is the big bright community room of an apartment building on the evening of a neighbors' international dinner: long tables with white tablecloths, warm string lights, plants and big windows.\n\nThere are no flags, banners or signs anywhere in the room.\n\nOnly these two people are in the photo; there is nobody else, even far in the background.\n\nImage 1 shows Diego (the man with the short full beard and dark curly hair with a little grey) and his brother. Keep both faces, hair, skin and builds exactly. Create a new photograph of the two brothers standing side by side by a dinner table: Diego, in his burgundy button shirt, smiles and rests one hand on his brother's shoulder to introduce him to someone just outside the right edge of the photo; the brother smiles shyly toward the same person. Only the two brothers are in the photo.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1plus-unit-1-g07-a86a53af0604c407.webp",
+    "sha256": "a86a53af0604c407c82d1b48964bece550a3c50a50d1c9925fb240b69111f843"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "IMQAa72xJouLqtsP48zj6AM",
+  "usage": {
+    "promptTokenCount": 570,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1860,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 312
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038871",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 570,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 9.03,
+  "output": "output/imagegen/a1plus-unit-3-lesson-v3160/q03-diego-brother.png",
+  "sha256": "3ec51eb7f0ae3bcc4a68b4d97c617b71970fe63be58db26041fa383082adff44",
+  "byte_count": 1493376,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}

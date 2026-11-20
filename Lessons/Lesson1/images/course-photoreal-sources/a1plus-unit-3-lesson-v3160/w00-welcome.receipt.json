@@ -1,0 +1,62 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "e09c4ce7-20f5-4c84-9635-24e0193563d0",
+  "asset_id": "w00-welcome",
+  "pack_sha256": "3859b6705dc88098d985fdeca57157fb8790a8d95a2d2e7c0566446a33c194d9",
+  "started_at": "2026-11-20T21:58:51.679370+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, menus, screens, cups, clothes or bags.\n\nThe place is the big bright community room of an apartment building on the evening of a neighbors' international dinner: long tables with white tablecloths, warm string lights, plants and big windows.\n\nThere are no flags, banners or signs anywhere in the room.\n\nThe person she is talking to is NOT in the photo: they stand just outside the edge of the photo that is named, so no part of that person (no hand, arm, shoulder or shadow) is visible.\n\nImage 1 shows Ana. Keep her face, long dark wavy hair, light-olive skin and build exactly, in her sage-green overshirt over a white top. Create a new photograph: Ana stands at the open double doors of the community room, smiling and opening one arm in a big welcome to guests who stand just outside the right edge of the photo. Behind her the dinner tables are set and ready, with nobody at them yet.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1plus-unit-1-q02-c2b4398b65207eff.webp",
+    "sha256": "c2b4398b65207effa51e51260cc607c38ada48caea82f14eb872e4c9c8b5d0d5"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "mcIAa_HoLcSgz7IP3MupqQc",
+  "usage": {
+    "promptTokenCount": 578,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1868,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 320
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038873",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 578,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 9.29,
+  "output": "output/imagegen/a1plus-unit-3-lesson-v3160/w00-welcome.png",
+  "sha256": "2227406b216acaa82b39143b03f22dd1f1711808214c1c7427c2c54ab5a21f6b",
+  "byte_count": 1250914,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}

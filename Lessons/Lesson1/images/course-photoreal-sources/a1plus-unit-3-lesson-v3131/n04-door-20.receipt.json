@@ -1,0 +1,55 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "54a9b969-a05d-4dd0-96e4-f312690b5f8d",
+  "asset_id": "n04-door-20",
+  "pack_sha256": "51957526810edf15fec632ecedbdc2d5b8acd3cf70b0795cc1a924c789a3cf8e",
+  "started_at": "2026-11-20T22:01:00.048425+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, logos or brand marks anywhere, and no number anywhere except the one house number described: no other signs, plates, mailboxes, clocks, screens or clothes show any digit.\n\nKeep the people and the thing that carries the meaning inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nOnly this one person is in the photo; there is nobody else, even far in the background.\n\nIt is clearly daytime with soft natural light.\n\nA real man of about thirty with a short black beard, in a grey hoodie, stands on the front step of his small brick house on a quiet street, a key in his hand at his red front door, smiling at the camera. Beside the door there is ONE small house-number plaque that shows the number 20 written only ONCE, as two digits side by side on a single line: a 2 followed by a 0. There is no other digit anywhere in the photo: nothing above, below or beside the plaque, and no second copy of the number. The digits are large, white on a dark blue plaque, upright, sharp and easy to read even on a small phone screen.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "GcMAa6eiK82cz7IPup3x6Q8",
+  "usage": {
+    "promptTokenCount": 366,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1656,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 366
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038810",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 366,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 5.91,
+  "output": "output/imagegen/a1plus-unit-3-lesson-v3131/n04-door-20.png",
+  "sha256": "9c73117e5f362828c3f1d5608e2ddf43b29374c80890fc5ccce5ca781bd24e36",
+  "byte_count": 1604227,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}

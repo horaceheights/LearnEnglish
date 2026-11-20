@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "pack": "a1plus-unit-3-lesson-3-15-review-photos",
+  "revision": 1,
+  "output_namespace": "a1plus-unit-3-lesson-v3151",
+  "authorization": "2026-11-20: the user asked to \"Start working on a1+ Unit 3, same deal\" (the Unit 2 deal: an approved map, then straight to Preview in batches with media pre-approved and reviewed in Preview) and approved the A1+ Unit 3 map (\"Approve this map\"). Gemini is the approved image tool (2026-09-23), Flash only (2026-11-17; \"lets switch to flash for any other images\", 2026-11-19).",
+  "image_settings": {
+    "provider": "google-gemini",
+    "model": "gemini-2.5-flash-image",
+    "aspect_ratio": "3:2",
+    "image_size": "1K",
+    "runtime_size": "1536x1024",
+    "runtime_format": "webp",
+    "n": 1
+  },
+  "production": {
+    "price_per_image_usd": "0.0387",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing (checked 2026-11-16: Gemini 2.5 Flash Image, about $0.039 per image)",
+    "planned_images": 1,
+    "expected_cost_usd": "0.04",
+    "requested_ceiling_usd": "0.25",
+    "ceiling_note": "The renderer reserves US$0.20 before each request; each request is sent on its own, and the expected spend for the pack is about US$0.04.",
+    "no_automatic_retries": true,
+    "order": "3.13 v1 drew a stray digit beside a two-digit house number, so the review's house number moves here with the plaque described as one number written once; v1's v07 is never requested."
+  },
+  "shared_prompts": {
+    "photo": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, menus, screens, cups, clothes or bags.",
+    "numeral": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, logos or brand marks anywhere, and no number anywhere except the one house number described: no other signs, plates, mailboxes, clocks, screens or clothes show any digit.",
+    "safe_center": "Keep the people and the thing that carries the meaning inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.",
+    "solo": "Only this one person is in the photo; there is nobody else, even far in the background.",
+    "pair": "Only these two people are in the photo; there is nobody else, even far in the background.",
+    "daytime": "It is clearly daytime with soft natural light.",
+    "party": "The place is the big bright community room of an apartment building on the evening of a neighbors' international dinner: long tables with white tablecloths, warm string lights, plants and big windows.",
+    "noflag": "There are no flags, banners or signs anywhere in the room.",
+    "offframe": "The person she is talking to is NOT in the photo: they stand just outside the edge of the photo that is named, so no part of that person (no hand, arm, shoulder or shadow) is visible."
+  },
+  "assets": [
+    {
+      "id": "v07-door-11",
+      "order": 1,
+      "item": "He lives at 11 Park Street.",
+      "shared": [
+        "numeral",
+        "safe_center",
+        "solo",
+        "daytime"
+      ],
+      "prompt": "A real older man with a white beard and a flat cap stands in front of his small white house on a quiet street and waters the flowers by his blue front door with a green watering can, smiling at the camera. Beside the door there is ONE small house-number plaque that shows the number 11 written only ONCE, as two digits side by side on a single line: a 1 followed by a 1. There is no other digit anywhere in the photo: nothing above, below or beside the plaque, and no second copy of the number. The digits are large, black, upright, sharp and easy to read even on a small phone screen."
+    }
+  ]
+}

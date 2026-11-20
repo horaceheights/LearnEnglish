@@ -1,0 +1,760 @@
+{
+  "brief_version": 1,
+  "follows": {
+    "course": "a1",
+    "lesson": "3.13",
+    "title": "Phone Number and Address"
+  },
+  "note": "A1+ Unit 3 Lesson 3.13, built on 2026-11-20 under the A1+ lesson standards approved 2026-10-27 and the user's 2026-11-09 rule that every A1+ lesson follows up the A1 lesson with the same number. The user approved the A1+ Unit 3 map on 2026-11-20 (A1+ 3.Y follows A1 3.Y, one step each; A1 Unit 3 has sixteen lessons after the alphabet lessons were removed the same day) and asked for the Unit 2 deal: straight to Preview in batches, Gemini 2.5 Flash photos and ElevenLabs audio pre-approved, no per-lesson gates, reviewed in Preview. Two new photos (Gemini 2.5 Flash): a grey-haired neighbor at her green front door with 18 beside it, and a bearded neighbor at his red door with 20 beside it. The building photos are A1+ 2.6-2.7's (a large floor number by the lift), so a floor is read from the picture; a street name is always said, never shown.",
+  "target": "backend/lessons/a1_plus/unit_3/a1plus-unit-3-lesson-3-13.yaml",
+  "captions": false,
+  "narrators": [
+    "teacher",
+    "co-teacher"
+  ],
+  "answer_audio_policy": "authored-only",
+  "speak_delivery": "a1-pronunciation-v1",
+  "lesson": {
+    "id": "a1plus-unit-3-lesson-3-13",
+    "title": "3.13 She lives at eighteen Park Street",
+    "level": "A1+",
+    "unit_id": "a1plus-unit-3",
+    "unit_title": "Meeting people and talking about them",
+    "unit_outcome": "Introduce people and answer introductions, use the short forms of be, answer yes/no questions in short, compare ages, talk about languages, nationalities and jobs, describe people, say whose things are, give an address and say what you want to be.",
+    "lesson_id": "a1plus-unit-3-lesson-3-13",
+    "lesson_title": "She lives at eighteen Park Street",
+    "sub_lesson_id": "3.13",
+    "sub_lesson_title": "She lives at eighteen Park Street",
+    "goal": "Say where people live with at + a full address, on + a street and in + a house or an apartment (She lives at eighteen Park Street. / He lives on Park Street. / Ana lives in an apartment.), and talk about neighbors.",
+    "vocabulary": [
+      "at",
+      "neighbor"
+    ],
+    "review_vocabulary": [
+      "lives",
+      "live",
+      "on",
+      "street",
+      "address",
+      "my",
+      "she's",
+      "who's",
+      "where",
+      "floor",
+      "second",
+      "third",
+      "fourth",
+      "fifth",
+      "sixth",
+      "eighth",
+      "ninth",
+      "tenth",
+      "gym",
+      "store",
+      "restaurant",
+      "pool",
+      "office",
+      "write",
+      "writes"
+    ],
+    "grammar_function": "A follow-up of A1 3.13 Phone Number and Address: A1 answers What is your address? with It is 12 Park Street.; A1+ 3.13 says where people live. The one new grammar relationship is lives at + house number + street (She lives at eighteen Park Street.), taught against lives on + street alone (He lives on Park Street.) and A1+ 2.7's lives on + floor, with in + a house or an apartment; neighbor is the one new noun. The cast live on floors 6 to 9 of one building (A1+ 2.6-2.7), so Diego is Ana's neighbor, and its gym, store, restaurant, pool and office come back on their floors. Two new photos show neighbors at their front doors with the house number beside the door; house numbers stay at twenty or below. 2.12's write comes back with the address.",
+    "prerequisite": "A1 3.13 address and Park Street; A1 1.9 Who's…?; A1+ 2.6-2.7 floors and lives on; A1+ 2.12 write; A1+ 3.11 's.",
+    "speaking_outcome": "Say at quickly before the number (at EIGH-teen); stress the street name, not Street. Do not require native-like speed.",
+    "content_revision": 1,
+    "learn_context_groups": [
+      {
+        "kind": "sequence",
+        "targets": [
+          "at"
+        ],
+        "models": [
+          {
+            "slide_id": "L1",
+            "text": "She lives at eighteen Park Street."
+          }
+        ]
+      },
+      {
+        "kind": "contrast",
+        "targets": [
+          "at"
+        ],
+        "models": [
+          {
+            "slide_id": "L2",
+            "text": "He lives on Park Street. He lives at twenty Park Street.",
+            "turns": [
+              "He lives on Park Street.",
+              "He lives at twenty Park Street."
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "exchange",
+        "targets": [
+          "neighbor"
+        ],
+        "models": [
+          {
+            "slide_id": "L3",
+            "text": "Who's she? She's my neighbor.",
+            "turns": [
+              "Who's she?",
+              "She's my neighbor."
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "sequence",
+        "targets": [
+          "neighbor"
+        ],
+        "models": [
+          {
+            "slide_id": "L4",
+            "text": "Diego is Ana's neighbor."
+          }
+        ]
+      }
+    ]
+  },
+  "items": [
+    {
+      "id": "l-at",
+      "text": "She lives at eighteen Park Street.",
+      "es": "Vive en el 18 de Park Street.",
+      "image": "/lesson-assets/a1plus-unit-3-n03-e40f86765198e1c0.webp",
+      "kind": "sequence",
+      "choices": false,
+      "use": false,
+      "speaker": "teacher"
+    },
+    {
+      "id": "l-on-at",
+      "text": "He lives on Park Street. He lives at twenty Park Street.",
+      "es": "Vive en Park Street. Vive en el 20 de Park Street.",
+      "image": "/lesson-assets/a1plus-unit-3-n04-1707325388b0c4ef.webp",
+      "kind": "contrast",
+      "choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "He lives on Park Street.",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-3-n04-1707325388b0c4ef.webp"
+        },
+        {
+          "text": "He lives at twenty Park Street.",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-3-n04-1707325388b0c4ef.webp"
+        }
+      ]
+    },
+    {
+      "id": "l-neighbor",
+      "text": "Who's she? She's my neighbor.",
+      "es": "¿Quién es ella? Es mi vecina.",
+      "image": "/lesson-assets/a1plus-unit-3-n03-e40f86765198e1c0.webp",
+      "kind": "exchange",
+      "choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "Who's she?",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-3-n03-e40f86765198e1c0.webp"
+        },
+        {
+          "text": "She's my neighbor.",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-3-n03-e40f86765198e1c0.webp"
+        }
+      ]
+    },
+    {
+      "id": "l-ana",
+      "text": "Diego is Ana's neighbor.",
+      "es": "Diego es vecino de Ana.",
+      "image": "/lesson-assets/a1plus-unit-2-f07-4a03310ba0206784.webp",
+      "kind": "sequence",
+      "choices": false,
+      "use": false,
+      "speaker": "co-teacher"
+    },
+    {
+      "id": "a-18",
+      "text": "She lives at eighteen Park Street.",
+      "es": "Vive en el 18 de Park Street.",
+      "image": "/lesson-assets/a1plus-unit-3-n03-e40f86765198e1c0.webp",
+      "kind": "addr",
+      "accepts": {
+        "subject-variety": "The bank keeps lives at and changes only the house number the picture shows.",
+        "action-variety": "The bank keeps lives at and changes only the house number the picture shows.",
+        "conversational-response": "The bank keeps lives at and changes only the house number the picture shows.",
+        "reading-load": "The bank keeps lives at and changes only the house number the picture shows."
+      },
+      "prefer": [
+        "She lives at fifteen Park Street."
+      ],
+      "blanks": [
+        "lives",
+        "at"
+      ],
+      "four_card": false,
+      "learn": false
+    },
+    {
+      "id": "a-20",
+      "text": "He lives at twenty Park Street.",
+      "es": "Vive en el 20 de Park Street.",
+      "image": "/lesson-assets/a1plus-unit-3-n04-1707325388b0c4ef.webp",
+      "kind": "addr",
+      "accepts": {
+        "subject-variety": "The bank keeps lives at and changes only the house number the picture shows.",
+        "action-variety": "The bank keeps lives at and changes only the house number the picture shows.",
+        "conversational-response": "The bank keeps lives at and changes only the house number the picture shows.",
+        "reading-load": "The bank keeps lives at and changes only the house number the picture shows."
+      },
+      "prefer": [
+        "He lives at twelve Park Street."
+      ],
+      "blanks": [
+        "lives",
+        "at"
+      ],
+      "four_card": false,
+      "learn": false
+    },
+    {
+      "id": "a-on",
+      "text": "He lives on Park Street.",
+      "es": "Vive en Park Street.",
+      "image": "/lesson-assets/a1plus-unit-3-n04-1707325388b0c4ef.webp",
+      "kind": "street",
+      "image_choices": false,
+      "accepts": {
+        "subject-variety": "Listen sets on + the street against at + the full address; the answer is what was heard.",
+        "action-variety": "Listen sets on + the street against at + the full address; the answer is what was heard.",
+        "conversational-response": "Listen sets on + the street against at + the full address; the answer is what was heard.",
+        "reading-load": "Listen sets on + the street against at + the full address; the answer is what was heard."
+      },
+      "prefer": [
+        "He lives at twenty Park Street."
+      ],
+      "blanks": [
+        "lives",
+        "on"
+      ],
+      "learn": false
+    },
+    {
+      "id": "a-mine",
+      "text": "My neighbor lives at eighteen Park Street.",
+      "es": "Mi vecina vive en el 18 de Park Street.",
+      "image": "/lesson-assets/a1plus-unit-3-n03-e40f86765198e1c0.webp",
+      "kind": "neighbor",
+      "image_choices": false,
+      "accepts": {
+        "subject-variety": "The bank keeps lives at and changes only the house number the picture shows.",
+        "action-variety": "The bank keeps lives at and changes only the house number the picture shows.",
+        "conversational-response": "The bank keeps lives at and changes only the house number the picture shows.",
+        "reading-load": "The bank keeps lives at and changes only the house number the picture shows."
+      },
+      "prefer": [
+        "My neighbor lives at fifteen Park Street.",
+        "My neighbor lives at twenty Park Street."
+      ],
+      "blanks": [
+        "neighbor",
+        "lives"
+      ],
+      "learn": false
+    },
+    {
+      "id": "x-where",
+      "text": "Where does she live? She lives at eighteen Park Street.",
+      "es": "¿Dónde vive? Vive en el 18 de Park Street.",
+      "image": "/lesson-assets/a1plus-unit-3-n03-e40f86765198e1c0.webp",
+      "kind": "where",
+      "image_choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "Where does she live?",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-3-n03-e40f86765198e1c0.webp"
+        },
+        {
+          "text": "She lives at eighteen Park Street.",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-3-n03-e40f86765198e1c0.webp"
+        }
+      ],
+      "accepts": {
+        "subject-variety": "The bank keeps lives at and changes only the house number the picture shows.",
+        "action-variety": "The bank keeps lives at and changes only the house number the picture shows.",
+        "conversational-response": "The bank keeps lives at and changes only the house number the picture shows.",
+        "reading-load": "The bank keeps lives at and changes only the house number the picture shows."
+      },
+      "prefer": [
+        "Where does she live? She lives at fifteen Park Street."
+      ],
+      "learn": false
+    },
+    {
+      "id": "g-gym",
+      "text": "The gym is on the second floor.",
+      "es": "El gimnasio está en el segundo piso.",
+      "image": "/lesson-assets/a1plus-unit-2-g02-019f9656dc184dfa.webp",
+      "kind": "place",
+      "accepts": {
+        "subject-variety": "The bank keeps the place and changes only the floor the picture shows.",
+        "action-variety": "The bank keeps the place and changes only the floor the picture shows.",
+        "conversational-response": "The bank keeps the place and changes only the floor the picture shows.",
+        "reading-load": "The bank keeps the place and changes only the floor the picture shows."
+      },
+      "four_card": false,
+      "use": true,
+      "blanks": [
+        "the",
+        "second"
+      ],
+      "learn": false
+    },
+    {
+      "id": "g-store",
+      "text": "The store is on the third floor.",
+      "es": "La tienda está en el tercer piso.",
+      "image": "/lesson-assets/a1plus-unit-2-g03-ccb0dd75588a3828.webp",
+      "kind": "place",
+      "accepts": {
+        "subject-variety": "The bank keeps the place and changes only the floor the picture shows.",
+        "action-variety": "The bank keeps the place and changes only the floor the picture shows.",
+        "conversational-response": "The bank keeps the place and changes only the floor the picture shows.",
+        "reading-load": "The bank keeps the place and changes only the floor the picture shows."
+      },
+      "four_card": false,
+      "use": false,
+      "blanks": [
+        "the",
+        "third"
+      ],
+      "learn": false
+    },
+    {
+      "id": "g-rest",
+      "text": "The restaurant is on the fourth floor.",
+      "es": "El restaurante está en el cuarto piso.",
+      "image": "/lesson-assets/a1plus-unit-2-g04-e9e0b48d24552a25.webp",
+      "kind": "place",
+      "accepts": {
+        "subject-variety": "The bank keeps the place and changes only the floor the picture shows.",
+        "action-variety": "The bank keeps the place and changes only the floor the picture shows.",
+        "conversational-response": "The bank keeps the place and changes only the floor the picture shows.",
+        "reading-load": "The bank keeps the place and changes only the floor the picture shows."
+      },
+      "four_card": false,
+      "use": false,
+      "blanks": [
+        "the",
+        "fourth"
+      ],
+      "learn": false
+    },
+    {
+      "id": "g-pool",
+      "text": "The pool is on the fifth floor.",
+      "es": "La alberca está en el quinto piso.",
+      "image": "/lesson-assets/a1plus-unit-2-g05-698bddc661c2769a.webp",
+      "kind": "place",
+      "accepts": {
+        "subject-variety": "The bank keeps the place and changes only the floor the picture shows.",
+        "action-variety": "The bank keeps the place and changes only the floor the picture shows.",
+        "conversational-response": "The bank keeps the place and changes only the floor the picture shows.",
+        "reading-load": "The bank keeps the place and changes only the floor the picture shows."
+      },
+      "four_card": false,
+      "use": true,
+      "blanks": [
+        "the",
+        "fifth"
+      ],
+      "learn": false
+    },
+    {
+      "id": "g-office",
+      "text": "The office is on the tenth floor.",
+      "es": "La oficina está en el décimo piso.",
+      "image": "/lesson-assets/a1plus-unit-2-f10-6bf60fd4f43fe962.webp",
+      "kind": "place",
+      "accepts": {
+        "subject-variety": "The bank keeps the place and changes only the floor the picture shows.",
+        "action-variety": "The bank keeps the place and changes only the floor the picture shows.",
+        "conversational-response": "The bank keeps the place and changes only the floor the picture shows.",
+        "reading-load": "The bank keeps the place and changes only the floor the picture shows."
+      },
+      "four_card": false,
+      "use": false,
+      "blanks": [
+        "the",
+        "tenth"
+      ],
+      "learn": false
+    },
+    {
+      "id": "h-ana",
+      "text": "Ana lives on the sixth floor.",
+      "es": "Ana vive en el sexto piso.",
+      "image": "/lesson-assets/a1plus-unit-2-f06-2565f804540d9d4d.webp",
+      "kind": "home",
+      "accepts": {
+        "subject-variety": "The bank keeps the place and changes only the floor the picture shows.",
+        "action-variety": "The bank keeps the place and changes only the floor the picture shows.",
+        "conversational-response": "The bank keeps the place and changes only the floor the picture shows.",
+        "reading-load": "The bank keeps the place and changes only the floor the picture shows."
+      },
+      "four_card": false,
+      "blanks": [
+        "the",
+        "sixth"
+      ],
+      "learn": false
+    },
+    {
+      "id": "h-luis",
+      "text": "Luis lives on the eighth floor.",
+      "es": "Luis vive en el octavo piso.",
+      "image": "/lesson-assets/a1plus-unit-2-f08-1ceca4d4945563be.webp",
+      "kind": "home",
+      "accepts": {
+        "subject-variety": "The bank keeps the place and changes only the floor the picture shows.",
+        "action-variety": "The bank keeps the place and changes only the floor the picture shows.",
+        "conversational-response": "The bank keeps the place and changes only the floor the picture shows.",
+        "reading-load": "The bank keeps the place and changes only the floor the picture shows."
+      },
+      "four_card": false,
+      "blanks": [
+        "the",
+        "eighth"
+      ],
+      "learn": false
+    },
+    {
+      "id": "h-sofia",
+      "text": "Sofia lives on the ninth floor.",
+      "es": "Sofía vive en el noveno piso.",
+      "image": "/lesson-assets/a1plus-unit-2-f09-d011daa457df1b6d.webp",
+      "kind": "home",
+      "accepts": {
+        "subject-variety": "The bank keeps the place and changes only the floor the picture shows.",
+        "action-variety": "The bank keeps the place and changes only the floor the picture shows.",
+        "conversational-response": "The bank keeps the place and changes only the floor the picture shows.",
+        "reading-load": "The bank keeps the place and changes only the floor the picture shows."
+      },
+      "four_card": false,
+      "blanks": [
+        "the",
+        "ninth"
+      ],
+      "learn": false
+    },
+    {
+      "id": "i-house",
+      "text": "She lives in a house.",
+      "es": "Vive en una casa.",
+      "image": "/lesson-assets/a1plus-unit-3-n03-e40f86765198e1c0.webp",
+      "kind": "in",
+      "image_choices": false,
+      "accepts": {
+        "subject-variety": "The bank keeps lives in and changes only the kind of home the picture shows.",
+        "action-variety": "The bank keeps lives in and changes only the kind of home the picture shows.",
+        "conversational-response": "The bank keeps lives in and changes only the kind of home the picture shows.",
+        "reading-load": "The bank keeps lives in and changes only the kind of home the picture shows."
+      },
+      "prefer": [
+        "She lives in an apartment."
+      ],
+      "blanks": [
+        "in",
+        "a"
+      ],
+      "learn": false
+    },
+    {
+      "id": "i-apt",
+      "text": "Ana lives in an apartment.",
+      "es": "Ana vive en un departamento.",
+      "image": "/lesson-assets/a1plus-unit-2-f06-2565f804540d9d4d.webp",
+      "kind": "in2",
+      "image_choices": false,
+      "accepts": {
+        "subject-variety": "The bank keeps lives in and changes only the kind of home the picture shows.",
+        "action-variety": "The bank keeps lives in and changes only the kind of home the picture shows.",
+        "conversational-response": "The bank keeps lives in and changes only the kind of home the picture shows.",
+        "reading-load": "The bank keeps lives in and changes only the kind of home the picture shows."
+      },
+      "prefer": [
+        "Ana lives in a house."
+      ],
+      "blanks": [
+        "in",
+        "an"
+      ],
+      "learn": false
+    },
+    {
+      "id": "w-write",
+      "text": "Write your address, please.",
+      "es": "Escribe tu dirección, por favor.",
+      "image": "/lesson-assets/a1plus-unit-2-d03-45466f9472cdeab7.webp",
+      "kind": "write",
+      "speaker": "teacher",
+      "choices": false,
+      "use": false,
+      "learn": false
+    },
+    {
+      "id": "w-writes",
+      "text": "Sofia writes her address.",
+      "es": "Sofía escribe su dirección.",
+      "image": "/lesson-assets/a1plus-unit-2-d03-45466f9472cdeab7.webp",
+      "kind": "writes",
+      "image_choices": false,
+      "accepts": {
+        "subject-variety": "The bank keeps Sofia and her address and changes only the action the picture shows.",
+        "action-variety": "The bank keeps Sofia and her address and changes only the action the picture shows.",
+        "conversational-response": "The bank keeps Sofia and her address and changes only the action the picture shows.",
+        "reading-load": "The bank keeps Sofia and her address and changes only the action the picture shows."
+      },
+      "prefer": [
+        "Sofia reads her address."
+      ],
+      "blanks": [
+        "writes",
+        "her"
+      ],
+      "learn": false
+    },
+    {
+      "id": "n-who",
+      "text": "Who's she? She's my neighbor. She lives at eighteen Park Street.",
+      "es": "¿Quién es ella? Es mi vecina. Vive en el 18 de Park Street.",
+      "image": "/lesson-assets/a1plus-unit-3-n03-e40f86765198e1c0.webp",
+      "kind": "who",
+      "image_choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "Who's she?",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-3-n03-e40f86765198e1c0.webp"
+        },
+        {
+          "text": "She's my neighbor. She lives at eighteen Park Street.",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-3-n03-e40f86765198e1c0.webp"
+        }
+      ],
+      "accepts": {
+        "subject-variety": "The bank keeps lives at and changes only the house number the picture shows.",
+        "action-variety": "The bank keeps lives at and changes only the house number the picture shows.",
+        "conversational-response": "The bank keeps lives at and changes only the house number the picture shows.",
+        "reading-load": "The bank keeps lives at and changes only the house number the picture shows."
+      },
+      "prefer": [
+        "Who's she? She's my neighbor. She lives at fifteen Park Street."
+      ],
+      "learn": false
+    },
+    {
+      "id": "n-diego",
+      "text": "Diego is Ana's neighbor. He lives on the seventh floor.",
+      "es": "Diego es vecino de Ana. Vive en el séptimo piso.",
+      "image": "/lesson-assets/a1plus-unit-2-f07-4a03310ba0206784.webp",
+      "kind": "nb",
+      "image_choices": false,
+      "use": false,
+      "accepts": {
+        "subject-variety": "The bank keeps the place and changes only the floor the picture shows.",
+        "action-variety": "The bank keeps the place and changes only the floor the picture shows.",
+        "conversational-response": "The bank keeps the place and changes only the floor the picture shows.",
+        "reading-load": "The bank keeps the place and changes only the floor the picture shows."
+      },
+      "prefer": [
+        "Diego is Ana's neighbor. He lives on the eighth floor."
+      ],
+      "learn": false
+    },
+    {
+      "id": "q-where",
+      "text": "Where does he live?",
+      "es": "¿Dónde vive él?",
+      "image": "/lesson-assets/a1plus-unit-3-n04-1707325388b0c4ef.webp",
+      "kind": "question",
+      "speaker": "co-teacher",
+      "choices": false,
+      "use": false,
+      "learn": false
+    }
+  ],
+  "pool": [
+    {
+      "text": "She lives at fifteen Park Street.",
+      "es": "Vive en el 15 de Park Street.",
+      "image": "/lesson-assets/a1plus-unit-3-n03-e40f86765198e1c0.webp",
+      "kind": "addr",
+      "image_choices": false
+    },
+    {
+      "text": "He lives at twelve Park Street.",
+      "es": "Vive en el 12 de Park Street.",
+      "image": "/lesson-assets/a1plus-unit-3-n04-1707325388b0c4ef.webp",
+      "kind": "addr",
+      "image_choices": false
+    },
+    {
+      "text": "He lives at twenty Park Street.",
+      "es": "Vive en el 20 de Park Street.",
+      "image": "/lesson-assets/a1plus-unit-3-n04-1707325388b0c4ef.webp",
+      "kind": "street",
+      "image_choices": false
+    },
+    {
+      "text": "My neighbor lives at fifteen Park Street.",
+      "es": "Mi vecina vive en el 15 de Park Street.",
+      "image": "/lesson-assets/a1plus-unit-3-n03-e40f86765198e1c0.webp",
+      "kind": "neighbor",
+      "image_choices": false
+    },
+    {
+      "text": "My neighbor lives at twenty Park Street.",
+      "es": "Mi vecina vive en el 20 de Park Street.",
+      "image": "/lesson-assets/a1plus-unit-3-n03-e40f86765198e1c0.webp",
+      "kind": "neighbor",
+      "image_choices": false
+    },
+    {
+      "text": "Where does she live? She lives at fifteen Park Street.",
+      "es": "¿Dónde vive? Vive en el 15 de Park Street.",
+      "image": "/lesson-assets/a1plus-unit-3-n03-e40f86765198e1c0.webp",
+      "kind": "where",
+      "image_choices": false
+    },
+    {
+      "text": "Where does she live? She lives at twenty Park Street.",
+      "es": "¿Dónde vive? Vive en el 20 de Park Street.",
+      "image": "/lesson-assets/a1plus-unit-3-n03-e40f86765198e1c0.webp",
+      "kind": "where",
+      "image_choices": false
+    },
+    {
+      "text": "She lives in an apartment.",
+      "es": "Vive en un departamento.",
+      "image": "/lesson-assets/a1plus-unit-3-n03-e40f86765198e1c0.webp",
+      "kind": "in",
+      "image_choices": false
+    },
+    {
+      "text": "Ana lives in a house.",
+      "es": "Ana vive en una casa.",
+      "image": "/lesson-assets/a1plus-unit-2-f06-2565f804540d9d4d.webp",
+      "kind": "in2",
+      "image_choices": false
+    },
+    {
+      "text": "Sofia reads her address.",
+      "es": "Sofía lee su dirección.",
+      "image": "/lesson-assets/a1plus-unit-2-d03-45466f9472cdeab7.webp",
+      "kind": "writes",
+      "image_choices": false
+    },
+    {
+      "text": "Who's she? She's my neighbor. She lives at fifteen Park Street.",
+      "es": "¿Quién es ella? Es mi vecina. Vive en el 15 de Park Street.",
+      "image": "/lesson-assets/a1plus-unit-3-n03-e40f86765198e1c0.webp",
+      "kind": "who",
+      "image_choices": false
+    },
+    {
+      "text": "Who's she? She's my neighbor. She lives at twenty Park Street.",
+      "es": "¿Quién es ella? Es mi vecina. Vive en el 20 de Park Street.",
+      "image": "/lesson-assets/a1plus-unit-3-n03-e40f86765198e1c0.webp",
+      "kind": "who",
+      "image_choices": false
+    },
+    {
+      "text": "Diego is Ana's neighbor. He lives on the eighth floor.",
+      "es": "Diego es vecino de Ana. Vive en el octavo piso.",
+      "image": "/lesson-assets/a1plus-unit-2-f07-4a03310ba0206784.webp",
+      "kind": "nb",
+      "image_choices": false
+    },
+    {
+      "text": "Diego is Ana's neighbor. He lives on the ninth floor.",
+      "es": "Diego es vecino de Ana. Vive en el noveno piso.",
+      "image": "/lesson-assets/a1plus-unit-2-f07-4a03310ba0206784.webp",
+      "kind": "nb",
+      "image_choices": false
+    }
+  ],
+  "layout": {
+    "Recognize": 10,
+    "Listen": 10,
+    "Speak": 8,
+    "Use": 8
+  },
+  "stage_sequences": {
+    "Learn": [
+      "l-at",
+      "l-on-at",
+      "l-neighbor",
+      "l-ana"
+    ],
+    "Recognize": [
+      "a-18",
+      "h-ana",
+      "g-gym",
+      "a-mine",
+      "n-diego",
+      "i-house",
+      "a-20",
+      "g-store",
+      "n-who",
+      "g-rest"
+    ],
+    "Listen": [
+      "a-20",
+      "x-where",
+      "g-pool",
+      "a-mine",
+      "n-diego",
+      "a-on",
+      "g-office",
+      "i-apt",
+      "n-who",
+      "h-luis"
+    ],
+    "Speak": [
+      "a-18",
+      "q-where",
+      "a-20",
+      "a-mine",
+      "w-write",
+      "g-office",
+      "n-diego",
+      "i-apt"
+    ],
+    "Use": [
+      "a-18",
+      "a-20",
+      "a-mine",
+      "a-on",
+      "g-gym",
+      "i-house",
+      "w-writes",
+      "h-sofia"
+    ]
+  }
+}
