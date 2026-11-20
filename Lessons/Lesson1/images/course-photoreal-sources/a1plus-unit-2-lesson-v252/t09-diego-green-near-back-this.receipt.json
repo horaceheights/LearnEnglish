@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "9fe0207c-1be4-49c7-9583-c2d3c02a8f0f",
+  "asset_id": "t09-diego-green-near-back-this",
+  "pack_sha256": "be05602d8c85e3650f5a23182697cc12a7277a36edce5c483e841fb03e49a1fa",
+  "started_at": "2026-11-19T22:03:36.187771+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, numbers, logos or brand marks anywhere, not on signs, screens, clothes, bags, machines or vehicles. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos.\n\nOnly this one person is in the photo; there is nobody else, even far in the background.\n\nIt is clearly daytime with soft natural light.\n\nImage 1 shows Diego from behind in an empty room, pointing down at a black chair against the far wall, with his left hand on the backrest of a green chair beside him on his left. Keep everything exactly the same: his back, his body and legs, his clothes, his left hand on the green chair, the green chair, the black chair, the room, the light and the camera position. Change only his right arm and his head: he no longer points, and his right arm hangs relaxed at his side. He turns his head to HIS LEFT and down, toward the green chair under his left hand, and looks at that green chair; his head and face are turned away from the black chair. From the camera we see the back of his head and a little of the left side of his face.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/course-photoreal-sources/a1plus-unit-2-lesson-v252/staged/n05-diego-green-near-back-that.png",
+    "sha256": "41c4235c06d775f7117ae63c86f7fed94600dc44cd32c4e7b3f5cc73efd0d9e4"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "NnL_avuiC4u-qtsPhPyGoQk",
+  "usage": {
+    "promptTokenCount": 588,
+    "candidatesTokenCount": 1268,
+    "totalTokenCount": 2065,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 330
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 209,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137684",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 588,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 209
+  },
+  "elapsed_seconds": 21.74,
+  "output": "output/imagegen/a1plus-unit-2-lesson-v252/t09-diego-green-near-back-this.png",
+  "sha256": "92328e6c4515ad57cba581f71bc265c5ae5e9ec7665b134e11c5f5e0f35b3e2b",
+  "byte_count": 3911330,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

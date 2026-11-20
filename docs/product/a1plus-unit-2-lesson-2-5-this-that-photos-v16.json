@@ -1,0 +1,102 @@
+{
+  "schema_version": 1,
+  "pack": "a1plus-unit-2-lesson-2-5-this-that-photos",
+  "revision": 16,
+  "output_namespace": "a1plus-unit-2-lesson-v252",
+  "authorization": "2026-11-19: the user approved the A1+ Unit 2 plan and chose \"Straight to Preview\" (media pre-approved, reviewed in Preview). Gemini is the approved image tool (2026-09-23), Flash only (2026-11-17). Later on 2026-11-19 the user found the first 2.5 photos unclear (\"the person is just looking at this one but person does not point at the other bag or item for that one. its just not clear\"), suggested \"maybe they need to be two image transitions?\" and approved the plan: a THIS/THAT pair per scene, the picture switching on *but*, side-on staging, and bikes instead of the cups. After the first render the user saw that the pointing photos point past the far things (\"they are pointing away from the things they are supposed to be pointing to\") and approved redoing them (\"Yes, redo them\"). Asked whether another image service was needed, the user chose to keep Gemini with a drawn guide and added: \"maybe just change the body postion abit towards the object too. do redo them all, just do one for testing\". After the guided Flash test (e23) the user said \"he is poinging parallel to the bike not towards the bike\", \"he needs to turn his body too\", \"his head\"; told that Flash keeps the edited photo's pose and that Pro is about US$0.14 a photo, the user answered \"Yes, test on Pro\" (one Luis test first; the user's 2026-11-17 Flash-only rule is lifted for this test). The user found the Pro test still pointing at the floor with the head and eyes not on the far bike (\"he still pointing at the floor parallel to the bike\", \"why so hard to turn the mother fucker haed and eyes over to the objective\", \"turn the motherfocker\"); one new-photo test follows. Shown the over-the-shoulder test (b02), the user answered \"turn his head more\". The edit h02 barely moved the head, so a new photo follows. On n02 the user said \"move him closer to the direction of the bike, so move the luis more to the right, dont show his eyes, turn him more\". On n03 the user asked for \"the back of his head only and hand more perpendicular to the bike\" and then \"lower his hand\". Shown l02 (Luis from behind, hand lowered onto the black bike), the user approved the pose and said \"Yes, make the rest\".",
+  "image_settings": {
+    "provider": "google-gemini",
+    "model": "gemini-2.5-flash-image",
+    "aspect_ratio": "3:2",
+    "image_size": "1K",
+    "runtime_size": "1536x1024",
+    "runtime_format": "webp",
+    "n": 1
+  },
+  "supersedes": {
+    "pack": "docs/product/a1plus-unit-2-lesson-2-5-this-that-photos-v15.json",
+    "reason": "Colour swaps of the accepted Luis and Ana pairs, made with Flash, which keeps the pose."
+  },
+  "production": {
+    "price_per_image_usd": "0.0387",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "planned_images": 4,
+    "expected_cost_usd": "0.16",
+    "requested_ceiling_usd": "2.20",
+    "ceiling_note": "Shares namespace v252; the renderer reserves US$0.20.",
+    "no_automatic_retries": true,
+    "order": "Render s01-s04; check that only the two things' colours changed."
+  },
+  "shared_prompts": {
+    "photo": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, numbers, logos or brand marks anywhere, not on signs, screens, clothes, bags, machines or vehicles. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos.",
+    "solo": "Only this one person is in the photo; there is nobody else, even far in the background.",
+    "daytime": "It is clearly daytime with soft natural light.",
+    "near_far_scene": "The meaning of the photo is NEAR versus FAR. Exactly two things of the same kind are in the photo, and they differ only in color. The near one is with the person in the left part of the photo, large and sharp. The far one stands alone in the right third of the photo, clearly farther away, against a plain wall with nothing else around it; it is in focus and easy to recognize even on a small phone screen, and its center is about three quarters of the way across the photo, well clear of the right edge. The camera is at chest height and sees the whole scene from the side, so that the space between the person and the far thing runs from left to right across the photo: an arm pointed at the far thing would be seen side-on as a long line across the photo, never pointing toward the camera. The floor and wall between them are plain and empty. There is no mirror, no picture on the wall, no shelf of objects, and no third thing of that kind anywhere."
+  },
+  "assets": [
+    {
+      "id": "s01-luis-black-near-back-this",
+      "order": 1,
+      "item": "This one is black. / This bike is black, (turn 1)",
+      "shared": [
+        "photo",
+        "solo",
+        "daytime"
+      ],
+      "prompt": "Image 1 shows Luis from behind in a courtyard, looking down at a white bike beside him with his hand on its saddle, and a black bike against the far wall. Keep everything exactly the same: Luis, the pose, the arms and their exact angles, the head, the clothes, the place, the light and the camera position. Swap only the colors of the two bikes: the bike next to Luis is now BLACK, exactly the black the far bike had, and the far bike is now WHITE, exactly the white the near bike had. Same shapes, same sizes, same positions; nothing else changes.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/course-photoreal-sources/a1plus-unit-2-lesson-v252/staged/t06-luis-white-near-back-this.png",
+        "sha256": "a20501d6914e769eef961f3741ee5cf7f049b5a6a20c7f5e263a571d58999fcc",
+        "observed_description": "t06 (accepted): Luis from behind looks down at the white bike beside him, hand on its saddle; the black bike leans on the far wall."
+      }
+    },
+    {
+      "id": "s02-luis-black-near-back-that",
+      "order": 2,
+      "item": "That one is white. / but that bike is white. (turn 2)",
+      "shared": [
+        "photo",
+        "solo",
+        "daytime"
+      ],
+      "prompt": "Image 1 shows Luis from behind in a courtyard, his hand on the saddle of a white bike beside him, pointing down at a black bike against the far wall. Keep everything exactly the same: Luis, the pose, the arms and their exact angles, the head, the clothes, the place, the light and the camera position. Swap only the colors of the two bikes: the bike next to Luis is now BLACK, exactly the black the far bike had, and the far bike is now WHITE, exactly the white the near bike had. Same shapes, same sizes, same positions; nothing else changes.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/course-photoreal-sources/a1plus-unit-2-lesson-v252/staged/l02-luis-white-near-lowered-that.png",
+        "sha256": "ec6fcd289e0dc89fee37aad5a6dc47ddaf0a5d6f62ca1c8d08a6efb22045fccd",
+        "observed_description": "l02 (accepted): Luis from behind, hand on the white bike's saddle, pointing down at the black bike on the far wall."
+      }
+    },
+    {
+      "id": "s03-ana-blue-near-back-this",
+      "order": 3,
+      "item": "This one is blue. / This bag is blue, (turn 1)",
+      "shared": [
+        "photo",
+        "solo",
+        "daytime"
+      ],
+      "prompt": "Image 1 shows Ana from behind in her living room, looking down at the red tote bag on her shoulder and touching it, with a blue tote bag on a chair against the far wall. Keep everything exactly the same: Ana, the pose, the arms and their exact angles, the head, the clothes, the place, the light and the camera position. Swap only the colors of the two bags: the bag next to Ana is now BLUE, exactly the blue the far bag had, and the far bag is now RED, exactly the red the near bag had. Same shapes, same sizes, same positions; nothing else changes.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/course-photoreal-sources/a1plus-unit-2-lesson-v252/staged/t07-ana-red-near-back-this.png",
+        "sha256": "3b03f145af3de65cb4c03afabc59bbfbc69b23cd73c93c7135282e93a1a7ee65",
+        "observed_description": "t07 (accepted): Ana from behind looks down at the red tote on her shoulder and touches it; the blue tote sits on a chair by the far wall."
+      }
+    },
+    {
+      "id": "s04-ana-blue-near-back-that",
+      "order": 4,
+      "item": "That one is red. / but that bag is red. (turn 2)",
+      "shared": [
+        "photo",
+        "solo",
+        "daytime"
+      ],
+      "prompt": "Image 1 shows Ana from behind in her living room with a red tote bag on her shoulder, pointing down at a blue tote bag on a chair against the far wall. Keep everything exactly the same: Ana, the pose, the arms and their exact angles, the head, the clothes, the place, the light and the camera position. Swap only the colors of the two bags: the bag next to Ana is now BLUE, exactly the blue the far bag had, and the far bag is now RED, exactly the red the near bag had. Same shapes, same sizes, same positions; nothing else changes.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/course-photoreal-sources/a1plus-unit-2-lesson-v252/staged/n04-ana-red-near-back-that.png",
+        "sha256": "7aa9b982dee2e256352bc4f6f12b9f1a8cbe065971bbe9dfb92e3b485cac2cb8",
+        "observed_description": "n04 (accepted): Ana from behind, red tote on her shoulder, pointing down at the blue tote on a chair by the far wall."
+      }
+    }
+  ]
+}

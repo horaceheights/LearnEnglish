@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "9d0af555-51a1-4487-a7a6-f625f94fac29",
+  "asset_id": "n05-diego-green-near-back-that",
+  "pack_sha256": "9a76c7aa52f3aef0b3be59c0c1c617da5359130967b4740a3c49967e0c4ed5f2",
+  "started_at": "2026-11-19T22:00:08.513831+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, numbers, logos or brand marks anywhere, not on signs, screens, clothes, bags, machines or vehicles. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos.\n\nOnly this one person is in the photo; there is nobody else, even far in the background.\n\nIt is clearly daytime with soft natural light.\n\nImage 1 shows Diego. Using the same man (dark curly hair with a little grey, short full beard, burgundy button shirt and dark trousers), create a NEW photograph in a bright, almost empty room with plain white walls and a light wooden floor. The camera is straight behind Diego at chest height and looks the same way he looks. Diego stands just left of the middle of the photo with his back to the camera, facing the black chair: his feet, hips, chest, shoulders and head all point at it. We see only the back of his head and neck: no face, no eyes, no nose, no profile. A GREEN wooden chair stands right beside him on his left, close to the camera, and his left hand rests on the top of its backrest. Straight ahead of Diego, one BLACK wooden chair of the same shape stands alone on the floor against the far plain white wall, facing the room, about four meters away, a little to the right of his head, whole, sharp and easy to see. His right arm reaches forward and clearly DOWN toward the black chair, about 30 degrees below level, the hand lower than his shoulder, and the index finger points directly at the black chair; the arm, the finger and his head form one line toward it, nothing is between the finger and the black chair, and the fingertip stays far from it. Nothing else is in the room: no other chairs, furniture, pictures or objects.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/course-photoreal-sources/a1plus-unit-2-lesson-v252/staged/e09-diego-green-near-this.png",
+    "sha256": "fa7c306a7ab3e42315f81fde061e52e42523eaa0742fca224b219050194969a1"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "ZnH_aqP-BJLVz7IPkLO5yA8",
+  "usage": {
+    "promptTokenCount": 719,
+    "candidatesTokenCount": 1347,
+    "totalTokenCount": 2271,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 461
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 205,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137898",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 719,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 205
+  },
+  "elapsed_seconds": 22.5,
+  "output": "output/imagegen/a1plus-unit-2-lesson-v252/n05-diego-green-near-back-that.png",
+  "sha256": "41c4235c06d775f7117ae63c86f7fed94600dc44cd32c4e7b3f5cc73efd0d9e4",
+  "byte_count": 3940025,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

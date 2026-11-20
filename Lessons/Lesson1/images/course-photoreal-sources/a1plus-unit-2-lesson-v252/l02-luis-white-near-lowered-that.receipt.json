@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "e80fc82e-45d3-4471-b93e-c22bf3a307e6",
+  "asset_id": "l02-luis-white-near-lowered-that",
+  "pack_sha256": "a2763ffd5fa6ce6e0f5eb8ef999798dec6682be422039b2bb21f2588a78d67ff",
+  "started_at": "2026-11-19T21:57:02.529691+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, numbers, logos or brand marks anywhere, not on signs, screens, clothes, bags, machines or vehicles. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos.\n\nOnly this one person is in the photo; there is nobody else, even far in the background.\n\nIt is clearly daytime with soft natural light.\n\nImage 1 is a photo of Luis seen from behind, with magenta guide marks drawn on it. Edit it into a clean, natural photograph. Keep everything exactly the same: his back, the back of his head (no face, no eyes, no profile), his body and legs, his left hand on the white bike's saddle, his clothes, the white bike, the black bike, the courtyard, the light and the camera position. Change only his right arm: lower it so that it lies exactly along the thick magenta guide line, from his right shoulder down to the magenta dot, about 34 degrees below level, reaching forward and down toward the black bike. His index fingertip is at the dot, and the finger continues the same line, along the dashed magenta marks, pointing straight at the black bike; the other fingers are curled. The arm is no longer level and no longer at shoulder height. Remove every magenta mark: no magenta line, dash or dot remains anywhere, and the arm is natural skin and sleeve.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/course-photoreal-sources/a1plus-unit-2-lesson-v252/staged/g04-luis-back-guide.png",
+    "sha256": "bc5e8c83136a46c94fed61659cb14a7a2a36c5f64e28abf07cfcdb530f0325b5"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "rHD_asu7J5q5qtsP66Gb8Qo",
+  "usage": {
+    "promptTokenCount": 631,
+    "candidatesTokenCount": 1292,
+    "totalTokenCount": 2139,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 373
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 216,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137854",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 631,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 216
+  },
+  "elapsed_seconds": 25.05,
+  "output": "output/imagegen/a1plus-unit-2-lesson-v252/l02-luis-white-near-lowered-that.png",
+  "sha256": "ec6fcd289e0dc89fee37aad5a6dc47ddaf0a5d6f62ca1c8d08a6efb22045fccd",
+  "byte_count": 4519595,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

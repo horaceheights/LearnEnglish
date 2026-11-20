@@ -1,0 +1,62 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "3399cdee-ac31-4936-bdf9-02bde6edbc6b",
+  "asset_id": "s03-ana-blue-near-back-this",
+  "pack_sha256": "64b0f91edfc54d6cf3c026b9979ad47a4baf7f720f01a7b64f95a2e43338cf5c",
+  "started_at": "2026-11-19T22:04:24.876640+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, numbers, logos or brand marks anywhere, not on signs, screens, clothes, bags, machines or vehicles. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos.\n\nOnly this one person is in the photo; there is nobody else, even far in the background.\n\nIt is clearly daytime with soft natural light.\n\nImage 1 shows Ana from behind in her living room, looking down at the red tote bag on her shoulder and touching it, with a blue tote bag on a chair against the far wall. Keep everything exactly the same: Ana, the pose, the arms and their exact angles, the head, the clothes, the place, the light and the camera position. Swap only the colors of the two bags: the bag next to Ana is now BLUE, exactly the blue the far bag had, and the far bag is now RED, exactly the red the near bag had. Same shapes, same sizes, same positions; nothing else changes.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/course-photoreal-sources/a1plus-unit-2-lesson-v252/staged/t07-ana-red-near-back-this.png",
+    "sha256": "3b03f145af3de65cb4c03afabc59bbfbc69b23cd73c93c7135282e93a1a7ee65"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "ZnL_apiqOPLQz7IPjrKmoAM",
+  "usage": {
+    "promptTokenCount": 549,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1839,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 291
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038865",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 549,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 10.8,
+  "output": "output/imagegen/a1plus-unit-2-lesson-v252/s03-ana-blue-near-back-this.png",
+  "sha256": "70d7e3b90cb36958c5cee0d61fe2d1b2c2c289a3561a6392cccd70a9fc7268b8",
+  "byte_count": 1110476,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}
