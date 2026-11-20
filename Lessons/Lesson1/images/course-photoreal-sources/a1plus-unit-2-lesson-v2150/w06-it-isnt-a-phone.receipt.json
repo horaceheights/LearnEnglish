@@ -1,0 +1,55 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "ae1c2100-01ad-48c9-b4a3-b3c6bd4b9ec5",
+  "asset_id": "w06-it-isnt-a-phone",
+  "pack_sha256": "17f0fd4af21d925dce4584409fba1dd443e68c773f3a7277ece1280f704d017b",
+  "started_at": "2026-11-20T15:45:57.640169+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, screens, clothes, bags, machines, vehicles or license plates.\n\nThe setting is the same big sunny city park on a weekend morning in every photo of this set: short green grass, tall leafy trees, a wide light-grey paved path, a small calm lake and a few wooden benches and picnic tables, with no signs, letters or numbers anywhere.\n\nThis is a wide scene for a listening game: the learner hears one sentence and taps the person, group or thing it describes, so the four described subjects must be clearly separate from each other, spread across the width of the photo, none hidden behind another, none cut off by the photo's edges, with their heads well below the top edge. Nobody looks at the camera.\n\nIt is clearly daytime with soft natural light.\n\nSeen from directly above, four things lie on a red picnic blanket in one row from LEFT to RIGHT with wide space between them, each one whole and large: a black CAMERA with a big round lens; a black smartphone with its dark screen up and nothing on the screen; a silver round WRISTWATCH; and a brown leather WALLET. There is nothing else on the blanket and no hands in the photo.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "NGsAa_-HCdmnmtkPkZ7M8Aw",
+  "usage": {
+    "promptTokenCount": 365,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1655,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 365
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038810",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 365,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 5.88,
+  "output": "output/imagegen/a1plus-unit-2-lesson-v2150/w06-it-isnt-a-phone.png",
+  "sha256": "b740ec6932402d99c9641c641cd31e33d197b1a77d838cc1d4f3888ed7f29741",
+  "byte_count": 2030984,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}

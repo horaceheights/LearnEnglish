@@ -65,6 +65,15 @@ for (const noun of words('money price')) NOUNS.add(noun);
 for (const noun of words('gym pool watch wallet headphones camera')) NOUNS.add(noun);
 // A1+ 2.8 and 2.9 (2026-11-19): a favorite color; the -es and irregular plurals.
 for (const noun of words('color buses watches men women')) NOUNS.add(noun);
+// A1+ 2.12 (2026-11-20): classroom commands (Don't eat in the classroom. / Don't write on the desk.).
+for (const noun of words('classroom desk')) NOUNS.add(noun);
+// A1+ 2.11 (2026-11-20): two people or things compared with -er and than (Luis is taller than Sofia.).
+const COMPARATIVES: Record<string, string> = {
+  taller: 'más alto o más alta', shorter: 'más bajo o más baja', bigger: 'más grande',
+  smaller: 'más pequeño o más pequeña', older: 'mayor', younger: 'menor',
+};
+// A1+ 2.13 (2026-11-20): light or dark before a color (light blue, a dark blue bag).
+const SHADES: Record<string, string> = { light: 'claro', dark: 'oscuro' };
 // A1+ 2.6 and 2.7 (2026-11-19): ordinal numbers between "the" and a noun (the second floor).
 const ORDINALS = set('second third fourth fifth sixth seventh eighth ninth tenth');
 for (const noun of words('address')) NOUNS.add(noun);
@@ -157,6 +166,7 @@ function teachClause(text: string): ClausePlan {
     if (owner >= 0) head++;
     if (keys[head] === 'united' && keys[head + 1] === 'states') head++;
     const ordinal = head > start && ORDINALS.has(keys[head]) ? head++ : -1;
+    const shade = head > start && SHADES[keys[head]] && COLORS.has(keys[head + 1]) ? head++ : -1;
     if (COLORS.has(keys[head])) head++;
     const described = DESCRIPTIONS.has(keys[head]) ? head++ : -1;
     if (['living', 'dining'].includes(keys[head]) && keys[head + 1] === 'room') head++;
@@ -182,6 +192,8 @@ function teachClause(text: string): ClausePlan {
         ? `En ${quote(phrase(start, end))}, el color va antes de “one”, que reemplaza al nombre para no repetirlo.`
         : ordinal >= 0
         ? `En ${quote(phrase(start, end))}, ${quote(tokens[ordinal])} dice el orden (primero, segundo…) y va entre ${quote(tokens[start])} y el nombre.`
+        : shade >= 0
+        ? `En ${quote(phrase(start, end))}, ${quote(tokens[shade])} (${SHADES[keys[shade]]}) va antes del color ${quote(tokens[shade + 1])}, y el color va antes del nombre.`
         : COLORS.has(first) || COLORS.has(keys[start + 1])
         ? `En ${quote(phrase(start, end))}, ${NUMBERS.has(first) ? 'la cantidad va primero, después el color y al final el nombre' : 'el color va antes del nombre que describe'}.`
         : described >= 0
@@ -254,6 +266,22 @@ function teachClause(text: string): ClausePlan {
       if (!complement(start, notIndex, anchor)) return false;
       teach(notIndex, notIndex + 1, `Primero afirmamos ${quote(phrase(start, notIndex))}; después “not” introduce lo que descartamos: ${quote(phrase(notIndex, end))}.`);
       return complement(notIndex + 1, end, 'not');
+    }
+    // A1+ 2.11 (2026-11-20): Luis is taller than Sofia. / I am older than my brother. / … than me.
+    if (end - start >= 3 && COMPARATIVES[keys[start]] && keys[start + 1] === 'than' && BE.has(anchor.toLowerCase())) {
+      const other = start + 2;
+      teach(start, end, `${quote(tokens[start])} compara a dos personas o cosas y va después de ${quote(anchor)}; “than” va después y antes de ${quote(phrase(other, end))}, con quien comparamos.`);
+      teach(start, other, `${quote(tokens[start])} (${COMPARATIVES[keys[start]]}) termina en -er para comparar; “than” (que) va justo después: ${quote(phrase(start, other))}.`);
+      if (end === other + 1 && keys[other] === 'me') {
+        teach(other, end, '“me” va después de “than”: es la persona que habla, con quien se compara (que yo).');
+        return true;
+      }
+      return nominal(other, end);
+    }
+    // A1+ 2.13 (2026-11-20): My bag is light blue.
+    if (end - start === 2 && SHADES[keys[start]] && COLORS.has(keys[start + 1]) && BE.has(anchor.toLowerCase())) {
+      teach(start, end, `En ${quote(original)}, ${quote(tokens[start])} (${SHADES[keys[start]]}) va antes del color ${quote(tokens[start + 1])}; juntos describen al sujeto y van después de ${quote(anchor)}.`);
+      return true;
     }
     if (/^(?:one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|thirteen|fourteen|fifteen|sixteen|seventeen|eighteen|nineteen|twenty) years old$/.test(tail)) {
       teach(start, end, `Para decir la edad, después de ${quote(anchor)} va el número y luego “years old”: ${quote(original)}.`);
@@ -440,6 +468,23 @@ function teachClause(text: string): ClausePlan {
     relations.push(...inner.relations.filter(relation => relation.start > 0).map(relation => ({ ...relation, start: relation.start + action - 1, end: relation.end + action - 1 })));
     if (closingWith) teach(keys.length - 1, keys.length, `“With” cierra la pregunta: “Who … with?” pregunta con quién, después de ${quote(tokens[action])}.`);
     return { explanations, relations, supported: explanations.every(Boolean) };
+  }
+  // A1+ 2.12 (2026-11-20): classroom commands have no subject. The action goes first (Write your name.),
+  // after "Don't" for what not to do (Don't eat in the classroom.), or after "Please" (Please sit down.).
+  const posture = /^please (sit down|stand up)$/.exec(joined);
+  if (posture) {
+    teach(0, keys.length, `En esta instrucción no hay sujeto: “Please” pide con cortesía y va antes de la acción ${quote(phrase(1, 3))}.`);
+    teach(1, 3, `${quote(phrase(1, 3))} significa ${posture[1] === 'sit down' ? 'sentarse' : 'levantarse'}: ${quote(tokens[2])} va después de ${quote(tokens[1])}.`);
+    return { explanations, relations, supported: true };
+  }
+  const command = /^(don't )?(write|eat|use) /.exec(joined + ' ');
+  if (command && keys.length > (command[1] ? 2 : 1) && !text.trim().endsWith('?')) {
+    const verb = command[1] ? 1 : 0;
+    teach(0, verb + 1, command[1]
+      ? `“Don't” va primero, antes de la acción ${quote(tokens[1])}: dice lo que no se debe hacer. En una instrucción no hay sujeto.`
+      : `En una instrucción no hay sujeto: la acción ${quote(tokens[0])} va primero.`);
+    const supported = complement(verb + 1, keys.length, tokens[verb]);
+    return { explanations, relations, supported: supported && explanations.every(Boolean) };
   }
   const negative = keys.findIndex(key => ["doesn't", "don't"].includes(key));
   // A1+ 2.3 (2026-11-19): I don't have a camera.

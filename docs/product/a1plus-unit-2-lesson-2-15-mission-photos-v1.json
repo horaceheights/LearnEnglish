@@ -1,0 +1,189 @@
+{
+  "schema_version": 1,
+  "pack": "a1plus-unit-2-lesson-2-15-mission-photos",
+  "revision": 1,
+  "output_namespace": "a1plus-unit-2-lesson-v2150",
+  "authorization": "2026-11-19: the user approved the A1+ Unit 2 plan (A1+ 2.Y follows A1 2.Y) and, asked how to build it, chose \"Straight to Preview\" (\"As in 1.9-1.13: no stops. I build the lessons in batches with media pre-approved, and you review everything in Preview.\"). Gemini is the approved image tool (2026-09-23); after the 2.5 Pro photos the user said \"lets switch to flash for any other images\". On 2026-11-20 the user said \"Start Batch C when Preview is done\".",
+  "image_settings": {
+    "provider": "google-gemini",
+    "model": "gemini-2.5-flash-image",
+    "aspect_ratio": "3:2",
+    "image_size": "1K",
+    "runtime_size": "1536x1024",
+    "runtime_format": "webp",
+    "n": 1
+  },
+  "production": {
+    "price_per_image_usd": "0.0387",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing (checked 2026-11-16: Gemini 2.5 Flash Image, about $0.039 per image)",
+    "planned_images": 10,
+    "expected_cost_usd": "0.39",
+    "requested_ceiling_usd": "0.60",
+    "ceiling_note": "The renderer reserves US$0.20 before each request; each request is sent on its own, and the expected spend for the pack is about US$0.39.",
+    "no_automatic_retries": true,
+    "order": "Generate w01 first and check that each of the four ways to arrive reads at 360 px and the four people are separate; then w02-w06 (each with exactly four clear targets), then w00 and q01-q03 (faces against their references)."
+  },
+  "shared_prompts": {
+    "photo": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, screens, clothes, bags, machines, vehicles or license plates.",
+    "photo_numeral": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, logos or brand marks anywhere, and no number anywhere except the one large numeral described: no other signs, buttons, plaques, door numbers or license plates show any digit.",
+    "safe_center": "Keep the person and the thing that carries the meaning inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.",
+    "solo": "Only this one person is in the photo; there is nobody else, even far in the background.",
+    "nobody": "There are no people anywhere in the photo, not even far in the background or inside the vehicles.",
+    "face": "The person's face is fully visible in three-quarter view, looking at what they are doing, not at the camera.",
+    "daytime": "It is clearly daytime with soft natural light.",
+    "pair": "Only these two people are in the photo; there is nobody else, even far in the background.",
+    "stranger": "The person is a new character who appears in no earlier course photo; give them an ordinary, friendly everyday look.",
+    "park": "The setting is the same big sunny city park on a weekend morning in every photo of this set: short green grass, tall leafy trees, a wide light-grey paved path, a small calm lake and a few wooden benches and picnic tables, with no signs, letters or numbers anywhere.",
+    "scene4": "This is a wide scene for a listening game: the learner hears one sentence and taps the person, group or thing it describes, so the four described subjects must be clearly separate from each other, spread across the width of the photo, none hidden behind another, none cut off by the photo's edges, with their heads well below the top edge. Nobody looks at the camera.",
+    "asks": "The person is a recurring course character who asks the learner a friendly question: they look straight at the camera with a warm, open expression and one hand slightly raised, palm up."
+  },
+  "assets": [
+    {
+      "id": "w00-kickoff-ana-park",
+      "order": 1,
+      "item": "Kickoff: Ana waits for her friends in the park.",
+      "shared": [
+        "photo",
+        "park",
+        "solo",
+        "daytime",
+        "safe_center"
+      ],
+      "prompt": "Image 1 shows Ana. Keep her face, long dark wavy hair, light-olive skin and build exactly. Create a new photograph of her: she stands on the wide paved path of the park, smiles and waves hello at the camera with one hand, in her sage-green overshirt over a white top and jeans. The park opens out behind her.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-q02-c2b4398b65207eff.webp",
+        "sha256": "c2b4398b65207effa51e51260cc607c38ada48caea82f14eb872e4c9c8b5d0d5",
+        "observed_description": "Ana (long dark wavy hair, light-olive skin, sage-green overshirt over a white top, jeans) sits on a light-grey sofa and reads an open hardcover book (A1+ 1.2)."
+      }
+    },
+    {
+      "id": "w01-how-people-arrive",
+      "order": 2,
+      "item": "He goes by bike. / She walks. / She goes by car. / He goes by bus.",
+      "shared": [
+        "photo",
+        "park",
+        "scene4",
+        "daytime"
+      ],
+      "prompt": "Four different people arrive at the park on the street right beside the park entrance, each one alone and clearly separate, in one row from LEFT to RIGHT with wide space between them, each seen whole: a man of about thirty in a red T-shirt RIDES A BICYCLE; a woman of about sixty in a blue dress WALKS on the sidewalk with a small handbag; a young woman of about twenty-five in a white shirt STEPS OUT OF a small red car whose door is open; and a boy of about twelve in a yellow T-shirt STEPS DOWN from the open door of a white city bus that stands at the RIGHT edge with a blank destination display. Every vehicle is plain, with no letters, numbers or license plates."
+    },
+    {
+      "id": "w02-what-they-have",
+      "order": 3,
+      "item": "She has a camera. / He has headphones. / She has a watch. / He has a wallet.",
+      "shared": [
+        "photo",
+        "park",
+        "scene4",
+        "daytime"
+      ],
+      "prompt": "Four friends of about twenty-five sit on one long red picnic blanket on the grass, in one row from LEFT to RIGHT with clear space between them, each one fully visible and each holding or wearing ONE thing that is large and clear: a woman with a ponytail holds a black CAMERA up to take a photo; a man wears big black HEADPHONES over his ears with his eyes closed; a woman lifts her wrist to look at a big round WRISTWATCH; and a man holds an open brown leather WALLET in both hands. Nobody holds a phone, and each person has only their own thing."
+    },
+    {
+      "id": "w03-light-and-dark-bags",
+      "order": 4,
+      "item": "Her bag is light blue. / His bag is dark blue. / Her bag is light green. / His bag is dark green.",
+      "shared": [
+        "photo",
+        "park",
+        "scene4",
+        "daytime"
+      ],
+      "prompt": "Four people stand on the paved park path in one row from LEFT to RIGHT with wide space between them, each seen from head to knees, each holding ONE large plain tote bag in front of them with both hands: a woman holds a LIGHT blue (pale sky-blue) bag; a man holds a DARK blue (deep navy) bag; a woman holds a LIGHT green (pale mint) bag; a man holds a DARK green (deep forest-green) bag. Everyone wears white or grey clothes, so the four bags are the only blue or green things, and the light and dark of each color are obvious at a glance."
+    },
+    {
+      "id": "w04-taller-and-older",
+      "order": 5,
+      "item": "The man is taller than the woman. / The woman is shorter than the man. / The grandfather is older than the boy. / The boy is younger than the grandfather.",
+      "shared": [
+        "photo",
+        "park",
+        "scene4",
+        "daytime"
+      ],
+      "prompt": "Two pairs of people stand on the grass of the park, each pair side by side, with a WIDE empty gap between the two pairs, all four seen from head to shoes. The LEFT pair: a very TALL young man of about thirty in a green T-shirt and, beside him, a SHORT young woman of about thirty in a red dress whose head reaches only his shoulder. The RIGHT pair: a white-haired GRANDFATHER of about seventy-five in a beige cardigan and, beside him, a little BOY of about six in an orange T-shirt holding his hand."
+    },
+    {
+      "id": "w05-park-rules",
+      "order": 6,
+      "item": "Don't swim in the lake. / Don't write on the wall. / Don't sit on the table. / Don't play football here.",
+      "shared": [
+        "photo",
+        "park",
+        "scene4",
+        "daytime"
+      ],
+      "prompt": "Four people break the park rules in four separate places, in one wide scene from LEFT to RIGHT with clear space between them: a boy of about ten SWIMS in the small lake, his head and arms above the water; a girl of about eight DRAWS with a piece of chalk directly on a low plain white wall, with colorful scribbles (no letters) on the wall; a man of about forty SITS ON TOP of a wooden picnic table, his shoes on the bench; and two teenage boys PLAY FOOTBALL on the grass with a black-and-white ball between them. Each rule-breaker is whole and easy to see."
+    },
+    {
+      "id": "w06-it-isnt-a-phone",
+      "order": 7,
+      "item": "It isn't a phone. It's a camera. / It's a phone. / It's a watch. / It's a wallet.",
+      "shared": [
+        "photo",
+        "park",
+        "scene4",
+        "daytime"
+      ],
+      "prompt": "Seen from directly above, four things lie on a red picnic blanket in one row from LEFT to RIGHT with wide space between them, each one whole and large: a black CAMERA with a big round lens; a black smartphone with its dark screen up and nothing on the screen; a silver round WRISTWATCH; and a brown leather WALLET. There is nothing else on the blanket and no hands in the photo."
+    },
+    {
+      "id": "q01-luis-asks-in-park",
+      "order": 8,
+      "item": "Luis asks: How do you go to the park? / What is its name?",
+      "shared": [
+        "photo",
+        "park",
+        "solo",
+        "asks",
+        "daytime",
+        "safe_center"
+      ],
+      "prompt": "Image 1 shows Luis. Keep his face, short dark curly hair, clean-shaven face, warm medium-brown skin and build exactly. Create a new photograph of him: he stands on the grass of the park near a picnic table, seen from the waist up, in his navy crew-neck T-shirt.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-q01-135c3f8f772bcbe4.webp",
+        "sha256": "135c3f8f772bcbe472b8cec719eb02318a7d52ce1c7152a94c6952aeb78566c2",
+        "observed_description": "Luis (short dark curly hair, clean-shaven, warm medium-brown skin, navy crew-neck T-shirt) drinks coffee from a white mug at a wooden table in his bright kitchen (A1+ 1.2)."
+      }
+    },
+    {
+      "id": "q02-diego-asks-in-park",
+      "order": 9,
+      "item": "Diego asks: What's your favorite color?",
+      "shared": [
+        "photo",
+        "park",
+        "solo",
+        "asks",
+        "daytime",
+        "safe_center"
+      ],
+      "prompt": "Image 1 shows Diego. Keep his face, dark curly hair with a little grey, short full beard, skin tone and build exactly. Create a new photograph of him: he stands on the paved park path under the trees, seen from the waist up, in his burgundy button shirt.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-q04-ded74a2cb6021167.webp",
+        "sha256": "ded74a2cb6021167d6af2351e9012476d36c1b0936ca9f4f4b6dee68783bb9e2",
+        "observed_description": "Diego (dark curly hair with a little grey, short full beard, burgundy button shirt) sits at a wooden kitchen table and bites a red apple (A1+ 1.2)."
+      }
+    },
+    {
+      "id": "q03-sofia-asks-in-park",
+      "order": 10,
+      "item": "Sofia asks: Where do you live?",
+      "shared": [
+        "photo",
+        "park",
+        "solo",
+        "asks",
+        "daytime",
+        "safe_center"
+      ],
+      "prompt": "Image 1 shows Sofia. Keep her face, long curly dark hair, warm brown skin and build exactly. Create a new photograph of her: she stands on the grass of the park by the lake, seen from the waist up, in her bright blue blazer over a white blouse.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-q03-7d520a07846a47b8.webp",
+        "sha256": "7d520a07846a47b8e8389c3226f3b3639d7eed0d257318b08e4f9b77c5b2258b",
+        "observed_description": "Sofia (long curly dark hair, warm brown skin, white blouse under a bright blue blazer) writes in a large notebook at a wooden desk by a bright window in her home study (A1+ 1.2)."
+      }
+    }
+  ]
+}
