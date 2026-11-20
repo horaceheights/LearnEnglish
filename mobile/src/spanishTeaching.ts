@@ -20,12 +20,16 @@ const NOUN_KIND: Record<string, string> = {
   familia: 'feminine singular', bebé: 'masculine singular', bebés: 'masculine plural', niños: 'masculine plural',
   hermano: 'masculine singular', hermanos: 'masculine plural', hermana: 'feminine singular', hermanas: 'feminine plural',
   adulto: 'masculine singular', adultos: 'masculine plural',
+  padre: 'masculine singular', madre: 'feminine singular', padres: 'masculine plural',
+  abuelo: 'masculine singular', abuela: 'feminine singular', abuelos: 'masculine plural', nietos: 'masculine plural',
 };
 const PRONOUNS = set('él ella ellos ellas');
 const PLURAL_PRONOUNS = set('ellos ellas');
 const SER = set('es son');
 const ESTAR = set('está están');
-const ACTIONS = set('comiendo bebiendo leyendo escribiendo corriendo nadando durmiendo');
+const ACTIONS = set('comiendo bebiendo leyendo escribiendo corriendo nadando durmiendo jugando estudiando trabajando cocinando hablando');
+// Who-questions: quién (one person) takes es and él/ella; quiénes takes son and ellos/ellas.
+const QUESTION_WORDS: Record<string, boolean> = { quién: false, quiénes: true };
 // "Sitting" is a state word that agrees with who is sitting.
 const STATES: Record<string, string> = { sentado: 'masculine singular', sentados: 'masculine plural' };
 // One person against more than one: the verb is the only difference.
@@ -53,6 +57,18 @@ function teachClause(text: string): ClausePlan {
     return { text: `${article} ${noun}`, plural: NOUN_KIND[key(noun)].endsWith('plural') };
   };
   if (!tokens.length) return { explanations, relations, supported: false };
+  if (key(tokens[0]) in QUESTION_WORDS) {
+    const [who, verb = '', pronoun = ''] = tokens;
+    const many = QUESTION_WORDS[key(who)];
+    const fits = tokens.length === 3 && key(verb) === (many ? 'son' : 'es')
+      && PRONOUNS.has(key(pronoun)) && PLURAL_PRONOUNS.has(key(pronoun)) === many;
+    if (!fits) return { explanations, relations, supported: false };
+    explanations[0] = `${quote(who)} asks who${many ? ' about more than one person' : ''}, so the question starts with it.`;
+    explanations[1] = `${quote(verb)} comes right after ${quote(who)}: ${quote(key(who))} goes with ${quote(key(verb))}.`;
+    explanations[2] = `${quote(pronoun)} is who you are asking about, so it comes last.`;
+    relations.push({ start: 0, end: 2, explanation: `The question word comes first, then its verb: ${quote(`${who} ${verb}`)}.` });
+    return { explanations, relations, supported: true };
+  }
   const subjectStart = index;
   let subject = '';
   let plural = false;
@@ -78,16 +94,26 @@ function teachClause(text: string): ClausePlan {
     }
   }
   if (index < tokens.length) {
-    const verb = tokens[index];
+    // "no" goes right before the verb (Él no está), where English puts "not" after it.
+    const negation = key(tokens[index]) === 'no' && subject ? index : -1;
+    if (negation >= 0) index += 1;
+    const verb = tokens[index] || '';
     const verbKey = key(verb);
     if (!SER.has(verbKey) && !ESTAR.has(verbKey)) return { explanations, relations, supported: false };
+    if (negation >= 0 && !ESTAR.has(verbKey)) return { explanations, relations, supported: false };
     const verbPlural = verbKey === 'son' || verbKey === 'están';
     if (subject && verbPlural !== plural) return { explanations, relations, supported: false };
     const meaning = SER.has(verbKey) ? 'who someone is' : 'what someone is doing';
-    explanations[index] = subject
-      ? `${quote(verb)} comes right after ${quote(subject)}; it says ${meaning}${verbPlural ? ' for more than one person' : ''}.`
-      : `${quote(verb)} starts the sentence: Spanish can leave out “ellos”, and ${quote(verb)} already means “they are”.`;
-    if (subject) relations.push({ start: subjectStart, end: index + 1, explanation: `The verb comes right after who it is about: ${quote(`${subject} ${verb}`)}.` });
+    if (negation >= 0) {
+      explanations[negation] = `“no” goes right before ${quote(verb)}: Spanish says ${quote(`no ${verb}`)} where English says “${verbPlural ? 'are' : 'is'} not”.`;
+      relations.push({ start: negation, end: index + 1, explanation: `“no” comes before the verb: Spanish says ${quote(`no ${verb}`)}, English says “${verbPlural ? 'are' : 'is'} not”.` });
+    }
+    explanations[index] = !subject
+      ? `${quote(verb)} starts the sentence: Spanish can leave out “ellos”, and ${quote(verb)} already means “they are”.`
+      : negation >= 0
+        ? `${quote(verb)} comes right after “no”; it says ${meaning}${verbPlural ? ' for more than one person' : ''}.`
+        : `${quote(verb)} comes right after ${quote(subject)}; it says ${meaning}${verbPlural ? ' for more than one person' : ''}.`;
+    if (subject) relations.push({ start: subjectStart, end: index + 1, explanation: `The verb comes right after who it is about: ${quote(`${subject} ${negation >= 0 ? 'no ' : ''}${verb}`)}.` });
     const verbIndex = index;
     index += 1;
     const word = tokens[index] || '';
@@ -163,6 +189,11 @@ export function spanishChoiceHint(card: LessonCard, selectedId?: string | null):
   const base = `${lead} ${quote(answer)}${meaning ? `: ${meaning}` : ''}.`;
   const right = spanishWords(correct?.label || '').map(key);
   const chosen = spanishWords(wrong?.label || '').map(key);
+  // The same sentence with or without "no": doing it against not doing it.
+  const withoutNo = (words: string[]) => words.filter(word => word !== 'no').join(' ');
+  if (right.length && chosen.length && Math.abs(right.length - chosen.length) === 1 && withoutNo(right) === withoutNo(chosen)) {
+    return `${base} “no” before the verb means “not”.`;
+  }
   if (!right.length || right.length !== chosen.length) return base;
   const differences = right.map((word, index) => [word, chosen[index]]).filter(([a, b]) => a !== b);
   if (differences.length === 1) {
