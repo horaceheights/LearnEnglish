@@ -118,6 +118,21 @@ test('Spanish course cards explain Spanish order, agreement, es/está and one-or
   const mixed = card('Las amigas y el conejo están sentados.');
   assert.equal(constructionMistakeHint(mixed, swap(mixed, 5, 6)),
     'You put “sentados” where “están” goes. “están” + “sentados”: a group with a masculine noun takes the masculine plural “sentados”.');
+  // Spanish Unit 2: things and places; colors and sizes agree with the noun and come after it.
+  for (const supported of ['Es un autobús.', 'Es una mesa, no una silla.', 'Esta es una bolsa.', 'Estos son libros.',
+    'Estas son sillas.', 'El carro es rojo.', 'La bicicleta es usada.', 'Las bolsas son blancas.', 'La silla es café.',
+    'La casa es muy grande.', 'Tres libros verdes', 'Cuatro plumas amarillas', 'Es el número cinco.', 'Ella es estudiante.',
+    'Es un salón de clases.', 'La mujer trabaja en la escuela.', 'El niño está corriendo en el parque.',
+    '¿Qué es esto? Estos son carros.', '¿De qué color son? Los libros son verdes.']) {
+    assert.equal(constructionTeachingPlan(card(supported)).supported, true, supported);
+  }
+  for (const unsupported of ['El carro es roja.', 'Las bolsas son blancos.', 'Este es una silla.', 'Estos son sillas.',
+    'Tres libro verdes', 'Tres verdes libros', 'Es un mesa.', 'La mujer trabaja en el escuela.', 'Ella es un estudiante.']) {
+    assert.equal(constructionTeachingPlan(card(unsupported)).supported, false, unsupported);
+  }
+  const color = card('Las bolsas son blancas.');
+  assert.equal(constructionMistakeHint(color, swap(color, 2, 3)),
+    'You put “blancas” where “son” goes. After “son” comes the color or size, matching “Las bolsas”: “blancas”.');
   const notDoing = choice('Ella no está leyendo.', 'Ella está leyendo.', 'She is not reading.');
   assert.equal(spanishChoiceHint(notDoing, 'wrong'),
     'You heard “Ella no está leyendo”: She is not reading. “no” before the verb means “not”.');
