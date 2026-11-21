@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "pack": "a1plus-unit-4-lesson-4-14-last-year-photos",
+  "revision": 1,
+  "output_namespace": "a1plus-unit-4-lesson-v4140",
+  "authorization": "2026-11-20: the user asked to \"Start working on A1+ Unit 4, same deal. make sure images make sense all the time\" (the Unit 2 and Unit 3 deal: an approved map, then straight to Preview in batches with media pre-approved and reviewed in Preview), approved the A1+ Unit 4 map (\"Approve this map\") and then said \"keep going until preview, I approve ALL, NO NEED to stop\". Gemini is the approved image tool (2026-09-23), Flash only (2026-11-17; \"lets switch to flash for any other images\", 2026-11-19).",
+  "image_settings": {
+    "provider": "google-gemini",
+    "model": "gemini-2.5-flash-image",
+    "aspect_ratio": "3:2",
+    "image_size": "1K",
+    "runtime_size": "1536x1024",
+    "runtime_format": "webp",
+    "n": 1
+  },
+  "production": {
+    "price_per_image_usd": "0.0387",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing (checked 2026-11-16: Gemini 2.5 Flash Image, about $0.039 per image)",
+    "planned_images": 2,
+    "expected_cost_usd": "0.08",
+    "requested_ceiling_usd": "0.30",
+    "ceiling_note": "The renderer reserves US$0.20 before each request; each request is sent on its own, and the expected spend for the pack is about US$0.08.",
+    "no_automatic_retries": true,
+    "order": "Generate z01 and z02; check each face against its reference and that the action reads at 360 px."
+  },
+  "shared_prompts": {
+    "photo": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, menus, screens, cups, clothes or bags.",
+    "safe_center": "Keep the people and the thing that carries the meaning inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.",
+    "solo": "Only this one person is in the photo; there is nobody else, even far in the background.",
+    "daytime": "It is clearly daytime with soft natural light.",
+    "edit": "Edit Image 1. Keep the place, the furniture, the light, the colors and the camera position exactly the same; change only what is described below.",
+    "nobody": "There are no people and no animals anywhere in the photo."
+  },
+  "assets": [
+    {
+      "id": "z01-ana-paints-bedroom",
+      "order": 1,
+      "item": "Ana painted her bedroom last year.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "solo",
+        "daytime"
+      ],
+      "prompt": "Image 1 shows Ana. Keep her face, long dark wavy hair, light-olive skin and build exactly; she wears an old grey T-shirt and jeans with a few small paint spots. Create a new photograph: Ana paints a wall of her bedroom light blue with a paint roller on a long handle. Half of the wall is already light blue and half is still white, and a tray of light-blue paint stands on a sheet on the floor. Her bed and a small wardrobe are pushed to the middle of the room and covered with a white sheet. She smiles at the wall. The painting is obvious at a glance.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-q02-c2b4398b65207eff.webp",
+        "sha256": "c2b4398b65207effa51e51260cc607c38ada48caea82f14eb872e4c9c8b5d0d5",
+        "observed_description": "Ana (long dark wavy hair, light-olive skin, sage-green overshirt over a white top, jeans) sits on a light-grey sofa and reads an open hardcover book (A1+ 1.2)."
+      }
+    },
+    {
+      "id": "z02-luis-washes-car",
+      "order": 2,
+      "item": "Luis washed his car last month.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "solo",
+        "daytime"
+      ],
+      "prompt": "Image 1 shows Luis. Keep his face, short dark curly hair, clean-shaven face, warm medium-brown skin and build exactly, in his navy crew-neck T-shirt. Create a new photograph on a sunny day in the parking area in front of an apartment building: Luis washes his silver car with a big blue sponge; white soap foam covers the car's hood and door, and a red bucket of soapy water stands on the ground beside him. The car has no number plate visible and nothing anywhere shows a letter or a number.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-q01-135c3f8f772bcbe4.webp",
+        "sha256": "135c3f8f772bcbe472b8cec719eb02318a7d52ce1c7152a94c6952aeb78566c2",
+        "observed_description": "Luis (short dark curly hair, clean-shaven, warm medium-brown skin, navy crew-neck T-shirt) drinks coffee from a white mug at a wooden table in his bright kitchen (A1+ 1.2)."
+      }
+    }
+  ]
+}

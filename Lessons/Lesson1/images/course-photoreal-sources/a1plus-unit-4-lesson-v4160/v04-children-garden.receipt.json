@@ -1,0 +1,62 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "397d2bc7-9afa-4d7c-9c88-db3272212bb5",
+  "asset_id": "v04-children-garden",
+  "pack_sha256": "f96d7a175b73c35202437cff0e9cf1715dc88933b6d1b5156d44359527b5d586",
+  "started_at": "2026-11-21T08:27:08.263681+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, menus, screens, cups, clothes or bags.\n\nKeep the people and the thing that carries the meaning inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nOnly these two people are in the photo; there is nobody else, even far in the background.\n\nIt is clearly daytime with soft natural light.\n\nImage 1 shows the family. Keep the GIRL and the BOY exactly as in Image 1: face, hair, age and clothes. Create a new photograph in the sunny green garden behind their house: the girl and the boy sit side by side on the grass, each reading an open book. There is no ball, no bike and nothing else to play with in the photo.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": {
+    "path": "output/imagegen/a1plus-unit-4-lesson-v4160/v00-family.png",
+    "sha256": "86a33a4833ae1e5531855038012e7dae5cf0a31d8d06d6c94fd97fab13dbb317"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "2FUBa7-7OuSvqtsPiYWNcA",
+  "usage": {
+    "promptTokenCount": 544,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1834,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 286
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038863",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 544,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 9.13,
+  "output": "output/imagegen/a1plus-unit-4-lesson-v4160/v04-children-garden.png",
+  "sha256": "390a229a495009897045b265c22fe0e887bb0208429355a9c3ecac208bf4c2f9",
+  "byte_count": 1879606,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}

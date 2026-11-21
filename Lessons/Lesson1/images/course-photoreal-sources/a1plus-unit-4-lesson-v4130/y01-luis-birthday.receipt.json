@@ -1,0 +1,62 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "7018806e-95a1-4c07-89d7-2a03aa115416",
+  "asset_id": "y01-luis-birthday",
+  "pack_sha256": "c928ea793ad198513670783bc1ba5fcde49beb7015c3ec4c26e4fd955525ca34",
+  "started_at": "2026-11-21T08:07:25.397300+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, menus, screens, cups, clothes or bags.\n\nKeep the people and the thing that carries the meaning inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nOnly this one person is in the photo; there is nobody else, even far in the background.\n\nImage 1 shows Luis. Keep his face, short dark curly hair, clean-shaven face, warm medium-brown skin and navy crew-neck T-shirt exactly. Create a new photograph in the style of a warm, simple birthday at home in the daytime: Luis sits alone at a light wooden dining table in a bright living room with big windows and a few plants, wearing a small plain kraft-paper party hat. In front of him on the table is a round homemade cake with white frosting on a white plate, with six thin plain candles, all lit with small flames. Three plain balloons, one red, one yellow and one blue, float behind him. He smiles happily and looks down at the cake. The person, the cake and the candles are large and clearly visible in the middle of the photo. The candles are plain and thin, not number candles, and nothing anywhere shows a number or a letter.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1plus-unit-1-q01-135c3f8f772bcbe4.webp",
+    "sha256": "135c3f8f772bcbe472b8cec719eb02318a7d52ce1c7152a94c6952aeb78566c2"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "OlEBa5qNDI6fz7IPh-mkuQs",
+  "usage": {
+    "promptTokenCount": 644,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1934,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 386
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038893",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 644,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 7.78,
+  "output": "output/imagegen/a1plus-unit-4-lesson-v4130/y01-luis-birthday.png",
+  "sha256": "1adeb8f73f0b44b1f77ac78c995fafdbfb82a4a0dfda67d1e803a5220e707cd3",
+  "byte_count": 1136237,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}

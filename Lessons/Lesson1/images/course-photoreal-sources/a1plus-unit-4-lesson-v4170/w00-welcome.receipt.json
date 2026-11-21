@@ -1,0 +1,62 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "afee66ef-a502-48bd-8861-47f1c2697400",
+  "asset_id": "w00-welcome",
+  "pack_sha256": "54e5e24a7bde0f5117e3837b6ae7a331b37aa349fa8ec0402021bdd134004421",
+  "started_at": "2026-11-21T08:18:28.777476+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, menus, screens, cups, clothes or bags.\n\nThe place is Ana's bright, modern apartment on a Saturday: an open living and dining room with a light-grey sofa, a light wooden dining table with chairs, a big window, a big flat TV on a low white cabinet and a few plants.\n\nOnly this one person is in the photo; there is nobody else, even far in the background.\n\nThe person she is talking to is NOT in the photo: they stand just outside the right edge of the photo, so no part of that person (no hand, arm, shoulder or shadow) is visible.\n\nIt is clearly daytime with soft natural light.\n\nImage 1 shows Ana. Keep her face, long dark wavy hair, light-olive skin and build exactly, in her sage-green overshirt over a white top. Create a new photograph: Ana stands in the open front door of her apartment and smiles, opening one arm in a big welcome to her family, who stand just outside the right edge of the photo. Behind her the living room is tidy and ready, with nobody in it.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1plus-unit-1-q02-c2b4398b65207eff.webp",
+    "sha256": "c2b4398b65207effa51e51260cc607c38ada48caea82f14eb872e4c9c8b5d0d5"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "0VMBa5zzJLSGqtsP_eDFyQ8",
+  "usage": {
+    "promptTokenCount": 608,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1898,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 350
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038882",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 608,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 8.79,
+  "output": "output/imagegen/a1plus-unit-4-lesson-v4170/w00-welcome.png",
+  "sha256": "0b069bbd93efae311abaa3efd13460b2cc57e06bdfe618107f7566f5607b0840",
+  "byte_count": 1243108,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}

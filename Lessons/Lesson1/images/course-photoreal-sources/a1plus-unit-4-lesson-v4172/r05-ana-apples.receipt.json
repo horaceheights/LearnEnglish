@@ -1,0 +1,62 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "77c722b7-fd9f-4399-a798-2b010767c254",
+  "asset_id": "r05-ana-apples",
+  "pack_sha256": "8ab57795f36dd922ac183cb7f580c5de5a4b729ae8d1c568fda37f64084c0b6b",
+  "started_at": "2026-11-21T19:21:39.255638+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, menus, screens, cups, clothes or bags.\n\nThe place is Ana's bright, modern apartment on a Saturday: an open living and dining room with a light-grey sofa, a light wooden dining table with chairs, a big window, a big flat TV on a low white cabinet and a few plants.\n\nOnly this one person is in the photo; there is nobody else, even far in the background.\n\nThe person she is talking to is NOT in the photo: they stand just outside the right edge of the photo, so no part of that person (no hand, arm, shoulder or shadow) is visible.\n\nIt is clearly daytime with soft natural light.\n\nImage 1 shows Ana. Keep her face, long dark wavy hair, light-olive skin and build exactly, in her sage-green overshirt over a white top. Create a new photograph: Ana stands at the light wooden dining table in her apartment after lunch and smiles, holding out one shiny red apple to someone just outside the right edge of the photo. On the table in front of her lie four more shiny red apples, large and clearly visible. Nothing else is on the table.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1plus-unit-1-q02-c2b4398b65207eff.webp",
+    "sha256": "c2b4398b65207effa51e51260cc607c38ada48caea82f14eb872e4c9c8b5d0d5"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "R-8Ba8enFOLDqtsPqZ3mqQM",
+  "usage": {
+    "promptTokenCount": 617,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1907,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 359
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038885",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 617,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 12.88,
+  "output": "output/imagegen/a1plus-unit-4-lesson-v4172/r05-ana-apples.png",
+  "sha256": "3b43dbc749e7a40ca2b81324c7933a64a33fb31b1e929f0738873cf957a4fd28",
+  "byte_count": 1171094,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}

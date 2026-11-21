@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "pack": "a1plus-unit-4-lesson-4-17-mission-photos",
+  "revision": 2,
+  "output_namespace": "a1plus-unit-4-lesson-v4171",
+  "authorization": "2026-11-20: the user asked to \"Start working on A1+ Unit 4, same deal. make sure images make sense all the time\" (the Unit 2 and Unit 3 deal: an approved map, then straight to Preview in batches with media pre-approved and reviewed in Preview), approved the A1+ Unit 4 map (\"Approve this map\") and then said \"keep going until preview, I approve ALL, NO NEED to stop\". Gemini is the approved image tool (2026-09-23), Flash only (2026-11-17; \"lets switch to flash for any other images\", 2026-11-19).",
+  "image_settings": {
+    "provider": "google-gemini",
+    "model": "gemini-2.5-flash-image",
+    "aspect_ratio": "3:2",
+    "image_size": "1K",
+    "runtime_size": "1536x1024",
+    "runtime_format": "webp",
+    "n": 1
+  },
+  "production": {
+    "price_per_image_usd": "0.0387",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing (checked 2026-11-16: Gemini 2.5 Flash Image, about $0.039 per image)",
+    "planned_images": 2,
+    "expected_cost_usd": "0.08",
+    "requested_ceiling_usd": "0.30",
+    "ceiling_note": "The renderer reserves US$0.20 before each request; each request is sent on its own, and the expected spend for the pack is about US$0.08.",
+    "no_automatic_retries": true,
+    "order": "Revision 2: v1's w04 put the switched-off lamp small at the right edge, with lamp glow reflected in the window, and q03 showed half of a man at the right edge, who could be read as the he of Diego's question."
+  },
+  "shared_prompts": {
+    "photo": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, menus, screens, cups, clothes or bags.",
+    "apartment": "The place is Ana's bright, modern apartment on a Saturday: an open living and dining room with a light-grey sofa, a light wooden dining table with chairs, a big window, a big flat TV on a low white cabinet and a few plants.",
+    "solo": "Only this one person is in the photo; there is nobody else, even far in the background.",
+    "pair": "Only these two people are in the photo; there is nobody else, even far in the background.",
+    "daytime": "It is clearly daytime with soft natural light.",
+    "nobody": "There are no people and no animals anywhere in the photo.",
+    "offframe_her": "The person she is talking to is NOT in the photo: they stand just outside the right edge of the photo, so no part of that person (no hand, arm, shoulder or shadow) is visible.",
+    "offframe_him": "The person he is talking to is NOT in the photo: they stand just outside the right edge of the photo, so no part of that person (no hand, arm, shoulder or shadow) is visible.",
+    "evening": "It is evening: the big window shows a dark blue sky.",
+    "nowords": "The TV and the computer show no words, numbers or logos."
+  },
+  "assets": [
+    {
+      "id": "w14-lamps",
+      "order": 1,
+      "item": "The lamp isn't on. It's off. / The lamp is on. / The TV is on. / The computer is off.",
+      "shared": [
+        "photo",
+        "apartment",
+        "nobody",
+        "evening",
+        "nowords"
+      ],
+      "prompt": "Ana's living room in the evening, with nobody in it and the long curtains closed over the window, so there are no reflections anywhere. Seen straight from the front, four things stand in one row, clearly apart from each other and all inside the middle 80 percent of the photo width, from left to right: a tall floor lamp with a white fabric shade that is ON, its shade glowing brightly with warm yellow light; a big flat TV on a low white cabinet that is ON, its screen showing a bright, colorful picture of green mountains and a blue lake; a second tall floor lamp, exactly like the first one and just as large, that is OFF, its shade dull grey and dark with no light at all; and an open laptop computer on a small wooden desk that is OFF, its screen completely black. Only the first lamp and the TV give light; there is no other lamp or light in the photo."
+    },
+    {
+      "id": "q13-diego-asks",
+      "order": 2,
+      "item": "How often does he play football?",
+      "shared": [
+        "photo",
+        "apartment",
+        "solo",
+        "daytime"
+      ],
+      "prompt": "Image 1 shows Diego. Keep his face, dark curly hair with a little grey, short full beard and build exactly, in his burgundy button shirt. Create a new photograph: Diego stands alone in Ana's living room by the window, turns his head toward the right edge of the photo and asks a friendly, curious question, eyebrows raised, one open hand lifted. Diego is the ONLY person in the photo: there is no second person, no head, no shoulder and no arm at any edge of the photo; the person he talks to is out of the frame.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-q04-ded74a2cb6021167.webp",
+        "sha256": "ded74a2cb6021167d6af2351e9012476d36c1b0936ca9f4f4b6dee68783bb9e2",
+        "observed_description": "Diego (dark curly hair with a little grey, short full beard, burgundy button shirt) sits at a wooden kitchen table and bites a red apple (A1+ 1.2)."
+      }
+    }
+  ]
+}
