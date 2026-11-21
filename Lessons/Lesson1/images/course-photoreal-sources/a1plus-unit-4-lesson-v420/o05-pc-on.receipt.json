@@ -1,0 +1,62 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "50d869de-205a-4bc8-afbb-6a90e6544be5",
+  "asset_id": "o05-pc-on",
+  "pack_sha256": "450765dccb5fca5c601741e74c2c55dc6d121223e8d4679baa3df3dc60d4ae90",
+  "started_at": "2026-11-21T03:07:35.310106+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, menus, screens, cups, clothes or bags.\n\nKeep the people and the thing that carries the meaning inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nOnly this one person is in the photo; there is nobody else, even far in the background.\n\nIt is clearly daytime with soft natural light.\n\nImage 1 shows Diego. Keep his face, dark curly hair with a little grey, short full beard and burgundy button shirt exactly. Create a new photograph: Diego sits at a wooden desk at home by a window and presses a key of an open silver laptop with one finger. The camera is beside the desk at an angle, so both Diego's face and the laptop's screen are clearly visible. The laptop is ON: its screen glows with a bright picture of a sunny beach, with no words, numbers, icons or logos.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1plus-unit-1-q04-ded74a2cb6021167.webp",
+    "sha256": "ded74a2cb6021167d6af2351e9012476d36c1b0936ca9f4f4b6dee68783bb9e2"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "9AoBa6jUHMSgz7IP3MupqQc",
+  "usage": {
+    "promptTokenCount": 576,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1866,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 318
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038873",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 576,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 9.27,
+  "output": "output/imagegen/a1plus-unit-4-lesson-v420/o05-pc-on.png",
+  "sha256": "3fff6043ff5f5abca0658f4931be449b0d7bcef9fd1fe3ff4be015253680b70f",
+  "byte_count": 1251258,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}
