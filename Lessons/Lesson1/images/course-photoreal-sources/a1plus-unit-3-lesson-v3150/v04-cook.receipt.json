@@ -1,0 +1,55 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "2426b5be-70fc-4658-9907-6cf22d625544",
+  "asset_id": "v04-cook",
+  "pack_sha256": "7335866b1c7c0ab6ad420e7d3c2f041ce684ff654194a284917c4db6a83a9f79",
+  "started_at": "2026-11-20T22:02:46.855904+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, menus, screens, cups, clothes or bags.\n\nKeep the people and the thing that carries the meaning inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nOnly this one person is in the photo; there is nobody else, even far in the background.\n\nIt is clearly daytime with soft natural light.\n\nA real man of about thirty-five with a black mustache, in a white chef's jacket and a white chef's hat, stands at the steel counter of a busy-looking but empty restaurant kitchen and puts fresh food on a plate, smiling. He is obviously a cook at work in a restaurant kitchen.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "hMMAa-GuJvXpz7IP8MCckAw",
+  "usage": {
+    "promptTokenCount": 273,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1563,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 273
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038782",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 273,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 6.09,
+  "output": "output/imagegen/a1plus-unit-3-lesson-v3150/v04-cook.png",
+  "sha256": "29d94d7e49d4d9afdb7b01344f1f34115b3db85a894b24a15cd293e4b7cbebfb",
+  "byte_count": 1359612,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}

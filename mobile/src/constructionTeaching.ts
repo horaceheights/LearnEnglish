@@ -69,6 +69,8 @@ for (const noun of words('gym pool watch wallet headphones camera')) NOUNS.add(n
 for (const noun of words('color buses watches men women')) NOUNS.add(noun);
 // A1+ 2.12 (2026-11-20): classroom commands (Don't eat in the classroom. / Don't write on the desk.).
 for (const noun of words('classroom desk')) NOUNS.add(noun);
+// A1+ 3.13 (2026-11-20): a neighbor (My neighbor lives at 18 Park Street.).
+NOUNS.add('neighbor');
 // A1+ 2.11 (2026-11-20): two people or things compared with -er and than (Luis is taller than Sofia.).
 const COMPARATIVES: Record<string, string> = {
   taller: 'más alto o más alta', shorter: 'más bajo o más baja', bigger: 'más grande',
@@ -100,6 +102,9 @@ for (const description of words('mexican canadian american spanish')) DESCRIPTIO
 for (const state of DESCRIPTIONS) STATES.add(state);
 const OWNERS = set('mine yours ours');
 const OWNER_MEANINGS: Record<string, string> = { mine: 'mío', yours: 'tuyo', ours: 'nuestro' };
+// A1+ 3.12 (2026-11-20): his, hers and theirs stand alone after be (The camera is hers.).
+for (const owner of words('his hers theirs')) OWNERS.add(owner);
+Object.assign(OWNER_MEANINGS, { his: 'de él', hers: 'de ella', theirs: 'de ellos' });
 const PRONOUNS = set('i you he she it we they this that these those there');
 const VERBS = set('am is are have has like want wants need needs do work works study wake get eat wash brush come go goes sleep drink walk play watch can cannot leaves arrives open close clean run take');
 for (const verb of words('speak speaks')) VERBS.add(verb);
@@ -280,6 +285,11 @@ function teachClause(text: string): ClausePlan {
         teach(other, end, '“me” va después de “than”: es la persona que habla, con quien se compara (que yo).');
         return true;
       }
+      // A1+ 3.12 (2026-11-20): His bag is bigger than hers.
+      if (end === other + 1 && OWNERS.has(keys[other])) {
+        teach(other, end, `${quote(tokens[other])} significa ${quote(OWNER_MEANINGS[keys[other]])}: va después de “than” y reemplaza al dueño y a la cosa, para no repetirla.`);
+        return true;
+      }
       return nominal(other, end);
     }
     // A1+ 2.13 (2026-11-20): My bag is light blue.
@@ -319,6 +329,27 @@ function teachClause(text: string): ClausePlan {
       teach(start, end, `Después de ${quote(anchor)} va “to” y luego la actividad ${quote(phrase(start + 1, end))}: indica lo que gusta o lo que se quiere hacer.`);
       teach(start, start + 2, `“To” conecta ${quote(anchor)} con el verbo ${quote(tokens[start + 1])}; va antes de ese verbo.`);
       if (keys[start + 1] === 'listen') teach(start + 2, end, 'En “listen to music”, el segundo “to” va entre “listen” y lo que escuchamos: “music”.');
+      return true;
+    }
+    // A1+ 3.14 (2026-11-20): what someone wants to be (She wants to be a singer.) or to do (He wants to drive buses.).
+    if (/^(?:want|wants)$/.test(anchor.toLowerCase()) && /^to (?:be (?:a|an)|drive) /.test(tail)) {
+      const be = keys[start + 1] === 'be';
+      teach(start, start + 2, be
+        ? `“to be” (ser) va después de ${quote(anchor)}: ${quote(anchor + ' to be')} dice lo que alguien quiere ser.`
+        : `“to” conecta ${quote(anchor)} con el verbo ${quote(tokens[start + 1])}; va antes de ese verbo.`);
+      if (be) relations.push({ start: start - 1, end, explanation: `Después de ${quote(anchor + ' to be')} va el trabajo con “a” o “an”: ${quote(phrase(start + 2, end))}.` });
+      return nominal(start + 2, end);
+    }
+    // A1+ 3.13 (2026-11-20): where someone lives, at + house number + street (She lives at eighteen Park
+    // Street.) or on + the street alone (He lives on Park Street.).
+    const street = /^(at|on) (?:([a-z]+) )?([a-z]+) street$/.exec(tail);
+    if (street && /^(?:live|lives)$/.test(anchor.toLowerCase())
+      && (street[1] === 'at') === Boolean(street[2] && NUMBERS.has(street[2]))) {
+      const name = street[2] ? start + 2 : start + 1;
+      teach(start, name, street[2]
+        ? `“at” va después de ${quote(anchor)} y antes de la dirección completa: primero el número de la casa, ${quote(tokens[start + 1])}, y después la calle.`
+        : `“on” va después de ${quote(anchor)} y antes del nombre de la calle sola, sin número.`);
+      teach(name, end, `${quote(phrase(name, end))} es el nombre de la calle y cierra la frase.`);
       return true;
     }
     if (tail === 'fast' && /^(speak|speaks)$/.test(anchor.toLowerCase())) {
@@ -778,6 +809,14 @@ function teachClause(text: string): ClausePlan {
     teach(0, 1, '“What” abre la pregunta.');
     teach(1, 3, `${quote(phrase(1, 3))} va después de “What”: ${keys[1] === 'does' ? '“does” con he, she o un nombre' : '“do” con you'}.`);
     teach(3, 4, 'El último “do” es el verbo hacer y cierra la pregunta: pregunta a qué se dedica.');
+    return { explanations, relations, supported: true };
+  }
+  // A1+ 3.12 (2026-11-20): Whose camera is this? asks who a thing belongs to.
+  const whose = /^whose ([a-z]+) (is|are) (this|that|these|those)$/.exec(joined);
+  if (whose && text.trim().endsWith('?') && NOUNS.has(whose[1])) {
+    teach(0, 2, `“Whose” (de quién) abre la pregunta y va justo antes de la cosa: ${quote(phrase(0, 2))}.`);
+    teach(2, 3, `${quote(tokens[2])} va después de la cosa y antes de ${quote(tokens[3])}.`);
+    teach(3, 4, `${quote(tokens[3])} señala la cosa y cierra la pregunta.`);
     return { explanations, relations, supported: true };
   }
   // A1+ 3.5 (2026-11-20): how much older or younger, a number of years before the comparative

@@ -1,0 +1,62 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "115bdd2c-6fe4-41b6-94f7-86056f10f906",
+  "asset_id": "c07-diego-artist",
+  "pack_sha256": "75b29a0f551356b53a5bb934d5462e2c6305bbb63a4cf40dbcbaa766abcc69e0",
+  "started_at": "2026-11-20T22:02:17.337525+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, menus, screens, cups, clothes or bags.\n\nKeep the people and the thing that carries the meaning inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nOnly this one person is in the photo; there is nobody else, even far in the background.\n\nIt is clearly daytime with soft natural light.\n\nImage 1 shows Diego. Keep his face, dark curly hair with a little grey, short full beard, skin and build exactly, in his burgundy button shirt with the sleeves rolled up. Create a new photograph of him at home on a Saturday: he stands at a wooden easel by a bright window and paints a colorful landscape on a canvas with a brush, a palette of paints in his other hand, smiling with pleasure. The painting is half finished. He is obviously painting for love, at home, not at work.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1plus-unit-1-q04-ded74a2cb6021167.webp",
+    "sha256": "ded74a2cb6021167d6af2351e9012476d36c1b0936ca9f4f4b6dee68783bb9e2"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "aMMAa921DY6tz7IP75jyuAg",
+  "usage": {
+    "promptTokenCount": 572,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1862,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 314
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038872",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 572,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 10.3,
+  "output": "output/imagegen/a1plus-unit-3-lesson-v3141/c07-diego-artist.png",
+  "sha256": "42b016a682b332e261c0aa9d2e2b1af77723f4eb75bc3271cff399d1a1a9b298",
+  "byte_count": 1270612,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}

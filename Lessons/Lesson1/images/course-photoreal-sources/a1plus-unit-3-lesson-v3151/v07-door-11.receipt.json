@@ -1,0 +1,55 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "7c273232-f2da-47c1-a9bd-91e778fa821f",
+  "asset_id": "v07-door-11",
+  "pack_sha256": "1b647144f6742fe2ebc22d465b507968c89bd25c528debbc0dbfa4478a73cd4c",
+  "started_at": "2026-11-20T22:03:45.264634+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, logos or brand marks anywhere, and no number anywhere except the one house number described: no other signs, plates, mailboxes, clocks, screens or clothes show any digit.\n\nKeep the people and the thing that carries the meaning inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nOnly this one person is in the photo; there is nobody else, even far in the background.\n\nIt is clearly daytime with soft natural light.\n\nA real older man with a white beard and a flat cap stands in front of his small white house on a quiet street and waters the flowers by his blue front door with a green watering can, smiling at the camera. Beside the door there is ONE small house-number plaque that shows the number 11 written only ONCE, as two digits side by side on a single line: a 1 followed by a 1. There is no other digit anywhere in the photo: nothing above, below or beside the plaque, and no second copy of the number. The digits are large, black, upright, sharp and easy to read even on a small phone screen.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "v8MAa9CcBLGcz7IP1vbj-QY",
+  "usage": {
+    "promptTokenCount": 357,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1647,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 357
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038807",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 357,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 7.08,
+  "output": "output/imagegen/a1plus-unit-3-lesson-v3151/v07-door-11.png",
+  "sha256": "9809869d6987f2a1b1143ff502424a0136a54ca6a37b91779b46b44b64dea8d6",
+  "byte_count": 1658265,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}

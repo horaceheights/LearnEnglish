@@ -230,6 +230,8 @@ const MEANINGS: Record<string, string> = {
   him: 'a él', them: 'a ellos o a ellas',
   cooks: 'cocina', plays: 'juega',
   our: 'nuestro', their: 'de ellos', mine: 'mío', yours: 'tuyo', ours: 'nuestro', have: 'tener', has: 'tiene',
+  // A1+ 3.12 (2026-11-20): possessive pronouns after Whose…? (It's hers. / They're theirs.).
+  hers: 'de ella', theirs: 'de ellos',
   grandchildren: 'nietos',
   cook: 'cocinero', brush: 'cepillar', wash: 'lavar',
   study: 'estudiar', run: 'correr', goes: 'va', walks: 'camina', likes: 'le gusta',
