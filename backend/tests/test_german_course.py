@@ -36,7 +36,7 @@ class GermanCourseTests(unittest.TestCase):
         self.assertTrue(lessons)
         for lesson in lessons:
             self.assertEqual(lesson.level, "Deutsch A1")
-            mission = lesson.id == "de-a1-unit-1-lesson-1-14"
+            mission = getattr(lesson, "experience_type", None) == "mission"
             position = {}
             for index, card in enumerate(lesson.cards):
                 position[card.stage] = position.get(card.stage, 0) + 1
@@ -56,11 +56,39 @@ class GermanCourseTests(unittest.TestCase):
 
     def test_unit_1_has_fourteen_lessons_ending_in_review_and_mission(self):
         # User approval "Approve, generate", 2026-11-19.
-        ids = [lesson.id for lesson in COURSE_LESSONS["de-a1"].values()]
+        ids = [lesson.id for lesson in COURSE_LESSONS["de-a1"].values() if lesson.unit_id == "de-a1-unit-1"]
         self.assertEqual(sorted(ids), sorted(f"de-a1-unit-1-lesson-1-{n}" for n in range(1, 15)))
         mission = COURSE_LESSONS["de-a1"]["de-a1-unit-1-lesson-1-14"]
         self.assertEqual(len(mission.cards), 24)
         self.assertEqual(len(COURSE_LESSONS["de-a1"]["de-a1-unit-1-lesson-1-13"].cards), 62)
+
+    def test_unit_2_has_fifteen_lessons_ending_in_review_and_mission(self):
+        # User approval of the German Unit 2 map ("Approve, build"), 2026-11-20.
+        ids = [lesson.id for lesson in COURSE_LESSONS["de-a1"].values() if lesson.unit_id == "de-a1-unit-2"]
+        self.assertEqual(sorted(ids), sorted(f"de-a1-unit-2-lesson-2-{n}" for n in range(1, 16)))
+        self.assertEqual(getattr(COURSE_LESSONS["de-a1"]["de-a1-unit-2-lesson-2-15"], "experience_type", None), "mission")
+        self.assertEqual(len(COURSE_LESSONS["de-a1"]["de-a1-unit-2-lesson-2-15"].cards), 15)
+        self.assertEqual(len(COURSE_LESSONS["de-a1"]["de-a1-unit-2-lesson-2-14"].cards), 72)
+
+    def test_unit_2_keeps_colors_and_sizes_after_the_noun(self):
+        # Singular adjective endings (ein roter Bus) are deferred: German Unit 2 says
+        # Das Auto ist rot. The only ending is -e before a counted plural (drei grüne Bücher).
+        stems = "rot blau grün gelb schwarz weiß braun grau groß klein neu alt".split()
+        for lesson in COURSE_LESSONS["de-a1"].values():
+            if lesson.unit_id != "de-a1-unit-2":
+                continue
+            for card in lesson.cards:
+                words = _speech_words(card.audio_text or "")
+                for before, word in zip(words, words[1:]):
+                    for stem in stems:
+                        if word in {stem + "er", stem + "es", stem + "en"} or (word == stem + "e" and before in {"ein", "eine", "der", "die", "das"}):
+                            self.fail((lesson.id, card.slide_id, card.audio_text))
+
+    def test_german_answer_banks_count_umlaut_words_whole(self):
+        from scripts.answer_choice_guardrail import analyze_bank
+        card = {"target_language": "de", "options": [{"label": "Was ist das? Das ist ein Buch."}, {"label": "Was ist das? Das ist ein Handy."}]}
+        self.assertEqual(analyze_bank(card), ("phrases", [], {}))
+        self.assertEqual(analyze_bank({"target_language": "de", "options": [{"label": "Fünf"}, {"label": "Vier"}]}), ("words", [], {}))
 
     def test_animals_eat_with_fressen_never_essen(self):
         animals = ("hund", "katze", "vogel", "kaninchen")

@@ -1,0 +1,55 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "22b30bef-d359-4e63-8309-6440ab0bd02a",
+  "asset_id": "v10-siblings",
+  "pack_sha256": "7335866b1c7c0ab6ad420e7d3c2f041ce684ff654194a284917c4db6a83a9f79",
+  "started_at": "2026-11-20T22:03:33.879905+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, logos or brand marks anywhere, and no number anywhere except the one house number described: no other signs, plates, mailboxes, clocks, screens or clothes show any digit.\n\nKeep the people and the thing that carries the meaning inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nOnly these two people are in the photo; there is nobody else, even far in the background.\n\nIt is clearly daytime with soft natural light.\n\nA real teenage sister and her younger brother sit side by side at a table in a bright kitchen and smile at the camera; the sister is clearly older and taller. In front of each is their own small round white birthday cake on a white plate: on the sister's cake stand two large, thick number candles that read 1 and 7 together as 17; on the brother's cake, two large number candles that read 1 and 4 together as 14. Each candle is as tall as a hand, with a small flame, and the numbers face the camera, sharp and easy to read even on a small phone screen. There is no number anywhere except the candles.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "s8MAa6CiJo-LqtsP9pLHyA4",
+  "usage": {
+    "promptTokenCount": 364,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1654,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 364
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038809",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 364,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 7.27,
+  "output": "output/imagegen/a1plus-unit-3-lesson-v3150/v10-siblings.png",
+  "sha256": "4dfb36f07b5bf451e20804904ce0ea68828ca5a4e2c0a6cbfc34b8d46a3ef106",
+  "byte_count": 1518230,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}

@@ -1,0 +1,132 @@
+{
+  "schema_version": 1,
+  "pack": "a1plus-unit-3-lesson-3-14-want-to-be-photos",
+  "revision": 1,
+  "output_namespace": "a1plus-unit-3-lesson-v3141",
+  "authorization": "2026-11-20: the user asked to \"Start working on a1+ Unit 3, same deal\" (the Unit 2 deal: an approved map, then straight to Preview in batches with media pre-approved and reviewed in Preview) and approved the A1+ Unit 3 map (\"Approve this map\"). Gemini is the approved image tool (2026-09-23), Flash only (2026-11-17; \"lets switch to flash for any other images\", 2026-11-19).",
+  "image_settings": {
+    "provider": "google-gemini",
+    "model": "gemini-2.5-flash-image",
+    "aspect_ratio": "3:2",
+    "image_size": "1K",
+    "runtime_size": "1536x1024",
+    "runtime_format": "webp",
+    "n": 1
+  },
+  "production": {
+    "price_per_image_usd": "0.0387",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing (checked 2026-11-16: Gemini 2.5 Flash Image, about $0.039 per image)",
+    "planned_images": 7,
+    "expected_cost_usd": "0.27",
+    "requested_ceiling_usd": "0.50",
+    "ceiling_note": "The renderer reserves US$0.20 before each request; each request is sent on its own, and the expected spend for the pack is about US$0.27.",
+    "no_automatic_retries": true,
+    "order": "v1's c01 'toy microphone' came out as a star-shaped toy; the microphone is now described exactly, and the police and doctor toys must look like the real things. Generate c01 first; then the others in order."
+  },
+  "shared_prompts": {
+    "photo": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, menus, screens, cups, clothes or bags.",
+    "numeral": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, logos or brand marks anywhere, and no number anywhere except the one house number described: no other signs, plates, mailboxes, clocks, screens or clothes show any digit.",
+    "safe_center": "Keep the people and the thing that carries the meaning inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.",
+    "solo": "Only this one person is in the photo; there is nobody else, even far in the background.",
+    "pair": "Only these two people are in the photo; there is nobody else, even far in the background.",
+    "daytime": "It is clearly daytime with soft natural light.",
+    "party": "The place is the big bright community room of an apartment building on the evening of a neighbors' international dinner: long tables with white tablecloths, warm string lights, plants and big windows.",
+    "noflag": "There are no flags, banners or signs anywhere in the room.",
+    "offframe": "The person she is talking to is NOT in the photo: they stand just outside the edge of the photo that is named, so no part of that person (no hand, arm, shoulder or shadow) is visible."
+  },
+  "assets": [
+    {
+      "id": "c01-singer",
+      "order": 1,
+      "item": "She wants to be a singer.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "solo",
+        "daytime"
+      ],
+      "prompt": "A real girl of about eight with two braids stands on a low wooden step in her bright living room and sings happily with her mouth wide open into a small BLACK toy microphone shaped exactly like a real handheld microphone, with a round silver mesh head, held right in front of her mouth; her other arm is stretched out like a pop star. She is obviously a child playing at being a singer."
+    },
+    {
+      "id": "c02-police",
+      "order": 2,
+      "item": "He wants to be a police officer.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "solo",
+        "daytime"
+      ],
+      "prompt": "A real boy of about seven wears a toy police officer's hat that is a little too big and a toy badge on his T-shirt, and stands proudly in his backyard holding up one hand like a police officer telling traffic to stop. He is obviously a child playing at being a police officer. The toy is shaped exactly like the real thing, so the job is obvious at a glance."
+    },
+    {
+      "id": "c03-mechanic",
+      "order": 3,
+      "item": "She wants to be a mechanic.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "solo",
+        "daytime"
+      ],
+      "prompt": "A real girl of about nine in denim overalls kneels next to her small bicycle in a home garage and fixes the back wheel with a real wrench, concentrating, a smudge on her cheek. A few tools lie on the floor. She is obviously a child who loves fixing things like a mechanic."
+    },
+    {
+      "id": "c04-driver",
+      "order": 4,
+      "item": "He wants to be a driver. He wants to drive buses.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "solo",
+        "daytime"
+      ],
+      "prompt": "A real boy of about six sits on the floor of his bright bedroom and pushes a big yellow toy bus along the rug, smiling and making driving sounds, a toy steering wheel lying next to him. He is obviously a child playing at being a bus driver."
+    },
+    {
+      "id": "c05-doctor",
+      "order": 5,
+      "item": "She wants to be a doctor.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "solo",
+        "daytime"
+      ],
+      "prompt": "A real girl of about seven wears a child's white doctor's coat and a toy stethoscope, and listens to the chest of a big teddy bear sitting on her bed, very serious and caring. She is obviously a child playing at being a doctor. The toy is shaped exactly like the real thing, so the job is obvious at a glance."
+    },
+    {
+      "id": "c06-stand-up",
+      "order": 6,
+      "item": "Stand up, please. What do you want to be?",
+      "shared": [
+        "photo",
+        "safe_center",
+        "daytime"
+      ],
+      "prompt": "Image 1 shows Ana. Keep her face, long dark wavy hair, light-olive skin and build exactly, in her sage-green overshirt over a white top. Create a new photograph: Ana is a primary-school teacher at the front of her bright classroom, smiling warmly at one girl of about ten who has just STOOD UP beside her desk in the front row to answer. The other five children stay SITTING at their desks and look at the standing girl. The standing girl is clearly the only child on her feet. A large green chalkboard behind Ana is completely blank. Nobody else is in the room.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-q02-c2b4398b65207eff.webp",
+        "sha256": "c2b4398b65207effa51e51260cc607c38ada48caea82f14eb872e4c9c8b5d0d5",
+        "observed_description": "Ana (long dark wavy hair, light-olive skin, sage-green overshirt over a white top, jeans) sits on a light-grey sofa and reads an open hardcover book (A1+ 1.2)."
+      }
+    },
+    {
+      "id": "c07-diego-artist",
+      "order": 7,
+      "item": "I want to be an artist.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "solo",
+        "daytime"
+      ],
+      "prompt": "Image 1 shows Diego. Keep his face, dark curly hair with a little grey, short full beard, skin and build exactly, in his burgundy button shirt with the sleeves rolled up. Create a new photograph of him at home on a Saturday: he stands at a wooden easel by a bright window and paints a colorful landscape on a canvas with a brush, a palette of paints in his other hand, smiling with pleasure. The painting is half finished. He is obviously painting for love, at home, not at work.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-q04-ded74a2cb6021167.webp",
+        "sha256": "ded74a2cb6021167d6af2351e9012476d36c1b0936ca9f4f4b6dee68783bb9e2",
+        "observed_description": "Diego (dark curly hair with a little grey, short full beard, burgundy button shirt) sits at a wooden kitchen table and bites a red apple (A1+ 1.2)."
+      }
+    }
+  ]
+}

@@ -25,8 +25,8 @@ ROOT = Path(__file__).resolve().parents[2]
 NOT_YET_REBUILT: set[str] = set()
 # A1 lessons whose A1+ follow-up does not exist yet.
 # A1+ Unit 2 (user decision, 2026-11-19): 2.1-2.15 built (Batch C, 2026-11-20).
-# A1+ Unit 3 (user decision, 2026-11-20): 3.1-3.10 built; 3.11-3.16 planned in the guardrails' Unit 3 order.
-NOT_YET_BUILT: set[str] = {f"3.{n}" for n in range(11, 17)}
+# A1+ Unit 3 (user decision, 2026-11-20): 3.1-3.16 built (Batch C, 2026-11-20).
+NOT_YET_BUILT: set[str] = set()
 
 
 def lessons(course: str) -> dict:

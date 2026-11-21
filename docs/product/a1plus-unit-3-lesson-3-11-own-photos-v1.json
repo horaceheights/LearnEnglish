@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "pack": "a1plus-unit-3-lesson-3-11-own-photos",
+  "revision": 1,
+  "output_namespace": "a1plus-unit-3-lesson-v3110",
+  "authorization": "2026-11-20: the user asked to \"Start working on a1+ Unit 3, same deal\" (the Unit 2 deal: an approved map, then straight to Preview in batches with media pre-approved and reviewed in Preview) and approved the A1+ Unit 3 map (\"Approve this map\"). Gemini is the approved image tool (2026-09-23), Flash only (2026-11-17; \"lets switch to flash for any other images\", 2026-11-19).",
+  "image_settings": {
+    "provider": "google-gemini",
+    "model": "gemini-2.5-flash-image",
+    "aspect_ratio": "3:2",
+    "image_size": "1K",
+    "runtime_size": "1536x1024",
+    "runtime_format": "webp",
+    "n": 1
+  },
+  "production": {
+    "price_per_image_usd": "0.0387",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing (checked 2026-11-16: Gemini 2.5 Flash Image, about $0.039 per image)",
+    "planned_images": 2,
+    "expected_cost_usd": "0.08",
+    "requested_ceiling_usd": "0.30",
+    "ceiling_note": "The renderer reserves US$0.20 before each request; each request is sent on its own, and the expected spend for the pack is about US$0.08.",
+    "no_automatic_retries": true,
+    "order": "Generate n01 first; check both faces against the reference and that the black bag is clearly bigger; then n02."
+  },
+  "shared_prompts": {
+    "photo": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, menus, screens, cups, clothes or bags.",
+    "numeral": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, logos or brand marks anywhere, and no number anywhere except the one house number described: no other signs, plates, mailboxes, clocks, screens or clothes show any digit.",
+    "safe_center": "Keep the people and the thing that carries the meaning inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.",
+    "solo": "Only this one person is in the photo; there is nobody else, even far in the background.",
+    "pair": "Only these two people are in the photo; there is nobody else, even far in the background.",
+    "daytime": "It is clearly daytime with soft natural light.",
+    "party": "The place is the big bright community room of an apartment building on the evening of a neighbors' international dinner: long tables with white tablecloths, warm string lights, plants and big windows.",
+    "noflag": "There are no flags, banners or signs anywhere in the room.",
+    "offframe": "The person she is talking to is NOT in the photo: they stand just outside the edge of the photo that is named, so no part of that person (no hand, arm, shoulder or shadow) is visible."
+  },
+  "assets": [
+    {
+      "id": "n01-bags",
+      "order": 1,
+      "item": "Luis's bag is bigger than Sofia's bag. / His bag is bigger than hers.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "pair",
+        "daytime"
+      ],
+      "prompt": "Image 1 shows Sofia (left) and Luis (right). Keep both faces, hair, skin and builds exactly, and keep their clothes: Sofia in her bright blue blazer over a white blouse, Luis (very tall) in his navy T-shirt. Create a new photograph of the two of them standing side by side in a bright, simple hallway by an apartment door, both smiling at the camera. Each holds up their own bag in front of their body so the two bags are side by side and easy to compare: Luis holds a very BIG BLACK travel bag by its handles with both hands; Sofia holds a SMALL RED handbag in one hand. The black bag is clearly about four times bigger than the red bag. Nothing else is in their hands.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-p02-094cffd8654fde7e.webp",
+        "sha256": "094cffd8654fde7eacbcf5b643e8c43eebb30aff39e32cde627ca9861bda7b3d",
+        "observed_description": "Sofia (left: warm brown skin, dark curly hair in a high bun, bright blue blazer over a white blouse, black trousers) stands shoulder to shoulder with Luis (right: a very tall man with short dark curly hair, navy crew-neck T-shirt, khaki chinos, navy sneakers) against a plain light-grey wall; both smile at the camera (A1+ 1.1)."
+      }
+    },
+    {
+      "id": "n02-shoes",
+      "order": 2,
+      "item": "Which ones are his? The black ones. / Which ones are hers? The white ones.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "pair",
+        "daytime"
+      ],
+      "prompt": "A real couple in their thirties, a man with short brown hair and a woman with a long brown ponytail, stand side by side by the front door inside their bright home, both smiling at the camera. Each holds up their own pair of shoes in front of their chest: the man holds a pair of big BLACK leather boots, one in each hand; the woman holds a pair of clean WHITE shoes, one in each hand. The two pairs are clearly different and easy to see. No other shoes are anywhere in the photo."
+    }
+  ]
+}
