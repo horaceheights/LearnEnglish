@@ -460029,6 +460029,70 @@
         },
         "generation_delivery": "a1-pronunciation-v1"
       }
+    },
+    "5c69ea40f3b67ee2a29baea9ba9df68bf4447269014273ec11858f2e02483d22": {
+      "file": "takes/5c69ea40f3b67ee2a29baea9ba9df68bf4447269014273ec11858f2e02483d22.mp3",
+      "audio_sha256": "5c69ea40f3b67ee2a29baea9ba9df68bf4447269014273ec11858f2e02483d22",
+      "bytes": 65244,
+      "text": "Yes, I did. I cleaned the table.",
+      "compatible_speaker_roles": [
+        "teacher"
+      ],
+      "profile_id": "a1-elevenlabs-character-cast-v1",
+      "compatible_modes": [
+        "pronunciation_slow"
+      ],
+      "compatible_variants": [
+        "split-ing"
+      ],
+      "provenance": {
+        "source": "elevenlabs-offline-render",
+        "provider": "elevenlabs-premium",
+        "model_id": "eleven_v4",
+        "narrator": "female-teacher",
+        "voice_id": "XfNU2rGpBa01ckF309OY",
+        "provider_output_format": "mp3_44100_128",
+        "seed": 1101,
+        "settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.8
+        },
+        "stored_media": {
+          "container": "mp3",
+          "codec": "mp3float",
+          "sample_rate_hz": 44100,
+          "channels": 1,
+          "bit_rate_bps": 128000
+        },
+        "processing": [
+          "Original ElevenLabs v4 provider bytes; no post-processing."
+        ],
+        "generated_at": "2026-11-21T16:56:53.412056+00:00",
+        "approved_at": "2026-11-21T17:00:00.894480+00:00",
+        "request_id": "jBm3BlHCuzmuSPacAIaN",
+        "trace_id": "228cc598d51b35484632e6020fef9cf4",
+        "character_cost": 29,
+        "incremental_character_cost": 29,
+        "provider_requests": [
+          {
+            "model_id": "eleven_v4",
+            "text": "[speaking very slowly and clearly] Yes, I did. I cleaned the table.",
+            "character_cost": 29,
+            "incremental_character_cost": 29,
+            "character_cost_source": "provider-header",
+            "character_cost_header": "29",
+            "staged_reuse": false,
+            "request_id": "jBm3BlHCuzmuSPacAIaN",
+            "trace_id": "228cc598d51b35484632e6020fef9cf4"
+          }
+        ],
+        "review": {
+          "status": "operator-listening-approved",
+          "audio_sha256": "5c69ea40f3b67ee2a29baea9ba9df68bf4447269014273ec11858f2e02483d22",
+          "basis": "Operator explicitly confirmed this recording's natural pronunciation with --reviewed-take."
+        },
+        "generation_delivery": "a1-pronunciation-v1"
+      }
     }
   },
   "bindings": {
@@ -480435,6 +480499,11 @@
       "approved_at": "2026-11-21T08:27:12.095391+00:00",
       "approval_note": "Installed after explicit listening review of these exact bytes."
     },
+    "a1plus-unit-4-lesson-4-8-c020-prompt-4a53aa447b7111fb122d": {
+      "take_id": "72f7d4606a578cd3c4f25f1e83e2e34c085ca8d31b50cfca42c517c69e04b7b3",
+      "approved_at": "2026-11-21T08:25:38.381824+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
     "a1plus-unit-4-lesson-4-8-c020-prompt-4b5548013d8d101c79bb": {
       "take_id": "680f5b511e513b2b5823db7e29bc89a8468851f01c2dafd7afe588163d55a567",
       "approved_at": "2026-11-21T08:27:14.781756+00:00",
@@ -480444,6 +480513,11 @@
       "take_id": "dff965afa437eea8ddca7a008ffc85d2a16b42140a81112f27d3942d4fc23064",
       "approved_at": "2026-11-21T08:25:32.093293+00:00",
       "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
+    "a1plus-unit-4-lesson-4-8-c021-prompt-fd2d4323a11b6c05da94": {
+      "take_id": "5dbccd560a8575735a202345f370bf68c07809740f50a0506c99ad4485c1ade6",
+      "approved_at": "2026-11-21T08:27:24.066994+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
     "a1plus-unit-4-lesson-4-8-c022-prompt-8db7bfbd114300d86801": {
       "take_id": "090ba81a51a9018bb968717b10c011d1741c23a49aaae127d75770288a7791de",
@@ -480468,6 +480542,11 @@
     "a1plus-unit-4-lesson-4-8-c026-prompt-turn-1-26febfcb68156a87b73c": {
       "take_id": "0cf2e9a80e8ad29e042bae97c2c62ec6703d911ba1a01bf345d3fa181bdd2b4e",
       "approved_at": "2026-11-21T08:27:22.518024+00:00",
+      "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
+    "a1plus-unit-4-lesson-4-8-c027-prompt-turn-1-ab83a686dc44b27fd5d1": {
+      "take_id": "5c69ea40f3b67ee2a29baea9ba9df68bf4447269014273ec11858f2e02483d22",
+      "approved_at": "2026-11-21T17:00:00.894480+00:00",
       "approval_note": "Installed after explicit listening review of these exact bytes."
     },
     "a1plus-unit-4-lesson-4-8-c027-prompt-turn-1-bf79a0429ddbf6b8f725": {
