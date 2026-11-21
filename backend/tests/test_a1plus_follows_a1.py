@@ -26,6 +26,7 @@ NOT_YET_REBUILT: set[str] = set()
 # A1 lessons whose A1+ follow-up does not exist yet.
 # A1+ Unit 2 (user decision, 2026-11-19): 2.1-2.15 built (Batch C, 2026-11-20).
 # A1+ Unit 3 (user decision, 2026-11-20): 3.1-3.16 built (Batch C, 2026-11-20).
+# A1+ Unit 7 (user decision, 2026-11-20): 7.1-7.15 built (2026-11-21), ahead of Units 4-6.
 NOT_YET_BUILT: set[str] = set()
 
 

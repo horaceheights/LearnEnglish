@@ -1,0 +1,55 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "a2e1c0a7-2c6c-465e-a3a0-b69c79a68176",
+  "asset_id": "v01-arms",
+  "pack_sha256": "c4eb3a19ca7f9a409ee9eef689c51489d8c65d7c0b2fe2a9619a6e7e3c2904b2",
+  "started_at": "2026-11-21T06:11:34.146051+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, menus, screens, cups, clothes or bags.\n\nKeep the people and the thing that carries the meaning inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nIt is clearly daytime with soft natural light.\n\nThese are new people who have never appeared in the course; none of them looks like Ana, Luis, Sofia or Diego.\n\nOnly this one person is in the photo; there is nobody else, even far in the background.\n\nA real man of about fifty with grey hair and a blue work shirt stands in a garage next to three big cardboard boxes he has just put down, and rubs both of his ARMS with his hands, his face tight with pain. It is obvious that his arms hurt.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "EjYBa4__Mb_pz7IP4_XcuQU",
+  "usage": {
+    "promptTokenCount": 290,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1580,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 290
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038787",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 290,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 6.09,
+  "output": "output/imagegen/a1plus-unit-7-lesson-v7140/v01-arms.png",
+  "sha256": "cb82e3548628fdc155e1a49f82f2c19a0585a033d8f8981ee58e7fc4907d4289",
+  "byte_count": 1530697,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}

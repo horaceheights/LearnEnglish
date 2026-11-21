@@ -973,7 +973,8 @@ function teachClause(text: string): ClausePlan {
   // A1+ 7.6 (2026-11-20): what someone likes doing, like/likes + -ing (She likes dancing. / He likes
   // listening to music. / I like painting.).
   const likes = /^(i|you|we|they|he|she|ana|luis|sofia|diego) (like|likes) ([a-z]+ing)( tv| football| to music)?$/.exec(joined);
-  if (likes && !text.trim().endsWith('?') && (ACTIVITIES.has(likes[3]) || ACTIONS.has(likes[3]))
+  // "like" + an -ing verb the earlier rules already teach (I like listening to music.) keeps their explanation.
+  if (likes && !text.trim().endsWith('?') && (ACTIVITIES.has(likes[3]) || (ACTIONS.has(likes[3]) && likes[2] === 'likes'))
     && (likes[2] === 'likes') === /^(he|she|ana|luis|sofia|diego)$/.test(likes[1])
     && (!likes[4] || { watching: ' tv', playing: ' football', listening: ' to music' }[likes[3]] === likes[4])) {
     teach(0, 1, `${quote(tokens[0])} dice a quién le gusta y va primero.`);

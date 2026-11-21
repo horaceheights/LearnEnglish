@@ -2,6 +2,7 @@
 // Metro bundles the complete offline course as bounded binary assets.
 export const LESSON_IMAGE_PACKS: Record<string, number> = {
   '00-0': require('../assets/lesson-image-packs/lesson-images-00-0.bin'),
+  '00-1': require('../assets/lesson-image-packs/lesson-images-00-1.bin'),
   '01-0': require('../assets/lesson-image-packs/lesson-images-01-0.bin'),
   '02-0': require('../assets/lesson-image-packs/lesson-images-02-0.bin'),
   '03-0': require('../assets/lesson-image-packs/lesson-images-03-0.bin'),
@@ -34,6 +35,7 @@ export const LESSON_IMAGE_PACKS: Record<string, number> = {
   '1a-0': require('../assets/lesson-image-packs/lesson-images-1a-0.bin'),
   '1b-0': require('../assets/lesson-image-packs/lesson-images-1b-0.bin'),
   '1c-0': require('../assets/lesson-image-packs/lesson-images-1c-0.bin'),
+  '1c-1': require('../assets/lesson-image-packs/lesson-images-1c-1.bin'),
   '1d-0': require('../assets/lesson-image-packs/lesson-images-1d-0.bin'),
   '1e-0': require('../assets/lesson-image-packs/lesson-images-1e-0.bin'),
   '1f-0': require('../assets/lesson-image-packs/lesson-images-1f-0.bin'),
@@ -49,6 +51,7 @@ export const LESSON_IMAGE_PACKS: Record<string, number> = {
   '28-0': require('../assets/lesson-image-packs/lesson-images-28-0.bin'),
   '29-0': require('../assets/lesson-image-packs/lesson-images-29-0.bin'),
   '2a-0': require('../assets/lesson-image-packs/lesson-images-2a-0.bin'),
+  '2a-1': require('../assets/lesson-image-packs/lesson-images-2a-1.bin'),
   '2b-0': require('../assets/lesson-image-packs/lesson-images-2b-0.bin'),
   '2b-1': require('../assets/lesson-image-packs/lesson-images-2b-1.bin'),
   '2c-0': require('../assets/lesson-image-packs/lesson-images-2c-0.bin'),

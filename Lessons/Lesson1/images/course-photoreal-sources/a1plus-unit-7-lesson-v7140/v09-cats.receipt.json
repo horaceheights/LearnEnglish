@@ -1,0 +1,55 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "0b188e57-008b-41a3-ba3a-821e6705a560",
+  "asset_id": "v09-cats",
+  "pack_sha256": "c4eb3a19ca7f9a409ee9eef689c51489d8c65d7c0b2fe2a9619a6e7e3c2904b2",
+  "started_at": "2026-11-21T06:12:48.376925+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, menus, screens, cups, clothes or bags.\n\nKeep the people and the thing that carries the meaning inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nIt is clearly daytime with soft natural light.\n\nThree real cats sit side by side in a row on a sunny wooden floor in front of a sofa, facing the camera: on the left a very BIG BLACK cat, in the middle a medium-sized ORANGE cat, and on the right a tiny WHITE kitten. The difference in size is obvious. There are exactly three cats and no people.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "XTYBa4-8EeesqtsP0p7a6A4",
+  "usage": {
+    "promptTokenCount": 258,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1548,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038777",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 258,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 5.97,
+  "output": "output/imagegen/a1plus-unit-7-lesson-v7140/v09-cats.png",
+  "sha256": "c7e4bd53a5aa4ba0b8cef95539f6f39bbdf1c508b67ed56284a75bce118c5ca3",
+  "byte_count": 1715149,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}

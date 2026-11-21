@@ -23,11 +23,12 @@ const { bubbleLayout, cardHasCastLine, lineSpeaker, optionSpeaker, speakerAnchor
 const courses = JSON.parse(read('mobile/src/generated/all-courses.json'));
 // Lessons whose photos have been reviewed for the bubble. A rebuilt lesson joins this list when its
 // photos are registered (docs/product/new-content-engine.md); A1 photos follow in a later sweep.
-// The 1.13, 2.15 and 3.16 missions keep their own markers and draw no bubble.
+// The 1.13, 2.15, 3.16 and 7.15 missions keep their own markers and draw no bubble.
 const REGISTERED_LESSONS = [
   ...[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map(n => `a1plus-unit-1-lesson-1-${n}`),
   ...Array.from({ length: 14 }, (_, i) => `a1plus-unit-2-lesson-2-${i + 1}`),
   ...Array.from({ length: 15 }, (_, i) => `a1plus-unit-3-lesson-3-${i + 1}`),
+  ...Array.from({ length: 14 }, (_, i) => `a1plus-unit-7-lesson-7-${i + 1}`),
 ];
 const lessons = courses.filter(lesson => REGISTERED_LESSONS.includes(lesson.id));
 const cardImages = card => [card.prompt_image_url, ...(card.options || []).map(option => option.image_url),

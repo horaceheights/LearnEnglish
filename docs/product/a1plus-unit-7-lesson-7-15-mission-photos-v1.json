@@ -1,0 +1,181 @@
+{
+  "schema_version": 1,
+  "pack": "a1plus-unit-7-lesson-7-15-mission-photos",
+  "revision": 1,
+  "output_namespace": "a1plus-unit-7-lesson-v7150",
+  "authorization": "2026-11-20: the user asked to \"work on a1+ Unit 7 same all deal as before none stop all approved\" (the Unit 2-4 deal: the A1+ Unit 7 map approved up front, straight to Preview with media pre-approved and reviewed in Preview). Gemini is the approved image tool (2026-09-23), Flash only (2026-11-17; \"lets switch to flash for any other images\", 2026-11-19).",
+  "image_settings": {
+    "provider": "google-gemini",
+    "model": "gemini-2.5-flash-image",
+    "aspect_ratio": "3:2",
+    "image_size": "1K",
+    "runtime_size": "1536x1024",
+    "runtime_format": "webp",
+    "n": 1
+  },
+  "production": {
+    "price_per_image_usd": "0.0387",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing (checked 2026-11-16: Gemini 2.5 Flash Image, about $0.039 per image)",
+    "planned_images": 9,
+    "expected_cost_usd": "0.35",
+    "requested_ceiling_usd": "0.55",
+    "ceiling_note": "The renderer reserves US$0.20 before each request; each request is sent on its own, and the expected spend for the pack is about US$0.35.",
+    "no_automatic_retries": true,
+    "order": "Generate w01 first and check that exactly four people stand apart, each in one clear color; then the others in order."
+  },
+  "shared_prompts": {
+    "photo": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, menus, screens, cups, clothes or bags.",
+    "safe_center": "Keep the people and the thing that carries the meaning inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.",
+    "solo": "Only this one person is in the photo; there is nobody else, even far in the background.",
+    "pair": "Only these two people are in the photo; there is nobody else, even far in the background.",
+    "daytime": "It is clearly daytime with soft natural light.",
+    "nolook": "Nobody looks at the camera.",
+    "fullbody": "The whole person is visible from head to shoes, standing, with a little space above the head and below the shoes.",
+    "offframe": "The person they are talking to is NOT in the photo: they stand just outside the edge of the photo that is named, so no part of that person (no hand, arm, shoulder or shadow) is visible.",
+    "fresh": "These are new people who have never appeared in the course; none of them looks like Ana, Luis, Sofia or Diego.",
+    "picnic": "The place is a big green city park on a sunny spring afternoon, with trees, grass and a few picnic blankets.",
+    "four": "Exactly four people are in the photo, standing or sitting apart from each other with clear space between them, each fully visible from head to feet, so each person can be tapped on a phone. Nobody else is in the photo, even far in the background."
+  },
+  "assets": [
+    {
+      "id": "w01-arrive",
+      "order": 1,
+      "item": "Four guests arrive in clear clothes (7.3).",
+      "shared": [
+        "photo",
+        "picnic",
+        "four",
+        "daytime",
+        "fresh"
+      ],
+      "prompt": "Four real adult friends walk into the park along a path, side by side with space between them, smiling: from left to right a man wearing a RED jacket, a woman wearing a long BLUE dress, a man wearing a GREEN shirt and shorts, and a woman wearing a YELLOW coat. Each person wears one clearly different color, and nobody else wears red, blue, green or yellow."
+    },
+    {
+      "id": "w02-activities",
+      "order": 2,
+      "item": "Four people dancing, drawing, singing, playing football (7.6, 7.13).",
+      "shared": [
+        "photo",
+        "picnic",
+        "four",
+        "daytime",
+        "fresh"
+      ],
+      "prompt": "In the park, four real people each do one different thing, spread out across the grass with space between them: on the far left a woman DANCING with her arms up; next a man sitting on a blanket DRAWING in a sketchbook with a pencil; next a woman SINGING with her mouth open, holding a guitar but not playing it, looking up; and on the far right a boy of about twelve kicking a football. Each activity is obvious at a glance."
+    },
+    {
+      "id": "w03-problems",
+      "order": 3,
+      "item": "Four guests with a problem: head, feet, cough, cold (7.1, 7.9).",
+      "shared": [
+        "photo",
+        "picnic",
+        "four",
+        "daytime",
+        "fresh"
+      ],
+      "prompt": "In the park four real adults sit or stand apart from each other on the grass, each with one obvious small problem: on the far left a woman presses both hands to her HEAD with her eyes shut in pain; next a man sits on a bench with his shoes off and rubs his bare FEET; next a man COUGHS into his elbow; and on the far right a woman in a thin T-shirt hugs herself and shivers because she is COLD. Each problem is obvious at a glance."
+    },
+    {
+      "id": "w04-rain",
+      "order": 4,
+      "item": "It starts raining: coat on, umbrella, boots, running (7.4-7.5).",
+      "shared": [
+        "photo",
+        "picnic",
+        "four",
+        "daytime",
+        "fresh"
+      ],
+      "prompt": "It has started RAINING in the park: rain is clearly falling. Four real adults react, apart from each other: on the far left a woman PUTTING ON a raincoat, one arm in the sleeve; next a man OPENING a big black umbrella over his head; next a woman wearing tall red BOOTS standing in a puddle; and on the far right a man RUNNING toward the trees with a newspaper over his head. Each action is obvious."
+    },
+    {
+      "id": "w05-kids",
+      "order": 5,
+      "item": "Three children by height: tallest, shortest; and a dog (7.11-7.12).",
+      "shared": [
+        "photo",
+        "picnic",
+        "daytime",
+        "fresh"
+      ],
+      "prompt": "On the grass in the park three real children of about ten stand side by side with space between them, smiling at the camera: on the left a girl in a PURPLE T-shirt who is clearly the TALLEST, in the middle a boy in an ORANGE T-shirt of medium height, and on the right a girl in a PINK T-shirt who is clearly the SHORTEST. In front of them on the right, a small brown dog jumps high in the air to catch a ball. Only these three children and the dog are in the photo."
+    },
+    {
+      "id": "q01-sofia-asks",
+      "order": 6,
+      "item": "Sofia asks Ana at the picnic (gate question view).",
+      "shared": [
+        "photo",
+        "safe_center",
+        "daytime",
+        "picnic",
+        "offframe",
+        "solo"
+      ],
+      "prompt": "Image 1 shows Sofia. Keep her face, long curly dark hair, warm brown skin and build exactly. She wears a light yellow summer dress. Create a new photograph: Sofia stands on the grass in the park by a picnic blanket with a small birthday cake and balloons behind her, and smiles and talks to someone just outside the LEFT edge of the photo, one hand held out toward them.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-q03-7d520a07846a47b8.webp",
+        "sha256": "7d520a07846a47b8e8389c3226f3b3639d7eed0d257318b08e4f9b77c5b2258b",
+        "observed_description": "Sofia (long curly dark hair, warm brown skin, white blouse under a bright blue blazer) writes in a large notebook at a wooden desk by a bright window in her home study (A1+ 1.2)."
+      }
+    },
+    {
+      "id": "r01-ana-answers",
+      "order": 7,
+      "item": "Ana answers at the picnic (gate response view).",
+      "shared": [
+        "photo",
+        "safe_center",
+        "daytime",
+        "picnic",
+        "offframe",
+        "solo"
+      ],
+      "prompt": "Image 1 shows Ana. Keep her face, long dark wavy hair, light-olive skin and build exactly. She wears her sage-green overshirt over a white top. Create a new photograph: Ana stands on the grass in the park and smiles and talks warmly to someone just outside the RIGHT edge of the photo, one hand on her chest.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-q02-c2b4398b65207eff.webp",
+        "sha256": "c2b4398b65207effa51e51260cc607c38ada48caea82f14eb872e4c9c8b5d0d5",
+        "observed_description": "Ana (long dark wavy hair, light-olive skin, sage-green overshirt over a white top, jeans) sits on a light-grey sofa and reads an open hardcover book (A1+ 1.2)."
+      }
+    },
+    {
+      "id": "q02-luis-asks",
+      "order": 8,
+      "item": "Luis asks Ana (gate question view).",
+      "shared": [
+        "photo",
+        "safe_center",
+        "daytime",
+        "picnic",
+        "offframe",
+        "solo"
+      ],
+      "prompt": "Image 1 shows Luis. Keep his face, short dark curly hair, clean-shaven warm medium-brown skin and tall build exactly. He wears his navy T-shirt. Create a new photograph: Luis sits on a picnic blanket in the park, turns to someone just outside the LEFT edge of the photo with a friendly, curious face, and asks them a question, one palm up.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-q01-135c3f8f772bcbe4.webp",
+        "sha256": "135c3f8f772bcbe472b8cec719eb02318a7d52ce1c7152a94c6952aeb78566c2",
+        "observed_description": "Luis (short dark curly hair, clean-shaven, warm medium-brown skin, navy crew-neck T-shirt) drinks coffee from a white mug at a wooden table in his bright kitchen (A1+ 1.2)."
+      }
+    },
+    {
+      "id": "q03-diego-asks",
+      "order": 9,
+      "item": "Diego asks Ana (gate question view).",
+      "shared": [
+        "photo",
+        "safe_center",
+        "daytime",
+        "picnic",
+        "offframe",
+        "solo"
+      ],
+      "prompt": "Image 1 shows Diego. Keep his face, dark curly hair with a little grey, short full beard and build exactly. He wears his burgundy button shirt. Create a new photograph: Diego stands in the park under a tree holding a paper cup of lemonade and talks to someone just outside the LEFT edge of the photo, smiling.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-q04-ded74a2cb6021167.webp",
+        "sha256": "ded74a2cb6021167d6af2351e9012476d36c1b0936ca9f4f4b6dee68783bb9e2",
+        "observed_description": "Diego (dark curly hair with a little grey, short full beard, burgundy button shirt) sits at a wooden kitchen table and bites a red apple (A1+ 1.2)."
+      }
+    }
+  ]
+}

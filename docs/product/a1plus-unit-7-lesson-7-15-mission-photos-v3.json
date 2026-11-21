@@ -1,0 +1,117 @@
+{
+  "schema_version": 1,
+  "pack": "a1plus-unit-7-lesson-7-15-mission-photos",
+  "revision": 3,
+  "output_namespace": "a1plus-unit-7-lesson-v7152",
+  "authorization": "2026-11-20: the user asked to \"work on a1+ Unit 7 same all deal as before none stop all approved\" (the Unit 2-4 deal: the A1+ Unit 7 map approved up front, straight to Preview with media pre-approved and reviewed in Preview). Gemini is the approved image tool (2026-09-23), Flash only (2026-11-17; \"lets switch to flash for any other images\", 2026-11-19).",
+  "image_settings": {
+    "provider": "google-gemini",
+    "model": "gemini-2.5-flash-image",
+    "aspect_ratio": "3:2",
+    "image_size": "1K",
+    "runtime_size": "1536x1024",
+    "runtime_format": "webp",
+    "n": 1
+  },
+  "production": {
+    "price_per_image_usd": "0.0387",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing (checked 2026-11-16: Gemini 2.5 Flash Image, about $0.039 per image)",
+    "planned_images": 4,
+    "expected_cost_usd": "0.15",
+    "requested_ceiling_usd": "0.40",
+    "ceiling_note": "The renderer reserves US$0.20 before each request; each request is sent on its own, and the expected spend for the pack is about US$0.15.",
+    "no_automatic_retries": true,
+    "order": "Each voice gate needs its own answer view of Ana; generate r02 first, then the others."
+  },
+  "shared_prompts": {
+    "photo": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, menus, screens, cups, clothes or bags.",
+    "safe_center": "Keep the people and the thing that carries the meaning inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.",
+    "solo": "Only this one person is in the photo; there is nobody else, even far in the background.",
+    "pair": "Only these two people are in the photo; there is nobody else, even far in the background.",
+    "daytime": "It is clearly daytime with soft natural light.",
+    "nolook": "Nobody looks at the camera.",
+    "fullbody": "The whole person is visible from head to shoes, standing, with a little space above the head and below the shoes.",
+    "offframe": "The person they are talking to is NOT in the photo: they stand just outside the edge of the photo that is named, so no part of that person (no hand, arm, shoulder or shadow) is visible.",
+    "fresh": "These are new people who have never appeared in the course; none of them looks like Ana, Luis, Sofia or Diego.",
+    "picnic": "The place is a big green city park on a sunny spring afternoon, with trees, grass and a few picnic blankets.",
+    "four": "Exactly four people are in the photo, standing or sitting apart from each other with clear space between them, each fully visible from head to feet, so each person can be tapped on a phone. Nobody else is in the photo, even far in the background."
+  },
+  "assets": [
+    {
+      "id": "r02-ana-happy",
+      "order": 1,
+      "item": "Ana: Because it's Sofia's birthday.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "daytime",
+        "picnic",
+        "offframe",
+        "solo"
+      ],
+      "prompt": "Image 1 shows Ana. Keep her face, long dark wavy hair, light-olive skin and build exactly. She wears her sage-green overshirt over a white top. Create a new photograph: Ana sits on a picnic blanket in the park, laughing happily, and points with one hand at a small white birthday cake with plain candles and colorful balloons beside her, talking to someone just outside the RIGHT edge of the photo.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-q02-c2b4398b65207eff.webp",
+        "sha256": "c2b4398b65207effa51e51260cc607c38ada48caea82f14eb872e4c9c8b5d0d5",
+        "observed_description": "Ana (long dark wavy hair, light-olive skin, sage-green overshirt over a white top, jeans) sits on a light-grey sofa and reads an open hardcover book (A1+ 1.2)."
+      }
+    },
+    {
+      "id": "r03-ana-dances",
+      "order": 2,
+      "item": "Ana: I like dancing.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "daytime",
+        "picnic",
+        "offframe",
+        "solo"
+      ],
+      "prompt": "Image 1 shows Ana. Keep her face, long dark wavy hair, light-olive skin and build exactly. She wears her sage-green overshirt over a white top. Create a new photograph: Ana dances happily on the grass in the park, arms raised and smiling, looking toward someone just outside the RIGHT edge of the photo.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-q02-c2b4398b65207eff.webp",
+        "sha256": "c2b4398b65207effa51e51260cc607c38ada48caea82f14eb872e4c9c8b5d0d5",
+        "observed_description": "Ana (long dark wavy hair, light-olive skin, sage-green overshirt over a white top, jeans) sits on a light-grey sofa and reads an open hardcover book (A1+ 1.2)."
+      }
+    },
+    {
+      "id": "r04-ana-sunny",
+      "order": 3,
+      "item": "Ana: No, it isn't. It's sunny.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "daytime",
+        "picnic",
+        "offframe",
+        "solo"
+      ],
+      "prompt": "Image 1 shows Ana. Keep her face, long dark wavy hair, light-olive skin and build exactly. She wears her sage-green overshirt over a white top. Create a new photograph: the rain has just stopped and the sun is shining brightly again; Ana stands on the wet grass in the park, smiling, and points up at the clear blue sky with one hand, her closed umbrella in the other, talking to someone just outside the RIGHT edge of the photo.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-q02-c2b4398b65207eff.webp",
+        "sha256": "c2b4398b65207effa51e51260cc607c38ada48caea82f14eb872e4c9c8b5d0d5",
+        "observed_description": "Ana (long dark wavy hair, light-olive skin, sage-green overshirt over a white top, jeans) sits on a light-grey sofa and reads an open hardcover book (A1+ 1.2)."
+      }
+    },
+    {
+      "id": "r05-ana-may",
+      "order": 4,
+      "item": "Ana: It's in May.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "daytime",
+        "picnic",
+        "offframe",
+        "solo"
+      ],
+      "prompt": "Image 1 shows Ana. Keep her face, long dark wavy hair, light-olive skin and build exactly. She wears her sage-green overshirt over a white top. Create a new photograph: Ana stands under a tree full of pink spring blossoms in the park and smiles warmly, one hand on her chest, talking to someone just outside the RIGHT edge of the photo.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-q02-c2b4398b65207eff.webp",
+        "sha256": "c2b4398b65207effa51e51260cc607c38ada48caea82f14eb872e4c9c8b5d0d5",
+        "observed_description": "Ana (long dark wavy hair, light-olive skin, sage-green overshirt over a white top, jeans) sits on a light-grey sofa and reads an open hardcover book (A1+ 1.2)."
+      }
+    }
+  ]
+}

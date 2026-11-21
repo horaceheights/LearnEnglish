@@ -84,6 +84,7 @@
     "R9",
     "R10",
     "R11",
+    "R12",
     "A1",
     "A2",
     "A3",
@@ -94,7 +95,6 @@
     "A8",
     "A9",
     "A10",
-    "A11",
     "S1",
     "S2",
     "S3",
@@ -317,7 +317,7 @@
     },
     {
       "slide_id": "R6",
-      "interaction_type": "t2i4",
+      "interaction_type": "t2i2",
       "prompt": "She has a ball.",
       "stage": "Recognize",
       "correct_option_id": "she-has-a-ball-r6",
@@ -330,16 +330,6 @@
         {
           "id": "diego-is-busy-r6",
           "image_url": "/lesson-assets/a1plus-unit-7-i03-afcee37c26335e39.webp",
-          "label": null
-        },
-        {
-          "id": "he-has-a-book-r6",
-          "image_url": "/lesson-assets/a1_photo_u7_approved_invite_read_luis_v1.webp",
-          "label": null
-        },
-        {
-          "id": "she-is-watching-tv-r6",
-          "image_url": "/lesson-assets/a1_photo_u7_approved_invite_tv_ana_v1.webp",
           "label": null
         }
       ],
@@ -521,6 +511,34 @@
       "answer_audio_speaker": "co-teacher",
       "pedagogy_note": "Story beat 11: Sorry, I'm tired.",
       "audio_speaker": "teacher",
+      "answer_audio_policy": "authored-only"
+    },
+    {
+      "slide_id": "R12",
+      "interaction_type": "i2t2",
+      "prompt": "",
+      "stage": "Recognize",
+      "correct_option_id": "i'd-love-to-come-to-your-party-r12",
+      "options": [
+        {
+          "id": "i'd-love-to-come-to-your-party-r12",
+          "image_url": "",
+          "label": "I'd love to come to your party.",
+          "spanish_translation": "Me encantaría ir a tu fiesta."
+        },
+        {
+          "id": "sorry-i'm-busy-today-r12",
+          "image_url": "",
+          "label": "Sorry, I'm busy today.",
+          "spanish_translation": "Lo siento, hoy estoy ocupado."
+        }
+      ],
+      "audio_text": "",
+      "answer_audio_text": "I'd love to come to your party.",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-7-i02-273909e9f9c72faf.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "answer_audio_speaker": "luis",
+      "pedagogy_note": "Story beat 12: I'd love to come to your party.",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -868,40 +886,6 @@
       "answer_audio_policy": "authored-only"
     },
     {
-      "slide_id": "A11",
-      "interaction_type": "a2t3",
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "would-you-like-to-read-a-book-a11",
-      "options": [
-        {
-          "id": "would-you-like-to-listen-to-music-a11",
-          "image_url": "",
-          "label": "Would you like to listen to music?",
-          "spanish_translation": "¿Te gustaría escuchar música?"
-        },
-        {
-          "id": "would-you-like-to-come-to-my-party-a11",
-          "image_url": "",
-          "label": "Would you like to come to my party?",
-          "spanish_translation": "¿Te gustaría venir a mi fiesta?"
-        },
-        {
-          "id": "would-you-like-to-read-a-book-a11",
-          "image_url": "",
-          "label": "Would you like to read a book?",
-          "spanish_translation": "¿Te gustaría leer un libro?"
-        }
-      ],
-      "audio_text": "Would you like to read a book?",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 11: Would you like to read a book?",
-      "audio_speaker": "co-teacher",
-      "answer_audio_policy": "authored-only"
-    },
-    {
       "slide_id": "S1",
       "interaction_type": "speak",
       "prompt": "Would you like to come to my party?",
@@ -976,7 +960,7 @@
       "audio_turns": [
         {
           "text": "Would you like to watch TV?",
-          "speaker_role": "teacher",
+          "speaker_role": "co-teacher",
           "image_url": "/lesson-assets/a1_photo_u7_approved_invite_tv_ana_v1.webp",
           "delivery": "a1-pronunciation-v1"
         }
@@ -1032,7 +1016,7 @@
       "audio_turns": [
         {
           "text": "Would you like to listen to music?",
-          "speaker_role": "co-teacher",
+          "speaker_role": "teacher",
           "image_url": "/lesson-assets/a1_photo_u7_approved_invite_music_sofia_v1.webp",
           "delivery": "a1-pronunciation-v1"
         }
@@ -1060,7 +1044,7 @@
       "audio_turns": [
         {
           "text": "Would you like to read a book?",
-          "speaker_role": "teacher",
+          "speaker_role": "co-teacher",
           "image_url": "/lesson-assets/a1_photo_u7_approved_invite_read_luis_v1.webp",
           "delivery": "a1-pronunciation-v1"
         }
@@ -1088,7 +1072,7 @@
       "audio_turns": [
         {
           "text": "Diego is busy.",
-          "speaker_role": "co-teacher",
+          "speaker_role": "teacher",
           "image_url": "/lesson-assets/a1plus-unit-7-i03-afcee37c26335e39.webp",
           "delivery": "a1-pronunciation-v1"
         }
@@ -1116,7 +1100,7 @@
       "audio_turns": [
         {
           "text": "Would you like to play football?",
-          "speaker_role": "teacher",
+          "speaker_role": "co-teacher",
           "image_url": "/lesson-assets/a1_photo_u7_approved_invite_football_sofia_v1.webp",
           "delivery": "a1-pronunciation-v1"
         }
@@ -1152,9 +1136,7 @@
         "like",
         "to"
       ],
-      "answer_audio_speaker": "co-teacher",
       "pedagogy_note": "Story beat 01: Would you like to come to my party?",
-      "audio_speaker": "co-teacher",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -1248,7 +1230,9 @@
         "like",
         "to"
       ],
+      "answer_audio_speaker": "co-teacher",
       "pedagogy_note": "Story beat 04: Would you like to watch TV?",
+      "audio_speaker": "co-teacher",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -1308,9 +1292,7 @@
         "word-6",
         "word-7"
       ],
-      "answer_audio_speaker": "co-teacher",
       "pedagogy_note": "Story beat 05: Would you like to listen to music?",
-      "audio_speaker": "co-teacher",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -1346,7 +1328,9 @@
         "word-2",
         "word-3"
       ],
+      "answer_audio_speaker": "co-teacher",
       "pedagogy_note": "Story beat 06: Diego is busy.",
+      "audio_speaker": "co-teacher",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -1406,9 +1390,7 @@
         "word-6",
         "word-7"
       ],
-      "answer_audio_speaker": "co-teacher",
       "pedagogy_note": "Story beat 07: Would you like to read a book?",
-      "audio_speaker": "co-teacher",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -1462,7 +1444,9 @@
         "word-5",
         "word-6"
       ],
+      "answer_audio_speaker": "co-teacher",
       "pedagogy_note": "Story beat 08: Would you like to play football?",
+      "audio_speaker": "co-teacher",
       "answer_audio_policy": "authored-only"
     }
   ]
