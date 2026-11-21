@@ -1,0 +1,770 @@
+{
+  "brief_version": 1,
+  "follows": {
+    "course": "a1",
+    "lesson": "4.1",
+    "title": "Rooms at Home"
+  },
+  "note": "A1+ Unit 4 Lesson 4.1, built on 2026-11-20 under the A1+ lesson standards approved 2026-10-27 and the user's 2026-11-09 rule that every A1+ lesson follows up the A1 lesson with the same number. The user approved the A1+ Unit 4 map on 2026-11-20 (A1+ 4.Y follows A1 4.Y, one step each; seventeen lessons) and asked for the Unit 2 and Unit 3 deal (\"Start working on A1+ Unit 4, same deal. make sure images make sense all the time\"): straight to Preview in batches, Gemini 2.5 Flash photos and ElevenLabs audio pre-approved, no per-lesson gates, reviewed in Preview. Four new photos (Gemini 2.5 Flash) of one staircase seen from the downstairs hallway: a grandmother and a boy, each upstairs on the landing and downstairs at the foot of the stairs; the downstairs and second photos are edits of the first, so only the person and where they stand change. Ana on her sofa (A1+ 1.2) and Luis in his kitchen (A1+ 1.2) answer about their favorite rooms.",
+  "target": "backend/lessons/a1_plus/unit_4/a1plus-unit-4-lesson-4-1.yaml",
+  "captions": false,
+  "narrators": [
+    "teacher",
+    "co-teacher"
+  ],
+  "answer_audio_policy": "authored-only",
+  "speak_delivery": "a1-pronunciation-v1",
+  "lesson": {
+    "id": "a1plus-unit-4-lesson-4-1",
+    "title": "4.1 She's upstairs",
+    "level": "A1+",
+    "unit_id": "a1plus-unit-4",
+    "unit_title": "Life at home, every day and yesterday",
+    "unit_outcome": "Say where people and things are at home, talk about the lights and machines, ask what there is, describe someone's morning in order, say what you did yesterday and on which day, ask and tell the time, say how often you do things and give dates.",
+    "lesson_id": "a1plus-unit-4-lesson-4-1",
+    "lesson_title": "She's upstairs",
+    "sub_lesson_id": "4.1",
+    "sub_lesson_title": "She's upstairs",
+    "goal": "Say where people are in a house with upstairs and downstairs, and ask Where's…? (Where's the boy? He's upstairs.).",
+    "vocabulary": [
+      "upstairs",
+      "downstairs",
+      "Where's"
+    ],
+    "review_vocabulary": [
+      "she's",
+      "he's",
+      "isn't",
+      "is",
+      "the",
+      "grandmother",
+      "boy",
+      "favorite",
+      "room",
+      "living room",
+      "kitchen",
+      "bedroom",
+      "my",
+      "his",
+      "What's"
+    ],
+    "grammar_function": "A follow-up of A1 4.1 Rooms at Home: A1 says which room a family member is in; A1+ 4.1 says which floor of the house they are on. The new items are upstairs and downstairs after be (She's upstairs.), asked with the short form Where's…? (Where's the boy? He's upstairs.) and answered with 3.4's short answers (Is he upstairs? No, he isn't. He's downstairs.). Every photo shows the same staircase from the downstairs hallway, with the person on the upstairs landing or on the hallway floor at its foot, so where they are is plain to see. 2.8's What's your favorite …? comes back with A1's rooms (What's your favorite room? My favorite room is the living room.).",
+    "prerequisite": "A1 4.1 rooms; A1+ 2.4 short forms; A1+ 2.8 What's your favorite …?; A1+ 3.4 short answers.",
+    "speaking_outcome": "Stress the first part: UP-stairs, DOWN-stairs; say Where's as one syllable (wairz). Do not require native-like speed.",
+    "content_revision": 1,
+    "learn_context_groups": [
+      {
+        "kind": "contrast",
+        "targets": [
+          "upstairs",
+          "downstairs"
+        ],
+        "models": [
+          {
+            "slide_id": "L1",
+            "text": "She's upstairs. She's downstairs.",
+            "turns": [
+              "She's upstairs.",
+              "She's downstairs."
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "exchange",
+        "targets": [
+          "Where's",
+          "upstairs"
+        ],
+        "models": [
+          {
+            "slide_id": "L2",
+            "text": "Where's the boy? He's upstairs.",
+            "turns": [
+              "Where's the boy?",
+              "He's upstairs."
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "exchange",
+        "targets": [
+          "Where's",
+          "downstairs"
+        ],
+        "models": [
+          {
+            "slide_id": "L3",
+            "text": "Where's the grandmother? She's downstairs.",
+            "turns": [
+              "Where's the grandmother?",
+              "She's downstairs."
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "exchange",
+        "targets": [
+          "upstairs",
+          "downstairs"
+        ],
+        "models": [
+          {
+            "slide_id": "L4",
+            "text": "Is he upstairs? No, he isn't. He's downstairs.",
+            "turns": [
+              "Is he upstairs?",
+              "No, he isn't. He's downstairs."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "items": [
+    {
+      "id": "l-up-down",
+      "text": "She's upstairs. She's downstairs.",
+      "es": "Está arriba. Está abajo.",
+      "image": "/lesson-assets/a1plus-unit-4-u01-c29e8fb262d09a06.webp",
+      "kind": "contrast",
+      "choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "She's upstairs.",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-4-u01-c29e8fb262d09a06.webp"
+        },
+        {
+          "text": "She's downstairs.",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-4-u02-b701ea72b6315c0a.webp"
+        }
+      ]
+    },
+    {
+      "id": "l-where-boy",
+      "text": "Where's the boy? He's upstairs.",
+      "es": "¿Dónde está el niño? Está arriba.",
+      "image": "/lesson-assets/a1plus-unit-4-u03-a725bc492ab6fd66.webp",
+      "kind": "exchange",
+      "choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "Where's the boy?",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-4-u03-a725bc492ab6fd66.webp"
+        },
+        {
+          "text": "He's upstairs.",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-4-u03-a725bc492ab6fd66.webp"
+        }
+      ]
+    },
+    {
+      "id": "l-where-g",
+      "text": "Where's the grandmother? She's downstairs.",
+      "es": "¿Dónde está la abuela? Está abajo.",
+      "image": "/lesson-assets/a1plus-unit-4-u02-b701ea72b6315c0a.webp",
+      "kind": "exchange",
+      "choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "Where's the grandmother?",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-4-u02-b701ea72b6315c0a.webp"
+        },
+        {
+          "text": "She's downstairs.",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-4-u02-b701ea72b6315c0a.webp"
+        }
+      ]
+    },
+    {
+      "id": "l-is-he",
+      "text": "Is he upstairs? No, he isn't. He's downstairs.",
+      "es": "¿Está arriba? No. Está abajo.",
+      "image": "/lesson-assets/a1plus-unit-4-u04-b3bd6cb605bed72b.webp",
+      "kind": "exchange",
+      "choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "Is he upstairs?",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-4-u04-b3bd6cb605bed72b.webp"
+        },
+        {
+          "text": "No, he isn't. He's downstairs.",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-4-u04-b3bd6cb605bed72b.webp"
+        }
+      ]
+    },
+    {
+      "id": "p-g-up",
+      "text": "The grandmother is upstairs.",
+      "es": "La abuela está arriba.",
+      "image": "/lesson-assets/a1plus-unit-4-u01-c29e8fb262d09a06.webp",
+      "kind": "pos",
+      "prefer": [
+        "The grandmother is downstairs."
+      ],
+      "accepts": {
+        "subject-variety": "The bank keeps the person and changes only upstairs or downstairs; the picture shows the person on the upstairs landing or on the hallway floor at the foot of the stairs.",
+        "action-variety": "The bank keeps the person and changes only upstairs or downstairs; the picture shows the person on the upstairs landing or on the hallway floor at the foot of the stairs.",
+        "conversational-response": "The bank keeps the person and changes only upstairs or downstairs; the picture shows the person on the upstairs landing or on the hallway floor at the foot of the stairs.",
+        "reading-load": "The bank keeps the person and changes only upstairs or downstairs; the picture shows the person on the upstairs landing or on the hallway floor at the foot of the stairs."
+      },
+      "blanks": [
+        "is",
+        "upstairs"
+      ],
+      "four_card": false,
+      "learn": false
+    },
+    {
+      "id": "p-g-down",
+      "text": "The grandmother is downstairs.",
+      "es": "La abuela está abajo.",
+      "image": "/lesson-assets/a1plus-unit-4-u02-b701ea72b6315c0a.webp",
+      "kind": "pos",
+      "prefer": [
+        "The grandmother is upstairs."
+      ],
+      "accepts": {
+        "subject-variety": "The bank keeps the person and changes only upstairs or downstairs; the picture shows the person on the upstairs landing or on the hallway floor at the foot of the stairs.",
+        "action-variety": "The bank keeps the person and changes only upstairs or downstairs; the picture shows the person on the upstairs landing or on the hallway floor at the foot of the stairs.",
+        "conversational-response": "The bank keeps the person and changes only upstairs or downstairs; the picture shows the person on the upstairs landing or on the hallway floor at the foot of the stairs.",
+        "reading-load": "The bank keeps the person and changes only upstairs or downstairs; the picture shows the person on the upstairs landing or on the hallway floor at the foot of the stairs."
+      },
+      "blanks": [
+        "is",
+        "downstairs"
+      ],
+      "four_card": false,
+      "learn": false
+    },
+    {
+      "id": "p-b-up",
+      "text": "The boy is upstairs.",
+      "es": "El niño está arriba.",
+      "image": "/lesson-assets/a1plus-unit-4-u03-a725bc492ab6fd66.webp",
+      "kind": "pos",
+      "prefer": [
+        "The boy is downstairs."
+      ],
+      "accepts": {
+        "subject-variety": "The bank keeps the person and changes only upstairs or downstairs; the picture shows the person on the upstairs landing or on the hallway floor at the foot of the stairs.",
+        "action-variety": "The bank keeps the person and changes only upstairs or downstairs; the picture shows the person on the upstairs landing or on the hallway floor at the foot of the stairs.",
+        "conversational-response": "The bank keeps the person and changes only upstairs or downstairs; the picture shows the person on the upstairs landing or on the hallway floor at the foot of the stairs.",
+        "reading-load": "The bank keeps the person and changes only upstairs or downstairs; the picture shows the person on the upstairs landing or on the hallway floor at the foot of the stairs."
+      },
+      "blanks": [
+        "is",
+        "upstairs"
+      ],
+      "four_card": false,
+      "learn": false
+    },
+    {
+      "id": "p-b-down",
+      "text": "The boy is downstairs.",
+      "es": "El niño está abajo.",
+      "image": "/lesson-assets/a1plus-unit-4-u04-b3bd6cb605bed72b.webp",
+      "kind": "pos",
+      "prefer": [
+        "The boy is upstairs."
+      ],
+      "accepts": {
+        "subject-variety": "The bank keeps the person and changes only upstairs or downstairs; the picture shows the person on the upstairs landing or on the hallway floor at the foot of the stairs.",
+        "action-variety": "The bank keeps the person and changes only upstairs or downstairs; the picture shows the person on the upstairs landing or on the hallway floor at the foot of the stairs.",
+        "conversational-response": "The bank keeps the person and changes only upstairs or downstairs; the picture shows the person on the upstairs landing or on the hallway floor at the foot of the stairs.",
+        "reading-load": "The bank keeps the person and changes only upstairs or downstairs; the picture shows the person on the upstairs landing or on the hallway floor at the foot of the stairs."
+      },
+      "blanks": [
+        "is",
+        "downstairs"
+      ],
+      "four_card": false,
+      "learn": false
+    },
+    {
+      "id": "r-where-g",
+      "text": "She's upstairs.",
+      "es": "Está arriba.",
+      "image": "/lesson-assets/a1plus-unit-4-u01-c29e8fb262d09a06.webp",
+      "kind": "where-g",
+      "question": "Where's the grandmother?",
+      "question_es": "¿Dónde está la abuela?",
+      "question_speaker": "co-teacher",
+      "speaker": "teacher",
+      "use": false,
+      "image_choices": false,
+      "prefer": [
+        "She's downstairs.",
+        "He's upstairs."
+      ],
+      "accepts": {
+        "subject-variety": "The bank keeps the person and changes only upstairs or downstairs; the picture shows the person on the upstairs landing or on the hallway floor at the foot of the stairs.",
+        "action-variety": "The bank keeps the person and changes only upstairs or downstairs; the picture shows the person on the upstairs landing or on the hallway floor at the foot of the stairs.",
+        "conversational-response": "The bank keeps the person and changes only upstairs or downstairs; the picture shows the person on the upstairs landing or on the hallway floor at the foot of the stairs.",
+        "reading-load": "The bank keeps the person and changes only upstairs or downstairs; the picture shows the person on the upstairs landing or on the hallway floor at the foot of the stairs."
+      },
+      "learn": false
+    },
+    {
+      "id": "r-where-b",
+      "text": "He's downstairs.",
+      "es": "Está abajo.",
+      "image": "/lesson-assets/a1plus-unit-4-u04-b3bd6cb605bed72b.webp",
+      "kind": "where-b",
+      "question": "Where's the boy?",
+      "question_es": "¿Dónde está el niño?",
+      "question_speaker": "co-teacher",
+      "speaker": "teacher",
+      "use": false,
+      "image_choices": false,
+      "prefer": [
+        "He's upstairs.",
+        "She's downstairs."
+      ],
+      "accepts": {
+        "subject-variety": "The bank keeps the person and changes only upstairs or downstairs; the picture shows the person on the upstairs landing or on the hallway floor at the foot of the stairs.",
+        "action-variety": "The bank keeps the person and changes only upstairs or downstairs; the picture shows the person on the upstairs landing or on the hallway floor at the foot of the stairs.",
+        "conversational-response": "The bank keeps the person and changes only upstairs or downstairs; the picture shows the person on the upstairs landing or on the hallway floor at the foot of the stairs.",
+        "reading-load": "The bank keeps the person and changes only upstairs or downstairs; the picture shows the person on the upstairs landing or on the hallway floor at the foot of the stairs."
+      },
+      "learn": false
+    },
+    {
+      "id": "lq-b",
+      "text": "Where's the boy?",
+      "es": "¿Dónde está el niño?",
+      "image": "/lesson-assets/a1plus-unit-4-u03-a725bc492ab6fd66.webp",
+      "kind": "wq-lq-b",
+      "prefer": [
+        "Where's the grandmother?"
+      ],
+      "image_choices": false,
+      "use": false,
+      "speaker": "co-teacher",
+      "accepts": {
+        "subject-variety": "Listen keeps Where's and changes only the person; the answer is what was heard.",
+        "action-variety": "Listen keeps Where's and changes only the person; the answer is what was heard.",
+        "conversational-response": "Listen keeps Where's and changes only the person; the answer is what was heard.",
+        "reading-load": "Listen keeps Where's and changes only the person; the answer is what was heard."
+      },
+      "learn": false
+    },
+    {
+      "id": "lq-g",
+      "text": "Where's the grandmother?",
+      "es": "¿Dónde está la abuela?",
+      "image": "/lesson-assets/a1plus-unit-4-u02-b701ea72b6315c0a.webp",
+      "kind": "wq-lq-g",
+      "prefer": [
+        "Where's the boy?"
+      ],
+      "image_choices": false,
+      "use": false,
+      "speaker": "co-teacher",
+      "accepts": {
+        "subject-variety": "Listen keeps Where's and changes only the person; the answer is what was heard.",
+        "action-variety": "Listen keeps Where's and changes only the person; the answer is what was heard.",
+        "conversational-response": "Listen keeps Where's and changes only the person; the answer is what was heard.",
+        "reading-load": "Listen keeps Where's and changes only the person; the answer is what was heard."
+      },
+      "learn": false
+    },
+    {
+      "id": "s-is-g",
+      "text": "No, she isn't.",
+      "es": "No.",
+      "image": "/lesson-assets/a1plus-unit-4-u02-b701ea72b6315c0a.webp",
+      "kind": "short-g",
+      "question": "Is the grandmother upstairs?",
+      "question_es": "¿Está arriba la abuela?",
+      "question_speaker": "co-teacher",
+      "speaker": "teacher",
+      "use": false,
+      "image_choices": false,
+      "prefer": [
+        "Yes, she is."
+      ],
+      "accepts": {
+        "subject-variety": "A short answer keeps the person of the question; the picture shows whether the answer is yes or no.",
+        "action-variety": "A short answer keeps the person of the question; the picture shows whether the answer is yes or no.",
+        "conversational-response": "A short answer keeps the person of the question; the picture shows whether the answer is yes or no.",
+        "reading-load": "A short answer keeps the person of the question; the picture shows whether the answer is yes or no."
+      },
+      "learn": false
+    },
+    {
+      "id": "s-is-b",
+      "text": "Yes, he is.",
+      "es": "Sí.",
+      "image": "/lesson-assets/a1plus-unit-4-u03-a725bc492ab6fd66.webp",
+      "kind": "short-b",
+      "question": "Is the boy upstairs?",
+      "question_es": "¿Está arriba el niño?",
+      "question_speaker": "co-teacher",
+      "speaker": "teacher",
+      "use": false,
+      "image_choices": false,
+      "prefer": [
+        "No, he isn't."
+      ],
+      "accepts": {
+        "subject-variety": "A short answer keeps the person of the question; the picture shows whether the answer is yes or no.",
+        "action-variety": "A short answer keeps the person of the question; the picture shows whether the answer is yes or no.",
+        "conversational-response": "A short answer keeps the person of the question; the picture shows whether the answer is yes or no.",
+        "reading-load": "A short answer keeps the person of the question; the picture shows whether the answer is yes or no."
+      },
+      "learn": false
+    },
+    {
+      "id": "f-ana",
+      "text": "My favorite room is the living room.",
+      "es": "Mi cuarto favorito es la sala.",
+      "image": "/lesson-assets/a1plus-unit-1-q02-c2b4398b65207eff.webp",
+      "kind": "fav",
+      "question": "What's your favorite room?",
+      "question_es": "¿Cuál es tu cuarto favorito?",
+      "question_speaker": "co-teacher",
+      "speaker": "teacher",
+      "use": false,
+      "image_choices": false,
+      "prefer": [
+        "My favorite room is the kitchen.",
+        "My favorite room is the bedroom."
+      ],
+      "accepts": {
+        "subject-variety": "The reply keeps the question and changes only the room; the picture shows the person in that room.",
+        "action-variety": "The reply keeps the question and changes only the room; the picture shows the person in that room.",
+        "conversational-response": "The reply keeps the question and changes only the room; the picture shows the person in that room.",
+        "reading-load": "The reply keeps the question and changes only the room; the picture shows the person in that room."
+      },
+      "learn": false
+    },
+    {
+      "id": "f-luis",
+      "text": "His favorite room is the kitchen.",
+      "es": "Su cuarto favorito es la cocina.",
+      "image": "/lesson-assets/a1plus-unit-1-q01-135c3f8f772bcbe4.webp",
+      "kind": "fav2",
+      "question": "What's Luis's favorite room?",
+      "question_es": "¿Cuál es el cuarto favorito de Luis?",
+      "question_speaker": "teacher",
+      "speaker": "co-teacher",
+      "use": false,
+      "image_choices": false,
+      "prefer": [
+        "His favorite room is the bedroom.",
+        "His favorite room is the living room."
+      ],
+      "accepts": {
+        "subject-variety": "The reply keeps the question and changes only the room; the picture shows the person in that room.",
+        "action-variety": "The reply keeps the question and changes only the room; the picture shows the person in that room.",
+        "conversational-response": "The reply keeps the question and changes only the room; the picture shows the person in that room.",
+        "reading-load": "The reply keeps the question and changes only the room; the picture shows the person in that room."
+      },
+      "learn": false
+    },
+    {
+      "id": "q-where-b",
+      "text": "Where's the boy?",
+      "es": "¿Dónde está el niño?",
+      "image": "/lesson-assets/a1plus-unit-4-u03-a725bc492ab6fd66.webp",
+      "kind": "question",
+      "speaker": "co-teacher",
+      "choices": false,
+      "use": true,
+      "learn": false
+    },
+    {
+      "id": "q-where-g",
+      "text": "Where's the grandmother?",
+      "es": "¿Dónde está la abuela?",
+      "image": "/lesson-assets/a1plus-unit-4-u01-c29e8fb262d09a06.webp",
+      "kind": "question",
+      "speaker": "teacher",
+      "choices": false,
+      "use": true,
+      "learn": false
+    },
+    {
+      "id": "u-she",
+      "text": "She's upstairs.",
+      "es": "Está arriba.",
+      "image": "/lesson-assets/a1plus-unit-4-u01-c29e8fb262d09a06.webp",
+      "kind": "use",
+      "choices": false,
+      "learn": false
+    },
+    {
+      "id": "u-he",
+      "text": "He's downstairs.",
+      "es": "Está abajo.",
+      "image": "/lesson-assets/a1plus-unit-4-u04-b3bd6cb605bed72b.webp",
+      "kind": "use",
+      "choices": false,
+      "learn": false
+    },
+    {
+      "id": "x-where",
+      "text": "Where's the grandmother? She's downstairs.",
+      "es": "¿Dónde está la abuela? Está abajo.",
+      "image": "/lesson-assets/a1plus-unit-4-u02-b701ea72b6315c0a.webp",
+      "kind": "xw",
+      "image_choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "Where's the grandmother?",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-4-u02-b701ea72b6315c0a.webp"
+        },
+        {
+          "text": "She's downstairs.",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-4-u02-b701ea72b6315c0a.webp"
+        }
+      ],
+      "accepts": {
+        "subject-variety": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "action-variety": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "conversational-response": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "reading-load": "Listen keeps the question and changes only the answer; the answer is what was heard."
+      },
+      "prefer": [
+        "Where's the grandmother? She's upstairs."
+      ],
+      "learn": false
+    },
+    {
+      "id": "x-is",
+      "text": "Is he upstairs? No, he isn't. He's downstairs.",
+      "es": "¿Está arriba? No. Está abajo.",
+      "image": "/lesson-assets/a1plus-unit-4-u04-b3bd6cb605bed72b.webp",
+      "kind": "xi",
+      "image_choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "Is he upstairs?",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-4-u04-b3bd6cb605bed72b.webp"
+        },
+        {
+          "text": "No, he isn't. He's downstairs.",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-4-u04-b3bd6cb605bed72b.webp"
+        }
+      ],
+      "accepts": {
+        "subject-variety": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "action-variety": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "conversational-response": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "reading-load": "Listen keeps the question and changes only the answer; the answer is what was heard."
+      },
+      "prefer": [
+        "Is he upstairs? Yes, he is."
+      ],
+      "learn": false
+    }
+  ],
+  "pool": [
+    {
+      "text": "The grandmother is downstairs.",
+      "es": "La abuela está abajo.",
+      "image": "/lesson-assets/a1plus-unit-4-u01-c29e8fb262d09a06.webp",
+      "kind": "pos",
+      "image_choices": false
+    },
+    {
+      "text": "The grandmother is upstairs.",
+      "es": "La abuela está arriba.",
+      "image": "/lesson-assets/a1plus-unit-4-u02-b701ea72b6315c0a.webp",
+      "kind": "pos",
+      "image_choices": false
+    },
+    {
+      "text": "The boy is downstairs.",
+      "es": "El niño está abajo.",
+      "image": "/lesson-assets/a1plus-unit-4-u03-a725bc492ab6fd66.webp",
+      "kind": "pos",
+      "image_choices": false
+    },
+    {
+      "text": "The boy is upstairs.",
+      "es": "El niño está arriba.",
+      "image": "/lesson-assets/a1plus-unit-4-u04-b3bd6cb605bed72b.webp",
+      "kind": "pos",
+      "image_choices": false
+    },
+    {
+      "text": "She's downstairs.",
+      "es": "Está abajo.",
+      "image": "/lesson-assets/a1plus-unit-4-u01-c29e8fb262d09a06.webp",
+      "kind": "where-g",
+      "image_choices": false
+    },
+    {
+      "text": "He's upstairs.",
+      "es": "Él está arriba.",
+      "image": "/lesson-assets/a1plus-unit-4-u01-c29e8fb262d09a06.webp",
+      "kind": "where-g",
+      "image_choices": false
+    },
+    {
+      "text": "He's upstairs.",
+      "es": "Está arriba.",
+      "image": "/lesson-assets/a1plus-unit-4-u04-b3bd6cb605bed72b.webp",
+      "kind": "where-b",
+      "image_choices": false
+    },
+    {
+      "text": "She's downstairs.",
+      "es": "Ella está abajo.",
+      "image": "/lesson-assets/a1plus-unit-4-u04-b3bd6cb605bed72b.webp",
+      "kind": "where-b",
+      "image_choices": false
+    },
+    {
+      "text": "Where's the grandmother?",
+      "es": "¿Dónde está la abuela?",
+      "image": "/lesson-assets/a1plus-unit-4-u03-a725bc492ab6fd66.webp",
+      "kind": "wq-lq-b",
+      "image_choices": false
+    },
+    {
+      "text": "Where's the boy?",
+      "es": "¿Dónde está el niño?",
+      "image": "/lesson-assets/a1plus-unit-4-u02-b701ea72b6315c0a.webp",
+      "kind": "wq-lq-g",
+      "image_choices": false
+    },
+    {
+      "text": "Yes, she is.",
+      "es": "Sí.",
+      "image": "/lesson-assets/a1plus-unit-4-u02-b701ea72b6315c0a.webp",
+      "kind": "short-g",
+      "image_choices": false
+    },
+    {
+      "text": "No, he isn't.",
+      "es": "No.",
+      "image": "/lesson-assets/a1plus-unit-4-u03-a725bc492ab6fd66.webp",
+      "kind": "short-b",
+      "image_choices": false
+    },
+    {
+      "text": "My favorite room is the kitchen.",
+      "es": "Mi cuarto favorito es la cocina.",
+      "image": "/lesson-assets/a1plus-unit-1-q02-c2b4398b65207eff.webp",
+      "kind": "fav",
+      "image_choices": false
+    },
+    {
+      "text": "My favorite room is the bedroom.",
+      "es": "Mi cuarto favorito es la recámara.",
+      "image": "/lesson-assets/a1plus-unit-1-q02-c2b4398b65207eff.webp",
+      "kind": "fav",
+      "image_choices": false
+    },
+    {
+      "text": "His favorite room is the bedroom.",
+      "es": "Su cuarto favorito es la recámara.",
+      "image": "/lesson-assets/a1plus-unit-1-q01-135c3f8f772bcbe4.webp",
+      "kind": "fav2",
+      "image_choices": false
+    },
+    {
+      "text": "His favorite room is the living room.",
+      "es": "Su cuarto favorito es la sala.",
+      "image": "/lesson-assets/a1plus-unit-1-q01-135c3f8f772bcbe4.webp",
+      "kind": "fav2",
+      "image_choices": false
+    },
+    {
+      "text": "Where's the grandmother? She's upstairs.",
+      "es": "¿Dónde está la abuela? Está arriba.",
+      "image": "/lesson-assets/a1plus-unit-4-u02-b701ea72b6315c0a.webp",
+      "kind": "xw",
+      "image_choices": false
+    },
+    {
+      "text": "Is he upstairs? Yes, he is.",
+      "es": "¿Está arriba? Sí.",
+      "image": "/lesson-assets/a1plus-unit-4-u04-b3bd6cb605bed72b.webp",
+      "kind": "xi",
+      "image_choices": false
+    }
+  ],
+  "layout": {
+    "Recognize": 10,
+    "Listen": 10,
+    "Speak": 8,
+    "Use": 8
+  },
+  "stage_sequences": {
+    "Learn": [
+      "l-up-down",
+      "l-where-boy",
+      "l-where-g",
+      "l-is-he"
+    ],
+    "Recognize": [
+      "p-g-up",
+      "r-where-b",
+      "p-b-down",
+      "s-is-g",
+      "p-b-up",
+      "f-ana",
+      "p-g-down",
+      "r-where-g",
+      "s-is-b",
+      "f-luis"
+    ],
+    "Listen": [
+      "p-b-up",
+      "r-where-g",
+      "lq-b",
+      "p-g-down",
+      "f-luis",
+      "s-is-g",
+      "p-g-up",
+      "lq-g",
+      "r-where-b",
+      "f-ana"
+    ],
+    "Speak": [
+      "u-she",
+      "q-where-b",
+      "p-b-down",
+      "f-ana",
+      "q-where-g",
+      "u-he",
+      "f-luis",
+      "p-g-up"
+    ],
+    "Use": [
+      "p-g-up",
+      "p-b-down",
+      "p-b-up",
+      "p-g-down",
+      "q-where-b",
+      "q-where-g",
+      "u-she",
+      "u-he"
+    ]
+  }
+}
