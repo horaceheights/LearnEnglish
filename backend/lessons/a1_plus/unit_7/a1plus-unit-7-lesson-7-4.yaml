@@ -12,8 +12,7 @@
   "goal": "Say what the weather is doing now with It's raining. / It's snowing. and ask Is it raining?.",
   "vocabulary": [
     "raining",
-    "snowing",
-    "Is it raining?"
+    "snowing"
   ],
   "review_vocabulary": [
     "it's",
@@ -66,7 +65,7 @@
     {
       "kind": "exchange",
       "targets": [
-        "Is it raining?"
+        "raining"
       ],
       "models": [
         {
@@ -82,7 +81,6 @@
     {
       "kind": "exchange",
       "targets": [
-        "Is it raining?",
         "raining"
       ],
       "models": [
@@ -731,11 +729,17 @@
     },
     {
       "slide_id": "A6",
-      "interaction_type": "a2t2",
+      "interaction_type": "a2t3",
       "prompt": "Listen and choose.",
       "stage": "Listen",
       "correct_option_id": "it's-raining-a6",
       "options": [
+        {
+          "id": "it's-raining-a6",
+          "image_url": "",
+          "label": "It's raining.",
+          "spanish_translation": "Está lloviendo."
+        },
         {
           "id": "it's-snowing-a6",
           "image_url": "",
@@ -743,10 +747,10 @@
           "spanish_translation": "Está nevando."
         },
         {
-          "id": "it's-raining-a6",
+          "id": "it's-sunny-a6",
           "image_url": "",
-          "label": "It's raining.",
-          "spanish_translation": "Está lloviendo."
+          "label": "It's sunny.",
+          "spanish_translation": "Hace sol."
         }
       ],
       "audio_text": "It's raining.",

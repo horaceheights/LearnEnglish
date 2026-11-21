@@ -1,0 +1,765 @@
+{
+  "brief_version": 1,
+  "follows": {
+    "course": "a1",
+    "lesson": "7.6",
+    "title": "What I Like to Do"
+  },
+  "note": "A1+ Unit 7 Lesson 7.6, built on 2026-11-20 under the A1+ lesson standards approved 2026-10-27 and the user's 2026-11-09 rule that every A1+ lesson follows up the A1 lesson with the same number. On 2026-11-20 the user asked to \"work on a1+ Unit 7 same all deal as before none stop all approved\": the A1+ Unit 7 map (A1+ 7.Y follows A1 7.Y, one step each, fifteen lessons) approved up front, straight to Preview, Gemini 2.5 Flash photos and ElevenLabs audio pre-approved, no per-lesson gates, reviewed in Preview. No new photos: six of A1 7.6's activity photos (watching TV, listening to music, dancing, drawing, painting, playing football) and its photo of a woman saying no to football, plus the cast's A1+ photos of Diego painting, Ana reading, Sofia writing and Ana swimming. Each picture shows one activity happening, so likes is told by the line, never by a hidden opinion.",
+  "target": "backend/lessons/a1_plus/unit_7/a1plus-unit-7-lesson-7-6.yaml",
+  "captions": false,
+  "narrators": [
+    "teacher",
+    "co-teacher"
+  ],
+  "answer_audio_policy": "authored-only",
+  "speak_delivery": "a1-pronunciation-v1",
+  "lesson": {
+    "id": "a1plus-unit-7-lesson-7-6",
+    "title": "7.6 She likes dancing",
+    "level": "A1+",
+    "unit_id": "a1plus-unit-7",
+    "unit_title": "Everyday needs, plans and free time",
+    "unit_outcome": "Say what hurts and why someone feels a certain way, describe what people are wearing and the weather as it happens, tell someone to put on or take off clothes, talk about what people like doing, invite and answer, ask someone to repeat or explain, talk about being sick, the months and seasons, compare with the biggest and the tallest, and say what people and animals can do and are good at.",
+    "lesson_id": "a1plus-unit-7-lesson-7-6",
+    "lesson_title": "She likes dancing",
+    "sub_lesson_id": "7.6",
+    "sub_lesson_title": "She likes dancing",
+    "goal": "Say what people like doing with like/likes + -ing (She likes dancing.), ask Does she like…? and What do you like doing?.",
+    "vocabulary": [
+      "likes",
+      "dancing",
+      "painting",
+      "drawing",
+      "What do you like doing?"
+    ],
+    "review_vocabulary": [
+      "she",
+      "he",
+      "I",
+      "like",
+      "yes",
+      "no",
+      "does",
+      "doesn't",
+      "watching TV",
+      "listening to music",
+      "playing football",
+      "reading",
+      "writing",
+      "swimming"
+    ],
+    "grammar_function": "A follow-up of A1 7.6 What I Like to Do: A1 says I like to + verb (I like to dance.); A1+ 7.6 says what other people like doing. The one new grammar relationship is like/likes + the -ing form of the activity (She likes dancing. / I like painting.), with he/she + likes (the -s of A1+ 1.2), the question Does she like …? with the short answers Yes, she does. / No, she doesn't. (A1+ 1.8-1.9), and What do you like doing?. A1 7.6's activity photos come back, and the cast's own photos give the first-person answers.",
+    "prerequisite": "A1 7.6 I like to + the eight activities; A1+ 1.2 he/she + -s; A1+ 1.8 doesn't; A1+ 1.9 Does …?; A1+ 3.3 -ing.",
+    "speaking_outcome": "Say likes with a clear s (LAIKS) and the -ing ending as one soft syllable (DAN-sing, PAIN-ting). Do not require native-like speed.",
+    "content_revision": 1,
+    "learn_context_groups": [
+      {
+        "kind": "sequence",
+        "targets": [
+          "likes",
+          "dancing"
+        ],
+        "models": [
+          {
+            "slide_id": "L1",
+            "text": "She likes dancing."
+          }
+        ]
+      },
+      {
+        "kind": "sequence",
+        "targets": [
+          "painting"
+        ],
+        "models": [
+          {
+            "slide_id": "L2",
+            "text": "He likes painting."
+          }
+        ]
+      },
+      {
+        "kind": "exchange",
+        "targets": [
+          "drawing"
+        ],
+        "models": [
+          {
+            "slide_id": "L3",
+            "text": "Does she like drawing? Yes, she does.",
+            "turns": [
+              "Does she like drawing?",
+              "Yes, she does."
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "exchange",
+        "targets": [
+          "What do you like doing?",
+          "painting"
+        ],
+        "models": [
+          {
+            "slide_id": "L4",
+            "text": "What do you like doing? I like painting.",
+            "turns": [
+              "What do you like doing?",
+              "I like painting."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "items": [
+    {
+      "id": "l-dance",
+      "text": "She likes dancing.",
+      "es": "Le gusta bailar.",
+      "image": "/lesson-assets/a1_photo_u7_approved_dance_v1.webp",
+      "kind": "sequence",
+      "choices": false,
+      "use": false,
+      "speaker": "teacher"
+    },
+    {
+      "id": "l-paint",
+      "text": "He likes painting.",
+      "es": "Le gusta pintar.",
+      "image": "/lesson-assets/a1_photo_u7_approved_paint_v1.webp",
+      "kind": "sequence",
+      "choices": false,
+      "use": false,
+      "speaker": "co-teacher"
+    },
+    {
+      "id": "l-draw",
+      "text": "Does she like drawing? Yes, she does.",
+      "es": "¿Le gusta dibujar? Sí.",
+      "image": "/lesson-assets/a1_photo_u7_approved_draw_v2.webp",
+      "kind": "exchange",
+      "choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "Does she like drawing?",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1_photo_u7_approved_draw_v2.webp"
+        },
+        {
+          "text": "Yes, she does.",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1_photo_u7_approved_draw_v2.webp"
+        }
+      ]
+    },
+    {
+      "id": "l-diego",
+      "text": "What do you like doing? I like painting.",
+      "es": "¿Qué te gusta hacer? Me gusta pintar.",
+      "image": "/lesson-assets/a1plus-unit-3-c07-5a554636e3669bf8.webp",
+      "kind": "exchange",
+      "choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "What do you like doing?",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-3-c07-5a554636e3669bf8.webp"
+        },
+        {
+          "text": "I like painting.",
+          "speaker": "diego",
+          "image": "/lesson-assets/a1plus-unit-3-c07-5a554636e3669bf8.webp"
+        }
+      ]
+    },
+    {
+      "id": "p-tv",
+      "text": "She likes watching TV.",
+      "es": "Le gusta ver televisión.",
+      "image": "/lesson-assets/a1_photo_u7_approved_watch_tv_v1.webp",
+      "kind": "likes",
+      "accepts": {
+        "subject-variety": "The bank keeps likes and changes only the activity; the picture shows what the person is doing.",
+        "action-variety": "The bank keeps likes and changes only the activity; the picture shows what the person is doing.",
+        "conversational-response": "The bank keeps likes and changes only the activity; the picture shows what the person is doing.",
+        "reading-load": "The bank keeps likes and changes only the activity; the picture shows what the person is doing."
+      },
+      "prefer": [
+        "She likes dancing."
+      ],
+      "blanks": [
+        "likes",
+        "watching"
+      ],
+      "learn": false
+    },
+    {
+      "id": "p-music",
+      "text": "He likes listening to music.",
+      "es": "Le gusta escuchar música.",
+      "image": "/lesson-assets/a1_photo_u7_approved_listen_music_v1.webp",
+      "kind": "likes",
+      "accepts": {
+        "subject-variety": "The bank keeps likes and changes only the activity; the picture shows what the person is doing.",
+        "action-variety": "The bank keeps likes and changes only the activity; the picture shows what the person is doing.",
+        "conversational-response": "The bank keeps likes and changes only the activity; the picture shows what the person is doing.",
+        "reading-load": "The bank keeps likes and changes only the activity; the picture shows what the person is doing."
+      },
+      "prefer": [
+        "He likes painting."
+      ],
+      "blanks": [
+        "likes",
+        "listening"
+      ],
+      "text_choices": false,
+      "learn": false
+    },
+    {
+      "id": "p-dance",
+      "text": "She likes dancing.",
+      "es": "Le gusta bailar.",
+      "image": "/lesson-assets/a1_photo_u7_approved_dance_v1.webp",
+      "kind": "likes",
+      "accepts": {
+        "subject-variety": "The bank keeps likes and changes only the activity; the picture shows what the person is doing.",
+        "action-variety": "The bank keeps likes and changes only the activity; the picture shows what the person is doing.",
+        "conversational-response": "The bank keeps likes and changes only the activity; the picture shows what the person is doing.",
+        "reading-load": "The bank keeps likes and changes only the activity; the picture shows what the person is doing."
+      },
+      "prefer": [
+        "She likes drawing."
+      ],
+      "blanks": [
+        "likes",
+        "dancing"
+      ],
+      "learn": false
+    },
+    {
+      "id": "p-draw",
+      "text": "She likes drawing.",
+      "es": "Le gusta dibujar.",
+      "image": "/lesson-assets/a1_photo_u7_approved_draw_v2.webp",
+      "kind": "likes",
+      "accepts": {
+        "subject-variety": "The bank keeps likes and changes only the activity; the picture shows what the person is doing.",
+        "action-variety": "The bank keeps likes and changes only the activity; the picture shows what the person is doing.",
+        "conversational-response": "The bank keeps likes and changes only the activity; the picture shows what the person is doing.",
+        "reading-load": "The bank keeps likes and changes only the activity; the picture shows what the person is doing."
+      },
+      "prefer": [
+        "She likes dancing."
+      ],
+      "blanks": [
+        "likes",
+        "drawing"
+      ],
+      "learn": false
+    },
+    {
+      "id": "p-paint",
+      "text": "He likes painting.",
+      "es": "Le gusta pintar.",
+      "image": "/lesson-assets/a1_photo_u7_approved_paint_v1.webp",
+      "kind": "likes",
+      "accepts": {
+        "subject-variety": "The bank keeps likes and changes only the activity; the picture shows what the person is doing.",
+        "action-variety": "The bank keeps likes and changes only the activity; the picture shows what the person is doing.",
+        "conversational-response": "The bank keeps likes and changes only the activity; the picture shows what the person is doing.",
+        "reading-load": "The bank keeps likes and changes only the activity; the picture shows what the person is doing."
+      },
+      "prefer": [
+        "He likes listening to music."
+      ],
+      "blanks": [
+        "likes",
+        "painting"
+      ],
+      "text_choices": false,
+      "learn": false
+    },
+    {
+      "id": "p-football",
+      "text": "He likes playing football.",
+      "es": "Le gusta jugar al fútbol.",
+      "image": "/lesson-assets/a1_photo_u7_approved_play_football_v1.webp",
+      "kind": "likes",
+      "accepts": {
+        "subject-variety": "The bank keeps likes and changes only the activity; the picture shows what the person is doing.",
+        "action-variety": "The bank keeps likes and changes only the activity; the picture shows what the person is doing.",
+        "conversational-response": "The bank keeps likes and changes only the activity; the picture shows what the person is doing.",
+        "reading-load": "The bank keeps likes and changes only the activity; the picture shows what the person is doing."
+      },
+      "prefer": [
+        "He likes painting."
+      ],
+      "blanks": [
+        "likes",
+        "playing"
+      ],
+      "text_choices": false,
+      "learn": false
+    },
+    {
+      "id": "d-dance",
+      "text": "Yes, she does.",
+      "es": "Sí.",
+      "image": "/lesson-assets/a1_photo_u7_approved_dance_v1.webp",
+      "kind": "does",
+      "question": "Does she like dancing?",
+      "question_es": "¿Le gusta bailar?",
+      "question_speaker": "co-teacher",
+      "speaker": "teacher",
+      "image_choices": false,
+      "use": false,
+      "accepts": {
+        "subject-variety": "The question stays the same and the reply changes only yes or no; the picture shows the answer.",
+        "action-variety": "The question stays the same and the reply changes only yes or no; the picture shows the answer.",
+        "conversational-response": "The question stays the same and the reply changes only yes or no; the picture shows the answer.",
+        "reading-load": "The question stays the same and the reply changes only yes or no; the picture shows the answer."
+      },
+      "prefer": [
+        "No, she doesn't."
+      ],
+      "listening_turns": [
+        {
+          "text": "Does she like dancing?",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1_photo_u7_approved_dance_v1.webp"
+        },
+        {
+          "text": "Yes, she does.",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1_photo_u7_approved_dance_v1.webp"
+        }
+      ],
+      "learn": false
+    },
+    {
+      "id": "d-paint",
+      "text": "Yes, he does.",
+      "es": "Sí.",
+      "image": "/lesson-assets/a1_photo_u7_approved_paint_v1.webp",
+      "kind": "does",
+      "question": "Does he like painting?",
+      "question_es": "¿Le gusta pintar?",
+      "question_speaker": "co-teacher",
+      "speaker": "teacher",
+      "image_choices": false,
+      "use": false,
+      "accepts": {
+        "subject-variety": "The question stays the same and the reply changes only yes or no; the picture shows the answer.",
+        "action-variety": "The question stays the same and the reply changes only yes or no; the picture shows the answer.",
+        "conversational-response": "The question stays the same and the reply changes only yes or no; the picture shows the answer.",
+        "reading-load": "The question stays the same and the reply changes only yes or no; the picture shows the answer."
+      },
+      "prefer": [
+        "No, he doesn't."
+      ],
+      "listening_turns": [
+        {
+          "text": "Does he like painting?",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1_photo_u7_approved_paint_v1.webp"
+        },
+        {
+          "text": "Yes, he does.",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1_photo_u7_approved_paint_v1.webp"
+        }
+      ],
+      "learn": false
+    },
+    {
+      "id": "d-no",
+      "text": "No, she doesn't.",
+      "es": "No.",
+      "image": "/lesson-assets/a1_photo_u7_approved_football_no_v1.webp",
+      "kind": "does",
+      "question": "Does she like playing football?",
+      "question_es": "¿Le gusta jugar al fútbol?",
+      "question_speaker": "co-teacher",
+      "speaker": "teacher",
+      "image_choices": false,
+      "use": false,
+      "accepts": {
+        "subject-variety": "The question stays the same and the reply changes only yes or no; the picture shows the answer.",
+        "action-variety": "The question stays the same and the reply changes only yes or no; the picture shows the answer.",
+        "conversational-response": "The question stays the same and the reply changes only yes or no; the picture shows the answer.",
+        "reading-load": "The question stays the same and the reply changes only yes or no; the picture shows the answer."
+      },
+      "prefer": [
+        "Yes, she does."
+      ],
+      "listening_turns": [
+        {
+          "text": "Does she like playing football?",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1_photo_u7_approved_football_no_v1.webp"
+        },
+        {
+          "text": "No, she doesn't.",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1_photo_u7_approved_football_no_v1.webp"
+        }
+      ],
+      "learn": false
+    },
+    {
+      "id": "d-draw",
+      "text": "Yes, she does.",
+      "es": "Sí.",
+      "image": "/lesson-assets/a1_photo_u7_approved_draw_v2.webp",
+      "kind": "does",
+      "question": "Does she like drawing?",
+      "question_es": "¿Le gusta dibujar?",
+      "question_speaker": "co-teacher",
+      "speaker": "teacher",
+      "image_choices": false,
+      "use": false,
+      "accepts": {
+        "subject-variety": "The question stays the same and the reply changes only yes or no; the picture shows the answer.",
+        "action-variety": "The question stays the same and the reply changes only yes or no; the picture shows the answer.",
+        "conversational-response": "The question stays the same and the reply changes only yes or no; the picture shows the answer.",
+        "reading-load": "The question stays the same and the reply changes only yes or no; the picture shows the answer."
+      },
+      "prefer": [
+        "No, she doesn't."
+      ],
+      "listening_turns": [
+        {
+          "text": "Does she like drawing?",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1_photo_u7_approved_draw_v2.webp"
+        },
+        {
+          "text": "Yes, she does.",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1_photo_u7_approved_draw_v2.webp"
+        }
+      ],
+      "learn": false
+    },
+    {
+      "id": "m-diego",
+      "text": "I like painting.",
+      "es": "Me gusta pintar.",
+      "image": "/lesson-assets/a1plus-unit-3-c07-5a554636e3669bf8.webp",
+      "kind": "me",
+      "speaker": "diego",
+      "question": "What do you like doing?",
+      "question_es": "¿Qué te gusta hacer?",
+      "question_speaker": "co-teacher",
+      "image_choices": false,
+      "accepts": {
+        "subject-variety": "The question stays the same and the reply changes only the activity; the picture shows it.",
+        "action-variety": "The question stays the same and the reply changes only the activity; the picture shows it.",
+        "conversational-response": "The question stays the same and the reply changes only the activity; the picture shows it.",
+        "reading-load": "The question stays the same and the reply changes only the activity; the picture shows it."
+      },
+      "prefer": [
+        "I like dancing."
+      ],
+      "blanks": [
+        "like",
+        "painting"
+      ],
+      "listening_turns": [
+        {
+          "text": "What do you like doing?",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-3-c07-5a554636e3669bf8.webp"
+        },
+        {
+          "text": "I like painting.",
+          "speaker": "diego",
+          "image": "/lesson-assets/a1plus-unit-3-c07-5a554636e3669bf8.webp"
+        }
+      ],
+      "learn": false
+    },
+    {
+      "id": "m-ana",
+      "text": "I like reading.",
+      "es": "Me gusta leer.",
+      "image": "/lesson-assets/a1plus-unit-1-q02-c2b4398b65207eff.webp",
+      "kind": "me",
+      "speaker": "ana",
+      "question": "What do you like doing?",
+      "question_es": "¿Qué te gusta hacer?",
+      "question_speaker": "co-teacher",
+      "image_choices": false,
+      "accepts": {
+        "subject-variety": "The question stays the same and the reply changes only the activity; the picture shows it.",
+        "action-variety": "The question stays the same and the reply changes only the activity; the picture shows it.",
+        "conversational-response": "The question stays the same and the reply changes only the activity; the picture shows it.",
+        "reading-load": "The question stays the same and the reply changes only the activity; the picture shows it."
+      },
+      "prefer": [
+        "I like drawing."
+      ],
+      "blanks": [
+        "like",
+        "reading"
+      ],
+      "listening_turns": [
+        {
+          "text": "What do you like doing?",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-1-q02-c2b4398b65207eff.webp"
+        },
+        {
+          "text": "I like reading.",
+          "speaker": "ana",
+          "image": "/lesson-assets/a1plus-unit-1-q02-c2b4398b65207eff.webp"
+        }
+      ],
+      "learn": false
+    },
+    {
+      "id": "m-sofia",
+      "text": "I like writing.",
+      "es": "Me gusta escribir.",
+      "image": "/lesson-assets/a1plus-unit-1-q03-7d520a07846a47b8.webp",
+      "kind": "me",
+      "speaker": "sofia",
+      "question": "What do you like doing?",
+      "question_es": "¿Qué te gusta hacer?",
+      "question_speaker": "co-teacher",
+      "image_choices": false,
+      "accepts": {
+        "subject-variety": "The question stays the same and the reply changes only the activity; the picture shows it.",
+        "action-variety": "The question stays the same and the reply changes only the activity; the picture shows it.",
+        "conversational-response": "The question stays the same and the reply changes only the activity; the picture shows it.",
+        "reading-load": "The question stays the same and the reply changes only the activity; the picture shows it."
+      },
+      "prefer": [
+        "I like painting."
+      ],
+      "blanks": [
+        "like",
+        "writing"
+      ],
+      "listening_turns": [
+        {
+          "text": "What do you like doing?",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-1-q03-7d520a07846a47b8.webp"
+        },
+        {
+          "text": "I like writing.",
+          "speaker": "sofia",
+          "image": "/lesson-assets/a1plus-unit-1-q03-7d520a07846a47b8.webp"
+        }
+      ],
+      "learn": false
+    },
+    {
+      "id": "m-swim",
+      "text": "I like swimming.",
+      "es": "Me gusta nadar.",
+      "image": "/lesson-assets/a1plus-unit-1-s02-6a10ecb13ff623c8.webp",
+      "kind": "me",
+      "speaker": "ana",
+      "question": "What do you like doing?",
+      "question_es": "¿Qué te gusta hacer?",
+      "question_speaker": "co-teacher",
+      "image_choices": false,
+      "accepts": {
+        "subject-variety": "The question stays the same and the reply changes only the activity; the picture shows it.",
+        "action-variety": "The question stays the same and the reply changes only the activity; the picture shows it.",
+        "conversational-response": "The question stays the same and the reply changes only the activity; the picture shows it.",
+        "reading-load": "The question stays the same and the reply changes only the activity; the picture shows it."
+      },
+      "prefer": [
+        "I like dancing."
+      ],
+      "blanks": [
+        "like",
+        "swimming"
+      ],
+      "listening_turns": [
+        {
+          "text": "What do you like doing?",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-1-s02-6a10ecb13ff623c8.webp"
+        },
+        {
+          "text": "I like swimming.",
+          "speaker": "ana",
+          "image": "/lesson-assets/a1plus-unit-1-s02-6a10ecb13ff623c8.webp"
+        }
+      ],
+      "learn": false
+    },
+    {
+      "id": "q-what",
+      "text": "What do you like doing?",
+      "es": "¿Qué te gusta hacer?",
+      "image": "/lesson-assets/a1plus-unit-1-q02-c2b4398b65207eff.webp",
+      "kind": "question",
+      "speaker": "co-teacher",
+      "choices": false,
+      "use": true,
+      "learn": false
+    },
+    {
+      "id": "q-does",
+      "text": "Does she like dancing?",
+      "es": "¿Le gusta bailar?",
+      "image": "/lesson-assets/a1_photo_u7_approved_dance_v1.webp",
+      "kind": "question",
+      "speaker": "co-teacher",
+      "choices": false,
+      "use": false,
+      "learn": false
+    },
+    {
+      "id": "q-he",
+      "text": "Does he like painting?",
+      "es": "¿Le gusta pintar?",
+      "image": "/lesson-assets/a1_photo_u7_approved_paint_v1.webp",
+      "kind": "question",
+      "speaker": "co-teacher",
+      "choices": false,
+      "use": false,
+      "learn": false
+    }
+  ],
+  "pool": [
+    {
+      "text": "She likes dancing.",
+      "es": "Le gusta bailar.",
+      "image": "/lesson-assets/a1_photo_u7_approved_watch_tv_v1.webp",
+      "kind": "likes",
+      "image_choices": false
+    },
+    {
+      "text": "He likes painting.",
+      "es": "Le gusta pintar.",
+      "image": "/lesson-assets/a1_photo_u7_approved_listen_music_v1.webp",
+      "kind": "likes",
+      "image_choices": false
+    },
+    {
+      "text": "She likes drawing.",
+      "es": "Le gusta dibujar.",
+      "image": "/lesson-assets/a1_photo_u7_approved_dance_v1.webp",
+      "kind": "likes",
+      "image_choices": false
+    },
+    {
+      "text": "He likes listening to music.",
+      "es": "Le gusta escuchar música.",
+      "image": "/lesson-assets/a1_photo_u7_approved_paint_v1.webp",
+      "kind": "likes",
+      "image_choices": false
+    },
+    {
+      "text": "No, she doesn't.",
+      "es": "No.",
+      "image": "/lesson-assets/a1_photo_u7_approved_dance_v1.webp",
+      "kind": "does",
+      "image_choices": false
+    },
+    {
+      "text": "No, he doesn't.",
+      "es": "No.",
+      "image": "/lesson-assets/a1_photo_u7_approved_paint_v1.webp",
+      "kind": "does",
+      "image_choices": false
+    },
+    {
+      "text": "Yes, she does.",
+      "es": "Sí.",
+      "image": "/lesson-assets/a1_photo_u7_approved_football_no_v1.webp",
+      "kind": "does",
+      "image_choices": false
+    },
+    {
+      "text": "I like dancing.",
+      "es": "Me gusta bailar.",
+      "image": "/lesson-assets/a1plus-unit-3-c07-5a554636e3669bf8.webp",
+      "kind": "me",
+      "image_choices": false
+    },
+    {
+      "text": "I like drawing.",
+      "es": "Me gusta dibujar.",
+      "image": "/lesson-assets/a1plus-unit-1-q02-c2b4398b65207eff.webp",
+      "kind": "me",
+      "image_choices": false
+    },
+    {
+      "text": "I like painting.",
+      "es": "Me gusta pintar.",
+      "image": "/lesson-assets/a1plus-unit-1-q03-7d520a07846a47b8.webp",
+      "kind": "me",
+      "image_choices": false
+    }
+  ],
+  "layout": {
+    "Recognize": 10,
+    "Listen": 10,
+    "Speak": 8,
+    "Use": 8
+  },
+  "stage_sequences": {
+    "Learn": [
+      "l-dance",
+      "l-paint",
+      "l-draw",
+      "l-diego"
+    ],
+    "Recognize": [
+      "p-dance",
+      "d-paint",
+      "p-tv",
+      "m-diego",
+      "p-draw",
+      "d-no",
+      "d-draw",
+      "d-dance",
+      "m-ana",
+      "p-paint"
+    ],
+    "Listen": [
+      "p-draw",
+      "d-dance",
+      "m-sofia",
+      "p-paint",
+      "d-no",
+      "p-dance",
+      "m-swim",
+      "d-draw",
+      "p-football",
+      "m-diego"
+    ],
+    "Speak": [
+      "q-what",
+      "m-diego",
+      "q-does",
+      "p-dance",
+      "q-he",
+      "p-paint",
+      "p-draw",
+      "m-ana"
+    ],
+    "Use": [
+      "p-dance",
+      "p-paint",
+      "p-draw",
+      "m-diego",
+      "p-tv",
+      "q-what",
+      "m-sofia",
+      "p-music"
+    ]
+  }
+}

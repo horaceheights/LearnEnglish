@@ -59,7 +59,8 @@
     {
       "kind": "exchange",
       "targets": [
-        "What's wrong?"
+        "What's wrong?",
+        "hurt"
       ],
       "models": [
         {
@@ -429,36 +430,38 @@
     },
     {
       "slide_id": "R8",
-      "interaction_type": "i2t3",
-      "prompt": "",
+      "interaction_type": "t2i4",
+      "prompt": "Her eyes hurt.",
       "stage": "Recognize",
       "correct_option_id": "her-eyes-hurt-r8",
       "options": [
         {
           "id": "his-legs-hurt-r8",
-          "image_url": "",
-          "label": "His legs hurt.",
-          "spanish_translation": "Le duelen las piernas."
+          "image_url": "/lesson-assets/a1plus-unit-7-h03-30ce43e3a0087515.webp",
+          "label": null
+        },
+        {
+          "id": "his-feet-hurt-r8",
+          "image_url": "/lesson-assets/a1plus-unit-7-h02-017060967999871e.webp",
+          "label": null
         },
         {
           "id": "her-eyes-hurt-r8",
-          "image_url": "",
-          "label": "Her eyes hurt.",
-          "spanish_translation": "Le duelen los ojos."
+          "image_url": "/lesson-assets/a1plus-unit-7-h04-4c8bdcf5ee63be02.webp",
+          "label": null
         },
         {
           "id": "her-head-hurts-r8",
-          "image_url": "",
-          "label": "Her head hurts.",
-          "spanish_translation": "Le duele la cabeza."
+          "image_url": "/lesson-assets/a1plus-unit-7-h01-1b2f3f21fafa53a0.webp",
+          "label": null
         }
       ],
-      "audio_text": "",
-      "answer_audio_text": "Her eyes hurt.",
-      "prompt_image_url": "/lesson-assets/a1plus-unit-7-h04-4c8bdcf5ee63be02.webp",
-      "spanish_translation": "Elige la frase correcta.",
-      "answer_audio_speaker": "co-teacher",
+      "audio_text": "Her eyes hurt.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Le duelen los ojos.",
       "pedagogy_note": "Story beat 08: Her eyes hurt.",
+      "audio_speaker": "co-teacher",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -1262,39 +1265,33 @@
     {
       "slide_id": "U6",
       "interaction_type": "complete-sentence",
-      "prompt": "___ ___ ___.",
+      "prompt": "___ ___?",
       "stage": "Use",
       "correct_option_id": "word-1",
       "options": [
         {
           "id": "word-2",
           "image_url": "",
-          "label": "feet"
+          "label": "wrong"
         },
         {
           "id": "word-1",
           "image_url": "",
-          "label": "My"
-        },
-        {
-          "id": "word-3",
-          "image_url": "",
-          "label": "hurt"
+          "label": "What's"
         }
       ],
-      "audio_text": "My feet hurt.",
-      "answer_audio_text": "My feet hurt.",
-      "prompt_image_url": "/lesson-assets/a1plus-unit-7-h02-017060967999871e.webp",
-      "spanish_translation": "Me duelen los pies.",
-      "translation": "Me duelen los pies.",
+      "audio_text": "What's wrong?",
+      "answer_audio_text": "What's wrong?",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-7-h04-4c8bdcf5ee63be02.webp",
+      "spanish_translation": "¿Qué te pasa?",
+      "translation": "¿Qué te pasa?",
       "correct_option_ids": [
         "word-1",
-        "word-2",
-        "word-3"
+        "word-2"
       ],
-      "answer_audio_speaker": "luis",
-      "pedagogy_note": "Story beat 06: My feet hurt.",
-      "audio_speaker": "luis",
+      "answer_audio_speaker": "co-teacher",
+      "pedagogy_note": "Story beat 06: What's wrong?",
+      "audio_speaker": "co-teacher",
       "answer_audio_policy": "authored-only"
     },
     {

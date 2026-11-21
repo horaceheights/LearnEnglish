@@ -1,0 +1,735 @@
+{
+  "brief_version": 1,
+  "follows": {
+    "course": "a1",
+    "lesson": "7.9",
+    "title": "More Feelings"
+  },
+  "note": "A1+ Unit 7 Lesson 7.9, built on 2026-11-20 under the A1+ lesson standards approved 2026-10-27 and the user's 2026-11-09 rule that every A1+ lesson follows up the A1 lesson with the same number. On 2026-11-20 the user asked to \"work on a1+ Unit 7 same all deal as before none stop all approved\": the A1+ Unit 7 map (A1+ 7.Y follows A1 7.Y, one step each, fifteen lessons) approved up front, straight to Preview, Gemini 2.5 Flash photos and ElevenLabs audio pre-approved, no per-lesson gates, reviewed in Preview. Three new photos (Gemini 2.5 Flash): Luis presses his stomach on his sofa, Diego coughs into his elbow in his kitchen, Ana lies in bed flushed with a thermometer whose screen faces away. 7.1's photo of Sofia pressing her head is the headache. A1 7.9's sick man on a sofa, the man with his fists up and the woman making an OK sign show sick, great and fine.",
+  "target": "backend/lessons/a1_plus/unit_7/a1plus-unit-7-lesson-7-9.yaml",
+  "captions": false,
+  "narrators": [
+    "teacher",
+    "co-teacher"
+  ],
+  "answer_audio_policy": "authored-only",
+  "speak_delivery": "a1-pronunciation-v1",
+  "lesson": {
+    "id": "a1plus-unit-7-lesson-7-9",
+    "title": "7.9 I have a headache",
+    "level": "A1+",
+    "unit_id": "a1plus-unit-7",
+    "unit_title": "Everyday needs, plans and free time",
+    "unit_outcome": "Say what hurts and why someone feels a certain way, describe what people are wearing and the weather as it happens, tell someone to put on or take off clothes, talk about what people like doing, invite and answer, ask someone to repeat or explain, talk about being sick, the months and seasons, compare with the biggest and the tallest, and say what people and animals can do and are good at.",
+    "lesson_id": "a1plus-unit-7-lesson-7-9",
+    "lesson_title": "I have a headache",
+    "sub_lesson_id": "7.9",
+    "sub_lesson_title": "I have a headache",
+    "goal": "Say how you feel and what you have when you are sick (I feel sick. I have a fever. / She has a headache.) and ask How do you feel?.",
+    "vocabulary": [
+      "headache",
+      "stomachache",
+      "cough",
+      "fever",
+      "How do you feel?",
+      "feels"
+    ],
+    "review_vocabulary": [
+      "I",
+      "have",
+      "has",
+      "he",
+      "she",
+      "a",
+      "sick",
+      "fine",
+      "great",
+      "because",
+      "at home",
+      "in bed",
+      "Luis",
+      "Ana"
+    ],
+    "grammar_function": "A follow-up of A1 7.9 More Feelings: A1 says someone is sick, fine or great (He is sick.); A1+ 7.9 says what is wrong. The one new grammar relationship is have/has + a + an illness (I have a headache. / He has a cough.), with feel/feels + how someone is (I feel sick. / She feels fine.) and the question How do you feel?. 7.1's photo of Sofia's head comes back as a headache, three new photos show Luis's stomachache, Diego's cough and Ana's fever, and 7.2's because gives the reason (Ana is in bed because she has a fever.).",
+    "prerequisite": "A1 7.9 sick, fine and great; A1 3.8 have and has; A1+ 1.2 he/she + -s; A1+ 7.1 hurts; A1+ 7.2 because.",
+    "speaking_outcome": "Say headache as HED-ayk and stomachache as STUM-uk-ayk (ache sounds like the letter A + k); say feels with a clear s. Do not require native-like speed.",
+    "content_revision": 1,
+    "learn_context_groups": [
+      {
+        "kind": "sequence",
+        "targets": [
+          "stomachache"
+        ],
+        "models": [
+          {
+            "slide_id": "L1",
+            "text": "I have a stomachache."
+          }
+        ]
+      },
+      {
+        "kind": "sequence",
+        "targets": [
+          "headache"
+        ],
+        "models": [
+          {
+            "slide_id": "L2",
+            "text": "She has a headache."
+          }
+        ]
+      },
+      {
+        "kind": "sequence",
+        "targets": [
+          "cough"
+        ],
+        "models": [
+          {
+            "slide_id": "L3",
+            "text": "He has a cough."
+          }
+        ]
+      },
+      {
+        "kind": "exchange",
+        "targets": [
+          "How do you feel?",
+          "fever"
+        ],
+        "models": [
+          {
+            "slide_id": "L4",
+            "text": "How do you feel? I feel sick. I have a fever.",
+            "turns": [
+              "How do you feel?",
+              "I feel sick. I have a fever."
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "sequence",
+        "targets": [
+          "feels"
+        ],
+        "models": [
+          {
+            "slide_id": "L5",
+            "text": "He feels sick."
+          }
+        ]
+      }
+    ]
+  },
+  "items": [
+    {
+      "id": "l-luis",
+      "text": "I have a stomachache.",
+      "es": "Me duele el estómago.",
+      "image": "/lesson-assets/a1plus-unit-7-s01-6f9280f661e2a03d.webp",
+      "kind": "sequence",
+      "choices": false,
+      "use": false,
+      "speaker": "luis"
+    },
+    {
+      "id": "l-sofia",
+      "text": "She has a headache.",
+      "es": "Tiene dolor de cabeza.",
+      "image": "/lesson-assets/a1plus-unit-7-h01-1b2f3f21fafa53a0.webp",
+      "kind": "sequence",
+      "choices": false,
+      "use": false,
+      "speaker": "teacher"
+    },
+    {
+      "id": "l-diego",
+      "text": "He has a cough.",
+      "es": "Tiene tos.",
+      "image": "/lesson-assets/a1plus-unit-7-s02-0c922240ac6c7b35.webp",
+      "kind": "sequence",
+      "choices": false,
+      "use": false,
+      "speaker": "co-teacher"
+    },
+    {
+      "id": "l-ana",
+      "text": "How do you feel? I feel sick. I have a fever.",
+      "es": "¿Cómo te sientes? Me siento enferma. Tengo fiebre.",
+      "image": "/lesson-assets/a1plus-unit-7-s03-9c398eaa922b8eee.webp",
+      "kind": "exchange",
+      "choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "How do you feel?",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-7-s03-9c398eaa922b8eee.webp"
+        },
+        {
+          "text": "I feel sick. I have a fever.",
+          "speaker": "ana",
+          "image": "/lesson-assets/a1plus-unit-7-s03-9c398eaa922b8eee.webp"
+        }
+      ]
+    },
+    {
+      "id": "l-sofa",
+      "text": "He feels sick.",
+      "es": "Se siente enfermo.",
+      "image": "/lesson-assets/a1_photo_u7_feelings_sick_on_sofa_v1.webp",
+      "kind": "sequence",
+      "choices": false,
+      "use": false,
+      "speaker": "teacher"
+    },
+    {
+      "id": "h-sofia",
+      "text": "She has a headache.",
+      "es": "Tiene dolor de cabeza.",
+      "image": "/lesson-assets/a1plus-unit-7-h01-1b2f3f21fafa53a0.webp",
+      "kind": "has",
+      "accepts": {
+        "subject-variety": "The bank keeps the person and changes only what they have; the picture shows it.",
+        "action-variety": "The bank keeps the person and changes only what they have; the picture shows it.",
+        "conversational-response": "The bank keeps the person and changes only what they have; the picture shows it.",
+        "reading-load": "The bank keeps the person and changes only what they have; the picture shows it."
+      },
+      "prefer": [
+        "She has a cough."
+      ],
+      "blanks": [
+        "has",
+        "a"
+      ],
+      "text_choices": false,
+      "learn": false
+    },
+    {
+      "id": "m-sofia",
+      "text": "I have a headache.",
+      "es": "Tengo dolor de cabeza.",
+      "image": "/lesson-assets/a1plus-unit-7-h01-1b2f3f21fafa53a0.webp",
+      "kind": "me",
+      "speaker": "sofia",
+      "question": "How do you feel?",
+      "question_es": "¿Cómo te sientes?",
+      "question_speaker": "co-teacher",
+      "image_choices": false,
+      "accepts": {
+        "subject-variety": "The bank keeps the person and changes only what they have; the picture shows it.",
+        "action-variety": "The bank keeps the person and changes only what they have; the picture shows it.",
+        "conversational-response": "The bank keeps the person and changes only what they have; the picture shows it.",
+        "reading-load": "The bank keeps the person and changes only what they have; the picture shows it."
+      },
+      "prefer": [
+        "I have a cough."
+      ],
+      "blanks": [
+        "have",
+        "a"
+      ],
+      "listening_turns": [
+        {
+          "text": "How do you feel?",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-7-h01-1b2f3f21fafa53a0.webp"
+        },
+        {
+          "text": "I have a headache.",
+          "speaker": "sofia",
+          "image": "/lesson-assets/a1plus-unit-7-h01-1b2f3f21fafa53a0.webp"
+        }
+      ],
+      "learn": false
+    },
+    {
+      "id": "h-luis",
+      "text": "He has a stomachache.",
+      "es": "Tiene dolor de estómago.",
+      "image": "/lesson-assets/a1plus-unit-7-s01-6f9280f661e2a03d.webp",
+      "kind": "has",
+      "accepts": {
+        "subject-variety": "The bank keeps the person and changes only what they have; the picture shows it.",
+        "action-variety": "The bank keeps the person and changes only what they have; the picture shows it.",
+        "conversational-response": "The bank keeps the person and changes only what they have; the picture shows it.",
+        "reading-load": "The bank keeps the person and changes only what they have; the picture shows it."
+      },
+      "prefer": [
+        "He has a headache."
+      ],
+      "blanks": [
+        "has",
+        "a"
+      ],
+      "text_choices": false,
+      "learn": false
+    },
+    {
+      "id": "m-luis",
+      "text": "I have a stomachache.",
+      "es": "Tengo dolor de estómago.",
+      "image": "/lesson-assets/a1plus-unit-7-s01-6f9280f661e2a03d.webp",
+      "kind": "me",
+      "speaker": "luis",
+      "question": "How do you feel?",
+      "question_es": "¿Cómo te sientes?",
+      "question_speaker": "co-teacher",
+      "image_choices": false,
+      "accepts": {
+        "subject-variety": "The bank keeps the person and changes only what they have; the picture shows it.",
+        "action-variety": "The bank keeps the person and changes only what they have; the picture shows it.",
+        "conversational-response": "The bank keeps the person and changes only what they have; the picture shows it.",
+        "reading-load": "The bank keeps the person and changes only what they have; the picture shows it."
+      },
+      "prefer": [
+        "I have a headache."
+      ],
+      "blanks": [
+        "have",
+        "a"
+      ],
+      "listening_turns": [
+        {
+          "text": "How do you feel?",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-7-s01-6f9280f661e2a03d.webp"
+        },
+        {
+          "text": "I have a stomachache.",
+          "speaker": "luis",
+          "image": "/lesson-assets/a1plus-unit-7-s01-6f9280f661e2a03d.webp"
+        }
+      ],
+      "learn": false
+    },
+    {
+      "id": "h-diego",
+      "text": "He has a cough.",
+      "es": "Tiene tos.",
+      "image": "/lesson-assets/a1plus-unit-7-s02-0c922240ac6c7b35.webp",
+      "kind": "has",
+      "accepts": {
+        "subject-variety": "The bank keeps the person and changes only what they have; the picture shows it.",
+        "action-variety": "The bank keeps the person and changes only what they have; the picture shows it.",
+        "conversational-response": "The bank keeps the person and changes only what they have; the picture shows it.",
+        "reading-load": "The bank keeps the person and changes only what they have; the picture shows it."
+      },
+      "prefer": [
+        "He has a fever."
+      ],
+      "blanks": [
+        "has",
+        "a"
+      ],
+      "learn": false
+    },
+    {
+      "id": "m-diego",
+      "text": "I have a cough.",
+      "es": "Tengo tos.",
+      "image": "/lesson-assets/a1plus-unit-7-s02-0c922240ac6c7b35.webp",
+      "kind": "me",
+      "speaker": "diego",
+      "question": "How do you feel?",
+      "question_es": "¿Cómo te sientes?",
+      "question_speaker": "co-teacher",
+      "image_choices": false,
+      "accepts": {
+        "subject-variety": "The bank keeps the person and changes only what they have; the picture shows it.",
+        "action-variety": "The bank keeps the person and changes only what they have; the picture shows it.",
+        "conversational-response": "The bank keeps the person and changes only what they have; the picture shows it.",
+        "reading-load": "The bank keeps the person and changes only what they have; the picture shows it."
+      },
+      "prefer": [
+        "I have a fever."
+      ],
+      "blanks": [
+        "have",
+        "a"
+      ],
+      "listening_turns": [
+        {
+          "text": "How do you feel?",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-7-s02-0c922240ac6c7b35.webp"
+        },
+        {
+          "text": "I have a cough.",
+          "speaker": "diego",
+          "image": "/lesson-assets/a1plus-unit-7-s02-0c922240ac6c7b35.webp"
+        }
+      ],
+      "learn": false
+    },
+    {
+      "id": "h-ana",
+      "text": "She has a fever.",
+      "es": "Tiene fiebre.",
+      "image": "/lesson-assets/a1plus-unit-7-s03-9c398eaa922b8eee.webp",
+      "kind": "has",
+      "accepts": {
+        "subject-variety": "The bank keeps the person and changes only what they have; the picture shows it.",
+        "action-variety": "The bank keeps the person and changes only what they have; the picture shows it.",
+        "conversational-response": "The bank keeps the person and changes only what they have; the picture shows it.",
+        "reading-load": "The bank keeps the person and changes only what they have; the picture shows it."
+      },
+      "prefer": [
+        "She has a stomachache."
+      ],
+      "blanks": [
+        "has",
+        "a"
+      ],
+      "text_choices": false,
+      "learn": false
+    },
+    {
+      "id": "m-ana",
+      "text": "I have a fever.",
+      "es": "Tengo fiebre.",
+      "image": "/lesson-assets/a1plus-unit-7-s03-9c398eaa922b8eee.webp",
+      "kind": "me",
+      "speaker": "ana",
+      "question": "How do you feel?",
+      "question_es": "¿Cómo te sientes?",
+      "question_speaker": "co-teacher",
+      "image_choices": false,
+      "accepts": {
+        "subject-variety": "The bank keeps the person and changes only what they have; the picture shows it.",
+        "action-variety": "The bank keeps the person and changes only what they have; the picture shows it.",
+        "conversational-response": "The bank keeps the person and changes only what they have; the picture shows it.",
+        "reading-load": "The bank keeps the person and changes only what they have; the picture shows it."
+      },
+      "prefer": [
+        "I have a stomachache."
+      ],
+      "blanks": [
+        "have",
+        "a"
+      ],
+      "listening_turns": [
+        {
+          "text": "How do you feel?",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-7-s03-9c398eaa922b8eee.webp"
+        },
+        {
+          "text": "I have a fever.",
+          "speaker": "ana",
+          "image": "/lesson-assets/a1plus-unit-7-s03-9c398eaa922b8eee.webp"
+        }
+      ],
+      "learn": false
+    },
+    {
+      "id": "f-sofa",
+      "text": "He feels sick.",
+      "es": "Se siente enfermo.",
+      "image": "/lesson-assets/a1_photo_u7_feelings_sick_on_sofa_v1.webp",
+      "kind": "feels",
+      "accepts": {
+        "subject-variety": "The bank keeps feels and changes only how the person feels; the picture shows it.",
+        "action-variety": "The bank keeps feels and changes only how the person feels; the picture shows it.",
+        "conversational-response": "The bank keeps feels and changes only how the person feels; the picture shows it.",
+        "reading-load": "The bank keeps feels and changes only how the person feels; the picture shows it."
+      },
+      "prefer": [
+        "He feels great."
+      ],
+      "blanks": [
+        "feels",
+        "sick"
+      ],
+      "learn": false
+    },
+    {
+      "id": "f-great",
+      "text": "He feels great.",
+      "es": "Se siente muy bien.",
+      "image": "/lesson-assets/a1_photo_u7_feelings_luis_great_v1.webp",
+      "kind": "feels",
+      "accepts": {
+        "subject-variety": "The bank keeps feels and changes only how the person feels; the picture shows it.",
+        "action-variety": "The bank keeps feels and changes only how the person feels; the picture shows it.",
+        "conversational-response": "The bank keeps feels and changes only how the person feels; the picture shows it.",
+        "reading-load": "The bank keeps feels and changes only how the person feels; the picture shows it."
+      },
+      "prefer": [
+        "He feels sick."
+      ],
+      "blanks": [
+        "feels",
+        "great"
+      ],
+      "learn": false
+    },
+    {
+      "id": "f-fine",
+      "text": "She feels fine.",
+      "es": "Se siente bien.",
+      "image": "/lesson-assets/a1_photo_u7_feelings_ana_fine_v1.webp",
+      "kind": "feels",
+      "accepts": {
+        "subject-variety": "The bank keeps feels and changes only how the person feels; the picture shows it.",
+        "action-variety": "The bank keeps feels and changes only how the person feels; the picture shows it.",
+        "conversational-response": "The bank keeps feels and changes only how the person feels; the picture shows it.",
+        "reading-load": "The bank keeps feels and changes only how the person feels; the picture shows it."
+      },
+      "prefer": [
+        "She feels sick."
+      ],
+      "blanks": [
+        "feels",
+        "fine"
+      ],
+      "text_choices": false,
+      "learn": false
+    },
+    {
+      "id": "f-ana",
+      "text": "She feels sick.",
+      "es": "Se siente enferma.",
+      "image": "/lesson-assets/a1plus-unit-7-s03-9c398eaa922b8eee.webp",
+      "kind": "feels",
+      "accepts": {
+        "subject-variety": "The bank keeps feels and changes only how the person feels; the picture shows it.",
+        "action-variety": "The bank keeps feels and changes only how the person feels; the picture shows it.",
+        "conversational-response": "The bank keeps feels and changes only how the person feels; the picture shows it.",
+        "reading-load": "The bank keeps feels and changes only how the person feels; the picture shows it."
+      },
+      "prefer": [
+        "She feels fine."
+      ],
+      "blanks": [
+        "feels",
+        "sick"
+      ],
+      "learn": false
+    },
+    {
+      "id": "b-luis",
+      "text": "Luis is at home because he has a stomachache.",
+      "es": "Luis está en casa porque le duele el estómago.",
+      "image": "/lesson-assets/a1plus-unit-7-s01-6f9280f661e2a03d.webp",
+      "kind": "why",
+      "image_choices": false,
+      "accepts": {
+        "subject-variety": "The bank keeps the person and the place and changes only the reason after because.",
+        "action-variety": "The bank keeps the person and the place and changes only the reason after because.",
+        "conversational-response": "The bank keeps the person and the place and changes only the reason after because.",
+        "reading-load": "The bank keeps the person and the place and changes only the reason after because."
+      },
+      "prefer": [
+        "Luis is at home because he has a cough."
+      ],
+      "blanks": [
+        "has",
+        "a"
+      ],
+      "learn": false
+    },
+    {
+      "id": "b-ana",
+      "text": "Ana is in bed because she has a fever.",
+      "es": "Ana está en la cama porque tiene fiebre.",
+      "image": "/lesson-assets/a1plus-unit-7-s03-9c398eaa922b8eee.webp",
+      "kind": "why",
+      "image_choices": false,
+      "accepts": {
+        "subject-variety": "The bank keeps the person and the place and changes only the reason after because.",
+        "action-variety": "The bank keeps the person and the place and changes only the reason after because.",
+        "conversational-response": "The bank keeps the person and the place and changes only the reason after because.",
+        "reading-load": "The bank keeps the person and the place and changes only the reason after because."
+      },
+      "prefer": [
+        "Ana is in bed because she has a headache."
+      ],
+      "blanks": [
+        "has",
+        "a"
+      ],
+      "learn": false
+    },
+    {
+      "id": "q-feel",
+      "text": "How do you feel?",
+      "es": "¿Cómo te sientes?",
+      "image": "/lesson-assets/a1plus-unit-7-s03-9c398eaa922b8eee.webp",
+      "kind": "question",
+      "speaker": "co-teacher",
+      "choices": false,
+      "learn": false
+    },
+    {
+      "id": "q-feel2",
+      "text": "How do you feel?",
+      "es": "¿Cómo te sientes?",
+      "image": "/lesson-assets/a1plus-unit-7-s01-6f9280f661e2a03d.webp",
+      "kind": "question2",
+      "speaker": "co-teacher",
+      "choices": false,
+      "use": false,
+      "learn": false
+    }
+  ],
+  "pool": [
+    {
+      "text": "She has a cough.",
+      "es": "Tiene tos.",
+      "image": "/lesson-assets/a1plus-unit-7-h01-1b2f3f21fafa53a0.webp",
+      "kind": "has",
+      "image_choices": false
+    },
+    {
+      "text": "I have a cough.",
+      "es": "Tengo tos.",
+      "image": "/lesson-assets/a1plus-unit-7-h01-1b2f3f21fafa53a0.webp",
+      "kind": "me",
+      "image_choices": false
+    },
+    {
+      "text": "He has a headache.",
+      "es": "Tiene dolor de cabeza.",
+      "image": "/lesson-assets/a1plus-unit-7-s01-6f9280f661e2a03d.webp",
+      "kind": "has",
+      "image_choices": false
+    },
+    {
+      "text": "I have a headache.",
+      "es": "Tengo dolor de cabeza.",
+      "image": "/lesson-assets/a1plus-unit-7-s01-6f9280f661e2a03d.webp",
+      "kind": "me",
+      "image_choices": false
+    },
+    {
+      "text": "He has a fever.",
+      "es": "Tiene fiebre.",
+      "image": "/lesson-assets/a1plus-unit-7-s02-0c922240ac6c7b35.webp",
+      "kind": "has",
+      "image_choices": false
+    },
+    {
+      "text": "I have a fever.",
+      "es": "Tengo fiebre.",
+      "image": "/lesson-assets/a1plus-unit-7-s02-0c922240ac6c7b35.webp",
+      "kind": "me",
+      "image_choices": false
+    },
+    {
+      "text": "She has a stomachache.",
+      "es": "Tiene dolor de estómago.",
+      "image": "/lesson-assets/a1plus-unit-7-s03-9c398eaa922b8eee.webp",
+      "kind": "has",
+      "image_choices": false
+    },
+    {
+      "text": "I have a stomachache.",
+      "es": "Tengo dolor de estómago.",
+      "image": "/lesson-assets/a1plus-unit-7-s03-9c398eaa922b8eee.webp",
+      "kind": "me",
+      "image_choices": false
+    },
+    {
+      "text": "He feels great.",
+      "es": "Se siente muy bien.",
+      "image": "/lesson-assets/a1_photo_u7_feelings_sick_on_sofa_v1.webp",
+      "kind": "feels",
+      "image_choices": false
+    },
+    {
+      "text": "He feels sick.",
+      "es": "Se siente enfermo.",
+      "image": "/lesson-assets/a1_photo_u7_feelings_luis_great_v1.webp",
+      "kind": "feels",
+      "image_choices": false
+    },
+    {
+      "text": "She feels sick.",
+      "es": "Se siente enferma.",
+      "image": "/lesson-assets/a1_photo_u7_feelings_ana_fine_v1.webp",
+      "kind": "feels",
+      "image_choices": false
+    },
+    {
+      "text": "She feels fine.",
+      "es": "Se siente bien.",
+      "image": "/lesson-assets/a1plus-unit-7-s03-9c398eaa922b8eee.webp",
+      "kind": "feels",
+      "image_choices": false
+    },
+    {
+      "text": "Luis is at home because he has a cough.",
+      "es": "Luis está en casa porque tiene tos.",
+      "image": "/lesson-assets/a1plus-unit-7-s01-6f9280f661e2a03d.webp",
+      "kind": "why",
+      "image_choices": false
+    },
+    {
+      "text": "Ana is in bed because she has a headache.",
+      "es": "Ana está en la cama porque le duele la cabeza.",
+      "image": "/lesson-assets/a1plus-unit-7-s03-9c398eaa922b8eee.webp",
+      "kind": "why",
+      "image_choices": false
+    }
+  ],
+  "layout": {
+    "Recognize": 10,
+    "Listen": 10,
+    "Speak": 8,
+    "Use": 7
+  },
+  "stage_sequences": {
+    "Learn": [
+      "l-luis",
+      "l-sofia",
+      "l-diego",
+      "l-ana",
+      "l-sofa"
+    ],
+    "Recognize": [
+      "h-luis",
+      "m-sofia",
+      "f-sofa",
+      "h-diego",
+      "m-ana",
+      "f-great",
+      "m-diego",
+      "m-luis",
+      "b-ana",
+      "h-ana"
+    ],
+    "Listen": [
+      "m-luis",
+      "h-sofia",
+      "f-fine",
+      "m-diego",
+      "h-ana",
+      "f-ana",
+      "m-sofia",
+      "b-luis",
+      "h-diego",
+      "m-ana"
+    ],
+    "Speak": [
+      "q-feel",
+      "m-ana",
+      "q-feel2",
+      "m-luis",
+      "h-sofia",
+      "h-diego",
+      "f-sofa",
+      "m-sofia"
+    ],
+    "Use": [
+      "h-sofia",
+      "m-luis",
+      "h-diego",
+      "m-ana",
+      "q-feel",
+      "h-luis",
+      "f-fine"
+    ]
+  }
+}

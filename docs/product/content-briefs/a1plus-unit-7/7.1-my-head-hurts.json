@@ -75,7 +75,8 @@
       {
         "kind": "exchange",
         "targets": [
-          "What's wrong?"
+          "What's wrong?",
+          "hurt"
         ],
         "models": [
           {
@@ -291,6 +292,7 @@
         "legs",
         "hurt"
       ],
+      "text_choices": false,
       "learn": false
     },
     {
@@ -350,6 +352,7 @@
         "eyes",
         "hurt"
       ],
+      "text_choices": false,
       "learn": false
     },
     {
@@ -458,7 +461,6 @@
       "kind": "question",
       "speaker": "co-teacher",
       "choices": false,
-      "use": false,
       "learn": false
     }
   ],
@@ -594,7 +596,7 @@
       "m-legs",
       "b-eyes",
       "b-head",
-      "m-feet",
+      "q-wrong",
       "b-legs",
       "m-eyes"
     ]

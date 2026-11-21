@@ -1,0 +1,62 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "d3976f86-030e-42e9-9129-f355ee1eb16a",
+  "asset_id": "t02-three-dogs",
+  "pack_sha256": "a3ef43e302d87651861735fe62b2de04d5f0bfe230d423e435a79e38910ec43d",
+  "started_at": "2026-11-21T05:01:33.153243+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, menus, screens, cups, clothes or bags.\n\nKeep the people and the thing that carries the meaning inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nOnly this one person is in the photo; there is nobody else, even far in the background.\n\nIt is clearly daytime with soft natural light.\n\nImage 1 shows Diego. Keep his face, dark curly hair with a little grey, short full beard and build exactly. He wears his burgundy button shirt. Create a new photograph: in a green park Diego stands holding three dog leashes; the three dogs sit in a row in front of him on the grass, side by side, facing the camera: on the left a very BIG BLACK dog, in the middle a medium-sized BROWN dog, and on the right a tiny WHITE dog. The difference in size is obvious: the black dog is clearly the biggest and the white dog is clearly the smallest. There are exactly three dogs.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1plus-unit-1-q04-ded74a2cb6021167.webp",
+    "sha256": "ded74a2cb6021167d6af2351e9012476d36c1b0936ca9f4f4b6dee68783bb9e2"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "qiUBa57fGMaf6dkP16aB8AQ",
+  "usage": {
+    "promptTokenCount": 596,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1886,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 338
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038879",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 596,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 8.82,
+  "output": "output/imagegen/a1plus-unit-7-lesson-v7110/t02-three-dogs.png",
+  "sha256": "1f1a8b64666c195da9d62b0993f9ad42e9d78211dc9d3641be1e08604a1e1fbc",
+  "byte_count": 1646476,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}

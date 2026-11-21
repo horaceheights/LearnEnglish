@@ -79,7 +79,8 @@
     {
       "kind": "exchange",
       "targets": [
-        "Why"
+        "Why",
+        "Because"
       ],
       "models": [
         {
@@ -261,28 +262,26 @@
     },
     {
       "slide_id": "R2",
-      "interaction_type": "i2t2",
-      "prompt": "",
+      "interaction_type": "t2i2",
+      "prompt": "He's hot because it's sunny.",
       "stage": "Recognize",
       "correct_option_id": "he's-hot-because-it's-sunny-r2",
       "options": [
         {
-          "id": "he's-hot-because-it's-windy-r2",
-          "image_url": "",
-          "label": "He's hot because it's windy.",
-          "spanish_translation": "Tiene calor porque hace viento."
+          "id": "she's-cold-because-it's-windy-r2",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_weather_cold_windy_v1.webp",
+          "label": null
         },
         {
           "id": "he's-hot-because-it's-sunny-r2",
-          "image_url": "",
-          "label": "He's hot because it's sunny.",
-          "spanish_translation": "Tiene calor porque hace sol."
+          "image_url": "/lesson-assets/a1_photo_u7_approved_weather_hot_sunny_v1.webp",
+          "label": null
         }
       ],
-      "audio_text": "",
-      "answer_audio_text": "He's hot because it's sunny.",
-      "prompt_image_url": "/lesson-assets/a1_photo_u7_approved_weather_hot_sunny_v1.webp",
-      "spanish_translation": "Elige la frase correcta.",
+      "audio_text": "He's hot because it's sunny.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Tiene calor porque hace sol.",
       "pedagogy_note": "Story beat 02: He's hot because it's sunny.",
       "answer_audio_policy": "authored-only"
     },
@@ -317,30 +316,28 @@
     },
     {
       "slide_id": "R4",
-      "interaction_type": "i2t2",
-      "prompt": "",
+      "interaction_type": "t2i2",
+      "prompt": "Sofia is thirsty because she's running.",
       "stage": "Recognize",
       "correct_option_id": "sofia-is-thirsty-because-she's-running-r4",
       "options": [
         {
-          "id": "sofia-is-thirsty-because-her-head-hurts-r4",
-          "image_url": "",
-          "label": "Sofia is thirsty because her head hurts.",
-          "spanish_translation": "Sofía tiene sed porque le duele la cabeza."
+          "id": "diego-is-sad-because-his-dog-is-sick-r4",
+          "image_url": "/lesson-assets/a1plus-unit-7-w02-e5048c773a9bec69.webp",
+          "label": null
         },
         {
           "id": "sofia-is-thirsty-because-she's-running-r4",
-          "image_url": "",
-          "label": "Sofia is thirsty because she's running.",
-          "spanish_translation": "Sofía tiene sed porque está corriendo."
+          "image_url": "/lesson-assets/a1plus-unit-7-w01-b0f5d22abd298607.webp",
+          "label": null
         }
       ],
-      "audio_text": "",
-      "answer_audio_text": "Sofia is thirsty because she's running.",
-      "prompt_image_url": "/lesson-assets/a1plus-unit-7-w01-b0f5d22abd298607.webp",
-      "spanish_translation": "Elige la frase correcta.",
-      "answer_audio_speaker": "co-teacher",
+      "audio_text": "Sofia is thirsty because she's running.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Sofía tiene sed porque está corriendo.",
       "pedagogy_note": "Story beat 04: Sofia is thirsty because she's running.",
+      "audio_speaker": "co-teacher",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -442,36 +439,38 @@
     },
     {
       "slide_id": "R8",
-      "interaction_type": "i2t3",
-      "prompt": "",
+      "interaction_type": "t2i4",
+      "prompt": "Diego is sad because his dog is sick.",
       "stage": "Recognize",
       "correct_option_id": "diego-is-sad-because-his-dog-is-sick-r8",
       "options": [
         {
-          "id": "he's-hot-because-it's-sunny-r8",
-          "image_url": "",
-          "label": "He's hot because it's sunny.",
-          "spanish_translation": "Tiene calor porque hace sol."
+          "id": "sofia-is-thirsty-because-she's-running-r8",
+          "image_url": "/lesson-assets/a1plus-unit-7-w01-b0f5d22abd298607.webp",
+          "label": null
+        },
+        {
+          "id": "she's-cold-because-it's-windy-r8",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_weather_cold_windy_v1.webp",
+          "label": null
         },
         {
           "id": "diego-is-sad-because-his-dog-is-sick-r8",
-          "image_url": "",
-          "label": "Diego is sad because his dog is sick.",
-          "spanish_translation": "Diego está triste porque su perro está enfermo."
+          "image_url": "/lesson-assets/a1plus-unit-7-w02-e5048c773a9bec69.webp",
+          "label": null
         },
         {
-          "id": "diego-is-sad-because-his-legs-hurt-r8",
-          "image_url": "",
-          "label": "Diego is sad because his legs hurt.",
-          "spanish_translation": "Diego está triste porque le duelen las piernas."
+          "id": "he's-hot-because-it's-sunny-r8",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_weather_hot_sunny_v1.webp",
+          "label": null
         }
       ],
-      "audio_text": "",
-      "answer_audio_text": "Diego is sad because his dog is sick.",
-      "prompt_image_url": "/lesson-assets/a1plus-unit-7-w02-e5048c773a9bec69.webp",
-      "spanish_translation": "Elige la frase correcta.",
-      "answer_audio_speaker": "co-teacher",
+      "audio_text": "Diego is sad because his dog is sick.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Diego está triste porque su perro está enfermo.",
       "pedagogy_note": "Story beat 08: Diego is sad because his dog is sick.",
+      "audio_speaker": "co-teacher",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -817,28 +816,30 @@
     },
     {
       "slide_id": "A9",
-      "interaction_type": "a2t3",
+      "interaction_type": "a2i4",
       "prompt": "Listen and choose.",
       "stage": "Listen",
       "correct_option_id": "diego-is-sad-because-his-dog-is-sick-a9",
       "options": [
         {
-          "id": "diego-is-sad-because-his-legs-hurt-a9",
-          "image_url": "",
-          "label": "Diego is sad because his legs hurt.",
-          "spanish_translation": "Diego está triste porque le duelen las piernas."
-        },
-        {
-          "id": "he's-hot-because-it's-sunny-a9",
-          "image_url": "",
-          "label": "He's hot because it's sunny.",
-          "spanish_translation": "Tiene calor porque hace sol."
+          "id": "she's-cold-because-it's-windy-a9",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_weather_cold_windy_v1.webp",
+          "label": null
         },
         {
           "id": "diego-is-sad-because-his-dog-is-sick-a9",
-          "image_url": "",
-          "label": "Diego is sad because his dog is sick.",
-          "spanish_translation": "Diego está triste porque su perro está enfermo."
+          "image_url": "/lesson-assets/a1plus-unit-7-w02-e5048c773a9bec69.webp",
+          "label": null
+        },
+        {
+          "id": "he's-hot-because-it's-sunny-a9",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_weather_hot_sunny_v1.webp",
+          "label": null
+        },
+        {
+          "id": "sofia-is-thirsty-because-she's-running-a9",
+          "image_url": "/lesson-assets/a1plus-unit-7-w01-b0f5d22abd298607.webp",
+          "label": null
         }
       ],
       "audio_text": "Diego is sad because his dog is sick.",
@@ -1287,50 +1288,44 @@
     {
       "slide_id": "U6",
       "interaction_type": "complete-sentence",
-      "prompt": "___ ___ ___ ___ ___.",
+      "prompt": "___ ___ ___ ___?",
       "stage": "Use",
       "correct_option_id": "word-1",
       "options": [
         {
           "id": "word-2",
           "image_url": "",
-          "label": "cold"
+          "label": "is"
         },
         {
           "id": "word-4",
           "image_url": "",
-          "label": "it's"
+          "label": "cold"
         },
         {
           "id": "word-1",
           "image_url": "",
-          "label": "She's"
+          "label": "Why"
         },
         {
           "id": "word-3",
           "image_url": "",
-          "label": "because"
-        },
-        {
-          "id": "word-5",
-          "image_url": "",
-          "label": "windy"
+          "label": "she"
         }
       ],
-      "audio_text": "She's cold because it's windy.",
-      "answer_audio_text": "She's cold because it's windy.",
+      "audio_text": "Why is she cold?",
+      "answer_audio_text": "Why is she cold?",
       "prompt_image_url": "/lesson-assets/a1_photo_u7_approved_weather_cold_windy_v1.webp",
-      "spanish_translation": "Tiene frío porque hace viento.",
-      "translation": "Tiene frío porque hace viento.",
+      "spanish_translation": "¿Por qué tiene frío?",
+      "translation": "¿Por qué tiene frío?",
       "correct_option_ids": [
         "word-1",
         "word-2",
         "word-3",
-        "word-4",
-        "word-5"
+        "word-4"
       ],
       "answer_audio_speaker": "co-teacher",
-      "pedagogy_note": "Story beat 06: She's cold because it's windy.",
+      "pedagogy_note": "Story beat 06: Why is she cold?",
       "audio_speaker": "co-teacher",
       "answer_audio_policy": "authored-only"
     },
@@ -1397,7 +1392,9 @@
         "word-7",
         "word-8"
       ],
+      "answer_audio_speaker": "co-teacher",
       "pedagogy_note": "Story beat 07: Diego is sad because his dog is sick.",
+      "audio_speaker": "co-teacher",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -1451,9 +1448,7 @@
         "word-5",
         "word-6"
       ],
-      "answer_audio_speaker": "co-teacher",
       "pedagogy_note": "Story beat 08: Sofia is thirsty because she's running.",
-      "audio_speaker": "co-teacher",
       "answer_audio_policy": "authored-only"
     }
   ]

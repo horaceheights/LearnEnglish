@@ -1,0 +1,110 @@
+{
+  "schema_version": 1,
+  "pack": "a1plus-unit-7-lesson-7-10-seasons-photos",
+  "revision": 1,
+  "output_namespace": "a1plus-unit-7-lesson-v7100",
+  "authorization": "2026-11-20: the user asked to \"work on a1+ Unit 7 same all deal as before none stop all approved\" (the Unit 2-4 deal: the A1+ Unit 7 map approved up front, straight to Preview with media pre-approved and reviewed in Preview). Gemini is the approved image tool (2026-09-23), Flash only (2026-11-17; \"lets switch to flash for any other images\", 2026-11-19).",
+  "image_settings": {
+    "provider": "google-gemini",
+    "model": "gemini-2.5-flash-image",
+    "aspect_ratio": "3:2",
+    "image_size": "1K",
+    "runtime_size": "1536x1024",
+    "runtime_format": "webp",
+    "n": 1
+  },
+  "production": {
+    "price_per_image_usd": "0.0387",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing (checked 2026-11-16: Gemini 2.5 Flash Image, about $0.039 per image)",
+    "planned_images": 4,
+    "expected_cost_usd": "0.15",
+    "requested_ceiling_usd": "0.40",
+    "ceiling_note": "The renderer reserves US$0.20 before each request; each request is sent on its own, and the expected spend for the pack is about US$0.15.",
+    "no_automatic_retries": true,
+    "order": "Generate b01 first; check Ana's face, the blossoms and the plain candles; then b02-b04."
+  },
+  "shared_prompts": {
+    "photo": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, menus, screens, cups, clothes or bags.",
+    "safe_center": "Keep the people and the thing that carries the meaning inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.",
+    "solo": "Only this one person is in the photo; there is nobody else, even far in the background.",
+    "pair": "Only these two people are in the photo; there is nobody else, even far in the background.",
+    "daytime": "It is clearly daytime with soft natural light.",
+    "nolook": "Nobody looks at the camera.",
+    "fullbody": "The whole person is visible from head to shoes, standing, with a little space above the head and below the shoes.",
+    "offframe": "The person they are talking to is NOT in the photo: they stand just outside the edge of the photo that is named, so no part of that person (no hand, arm, shoulder or shadow) is visible.",
+    "candles": "The cake has a few plain thin birthday candles with small flames; there are no number candles and no writing on the cake."
+  },
+  "assets": [
+    {
+      "id": "b01-ana-spring",
+      "order": 1,
+      "item": "My birthday is in May. (spring)",
+      "shared": [
+        "photo",
+        "safe_center",
+        "solo",
+        "candles",
+        "daytime"
+      ],
+      "prompt": "Image 1 shows Ana. Keep her face, long dark wavy hair, light-olive skin and build exactly. She wears a light pink blouse. Create a new photograph: on a bright SPRING day Ana stands in a garden under a tree covered in pink blossoms, with fresh green grass and spring flowers around her, smiling and holding a small round white birthday cake in both hands. It is obviously spring.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-q02-c2b4398b65207eff.webp",
+        "sha256": "c2b4398b65207effa51e51260cc607c38ada48caea82f14eb872e4c9c8b5d0d5",
+        "observed_description": "Ana (long dark wavy hair, light-olive skin, sage-green overshirt over a white top, jeans) sits on a light-grey sofa and reads an open hardcover book (A1+ 1.2)."
+      }
+    },
+    {
+      "id": "b02-luis-summer",
+      "order": 2,
+      "item": "My birthday is in July. (summer)",
+      "shared": [
+        "photo",
+        "safe_center",
+        "solo",
+        "candles",
+        "daytime"
+      ],
+      "prompt": "Image 1 shows Luis. Keep his face, short dark curly hair, clean-shaven warm medium-brown skin and tall build exactly. He wears a short-sleeved light blue shirt and sunglasses pushed up on his head. Create a new photograph: on a hot, sunny SUMMER day Luis stands on a sandy beach with the blue sea behind him, smiling and holding a small round white birthday cake in both hands. It is obviously summer.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-q01-135c3f8f772bcbe4.webp",
+        "sha256": "135c3f8f772bcbe472b8cec719eb02318a7d52ce1c7152a94c6952aeb78566c2",
+        "observed_description": "Luis (short dark curly hair, clean-shaven, warm medium-brown skin, navy crew-neck T-shirt) drinks coffee from a white mug at a wooden table in his bright kitchen (A1+ 1.2)."
+      }
+    },
+    {
+      "id": "b03-sofia-fall",
+      "order": 3,
+      "item": "My birthday is in October. (fall)",
+      "shared": [
+        "photo",
+        "safe_center",
+        "solo",
+        "candles",
+        "daytime"
+      ],
+      "prompt": "Image 1 shows Sofia. Keep her face, long curly dark hair, warm brown skin and build exactly. She wears a mustard-yellow sweater. Create a new photograph: on a cool FALL day Sofia stands in a park full of trees with bright orange, red and yellow leaves; leaves cover the ground and a few fall through the air. She smiles and holds a small round white birthday cake in both hands. It is obviously fall.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-q03-7d520a07846a47b8.webp",
+        "sha256": "7d520a07846a47b8e8389c3226f3b3639d7eed0d257318b08e4f9b77c5b2258b",
+        "observed_description": "Sofia (long curly dark hair, warm brown skin, white blouse under a bright blue blazer) writes in a large notebook at a wooden desk by a bright window in her home study (A1+ 1.2)."
+      }
+    },
+    {
+      "id": "b04-diego-winter",
+      "order": 4,
+      "item": "My birthday is in December. (winter)",
+      "shared": [
+        "photo",
+        "safe_center",
+        "solo",
+        "candles"
+      ],
+      "prompt": "Image 1 shows Diego. Keep his face, dark curly hair with a little grey, short full beard and build exactly. He wears a thick red knitted winter sweater. Create a new photograph: in his warm living room on a WINTER day Diego stands by a big window; outside the window it is snowing and the street and trees are white with snow. He smiles and holds a small round white birthday cake in both hands. It is obviously winter.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-q04-ded74a2cb6021167.webp",
+        "sha256": "ded74a2cb6021167d6af2351e9012476d36c1b0936ca9f4f4b6dee68783bb9e2",
+        "observed_description": "Diego (dark curly hair with a little grey, short full beard, burgundy button shirt) sits at a wooden kitchen table and bites a red apple (A1+ 1.2)."
+      }
+    }
+  ]
+}
