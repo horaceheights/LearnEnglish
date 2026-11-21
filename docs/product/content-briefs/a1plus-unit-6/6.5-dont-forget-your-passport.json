@@ -1,0 +1,676 @@
+{
+  "brief_version": 1,
+  "follows": {
+    "course": "a1",
+    "lesson": "6.5",
+    "title": "A Trip to the Mall"
+  },
+  "note": "A1+ Unit 6 Lesson 6.5, built on 2026-11-20 under the A1+ lesson standards approved 2026-10-27 and the user's 2026-11-09 rule that every A1+ lesson follows up the A1 lesson with the same number. The user asked on 2026-11-20 \"Lets work on a1+ Unit 6 same all deal as before none stop all approved\" (A1+ 6.Y follows A1 6.Y, one step each; fifteen lessons; the Units 2-4 deal: straight to Preview in batches, Gemini 2.5 Flash photos and ElevenLabs audio pre-approved, no per-lesson gates, reviewed in Preview). Four new photos (Gemini 2.5 Flash): a passport on a table, a suitcase by a front door, Diego with a grey backpack, and a grey-haired woman handing Ana her passport at the door. Ana on platform four and Luis at gate twelve (A1+ 6.4) and A1 6.11's ticket are reused.",
+  "target": "backend/lessons/a1_plus/unit_6/a1plus-unit-6-lesson-6-5.yaml",
+  "captions": false,
+  "narrators": [
+    "teacher",
+    "co-teacher"
+  ],
+  "answer_audio_policy": "authored-only",
+  "speak_delivery": "a1-pronunciation-v1",
+  "lesson": {
+    "id": "a1plus-unit-6-lesson-6-5",
+    "title": "6.5 Don't forget your passport",
+    "level": "A1+",
+    "unit_id": "a1plus-unit-6",
+    "unit_title": "Getting around town and traveling",
+    "unit_outcome": "Ask whether a place is near, say how people go to work and why they go somewhere, find a platform or gate, pack for a trip, find places on a street, follow and ask for directions, ask permission, buy tickets, understand delays and check in at a hotel.",
+    "lesson_id": "a1plus-unit-6-lesson-6-5",
+    "lesson_title": "Don't forget your passport",
+    "sub_lesson_id": "6.5",
+    "sub_lesson_title": "Don't forget your passport",
+    "goal": "Name what you take on a trip and remind someone with Don't forget your … (Don't forget your passport! / Where's your suitcase? Here it is.).",
+    "vocabulary": [
+      "passport",
+      "suitcase",
+      "backpack",
+      "Don't forget",
+      "Here it is"
+    ],
+    "review_vocabulary": [
+      "This is",
+      "a",
+      "ticket",
+      "has",
+      "your",
+      "Where is",
+      "Thank you",
+      "It's",
+      "Diego",
+      "Ana",
+      "Luis"
+    ],
+    "grammar_function": "A follow-up of A1 6.5 A Trip to the Mall: A1 goes on a short trip by bus and taxi; A1+ 6.5 gets ready for a longer trip. The new items are passport, suitcase and backpack, the reminder Don't forget your … (2.12's Don't + a verb, now said to help someone) and the reply Here it is. to Where's your …?. The photos show each thing plainly: a passport on a table, a suitcase by the front door, Diego with a backpack, and Ana being handed her passport as she leaves with her suitcase. A1 6.11's ticket comes back.",
+    "prerequisite": "A1 6.5 a trip; A1 6.11 ticket; A1+ 2.3 has; A1+ 2.12 Don't …; A1+ 4.1 Where's…?.",
+    "speaking_outcome": "Stress PASS-port, SUIT-case, BACK-pack; link forget your (fer-GET-yer). Do not require native-like speed.",
+    "content_revision": 1,
+    "learn_context_groups": [
+      {
+        "kind": "sequence",
+        "targets": [
+          "passport"
+        ],
+        "models": [
+          {
+            "slide_id": "L1",
+            "text": "This is a passport."
+          }
+        ]
+      },
+      {
+        "kind": "sequence",
+        "targets": [
+          "suitcase"
+        ],
+        "models": [
+          {
+            "slide_id": "L2",
+            "text": "This is a suitcase."
+          }
+        ]
+      },
+      {
+        "kind": "sequence",
+        "targets": [
+          "backpack"
+        ],
+        "models": [
+          {
+            "slide_id": "L3",
+            "text": "Diego has a backpack."
+          }
+        ]
+      },
+      {
+        "kind": "sequence",
+        "targets": [
+          "Don't forget",
+          "passport"
+        ],
+        "models": [
+          {
+            "slide_id": "L4",
+            "text": "Don't forget your passport!"
+          }
+        ]
+      },
+      {
+        "kind": "exchange",
+        "targets": [
+          "Here it is",
+          "suitcase"
+        ],
+        "models": [
+          {
+            "slide_id": "L5",
+            "text": "Where is your suitcase? Here it is.",
+            "turns": [
+              "Where is your suitcase?",
+              "Here it is."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "items": [
+    {
+      "id": "l-passport",
+      "text": "This is a passport.",
+      "es": "Este es un pasaporte.",
+      "image": "/lesson-assets/a1plus-unit-6-d01-07f1ca7cec27741c.webp",
+      "kind": "sequence",
+      "choices": false,
+      "use": false,
+      "speaker": "teacher"
+    },
+    {
+      "id": "l-suitcase",
+      "text": "This is a suitcase.",
+      "es": "Esta es una maleta.",
+      "image": "/lesson-assets/a1plus-unit-6-d02-17408abcff84a62c.webp",
+      "kind": "sequence",
+      "choices": false,
+      "use": false,
+      "speaker": "co-teacher"
+    },
+    {
+      "id": "l-backpack",
+      "text": "Diego has a backpack.",
+      "es": "Diego tiene una mochila.",
+      "image": "/lesson-assets/a1plus-unit-6-d03-c38f57d7dfd479f0.webp",
+      "kind": "sequence",
+      "choices": false,
+      "use": false,
+      "speaker": "teacher"
+    },
+    {
+      "id": "l-forget",
+      "text": "Don't forget your passport!",
+      "es": "¡No olvides tu pasaporte!",
+      "image": "/lesson-assets/a1plus-unit-6-d04-4afc0d1afe17ba6c.webp",
+      "kind": "sequence",
+      "choices": false,
+      "use": false,
+      "speaker": "teacher"
+    },
+    {
+      "id": "l-here",
+      "text": "Where is your suitcase? Here it is.",
+      "es": "¿Dónde está tu maleta? Aquí está.",
+      "image": "/lesson-assets/a1plus-unit-6-g01-431d69f6535fe414.webp",
+      "kind": "exchange",
+      "choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "Where is your suitcase?",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-6-g01-431d69f6535fe414.webp"
+        },
+        {
+          "text": "Here it is.",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-6-g01-431d69f6535fe414.webp"
+        }
+      ]
+    },
+    {
+      "id": "t-passport",
+      "text": "This is a passport.",
+      "es": "Este es un pasaporte.",
+      "image": "/lesson-assets/a1plus-unit-6-d01-07f1ca7cec27741c.webp",
+      "kind": "thing",
+      "prefer": [
+        "This is a suitcase.",
+        "This is a ticket."
+      ],
+      "accepts": {
+        "subject-variety": "The bank keeps This is a and changes only the thing the photo shows.",
+        "action-variety": "The bank keeps This is a and changes only the thing the photo shows.",
+        "conversational-response": "The bank keeps This is a and changes only the thing the photo shows.",
+        "reading-load": "The bank keeps This is a and changes only the thing the photo shows."
+      },
+      "learn": false
+    },
+    {
+      "id": "t-suitcase",
+      "text": "This is a suitcase.",
+      "es": "Esta es una maleta.",
+      "image": "/lesson-assets/a1plus-unit-6-d02-17408abcff84a62c.webp",
+      "kind": "thing",
+      "prefer": [
+        "This is a ticket.",
+        "This is a passport."
+      ],
+      "accepts": {
+        "subject-variety": "The bank keeps This is a and changes only the thing the photo shows.",
+        "action-variety": "The bank keeps This is a and changes only the thing the photo shows.",
+        "conversational-response": "The bank keeps This is a and changes only the thing the photo shows.",
+        "reading-load": "The bank keeps This is a and changes only the thing the photo shows."
+      },
+      "learn": false
+    },
+    {
+      "id": "t-ticket",
+      "text": "This is a ticket.",
+      "es": "Este es un boleto.",
+      "image": "/lesson-assets/a1_photo_u6_story_ticket_v1.webp",
+      "kind": "thing",
+      "prefer": [
+        "This is a passport.",
+        "This is a suitcase."
+      ],
+      "accepts": {
+        "subject-variety": "The bank keeps This is a and changes only the thing the photo shows.",
+        "action-variety": "The bank keeps This is a and changes only the thing the photo shows.",
+        "conversational-response": "The bank keeps This is a and changes only the thing the photo shows.",
+        "reading-load": "The bank keeps This is a and changes only the thing the photo shows."
+      },
+      "learn": false
+    },
+    {
+      "id": "h-diego",
+      "text": "Diego has a backpack.",
+      "es": "Diego tiene una mochila.",
+      "image": "/lesson-assets/a1plus-unit-6-d03-c38f57d7dfd479f0.webp",
+      "kind": "has",
+      "prefer": [
+        "Diego has a suitcase.",
+        "Diego has a passport."
+      ],
+      "accepts": {
+        "subject-variety": "The bank keeps the person and changes only the travel thing the photo shows them with.",
+        "action-variety": "The bank keeps the person and changes only the travel thing the photo shows them with.",
+        "conversational-response": "The bank keeps the person and changes only the travel thing the photo shows them with.",
+        "reading-load": "The bank keeps the person and changes only the travel thing the photo shows them with."
+      },
+      "blanks": [
+        "has",
+        "a"
+      ],
+      "learn": false
+    },
+    {
+      "id": "h-ana",
+      "text": "Ana has a suitcase.",
+      "es": "Ana tiene una maleta.",
+      "image": "/lesson-assets/a1plus-unit-6-g01-431d69f6535fe414.webp",
+      "kind": "has",
+      "prefer": [
+        "Ana has a backpack.",
+        "Ana has a passport."
+      ],
+      "accepts": {
+        "subject-variety": "The bank keeps the person and changes only the travel thing the photo shows them with.",
+        "action-variety": "The bank keeps the person and changes only the travel thing the photo shows them with.",
+        "conversational-response": "The bank keeps the person and changes only the travel thing the photo shows them with.",
+        "reading-load": "The bank keeps the person and changes only the travel thing the photo shows them with."
+      },
+      "blanks": [
+        "has",
+        "a"
+      ],
+      "learn": false
+    },
+    {
+      "id": "h-luis",
+      "text": "Luis has a backpack.",
+      "es": "Luis tiene una mochila.",
+      "image": "/lesson-assets/a1plus-unit-6-g03-de90fc3156e87869.webp",
+      "kind": "has",
+      "prefer": [
+        "Luis has a suitcase.",
+        "Luis has a passport."
+      ],
+      "accepts": {
+        "subject-variety": "The bank keeps the person and changes only the travel thing the photo shows them with.",
+        "action-variety": "The bank keeps the person and changes only the travel thing the photo shows them with.",
+        "conversational-response": "The bank keeps the person and changes only the travel thing the photo shows them with.",
+        "reading-load": "The bank keeps the person and changes only the travel thing the photo shows them with."
+      },
+      "blanks": [
+        "has",
+        "a"
+      ],
+      "learn": false
+    },
+    {
+      "id": "r-passport",
+      "text": "Don't forget your passport!",
+      "es": "¡No olvides tu pasaporte!",
+      "image": "/lesson-assets/a1plus-unit-6-d04-4afc0d1afe17ba6c.webp",
+      "kind": "forget",
+      "prefer": [
+        "Don't forget your backpack!",
+        "Don't forget your ticket!"
+      ],
+      "accepts": {
+        "subject-variety": "The reminder keeps Don't forget your and changes only the thing; the photo shows that thing.",
+        "action-variety": "The reminder keeps Don't forget your and changes only the thing; the photo shows that thing.",
+        "conversational-response": "The reminder keeps Don't forget your and changes only the thing; the photo shows that thing.",
+        "reading-load": "The reminder keeps Don't forget your and changes only the thing; the photo shows that thing."
+      },
+      "image_choices": false,
+      "speaker": "co-teacher",
+      "blanks": [
+        "Don't",
+        "forget"
+      ],
+      "learn": false
+    },
+    {
+      "id": "r-backpack",
+      "text": "Don't forget your backpack!",
+      "es": "¡No olvides tu mochila!",
+      "image": "/lesson-assets/a1plus-unit-6-d03-c38f57d7dfd479f0.webp",
+      "kind": "forget",
+      "prefer": [
+        "Don't forget your passport!",
+        "Don't forget your suitcase!"
+      ],
+      "accepts": {
+        "subject-variety": "The reminder keeps Don't forget your and changes only the thing; the photo shows that thing.",
+        "action-variety": "The reminder keeps Don't forget your and changes only the thing; the photo shows that thing.",
+        "conversational-response": "The reminder keeps Don't forget your and changes only the thing; the photo shows that thing.",
+        "reading-load": "The reminder keeps Don't forget your and changes only the thing; the photo shows that thing."
+      },
+      "image_choices": false,
+      "speaker": "co-teacher",
+      "blanks": [
+        "Don't",
+        "forget"
+      ],
+      "learn": false
+    },
+    {
+      "id": "w-passport",
+      "text": "Here it is.",
+      "es": "Aquí está.",
+      "image": "/lesson-assets/a1plus-unit-6-d01-07f1ca7cec27741c.webp",
+      "kind": "here",
+      "question": "Where is your passport?",
+      "question_es": "¿Dónde está tu pasaporte?",
+      "question_speaker": "co-teacher",
+      "speaker": "teacher",
+      "use": false,
+      "image_choices": false,
+      "prefer": [
+        "Thank you!",
+        "It's a ticket."
+      ],
+      "accepts": {
+        "subject-variety": "The answer to Where is your …? is Here it is.; the photo shows the thing right there.",
+        "action-variety": "The answer to Where is your …? is Here it is.; the photo shows the thing right there.",
+        "conversational-response": "The answer to Where is your …? is Here it is.; the photo shows the thing right there.",
+        "reading-load": "The answer to Where is your …? is Here it is.; the photo shows the thing right there."
+      },
+      "learn": false
+    },
+    {
+      "id": "w-suitcase",
+      "text": "Here it is.",
+      "es": "Aquí está.",
+      "image": "/lesson-assets/a1plus-unit-6-d02-17408abcff84a62c.webp",
+      "kind": "here",
+      "question": "Where is your suitcase?",
+      "question_es": "¿Dónde está tu maleta?",
+      "question_speaker": "co-teacher",
+      "speaker": "teacher",
+      "use": false,
+      "image_choices": false,
+      "prefer": [
+        "Thank you!",
+        "It's a ticket."
+      ],
+      "accepts": {
+        "subject-variety": "The answer to Where is your …? is Here it is.; the photo shows the thing right there.",
+        "action-variety": "The answer to Where is your …? is Here it is.; the photo shows the thing right there.",
+        "conversational-response": "The answer to Where is your …? is Here it is.; the photo shows the thing right there.",
+        "reading-load": "The answer to Where is your …? is Here it is.; the photo shows the thing right there."
+      },
+      "learn": false
+    },
+    {
+      "id": "x-f",
+      "text": "Don't forget your passport! Thank you!",
+      "es": "¡No olvides tu pasaporte! ¡Gracias!",
+      "image": "/lesson-assets/a1plus-unit-6-d04-4afc0d1afe17ba6c.webp",
+      "kind": "xf",
+      "image_choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "Don't forget your passport!",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-6-d04-4afc0d1afe17ba6c.webp"
+        },
+        {
+          "text": "Thank you!",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-6-d04-4afc0d1afe17ba6c.webp"
+        }
+      ],
+      "accepts": {
+        "subject-variety": "Listen keeps the reminder and changes only the thing; the answer is what was heard.",
+        "action-variety": "Listen keeps the reminder and changes only the thing; the answer is what was heard.",
+        "conversational-response": "Listen keeps the reminder and changes only the thing; the answer is what was heard.",
+        "reading-load": "Listen keeps the reminder and changes only the thing; the answer is what was heard."
+      },
+      "prefer": [
+        "Don't forget your ticket! Thank you!"
+      ],
+      "learn": false
+    },
+    {
+      "id": "x-h",
+      "text": "Where is your suitcase? Here it is.",
+      "es": "¿Dónde está tu maleta? Aquí está.",
+      "image": "/lesson-assets/a1plus-unit-6-g01-431d69f6535fe414.webp",
+      "kind": "xh",
+      "image_choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "Where is your suitcase?",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-6-g01-431d69f6535fe414.webp"
+        },
+        {
+          "text": "Here it is.",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-6-g01-431d69f6535fe414.webp"
+        }
+      ],
+      "accepts": {
+        "subject-variety": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "action-variety": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "conversational-response": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "reading-load": "Listen keeps the question and changes only the answer; the answer is what was heard."
+      },
+      "prefer": [
+        "Where is your passport? Here it is."
+      ],
+      "learn": false
+    },
+    {
+      "id": "u-here",
+      "text": "Here it is.",
+      "es": "Aquí está.",
+      "image": "/lesson-assets/a1plus-unit-6-d01-07f1ca7cec27741c.webp",
+      "kind": "use",
+      "choices": false,
+      "blanks": [
+        "Here",
+        "it"
+      ],
+      "learn": false
+    },
+    {
+      "id": "u-ticket",
+      "text": "Don't forget your ticket!",
+      "es": "¡No olvides tu boleto!",
+      "image": "/lesson-assets/a1_photo_u6_story_ticket_v1.webp",
+      "kind": "use",
+      "choices": false,
+      "blanks": null,
+      "learn": false
+    },
+    {
+      "id": "u-suit",
+      "text": "Don't forget your suitcase!",
+      "es": "¡No olvides tu maleta!",
+      "image": "/lesson-assets/a1plus-unit-6-d02-17408abcff84a62c.webp",
+      "kind": "use",
+      "choices": false,
+      "blanks": null,
+      "learn": false
+    }
+  ],
+  "pool": [
+    {
+      "text": "This is a suitcase.",
+      "es": "Esta es una maleta.",
+      "image": "/lesson-assets/a1plus-unit-6-d01-07f1ca7cec27741c.webp",
+      "kind": "thing",
+      "image_choices": false
+    },
+    {
+      "text": "This is a ticket.",
+      "es": "Este es un boleto.",
+      "image": "/lesson-assets/a1plus-unit-6-d01-07f1ca7cec27741c.webp",
+      "kind": "thing",
+      "image_choices": false
+    },
+    {
+      "text": "This is a passport.",
+      "es": "Este es un pasaporte.",
+      "image": "/lesson-assets/a1plus-unit-6-d02-17408abcff84a62c.webp",
+      "kind": "thing",
+      "image_choices": false
+    },
+    {
+      "text": "Diego has a suitcase.",
+      "es": "Diego tiene una maleta.",
+      "image": "/lesson-assets/a1plus-unit-6-d03-c38f57d7dfd479f0.webp",
+      "kind": "has",
+      "image_choices": false
+    },
+    {
+      "text": "Diego has a passport.",
+      "es": "Diego tiene un pasaporte.",
+      "image": "/lesson-assets/a1plus-unit-6-d03-c38f57d7dfd479f0.webp",
+      "kind": "has",
+      "image_choices": false
+    },
+    {
+      "text": "Ana has a backpack.",
+      "es": "Ana tiene una mochila.",
+      "image": "/lesson-assets/a1plus-unit-6-g01-431d69f6535fe414.webp",
+      "kind": "has",
+      "image_choices": false
+    },
+    {
+      "text": "Ana has a passport.",
+      "es": "Ana tiene un pasaporte.",
+      "image": "/lesson-assets/a1plus-unit-6-g01-431d69f6535fe414.webp",
+      "kind": "has",
+      "image_choices": false
+    },
+    {
+      "text": "Luis has a suitcase.",
+      "es": "Luis tiene una maleta.",
+      "image": "/lesson-assets/a1plus-unit-6-g03-de90fc3156e87869.webp",
+      "kind": "has",
+      "image_choices": false
+    },
+    {
+      "text": "Luis has a passport.",
+      "es": "Luis tiene un pasaporte.",
+      "image": "/lesson-assets/a1plus-unit-6-g03-de90fc3156e87869.webp",
+      "kind": "has",
+      "image_choices": false
+    },
+    {
+      "text": "Don't forget your backpack!",
+      "es": "¡No olvides tu mochila!",
+      "image": "/lesson-assets/a1plus-unit-6-d04-4afc0d1afe17ba6c.webp",
+      "kind": "forget",
+      "image_choices": false
+    },
+    {
+      "text": "Don't forget your ticket!",
+      "es": "¡No olvides tu boleto!",
+      "image": "/lesson-assets/a1plus-unit-6-d04-4afc0d1afe17ba6c.webp",
+      "kind": "forget",
+      "image_choices": false
+    },
+    {
+      "text": "Don't forget your passport!",
+      "es": "¡No olvides tu pasaporte!",
+      "image": "/lesson-assets/a1plus-unit-6-d03-c38f57d7dfd479f0.webp",
+      "kind": "forget",
+      "image_choices": false
+    },
+    {
+      "text": "Don't forget your suitcase!",
+      "es": "¡No olvides tu maleta!",
+      "image": "/lesson-assets/a1plus-unit-6-d03-c38f57d7dfd479f0.webp",
+      "kind": "forget",
+      "image_choices": false
+    },
+    {
+      "text": "Thank you!",
+      "es": "¡Gracias!",
+      "image": "/lesson-assets/a1plus-unit-6-d01-07f1ca7cec27741c.webp",
+      "kind": "here",
+      "image_choices": false
+    },
+    {
+      "text": "It's a ticket.",
+      "es": "Es un boleto.",
+      "image": "/lesson-assets/a1plus-unit-6-d01-07f1ca7cec27741c.webp",
+      "kind": "here",
+      "image_choices": false
+    },
+    {
+      "text": "Don't forget your ticket! Thank you!",
+      "es": "¡No olvides tu boleto! ¡Gracias!",
+      "image": "/lesson-assets/a1plus-unit-6-d04-4afc0d1afe17ba6c.webp",
+      "kind": "xf",
+      "image_choices": false
+    },
+    {
+      "text": "Where is your passport? Here it is.",
+      "es": "¿Dónde está tu pasaporte? Aquí está.",
+      "image": "/lesson-assets/a1plus-unit-6-g01-431d69f6535fe414.webp",
+      "kind": "xh",
+      "image_choices": false
+    }
+  ],
+  "layout": {
+    "Recognize": 10,
+    "Listen": 10,
+    "Speak": 8,
+    "Use": 8
+  },
+  "stage_sequences": {
+    "Learn": [
+      "l-passport",
+      "l-suitcase",
+      "l-backpack",
+      "l-forget",
+      "l-here"
+    ],
+    "Recognize": [
+      "t-passport",
+      "h-ana",
+      "r-passport",
+      "t-suitcase",
+      "w-passport",
+      "h-diego",
+      "t-ticket",
+      "r-backpack",
+      "h-luis",
+      "w-suitcase"
+    ],
+    "Listen": [
+      "t-suitcase",
+      "h-luis",
+      "x-f",
+      "w-passport",
+      "t-passport",
+      "h-diego",
+      "x-h",
+      "r-backpack",
+      "t-ticket",
+      "h-ana"
+    ],
+    "Speak": [
+      "r-passport",
+      "t-suitcase",
+      "u-here",
+      "h-diego",
+      "u-ticket",
+      "t-passport",
+      "r-backpack",
+      "u-suit"
+    ],
+    "Use": [
+      "t-passport",
+      "t-suitcase",
+      "h-diego",
+      "h-ana",
+      "r-passport",
+      "u-here",
+      "u-ticket",
+      "u-suit"
+    ]
+  }
+}

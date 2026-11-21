@@ -1,0 +1,62 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "b4545434-7f82-454f-b84e-5b7e0be2b969",
+  "asset_id": "n01-no-swim",
+  "pack_sha256": "329b7bd0614d863fce221dfe972000b12f63d0c79054e9ce0b6882ad16f5a9e9",
+  "started_at": "2026-11-21T04:37:13.922635+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, menus, screens, cups, clothes or bags.\n\nKeep the people and the thing that carries the meaning inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nIt is clearly daytime with soft natural light.\n\nThe sign is one round white traffic sign with a thick red border and a red diagonal bar, on a grey metal pole, showing one simple black pictogram and NO letters, words or numbers; it is big, upright and easy to read even on a small phone screen.\n\nImage 1 shows Ana. Keep the face, hair, skin and build exactly; she wears a light summer dress and holds a rolled towel. Create a new photograph of Ana standing on the grassy shore of a calm lake on a sunny day, looking at a sign right beside her. The sign's pictogram is a black swimming person in waves, crossed out by the red bar. Ana and the sign are both large in the middle of the photo. Only Ana is in the photo.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1plus-unit-1-q02-c2b4398b65207eff.webp",
+    "sha256": "c2b4398b65207effa51e51260cc607c38ada48caea82f14eb872e4c9c8b5d0d5"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "9x8Ba_jfEseGqtsPj5nCyAk",
+  "usage": {
+    "promptTokenCount": 599,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1889,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 341
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038880",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 599,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 8.17,
+  "output": "output/imagegen/a1plus-unit-6-lesson-v690/n01-no-swim.png",
+  "sha256": "2a6c3a7c5b2157ff4279bbec44c6d0455791ff6c9a318712b90c9fb1713740a8",
+  "byte_count": 1212128,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}

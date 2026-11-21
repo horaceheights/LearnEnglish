@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "pack": "a1plus-unit-6-lesson-6-8-bridge-photos",
+  "revision": 2,
+  "output_namespace": "a1plus-unit-6-lesson-v682",
+  "authorization": "2026-11-20: the user asked \"Lets work on a1+ Unit 6 same all deal as before none stop all approved\" (the Units 2-4 deal: straight to Preview in batches with media pre-approved and reviewed in Preview; the map is approved with the request). Gemini is the approved image tool (2026-09-23), Flash only (2026-11-17; \"lets switch to flash for any other images\", 2026-11-19).",
+  "image_settings": {
+    "provider": "google-gemini",
+    "model": "gemini-2.5-flash-image",
+    "aspect_ratio": "3:2",
+    "image_size": "1K",
+    "runtime_size": "1536x1024",
+    "runtime_format": "webp",
+    "n": 1
+  },
+  "production": {
+    "price_per_image_usd": "0.0387",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing (checked 2026-11-16: Gemini 2.5 Flash Image, about $0.039 per image)",
+    "planned_images": 1,
+    "expected_cost_usd": "0.04",
+    "requested_ceiling_usd": "0.25",
+    "ceiling_note": "The renderer reserves US$0.20 before each request; each request is sent on its own, and the expected spend for the pack is about US$0.04.",
+    "no_automatic_retries": true,
+    "order": "Generate w05; check Ana is large and on the bridge over water."
+  },
+  "shared_prompts": {
+    "photo": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, menus, screens, cups, clothes or bags.",
+    "safe_center": "Keep the people and the thing that carries the meaning inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.",
+    "solo": "Only this one person is in the photo; there is nobody else, even far in the background.",
+    "pair": "Only these two people are in the photo; there is nobody else, even far in the background.",
+    "daytime": "It is clearly daytime with soft natural light.",
+    "store": "The camera stands on the sidewalk across from the shop and looks straight at its whole front: the door and the big shop window are clearly visible. The shop has NO sign, no name and no writing anywhere; what it is must be obvious only from what fills the window.",
+    "nobody": "There are no people anywhere in the photo.",
+    "n4": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, logos or brand marks anywhere, and no number anywhere except the one sign number described (4): no other signs, screens, clocks, tickets, trains, planes or clothes show any digit.",
+    "n7": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, logos or brand marks anywhere, and no number anywhere except the one sign number described (7): no other signs, screens, clocks, tickets, trains, planes or clothes show any digit.",
+    "n12": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, logos or brand marks anywhere, and no number anywhere except the one sign number described (12): no other signs, screens, clocks, tickets, trains, planes or clothes show any digit.",
+    "n9": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, logos or brand marks anywhere, and no number anywhere except the one sign number described (9): no other signs, screens, clocks, tickets, trains, planes or clothes show any digit.",
+    "opposite": "The camera stands inside a small green park with trees and a bench in the front of the photo and looks across one quiet street at the building on the other side, which faces the park directly. Both the park and the building are clearly visible, with the street between them.",
+    "turn": "The camera stands on the sidewalk a few steps behind one person and looks the way they look: straight ahead is a crossroads where a side street goes off to the left and another to the right. The person is seen from behind (back of the head and back only, no face) and stretches one whole arm straight out sideways, pointing along one side street. The pointing arm is long, level and unmistakable.",
+    "noword": "No shop, car or building shows any sign, name, letters, words, numbers or logos."
+  },
+  "assets": [
+    {
+      "id": "w05-cross-bridge",
+      "order": 1,
+      "item": "Cross the bridge.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "daytime",
+        "solo"
+      ],
+      "prompt": "Image 1 shows Ana. Keep the face, hair, skin and build exactly; keep her sage-green overshirt over a white top and her jeans. Create a new photograph of Ana walking across a short wooden footbridge over a calm river, seen from the riverbank close by and a little to the side: Ana is LARGE in the photo, about half the photo height, in the middle of the bridge, walking from left to right, with the wooden railing beside her and the river water clearly visible under the bridge. Her face is visible in profile.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-q02-c2b4398b65207eff.webp",
+        "sha256": "c2b4398b65207effa51e51260cc607c38ada48caea82f14eb872e4c9c8b5d0d5",
+        "observed_description": "Ana (long dark wavy hair, light-olive skin, sage-green overshirt over a white top, jeans) sits on a light-grey sofa and reads an open hardcover book (A1+ 1.2)."
+      }
+    }
+  ]
+}

@@ -1,0 +1,629 @@
+{
+  "brief_version": 1,
+  "follows": {
+    "course": "a1",
+    "lesson": "6.12",
+    "title": "What Time Does It Leave?"
+  },
+  "note": "A1+ Unit 6 Lesson 6.12, built on 2026-11-20 under the A1+ lesson standards approved 2026-10-27 and the user's 2026-11-09 rule that every A1+ lesson follows up the A1 lesson with the same number. The user asked on 2026-11-20 \"Lets work on a1+ Unit 6 same all deal as before none stop all approved\" (A1+ 6.Y follows A1 6.Y, one step each; fifteen lessons; the Units 2-4 deal: straight to Preview in batches, Gemini 2.5 Flash photos and ElevenLabs audio pre-approved, no per-lesson gates, reviewed in Preview). Four new photos (Gemini 2.5 Flash) and one remake: Luis running after a leaving bus, Ana walking to a waiting train, Diego alone at an empty airport gate and travelers waiting by empty tracks. The first empty-tracks photo was rejected because people stood on the tracks.",
+  "target": "backend/lessons/a1_plus/unit_6/a1plus-unit-6-lesson-6-12.yaml",
+  "captions": false,
+  "narrators": [
+    "teacher",
+    "co-teacher"
+  ],
+  "answer_audio_policy": "authored-only",
+  "speak_delivery": "a1-pronunciation-v1",
+  "lesson": {
+    "id": "a1plus-unit-6-lesson-6-12",
+    "title": "6.12 The train is late",
+    "level": "A1+",
+    "unit_id": "a1plus-unit-6",
+    "unit_title": "Getting around town and traveling",
+    "unit_outcome": "Ask whether a place is near, say how people go to work and why they go somewhere, find a platform or gate, pack for a trip, find places on a street, follow and ask for directions, ask permission, buy tickets, understand delays and check in at a hotel.",
+    "lesson_id": "a1plus-unit-6-lesson-6-12",
+    "lesson_title": "The train is late",
+    "sub_lesson_id": "6.12",
+    "sub_lesson_title": "The train is late",
+    "goal": "Say whether a person, a bus or a train is late, on time or early, and ask Is it on time? (The train is late. Is Ana late? No, she's on time.).",
+    "vocabulary": [
+      "late",
+      "on time",
+      "early"
+    ],
+    "review_vocabulary": [
+      "is",
+      "Is",
+      "he's",
+      "she's",
+      "it's",
+      "I'm",
+      "We're",
+      "No",
+      "Yes",
+      "the train",
+      "the bus",
+      "Luis",
+      "Ana",
+      "Diego"
+    ],
+    "grammar_function": "A follow-up of A1 6.12 What Time Does It Leave?: A1 reads departure and arrival times; A1+ 6.12 says how a trip went against the time, without clocks. The new items are late, on time and early after be (Luis is late.), with 3.4's short answers (Is Ana late? No, she's on time.). Each photo shows it in the action, not on a clock: Luis runs after a bus that is leaving, Ana walks to a train waiting with its door open, Diego reads alone at an empty gate with no airplane yet, and travelers wait by empty tracks.",
+    "prerequisite": "A1 6.12 leaves and arrives; A1+ 3.4 short answers; A1+ 6.4 gate and platform.",
+    "speaking_outcome": "Say on TIME as two words with the stress on time; EAR-ly. Do not require native-like speed.",
+    "content_revision": 1,
+    "learn_context_groups": [
+      {
+        "kind": "sequence",
+        "targets": [
+          "late"
+        ],
+        "models": [
+          {
+            "slide_id": "L1",
+            "text": "Luis is late."
+          }
+        ]
+      },
+      {
+        "kind": "sequence",
+        "targets": [
+          "on time"
+        ],
+        "models": [
+          {
+            "slide_id": "L2",
+            "text": "Ana is on time."
+          }
+        ]
+      },
+      {
+        "kind": "sequence",
+        "targets": [
+          "early"
+        ],
+        "models": [
+          {
+            "slide_id": "L3",
+            "text": "Diego is early."
+          }
+        ]
+      },
+      {
+        "kind": "exchange",
+        "targets": [
+          "on time",
+          "late"
+        ],
+        "models": [
+          {
+            "slide_id": "L4",
+            "text": "Is the train on time? No, it's late.",
+            "turns": [
+              "Is the train on time?",
+              "No, it's late."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "items": [
+    {
+      "id": "l-late",
+      "text": "Luis is late.",
+      "es": "Luis llega tarde.",
+      "image": "/lesson-assets/a1plus-unit-6-y01-afcf32c082cc2aa0.webp",
+      "kind": "sequence",
+      "choices": false,
+      "use": false,
+      "speaker": "teacher"
+    },
+    {
+      "id": "l-on",
+      "text": "Ana is on time.",
+      "es": "Ana llega a tiempo.",
+      "image": "/lesson-assets/a1plus-unit-6-y02-1c48856fd2e6b9cc.webp",
+      "kind": "sequence",
+      "choices": false,
+      "use": false,
+      "speaker": "co-teacher"
+    },
+    {
+      "id": "l-early",
+      "text": "Diego is early.",
+      "es": "Diego llega temprano.",
+      "image": "/lesson-assets/a1plus-unit-6-y04-9c0e4345e1a43e62.webp",
+      "kind": "sequence",
+      "choices": false,
+      "use": false,
+      "speaker": "teacher"
+    },
+    {
+      "id": "l-train",
+      "text": "Is the train on time? No, it's late.",
+      "es": "¿El tren llega a tiempo? No, llega tarde.",
+      "image": "/lesson-assets/a1plus-unit-6-y05-ade8e2b6e40b0c7b.webp",
+      "kind": "exchange",
+      "choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "Is the train on time?",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-6-y05-ade8e2b6e40b0c7b.webp"
+        },
+        {
+          "text": "No, it's late.",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-6-y05-ade8e2b6e40b0c7b.webp"
+        }
+      ]
+    },
+    {
+      "id": "f-luis",
+      "text": "Luis is late.",
+      "es": "Luis llega tarde.",
+      "image": "/lesson-assets/a1plus-unit-6-y01-afcf32c082cc2aa0.webp",
+      "kind": "when",
+      "prefer": [
+        "Luis is on time.",
+        "Luis is early."
+      ],
+      "accepts": {
+        "subject-variety": "The bank keeps the person or the train and changes only late, on time or early; the photo shows it: running after a leaving bus, walking to a waiting train, waiting alone at an empty gate, or people waiting at empty tracks.",
+        "action-variety": "The bank keeps the person or the train and changes only late, on time or early; the photo shows it: running after a leaving bus, walking to a waiting train, waiting alone at an empty gate, or people waiting at empty tracks.",
+        "conversational-response": "The bank keeps the person or the train and changes only late, on time or early; the photo shows it: running after a leaving bus, walking to a waiting train, waiting alone at an empty gate, or people waiting at empty tracks.",
+        "reading-load": "The bank keeps the person or the train and changes only late, on time or early; the photo shows it: running after a leaving bus, walking to a waiting train, waiting alone at an empty gate, or people waiting at empty tracks."
+      },
+      "blanks": [
+        "is",
+        "late"
+      ],
+      "learn": false
+    },
+    {
+      "id": "f-ana",
+      "text": "Ana is on time.",
+      "es": "Ana llega a tiempo.",
+      "image": "/lesson-assets/a1plus-unit-6-y02-1c48856fd2e6b9cc.webp",
+      "kind": "when",
+      "prefer": [
+        "Ana is late.",
+        "Ana is early."
+      ],
+      "accepts": {
+        "subject-variety": "The bank keeps the person or the train and changes only late, on time or early; the photo shows it: running after a leaving bus, walking to a waiting train, waiting alone at an empty gate, or people waiting at empty tracks.",
+        "action-variety": "The bank keeps the person or the train and changes only late, on time or early; the photo shows it: running after a leaving bus, walking to a waiting train, waiting alone at an empty gate, or people waiting at empty tracks.",
+        "conversational-response": "The bank keeps the person or the train and changes only late, on time or early; the photo shows it: running after a leaving bus, walking to a waiting train, waiting alone at an empty gate, or people waiting at empty tracks.",
+        "reading-load": "The bank keeps the person or the train and changes only late, on time or early; the photo shows it: running after a leaving bus, walking to a waiting train, waiting alone at an empty gate, or people waiting at empty tracks."
+      },
+      "blanks": [
+        "is",
+        "on"
+      ],
+      "learn": false
+    },
+    {
+      "id": "f-diego",
+      "text": "Diego is early.",
+      "es": "Diego llega temprano.",
+      "image": "/lesson-assets/a1plus-unit-6-y04-9c0e4345e1a43e62.webp",
+      "kind": "when",
+      "prefer": [
+        "Diego is on time.",
+        "Diego is late."
+      ],
+      "accepts": {
+        "subject-variety": "The bank keeps the person or the train and changes only late, on time or early; the photo shows it: running after a leaving bus, walking to a waiting train, waiting alone at an empty gate, or people waiting at empty tracks.",
+        "action-variety": "The bank keeps the person or the train and changes only late, on time or early; the photo shows it: running after a leaving bus, walking to a waiting train, waiting alone at an empty gate, or people waiting at empty tracks.",
+        "conversational-response": "The bank keeps the person or the train and changes only late, on time or early; the photo shows it: running after a leaving bus, walking to a waiting train, waiting alone at an empty gate, or people waiting at empty tracks.",
+        "reading-load": "The bank keeps the person or the train and changes only late, on time or early; the photo shows it: running after a leaving bus, walking to a waiting train, waiting alone at an empty gate, or people waiting at empty tracks."
+      },
+      "blanks": [
+        "is",
+        "early"
+      ],
+      "learn": false
+    },
+    {
+      "id": "f-train",
+      "text": "The train is late.",
+      "es": "El tren llega tarde.",
+      "image": "/lesson-assets/a1plus-unit-6-y05-ade8e2b6e40b0c7b.webp",
+      "kind": "when",
+      "prefer": [
+        "The train is on time.",
+        "The train is early."
+      ],
+      "accepts": {
+        "subject-variety": "The bank keeps the person or the train and changes only late, on time or early; the photo shows it: running after a leaving bus, walking to a waiting train, waiting alone at an empty gate, or people waiting at empty tracks.",
+        "action-variety": "The bank keeps the person or the train and changes only late, on time or early; the photo shows it: running after a leaving bus, walking to a waiting train, waiting alone at an empty gate, or people waiting at empty tracks.",
+        "conversational-response": "The bank keeps the person or the train and changes only late, on time or early; the photo shows it: running after a leaving bus, walking to a waiting train, waiting alone at an empty gate, or people waiting at empty tracks.",
+        "reading-load": "The bank keeps the person or the train and changes only late, on time or early; the photo shows it: running after a leaving bus, walking to a waiting train, waiting alone at an empty gate, or people waiting at empty tracks."
+      },
+      "blanks": [
+        "is",
+        "late"
+      ],
+      "learn": false
+    },
+    {
+      "id": "r-luis",
+      "text": "No, he's late.",
+      "es": "No, llega tarde.",
+      "image": "/lesson-assets/a1plus-unit-6-y01-afcf32c082cc2aa0.webp",
+      "kind": "short",
+      "question": "Is Luis on time?",
+      "question_es": "¿Luis llega a tiempo?",
+      "question_speaker": "co-teacher",
+      "speaker": "teacher",
+      "use": false,
+      "image_choices": false,
+      "prefer": [
+        "No, he's early.",
+        "Yes, he is."
+      ],
+      "accepts": {
+        "subject-variety": "The short answer keeps the person or the train and says what is true instead; the photo shows it.",
+        "action-variety": "The short answer keeps the person or the train and says what is true instead; the photo shows it.",
+        "conversational-response": "The short answer keeps the person or the train and says what is true instead; the photo shows it.",
+        "reading-load": "The short answer keeps the person or the train and says what is true instead; the photo shows it."
+      },
+      "learn": false
+    },
+    {
+      "id": "r-ana",
+      "text": "No, she's on time.",
+      "es": "No, llega a tiempo.",
+      "image": "/lesson-assets/a1plus-unit-6-y02-1c48856fd2e6b9cc.webp",
+      "kind": "short",
+      "question": "Is Ana late?",
+      "question_es": "¿Ana llega tarde?",
+      "question_speaker": "co-teacher",
+      "speaker": "teacher",
+      "use": false,
+      "image_choices": false,
+      "prefer": [
+        "No, she's early.",
+        "Yes, she is."
+      ],
+      "accepts": {
+        "subject-variety": "The short answer keeps the person or the train and says what is true instead; the photo shows it.",
+        "action-variety": "The short answer keeps the person or the train and says what is true instead; the photo shows it.",
+        "conversational-response": "The short answer keeps the person or the train and says what is true instead; the photo shows it.",
+        "reading-load": "The short answer keeps the person or the train and says what is true instead; the photo shows it."
+      },
+      "learn": false
+    },
+    {
+      "id": "r-diego",
+      "text": "No, he's early.",
+      "es": "No, llega temprano.",
+      "image": "/lesson-assets/a1plus-unit-6-y04-9c0e4345e1a43e62.webp",
+      "kind": "short",
+      "question": "Is Diego late?",
+      "question_es": "¿Diego llega tarde?",
+      "question_speaker": "co-teacher",
+      "speaker": "teacher",
+      "use": false,
+      "image_choices": false,
+      "prefer": [
+        "No, he's on time.",
+        "Yes, he is."
+      ],
+      "accepts": {
+        "subject-variety": "The short answer keeps the person or the train and says what is true instead; the photo shows it.",
+        "action-variety": "The short answer keeps the person or the train and says what is true instead; the photo shows it.",
+        "conversational-response": "The short answer keeps the person or the train and says what is true instead; the photo shows it.",
+        "reading-load": "The short answer keeps the person or the train and says what is true instead; the photo shows it."
+      },
+      "learn": false
+    },
+    {
+      "id": "r-train",
+      "text": "No, it's late.",
+      "es": "No, llega tarde.",
+      "image": "/lesson-assets/a1plus-unit-6-y05-ade8e2b6e40b0c7b.webp",
+      "kind": "short",
+      "question": "Is the train on time?",
+      "question_es": "¿El tren llega a tiempo?",
+      "question_speaker": "co-teacher",
+      "speaker": "teacher",
+      "use": false,
+      "image_choices": false,
+      "prefer": [
+        "No, it's early.",
+        "Yes, it is."
+      ],
+      "accepts": {
+        "subject-variety": "The short answer keeps the person or the train and says what is true instead; the photo shows it.",
+        "action-variety": "The short answer keeps the person or the train and says what is true instead; the photo shows it.",
+        "conversational-response": "The short answer keeps the person or the train and says what is true instead; the photo shows it.",
+        "reading-load": "The short answer keeps the person or the train and says what is true instead; the photo shows it."
+      },
+      "learn": false
+    },
+    {
+      "id": "x-train",
+      "text": "Is the train on time? No, it's late.",
+      "es": "¿El tren llega a tiempo? No, llega tarde.",
+      "image": "/lesson-assets/a1plus-unit-6-y05-ade8e2b6e40b0c7b.webp",
+      "kind": "xt",
+      "image_choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "Is the train on time?",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-6-y05-ade8e2b6e40b0c7b.webp"
+        },
+        {
+          "text": "No, it's late.",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-6-y05-ade8e2b6e40b0c7b.webp"
+        }
+      ],
+      "accepts": {
+        "subject-variety": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "action-variety": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "conversational-response": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "reading-load": "Listen keeps the question and changes only the answer; the answer is what was heard."
+      },
+      "prefer": [
+        "Is the train on time? Yes, it is."
+      ],
+      "learn": false
+    },
+    {
+      "id": "x-diego",
+      "text": "Is Diego late? No, he's early.",
+      "es": "¿Diego llega tarde? No, llega temprano.",
+      "image": "/lesson-assets/a1plus-unit-6-y04-9c0e4345e1a43e62.webp",
+      "kind": "xd",
+      "image_choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "Is Diego late?",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-6-y04-9c0e4345e1a43e62.webp"
+        },
+        {
+          "text": "No, he's early.",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-6-y04-9c0e4345e1a43e62.webp"
+        }
+      ],
+      "accepts": {
+        "subject-variety": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "action-variety": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "conversational-response": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "reading-load": "Listen keeps the question and changes only the answer; the answer is what was heard."
+      },
+      "prefer": [
+        "Is Diego late? Yes, he is."
+      ],
+      "learn": false
+    },
+    {
+      "id": "u-late",
+      "text": "I'm late!",
+      "es": "¡Llego tarde!",
+      "image": "/lesson-assets/a1plus-unit-6-y01-afcf32c082cc2aa0.webp",
+      "kind": "use",
+      "choices": false,
+      "use": true,
+      "learn": false
+    },
+    {
+      "id": "u-on",
+      "text": "We're on time.",
+      "es": "Llegamos a tiempo.",
+      "image": "/lesson-assets/a1plus-unit-6-y02-1c48856fd2e6b9cc.webp",
+      "kind": "use",
+      "choices": false,
+      "use": true,
+      "learn": false
+    },
+    {
+      "id": "u-q",
+      "text": "Is the bus on time?",
+      "es": "¿El camión llega a tiempo?",
+      "image": "/lesson-assets/a1plus-unit-6-y01-afcf32c082cc2aa0.webp",
+      "kind": "question",
+      "choices": false,
+      "use": true,
+      "speaker": "co-teacher",
+      "learn": false
+    },
+    {
+      "id": "u-early",
+      "text": "She's early.",
+      "es": "Llega temprano.",
+      "image": "/lesson-assets/a1plus-unit-6-y02-1c48856fd2e6b9cc.webp",
+      "kind": "use",
+      "choices": false,
+      "use": true,
+      "learn": false
+    }
+  ],
+  "pool": [
+    {
+      "text": "Luis is on time.",
+      "es": "Luis llega a tiempo.",
+      "image": "/lesson-assets/a1plus-unit-6-y01-afcf32c082cc2aa0.webp",
+      "kind": "when",
+      "image_choices": false
+    },
+    {
+      "text": "Luis is early.",
+      "es": "Luis llega temprano.",
+      "image": "/lesson-assets/a1plus-unit-6-y01-afcf32c082cc2aa0.webp",
+      "kind": "when",
+      "image_choices": false
+    },
+    {
+      "text": "Ana is late.",
+      "es": "Ana llega tarde.",
+      "image": "/lesson-assets/a1plus-unit-6-y02-1c48856fd2e6b9cc.webp",
+      "kind": "when",
+      "image_choices": false
+    },
+    {
+      "text": "Ana is early.",
+      "es": "Ana llega temprano.",
+      "image": "/lesson-assets/a1plus-unit-6-y02-1c48856fd2e6b9cc.webp",
+      "kind": "when",
+      "image_choices": false
+    },
+    {
+      "text": "Diego is on time.",
+      "es": "Diego llega a tiempo.",
+      "image": "/lesson-assets/a1plus-unit-6-y04-9c0e4345e1a43e62.webp",
+      "kind": "when",
+      "image_choices": false
+    },
+    {
+      "text": "Diego is late.",
+      "es": "Diego llega tarde.",
+      "image": "/lesson-assets/a1plus-unit-6-y04-9c0e4345e1a43e62.webp",
+      "kind": "when",
+      "image_choices": false
+    },
+    {
+      "text": "The train is on time.",
+      "es": "El tren llega a tiempo.",
+      "image": "/lesson-assets/a1plus-unit-6-y05-ade8e2b6e40b0c7b.webp",
+      "kind": "when",
+      "image_choices": false
+    },
+    {
+      "text": "The train is early.",
+      "es": "El tren llega temprano.",
+      "image": "/lesson-assets/a1plus-unit-6-y05-ade8e2b6e40b0c7b.webp",
+      "kind": "when",
+      "image_choices": false
+    },
+    {
+      "text": "No, he's early.",
+      "es": "No, llega temprano.",
+      "image": "/lesson-assets/a1plus-unit-6-y01-afcf32c082cc2aa0.webp",
+      "kind": "short",
+      "image_choices": false
+    },
+    {
+      "text": "Yes, he is.",
+      "es": "Sí.",
+      "image": "/lesson-assets/a1plus-unit-6-y01-afcf32c082cc2aa0.webp",
+      "kind": "short",
+      "image_choices": false
+    },
+    {
+      "text": "No, she's early.",
+      "es": "No, llega temprano.",
+      "image": "/lesson-assets/a1plus-unit-6-y02-1c48856fd2e6b9cc.webp",
+      "kind": "short",
+      "image_choices": false
+    },
+    {
+      "text": "Yes, she is.",
+      "es": "Sí.",
+      "image": "/lesson-assets/a1plus-unit-6-y02-1c48856fd2e6b9cc.webp",
+      "kind": "short",
+      "image_choices": false
+    },
+    {
+      "text": "No, he's on time.",
+      "es": "No, llega a tiempo.",
+      "image": "/lesson-assets/a1plus-unit-6-y04-9c0e4345e1a43e62.webp",
+      "kind": "short",
+      "image_choices": false
+    },
+    {
+      "text": "No, it's early.",
+      "es": "No, llega temprano.",
+      "image": "/lesson-assets/a1plus-unit-6-y05-ade8e2b6e40b0c7b.webp",
+      "kind": "short",
+      "image_choices": false
+    },
+    {
+      "text": "Yes, it is.",
+      "es": "Sí.",
+      "image": "/lesson-assets/a1plus-unit-6-y05-ade8e2b6e40b0c7b.webp",
+      "kind": "short",
+      "image_choices": false
+    },
+    {
+      "text": "Is the train on time? Yes, it is.",
+      "es": "¿El tren llega a tiempo? Sí.",
+      "image": "/lesson-assets/a1plus-unit-6-y05-ade8e2b6e40b0c7b.webp",
+      "kind": "xt",
+      "image_choices": false
+    },
+    {
+      "text": "Is Diego late? Yes, he is.",
+      "es": "¿Diego llega tarde? Sí.",
+      "image": "/lesson-assets/a1plus-unit-6-y04-9c0e4345e1a43e62.webp",
+      "kind": "xd",
+      "image_choices": false
+    }
+  ],
+  "layout": {
+    "Recognize": 10,
+    "Listen": 10,
+    "Speak": 8,
+    "Use": 8
+  },
+  "stage_sequences": {
+    "Learn": [
+      "l-late",
+      "l-on",
+      "l-early",
+      "l-train"
+    ],
+    "Recognize": [
+      "f-luis",
+      "r-ana",
+      "f-diego",
+      "r-train",
+      "f-ana",
+      "r-luis",
+      "f-train",
+      "r-diego",
+      "f-luis",
+      "x-train"
+    ],
+    "Listen": [
+      "f-ana",
+      "f-train",
+      "x-train",
+      "f-luis",
+      "f-diego",
+      "x-diego",
+      "r-luis",
+      "r-ana",
+      "r-train",
+      "r-diego"
+    ],
+    "Speak": [
+      "u-late",
+      "f-ana",
+      "u-q",
+      "r-train",
+      "u-on",
+      "f-diego",
+      "r-luis",
+      "u-early"
+    ],
+    "Use": [
+      "f-luis",
+      "f-ana",
+      "f-diego",
+      "f-train",
+      "u-late",
+      "u-on",
+      "u-q",
+      "u-early"
+    ]
+  }
+}

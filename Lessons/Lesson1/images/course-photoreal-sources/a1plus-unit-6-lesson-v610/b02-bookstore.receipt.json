@@ -1,0 +1,55 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "4ea9d6a8-53e3-4878-8de4-3362589f097e",
+  "asset_id": "b02-bookstore",
+  "pack_sha256": "03a6ea13754ce8b69ff612202574e6af7b280122510b520af31fef35b14ec85b",
+  "started_at": "2026-11-21T04:06:36.449396+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, menus, screens, cups, clothes or bags.\n\nKeep the people and the thing that carries the meaning inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nThe camera stands on the sidewalk across from the shop and looks straight at its whole front: the door and the big shop window are clearly visible. The shop has NO sign, no name and no writing anywhere; what it is must be obvious only from what fills the window.\n\nIt is clearly daytime with soft natural light.\n\nA small neighborhood bookstore on a quiet sunny street. Its big front window is full of books: neat stacks and rows of colorful books standing on shelves facing the street, and through the glass you see tall wooden bookshelves full of books inside. The book covers are plain colors with no writing. A woman of about fifty with short grey hair and a red coat stands inside by the window, looking at an open book. Only this one person is in the photo.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "yRgBa6S5JpCJqtsPp5CsuAU",
+  "usage": {
+    "promptTokenCount": 335,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1625,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 335
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038800",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 335,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 6.07,
+  "output": "output/imagegen/a1plus-unit-6-lesson-v610/b02-bookstore.png",
+  "sha256": "80ab3427ba79cea4d972e43af1705ab89f4f3cf429e23ef9a94553a3a4f6bf7b",
+  "byte_count": 1687187,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}

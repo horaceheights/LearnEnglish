@@ -1,0 +1,93 @@
+{
+  "schema_version": 1,
+  "pack": "a1plus-unit-6-lesson-6-1-places-photos",
+  "revision": 1,
+  "output_namespace": "a1plus-unit-6-lesson-v610",
+  "authorization": "2026-11-20: the user asked \"Lets work on a1+ Unit 6 same all deal as before none stop all approved\" (the Units 2-4 deal: straight to Preview in batches with media pre-approved and reviewed in Preview; the map is approved with the request). Gemini is the approved image tool (2026-09-23), Flash only (2026-11-17; \"lets switch to flash for any other images\", 2026-11-19).",
+  "image_settings": {
+    "provider": "google-gemini",
+    "model": "gemini-2.5-flash-image",
+    "aspect_ratio": "3:2",
+    "image_size": "1K",
+    "runtime_size": "1536x1024",
+    "runtime_format": "webp",
+    "n": 1
+  },
+  "production": {
+    "price_per_image_usd": "0.0387",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing (checked 2026-11-16: Gemini 2.5 Flash Image, about $0.039 per image)",
+    "planned_images": 4,
+    "expected_cost_usd": "0.15",
+    "requested_ceiling_usd": "0.40",
+    "ceiling_note": "The renderer reserves US$0.20 before each request; each request is sent on its own, and the expected spend for the pack is about US$0.15.",
+    "no_automatic_retries": true,
+    "order": "Generate b01 first; check the window reads as a bakery at 180 px and no writing appears; then b02-b04."
+  },
+  "shared_prompts": {
+    "photo": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, menus, screens, cups, clothes or bags.",
+    "safe_center": "Keep the people and the thing that carries the meaning inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.",
+    "solo": "Only this one person is in the photo; there is nobody else, even far in the background.",
+    "pair": "Only these two people are in the photo; there is nobody else, even far in the background.",
+    "daytime": "It is clearly daytime with soft natural light.",
+    "store": "The camera stands on the sidewalk across from the shop and looks straight at its whole front: the door and the big shop window are clearly visible. The shop has NO sign, no name and no writing anywhere; what it is must be obvious only from what fills the window.",
+    "nobody": "There are no people anywhere in the photo.",
+    "n4": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, logos or brand marks anywhere, and no number anywhere except the one sign number described (4): no other signs, screens, clocks, tickets, trains, planes or clothes show any digit.",
+    "n7": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, logos or brand marks anywhere, and no number anywhere except the one sign number described (7): no other signs, screens, clocks, tickets, trains, planes or clothes show any digit.",
+    "n12": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, logos or brand marks anywhere, and no number anywhere except the one sign number described (12): no other signs, screens, clocks, tickets, trains, planes or clothes show any digit.",
+    "n9": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, logos or brand marks anywhere, and no number anywhere except the one sign number described (9): no other signs, screens, clocks, tickets, trains, planes or clothes show any digit."
+  },
+  "assets": [
+    {
+      "id": "b01-bakery",
+      "order": 1,
+      "item": "This is a bakery. / Is there a bakery near here? Yes, there's one on Park Street.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "store",
+        "daytime"
+      ],
+      "prompt": "A small neighborhood bakery on a quiet sunny street. Its big front window is full of golden loaves of bread, round rolls and croissants on wooden shelves and baskets, so it is instantly a bakery. A baker in a white apron and white cap stands in the open doorway holding a basket of long baguettes. Only this one person is in the photo."
+    },
+    {
+      "id": "b02-bookstore",
+      "order": 2,
+      "item": "This is a bookstore.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "store",
+        "daytime"
+      ],
+      "prompt": "A small neighborhood bookstore on a quiet sunny street. Its big front window is full of books: neat stacks and rows of colorful books standing on shelves facing the street, and through the glass you see tall wooden bookshelves full of books inside. The book covers are plain colors with no writing. A woman of about fifty with short grey hair and a red coat stands inside by the window, looking at an open book. Only this one person is in the photo."
+    },
+    {
+      "id": "b03-police",
+      "order": 3,
+      "item": "This is a police station.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "daytime"
+      ],
+      "prompt": "The front of a small two-story brick police station on a sunny street, seen from across the street. In front of the entrance a white police car with a blue-and-red light bar on its roof is parked; the car has no writing, numbers or logos, only a blue stripe along its side. A police officer in a dark-blue uniform and cap stands by the car near the entrance steps. The building has NO sign and no writing anywhere. Only this one person is in the photo."
+    },
+    {
+      "id": "b04-gas",
+      "order": 4,
+      "item": "This is a gas station. / Luis is at the gas station.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "solo",
+        "daytime"
+      ],
+      "prompt": "Image 1 shows Luis. Keep the face, hair, skin and build exactly; dress him in his navy crew-neck T-shirt. Create a new photograph of Luis at a gas station on a sunny day: he stands beside his red car and holds the black fuel nozzle in the open fuel cap of the car, filling it. The gas pump stands right next to him and the gas station roof is above, so the place is instantly a gas station. The pump has NO numbers, screens with digits, words or logos; its display is blank. He looks at the camera and smiles.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-q01-135c3f8f772bcbe4.webp",
+        "sha256": "135c3f8f772bcbe472b8cec719eb02318a7d52ce1c7152a94c6952aeb78566c2",
+        "observed_description": "Luis (short dark curly hair, clean-shaven, warm medium-brown skin, navy crew-neck T-shirt) drinks coffee from a white mug at a wooden table in his bright kitchen (A1+ 1.2)."
+      }
+    }
+  ]
+}

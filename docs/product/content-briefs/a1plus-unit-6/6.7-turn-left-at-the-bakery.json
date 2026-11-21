@@ -1,0 +1,606 @@
+{
+  "brief_version": 1,
+  "follows": {
+    "course": "a1",
+    "lesson": "6.7",
+    "title": "Which Side of the Street?"
+  },
+  "note": "A1+ Unit 6 Lesson 6.7, built on 2026-11-20 under the A1+ lesson standards approved 2026-10-27 and the user's 2026-11-09 rule that every A1+ lesson follows up the A1 lesson with the same number. The user asked on 2026-11-20 \"Lets work on a1+ Unit 6 same all deal as before none stop all approved\" (A1+ 6.Y follows A1 6.Y, one step each; fifteen lessons; the Units 2-4 deal: straight to Preview in batches, Gemini 2.5 Flash photos and ElevenLabs audio pre-approved, no per-lesson gates, reviewed in Preview). Four new photos (Gemini 2.5 Flash), each seen from behind a walker at a crossroads who points along a side street past a bakery, a bookstore or a police station on that corner. A first set of four Flash route maps (second street on the left/right) was rejected: the blue lines ran past the turn. A1 6's Ana asking a man for directions is reused.",
+  "target": "backend/lessons/a1_plus/unit_6/a1plus-unit-6-lesson-6-7.yaml",
+  "captions": false,
+  "narrators": [
+    "teacher",
+    "co-teacher"
+  ],
+  "answer_audio_policy": "authored-only",
+  "speak_delivery": "a1-pronunciation-v1",
+  "lesson": {
+    "id": "a1plus-unit-6-lesson-6-7",
+    "title": "6.7 Turn left at the bakery",
+    "level": "A1+",
+    "unit_id": "a1plus-unit-6",
+    "unit_title": "Getting around town and traveling",
+    "unit_outcome": "Ask whether a place is near, say how people go to work and why they go somewhere, find a platform or gate, pack for a trip, find places on a street, follow and ask for directions, ask permission, buy tickets, understand delays and check in at a hotel.",
+    "lesson_id": "a1plus-unit-6-lesson-6-7",
+    "lesson_title": "Turn left at the bakery",
+    "sub_lesson_id": "6.7",
+    "sub_lesson_title": "Turn left at the bakery",
+    "goal": "Give a direction with a place to turn at (Turn left at the bakery. Turn right at the police station.).",
+    "vocabulary": [
+      "at the bakery",
+      "at the bookstore",
+      "at the police station"
+    ],
+    "review_vocabulary": [
+      "Turn left",
+      "Turn right",
+      "at",
+      "the bakery",
+      "the bookstore",
+      "the police station",
+      "How do I get to",
+      "the library",
+      "the bank",
+      "the park",
+      "the gas station",
+      "Go straight",
+      "and"
+    ],
+    "grammar_function": "A follow-up of A1 6.7 Which Side of the Street?: A1 finds a place on the left or on the right; A1+ 6.7 turns at a place. The new grammar relationship is at + a landmark after A1 6.8's turn left / turn right (Turn left at the bakery.), with 6.1's new places as landmarks and A1 6.10's How do I get to …?. Every photo is seen from behind one walker at a crossroads who points one whole arm along the side street that goes past the named place, which stands on that corner; the other corner is a plain office building.",
+    "prerequisite": "A1 6.7 left and right; A1 6.8 turn left/right, go straight; A1 6.10 How do I get to…?; A1+ 6.1 places.",
+    "speaking_outcome": "Link turn left at (turn-LEFT-at). Do not require native-like speed.",
+    "content_revision": 1,
+    "learn_context_groups": [
+      {
+        "kind": "sequence",
+        "targets": [
+          "at the bakery"
+        ],
+        "models": [
+          {
+            "slide_id": "L1",
+            "text": "Turn left at the bakery."
+          }
+        ]
+      },
+      {
+        "kind": "sequence",
+        "targets": [
+          "at the police station"
+        ],
+        "models": [
+          {
+            "slide_id": "L2",
+            "text": "Turn right at the police station."
+          }
+        ]
+      },
+      {
+        "kind": "exchange",
+        "targets": [
+          "at the bookstore"
+        ],
+        "models": [
+          {
+            "slide_id": "L3",
+            "text": "How do I get to the library? Turn left at the bookstore.",
+            "turns": [
+              "How do I get to the library?",
+              "Turn left at the bookstore."
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "exchange",
+        "targets": [
+          "at the bakery"
+        ],
+        "models": [
+          {
+            "slide_id": "L4",
+            "text": "How do I get to the bank? Turn right at the bakery.",
+            "turns": [
+              "How do I get to the bank?",
+              "Turn right at the bakery."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "items": [
+    {
+      "id": "l-left",
+      "text": "Turn left at the bakery.",
+      "es": "Da vuelta a la izquierda en la panadería.",
+      "image": "/lesson-assets/a1plus-unit-6-k01-1ce0d396b8be11de.webp",
+      "kind": "sequence",
+      "choices": false,
+      "use": false,
+      "speaker": "teacher"
+    },
+    {
+      "id": "l-right",
+      "text": "Turn right at the police station.",
+      "es": "Da vuelta a la derecha en la estación de policía.",
+      "image": "/lesson-assets/a1plus-unit-6-k04-2259e454cd3ade3d.webp",
+      "kind": "sequence",
+      "choices": false,
+      "use": false,
+      "speaker": "co-teacher"
+    },
+    {
+      "id": "l-how",
+      "text": "How do I get to the library? Turn left at the bookstore.",
+      "es": "¿Cómo llego a la biblioteca? Da vuelta a la izquierda en la librería.",
+      "image": "/lesson-assets/a1_photo_u6_story_help_second_question_v1.webp",
+      "kind": "exchange",
+      "choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "How do I get to the library?",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1_photo_u6_story_help_second_question_v1.webp"
+        },
+        {
+          "text": "Turn left at the bookstore.",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-6-k03-844188833b672f19.webp"
+        }
+      ]
+    },
+    {
+      "id": "l-how2",
+      "text": "How do I get to the bank? Turn right at the bakery.",
+      "es": "¿Cómo llego al banco? Da vuelta a la derecha en la panadería.",
+      "image": "/lesson-assets/a1_photo_u6_story_help_second_question_v1.webp",
+      "kind": "exchange",
+      "choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "How do I get to the bank?",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1_photo_u6_story_help_second_question_v1.webp"
+        },
+        {
+          "text": "Turn right at the bakery.",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-6-k02-e5031661f1a1826d.webp"
+        }
+      ]
+    },
+    {
+      "id": "f-l-bak",
+      "text": "Turn left at the bakery.",
+      "es": "Da vuelta a la izquierda en la panadería.",
+      "image": "/lesson-assets/a1plus-unit-6-k01-1ce0d396b8be11de.webp",
+      "kind": "turn",
+      "prefer": [
+        "Turn right at the bakery.",
+        "Turn left at the bookstore."
+      ],
+      "accepts": {
+        "subject-variety": "The bank keeps Turn … at the … and changes only left or right, or only the place; the person points along the side street past that place.",
+        "action-variety": "The bank keeps Turn … at the … and changes only left or right, or only the place; the person points along the side street past that place.",
+        "conversational-response": "The bank keeps Turn … at the … and changes only left or right, or only the place; the person points along the side street past that place.",
+        "reading-load": "The bank keeps Turn … at the … and changes only left or right, or only the place; the person points along the side street past that place."
+      },
+      "blanks": [
+        "left",
+        "at"
+      ],
+      "learn": false
+    },
+    {
+      "id": "f-r-bak",
+      "text": "Turn right at the bakery.",
+      "es": "Da vuelta a la derecha en la panadería.",
+      "image": "/lesson-assets/a1plus-unit-6-k02-e5031661f1a1826d.webp",
+      "kind": "turn",
+      "prefer": [
+        "Turn left at the bakery.",
+        "Turn right at the police station."
+      ],
+      "accepts": {
+        "subject-variety": "The bank keeps Turn … at the … and changes only left or right, or only the place; the person points along the side street past that place.",
+        "action-variety": "The bank keeps Turn … at the … and changes only left or right, or only the place; the person points along the side street past that place.",
+        "conversational-response": "The bank keeps Turn … at the … and changes only left or right, or only the place; the person points along the side street past that place.",
+        "reading-load": "The bank keeps Turn … at the … and changes only left or right, or only the place; the person points along the side street past that place."
+      },
+      "blanks": [
+        "right",
+        "at"
+      ],
+      "learn": false
+    },
+    {
+      "id": "f-l-book",
+      "text": "Turn left at the bookstore.",
+      "es": "Da vuelta a la izquierda en la librería.",
+      "image": "/lesson-assets/a1plus-unit-6-k03-844188833b672f19.webp",
+      "kind": "turn",
+      "prefer": [
+        "Turn right at the bookstore.",
+        "Turn left at the bakery."
+      ],
+      "accepts": {
+        "subject-variety": "The bank keeps Turn … at the … and changes only left or right, or only the place; the person points along the side street past that place.",
+        "action-variety": "The bank keeps Turn … at the … and changes only left or right, or only the place; the person points along the side street past that place.",
+        "conversational-response": "The bank keeps Turn … at the … and changes only left or right, or only the place; the person points along the side street past that place.",
+        "reading-load": "The bank keeps Turn … at the … and changes only left or right, or only the place; the person points along the side street past that place."
+      },
+      "blanks": [
+        "left",
+        "at"
+      ],
+      "learn": false
+    },
+    {
+      "id": "f-r-pol",
+      "text": "Turn right at the police station.",
+      "es": "Da vuelta a la derecha en la estación de policía.",
+      "image": "/lesson-assets/a1plus-unit-6-k04-2259e454cd3ade3d.webp",
+      "kind": "turn",
+      "prefer": [
+        "Turn left at the police station.",
+        "Turn right at the bakery."
+      ],
+      "accepts": {
+        "subject-variety": "The bank keeps Turn … at the … and changes only left or right, or only the place; the person points along the side street past that place.",
+        "action-variety": "The bank keeps Turn … at the … and changes only left or right, or only the place; the person points along the side street past that place.",
+        "conversational-response": "The bank keeps Turn … at the … and changes only left or right, or only the place; the person points along the side street past that place.",
+        "reading-load": "The bank keeps Turn … at the … and changes only left or right, or only the place; the person points along the side street past that place."
+      },
+      "blanks": [
+        "right",
+        "at"
+      ],
+      "learn": false
+    },
+    {
+      "id": "r-lib",
+      "text": "Turn left at the bookstore.",
+      "es": "Da vuelta a la izquierda en la librería.",
+      "image": "/lesson-assets/a1plus-unit-6-k03-844188833b672f19.webp",
+      "kind": "how",
+      "question": "How do I get to the library?",
+      "question_es": "¿Cómo llego a la biblioteca?",
+      "question_speaker": "co-teacher",
+      "speaker": "teacher",
+      "use": false,
+      "image_choices": false,
+      "prefer": [
+        "Turn right at the bookstore."
+      ],
+      "accepts": {
+        "subject-variety": "The answer keeps Turn … at the … and changes only left or right; the photo shows the person pointing past the place.",
+        "action-variety": "The answer keeps Turn … at the … and changes only left or right; the photo shows the person pointing past the place.",
+        "conversational-response": "The answer keeps Turn … at the … and changes only left or right; the photo shows the person pointing past the place.",
+        "reading-load": "The answer keeps Turn … at the … and changes only left or right; the photo shows the person pointing past the place."
+      },
+      "learn": false
+    },
+    {
+      "id": "r-bank",
+      "text": "Turn right at the bakery.",
+      "es": "Da vuelta a la derecha en la panadería.",
+      "image": "/lesson-assets/a1plus-unit-6-k02-e5031661f1a1826d.webp",
+      "kind": "how",
+      "question": "How do I get to the bank?",
+      "question_es": "¿Cómo llego al banco?",
+      "question_speaker": "co-teacher",
+      "speaker": "teacher",
+      "use": false,
+      "image_choices": false,
+      "prefer": [
+        "Turn left at the bakery."
+      ],
+      "accepts": {
+        "subject-variety": "The answer keeps Turn … at the … and changes only left or right; the photo shows the person pointing past the place.",
+        "action-variety": "The answer keeps Turn … at the … and changes only left or right; the photo shows the person pointing past the place.",
+        "conversational-response": "The answer keeps Turn … at the … and changes only left or right; the photo shows the person pointing past the place.",
+        "reading-load": "The answer keeps Turn … at the … and changes only left or right; the photo shows the person pointing past the place."
+      },
+      "learn": false
+    },
+    {
+      "id": "r-park",
+      "text": "Turn left at the bakery.",
+      "es": "Da vuelta a la izquierda en la panadería.",
+      "image": "/lesson-assets/a1plus-unit-6-k01-1ce0d396b8be11de.webp",
+      "kind": "how",
+      "question": "How do I get to the park?",
+      "question_es": "¿Cómo llego al parque?",
+      "question_speaker": "co-teacher",
+      "speaker": "teacher",
+      "use": false,
+      "image_choices": false,
+      "prefer": [
+        "Turn right at the bakery."
+      ],
+      "accepts": {
+        "subject-variety": "The answer keeps Turn … at the … and changes only left or right; the photo shows the person pointing past the place.",
+        "action-variety": "The answer keeps Turn … at the … and changes only left or right; the photo shows the person pointing past the place.",
+        "conversational-response": "The answer keeps Turn … at the … and changes only left or right; the photo shows the person pointing past the place.",
+        "reading-load": "The answer keeps Turn … at the … and changes only left or right; the photo shows the person pointing past the place."
+      },
+      "learn": false
+    },
+    {
+      "id": "r-gas",
+      "text": "Turn right at the police station.",
+      "es": "Da vuelta a la derecha en la estación de policía.",
+      "image": "/lesson-assets/a1plus-unit-6-k04-2259e454cd3ade3d.webp",
+      "kind": "how",
+      "question": "How do I get to the gas station?",
+      "question_es": "¿Cómo llego a la gasolinera?",
+      "question_speaker": "co-teacher",
+      "speaker": "teacher",
+      "use": false,
+      "image_choices": false,
+      "prefer": [
+        "Turn left at the police station."
+      ],
+      "accepts": {
+        "subject-variety": "The answer keeps Turn … at the … and changes only left or right; the photo shows the person pointing past the place.",
+        "action-variety": "The answer keeps Turn … at the … and changes only left or right; the photo shows the person pointing past the place.",
+        "conversational-response": "The answer keeps Turn … at the … and changes only left or right; the photo shows the person pointing past the place.",
+        "reading-load": "The answer keeps Turn … at the … and changes only left or right; the photo shows the person pointing past the place."
+      },
+      "learn": false
+    },
+    {
+      "id": "x-lib",
+      "text": "How do I get to the library? Turn left at the bookstore.",
+      "es": "¿Cómo llego a la biblioteca? Da vuelta a la izquierda en la librería.",
+      "image": "/lesson-assets/a1plus-unit-6-k03-844188833b672f19.webp",
+      "kind": "xl",
+      "image_choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "How do I get to the library?",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1_photo_u6_story_help_second_question_v1.webp"
+        },
+        {
+          "text": "Turn left at the bookstore.",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-6-k03-844188833b672f19.webp"
+        }
+      ],
+      "accepts": {
+        "subject-variety": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "action-variety": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "conversational-response": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "reading-load": "Listen keeps the question and changes only the answer; the answer is what was heard."
+      },
+      "prefer": [
+        "How do I get to the library? Turn right at the bookstore."
+      ],
+      "learn": false
+    },
+    {
+      "id": "x-bank",
+      "text": "How do I get to the bank? Turn right at the bakery.",
+      "es": "¿Cómo llego al banco? Da vuelta a la derecha en la panadería.",
+      "image": "/lesson-assets/a1plus-unit-6-k02-e5031661f1a1826d.webp",
+      "kind": "xb",
+      "image_choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "How do I get to the bank?",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1_photo_u6_story_help_second_question_v1.webp"
+        },
+        {
+          "text": "Turn right at the bakery.",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-6-k02-e5031661f1a1826d.webp"
+        }
+      ],
+      "accepts": {
+        "subject-variety": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "action-variety": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "conversational-response": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "reading-load": "Listen keeps the question and changes only the answer; the answer is what was heard."
+      },
+      "prefer": [
+        "How do I get to the bank? Turn left at the bakery."
+      ],
+      "learn": false
+    },
+    {
+      "id": "u-left",
+      "text": "Turn left at the bakery.",
+      "es": "Da vuelta a la izquierda en la panadería.",
+      "image": "/lesson-assets/a1plus-unit-6-k01-1ce0d396b8be11de.webp",
+      "kind": "use",
+      "choices": false,
+      "blanks": [
+        "at",
+        "the"
+      ],
+      "learn": false
+    },
+    {
+      "id": "u-right",
+      "text": "Turn right at the police station.",
+      "es": "Da vuelta a la derecha en la estación de policía.",
+      "image": "/lesson-assets/a1plus-unit-6-k04-2259e454cd3ade3d.webp",
+      "kind": "use",
+      "choices": false,
+      "blanks": null,
+      "learn": false
+    },
+    {
+      "id": "u-go",
+      "text": "Go straight and turn left at the bookstore.",
+      "es": "Sigue derecho y da vuelta a la izquierda en la librería.",
+      "image": "/lesson-assets/a1plus-unit-6-k03-844188833b672f19.webp",
+      "kind": "use",
+      "choices": false,
+      "blanks": null,
+      "learn": false
+    },
+    {
+      "id": "q-how",
+      "text": "How do I get to the library?",
+      "es": "¿Cómo llego a la biblioteca?",
+      "image": "/lesson-assets/a1_photo_u6_story_help_second_question_v1.webp",
+      "kind": "question",
+      "speaker": "co-teacher",
+      "choices": false,
+      "use": true,
+      "learn": false
+    }
+  ],
+  "pool": [
+    {
+      "text": "Turn right at the bakery.",
+      "es": "Da vuelta a la derecha en la panadería.",
+      "image": "/lesson-assets/a1plus-unit-6-k01-1ce0d396b8be11de.webp",
+      "kind": "turn",
+      "image_choices": false
+    },
+    {
+      "text": "Turn left at the bookstore.",
+      "es": "Da vuelta a la izquierda en la librería.",
+      "image": "/lesson-assets/a1plus-unit-6-k01-1ce0d396b8be11de.webp",
+      "kind": "turn",
+      "image_choices": false
+    },
+    {
+      "text": "Turn left at the bakery.",
+      "es": "Da vuelta a la izquierda en la panadería.",
+      "image": "/lesson-assets/a1plus-unit-6-k02-e5031661f1a1826d.webp",
+      "kind": "turn",
+      "image_choices": false
+    },
+    {
+      "text": "Turn right at the police station.",
+      "es": "Da vuelta a la derecha en la estación de policía.",
+      "image": "/lesson-assets/a1plus-unit-6-k02-e5031661f1a1826d.webp",
+      "kind": "turn",
+      "image_choices": false
+    },
+    {
+      "text": "Turn right at the bookstore.",
+      "es": "Da vuelta a la derecha en la librería.",
+      "image": "/lesson-assets/a1plus-unit-6-k03-844188833b672f19.webp",
+      "kind": "turn",
+      "image_choices": false
+    },
+    {
+      "text": "Turn left at the police station.",
+      "es": "Da vuelta a la izquierda en la estación de policía.",
+      "image": "/lesson-assets/a1plus-unit-6-k04-2259e454cd3ade3d.webp",
+      "kind": "turn",
+      "image_choices": false
+    },
+    {
+      "text": "Turn right at the bookstore.",
+      "es": "Da vuelta a la derecha en la librería.",
+      "image": "/lesson-assets/a1plus-unit-6-k03-844188833b672f19.webp",
+      "kind": "how",
+      "image_choices": false
+    },
+    {
+      "text": "Turn left at the bakery.",
+      "es": "Da vuelta a la izquierda en la panadería.",
+      "image": "/lesson-assets/a1plus-unit-6-k02-e5031661f1a1826d.webp",
+      "kind": "how",
+      "image_choices": false
+    },
+    {
+      "text": "Turn right at the bakery.",
+      "es": "Da vuelta a la derecha en la panadería.",
+      "image": "/lesson-assets/a1plus-unit-6-k01-1ce0d396b8be11de.webp",
+      "kind": "how",
+      "image_choices": false
+    },
+    {
+      "text": "Turn left at the police station.",
+      "es": "Da vuelta a la izquierda en la estación de policía.",
+      "image": "/lesson-assets/a1plus-unit-6-k04-2259e454cd3ade3d.webp",
+      "kind": "how",
+      "image_choices": false
+    },
+    {
+      "text": "How do I get to the library? Turn right at the bookstore.",
+      "es": "¿Cómo llego a la biblioteca? Da vuelta a la derecha en la librería.",
+      "image": "/lesson-assets/a1plus-unit-6-k03-844188833b672f19.webp",
+      "kind": "xl",
+      "image_choices": false
+    },
+    {
+      "text": "How do I get to the bank? Turn left at the bakery.",
+      "es": "¿Cómo llego al banco? Da vuelta a la izquierda en la panadería.",
+      "image": "/lesson-assets/a1plus-unit-6-k02-e5031661f1a1826d.webp",
+      "kind": "xb",
+      "image_choices": false
+    }
+  ],
+  "layout": {
+    "Recognize": 10,
+    "Listen": 10,
+    "Speak": 8,
+    "Use": 8
+  },
+  "stage_sequences": {
+    "Learn": [
+      "l-left",
+      "l-right",
+      "l-how",
+      "l-how2"
+    ],
+    "Recognize": [
+      "f-l-bak",
+      "r-lib",
+      "f-r-pol",
+      "r-bank",
+      "f-l-book",
+      "r-park",
+      "f-r-bak",
+      "r-gas",
+      "x-lib",
+      "f-l-bak"
+    ],
+    "Listen": [
+      "f-r-bak",
+      "f-l-book",
+      "x-lib",
+      "f-r-pol",
+      "f-l-bak",
+      "x-bank",
+      "r-park",
+      "r-gas",
+      "r-lib",
+      "r-bank"
+    ],
+    "Speak": [
+      "u-left",
+      "f-r-bak",
+      "q-how",
+      "r-lib",
+      "u-right",
+      "f-l-book",
+      "r-gas",
+      "u-go"
+    ],
+    "Use": [
+      "f-l-bak",
+      "f-r-bak",
+      "f-l-book",
+      "f-r-pol",
+      "u-left",
+      "u-right",
+      "u-go",
+      "q-how"
+    ]
+  }
+}

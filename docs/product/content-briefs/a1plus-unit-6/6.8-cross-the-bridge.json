@@ -1,0 +1,589 @@
+{
+  "brief_version": 1,
+  "follows": {
+    "course": "a1",
+    "lesson": "6.8",
+    "title": "Following Directions"
+  },
+  "note": "A1+ Unit 6 Lesson 6.8, built on 2026-11-20 under the A1+ lesson standards approved 2026-10-27 and the user's 2026-11-09 rule that every A1+ lesson follows up the A1 lesson with the same number. The user asked on 2026-11-20 \"Lets work on a1+ Unit 6 same all deal as before none stop all approved\" (A1+ 6.Y follows A1 6.Y, one step each; fifteen lessons; the Units 2-4 deal: straight to Preview in batches, Gemini 2.5 Flash photos and ElevenLabs audio pre-approved, no per-lesson gates, reviewed in Preview). Four new photos (Gemini 2.5 Flash) and one remake: a stone footbridge, a river, Ana crossing a wooden footbridge and Luis walking along a river path. The first crossing photo (Ana a speck on a far bridge) and a first set of block-count route maps were rejected. 6.7's turn photo and A1 6's Ana asking for directions are reused.",
+  "target": "backend/lessons/a1_plus/unit_6/a1plus-unit-6-lesson-6-8.yaml",
+  "captions": false,
+  "narrators": [
+    "teacher",
+    "co-teacher"
+  ],
+  "answer_audio_policy": "authored-only",
+  "speak_delivery": "a1-pronunciation-v1",
+  "lesson": {
+    "id": "a1plus-unit-6-lesson-6-8",
+    "title": "6.8 Cross the bridge",
+    "level": "A1+",
+    "unit_id": "a1plus-unit-6",
+    "unit_title": "Getting around town and traveling",
+    "unit_outcome": "Ask whether a place is near, say how people go to work and why they go somewhere, find a platform or gate, pack for a trip, find places on a street, follow and ask for directions, ask permission, buy tickets, understand delays and check in at a hotel.",
+    "lesson_id": "a1plus-unit-6-lesson-6-8",
+    "lesson_title": "Cross the bridge",
+    "sub_lesson_id": "6.8",
+    "sub_lesson_title": "Cross the bridge",
+    "goal": "Follow and give directions over a bridge and along a river (Cross the bridge and walk along the river.).",
+    "vocabulary": [
+      "bridge",
+      "river",
+      "along"
+    ],
+    "review_vocabulary": [
+      "This is",
+      "a",
+      "Cross",
+      "the",
+      "Walk",
+      "the street",
+      "Turn left",
+      "at the bakery",
+      "Ana",
+      "Luis",
+      "is",
+      "crossing",
+      "walking",
+      "How do I get to",
+      "the park",
+      "the pool",
+      "the library",
+      "and",
+      "turn left",
+      "turn right"
+    ],
+    "grammar_function": "A follow-up of A1 6.8 Following Directions: A1 follows go straight, turn, cross the street and go past; A1+ 6.8 takes the route over water. The new items are bridge and river, A1's cross with the bridge (Cross the bridge.) and along (Walk along the river.), joined with and to 6.7's Turn left at the bakery. Ana crosses a wooden footbridge, large in the photo; Luis walks on a path right beside a river with no bridge in sight.",
+    "prerequisite": "A1 6.8 cross the street, go straight, turn; A1+ 6.7 turn at a place; A1+ 1 walk.",
+    "speaking_outcome": "Stress BRIDGE and RIV-er; link walk along (wah-ka-LONG). Do not require native-like speed.",
+    "content_revision": 1,
+    "learn_context_groups": [
+      {
+        "kind": "sequence",
+        "targets": [
+          "bridge"
+        ],
+        "models": [
+          {
+            "slide_id": "L1",
+            "text": "This is a bridge."
+          }
+        ]
+      },
+      {
+        "kind": "sequence",
+        "targets": [
+          "river"
+        ],
+        "models": [
+          {
+            "slide_id": "L2",
+            "text": "This is a river."
+          }
+        ]
+      },
+      {
+        "kind": "sequence",
+        "targets": [
+          "bridge"
+        ],
+        "models": [
+          {
+            "slide_id": "L3",
+            "text": "Cross the bridge."
+          }
+        ]
+      },
+      {
+        "kind": "sequence",
+        "targets": [
+          "along",
+          "river"
+        ],
+        "models": [
+          {
+            "slide_id": "L4",
+            "text": "Walk along the river."
+          }
+        ]
+      }
+    ]
+  },
+  "items": [
+    {
+      "id": "l-bridge",
+      "text": "This is a bridge.",
+      "es": "Este es un puente.",
+      "image": "/lesson-assets/a1plus-unit-6-w03-556efb5cba906b72.webp",
+      "kind": "sequence",
+      "choices": false,
+      "use": false,
+      "speaker": "teacher"
+    },
+    {
+      "id": "l-river",
+      "text": "This is a river.",
+      "es": "Este es un río.",
+      "image": "/lesson-assets/a1plus-unit-6-w04-46c60d1ebe47065f.webp",
+      "kind": "sequence",
+      "choices": false,
+      "use": false,
+      "speaker": "co-teacher"
+    },
+    {
+      "id": "l-cross",
+      "text": "Cross the bridge.",
+      "es": "Cruza el puente.",
+      "image": "/lesson-assets/a1plus-unit-6-w05-a25830a18548816a.webp",
+      "kind": "sequence",
+      "choices": false,
+      "use": false,
+      "speaker": "teacher"
+    },
+    {
+      "id": "l-along",
+      "text": "Walk along the river.",
+      "es": "Camina por la orilla del río.",
+      "image": "/lesson-assets/a1plus-unit-6-w02-c1828502b663dfe7.webp",
+      "kind": "sequence",
+      "choices": false,
+      "use": false,
+      "speaker": "co-teacher"
+    },
+    {
+      "id": "t-bridge",
+      "text": "This is a bridge.",
+      "es": "Este es un puente.",
+      "image": "/lesson-assets/a1plus-unit-6-w03-556efb5cba906b72.webp",
+      "kind": "thing",
+      "prefer": [
+        "This is a river."
+      ],
+      "accepts": {
+        "subject-variety": "The bank keeps This is a and changes only the thing the photo shows.",
+        "action-variety": "The bank keeps This is a and changes only the thing the photo shows.",
+        "conversational-response": "The bank keeps This is a and changes only the thing the photo shows.",
+        "reading-load": "The bank keeps This is a and changes only the thing the photo shows."
+      },
+      "learn": false
+    },
+    {
+      "id": "t-river",
+      "text": "This is a river.",
+      "es": "Este es un río.",
+      "image": "/lesson-assets/a1plus-unit-6-w04-46c60d1ebe47065f.webp",
+      "kind": "thing",
+      "prefer": [
+        "This is a bridge."
+      ],
+      "accepts": {
+        "subject-variety": "The bank keeps This is a and changes only the thing the photo shows.",
+        "action-variety": "The bank keeps This is a and changes only the thing the photo shows.",
+        "conversational-response": "The bank keeps This is a and changes only the thing the photo shows.",
+        "reading-load": "The bank keeps This is a and changes only the thing the photo shows."
+      },
+      "learn": false
+    },
+    {
+      "id": "f-cross",
+      "text": "Cross the bridge.",
+      "es": "Cruza el puente.",
+      "image": "/lesson-assets/a1plus-unit-6-w05-a25830a18548816a.webp",
+      "kind": "do",
+      "prefer": [
+        "Walk along the river.",
+        "Cross the street."
+      ],
+      "accepts": {
+        "subject-variety": "The bank keeps the direction and changes only what to cross or walk along; the photo shows the walker on the bridge or beside the river.",
+        "action-variety": "The bank keeps the direction and changes only what to cross or walk along; the photo shows the walker on the bridge or beside the river.",
+        "conversational-response": "The bank keeps the direction and changes only what to cross or walk along; the photo shows the walker on the bridge or beside the river.",
+        "reading-load": "The bank keeps the direction and changes only what to cross or walk along; the photo shows the walker on the bridge or beside the river."
+      },
+      "blanks": [
+        "Cross",
+        "the"
+      ],
+      "learn": false
+    },
+    {
+      "id": "f-along",
+      "text": "Walk along the river.",
+      "es": "Camina por la orilla del río.",
+      "image": "/lesson-assets/a1plus-unit-6-w02-c1828502b663dfe7.webp",
+      "kind": "do",
+      "prefer": [
+        "Cross the bridge.",
+        "Turn left at the bakery."
+      ],
+      "accepts": {
+        "subject-variety": "The bank keeps the direction and changes only what to cross or walk along; the photo shows the walker on the bridge or beside the river.",
+        "action-variety": "The bank keeps the direction and changes only what to cross or walk along; the photo shows the walker on the bridge or beside the river.",
+        "conversational-response": "The bank keeps the direction and changes only what to cross or walk along; the photo shows the walker on the bridge or beside the river.",
+        "reading-load": "The bank keeps the direction and changes only what to cross or walk along; the photo shows the walker on the bridge or beside the river."
+      },
+      "blanks": [
+        "Walk",
+        "along"
+      ],
+      "learn": false
+    },
+    {
+      "id": "f-turn",
+      "text": "Turn left at the bakery.",
+      "es": "Da vuelta a la izquierda en la panadería.",
+      "image": "/lesson-assets/a1plus-unit-6-k01-1ce0d396b8be11de.webp",
+      "kind": "do",
+      "prefer": [
+        "Cross the bridge.",
+        "Walk along the river."
+      ],
+      "accepts": {
+        "subject-variety": "The bank keeps the direction and changes only what to cross or walk along; the photo shows the walker on the bridge or beside the river.",
+        "action-variety": "The bank keeps the direction and changes only what to cross or walk along; the photo shows the walker on the bridge or beside the river.",
+        "conversational-response": "The bank keeps the direction and changes only what to cross or walk along; the photo shows the walker on the bridge or beside the river.",
+        "reading-load": "The bank keeps the direction and changes only what to cross or walk along; the photo shows the walker on the bridge or beside the river."
+      },
+      "blanks": [
+        "Turn",
+        "left"
+      ],
+      "learn": false
+    },
+    {
+      "id": "a-ana",
+      "text": "Ana is crossing the bridge.",
+      "es": "Ana está cruzando el puente.",
+      "image": "/lesson-assets/a1plus-unit-6-w05-a25830a18548816a.webp",
+      "kind": "who",
+      "prefer": [
+        "Ana is walking along the river."
+      ],
+      "accepts": {
+        "subject-variety": "The bank keeps the person and changes only what they do; the photo shows it.",
+        "action-variety": "The bank keeps the person and changes only what they do; the photo shows it.",
+        "conversational-response": "The bank keeps the person and changes only what they do; the photo shows it.",
+        "reading-load": "The bank keeps the person and changes only what they do; the photo shows it."
+      },
+      "image_choices": false,
+      "learn": false
+    },
+    {
+      "id": "a-luis",
+      "text": "Luis is walking along the river.",
+      "es": "Luis está caminando por la orilla del río.",
+      "image": "/lesson-assets/a1plus-unit-6-w02-c1828502b663dfe7.webp",
+      "kind": "who",
+      "prefer": [
+        "Luis is crossing the bridge."
+      ],
+      "accepts": {
+        "subject-variety": "The bank keeps the person and changes only what they do; the photo shows it.",
+        "action-variety": "The bank keeps the person and changes only what they do; the photo shows it.",
+        "conversational-response": "The bank keeps the person and changes only what they do; the photo shows it.",
+        "reading-load": "The bank keeps the person and changes only what they do; the photo shows it."
+      },
+      "image_choices": false,
+      "learn": false
+    },
+    {
+      "id": "r-park",
+      "text": "Cross the bridge.",
+      "es": "Cruza el puente.",
+      "image": "/lesson-assets/a1plus-unit-6-w05-a25830a18548816a.webp",
+      "kind": "how",
+      "question": "How do I get to the park?",
+      "question_es": "¿Cómo llego al parque?",
+      "question_speaker": "co-teacher",
+      "speaker": "teacher",
+      "use": false,
+      "image_choices": false,
+      "prefer": [
+        "Walk along the river."
+      ],
+      "accepts": {
+        "subject-variety": "The answer keeps the direction words and changes only the bridge or the river; the photo shows the way.",
+        "action-variety": "The answer keeps the direction words and changes only the bridge or the river; the photo shows the way.",
+        "conversational-response": "The answer keeps the direction words and changes only the bridge or the river; the photo shows the way.",
+        "reading-load": "The answer keeps the direction words and changes only the bridge or the river; the photo shows the way."
+      },
+      "learn": false
+    },
+    {
+      "id": "r-pool",
+      "text": "Walk along the river.",
+      "es": "Camina por la orilla del río.",
+      "image": "/lesson-assets/a1plus-unit-6-w02-c1828502b663dfe7.webp",
+      "kind": "how",
+      "question": "How do I get to the pool?",
+      "question_es": "¿Cómo llego a la alberca?",
+      "question_speaker": "co-teacher",
+      "speaker": "teacher",
+      "use": false,
+      "image_choices": false,
+      "prefer": [
+        "Cross the bridge."
+      ],
+      "accepts": {
+        "subject-variety": "The answer keeps the direction words and changes only the bridge or the river; the photo shows the way.",
+        "action-variety": "The answer keeps the direction words and changes only the bridge or the river; the photo shows the way.",
+        "conversational-response": "The answer keeps the direction words and changes only the bridge or the river; the photo shows the way.",
+        "reading-load": "The answer keeps the direction words and changes only the bridge or the river; the photo shows the way."
+      },
+      "learn": false
+    },
+    {
+      "id": "x-park",
+      "text": "How do I get to the park? Cross the bridge and walk along the river.",
+      "es": "¿Cómo llego al parque? Cruza el puente y camina por la orilla del río.",
+      "image": "/lesson-assets/a1plus-unit-6-w02-c1828502b663dfe7.webp",
+      "kind": "xp",
+      "image_choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "How do I get to the park?",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1_photo_u6_story_help_second_question_v1.webp"
+        },
+        {
+          "text": "Cross the bridge and walk along the river.",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-6-w02-c1828502b663dfe7.webp"
+        }
+      ],
+      "accepts": {
+        "subject-variety": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "action-variety": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "conversational-response": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "reading-load": "Listen keeps the question and changes only the answer; the answer is what was heard."
+      },
+      "prefer": [
+        "How do I get to the park? Cross the street and turn left."
+      ],
+      "learn": false
+    },
+    {
+      "id": "x-lib",
+      "text": "How do I get to the library? Walk along the river and turn left at the bakery.",
+      "es": "¿Cómo llego a la biblioteca? Camina por la orilla del río y da vuelta a la izquierda en la panadería.",
+      "image": "/lesson-assets/a1plus-unit-6-k01-1ce0d396b8be11de.webp",
+      "kind": "xl",
+      "image_choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "How do I get to the library?",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1_photo_u6_story_help_second_question_v1.webp"
+        },
+        {
+          "text": "Walk along the river and turn left at the bakery.",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-6-k01-1ce0d396b8be11de.webp"
+        }
+      ],
+      "accepts": {
+        "subject-variety": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "action-variety": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "conversational-response": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "reading-load": "Listen keeps the question and changes only the answer; the answer is what was heard."
+      },
+      "prefer": [
+        "How do I get to the library? Cross the bridge and turn right at the bakery."
+      ],
+      "learn": false
+    },
+    {
+      "id": "u-cross",
+      "text": "Cross the bridge.",
+      "es": "Cruza el puente.",
+      "image": "/lesson-assets/a1plus-unit-6-w05-a25830a18548816a.webp",
+      "kind": "use",
+      "choices": false,
+      "blanks": [
+        "the",
+        "bridge"
+      ],
+      "learn": false
+    },
+    {
+      "id": "u-along",
+      "text": "Walk along the river.",
+      "es": "Camina por la orilla del río.",
+      "image": "/lesson-assets/a1plus-unit-6-w02-c1828502b663dfe7.webp",
+      "kind": "use",
+      "choices": false,
+      "blanks": [
+        "along",
+        "the"
+      ],
+      "learn": false
+    },
+    {
+      "id": "u-both",
+      "text": "Cross the bridge and walk along the river.",
+      "es": "Cruza el puente y camina por la orilla del río.",
+      "image": "/lesson-assets/a1plus-unit-6-w02-c1828502b663dfe7.webp",
+      "kind": "use",
+      "choices": false,
+      "blanks": null,
+      "learn": false
+    },
+    {
+      "id": "q-how",
+      "text": "How do I get to the park?",
+      "es": "¿Cómo llego al parque?",
+      "image": "/lesson-assets/a1_photo_u6_story_help_second_question_v1.webp",
+      "kind": "question",
+      "speaker": "co-teacher",
+      "choices": false,
+      "use": true,
+      "learn": false
+    }
+  ],
+  "pool": [
+    {
+      "text": "This is a river.",
+      "es": "Este es un río.",
+      "image": "/lesson-assets/a1plus-unit-6-w03-556efb5cba906b72.webp",
+      "kind": "thing",
+      "image_choices": false
+    },
+    {
+      "text": "This is a bridge.",
+      "es": "Este es un puente.",
+      "image": "/lesson-assets/a1plus-unit-6-w04-46c60d1ebe47065f.webp",
+      "kind": "thing",
+      "image_choices": false
+    },
+    {
+      "text": "Walk along the river.",
+      "es": "Camina por la orilla del río.",
+      "image": "/lesson-assets/a1plus-unit-6-w05-a25830a18548816a.webp",
+      "kind": "do",
+      "image_choices": false
+    },
+    {
+      "text": "Cross the street.",
+      "es": "Cruza la calle.",
+      "image": "/lesson-assets/a1plus-unit-6-w05-a25830a18548816a.webp",
+      "kind": "do",
+      "image_choices": false
+    },
+    {
+      "text": "Cross the bridge.",
+      "es": "Cruza el puente.",
+      "image": "/lesson-assets/a1plus-unit-6-w02-c1828502b663dfe7.webp",
+      "kind": "do",
+      "image_choices": false
+    },
+    {
+      "text": "Turn left at the bakery.",
+      "es": "Da vuelta a la izquierda en la panadería.",
+      "image": "/lesson-assets/a1plus-unit-6-w02-c1828502b663dfe7.webp",
+      "kind": "do",
+      "image_choices": false
+    },
+    {
+      "text": "Ana is walking along the river.",
+      "es": "Ana está caminando por la orilla del río.",
+      "image": "/lesson-assets/a1plus-unit-6-w05-a25830a18548816a.webp",
+      "kind": "who",
+      "image_choices": false
+    },
+    {
+      "text": "Luis is crossing the bridge.",
+      "es": "Luis está cruzando el puente.",
+      "image": "/lesson-assets/a1plus-unit-6-w02-c1828502b663dfe7.webp",
+      "kind": "who",
+      "image_choices": false
+    },
+    {
+      "text": "Walk along the river.",
+      "es": "Camina por la orilla del río.",
+      "image": "/lesson-assets/a1plus-unit-6-w05-a25830a18548816a.webp",
+      "kind": "how",
+      "image_choices": false
+    },
+    {
+      "text": "Cross the bridge.",
+      "es": "Cruza el puente.",
+      "image": "/lesson-assets/a1plus-unit-6-w02-c1828502b663dfe7.webp",
+      "kind": "how",
+      "image_choices": false
+    },
+    {
+      "text": "How do I get to the park? Cross the street and turn left.",
+      "es": "¿Cómo llego al parque? Cruza la calle y da vuelta a la izquierda.",
+      "image": "/lesson-assets/a1plus-unit-6-w02-c1828502b663dfe7.webp",
+      "kind": "xp",
+      "image_choices": false
+    },
+    {
+      "text": "How do I get to the library? Cross the bridge and turn right at the bakery.",
+      "es": "¿Cómo llego a la biblioteca? Cruza el puente y da vuelta a la derecha en la panadería.",
+      "image": "/lesson-assets/a1plus-unit-6-k01-1ce0d396b8be11de.webp",
+      "kind": "xl",
+      "image_choices": false
+    }
+  ],
+  "layout": {
+    "Recognize": 10,
+    "Listen": 10,
+    "Speak": 8,
+    "Use": 8
+  },
+  "stage_sequences": {
+    "Learn": [
+      "l-bridge",
+      "l-river",
+      "l-cross",
+      "l-along"
+    ],
+    "Recognize": [
+      "t-bridge",
+      "f-cross",
+      "r-park",
+      "t-river",
+      "f-along",
+      "a-ana",
+      "f-turn",
+      "r-pool",
+      "a-luis",
+      "x-park"
+    ],
+    "Listen": [
+      "f-along",
+      "t-river",
+      "x-park",
+      "f-cross",
+      "r-pool",
+      "t-bridge",
+      "x-lib",
+      "a-luis",
+      "r-park",
+      "a-ana"
+    ],
+    "Speak": [
+      "u-cross",
+      "t-bridge",
+      "u-along",
+      "q-how",
+      "t-river",
+      "a-ana",
+      "u-both",
+      "a-luis"
+    ],
+    "Use": [
+      "f-cross",
+      "f-along",
+      "t-bridge",
+      "t-river",
+      "a-ana",
+      "a-luis",
+      "u-both",
+      "q-how"
+    ]
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "2113e974-b1c4-4bd9-9f46-df792209d5b9",
+  "asset_id": "n03-no-photo",
+  "pack_sha256": "329b7bd0614d863fce221dfe972000b12f63d0c79054e9ce0b6882ad16f5a9e9",
+  "started_at": "2026-11-21T04:37:46.093711+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, menus, screens, cups, clothes or bags.\n\nKeep the people and the thing that carries the meaning inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nThe sign is one round white traffic sign with a thick red border and a red diagonal bar, on a grey metal pole, showing one simple black pictogram and NO letters, words or numbers; it is big, upright and easy to read even on a small phone screen.\n\nImage 1 shows Sofia. Keep the face, hair, skin and build exactly; keep her bright blue blazer over a white blouse. Create a new photograph inside a quiet museum room with paintings in plain frames on white walls: Sofia holds up a black camera and looks at a sign on a stand right beside her. The sign's pictogram is a black camera, crossed out by the red bar. Sofia, her camera and the sign are all large in the middle of the photo. Only Sofia is in the photo.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1plus-unit-1-q03-7d520a07846a47b8.webp",
+    "sha256": "7d520a07846a47b8e8389c3226f3b3639d7eed0d257318b08e4f9b77c5b2258b"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "FyABa5yYCceGqtsPj5nCyAk",
+  "usage": {
+    "promptTokenCount": 595,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1885,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 337
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038878",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 595,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 7.92,
+  "output": "output/imagegen/a1plus-unit-6-lesson-v690/n03-no-photo.png",
+  "sha256": "50daaeac09e2100280ebf4c3cc73176c8aa1ecf20998d7e6ec0a35a2bb1e2bae",
+  "byte_count": 1125510,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}
