@@ -1,0 +1,62 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "dcde37db-54f4-4c9c-b8cc-7f8abba1bf9b",
+  "asset_id": "s03-both-like-coffee",
+  "pack_sha256": "3f7bdcbf2b2c0037a2773b63738c434efab9123679f16a9662b6274f95f0c6a8",
+  "started_at": "2026-11-21T04:11:50.215205+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, menus, screens, cups, clothes or bags.\n\nKeep the people and the thing that carries the meaning inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nOnly these two people are in the photo; there is nobody else, even far in the background.\n\nIt is clearly daytime with soft natural light.\n\nKeep each pictured person's face, hair, skin, build and clothes exactly as in the reference image; they look natural and relaxed, not posing for the camera.\n\nImage 1 shows Diego. Ana: long dark wavy hair, light-olive skin, sage-green overshirt over a white top, jeans. Diego: dark curly hair with a little grey, short full beard, burgundy button shirt. Ana (left) and Diego (right) each hold a white cup of coffee, smell it and smile happily: they both clearly love coffee. They sit side by side at a small table in a bright, simple café with big windows; the tables behind them are empty. Both faces are clearly visible.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1plus-unit-1-q04-ded74a2cb6021167.webp",
+    "sha256": "ded74a2cb6021167d6af2351e9012476d36c1b0936ca9f4f4b6dee68783bb9e2"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "AxoBa_CxGciez7IPkfuLoAg",
+  "usage": {
+    "promptTokenCount": 611,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1901,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 353
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038883",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 611,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 7.97,
+  "output": "output/imagegen/a1plus-unit-5-lesson-v550/s03-both-like-coffee.png",
+  "sha256": "0f84b07ec6280b47d7a635bd9ec03c4cacae39980ef68bc31e3b95786034a9f4",
+  "byte_count": 1315073,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}

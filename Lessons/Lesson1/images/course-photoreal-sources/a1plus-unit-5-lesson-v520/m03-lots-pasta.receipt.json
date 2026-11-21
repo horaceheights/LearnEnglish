@@ -1,0 +1,55 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "a291cebc-d5cf-4160-af5d-ffa64fb52b21",
+  "asset_id": "m03-lots-pasta",
+  "pack_sha256": "3e64c4ecd44a2868972770b1402fef449ab08e001716171fc3d298537061adf8",
+  "started_at": "2026-11-21T04:07:56.435144+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, menus, screens, cups, clothes or bags.\n\nThe place is a bright, tidy home kitchen with a light wooden table, white walls and a big window; nothing else is on the table.\n\nNo people, hands or animals are in the photo. The food sits in the middle of the table and fills the central part of the photo, sharp and easy to count or judge on a small phone screen.\n\nIt is clearly daytime with soft natural light.\n\nThere are so many that they cannot be counted at a glance: a big generous heap.\n\nA big white bowl heaped high with lots of cooked spaghetti with red tomato sauce, on a light wooden kitchen table.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "GRkBa666JeesqtsP0p7a6A4",
+  "usage": {
+    "promptTokenCount": 257,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1547,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 257
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038777",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 257,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 6.18,
+  "output": "output/imagegen/a1plus-unit-5-lesson-v520/m03-lots-pasta.png",
+  "sha256": "f59d1f0002079816f401698cfc83b0e790eb9b69668b74f7fa0ab0119d77402d",
+  "byte_count": 1423566,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}

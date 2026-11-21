@@ -1,0 +1,55 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "65f41069-bca2-4740-a654-4c4e54878b6b",
+  "asset_id": "k05-lots-strawberries",
+  "pack_sha256": "05f00e9f5c6304cd56f9cac35db7d74612e1c4c6d1899c893f581bf89243afa8",
+  "started_at": "2026-11-21T04:05:54.998518+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, menus, screens, cups, clothes or bags.\n\nThe place is a bright, tidy home kitchen with a light wooden table, white walls and a big window; nothing else is on the table.\n\nNo people, hands or animals are in the photo. The food sits in the middle of the table and fills the central part of the photo, sharp and easy to count or judge on a small phone screen.\n\nIt is clearly daytime with soft natural light.\n\nThere are so many that they cannot be counted at a glance: a big generous heap.\n\nA large woven basket, filled to the top, with a big heap of many red strawberries on a light wooden kitchen table.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "oBgBa7v1B92_qtsPyuugoA4",
+  "usage": {
+    "promptTokenCount": 259,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1549,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 259
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038778",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 259,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 5.73,
+  "output": "output/imagegen/a1plus-unit-5-lesson-v510/k05-lots-strawberries.png",
+  "sha256": "a0bf71275c019e41f7c103abbefb413961f47f52ffae86aad934ec17159870c5",
+  "byte_count": 1411990,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}

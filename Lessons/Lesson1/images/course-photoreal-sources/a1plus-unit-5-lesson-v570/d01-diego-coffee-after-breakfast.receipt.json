@@ -1,0 +1,62 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "1b1cdfbe-b144-4e24-8e73-a8cb4dad214e",
+  "asset_id": "d01-diego-coffee-after-breakfast",
+  "pack_sha256": "3b46c9e63a559c55ca27e593794178db29518dfab78e581043133c49e5fee887",
+  "started_at": "2026-11-21T04:33:34.939636+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, menus, screens, cups, clothes or bags.\n\nKeep the people and the thing that carries the meaning inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nOnly this one person is in the photo; there is nobody else, even far in the background.\n\nIt is clearly daytime with soft natural light.\n\nKeep each pictured person's face, hair, skin, build and clothes exactly as in the reference image; they look natural and relaxed, not posing for the camera.\n\nImage 1 shows Diego. In the morning, Diego sits at the light wooden table of his bright kitchen and drinks coffee from a white mug. In front of him is an empty breakfast plate with only a few crumbs and a used fork on it: breakfast is clearly finished.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1plus-unit-1-q04-ded74a2cb6021167.webp",
+    "sha256": "ded74a2cb6021167d6af2351e9012476d36c1b0936ca9f4f4b6dee68783bb9e2"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "HB8Ba4-PEdq8qtsPooicsAw",
+  "usage": {
+    "promptTokenCount": 557,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1847,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 299
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038867",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 557,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 8.1,
+  "output": "output/imagegen/a1plus-unit-5-lesson-v570/d01-diego-coffee-after-breakfast.png",
+  "sha256": "76223855c0da02eb7d61a61204f972ad4d18f4fe60b3b86b0c08c9414871f41d",
+  "byte_count": 1161856,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}

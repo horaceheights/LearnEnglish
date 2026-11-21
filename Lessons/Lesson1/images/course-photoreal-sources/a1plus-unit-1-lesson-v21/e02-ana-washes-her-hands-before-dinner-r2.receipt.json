@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "f0a4a9b6-c14b-4500-b008-99f79e45b268",
+  "asset_id": "e02-ana-washes-her-hands-before-dinner-r2",
+  "pack_sha256": "eb98d83cc0ec9cef5487abcfd7c28ce1db64658f9a293a0be760825e6e3f0d35",
+  "started_at": "2026-11-01T14:56:42.880288+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture, soft natural light and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, logos or brand marks anywhere, including on objects, screens, clothing, signs and packaging. A first-time learner must understand the picture instantly on a small phone screen. Every hand has five natural fingers. Do not imitate earlier course photos.\n\nKeep every person, hand and object the meaning depends on inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nThe camera stands well back, across the room, at standing eye height: the table is in the middle distance, never the near foreground, and nothing is closer to the camera than the table. The whole photo is in sharp focus, with no blurred objects, shapes or bands at its edges.\n\nEarly evening on a weekday at home, after work: warm light from indoor lamps, and any window shows a soft blue dusk sky. No clock, watch, phone, tablet or screen anywhere in the photo.\n\nImage 1 shows Ana in her kitchen. Keep her face, long dark wavy hair and build exactly, her clothes (the sage-green overshirt over a white top, jeans) and her kitchen as it is: the white cabinets, the wooden counter with plants, the sink with the black faucet under the window on the back wall, and the wooden table in front of it. Create a new photograph of this kitchen in the early evening, seen from the same side as Image 1, looking slightly down across the table toward the sink. Arrange the scene in depth, NOT side by side: the wooden table stands in the lower middle of the photo, and directly behind it, straight above the plate in the photo, Ana stands at the sink. On the table, in the middle of the photo: her dinner served and waiting, one white plate with a full, untouched portion of rice, chicken and vegetables, a clean fork on a folded napkin and a glass of water. Nobody has eaten yet, and her chair is empty. Behind the table, Ana is turned three-quarters toward the camera with a relaxed smile, washing her hands under the running faucet: both hands together in the stream of water, covered in white soap foam, held just above the sink edge so they are fully visible above the table, never hidden by the plate or the glass. Her sleeves are pushed up. The plate, her soapy hands and her face are all large and clearly visible, one above the other, within the middle 45 percent of the photo width. She is the only person.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1plus-unit-1-t22-296e96e660a3b079.webp",
+    "sha256": "296e96e660a3b079933bdea308db13c5c103ac07543a0d5223f2cc3ec1479db3"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "LFPnatKeDfKKqtsP17mM6Qo",
+  "usage": {
+    "promptTokenCount": 857,
+    "candidatesTokenCount": 1426,
+    "totalTokenCount": 2509,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 599
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 226,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.138426",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 857,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 226
+  },
+  "elapsed_seconds": 33.34,
+  "output": "output/imagegen/a1plus-unit-1-lesson-v21/e02-ana-washes-her-hands-before-dinner-r2.png",
+  "sha256": "e863e48aa153585c1420e3b7241399e3d184c7563065ab11f1f68abb4e9d7130",
+  "byte_count": 5163357,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

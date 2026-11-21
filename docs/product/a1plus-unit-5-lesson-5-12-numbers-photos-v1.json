@@ -1,0 +1,137 @@
+{
+  "schema_version": 1,
+  "pack": "a1plus-unit-5-lesson-5-12-numbers-photos",
+  "revision": 1,
+  "output_namespace": "a1plus-unit-5-lesson-v5120",
+  "authorization": "2026-11-20: the user asked to \"work on a1+ Unit 5 same all deal as before none stop all approved\" (the Units 2-4 deal: straight to Preview in batches with Gemini 2.5 Flash photos and ElevenLabs audio pre-approved and reviewed in Preview). Gemini is the approved image tool (2026-09-23), Flash only (2026-11-17; \"lets switch to flash for any other images\", 2026-11-19).",
+  "image_settings": {
+    "provider": "google-gemini",
+    "model": "gemini-2.5-flash-image",
+    "aspect_ratio": "3:2",
+    "image_size": "1K",
+    "runtime_size": "1536x1024",
+    "runtime_format": "webp",
+    "n": 1
+  },
+  "production": {
+    "price_per_image_usd": "0.0387",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing (checked 2026-11-16: Gemini 2.5 Flash Image, about $0.039 per image)",
+    "planned_images": 7,
+    "expected_cost_usd": "0.27",
+    "requested_ceiling_usd": "0.50",
+    "ceiling_note": "The renderer reserves US$0.20 before each request; each request is sent on its own, and the expected spend for the pack is about US$0.27.",
+    "no_automatic_retries": true,
+    "order": [
+      "n01-shoes-45",
+      "n02-bag-68",
+      "n03-bike-99",
+      "n04-chair-32",
+      "n05-cake-24",
+      "n06-grandmother-74",
+      "n07-grandfather-81"
+    ]
+  },
+  "shared_prompts": {
+    "photo": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, menus, screens, cups, clothes or bags.",
+    "safe_center": "Keep the people and the thing that carries the meaning inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.",
+    "solo": "Only this one person is in the photo; there is nobody else, even far in the background.",
+    "pair": "Only these two people are in the photo; there is nobody else, even far in the background.",
+    "daytime": "It is clearly daytime with soft natural light.",
+    "kitchen": "The place is a bright, tidy home kitchen with a light wooden table, white walls and a big window; nothing else is on the table.",
+    "still": "No people, hands or animals are in the photo. The food sits in the middle of the table and fills the central part of the photo, sharp and easy to count or judge on a small phone screen.",
+    "few": "Exactly three pieces are visible, clearly separate, not touching, with plenty of empty space around them so the small amount is obvious at once.",
+    "lots": "There are so many that they cannot be counted at a glance: a big generous heap.",
+    "keep": "Keep each pictured person's face, hair, skin, build and clothes exactly as in the reference image; they look natural and relaxed, not posing for the camera.",
+    "numeral": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. No letters, words, logos or brand marks anywhere. The only writing in the photo is each price card described: a small white card on a little stand with a dollar sign and a number in big, thick black print, upright, facing the camera, sharp and easy to read on a small phone screen. No other signs, labels, screens or clothes show any digit or letter.",
+    "stall": "The place is a bright, simple outdoor market stall by day, with a wooden counter; the background is softly out of focus and shows no signs.",
+    "cafe": "The place is a bright, simple neighborhood café by day, with a wooden counter, a glass food case and big windows; nobody else is in the café.",
+    "candle": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. No letters, words, logos or brand marks anywhere, and no number anywhere except the two candle digits described: no other candles, cards, signs, clocks, screens or clothes show any digit.",
+    "table": "They sit at a light wooden dining table in a bright, simple home dining room by day, with plates, glasses and a few dishes on the table.",
+    "strangers": "The people are ordinary adults who are not famous and do not look like any earlier course photo; nobody looks at the camera.",
+    "scene": "A busy but clear scene: every person named is fully visible, separated from the others by some space, and easy to find on a small phone screen. Nobody else is in the photo."
+  },
+  "assets": [
+    {
+      "id": "n01-shoes-45",
+      "order": 1,
+      "item": "The shoes are forty-five dollars.",
+      "shared": [
+        "numeral",
+        "safe_center",
+        "daytime"
+      ],
+      "prompt": "One pair of brown leather shoes on a plain light wooden shop table against a plain light wall, with a price card right in front of them that reads $45. Nothing else is on the table. No people."
+    },
+    {
+      "id": "n02-bag-68",
+      "order": 2,
+      "item": "The bag is sixty-eight dollars.",
+      "shared": [
+        "numeral",
+        "safe_center",
+        "daytime"
+      ],
+      "prompt": "One green bag on a plain light wooden shop table against a plain light wall, with a price card right in front of it that reads $68. Nothing else is on the table. No people."
+    },
+    {
+      "id": "n03-bike-99",
+      "order": 3,
+      "item": "The bike is ninety-nine dollars.",
+      "shared": [
+        "numeral",
+        "safe_center",
+        "daytime"
+      ],
+      "prompt": "One red bicycle standing on a plain shop floor against a plain light wall, with a price card on a little stand right in front of its front wheel that reads $99. No other bicycles or things. No people."
+    },
+    {
+      "id": "n04-chair-32",
+      "order": 4,
+      "item": "The chair is thirty-two dollars.",
+      "shared": [
+        "numeral",
+        "safe_center",
+        "daytime"
+      ],
+      "prompt": "One simple wooden chair on a plain shop floor against a plain light wall, with a price card on its seat that reads $32. No other furniture. No people."
+    },
+    {
+      "id": "n05-cake-24",
+      "order": 5,
+      "item": "The cake is twenty-four dollars.",
+      "shared": [
+        "numeral",
+        "safe_center",
+        "daytime",
+        "cafe"
+      ],
+      "prompt": "On the café's wooden counter there is one whole white birthday cake with strawberries on a white stand, with a price card right in front of it that reads $24. Nothing else is on the counter. No people."
+    },
+    {
+      "id": "n06-grandmother-74",
+      "order": 6,
+      "item": "She's seventy-four.",
+      "shared": [
+        "candle",
+        "safe_center",
+        "solo",
+        "daytime",
+        "strangers"
+      ],
+      "prompt": "A smiling grandmother with short grey hair sits at a light wooden table in a bright living room behind a round white birthday cake. On the cake stand two large, thick number candles, the digits 7 and 4 side by side (reading 74), each as tall as her hand, upright, facing the camera, sharp and easy to read."
+    },
+    {
+      "id": "n07-grandfather-81",
+      "order": 7,
+      "item": "He's eighty-one.",
+      "shared": [
+        "candle",
+        "safe_center",
+        "solo",
+        "daytime",
+        "strangers"
+      ],
+      "prompt": "A smiling grandfather with white hair and glasses sits at a light wooden table in a bright living room behind a round chocolate birthday cake. On the cake stand two large, thick number candles, the digits 8 and 1 side by side (reading 81), each as tall as his hand, upright, facing the camera, sharp and easy to read."
+    }
+  ]
+}

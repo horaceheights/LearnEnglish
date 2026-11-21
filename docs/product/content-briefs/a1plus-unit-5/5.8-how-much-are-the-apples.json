@@ -1,0 +1,646 @@
+{
+  "brief_version": 1,
+  "follows": {
+    "course": "a1",
+    "lesson": "5.8",
+    "title": "Prices"
+  },
+  "note": "A1+ Unit 5 Lesson 5.8, built on 2026-11-20 under the A1+ lesson standards approved 2026-10-27 and the user's 2026-11-09 rule that every A1+ lesson follows up the A1 lesson with the same number. The user asked on 2026-11-20 to \"work on a1+ Unit 5 same all deal as before none stop all approved\": A1+ 5.Y follows A1 5.Y with one step each, straight to Preview in batches, Gemini 2.5 Flash photos and ElevenLabs audio pre-approved, no per-lesson gates, reviewed in Preview. Five still-life photos at a market stall and a café counter, each with one thing and one price card ($3 apples, $5 oranges, $2 bananas, $4 strawberries, $10 cake), and Diego asking at the stall. The seller is never pictured, so the narrators voice question and price.",
+  "target": "backend/lessons/a1_plus/unit_5/a1plus-unit-5-lesson-5-8.yaml",
+  "captions": false,
+  "narrators": [
+    "teacher",
+    "co-teacher"
+  ],
+  "answer_audio_policy": "authored-only",
+  "speak_delivery": "a1-pronunciation-v1",
+  "lesson": {
+    "id": "a1plus-unit-5-lesson-5-8",
+    "title": "5.8 How much are the apples?",
+    "level": "A1+",
+    "unit_id": "a1plus-unit-5",
+    "unit_title": "Food, drinks and shopping",
+    "unit_outcome": "Say how much and how many, offer and order food and drinks politely, agree about likes, say what you want and need to do, talk about meals, prices and what is in your food, compare prices, use numbers to ninety-nine and ask for things at the table.",
+    "lesson_id": "a1plus-unit-5-lesson-5-8",
+    "lesson_title": "How much are the apples?",
+    "sub_lesson_id": "5.8",
+    "sub_lesson_title": "How much are the apples?",
+    "goal": "Ask the price of more than one thing (How much are the apples?) and understand the answer (They're three dollars.), next to How much is …? It's ….",
+    "vocabulary": [
+      "How much are",
+      "They're"
+    ],
+    "review_vocabulary": [
+      "How much is",
+      "It's",
+      "dollars",
+      "the",
+      "apples",
+      "oranges",
+      "bananas",
+      "strawberries",
+      "cake",
+      "two",
+      "three",
+      "four",
+      "five",
+      "ten"
+    ],
+    "grammar_function": "A follow-up of A1 5.8 Prices: A1 asks How much is …? about one named thing and the seller answers It is … dollars; A1+ 5.8 asks about more than one thing with How much are the … ? and answers with They're … dollars., next to How much is the cake? It's ten dollars. In each photo one thing (a bag of apples, a basket of oranges, a bunch of bananas, a box of strawberries, a cake) stands behind its own price card. Here How much asks a price, after 5.4's How much milk is there? asked an amount. Prices stay at ten dollars or less; bigger numbers come in 5.12.",
+    "prerequisite": "A1 5.8 How much is …?, dollars; A1+ 3.3 they're; A1+ 2.4 it's; A1 numbers one to ten; A1 5.1 fruit.",
+    "speaking_outcome": "Join How much are (how-MUCH-ar) and stress the price in They're THREE dollars; do not require native-like speed.",
+    "content_revision": 1,
+    "learn_context_groups": [
+      {
+        "kind": "exchange",
+        "targets": [
+          "How much are"
+        ],
+        "models": [
+          {
+            "slide_id": "L1",
+            "text": "How much are the apples? They're three dollars.",
+            "turns": [
+              "How much are the apples?",
+              "They're three dollars."
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "sequence",
+        "targets": [
+          "They're"
+        ],
+        "models": [
+          {
+            "slide_id": "L2",
+            "text": "They're five dollars."
+          }
+        ]
+      },
+      {
+        "kind": "sequence",
+        "targets": [
+          "How much are"
+        ],
+        "models": [
+          {
+            "slide_id": "L3",
+            "text": "How much are the apples?"
+          }
+        ]
+      }
+    ]
+  },
+  "items": [
+    {
+      "id": "l-are",
+      "text": "How much are the apples? They're three dollars.",
+      "es": "¿Cuánto cuestan las manzanas? Cuestan tres dólares.",
+      "image": "/lesson-assets/a1plus-unit-5-p01-5551830028198973.webp",
+      "kind": "exchange",
+      "choices": false,
+      "use": false,
+      "learn": true,
+      "turns": [
+        {
+          "text": "How much are the apples?",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-5-p01-5551830028198973.webp"
+        },
+        {
+          "text": "They're three dollars.",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-5-p01-5551830028198973.webp"
+        }
+      ]
+    },
+    {
+      "id": "l-theyre",
+      "text": "They're five dollars.",
+      "es": "Cuestan cinco dólares.",
+      "image": "/lesson-assets/a1plus-unit-5-p02-8e6f4460f414ef33.webp",
+      "kind": "sequence",
+      "choices": false,
+      "use": false,
+      "learn": true,
+      "speaker": "co-teacher"
+    },
+    {
+      "id": "l-are-diego",
+      "text": "How much are the apples?",
+      "es": "¿Cuánto cuestan las manzanas?",
+      "image": "/lesson-assets/a1plus-unit-5-p06-79c25e152a07f86f.webp",
+      "kind": "sequence",
+      "choices": false,
+      "use": false,
+      "learn": true,
+      "speaker": "diego"
+    },
+    {
+      "id": "q-apples",
+      "text": "How much are the apples?",
+      "es": "¿Cuánto cuestan las manzanas?",
+      "image": "/lesson-assets/a1plus-unit-5-p01-5551830028198973.webp",
+      "kind": "question",
+      "speaker": "teacher",
+      "prefer": [
+        "How much are the oranges?",
+        "How much are the bananas?"
+      ],
+      "accepts": {
+        "subject-variety": "Listen: the answer is what was heard; the other sentences change only the price or the thing.",
+        "action-variety": "Listen: the answer is what was heard; the other sentences change only the price or the thing.",
+        "conversational-response": "Listen: the answer is what was heard; the other sentences change only the price or the thing.",
+        "reading-load": "Listen: the answer is what was heard; the other sentences change only the price or the thing."
+      },
+      "blanks": [
+        "much",
+        "are"
+      ],
+      "learn": false
+    },
+    {
+      "id": "a-apples",
+      "text": "They're three dollars.",
+      "es": "Cuestan tres dólares.",
+      "image": "/lesson-assets/a1plus-unit-5-p01-5551830028198973.webp",
+      "kind": "price",
+      "speaker": "co-teacher",
+      "question": "How much are the apples?",
+      "question_es": "¿Cuánto cuestan las manzanas?",
+      "question_speaker": "teacher",
+      "image_choices": false,
+      "prefer": [
+        "They're five dollars.",
+        "It's three dollars."
+      ],
+      "accepts": {
+        "subject-variety": "Listen: the answer is what was heard; the other sentences change only the price or the thing.",
+        "action-variety": "Listen: the answer is what was heard; the other sentences change only the price or the thing.",
+        "conversational-response": "Listen: the answer is what was heard; the other sentences change only the price or the thing.",
+        "reading-load": "Listen: the answer is what was heard; the other sentences change only the price or the thing."
+      },
+      "blanks": [
+        "They're",
+        "three"
+      ],
+      "learn": false
+    },
+    {
+      "id": "x-apples",
+      "text": "How much are the apples? They're three dollars.",
+      "es": "¿Cuánto cuestan las manzanas? Cuestan tres dólares.",
+      "image": "/lesson-assets/a1plus-unit-5-p01-5551830028198973.webp",
+      "kind": "exchange",
+      "turns": [
+        {
+          "text": "How much are the apples?",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-5-p01-5551830028198973.webp"
+        },
+        {
+          "text": "They're three dollars.",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-5-p01-5551830028198973.webp"
+        }
+      ],
+      "choices": false,
+      "use": false,
+      "learn": false
+    },
+    {
+      "id": "q-oranges",
+      "text": "How much are the oranges?",
+      "es": "¿Cuánto cuestan las naranjas?",
+      "image": "/lesson-assets/a1plus-unit-5-p02-8e6f4460f414ef33.webp",
+      "kind": "question",
+      "speaker": "co-teacher",
+      "prefer": [
+        "How much are the apples?",
+        "How much are the bananas?"
+      ],
+      "accepts": {
+        "subject-variety": "Listen: the answer is what was heard; the other sentences change only the price or the thing.",
+        "action-variety": "Listen: the answer is what was heard; the other sentences change only the price or the thing.",
+        "conversational-response": "Listen: the answer is what was heard; the other sentences change only the price or the thing.",
+        "reading-load": "Listen: the answer is what was heard; the other sentences change only the price or the thing."
+      },
+      "blanks": [
+        "much",
+        "are"
+      ],
+      "learn": false
+    },
+    {
+      "id": "a-oranges",
+      "text": "They're five dollars.",
+      "es": "Cuestan cinco dólares.",
+      "image": "/lesson-assets/a1plus-unit-5-p02-8e6f4460f414ef33.webp",
+      "kind": "price",
+      "speaker": "teacher",
+      "question": "How much are the oranges?",
+      "question_es": "¿Cuánto cuestan las naranjas?",
+      "question_speaker": "co-teacher",
+      "image_choices": false,
+      "prefer": [
+        "They're three dollars.",
+        "It's five dollars."
+      ],
+      "accepts": {
+        "subject-variety": "Listen: the answer is what was heard; the other sentences change only the price or the thing.",
+        "action-variety": "Listen: the answer is what was heard; the other sentences change only the price or the thing.",
+        "conversational-response": "Listen: the answer is what was heard; the other sentences change only the price or the thing.",
+        "reading-load": "Listen: the answer is what was heard; the other sentences change only the price or the thing."
+      },
+      "blanks": [
+        "They're",
+        "five"
+      ],
+      "learn": false
+    },
+    {
+      "id": "x-oranges",
+      "text": "How much are the oranges? They're five dollars.",
+      "es": "¿Cuánto cuestan las naranjas? Cuestan cinco dólares.",
+      "image": "/lesson-assets/a1plus-unit-5-p02-8e6f4460f414ef33.webp",
+      "kind": "exchange",
+      "turns": [
+        {
+          "text": "How much are the oranges?",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-5-p02-8e6f4460f414ef33.webp"
+        },
+        {
+          "text": "They're five dollars.",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-5-p02-8e6f4460f414ef33.webp"
+        }
+      ],
+      "choices": false,
+      "use": false,
+      "learn": false
+    },
+    {
+      "id": "q-bananas",
+      "text": "How much are the bananas?",
+      "es": "¿Cuánto cuestan los plátanos?",
+      "image": "/lesson-assets/a1plus-unit-5-p03-e29cb4fdde3c3e0b.webp",
+      "kind": "question",
+      "speaker": "teacher",
+      "prefer": [
+        "How much are the apples?",
+        "How much are the oranges?"
+      ],
+      "accepts": {
+        "subject-variety": "Listen: the answer is what was heard; the other sentences change only the price or the thing.",
+        "action-variety": "Listen: the answer is what was heard; the other sentences change only the price or the thing.",
+        "conversational-response": "Listen: the answer is what was heard; the other sentences change only the price or the thing.",
+        "reading-load": "Listen: the answer is what was heard; the other sentences change only the price or the thing."
+      },
+      "blanks": [
+        "much",
+        "are"
+      ],
+      "learn": false
+    },
+    {
+      "id": "a-bananas",
+      "text": "They're two dollars.",
+      "es": "Cuestan dos dólares.",
+      "image": "/lesson-assets/a1plus-unit-5-p03-e29cb4fdde3c3e0b.webp",
+      "kind": "price",
+      "speaker": "co-teacher",
+      "question": "How much are the bananas?",
+      "question_es": "¿Cuánto cuestan los plátanos?",
+      "question_speaker": "teacher",
+      "image_choices": false,
+      "prefer": [
+        "They're four dollars.",
+        "It's two dollars."
+      ],
+      "accepts": {
+        "subject-variety": "Listen: the answer is what was heard; the other sentences change only the price or the thing.",
+        "action-variety": "Listen: the answer is what was heard; the other sentences change only the price or the thing.",
+        "conversational-response": "Listen: the answer is what was heard; the other sentences change only the price or the thing.",
+        "reading-load": "Listen: the answer is what was heard; the other sentences change only the price or the thing."
+      },
+      "blanks": [
+        "They're",
+        "two"
+      ],
+      "learn": false
+    },
+    {
+      "id": "x-bananas",
+      "text": "How much are the bananas? They're two dollars.",
+      "es": "¿Cuánto cuestan los plátanos? Cuestan dos dólares.",
+      "image": "/lesson-assets/a1plus-unit-5-p03-e29cb4fdde3c3e0b.webp",
+      "kind": "exchange",
+      "turns": [
+        {
+          "text": "How much are the bananas?",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-5-p03-e29cb4fdde3c3e0b.webp"
+        },
+        {
+          "text": "They're two dollars.",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-5-p03-e29cb4fdde3c3e0b.webp"
+        }
+      ],
+      "choices": false,
+      "use": false,
+      "learn": false
+    },
+    {
+      "id": "q-strawberries",
+      "text": "How much are the strawberries?",
+      "es": "¿Cuánto cuestan las fresas?",
+      "image": "/lesson-assets/a1plus-unit-5-p04-48302db0732acdf3.webp",
+      "kind": "question",
+      "speaker": "co-teacher",
+      "prefer": [
+        "How much are the apples?",
+        "How much are the oranges?"
+      ],
+      "accepts": {
+        "subject-variety": "Listen: the answer is what was heard; the other sentences change only the price or the thing.",
+        "action-variety": "Listen: the answer is what was heard; the other sentences change only the price or the thing.",
+        "conversational-response": "Listen: the answer is what was heard; the other sentences change only the price or the thing.",
+        "reading-load": "Listen: the answer is what was heard; the other sentences change only the price or the thing."
+      },
+      "blanks": [
+        "much",
+        "are"
+      ],
+      "learn": false
+    },
+    {
+      "id": "a-strawberries",
+      "text": "They're four dollars.",
+      "es": "Cuestan cuatro dólares.",
+      "image": "/lesson-assets/a1plus-unit-5-p04-48302db0732acdf3.webp",
+      "kind": "price",
+      "speaker": "teacher",
+      "question": "How much are the strawberries?",
+      "question_es": "¿Cuánto cuestan las fresas?",
+      "question_speaker": "co-teacher",
+      "image_choices": false,
+      "prefer": [
+        "They're two dollars.",
+        "It's four dollars."
+      ],
+      "accepts": {
+        "subject-variety": "Listen: the answer is what was heard; the other sentences change only the price or the thing.",
+        "action-variety": "Listen: the answer is what was heard; the other sentences change only the price or the thing.",
+        "conversational-response": "Listen: the answer is what was heard; the other sentences change only the price or the thing.",
+        "reading-load": "Listen: the answer is what was heard; the other sentences change only the price or the thing."
+      },
+      "blanks": [
+        "They're",
+        "four"
+      ],
+      "learn": false
+    },
+    {
+      "id": "x-strawberries",
+      "text": "How much are the strawberries? They're four dollars.",
+      "es": "¿Cuánto cuestan las fresas? Cuestan cuatro dólares.",
+      "image": "/lesson-assets/a1plus-unit-5-p04-48302db0732acdf3.webp",
+      "kind": "exchange",
+      "turns": [
+        {
+          "text": "How much are the strawberries?",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-5-p04-48302db0732acdf3.webp"
+        },
+        {
+          "text": "They're four dollars.",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-5-p04-48302db0732acdf3.webp"
+        }
+      ],
+      "choices": false,
+      "use": false,
+      "learn": false
+    },
+    {
+      "id": "q-cake",
+      "text": "How much is the cake?",
+      "es": "¿Cuánto cuesta el pastel?",
+      "image": "/lesson-assets/a1plus-unit-5-p05-15741834d5f33564.webp",
+      "kind": "question",
+      "speaker": "teacher",
+      "prefer": [
+        "How much are the apples?",
+        "How much are the oranges?"
+      ],
+      "accepts": {
+        "subject-variety": "Listen: the answer is what was heard; the other sentences change only the price or the thing.",
+        "action-variety": "Listen: the answer is what was heard; the other sentences change only the price or the thing.",
+        "conversational-response": "Listen: the answer is what was heard; the other sentences change only the price or the thing.",
+        "reading-load": "Listen: the answer is what was heard; the other sentences change only the price or the thing."
+      },
+      "blanks": [
+        "much",
+        "is"
+      ],
+      "learn": false
+    },
+    {
+      "id": "a-cake",
+      "text": "It's ten dollars.",
+      "es": "Cuesta diez dólares.",
+      "image": "/lesson-assets/a1plus-unit-5-p05-15741834d5f33564.webp",
+      "kind": "price",
+      "speaker": "co-teacher",
+      "question": "How much is the cake?",
+      "question_es": "¿Cuánto cuesta el pastel?",
+      "question_speaker": "teacher",
+      "image_choices": false,
+      "prefer": [
+        "It's five dollars.",
+        "They're ten dollars."
+      ],
+      "accepts": {
+        "subject-variety": "Listen: the answer is what was heard; the other sentences change only the price or the thing.",
+        "action-variety": "Listen: the answer is what was heard; the other sentences change only the price or the thing.",
+        "conversational-response": "Listen: the answer is what was heard; the other sentences change only the price or the thing.",
+        "reading-load": "Listen: the answer is what was heard; the other sentences change only the price or the thing."
+      },
+      "blanks": [
+        "It's",
+        "ten"
+      ],
+      "learn": false
+    },
+    {
+      "id": "x-cake",
+      "text": "How much is the cake? It's ten dollars.",
+      "es": "¿Cuánto cuesta el pastel? Cuesta diez dólares.",
+      "image": "/lesson-assets/a1plus-unit-5-p05-15741834d5f33564.webp",
+      "kind": "exchange",
+      "turns": [
+        {
+          "text": "How much is the cake?",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-5-p05-15741834d5f33564.webp"
+        },
+        {
+          "text": "It's ten dollars.",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-5-p05-15741834d5f33564.webp"
+        }
+      ],
+      "choices": false,
+      "use": false,
+      "learn": false
+    },
+    {
+      "id": "d-asks",
+      "text": "How much are the apples?",
+      "es": "¿Cuánto cuestan las manzanas?",
+      "image": "/lesson-assets/a1plus-unit-5-p06-79c25e152a07f86f.webp",
+      "kind": "ask",
+      "speaker": "diego",
+      "choices": false,
+      "blanks": [
+        "How",
+        "much"
+      ],
+      "learn": false
+    }
+  ],
+  "pool": [
+    {
+      "text": "They're two dollars.",
+      "es": "Cuestan dos dólares.",
+      "image": "/lesson-assets/a1plus-unit-5-p01-5551830028198973.webp",
+      "kind": "price",
+      "image_choices": false
+    },
+    {
+      "text": "It's two dollars.",
+      "es": "Cuesta dos dólares.",
+      "image": "/lesson-assets/a1plus-unit-5-p01-5551830028198973.webp",
+      "kind": "price",
+      "image_choices": false
+    },
+    {
+      "text": "They're three dollars.",
+      "es": "Cuestan tres dólares.",
+      "image": "/lesson-assets/a1plus-unit-5-p01-5551830028198973.webp",
+      "kind": "price",
+      "image_choices": false
+    },
+    {
+      "text": "It's three dollars.",
+      "es": "Cuesta tres dólares.",
+      "image": "/lesson-assets/a1plus-unit-5-p01-5551830028198973.webp",
+      "kind": "price",
+      "image_choices": false
+    },
+    {
+      "text": "They're four dollars.",
+      "es": "Cuestan cuatro dólares.",
+      "image": "/lesson-assets/a1plus-unit-5-p01-5551830028198973.webp",
+      "kind": "price",
+      "image_choices": false
+    },
+    {
+      "text": "It's four dollars.",
+      "es": "Cuesta cuatro dólares.",
+      "image": "/lesson-assets/a1plus-unit-5-p01-5551830028198973.webp",
+      "kind": "price",
+      "image_choices": false
+    },
+    {
+      "text": "They're five dollars.",
+      "es": "Cuestan cinco dólares.",
+      "image": "/lesson-assets/a1plus-unit-5-p01-5551830028198973.webp",
+      "kind": "price",
+      "image_choices": false
+    },
+    {
+      "text": "It's five dollars.",
+      "es": "Cuesta cinco dólares.",
+      "image": "/lesson-assets/a1plus-unit-5-p01-5551830028198973.webp",
+      "kind": "price",
+      "image_choices": false
+    },
+    {
+      "text": "They're ten dollars.",
+      "es": "Cuestan diez dólares.",
+      "image": "/lesson-assets/a1plus-unit-5-p01-5551830028198973.webp",
+      "kind": "price",
+      "image_choices": false
+    },
+    {
+      "text": "It's ten dollars.",
+      "es": "Cuesta diez dólares.",
+      "image": "/lesson-assets/a1plus-unit-5-p01-5551830028198973.webp",
+      "kind": "price",
+      "image_choices": false
+    }
+  ],
+  "layout": {
+    "Recognize": 11,
+    "Listen": 10,
+    "Speak": 8,
+    "Use": 8
+  },
+  "stage_sequences": {
+    "Learn": [
+      "l-are",
+      "l-theyre",
+      "l-are-diego"
+    ],
+    "Recognize": [
+      "q-apples",
+      "a-oranges",
+      "q-bananas",
+      "a-cake",
+      "q-strawberries",
+      "a-apples",
+      "q-cake",
+      "a-bananas",
+      "q-oranges",
+      "a-strawberries",
+      "q-apples"
+    ],
+    "Listen": [
+      "a-apples",
+      "q-oranges",
+      "a-strawberries",
+      "q-cake",
+      "a-bananas",
+      "q-strawberries",
+      "a-cake",
+      "q-bananas",
+      "a-oranges",
+      "q-apples"
+    ],
+    "Speak": [
+      "x-apples",
+      "a-oranges",
+      "d-asks",
+      "a-bananas",
+      "a-cake",
+      "q-strawberries",
+      "a-strawberries",
+      "q-bananas"
+    ],
+    "Use": [
+      "q-apples",
+      "a-oranges",
+      "q-bananas",
+      "a-cake",
+      "a-bananas",
+      "a-strawberries",
+      "q-cake",
+      "q-strawberries"
+    ]
+  }
+}

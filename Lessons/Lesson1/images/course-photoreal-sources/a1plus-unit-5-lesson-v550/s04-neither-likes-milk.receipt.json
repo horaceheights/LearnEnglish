@@ -1,0 +1,62 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "8e922682-18a6-49f0-873a-ae00b06068cd",
+  "asset_id": "s04-neither-likes-milk",
+  "pack_sha256": "3f7bdcbf2b2c0037a2773b63738c434efab9123679f16a9662b6274f95f0c6a8",
+  "started_at": "2026-11-21T04:12:04.219978+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, menus, screens, cups, clothes or bags.\n\nKeep the people and the thing that carries the meaning inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nOnly these two people are in the photo; there is nobody else, even far in the background.\n\nIt is clearly daytime with soft natural light.\n\nKeep each pictured person's face, hair, skin, build and clothes exactly as in the reference image; they look natural and relaxed, not posing for the camera.\n\nImage 1 shows Sofia (left) and Luis (right). Sofia (left) and Luis (right) each have a full glass of white milk in front of them. Both make the same unhappy face and push their glasses away with one hand: they both clearly do not like milk. They sit side by side at a small table in a bright, simple café with big windows; the tables behind them are empty. Both faces are clearly visible.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1plus-unit-1-p02-094cffd8654fde7e.webp",
+    "sha256": "094cffd8654fde7eacbcf5b643e8c43eebb30aff39e32cde627ca9861bda7b3d"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "ERoBa4fXG_fQz7IP6LDoyQo",
+  "usage": {
+    "promptTokenCount": 592,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1882,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 334
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038878",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 592,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 9.13,
+  "output": "output/imagegen/a1plus-unit-5-lesson-v550/s04-neither-likes-milk.png",
+  "sha256": "8cee34811ad3b2f23f30d2d059aa145ecb44abaa310576169738bd174ec77398",
+  "byte_count": 1195866,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}

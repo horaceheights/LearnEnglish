@@ -1,0 +1,55 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "ed4d0e3b-9d83-4ed8-948d-4e29ece93c80",
+  "asset_id": "t05-piece-of-cake",
+  "pack_sha256": "f3ffcbfc1e02a4ca0307682d0295c401671b533075dc87fe34b999841218e41f",
+  "started_at": "2026-11-21T04:57:13.677199+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, menus, screens, cups, clothes or bags.\n\nThe place is a bright, tidy home kitchen with a light wooden table, white walls and a big window; nothing else is on the table.\n\nNo people, hands or animals are in the photo. The food sits in the middle of the table and fills the central part of the photo, sharp and easy to count or judge on a small phone screen.\n\nIt is clearly daytime with soft natural light.\n\nOne piece of chocolate cake on a small white plate with a fork, on a light wooden kitchen table. Behind it, a little to the side, stands the rest of the round chocolate cake with one piece missing.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "piQBa827LJXVz7IPjcemoA4",
+  "usage": {
+    "promptTokenCount": 258,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1548,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038777",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 258,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 6.03,
+  "output": "output/imagegen/a1plus-unit-5-lesson-v5140/t05-piece-of-cake.png",
+  "sha256": "df013850e739f6a7cea8ecd3907aa740ede9521869edabe1e0b977657f6ba565",
+  "byte_count": 1262130,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}

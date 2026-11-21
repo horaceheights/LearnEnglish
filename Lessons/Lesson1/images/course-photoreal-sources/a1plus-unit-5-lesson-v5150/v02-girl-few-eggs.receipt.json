@@ -1,0 +1,55 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "ca86bb38-14ff-4fef-bcde-7845b37ef002",
+  "asset_id": "v02-girl-few-eggs",
+  "pack_sha256": "b67daa50a3e7e3908574ba1171189ddf7d45fafd4ba6eb75386c9eac2d545451",
+  "started_at": "2026-11-21T04:57:56.370182+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, menus, screens, cups, clothes or bags.\n\nKeep the people and the thing that carries the meaning inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nOnly this one person is in the photo; there is nobody else, even far in the background.\n\nIt is clearly daytime with soft natural light.\n\nThe people are ordinary adults who are not famous and do not look like any earlier course photo; nobody looks at the camera.\n\nA teenage girl with braids stands in a bright kitchen and holds out an open egg box toward the camera at chest height: only three eggs are in it, clearly separate, and the other places are empty.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "0SQBa7PvF8Otz7IP58adkQs",
+  "usage": {
+    "promptTokenCount": 276,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1566,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 276
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038783",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 276,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 6.2,
+  "output": "output/imagegen/a1plus-unit-5-lesson-v5150/v02-girl-few-eggs.png",
+  "sha256": "3f856985673e0e3ac4bab2d880c93ff40e31f512a026066d52a9fc7380fa0996",
+  "byte_count": 1392770,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}

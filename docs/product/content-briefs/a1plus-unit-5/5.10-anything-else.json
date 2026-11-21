@@ -1,0 +1,540 @@
+{
+  "brief_version": 1,
+  "follows": {
+    "course": "a1",
+    "lesson": "5.10",
+    "title": "Ordering Politely 2: At the Market and Shops"
+  },
+  "note": "A1+ Unit 5 Lesson 5.10, built on 2026-11-20 under the A1+ lesson standards approved 2026-10-27 and the user's 2026-11-09 rule that every A1+ lesson follows up the A1 lesson with the same number. The user asked on 2026-11-20 to \"work on a1+ Unit 5 same all deal as before none stop all approved\": A1+ 5.Y follows A1 5.Y with one step each, straight to Preview in batches, Gemini 2.5 Flash photos and ElevenLabs audio pre-approved, no per-lesson gates, reviewed in Preview. Two new market photos (Ana waves with a full bag; Luis points at bananas by his bag of oranges) with 5.8's Diego at the apples and 5.9's café photos. Reply banks use only photos that show the answer (pointing at more, or waving with a full bag).",
+  "target": "backend/lessons/a1_plus/unit_5/a1plus-unit-5-lesson-5-10.yaml",
+  "captions": false,
+  "narrators": [
+    "teacher",
+    "co-teacher"
+  ],
+  "answer_audio_policy": "authored-only",
+  "speak_delivery": "a1-pronunciation-v1",
+  "lesson": {
+    "id": "a1plus-unit-5-lesson-5-10",
+    "title": "5.10 Anything else?",
+    "level": "A1+",
+    "unit_id": "a1plus-unit-5",
+    "unit_title": "Food, drinks and shopping",
+    "unit_outcome": "Say how much and how many, offer and order food and drinks politely, agree about likes, say what you want and need to do, talk about meals, prices and what is in your food, compare prices, use numbers to ninety-nine and ask for things at the table.",
+    "lesson_id": "a1plus-unit-5-lesson-5-10",
+    "lesson_title": "Anything else?",
+    "sub_lesson_id": "5.10",
+    "sub_lesson_title": "Anything else?",
+    "goal": "Understand the seller's Anything else? and answer it: ask for one more thing (Yes, I'd like some bananas, please.) or finish (No, that's all, thank you.).",
+    "vocabulary": [
+      "Anything else?",
+      "That's all"
+    ],
+    "review_vocabulary": [
+      "I'd like",
+      "please",
+      "thank you",
+      "Yes",
+      "No",
+      "some",
+      "bananas",
+      "apples",
+      "oranges",
+      "too",
+      "What would you like?",
+      "Would you like …?",
+      "How much are …?"
+    ],
+    "grammar_function": "A follow-up of A1 5.10 Ordering Politely 2: At the Market and Shops: A1 asks for things with quantities and accepts or declines an offer; A1+ 5.10 keeps a purchase going or ends it. The seller asks Anything else?, and the customer asks for one more thing with 5.9's I'd like … or finishes with That's all, thank you. Both new items are learnt as fixed phrases. At the market stall Luis points at bananas and Diego at apples, Ana waves with a full bag; at the café (5.9) Ana and Sofia finish their order. The seller is never pictured; a narrator in a voice other than the customer's asks.",
+    "prerequisite": "A1+ 5.9 I'd like …, What would you like?; A1+ 5.3 Would you like …?; A1+ 5.8 How much are …?; A1 5.10 Yes, please. / No, thank you.; A1+ 3.1 too.",
+    "speaking_outcome": "Say Anything else? with rising intonation (EN-ee-thing ELSE?) and That's all as one group (that-SALL); do not require native-like speed.",
+    "content_revision": 1,
+    "learn_context_groups": [
+      {
+        "kind": "sequence",
+        "targets": [
+          "Anything else?"
+        ],
+        "models": [
+          {
+            "slide_id": "L1",
+            "text": "Anything else?"
+          }
+        ]
+      },
+      {
+        "kind": "sequence",
+        "targets": [
+          "That's all"
+        ],
+        "models": [
+          {
+            "slide_id": "L2",
+            "text": "That's all, thank you."
+          }
+        ]
+      },
+      {
+        "kind": "exchange",
+        "targets": [
+          "Anything else?"
+        ],
+        "models": [
+          {
+            "slide_id": "L3",
+            "text": "Anything else? Yes, I'd like some bananas, please.",
+            "turns": [
+              "Anything else?",
+              "Yes, I'd like some bananas, please."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "items": [
+    {
+      "id": "l-else",
+      "text": "Anything else?",
+      "es": "¿Algo más?",
+      "image": "/lesson-assets/a1plus-unit-5-r02-e06e487a2474a3da.webp",
+      "kind": "sequence",
+      "choices": false,
+      "use": false,
+      "learn": true,
+      "speaker": "co-teacher"
+    },
+    {
+      "id": "l-all",
+      "text": "That's all, thank you.",
+      "es": "Eso es todo, gracias.",
+      "image": "/lesson-assets/a1plus-unit-5-r01-6ca7b9fba4066c56.webp",
+      "kind": "sequence",
+      "choices": false,
+      "use": false,
+      "learn": true,
+      "speaker": "ana"
+    },
+    {
+      "id": "l-more",
+      "text": "Anything else? Yes, I'd like some bananas, please.",
+      "es": "¿Algo más? Sí, quisiera unos plátanos, por favor.",
+      "image": "/lesson-assets/a1plus-unit-5-r02-e06e487a2474a3da.webp",
+      "kind": "exchange",
+      "choices": false,
+      "use": false,
+      "learn": true,
+      "turns": [
+        {
+          "text": "Anything else?",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-5-r02-e06e487a2474a3da.webp"
+        },
+        {
+          "text": "Yes, I'd like some bananas, please.",
+          "speaker": "luis",
+          "image": "/lesson-assets/a1plus-unit-5-r02-e06e487a2474a3da.webp"
+        }
+      ]
+    },
+    {
+      "id": "r-all-ana",
+      "text": "No, that's all, thank you.",
+      "es": "No, eso es todo, gracias.",
+      "image": "/lesson-assets/a1plus-unit-5-r01-6ca7b9fba4066c56.webp",
+      "kind": "reply",
+      "speaker": "ana",
+      "question": "Anything else?",
+      "question_es": "¿Algo más?",
+      "question_speaker": "co-teacher",
+      "prefer": [
+        "Yes, I'd like some bananas, please.",
+        "Yes, I'd like some apples, please."
+      ],
+      "accepts": {
+        "subject-variety": "Anything else? is answered by asking for one more thing or by That's all; the photo shows the customer pointing at the next thing or waving goodbye with a full bag.",
+        "action-variety": "Anything else? is answered by asking for one more thing or by That's all; the photo shows the customer pointing at the next thing or waving goodbye with a full bag.",
+        "conversational-response": "Anything else? is answered by asking for one more thing or by That's all; the photo shows the customer pointing at the next thing or waving goodbye with a full bag.",
+        "reading-load": "Anything else? is answered by asking for one more thing or by That's all; the photo shows the customer pointing at the next thing or waving goodbye with a full bag."
+      },
+      "blanks": [
+        "that's",
+        "all"
+      ],
+      "learn": false
+    },
+    {
+      "id": "x-all-ana",
+      "text": "Anything else? No, that's all, thank you.",
+      "es": "¿Algo más? No, eso es todo, gracias.",
+      "image": "/lesson-assets/a1plus-unit-5-r01-6ca7b9fba4066c56.webp",
+      "kind": "exchange",
+      "turns": [
+        {
+          "text": "Anything else?",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-5-r01-6ca7b9fba4066c56.webp"
+        },
+        {
+          "text": "No, that's all, thank you.",
+          "speaker": "ana",
+          "image": "/lesson-assets/a1plus-unit-5-r01-6ca7b9fba4066c56.webp"
+        }
+      ],
+      "choices": false,
+      "use": false,
+      "learn": false
+    },
+    {
+      "id": "r-more-luis",
+      "text": "Yes, I'd like some bananas, please.",
+      "es": "Sí, quisiera unos plátanos, por favor.",
+      "image": "/lesson-assets/a1plus-unit-5-r02-e06e487a2474a3da.webp",
+      "kind": "reply",
+      "speaker": "luis",
+      "question": "Anything else?",
+      "question_es": "¿Algo más?",
+      "question_speaker": "co-teacher",
+      "prefer": [
+        "No, that's all, thank you.",
+        "Yes, I'd like some apples, please."
+      ],
+      "accepts": {
+        "subject-variety": "Anything else? is answered by asking for one more thing or by That's all; the photo shows the customer pointing at the next thing or waving goodbye with a full bag.",
+        "action-variety": "Anything else? is answered by asking for one more thing or by That's all; the photo shows the customer pointing at the next thing or waving goodbye with a full bag.",
+        "conversational-response": "Anything else? is answered by asking for one more thing or by That's all; the photo shows the customer pointing at the next thing or waving goodbye with a full bag.",
+        "reading-load": "Anything else? is answered by asking for one more thing or by That's all; the photo shows the customer pointing at the next thing or waving goodbye with a full bag."
+      },
+      "blanks": [
+        "I'd",
+        "like"
+      ],
+      "learn": false
+    },
+    {
+      "id": "x-more-luis",
+      "text": "Anything else? Yes, I'd like some bananas, please.",
+      "es": "¿Algo más? Sí, quisiera unos plátanos, por favor.",
+      "image": "/lesson-assets/a1plus-unit-5-r02-e06e487a2474a3da.webp",
+      "kind": "exchange",
+      "turns": [
+        {
+          "text": "Anything else?",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-5-r02-e06e487a2474a3da.webp"
+        },
+        {
+          "text": "Yes, I'd like some bananas, please.",
+          "speaker": "luis",
+          "image": "/lesson-assets/a1plus-unit-5-r02-e06e487a2474a3da.webp"
+        }
+      ],
+      "choices": false,
+      "use": false,
+      "learn": false
+    },
+    {
+      "id": "r-more-diego",
+      "text": "Yes, I'd like some apples, please.",
+      "es": "Sí, quisiera unas manzanas, por favor.",
+      "image": "/lesson-assets/a1plus-unit-5-p06-79c25e152a07f86f.webp",
+      "kind": "reply",
+      "speaker": "diego",
+      "question": "Anything else?",
+      "question_es": "¿Algo más?",
+      "question_speaker": "co-teacher",
+      "prefer": [
+        "No, that's all, thank you.",
+        "Yes, I'd like some bananas, please."
+      ],
+      "accepts": {
+        "subject-variety": "Anything else? is answered by asking for one more thing or by That's all; the photo shows the customer pointing at the next thing or waving goodbye with a full bag.",
+        "action-variety": "Anything else? is answered by asking for one more thing or by That's all; the photo shows the customer pointing at the next thing or waving goodbye with a full bag.",
+        "conversational-response": "Anything else? is answered by asking for one more thing or by That's all; the photo shows the customer pointing at the next thing or waving goodbye with a full bag.",
+        "reading-load": "Anything else? is answered by asking for one more thing or by That's all; the photo shows the customer pointing at the next thing or waving goodbye with a full bag."
+      },
+      "blanks": [
+        "I'd",
+        "like"
+      ],
+      "learn": false
+    },
+    {
+      "id": "x-more-diego",
+      "text": "Anything else? Yes, I'd like some apples, please.",
+      "es": "¿Algo más? Sí, quisiera unas manzanas, por favor.",
+      "image": "/lesson-assets/a1plus-unit-5-p06-79c25e152a07f86f.webp",
+      "kind": "exchange",
+      "turns": [
+        {
+          "text": "Anything else?",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-5-p06-79c25e152a07f86f.webp"
+        },
+        {
+          "text": "Yes, I'd like some apples, please.",
+          "speaker": "diego",
+          "image": "/lesson-assets/a1plus-unit-5-p06-79c25e152a07f86f.webp"
+        }
+      ],
+      "choices": false,
+      "use": false,
+      "learn": false
+    },
+    {
+      "id": "c-sofia",
+      "text": "No, that's all, thank you.",
+      "es": "No, eso es todo, gracias.",
+      "image": "/lesson-assets/a1plus-unit-5-q03-70d3cb6c41177ac3.webp",
+      "kind": "say",
+      "speaker": "sofia",
+      "choices": false,
+      "use": false,
+      "learn": false
+    },
+    {
+      "id": "c-ana",
+      "text": "That's all, thank you.",
+      "es": "Eso es todo, gracias.",
+      "image": "/lesson-assets/a1plus-unit-5-q02-6e5d6f9c4b6cf6f6.webp",
+      "kind": "say",
+      "speaker": "ana",
+      "choices": false,
+      "blanks": [
+        "That's",
+        "all"
+      ],
+      "learn": false
+    },
+    {
+      "id": "x-cafe",
+      "text": "Anything else? That's all, thank you.",
+      "es": "¿Algo más? Eso es todo, gracias.",
+      "image": "/lesson-assets/a1plus-unit-5-q02-6e5d6f9c4b6cf6f6.webp",
+      "kind": "exchange",
+      "turns": [
+        {
+          "text": "Anything else?",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-5-q02-6e5d6f9c4b6cf6f6.webp"
+        },
+        {
+          "text": "That's all, thank you.",
+          "speaker": "ana",
+          "image": "/lesson-assets/a1plus-unit-5-q02-6e5d6f9c4b6cf6f6.webp"
+        }
+      ],
+      "choices": false,
+      "use": false,
+      "learn": false
+    },
+    {
+      "id": "q-else",
+      "text": "Anything else?",
+      "es": "¿Algo más?",
+      "image": "/lesson-assets/a1plus-unit-5-r02-e06e487a2474a3da.webp",
+      "kind": "question",
+      "speaker": "teacher",
+      "image_choices": false,
+      "accepts": {
+        "subject-variety": "The seller's and the waiter's questions are told apart by ear; the answer is what was heard.",
+        "action-variety": "The seller's and the waiter's questions are told apart by ear; the answer is what was heard.",
+        "conversational-response": "The seller's and the waiter's questions are told apart by ear; the answer is what was heard.",
+        "reading-load": "The seller's and the waiter's questions are told apart by ear; the answer is what was heard."
+      },
+      "use": false,
+      "choices": false,
+      "learn": false
+    },
+    {
+      "id": "q-what",
+      "text": "What would you like?",
+      "es": "¿Qué le gustaría?",
+      "image": "/lesson-assets/a1plus-unit-5-q01-ca6bd5e33bb6d4c3.webp",
+      "kind": "question",
+      "speaker": "co-teacher",
+      "image_choices": false,
+      "accepts": {
+        "subject-variety": "The seller's and the waiter's questions are told apart by ear; the answer is what was heard.",
+        "action-variety": "The seller's and the waiter's questions are told apart by ear; the answer is what was heard.",
+        "conversational-response": "The seller's and the waiter's questions are told apart by ear; the answer is what was heard.",
+        "reading-load": "The seller's and the waiter's questions are told apart by ear; the answer is what was heard."
+      },
+      "use": false,
+      "choices": true,
+      "learn": false
+    },
+    {
+      "id": "q-would",
+      "text": "Would you like some tea?",
+      "es": "¿Quieres un poco de té?",
+      "image": "/lesson-assets/a1plus-unit-5-o01-2b72061f1a90e239.webp",
+      "kind": "question",
+      "speaker": "ana",
+      "image_choices": false,
+      "accepts": {
+        "subject-variety": "The seller's and the waiter's questions are told apart by ear; the answer is what was heard.",
+        "action-variety": "The seller's and the waiter's questions are told apart by ear; the answer is what was heard.",
+        "conversational-response": "The seller's and the waiter's questions are told apart by ear; the answer is what was heard.",
+        "reading-load": "The seller's and the waiter's questions are told apart by ear; the answer is what was heard."
+      },
+      "use": false,
+      "choices": true,
+      "learn": false
+    },
+    {
+      "id": "q-much",
+      "text": "How much are the apples?",
+      "es": "¿Cuánto cuestan las manzanas?",
+      "image": "/lesson-assets/a1plus-unit-5-p06-79c25e152a07f86f.webp",
+      "kind": "question",
+      "speaker": "diego",
+      "image_choices": false,
+      "accepts": {
+        "subject-variety": "The seller's and the waiter's questions are told apart by ear; the answer is what was heard.",
+        "action-variety": "The seller's and the waiter's questions are told apart by ear; the answer is what was heard.",
+        "conversational-response": "The seller's and the waiter's questions are told apart by ear; the answer is what was heard.",
+        "reading-load": "The seller's and the waiter's questions are told apart by ear; the answer is what was heard."
+      },
+      "use": false,
+      "choices": true,
+      "learn": false
+    },
+    {
+      "id": "q-anything",
+      "text": "Would you like anything else?",
+      "es": "¿Quiere algo más?",
+      "image": "/lesson-assets/a1plus-unit-5-r02-e06e487a2474a3da.webp",
+      "kind": "question",
+      "speaker": "co-teacher",
+      "image_choices": false,
+      "use": false,
+      "prefer": [
+        "Would you like some tea?",
+        "What would you like?"
+      ],
+      "accepts": {
+        "subject-variety": "The seller's and the waiter's questions are told apart by ear; the answer is what was heard.",
+        "action-variety": "The seller's and the waiter's questions are told apart by ear; the answer is what was heard.",
+        "conversational-response": "The seller's and the waiter's questions are told apart by ear; the answer is what was heard.",
+        "reading-load": "The seller's and the waiter's questions are told apart by ear; the answer is what was heard."
+      },
+      "learn": false
+    },
+    {
+      "id": "u-else",
+      "text": "Anything else, Luis?",
+      "es": "¿Algo más, Luis?",
+      "image": "/lesson-assets/a1plus-unit-5-r02-e06e487a2474a3da.webp",
+      "kind": "ask",
+      "speaker": "teacher",
+      "choices": false,
+      "blanks": [
+        "Anything",
+        "else"
+      ],
+      "learn": false
+    },
+    {
+      "id": "u-ana",
+      "text": "Anything else, Ana?",
+      "es": "¿Algo más, Ana?",
+      "image": "/lesson-assets/a1plus-unit-5-r01-6ca7b9fba4066c56.webp",
+      "kind": "ask",
+      "speaker": "co-teacher",
+      "choices": false,
+      "blanks": [
+        "else",
+        "Ana"
+      ],
+      "learn": false
+    },
+    {
+      "id": "u-sofia",
+      "text": "No, thank you. That's all.",
+      "es": "No, gracias. Eso es todo.",
+      "image": "/lesson-assets/a1plus-unit-5-q03-70d3cb6c41177ac3.webp",
+      "kind": "ask",
+      "speaker": "sofia",
+      "choices": false,
+      "blanks": [
+        "That's",
+        "all"
+      ],
+      "learn": false
+    },
+    {
+      "id": "u-more",
+      "text": "I'd like some oranges, too.",
+      "es": "Quisiera unas naranjas también.",
+      "image": "/lesson-assets/a1plus-unit-5-r02-e06e487a2474a3da.webp",
+      "kind": "ask",
+      "speaker": "luis",
+      "choices": false,
+      "blanks": [
+        "oranges",
+        "too"
+      ],
+      "learn": false
+    }
+  ],
+  "pool": [],
+  "layout": {
+    "Recognize": 11,
+    "Listen": 10,
+    "Speak": 8,
+    "Use": 8
+  },
+  "stage_sequences": {
+    "Learn": [
+      "l-else",
+      "l-all",
+      "l-more"
+    ],
+    "Recognize": [
+      "r-all-ana",
+      "r-more-luis",
+      "r-more-diego",
+      "r-all-ana",
+      "r-more-luis",
+      "r-more-diego",
+      "r-all-ana",
+      "r-more-diego",
+      "r-more-luis",
+      "r-all-ana",
+      "r-more-luis"
+    ],
+    "Listen": [
+      "q-anything",
+      "r-more-luis",
+      "q-what",
+      "r-all-ana",
+      "q-would",
+      "r-more-diego",
+      "q-much",
+      "q-anything",
+      "r-all-ana",
+      "r-more-luis"
+    ],
+    "Speak": [
+      "x-all-ana",
+      "r-more-diego",
+      "c-sofia",
+      "u-else",
+      "u-more",
+      "c-ana",
+      "r-all-ana",
+      "r-more-luis"
+    ],
+    "Use": [
+      "u-ana",
+      "r-all-ana",
+      "r-more-luis",
+      "c-ana",
+      "r-more-diego",
+      "u-else",
+      "u-more",
+      "u-sofia"
+    ]
+  }
+}

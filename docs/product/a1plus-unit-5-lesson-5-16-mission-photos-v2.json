@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "pack": "a1plus-unit-5-lesson-5-16-mission-photos",
+  "revision": 2,
+  "output_namespace": "a1plus-unit-5-lesson-v5161",
+  "authorization": "2026-11-20: the user asked to \"work on a1+ Unit 5 same all deal as before none stop all approved\" (the Units 2-4 deal: straight to Preview in batches with Gemini 2.5 Flash photos and ElevenLabs audio pre-approved and reviewed in Preview). Gemini is the approved image tool (2026-09-23), Flash only (2026-11-17; \"lets switch to flash for any other images\", 2026-11-19).",
+  "image_settings": {
+    "provider": "google-gemini",
+    "model": "gemini-2.5-flash-image",
+    "aspect_ratio": "3:2",
+    "image_size": "1K",
+    "runtime_size": "1536x1024",
+    "runtime_format": "webp",
+    "n": 1
+  },
+  "production": {
+    "price_per_image_usd": "0.0387",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing (checked 2026-11-16: Gemini 2.5 Flash Image, about $0.039 per image)",
+    "planned_images": 1,
+    "expected_cost_usd": "0.04",
+    "requested_ceiling_usd": "0.25",
+    "ceiling_note": "The renderer reserves US$0.20 before each request; each request is sent on its own, and the expected spend for the pack is about US$0.04.",
+    "no_automatic_retries": true,
+    "order": [
+      "w07-dishes"
+    ]
+  },
+  "shared_prompts": {
+    "photo": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, menus, screens, cups, clothes or bags.",
+    "safe_center": "Keep the people and the thing that carries the meaning inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.",
+    "solo": "Only this one person is in the photo; there is nobody else, even far in the background.",
+    "pair": "Only these two people are in the photo; there is nobody else, even far in the background.",
+    "daytime": "It is clearly daytime with soft natural light.",
+    "kitchen": "The place is a bright, tidy home kitchen with a light wooden table, white walls and a big window; nothing else is on the table.",
+    "still": "No people, hands or animals are in the photo. The food sits in the middle of the table and fills the central part of the photo, sharp and easy to count or judge on a small phone screen.",
+    "few": "Exactly three pieces are visible, clearly separate, not touching, with plenty of empty space around them so the small amount is obvious at once.",
+    "lots": "There are so many that they cannot be counted at a glance: a big generous heap.",
+    "keep": "Keep each pictured person's face, hair, skin, build and clothes exactly as in the reference image; they look natural and relaxed, not posing for the camera.",
+    "numeral": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. No letters, words, logos or brand marks anywhere. The only writing in the photo is each price card described: a small white card on a little stand with a dollar sign and a number in big, thick black print, upright, facing the camera, sharp and easy to read on a small phone screen. No other signs, labels, screens or clothes show any digit or letter.",
+    "stall": "The place is a bright, simple outdoor market stall by day, with a wooden counter; the background is softly out of focus and shows no signs.",
+    "cafe": "The place is a bright, simple neighborhood café by day, with a wooden counter, a glass food case and big windows; nobody else is in the café.",
+    "candle": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. No letters, words, logos or brand marks anywhere, and no number anywhere except the two candle digits described: no other candles, cards, signs, clocks, screens or clothes show any digit.",
+    "table": "They sit at a light wooden dining table in a bright, simple home dining room by day, with plates, glasses and a few dishes on the table.",
+    "strangers": "The people are ordinary adults who are not famous and do not look like any earlier course photo; nobody looks at the camera.",
+    "scene": "A busy but clear scene: every person named is fully visible, separated from the others by some space, and easy to find on a small phone screen. Nobody else is in the photo."
+  },
+  "assets": [
+    {
+      "id": "w07-dishes",
+      "order": 3,
+      "item": "Four dishes: sandwich with cheese and tomato, salad with egg, soup with meat and potato, salad with chicken.",
+      "shared": [
+        "photo",
+        "daytime"
+      ],
+      "prompt": "A long light wooden table seen from a little above, with four dishes standing well apart in a row on white plates, each easy to see on a small phone screen: from left to right, one sandwich cut open with thick yellow cheese and bright red tomato slices clearly showing; a green salad with halves of boiled egg on top; a bowl of brown soup with big pieces of meat and potato; a green salad with strips of grilled chicken on top. No people."
+    }
+  ]
+}

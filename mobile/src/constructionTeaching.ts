@@ -73,10 +73,24 @@ for (const noun of words('classroom desk')) NOUNS.add(noun);
 NOUNS.add('neighbor');
 // A1+ 4.15-4.16 (2026-11-21): cups on a table (There are some cups on the table.).
 for (const noun of words('cup cups')) NOUNS.add(noun);
+// A1+ Unit 5 (2026-11-20): food and things its constructions name.
+for (const noun of words('pasta potatoes tomatoes plates cups chocolate')) NOUNS.add(noun);
+// A1+ 5.1-5.2, 5.9 and 5.14 (2026-11-20): an amount before a noun (a lot of apples, a few eggs, a little rice,
+// a cup of tea, a piece of cake).
+const QUANTIFIERS: [string[], string][] = [
+  [['a', 'lot', 'of'], 'mucho, mucha, muchos o muchas'], [['a', 'few'], 'unos pocos o unas pocas: cosas que se cuentan'],
+  [['a', 'little'], 'un poco: algo que no se cuenta'], [['a', 'piece', 'of'], 'un pedazo de'],
+  [['a', 'cup', 'of'], 'una taza de'],
+];
+// A1+ 5.12 (2026-11-20): a number from twenty-one to ninety-nine is its ten and its unit (forty-five).
+const TENS = set('twenty thirty forty fifty sixty seventy eighty ninety');
+const UNITS = set('one two three four five six seven eight nine');
 // A1+ 2.11 (2026-11-20): two people or things compared with -er and than (Luis is taller than Sofia.).
 const COMPARATIVES: Record<string, string> = {
   taller: 'más alto o más alta', shorter: 'más bajo o más baja', bigger: 'más grande',
   smaller: 'más pequeño o más pequeña', older: 'mayor', younger: 'menor',
+  // A1+ 5.11 (2026-11-20): The chair is cheaper than the bike.
+  cheaper: 'más barato o más barata',
 };
 // A1+ 2.13 (2026-11-20): light or dark before a color (light blue, a dark blue bag).
 const SHADES: Record<string, string> = { light: 'claro', dark: 'oscuro' };
@@ -84,6 +98,8 @@ const SHADES: Record<string, string> = { light: 'claro', dark: 'oscuro' };
 const ORDINALS = set('second third fourth fifth sixth seventh eighth ninth tenth');
 for (const noun of words('address')) NOUNS.add(noun);
 const COMPOUND_NOUNS: Record<string, string> = { 'post office': 'oficina de correos', 'movie theater': 'cine', 'bus stop': 'parada de autobús', 'next stop': 'próxima parada', 'police officer': 'policía' };
+// A1+ 5.3 and 5.9 (2026-11-20): hot chocolate, orange juice.
+Object.assign(COMPOUND_NOUNS, { 'hot chocolate': 'chocolate caliente', 'orange juice': 'jugo de naranja' });
 const STATES = set('red blue green yellow black white happy sad tired hungry thirsty sunny rainy cold hot windy cloudy mexican spanish american canadian');
 // A1 2.13 (2026-11-15): four more colors, before a noun (a brown dog) and after "is" (It is brown.).
 for (const color of words('brown pink purple gray')) { COLORS.add(color); STATES.add(color); }
@@ -99,6 +115,8 @@ for (const description of words('cheap expensive')) DESCRIPTIONS.add(description
 for (const description of words('good bad great fine sick angry afraid warm')) DESCRIPTIONS.add(description);
 // A1+ 2.8 (2026-11-19): favorite before a noun (my favorite color).
 DESCRIPTIONS.add('favorite');
+// A1+ 5.11 (2026-11-20): the cheaper bag; The red one is cheaper.
+DESCRIPTIONS.add('cheaper');
 // A1+ 3.8 (2026-11-20): a nationality before a noun (a Mexican teacher, two Spanish men).
 for (const description of words('mexican canadian american spanish')) DESCRIPTIONS.add(description);
 for (const state of DESCRIPTIONS) STATES.add(state);
@@ -144,6 +162,8 @@ for (const verb of words('cooks read')) VERBS.add(verb);
 VERBS.add('walks');
 // A1+ 4.12 (2026-11-21): how often people do things (Diego paints twice a week. / Luis watches TV every weekend.).
 for (const verb of words('paints watches')) VERBS.add(verb);
+// A1+ 5.7 and 5.15 (2026-11-20): Ana washes her hands before dinner. / Luis cooked dinner yesterday.
+for (const verb of words('washes cooked')) VERBS.add(verb);
 // A word that is both a noun and a verb ("drinks", "work") is the noun right after an article or a
 // possessive (The drinks are on the table.) and the verb after its subject (Luis drinks coffee.).
 const NOUN_MARKERS = set('a an the my your his her its our their');
@@ -188,6 +208,20 @@ function teachClause(text: string): ClausePlan {
       relations.push({ start, end, explanation: `En ${quote(phrase(start, end))}, “and” une las dos cosas y va entre ellas.` });
       return true;
     }
+    // A1+ 5.1-5.2, 5.9 and 5.14 (2026-11-20): an amount before the noun (a lot of apples, a little rice).
+    for (const [quantity, meaning] of QUANTIFIERS) {
+      const after = start + quantity.length;
+      if (!quantity.every((word, i) => keys[start + i] === word) || after >= end) continue;
+      if (!nominal(after, end)) return false;
+      teach(start, after, `${quote(phrase(start, after))} (${meaning}) dice cuánto hay y va antes de ${quote(phrase(after, end))}.`);
+      return true;
+    }
+    // A1+ 5.12 (2026-11-20): forty-five dollars; the ten goes before the unit, joined by a hyphen.
+    if (TENS.has(keys[start]) && UNITS.has(keys[start + 1]) && start + 3 === end && NOUNS.has(keys[end - 1])) {
+      teach(start, start + 2, `${quote(phrase(start, start + 2).replace(' ', '-'))} es un solo número: primero la decena, ${quote(tokens[start])}, y después la unidad, ${quote(tokens[start + 1])}, unidas con un guion.`);
+      teach(end - 1, end, `${quote(tokens[end - 1])} va después del número: primero cuánto, después qué.`);
+      return true;
+    }
     let head = start;
     if (DETERMINERS.has(keys[head]) || NUMBERS.has(keys[head]) || keys[head] === 'some' || keys[head] === 'any') head++;
     // "This one" / "that one" (A1+ 2.5): here "one" stands for the thing, not the number.
@@ -206,8 +240,9 @@ function teachClause(text: string): ClausePlan {
     // adds "this one" and "that one" (This one is red, but that one is blue.).
     const pointed = keys[head] === 'one' && head === start + 1 && ['this', 'that'].includes(keys[start]);
     // A1+ 2.10 (2026-11-19): "ones" stands in for more than one thing (the red ones).
+    // A1+ 5.11 (2026-11-20): a size after "the" works like a color (The big one is more expensive.).
     const standIn = (keys[head] === 'one' || keys[head] === 'ones') && head > start
-      && (COLORS.has(keys[head - 1]) || pointed);
+      && (COLORS.has(keys[head - 1]) || pointed || (['big', 'small'].includes(keys[head - 1]) && keys[start] === 'the'));
     if (head !== end - 1 || !(NOUNS.has(keys[head]) || standIn)) return false;
     if (owner >= 0) {
       teach(start, end, `En ${quote(phrase(start, end))}, ${quote(tokens[owner])} indica de quién es: el dueño con 's va antes del nombre ${quote(phrase(owner + 1, end))}.`);
@@ -219,6 +254,8 @@ function teachClause(text: string): ClausePlan {
         ? `En ${quote(phrase(start, end))}, ${quote(tokens[start])} señala lo que está ${keys[start] === 'this' ? 'cerca' : 'lejos'} y va antes de “one”, que reemplaza al nombre para no repetirlo.`
         : standIn && keys[head] === 'ones'
         ? `En ${quote(phrase(start, end))}, el color va antes de “ones”, que reemplaza a las cosas ya nombradas para no repetirlas.`
+        : standIn && !COLORS.has(keys[head - 1])
+        ? `En ${quote(phrase(start, end))}, ${quote(tokens[head - 1])} dice el tamaño y va antes de “one”, que reemplaza al nombre para no repetirlo.`
         : standIn
         ? `En ${quote(phrase(start, end))}, el color va antes de “one”, que reemplaza al nombre para no repetirlo.`
         : ordinal >= 0
@@ -347,6 +384,18 @@ function teachClause(text: string): ClausePlan {
         return true;
       }
       return nominal(other, end);
+    }
+    // A1+ 5.11 (2026-11-20): The black one is more expensive. / … more expensive than the blue one.
+    if (keys[start] === 'more' && keys[start + 1] === 'expensive' && BE.has(anchor.toLowerCase())
+      && (end === start + 2 || (keys[start + 2] === 'than' && end > start + 3))) {
+      teach(start, start + 2, `“more expensive” (más caro o más cara) va después de ${quote(anchor)}: una palabra larga compara con “more” delante, no con -er.`);
+      if (end === start + 2) return true;
+      teach(start + 2, start + 3, '“than” (que) va después de “more expensive” y antes de lo que comparamos.');
+      return nominal(start + 3, end);
+    }
+    if (tail === 'yesterday') {
+      teach(start, end, `“Yesterday” (ayer) va al final, después de ${quote(anchor)}: dice cuándo pasó la acción.`);
+      return true;
     }
     // A1+ 2.13 (2026-11-20): My bag is light blue.
     if (end - start === 2 && SHADES[keys[start]] && COLORS.has(keys[start + 1]) && BE.has(anchor.toLowerCase())) {
@@ -977,6 +1026,159 @@ function teachClause(text: string): ClausePlan {
     teach(6, 7, `${quote(tokens[6])} es con quién comparamos; va después de “than”.`);
     relations.push({ start: 2, end: 6, explanation: `${quote(phrase(2, 4))} va antes de ${quote(phrase(4, 6))}: primero cuántos años, después la comparación.` });
     return { explanations, relations, supported: true };
+  }
+  // A1+ Unit 5 (2026-11-20): the unit's fixed frames.
+  const asks = text.trim().endsWith('?');
+  // 5.5: So do I. / Neither do I. agree with I like … / I don't like ….
+  if (!asks && (joined === 'so do i' || joined === 'neither do i')) {
+    teach(0, 1, joined === 'so do i'
+      ? '“So” (también) abre la respuesta: así decimos que a nosotros también nos gusta.'
+      : '“Neither” (tampoco) abre la respuesta: así decimos que a nosotros tampoco nos gusta.');
+    teach(1, 3, '“do I” va después, en este orden: primero “do” y al final “I”.');
+    return { explanations, relations, supported: true };
+  }
+  // 5.10: Anything else? / That's all, thank you.
+  const anything = /^anything else(?: (ana|luis|sofia|diego))?$/.exec(joined);
+  if (anything && asks) {
+    teach(0, 2, '“Anything else” (algo más) es una pregunta fija: “Anything” va antes de “else”.');
+    if (anything[1]) teach(2, 3, `${quote(tokens[2])}, el nombre de la persona, va al final, después de una coma.`);
+    return { explanations, relations, supported: true };
+  }
+  const all = /^(?:(yes|no) )?that's all(?: thank you)?$/.exec(joined);
+  if (all && !asks) {
+    const at = all[1] ? 1 : 0;
+    if (all[1]) teach(0, 1, `${quote(tokens[0])} responde primero, antes de “that's all”.`);
+    teach(at, at + 2, '“That’s all” (eso es todo) va junto: “That’s” antes de “all”.');
+    if (keys.length > at + 2) teach(at + 2, keys.length, '“thank you” (gracias) cierra la frase, después de “that’s all”.');
+    return { explanations, relations, supported: true };
+  }
+  // 5.3 and 5.14: Would you like some tea? / Would you like a piece of cake? 5.9: What would you like?
+  if (asks && joined === 'what would you like') {
+    teach(0, 1, '“What” (qué) abre la pregunta.');
+    teach(1, 4, '“would you like” va después de “What”: primero “would”, luego “you” y al final “like”.');
+    return { explanations, relations, supported: true };
+  }
+  // "Would you like to + a verb" (A1+ 7.7) is a different frame, so it is left to its own rule.
+  if (asks && /^would you like /.test(joined) && keys[3] !== 'to') {
+    teach(0, 3, '“Would you like” ofrece algo con cortesía: “Would” va primero, después “you” y luego “like”.');
+    return { explanations, relations, supported: nominal(3, keys.length) };
+  }
+  // 5.9 and 5.10: I'd like a sandwich, please. / Yes, I'd like some apples, please. / … too.
+  const like = /^(?:(yes) )?i'd like (.+?)(?: (too))?(?: (please))?$/.exec(joined);
+  if (like && !asks) {
+    const at = like[1] ? 1 : 0;
+    const end = keys.length - (like[3] ? 1 : 0) - (like[4] ? 1 : 0);
+    if (like[1]) teach(0, 1, '“Yes” responde primero, antes de “I’d like”.');
+    teach(at, at + 2, '“I’d like” (quisiera) pide con cortesía: “I’d” va antes de “like”.');
+    if (like[3]) teach(end, end + 1, '“too” (también) va al final: pedimos una cosa más.');
+    if (like[4]) teach(keys.length - 1, keys.length, '“please” (por favor) cierra el pedido, después de una coma.');
+    if (like[3] || like[4]) relations.push({ start: at + 2, end: keys.length, explanation: `Primero lo que pedimos, ${quote(phrase(at + 2, end))}; después ${quote(phrase(end, keys.length))} cierra la frase.` });
+    return { explanations, relations, supported: nominal(at + 2, end) };
+  }
+  // 5.6: want to / need to + a verb, and What do you want to do?
+  if (asks && /^what do you (want|need) to do$/.test(joined)) {
+    teach(0, 1, '“What” (qué) abre la pregunta.');
+    teach(1, 3, '“do you” va después de “What”, como en “Do you …?”.');
+    teach(3, 5, `${quote(phrase(3, 5))} va después de “you” y antes del verbo “do” (hacer), que cierra la pregunta.`);
+    teach(5, 6, '“do” (hacer) cierra la pregunta.');
+    return { explanations, relations, supported: true };
+  }
+  const wantTo = keys.findIndex((key, index) => index > 0 && ['want', 'wants', 'need', 'needs'].includes(key)
+    && keys[index + 1] === 'to' && ['eat', 'drink', 'buy', 'cook', 'go'].includes(keys[index + 2]));
+  if (wantTo > 0 && !asks) {
+    if (!subject(0, wantTo)) return { explanations, relations, supported: false };
+    teach(0, wantTo, `${quote(phrase(0, wantTo))} indica quién quiere o necesita y va antes de ${quote(tokens[wantTo])}.`);
+    teach(wantTo, wantTo + 2, `${quote(phrase(wantTo, wantTo + 2))} va antes de la acción: después de “to” el verbo no lleva -s.`);
+    teach(wantTo + 2, wantTo + 3, `${quote(tokens[wantTo + 2])} es la acción y va después de “to”.`);
+    const rest = wantTo + 3;
+    if (keys[wantTo + 2] === 'go' && joined.endsWith('go to bed') && rest + 2 === keys.length) {
+      teach(rest, keys.length, '“to bed” (a la cama) va después de “go”: “go to bed” es ir a dormir.');
+      return { explanations, relations, supported: true };
+    }
+    return { explanations, relations, supported: rest < keys.length && nominal(rest, keys.length) };
+  }
+  // 5.5 and 5.13 (with A1+ 1.8's don't): I don't like fish. / Sofia and Diego don't like fish.
+  const dont = keys.findIndex((key, index) => index > 0 && (key === "don't" || key === "doesn't"));
+  if (dont > 0 && keys[dont + 1] === 'like' && !asks) {
+    if (!subject(0, dont)) return { explanations, relations, supported: false };
+    teach(0, dont, `${quote(phrase(0, dont))} indica a quién no le gusta y va antes de ${quote(tokens[dont])}.`);
+    teach(dont, dont + 2, `${quote(phrase(dont, dont + 2))} niega: ${quote(tokens[dont])} va antes de “like”.`);
+    return { explanations, relations, supported: dont + 2 < keys.length && nominal(dont + 2, keys.length) };
+  }
+  // 5.7 (A1+ 4.7's past): Luis cooked dinner yesterday.
+  const past = keys.findIndex((key, index) => index > 0 && key.endsWith('ed') && VERBS.has(key));
+  if (past > 0 && keys[keys.length - 1] === 'yesterday' && past + 1 < keys.length - 1 && !asks) {
+    if (!subject(0, past)) return { explanations, relations, supported: false };
+    teach(0, past, `${quote(phrase(0, past))} indica quién realizó la acción y va antes de ${quote(tokens[past])}.`);
+    teach(past, past + 1, `${quote(tokens[past])} es el pasado de ${quote(tokens[past].slice(0, -2))}: termina en -ed y va después de quién lo hizo.`);
+    teach(keys.length - 1, keys.length, '“yesterday” (ayer) cierra la frase: dice cuándo pasó.');
+    relations.push(
+      { start: 0, end: past + 1, explanation: `Primero ${quote(phrase(0, past))}, quién lo hizo; después ${quote(tokens[past])}, la acción en pasado.` },
+      { start: past, end: keys.length - 1, explanation: `Después de ${quote(tokens[past])} va lo que se hizo: ${quote(phrase(past + 1, keys.length - 1))}.` },
+      { start: past + 1, end: keys.length, explanation: `${quote(phrase(past + 1, keys.length - 1))} va antes de “yesterday”, que cierra la frase.` },
+    );
+    return { explanations, relations, supported: nominal(past + 1, keys.length - 1) };
+  }
+  // 5.4: How much milk is there?
+  const muchThere = /^how much ([a-z]+) is there$/.exec(joined);
+  if (muchThere && asks && NOUNS.has(muchThere[1])) {
+    teach(0, 2, '“How much” (cuánto o cuánta) abre la pregunta, para algo que no se cuenta.');
+    teach(2, 3, `${quote(tokens[2])} va después de “How much”: es lo que preguntamos.`);
+    teach(3, 5, '“is there” cierra la pregunta: en la pregunta, “is” va antes de “there”.');
+    return { explanations, relations, supported: true };
+  }
+  // 5.2, 5.4 and 5.13: There's a little rice. / There isn't much milk. / There's chicken in it. / There isn't any …
+  // There isn't + a or the (There isn't a TV in the bedroom.) is A1+ 4.4's rule below; this one takes much and any.
+  const there = /^there('s .+| isn't (?:much|any) .+)$/.exec(joined);
+  if (there && !asks) {
+    const negative = keys[0] === 'there' && keys[1] === "isn't";
+    teach(0, 1, !negative
+      ? '“There’s” es la forma corta de “there is” (hay): abre la frase, antes de lo que hay.'
+      : '“There” abre la frase; “isn’t” (no hay) va después y niega.');
+    let start = 1;
+    if (negative) {
+      teach(1, 2, '“isn’t” es la forma corta de “is not”: va después de “There” y niega.');
+      start = 2;
+      if (keys[start] === 'much' || keys[start] === 'any') {
+        teach(start, start + 1, keys[start] === 'much'
+          ? '“much” (mucho o mucha) va después de “isn’t” y antes de algo que no se cuenta: no hay mucho.'
+          : '“any” va después de “isn’t” y antes de la cosa: no hay nada de ella.');
+        start++;
+      }
+    }
+    const inIt = keys[keys.length - 2] === 'in' && keys[keys.length - 1] === 'it' ? keys.length - 2 : keys.length;
+    if (inIt < keys.length) {
+      teach(inIt, keys.length, '“in it” (en él o en ella) cierra la frase: “it” es el plato del que hablamos.');
+      relations.push({ start: 1, end: keys.length, explanation: `Primero lo que hay, ${quote(phrase(1, inIt))}; después “in it” cierra la frase.` });
+    }
+    if (start >= inIt) return { explanations, relations, supported: false };
+    if (keys[start - 1] === 'much' || keys[start - 1] === 'any') {
+      if (start + 1 !== inIt || !NOUNS.has(keys[start])) return { explanations, relations, supported: false };
+      teach(start, inIt, `${quote(tokens[start])} es lo que no hay y va después de ${quote(tokens[start - 1])}.`);
+      return { explanations, relations, supported: true };
+    }
+    return { explanations, relations, supported: nominal(start, inIt) };
+  }
+  // 5.13: What's in it? / What's in the soup? / What's in it, Ana?
+  const inside = /^what's in (it|the [a-z]+)(?: (ana|luis|sofia|diego))?$/.exec(joined);
+  if (inside && asks) {
+    teach(0, 1, '“What’s” es la forma corta de “what is”: abre la pregunta.');
+    teach(1, 2, '“in” (en) va después de “What’s” y antes de lo que miramos por dentro.');
+    const end = inside[2] ? keys.length - 1 : keys.length;
+    if (inside[1] === 'it') teach(2, 3, '“it” es el plato del que hablamos y va después de “in”.');
+    else if (!nominal(2, end)) return { explanations, relations, supported: false };
+    if (inside[2]) teach(end, keys.length, `${quote(tokens[end])}, el nombre de la persona, va al final, después de una coma.`);
+    return { explanations, relations, supported: true };
+  }
+  // 5.14: Can you pass the salt, please? / Can you pass the salt, Ana?
+  const pass = /^can you pass (the [a-z]+)(?: (please|ana|luis|sofia|diego))?$/.exec(joined);
+  if (pass && asks) {
+    teach(0, 3, '“Can you pass” pide algo en la mesa: “Can” va primero, después “you” y luego “pass” (pasar).');
+    if (!nominal(3, 5)) return { explanations, relations, supported: false };
+    if (pass[2]) teach(5, 6, pass[2] === 'please'
+      ? '“please” (por favor) cierra el pedido, después de una coma.'
+      : `${quote(tokens[5])}, el nombre de la persona, va al final, después de una coma.`);
+    return { explanations, relations, supported: keys.length === (pass[2] ? 6 : 5) };
   }
   // A1+ 2.4 (2026-11-19): the short forms of be. A1 writes the full forms, so these never meet an A1 card.
   if (joined === "what's this" && text.trim().endsWith('?')) {
