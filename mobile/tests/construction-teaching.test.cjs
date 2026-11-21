@@ -162,6 +162,18 @@ test('Spanish course cards explain Spanish order, agreement, es/está and one-or
     'Me despiertas.', 'Lavamos nuestro ropa.', 'Ellos viene a mi casa.', 'Son las una.', 'Este es la cocina.', 'Vengo a la casa casa.']) {
     assert.equal(constructionTeachingPlan(card(unsupported)).supported, false, unsupported);
   }
+  // Spanish Unit 5: food, un poco de, gustar, prices, ¿Me da…?, Aquí está/están and usted questions.
+  for (const supported of ['El niño está comiendo arroz.', 'Hay un poco de agua.', 'Me gustan las manzanas.', 'No me gusta la leche.',
+    'Les gustan las uvas.', 'Me gustan el queso y la ensalada.', 'Como carne y verduras en la cena.', 'Ellos almuerzan a la una.',
+    'El jugo cuesta cuatro dólares.', '¿Cuánto cuesta la bolsa?', '¿Cuántas manzanas hay?', 'El precio es de un dólar.',
+    'Es el número cincuenta.', 'Es pan.', 'La pluma es barata.', '¿Me da café y huevos, por favor?', 'Aquí están sus tres manzanas.',
+    'Aquí está su bolsa azul.', '¿Quiere una bolsa?', 'A mí tampoco.', 'Muchas gracias.', 'Agua, por favor.']) {
+    assert.equal(constructionTeachingPlan(card(supported)).supported, true, supported);
+  }
+  for (const unsupported of ['Me gusta las manzanas.', 'Me gustan el café.', '¿Cuántos manzanas hay?', '¿Cuánto cuestan el jugo?',
+    'Aquí está sus tres manzanas.', 'La pluma es barato.', 'Hay un poco de manzanas.', 'Ellos almuerzan a las una.']) {
+    assert.equal(constructionTeachingPlan(card(unsupported)).supported, false, unsupported);
+  }
   const notDoing = choice('Ella no está leyendo.', 'Ella está leyendo.', 'She is not reading.');
   assert.equal(spanishChoiceHint(notDoing, 'wrong'),
     'You heard “Ella no está leyendo”: She is not reading. “no” before the verb means “not”.');
