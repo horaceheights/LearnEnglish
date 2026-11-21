@@ -22,6 +22,11 @@ const NOUN_KIND: Record<string, string> = {
   adulto: 'masculine singular', adultos: 'masculine plural',
   padre: 'masculine singular', madre: 'feminine singular', padres: 'masculine plural',
   abuelo: 'masculine singular', abuela: 'feminine singular', abuelos: 'masculine plural', nietos: 'masculine plural',
+  perro: 'masculine singular', gato: 'masculine singular', pájaro: 'masculine singular', conejo: 'masculine singular',
+  // mascota and persona are always feminine, whoever they name.
+  mascota: 'feminine singular', mascotas: 'feminine plural', persona: 'feminine singular', personas: 'feminine plural',
+  amiga: 'feminine singular', amigas: 'feminine plural', esposo: 'masculine singular', esposa: 'feminine singular',
+  hijo: 'masculine singular', hija: 'feminine singular',
 };
 const PRONOUNS = set('él ella ellos ellas');
 const PLURAL_PRONOUNS = set('ellos ellas');
@@ -31,7 +36,9 @@ const ACTIONS = set('comiendo bebiendo leyendo escribiendo corriendo nadando dur
 // Who-questions: quién (one person) takes es and él/ella; quiénes takes son and ellos/ellas.
 const QUESTION_WORDS: Record<string, boolean> = { quién: false, quiénes: true };
 // "Sitting" is a state word that agrees with who is sitting.
-const STATES: Record<string, string> = { sentado: 'masculine singular', sentados: 'masculine plural' };
+const STATES: Record<string, string> = {
+  sentado: 'masculine singular', sentada: 'feminine singular', sentados: 'masculine plural',
+};
 // One person against more than one: the verb is the only difference.
 const NUMBER_PAIRS: Record<string, string> = { es: 'son', está: 'están', sentado: 'sentados' };
 // Who someone is (ser) against what someone is doing (estar).
@@ -54,7 +61,7 @@ function teachClause(text: string): ClausePlan {
     explanations[index + 1] = `${quote(noun)} comes right after its article ${quote(article)}.`;
     relations.push({ start: index, end: index + 2, explanation: `In ${quote(`${article} ${noun}`)} the article comes first and matches the noun.` });
     index += 2;
-    return { text: `${article} ${noun}`, plural: NOUN_KIND[key(noun)].endsWith('plural') };
+    return { text: `${article} ${noun}`, plural: NOUN_KIND[key(noun)].endsWith('plural'), kind: NOUN_KIND[key(noun)] };
   };
   if (!tokens.length) return { explanations, relations, supported: false };
   if (key(tokens[0] || '') in QUESTION_WORDS) {
@@ -74,9 +81,11 @@ function teachClause(text: string): ClausePlan {
   const subjectStart = index;
   let subject = '';
   let plural = false;
+  const subjectKinds: string[] = [];
   if (PRONOUNS.has(key(tokens[index]))) {
     subject = tokens[index];
     plural = PLURAL_PRONOUNS.has(key(subject));
+    subjectKinds.push(key(subject).startsWith('ella') ? 'feminine' : 'masculine');
     explanations[index] = `${quote(subject)} is who the sentence is about, so it comes first.`;
     index += 1;
   } else if (ARTICLE_KIND[key(tokens[index])]) {
@@ -84,6 +93,7 @@ function teachClause(text: string): ClausePlan {
     if (!first) return { explanations, relations, supported: false };
     subject = first.text;
     plural = first.plural;
+    subjectKinds.push(first.kind);
     if (key(tokens[index] || '') === 'y') {
       const andIndex = index;
       index += 1;
@@ -92,6 +102,7 @@ function teachClause(text: string): ClausePlan {
       explanations[andIndex] = `“y” joins ${quote(first.text)} and ${quote(second.text)}, so it goes between them.`;
       relations.push({ start: subjectStart, end: index, explanation: `One person, then “y”, then the other; each noun keeps its own article.` });
       subject = `${first.text} y ${second.text}`;
+      subjectKinds.push(second.kind);
       plural = true;
     }
   }
@@ -132,9 +143,15 @@ function teachClause(text: string): ClausePlan {
       explanations[index] = `${quote(word)} is the action, so it comes right after ${quote(verb)}.`;
       relations.push({ start: verbIndex, end: index + 1, explanation: `${quote(verb)} + the action: ${quote(`${verb} ${word}`)}.` });
       index += 1;
-    } else if (STATES[key(word)] && STATES[key(word)].endsWith('plural') === verbPlural) {
+    } else if (STATES[key(word)] && STATES[key(word)].endsWith('plural') === verbPlural
+      // sentado/sentada agrees with who is sitting; any masculine noun makes the group masculine.
+      && (!subjectKinds.length || STATES[key(word)].startsWith(subjectKinds.some(kind => kind.startsWith('masculine')) ? 'masculine' : 'feminine'))) {
+      // A group with any masculine noun takes the masculine plural: las amigas y el conejo → sentados.
+      const mixed = verbPlural && subjectKinds.some(kind => kind.startsWith('feminine')) && subjectKinds.some(kind => kind.startsWith('masculine'));
       explanations[index] = `${quote(word)} describes how they are and matches ${verbPlural ? 'more than one person' : 'one person'}, so it comes after ${quote(verb)}.`;
-      relations.push({ start: verbIndex, end: index + 1, explanation: `${quote(verb)} + ${quote(word)}: sitting is ${quote('sentado')}, never an -ando form.` });
+      relations.push({ start: verbIndex, end: index + 1, explanation: mixed
+        ? `${quote(verb)} + ${quote(word)}: a group with a masculine noun takes the masculine plural ${quote('sentados')}.`
+        : `${quote(verb)} + ${quote(word)}: sitting is ${quote(key(word))}, never an -ando form.` });
       index += 1;
     } else {
       return { explanations, relations, supported: false };
