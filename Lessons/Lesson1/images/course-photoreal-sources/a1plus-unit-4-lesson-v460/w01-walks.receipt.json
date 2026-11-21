@@ -1,0 +1,62 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "ae0a9730-c8ff-47fd-8cc4-552d646df486",
+  "asset_id": "w01-walks",
+  "pack_sha256": "deb6bd3d2859b8046c4c128146a72569889acbbf02d0e284b27d613abb60f41d",
+  "started_at": "2026-11-21T03:08:45.079039+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, menus, screens, cups, clothes or bags.\n\nKeep the people and the thing that carries the meaning inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nOnly this one person is in the photo; there is nobody else, even far in the background.\n\nIt is clearly daytime with soft natural light.\n\nImage 1 shows a boy. Keep his face, short dark hair, blue short-sleeved button shirt and dark trousers exactly. Create a new photograph: a sunny morning on a quiet sidewalk. The boy walks to school with a green backpack on his back, mid-stride, smiling at the camera; behind him at the end of the sidewalk is a red-brick school building with big windows and a small playground with a slide in front of it. No cars, buses or bikes are anywhere in the photo.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1_photo_u4_rebuild_morning_dress_v1.webp",
+    "sha256": "f9b5fa2ca46c9d04013abf904b19abdde8c105c0191121a1794b2cb681ede674"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "OgsBa7PVIpusz7IP2Mv2-Aw",
+  "usage": {
+    "promptTokenCount": 571,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1861,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 313
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038871",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 571,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 10.06,
+  "output": "output/imagegen/a1plus-unit-4-lesson-v460/w01-walks.png",
+  "sha256": "095e141ce6d52476eafdea981d96ad02c3e7a9a389315d8048a03592a2c2c5f7",
+  "byte_count": 1720919,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}

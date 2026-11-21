@@ -1,0 +1,62 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "865aa4be-3b98-4f42-99bb-5026709d75e1",
+  "asset_id": "o13-tv-on",
+  "pack_sha256": "792cb48bd8bd8289982b34523a11e6d198ecc1fa3f41c6dde472822b32e6d2f8",
+  "started_at": "2026-11-21T03:13:04.299250+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, menus, screens, cups, clothes or bags.\n\nKeep the people and the thing that carries the meaning inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nOnly this one person is in the photo; there is nobody else, even far in the background.\n\nIt is evening: the window shows a dark blue sky.\n\nImage 1 shows Luis. Keep his face, short dark curly hair, warm medium-brown skin and navy T-shirt exactly. Create a new photograph, seen from the side and a little behind him, so that his face in profile and the whole TV screen are both clearly visible: Luis sits in a dark-blue armchair in his living room and holds ONE black remote control in his right hand, pointing it straight at a big flat TV across the room with his right arm stretched out. His left hand rests empty on his knee. There is only one remote control in the photo, and Luis has exactly two arms. The TV is ON: its big screen shows a bright, colorful picture of green mountains and a blue lake, with no words, numbers or logos.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1plus-unit-1-e03-404d00e7aea3f372.webp",
+    "sha256": "404d00e7aea3f37259071150e0053b031fc12f33e55603931397b3b285a2f631"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "PQwBa-ieMPWhz7IPqfTTyQs",
+  "usage": {
+    "promptTokenCount": 625,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1915,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 367
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038888",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 625,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 7.45,
+  "output": "output/imagegen/a1plus-unit-4-lesson-v421/o13-tv-on.png",
+  "sha256": "3be7c1451c174062369e4b9327fa7ed4098018f0da3d2a425f225160e216dc65",
+  "byte_count": 1215787,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}

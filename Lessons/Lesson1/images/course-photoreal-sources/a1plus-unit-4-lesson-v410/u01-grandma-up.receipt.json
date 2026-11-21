@@ -1,0 +1,62 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "e06e0cda-0d9a-4e2a-a9ce-d1000b731332",
+  "asset_id": "u01-grandma-up",
+  "pack_sha256": "8efa0f29cebda3716ea0298e8146934d035dfaf538a5629ae277ddbd650e2bd8",
+  "started_at": "2026-11-21T03:07:02.328077+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, menus, screens, cups, clothes or bags.\n\nThe place is the inside of a bright, tidy two-story family house in the daytime. The camera stands downstairs in the front hallway and looks at a straight wooden staircase that rises from the hallway floor to an open upstairs landing with a white wooden banister. The whole staircase, the hallway floor at its foot and the upstairs landing are all clearly visible in the photo, so it is obvious at a glance whether a person is upstairs or downstairs.\n\nOnly this one person is in the photo; there is nobody else, even far in the background.\n\nImage 1 shows a grandmother. Keep her face, short grey hair, thin glasses and light-blue cardigan over a white top exactly; she wears no apron and holds a folded white towel. Create a new photograph. She stands UPSTAIRS on the landing at the top of the stairs, one hand on the white banister, and smiles down toward the camera. Her whole body is visible up on the landing. The stairs and the downstairs hallway are empty.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1_photo_u4_grandmother_kitchen_v1.webp",
+    "sha256": "517414729fd933e3ae32d9dc46cdbd4d7f8afb2b3146227da6546a8b6157eff4"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "0woBa8inKoqsz7IPwoHC-Qs",
+  "usage": {
+    "promptTokenCount": 595,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1885,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 337
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038878",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 595,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 8.81,
+  "output": "output/imagegen/a1plus-unit-4-lesson-v410/u01-grandma-up.png",
+  "sha256": "f66d7357e35b86ef4d64a6ac58b3f20ddc9d67ddfd35fcd7228162665c96606e",
+  "byte_count": 1165009,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}
