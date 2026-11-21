@@ -1,0 +1,62 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "017bb803-f688-42e3-929d-2c3b57ccb093",
+  "asset_id": "k31-luna-behind-door",
+  "pack_sha256": "e8650da5a268cccfac9f988325cebdd74d8dddd6d6ad73e7d0fa1c411bbfceff",
+  "started_at": "2026-11-21T03:23:39.233381+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, menus, screens, cups, clothes or bags.\n\nKeep the people and the thing that carries the meaning inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nThere are no people anywhere in the photo.\n\nIt is clearly daytime with soft natural light.\n\nImage 1 shows Sofia's cat Luna, a grey-and-brown tabby with a white chest and white paws. Keep the cat exactly; Sofia is not in this photo. Create a new photograph in a bright, simple apartment hallway with a light wooden floor and a plain white wooden door in the middle of the photo. The door stands half open, its edge toward the camera. Luna is BEHIND the door: she peeks out from behind the edge of the door, so only her head and one white front paw show beside the door's edge, at the height of the floor; the door hides the rest of her body. Nothing is on the floor in front of the door, and there is only one cat in the photo.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1plus-unit-1-b02-e5098e7e718583b7.webp",
+    "sha256": "e5098e7e718583b7cb35d8568369b3e6d9bd562546e51d1e0d86560e43cb756d"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "uA4Ba--jKL3Uz7IPv7rC4Ag",
+  "usage": {
+    "promptTokenCount": 608,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1898,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 350
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038882",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 608,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 8.27,
+  "output": "output/imagegen/a1plus-unit-4-lesson-v433/k31-luna-behind-door.png",
+  "sha256": "cafd5f3e7416b67d8cdb16b4385d5c13109301ea062873405bf3071b1845a2fe",
+  "byte_count": 1027300,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}

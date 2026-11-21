@@ -1,0 +1,607 @@
+{
+  "brief_version": 1,
+  "follows": {
+    "course": "a1",
+    "lesson": "4.5",
+    "title": "Morning Routine"
+  },
+  "note": "A1+ Unit 4 Lesson 4.5, built on 2026-11-20 under the A1+ lesson standards approved 2026-10-27 and the user's 2026-11-09 rule that every A1+ lesson follows up the A1 lesson with the same number. The user approved the A1+ Unit 4 map on 2026-11-20 (A1+ 4.Y follows A1 4.Y, one step each; seventeen lessons) and asked for the Unit 2 and Unit 3 deal (\"Start working on A1+ Unit 4, same deal. make sure images make sense all the time\"): straight to Preview in batches, Gemini 2.5 Flash photos and ElevenLabs audio pre-approved, no per-lesson gates, reviewed in Preview. Four new photos (Gemini 2.5 Flash) of Luis's morning: he wakes up, brushes his teeth, washes his face and gets dressed. A1 4.5's photos of Ana's morning are reused.",
+  "target": "backend/lessons/a1_plus/unit_4/a1plus-unit-4-lesson-4-5.yaml",
+  "captions": false,
+  "narrators": [
+    "teacher",
+    "co-teacher"
+  ],
+  "answer_audio_policy": "authored-only",
+  "speak_delivery": "a1-pronunciation-v1",
+  "lesson": {
+    "id": "a1plus-unit-4-lesson-4-5",
+    "title": "4.5 Luis brushes his teeth",
+    "level": "A1+",
+    "unit_id": "a1plus-unit-4",
+    "unit_title": "Life at home, every day and yesterday",
+    "unit_outcome": "Say where people and things are at home, talk about the lights and machines, ask what there is, describe someone's morning in order, say what you did yesterday and on which day, ask and tell the time, say how often you do things and give dates.",
+    "lesson_id": "a1plus-unit-4-lesson-4-5",
+    "lesson_title": "Luis brushes his teeth",
+    "sub_lesson_id": "4.5",
+    "sub_lesson_title": "Luis brushes his teeth",
+    "goal": "Say what Ana and Luis do in the morning with the he/she form and his/her (Luis brushes his teeth. / Ana gets dressed.).",
+    "vocabulary": [
+      "wakes up",
+      "brushes",
+      "washes",
+      "gets dressed"
+    ],
+    "review_vocabulary": [
+      "wake up",
+      "brush",
+      "wash",
+      "get dressed",
+      "eat breakfast",
+      "eats",
+      "his",
+      "her",
+      "teeth",
+      "face",
+      "I",
+      "my",
+      "Ana",
+      "Luis"
+    ],
+    "grammar_function": "A follow-up of A1 4.5 Morning Routine: A1 says the routine with I (I brush my teeth.); A1+ 4.5 says it about Ana and Luis. The one new grammar relationship is the he/she form of the routine together with his or her: wakes up and gets dressed take -s, brush and wash take -es, said as one more syllable (BRUSH-iz, WASH-iz), and my becomes his or her (Ana brushes her teeth. / Luis washes his face.). Learn sets the I form against the he/she form, and Listen sets them against each other. A1 4.5's photos show the cast's Ana, and four new photos show Luis's morning, so picture banks set one person's action against the other actions and the other person. The morning is told with actions, not clock times.",
+    "prerequisite": "A1 4.5 the routine with I; A1+ 1.2 he/she -s; A1 3.10 his and her.",
+    "speaking_outcome": "Add a syllable to brushes and washes (BRUSH-iz, WASH-iz); keep the s of wakes and gets. Do not require native-like speed.",
+    "content_revision": 1,
+    "learn_context_groups": [
+      {
+        "kind": "contrast",
+        "targets": [
+          "wakes up"
+        ],
+        "models": [
+          {
+            "slide_id": "L1",
+            "text": "I wake up. Luis wakes up.",
+            "turns": [
+              "I wake up.",
+              "Luis wakes up."
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "contrast",
+        "targets": [
+          "gets dressed"
+        ],
+        "models": [
+          {
+            "slide_id": "L2",
+            "text": "I get dressed. Ana gets dressed.",
+            "turns": [
+              "I get dressed.",
+              "Ana gets dressed."
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "sequence",
+        "targets": [
+          "brushes"
+        ],
+        "models": [
+          {
+            "slide_id": "L3",
+            "text": "Luis brushes his teeth."
+          }
+        ]
+      },
+      {
+        "kind": "sequence",
+        "targets": [
+          "washes"
+        ],
+        "models": [
+          {
+            "slide_id": "L4",
+            "text": "Ana washes her face."
+          }
+        ]
+      }
+    ]
+  },
+  "items": [
+    {
+      "id": "l-wake",
+      "text": "I wake up. Luis wakes up.",
+      "es": "Me despierto. Luis se despierta.",
+      "image": "/lesson-assets/a1plus-unit-4-m01-8cefbfdbef7f4175.webp",
+      "kind": "contrast",
+      "choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "I wake up.",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-4-m01-8cefbfdbef7f4175.webp"
+        },
+        {
+          "text": "Luis wakes up.",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-4-m01-8cefbfdbef7f4175.webp"
+        }
+      ]
+    },
+    {
+      "id": "l-dress",
+      "text": "I get dressed. Ana gets dressed.",
+      "es": "Me visto. Ana se viste.",
+      "image": "/lesson-assets/a1_scene_ana-dressed_5135d82.webp",
+      "kind": "contrast",
+      "choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "I get dressed.",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1_scene_ana-dressed_5135d82.webp"
+        },
+        {
+          "text": "Ana gets dressed.",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1_scene_ana-dressed_5135d82.webp"
+        }
+      ]
+    },
+    {
+      "id": "l-brush",
+      "text": "Luis brushes his teeth.",
+      "es": "Luis se lava los dientes.",
+      "image": "/lesson-assets/a1plus-unit-4-m02-9b4f37b27e9ab841.webp",
+      "kind": "sequence",
+      "choices": false,
+      "use": false,
+      "speaker": "teacher"
+    },
+    {
+      "id": "l-wash",
+      "text": "Ana washes her face.",
+      "es": "Ana se lava la cara.",
+      "image": "/lesson-assets/a1_scene_ana-wash-face_4ea6c79.webp",
+      "kind": "sequence",
+      "choices": false,
+      "use": false,
+      "speaker": "co-teacher"
+    },
+    {
+      "id": "a-wake",
+      "text": "Luis wakes up.",
+      "es": "Luis se despierta.",
+      "image": "/lesson-assets/a1plus-unit-4-m01-8cefbfdbef7f4175.webp",
+      "kind": "morning",
+      "prefer": [
+        "Luis gets dressed."
+      ],
+      "accepts": {
+        "subject-variety": "The bank keeps the person and changes only the action the picture shows.",
+        "action-variety": "The bank keeps the person and changes only the action the picture shows.",
+        "conversational-response": "The bank keeps the person and changes only the action the picture shows.",
+        "reading-load": "The bank keeps the person and changes only the action the picture shows."
+      },
+      "blanks": [
+        "wakes",
+        "up"
+      ],
+      "use": true,
+      "learn": false
+    },
+    {
+      "id": "a-teeth",
+      "text": "Luis brushes his teeth.",
+      "es": "Luis se lava los dientes.",
+      "image": "/lesson-assets/a1plus-unit-4-m02-9b4f37b27e9ab841.webp",
+      "kind": "morning",
+      "prefer": [
+        "Luis washes his face."
+      ],
+      "accepts": {
+        "subject-variety": "The bank keeps the person and changes only the action the picture shows.",
+        "action-variety": "The bank keeps the person and changes only the action the picture shows.",
+        "conversational-response": "The bank keeps the person and changes only the action the picture shows.",
+        "reading-load": "The bank keeps the person and changes only the action the picture shows."
+      },
+      "blanks": [
+        "brushes",
+        "his"
+      ],
+      "use": true,
+      "learn": false
+    },
+    {
+      "id": "a-face",
+      "text": "Luis washes his face.",
+      "es": "Luis se lava la cara.",
+      "image": "/lesson-assets/a1plus-unit-4-m03-f34160ca82168ea8.webp",
+      "kind": "morning",
+      "prefer": [
+        "Luis brushes his teeth."
+      ],
+      "accepts": {
+        "subject-variety": "The bank keeps the person and changes only the action the picture shows.",
+        "action-variety": "The bank keeps the person and changes only the action the picture shows.",
+        "conversational-response": "The bank keeps the person and changes only the action the picture shows.",
+        "reading-load": "The bank keeps the person and changes only the action the picture shows."
+      },
+      "blanks": null,
+      "use": true,
+      "learn": false
+    },
+    {
+      "id": "a-dress",
+      "text": "Luis gets dressed.",
+      "es": "Luis se viste.",
+      "image": "/lesson-assets/a1plus-unit-4-m14-c34d38ca1f1c5f8f.webp",
+      "kind": "morning",
+      "prefer": [
+        "Luis wakes up."
+      ],
+      "accepts": {
+        "subject-variety": "The bank keeps the person and changes only the action the picture shows.",
+        "action-variety": "The bank keeps the person and changes only the action the picture shows.",
+        "conversational-response": "The bank keeps the person and changes only the action the picture shows.",
+        "reading-load": "The bank keeps the person and changes only the action the picture shows."
+      },
+      "blanks": null,
+      "use": true,
+      "learn": false
+    },
+    {
+      "id": "b-wake",
+      "text": "Ana wakes up.",
+      "es": "Ana se despierta.",
+      "image": "/lesson-assets/a1_scene_ana-wake_d91086e.webp",
+      "kind": "morning",
+      "prefer": [
+        "Ana gets dressed."
+      ],
+      "accepts": {
+        "subject-variety": "The bank keeps the person and changes only the action the picture shows.",
+        "action-variety": "The bank keeps the person and changes only the action the picture shows.",
+        "conversational-response": "The bank keeps the person and changes only the action the picture shows.",
+        "reading-load": "The bank keeps the person and changes only the action the picture shows."
+      },
+      "blanks": null,
+      "use": true,
+      "learn": false
+    },
+    {
+      "id": "b-teeth",
+      "text": "Ana brushes her teeth.",
+      "es": "Ana se lava los dientes.",
+      "image": "/lesson-assets/a1_scene_ana-brush-teeth_d6ccad2.webp",
+      "kind": "morning",
+      "prefer": [
+        "Ana washes her face."
+      ],
+      "accepts": {
+        "subject-variety": "The bank keeps the person and changes only the action the picture shows.",
+        "action-variety": "The bank keeps the person and changes only the action the picture shows.",
+        "conversational-response": "The bank keeps the person and changes only the action the picture shows.",
+        "reading-load": "The bank keeps the person and changes only the action the picture shows."
+      },
+      "blanks": null,
+      "use": true,
+      "learn": false
+    },
+    {
+      "id": "b-face",
+      "text": "Ana washes her face.",
+      "es": "Ana se lava la cara.",
+      "image": "/lesson-assets/a1_scene_ana-wash-face_4ea6c79.webp",
+      "kind": "morning",
+      "prefer": [
+        "Ana brushes her teeth."
+      ],
+      "accepts": {
+        "subject-variety": "The bank keeps the person and changes only the action the picture shows.",
+        "action-variety": "The bank keeps the person and changes only the action the picture shows.",
+        "conversational-response": "The bank keeps the person and changes only the action the picture shows.",
+        "reading-load": "The bank keeps the person and changes only the action the picture shows."
+      },
+      "blanks": [
+        "washes",
+        "her"
+      ],
+      "use": true,
+      "learn": false
+    },
+    {
+      "id": "b-dress",
+      "text": "Ana gets dressed.",
+      "es": "Ana se viste.",
+      "image": "/lesson-assets/a1_scene_ana-dressed_5135d82.webp",
+      "kind": "morning",
+      "prefer": [
+        "Ana wakes up."
+      ],
+      "accepts": {
+        "subject-variety": "The bank keeps the person and changes only the action the picture shows.",
+        "action-variety": "The bank keeps the person and changes only the action the picture shows.",
+        "conversational-response": "The bank keeps the person and changes only the action the picture shows.",
+        "reading-load": "The bank keeps the person and changes only the action the picture shows."
+      },
+      "blanks": [
+        "gets",
+        "dressed"
+      ],
+      "use": true,
+      "learn": false
+    },
+    {
+      "id": "b-breakfast",
+      "text": "Ana eats breakfast.",
+      "es": "Ana desayuna.",
+      "image": "/lesson-assets/a1_scene_ana-breakfast_e7fbea5.webp",
+      "kind": "morning",
+      "prefer": [
+        "Ana brushes her teeth."
+      ],
+      "accepts": {
+        "subject-variety": "The bank keeps the person and changes only the action the picture shows.",
+        "action-variety": "The bank keeps the person and changes only the action the picture shows.",
+        "conversational-response": "The bank keeps the person and changes only the action the picture shows.",
+        "reading-load": "The bank keeps the person and changes only the action the picture shows."
+      },
+      "blanks": null,
+      "use": false,
+      "learn": false
+    },
+    {
+      "id": "p-her",
+      "text": "Ana washes her face.",
+      "es": "Ana se lava la cara.",
+      "image": "/lesson-assets/a1_scene_ana-wash-face_4ea6c79.webp",
+      "kind": "pron",
+      "prefer": [
+        "Ana washes his face."
+      ],
+      "accepts": {
+        "subject-variety": "The bank keeps the person and the action and changes only his or her; Ana's is her, Luis's is his.",
+        "action-variety": "The bank keeps the person and the action and changes only his or her; Ana's is her, Luis's is his.",
+        "conversational-response": "The bank keeps the person and the action and changes only his or her; Ana's is her, Luis's is his.",
+        "reading-load": "The bank keeps the person and the action and changes only his or her; Ana's is her, Luis's is his."
+      },
+      "image_choices": false,
+      "use": false,
+      "learn": false
+    },
+    {
+      "id": "p-his",
+      "text": "Luis brushes his teeth.",
+      "es": "Luis se lava los dientes.",
+      "image": "/lesson-assets/a1plus-unit-4-m02-9b4f37b27e9ab841.webp",
+      "kind": "pron2",
+      "prefer": [
+        "Luis brushes her teeth."
+      ],
+      "accepts": {
+        "subject-variety": "The bank keeps the person and the action and changes only his or her; Ana's is her, Luis's is his.",
+        "action-variety": "The bank keeps the person and the action and changes only his or her; Ana's is her, Luis's is his.",
+        "conversational-response": "The bank keeps the person and the action and changes only his or her; Ana's is her, Luis's is his.",
+        "reading-load": "The bank keeps the person and the action and changes only his or her; Ana's is her, Luis's is his."
+      },
+      "image_choices": false,
+      "use": false,
+      "learn": false
+    },
+    {
+      "id": "lw-wake",
+      "text": "Luis wakes up.",
+      "es": "Luis se despierta.",
+      "image": "/lesson-assets/a1plus-unit-4-m01-8cefbfdbef7f4175.webp",
+      "kind": "heard-lw-wake",
+      "prefer": [
+        "I wake up."
+      ],
+      "accepts": {
+        "subject-variety": "Listen sets the he/she form against the I form; the answer is what was heard.",
+        "action-variety": "Listen sets the he/she form against the I form; the answer is what was heard.",
+        "conversational-response": "Listen sets the he/she form against the I form; the answer is what was heard.",
+        "reading-load": "Listen sets the he/she form against the I form; the answer is what was heard."
+      },
+      "image_choices": false,
+      "use": false,
+      "learn": false
+    },
+    {
+      "id": "lw-brush",
+      "text": "Ana brushes her teeth.",
+      "es": "Ana se lava los dientes.",
+      "image": "/lesson-assets/a1_scene_ana-brush-teeth_d6ccad2.webp",
+      "kind": "heard-lw-brush",
+      "prefer": [
+        "I brush my teeth."
+      ],
+      "accepts": {
+        "subject-variety": "Listen sets the he/she form against the I form; the answer is what was heard.",
+        "action-variety": "Listen sets the he/she form against the I form; the answer is what was heard.",
+        "conversational-response": "Listen sets the he/she form against the I form; the answer is what was heard.",
+        "reading-load": "Listen sets the he/she form against the I form; the answer is what was heard."
+      },
+      "image_choices": false,
+      "use": false,
+      "learn": false
+    },
+    {
+      "id": "lw-wash",
+      "text": "Luis washes his face.",
+      "es": "Luis se lava la cara.",
+      "image": "/lesson-assets/a1plus-unit-4-m03-f34160ca82168ea8.webp",
+      "kind": "heard-lw-wash",
+      "prefer": [
+        "I wash my face."
+      ],
+      "accepts": {
+        "subject-variety": "Listen sets the he/she form against the I form; the answer is what was heard.",
+        "action-variety": "Listen sets the he/she form against the I form; the answer is what was heard.",
+        "conversational-response": "Listen sets the he/she form against the I form; the answer is what was heard.",
+        "reading-load": "Listen sets the he/she form against the I form; the answer is what was heard."
+      },
+      "image_choices": false,
+      "use": false,
+      "learn": false
+    }
+  ],
+  "pool": [
+    {
+      "text": "Luis gets dressed.",
+      "es": "Luis se viste.",
+      "image": "/lesson-assets/a1plus-unit-4-m01-8cefbfdbef7f4175.webp",
+      "kind": "morning",
+      "image_choices": false
+    },
+    {
+      "text": "Luis washes his face.",
+      "es": "Luis se lava la cara.",
+      "image": "/lesson-assets/a1plus-unit-4-m02-9b4f37b27e9ab841.webp",
+      "kind": "morning",
+      "image_choices": false
+    },
+    {
+      "text": "Luis brushes his teeth.",
+      "es": "Luis se lava los dientes.",
+      "image": "/lesson-assets/a1plus-unit-4-m03-f34160ca82168ea8.webp",
+      "kind": "morning",
+      "image_choices": false
+    },
+    {
+      "text": "Luis wakes up.",
+      "es": "Luis se despierta.",
+      "image": "/lesson-assets/a1plus-unit-4-m14-c34d38ca1f1c5f8f.webp",
+      "kind": "morning",
+      "image_choices": false
+    },
+    {
+      "text": "Ana gets dressed.",
+      "es": "Ana se viste.",
+      "image": "/lesson-assets/a1_scene_ana-wake_d91086e.webp",
+      "kind": "morning",
+      "image_choices": false
+    },
+    {
+      "text": "Ana washes her face.",
+      "es": "Ana se lava la cara.",
+      "image": "/lesson-assets/a1_scene_ana-brush-teeth_d6ccad2.webp",
+      "kind": "morning",
+      "image_choices": false
+    },
+    {
+      "text": "Ana brushes her teeth.",
+      "es": "Ana se lava los dientes.",
+      "image": "/lesson-assets/a1_scene_ana-wash-face_4ea6c79.webp",
+      "kind": "morning",
+      "image_choices": false
+    },
+    {
+      "text": "Ana wakes up.",
+      "es": "Ana se despierta.",
+      "image": "/lesson-assets/a1_scene_ana-dressed_5135d82.webp",
+      "kind": "morning",
+      "image_choices": false
+    },
+    {
+      "text": "Ana washes his face.",
+      "es": "Ana le lava la cara a él.",
+      "image": "/lesson-assets/a1_scene_ana-wash-face_4ea6c79.webp",
+      "kind": "pron",
+      "image_choices": false
+    },
+    {
+      "text": "Luis brushes her teeth.",
+      "es": "Luis le lava los dientes a ella.",
+      "image": "/lesson-assets/a1plus-unit-4-m02-9b4f37b27e9ab841.webp",
+      "kind": "pron2",
+      "image_choices": false
+    },
+    {
+      "text": "I wake up.",
+      "es": "Me despierto.",
+      "image": "/lesson-assets/a1plus-unit-4-m01-8cefbfdbef7f4175.webp",
+      "kind": "heard-lw-wake",
+      "image_choices": false
+    },
+    {
+      "text": "I brush my teeth.",
+      "es": "Me lavo los dientes.",
+      "image": "/lesson-assets/a1_scene_ana-brush-teeth_d6ccad2.webp",
+      "kind": "heard-lw-brush",
+      "image_choices": false
+    },
+    {
+      "text": "I wash my face.",
+      "es": "Me lavo la cara.",
+      "image": "/lesson-assets/a1plus-unit-4-m03-f34160ca82168ea8.webp",
+      "kind": "heard-lw-wash",
+      "image_choices": false
+    }
+  ],
+  "layout": {
+    "Recognize": 10,
+    "Listen": 10,
+    "Speak": 8,
+    "Use": 8
+  },
+  "stage_sequences": {
+    "Learn": [
+      "l-wake",
+      "l-dress",
+      "l-brush",
+      "l-wash"
+    ],
+    "Recognize": [
+      "a-teeth",
+      "p-her",
+      "b-wake",
+      "a-dress",
+      "b-face",
+      "p-his",
+      "a-wake",
+      "b-breakfast",
+      "b-teeth",
+      "a-face"
+    ],
+    "Listen": [
+      "b-teeth",
+      "lw-wake",
+      "a-face",
+      "b-dress",
+      "lw-brush",
+      "a-teeth",
+      "b-wake",
+      "lw-wash",
+      "a-dress",
+      "b-face"
+    ],
+    "Speak": [
+      "a-teeth",
+      "b-face",
+      "a-wake",
+      "b-dress",
+      "a-face",
+      "b-teeth",
+      "a-dress",
+      "b-wake"
+    ],
+    "Use": [
+      "a-teeth",
+      "b-face",
+      "a-wake",
+      "b-dress",
+      "a-face",
+      "b-teeth",
+      "a-dress",
+      "b-wake"
+    ]
+  }
+}

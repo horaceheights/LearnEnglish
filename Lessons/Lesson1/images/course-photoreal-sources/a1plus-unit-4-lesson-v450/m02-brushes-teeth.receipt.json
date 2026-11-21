@@ -1,0 +1,62 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "2dc91793-7d98-4226-92aa-752e0f9386a3",
+  "asset_id": "m02-brushes-teeth",
+  "pack_sha256": "0daa735ad310e6a60bf7940985af141cb7a29f6ae4e08a76e3355431f9a5cf5d",
+  "started_at": "2026-11-21T03:08:21.065545+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, menus, screens, cups, clothes or bags.\n\nKeep the people and the thing that carries the meaning inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nOnly this one person is in the photo; there is nobody else, even far in the background.\n\nImage 1 shows Luis. Keep his face, short dark curly hair, clean-shaven face and warm medium-brown skin exactly. Create a new photograph: morning in his bright white bathroom. Luis stands at the sink and brushes his teeth with a blue toothbrush, a little white toothpaste foam at his mouth, seen from the front so his face and the toothbrush are clearly visible. He wears a plain grey T-shirt and grey pajama trousers.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1plus-unit-1-q01-135c3f8f772bcbe4.webp",
+    "sha256": "135c3f8f772bcbe472b8cec719eb02318a7d52ce1c7152a94c6952aeb78566c2"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "IgsBa6KmGPzZqtsPw9vBqQ4",
+  "usage": {
+    "promptTokenCount": 547,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1837,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 289
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038864",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 547,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 10.27,
+  "output": "output/imagegen/a1plus-unit-4-lesson-v450/m02-brushes-teeth.png",
+  "sha256": "df055559e589df5a8e66e76070b1b85c3019ec451de80f96efe09a8fba16390f",
+  "byte_count": 1274307,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}
