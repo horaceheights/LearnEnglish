@@ -71,6 +71,8 @@ for (const noun of words('color buses watches men women')) NOUNS.add(noun);
 for (const noun of words('classroom desk')) NOUNS.add(noun);
 // A1+ 3.13 (2026-11-20): a neighbor (My neighbor lives at 18 Park Street.).
 NOUNS.add('neighbor');
+// A1+ 4.15-4.16 (2026-11-21): cups on a table (There are some cups on the table.).
+for (const noun of words('cup cups')) NOUNS.add(noun);
 // A1+ Unit 5 (2026-11-20): food and things its constructions name.
 for (const noun of words('pasta potatoes tomatoes plates cups chocolate')) NOUNS.add(noun);
 // A1+ 5.1-5.2, 5.9 and 5.14 (2026-11-20): an amount before a noun (a lot of apples, a few eggs, a little rice,
@@ -158,6 +160,8 @@ VERBS.add('plays');
 for (const verb of words('cooks read')) VERBS.add(verb);
 // A1+ 2.2 (2026-11-19): Sofia walks to the park.
 VERBS.add('walks');
+// A1+ 4.12 (2026-11-21): how often people do things (Diego paints twice a week. / Luis watches TV every weekend.).
+for (const verb of words('paints watches')) VERBS.add(verb);
 // A1+ 5.7 and 5.15 (2026-11-20): Ana washes her hands before dinner. / Luis cooked dinner yesterday.
 for (const verb of words('washes cooked')) VERBS.add(verb);
 // A word that is both a noun and a verb ("drinks", "work") is the noun right after an article or a
@@ -169,6 +173,17 @@ const FREQUENCY = set('always usually sometimes never');
 const ROUTINE_BASE = set('leave arrive start finish study work wake get eat wash brush come go sleep drink walk play watch open close clean run take put meet cook');
 // A1+ 1.9 (2026-11-18): live after does (Where does your aunt live?).
 ROUTINE_BASE.add('live');
+// A1+ 4.12 (2026-11-21): How often do you swim?
+for (const verb of words('swim paint')) ROUTINE_BASE.add(verb);
+// A1+ 4.12-4.14 (2026-11-21): a time at the end of the sentence says how often or when (Diego runs once a week. /
+// Ana painted her bedroom last year.).
+const TIME_TAILS: Record<string, string> = {
+  'once a week': 'una vez por semana', 'twice a week': 'dos veces por semana', 'every weekend': 'todos los fines de semana',
+  'last week': 'la semana pasada', 'last month': 'el mes pasado', 'last year': 'el año pasado',
+};
+// A1+ 4.13 (2026-11-21): a date is on + a month + an ordinal number (It's on March fifth.).
+const MONTHS = set('january february march april may june july august september october november december');
+const DATE_ORDINALS = set('first second third fourth fifth sixth seventh eighth ninth tenth');
 
 type Relation = { start: number; end: number; explanation: string };
 type ClausePlan = { explanations: string[]; relations: Relation[]; supported: boolean };
@@ -208,7 +223,7 @@ function teachClause(text: string): ClausePlan {
       return true;
     }
     let head = start;
-    if (DETERMINERS.has(keys[head]) || NUMBERS.has(keys[head]) || keys[head] === 'some') head++;
+    if (DETERMINERS.has(keys[head]) || NUMBERS.has(keys[head]) || keys[head] === 'some' || keys[head] === 'any') head++;
     // "This one" / "that one" (A1+ 2.5): here "one" stands for the thing, not the number.
     const pointedOne = keys[head] === 'one' && head + 1 === end && ['this', 'that'].includes(keys[start]);
     if (head > start && DETERMINERS.has(keys[start]) && NUMBERS.has(keys[head]) && !pointedOne) head++;
@@ -251,6 +266,8 @@ function teachClause(text: string): ClausePlan {
         ? `En ${quote(phrase(start, end))}, ${NUMBERS.has(first) ? 'la cantidad va primero, después el color y al final el nombre' : 'el color va antes del nombre que describe'}.`
         : described >= 0
         ? `En ${quote(phrase(start, end))}, ${quote(tokens[described])} describe ${quote(tokens[head])} y va antes del nombre.`
+        : first === 'any'
+          ? `En ${quote(phrase(start, end))}, “any” va antes del nombre en una pregunta o después de “not”: pregunta o niega si hay.`
         : NUMBERS.has(first) || first === 'some'
           ? `En ${quote(phrase(start, end))}, la cantidad va antes del nombre: primero cuánto hay y después qué es.`
           : ['my', 'your', 'his', 'her', 'its', 'our', 'their'].includes(first)
@@ -292,6 +309,38 @@ function teachClause(text: string): ClausePlan {
       const valid = nominal(start + 1, end);
       teach(start, end, `“${tokens[start]}” significa ${keys[start] === 'before' ? 'antes de' : 'después de'}; va antes de ${quote(phrase(start + 1, end))}, el momento de referencia.`);
       return valid;
+    }
+    // A1+ 4.7 (2026-11-20): She cleaned the table yesterday.
+    if (tail === 'yesterday') {
+      teach(start, end, `“Yesterday” (ayer) va al final, después de ${quote(anchor)}, y dice cuándo pasó.`);
+      return true;
+    }
+    // A1+ 4.12-4.14 (2026-11-21): once a week, every weekend or last week closes the sentence.
+    for (const [time, meaning] of Object.entries(TIME_TAILS)) {
+      const size = time.split(' ').length;
+      if (end - start >= size && keys.slice(end - size, end).join(' ') === time) {
+        const at = end - size;
+        teach(at, end, `${quote(phrase(at, end))} (${meaning}) va al final, después de ${quote(at > start ? phrase(start, at) : anchor)}, y dice ${time.startsWith('last') ? 'cuándo pasó' : 'con qué frecuencia pasa'}.`);
+        return at === start || complement(start, at, anchor);
+      }
+    }
+    // A1+ 4.13 (2026-11-21): My birthday is on March fifth.
+    if (end - start === 3 && keys[start] === 'on' && MONTHS.has(keys[start + 1]) && DATE_ORDINALS.has(keys[start + 2])) {
+      teach(start, start + 1, `“on” va después de ${quote(anchor)} y antes de la fecha: ${quote(original)}.`);
+      teach(start + 1, end, `${quote(phrase(start + 1, end))} es la fecha: primero el mes y después el número de orden.`);
+      return true;
+    }
+    // A1+ 4.14 (2026-11-21): it or them alone after a past verb (He washed it last month.).
+    if (end - start === 1 && (keys[start] === 'it' || keys[start] === 'them')) {
+      teach(start, end, `${quote(original)} reemplaza a ${keys[start] === 'it' ? 'una cosa ya nombrada' : 'varias cosas ya nombradas'} y va justo después de ${quote(anchor)}.`);
+      return true;
+    }
+    // A1+ 4.10 (2026-11-20): Ana starts work at half past eight.
+    const halfPast = /^at half past ([a-z]+)$/.exec(tail);
+    if (halfPast && NUMBERS.has(halfPast[1])) {
+      teach(start, start + 1, `“at” va antes de la hora: ${quote(original)}.`);
+      teach(start + 1, end, `${quote(phrase(start + 1, end))} es la hora y media: primero “half past” y al final la hora.`);
+      return true;
     }
     if (tail === 'today') {
       teach(start, end, `En este modelo, “today” va al final, después de ${quote(anchor)}, para situar la acción en hoy.`);
@@ -477,7 +526,7 @@ function teachClause(text: string): ClausePlan {
     }
     // A noun group may be followed by where/when it occurs or a contrast.
     // A1+ 1.11 (2026-11-18): the noun group may also be followed by who it is done with (cooks dinner with him).
-    const boundary = keys.findIndex((key, index) => index > start && index < end && ['in', 'on', 'under', 'next', 'near', 'by', 'at', 'for', 'every', 'not', 'here', 'there', 'before', 'after', 'today', 'with'].includes(key));
+    const boundary = keys.findIndex((key, index) => index > start && index < end && ['in', 'on', 'under', 'next', 'near', 'by', 'at', 'for', 'every', 'not', 'here', 'there', 'before', 'after', 'today', 'with', 'yesterday'].includes(key));
     const nounEnd = boundary < 0 ? end : boundary;
     teach(start, nounEnd, `${quote(phrase(start, nounEnd))} indica ${/^(am|is|are)$/i.test(anchor) ? 'qué es el sujeto' : 'qué recibe o completa la acción'}; en esta frase va después de ${quote(anchor)}.`);
     if (!nominal(start, nounEnd)) return false;
@@ -490,6 +539,51 @@ function teachClause(text: string): ClausePlan {
   };
 
   const joined = keys.join(' ');
+  // A1+ 4.7-4.9 (2026-11-20): the past with -ed is the same for every person (She cleaned the table yesterday.).
+  const PAST_ED: Record<string, string> = { cleaned: 'clean', washed: 'wash', opened: 'open', worked: 'work', watched: 'watch', painted: 'paint' };
+  const pastVerb = keys.findIndex((key, index) => index > 0 && PAST_ED[key]);
+  if (pastVerb > 0 && !text.trim().endsWith('?') && !keys.includes("didn't") && !keys.includes('and') && subject(0, pastVerb)) {
+    teach(0, pastVerb, `En esta afirmación, ${quote(phrase(0, pastVerb))} dice quién lo hizo y va antes de ${quote(tokens[pastVerb])}.`);
+    teach(pastVerb, pastVerb + 1, `${quote(tokens[pastVerb])} es el pasado de ${quote(PAST_ED[keys[pastVerb]])}: la terminación -ed dice que ya pasó y es igual con todas las personas.`);
+    const supported = pastVerb + 1 === keys.length || complement(pastVerb + 1, keys.length, tokens[pastVerb]);
+    return { explanations, relations, supported: supported && explanations.every(Boolean) };
+  }
+  // A1+ 4.8 (2026-11-20): Did you…? / Did she…? asks about the past; after Did the verb is the base form.
+  const didQuestion = /^did (i|you|he|she|it|we|they|ana|luis|sofia|diego) /.exec(joined + ' ');
+  if (didQuestion && text.trim().endsWith('?') && keys.length > 3) {
+    const inner = teachClause('I ' + phrase(2, keys.length) + '.');
+    if (!inner.supported) return { explanations, relations, supported: false };
+    relations.push({ start: 0, end: keys.length, explanation: `En esta pregunta, primero “Did”, luego ${quote(tokens[1])} y después la acción ${quote(tokens[2])} en forma base.` });
+    teach(0, 1, '“Did” abre la pregunta sobre el pasado y va antes de la persona.');
+    teach(1, 2, `${quote(tokens[1])} es la persona; va entre “Did” y la acción.`);
+    teach(2, 3, `${quote(tokens[2])} va en forma base, sin -ed: “Did” ya dice que es pasado.`);
+    inner.explanations.slice(2).forEach((why, index) => { explanations[3 + index] = why; });
+    relations.push(...inner.relations.filter(relation => relation.start > 1)
+      .map(relation => ({ ...relation, start: relation.start + 1, end: relation.end + 1 })));
+    return { explanations, relations, supported: explanations.every(Boolean) };
+  }
+  const shortDid = /^(yes|no) (i|you|he|she|it|we|they) (did|didn't)$/.exec(joined);
+  if (shortDid && (shortDid[1] === 'yes') === (shortDid[3] === 'did')) {
+    teach(0, 1, `En esta respuesta corta, ${quote(tokens[0])} va primero; después ${quote(tokens[1])} y ${quote(tokens[2])}, sin repetir la acción.`);
+    teach(1, 3, `${quote(tokens[1])} va antes de ${quote(tokens[2])}, que responde a la pregunta con “Did”.`);
+    return { explanations, relations, supported: true };
+  }
+  // A1+ 4.11 (2026-11-20): it and them stand for a thing already named, right after the verb (She uses it.).
+  const objectPronoun = /^(she|he|they|ana|i) (uses|use|gives|give|makes|make|wants|want|finds|find) (it|them)$/.exec(keys.slice(0, 3).join(' '));
+  if (objectPronoun && !text.trim().endsWith('?')) {
+    teach(0, 1, `${quote(tokens[0])} dice quién realiza la acción y va antes de ${quote(tokens[1])}.`);
+    teach(1, 2, `${quote(tokens[1])} es la acción; va antes de la cosa que recibe.`);
+    teach(2, 3, `${quote(tokens[2])} reemplaza a ${keys[2] === 'it' ? 'una cosa ya nombrada' : 'varias cosas ya nombradas'} y va justo después de ${quote(tokens[1])}.`);
+    if (keys.length === 3) return { explanations, relations, supported: true };
+    let supported: boolean;
+    if (keys[3] === 'to') {
+      teach(3, 4, `“to” va después de ${quote(tokens[2])} y antes de la persona que lo recibe.`);
+      supported = nominal(4, keys.length);
+    } else {
+      supported = complement(3, keys.length, tokens[2]);
+    }
+    return { explanations, relations, supported: supported && explanations.every(Boolean) };
+  }
   // A1+ 4.6 (2026-11-20): "and then" joins two actions of one person; the second has no subject
   // (He gets dressed and then eats breakfast.).
   const andThen = keys.findIndex((key, index) => index > 1 && key === 'and' && keys[index + 1] === 'then');
@@ -611,12 +705,13 @@ function teachClause(text: string): ClausePlan {
     const supported = complement(verb + 1, keys.length, tokens[verb]);
     return { explanations, relations, supported: supported && explanations.every(Boolean) };
   }
-  const negative = keys.findIndex(key => ["doesn't", "don't"].includes(key));
+  // A1+ 4.9 (2026-11-20) adds didn't, the same for every person (He didn't work on Sunday.).
+  const negative = keys.findIndex(key => ["doesn't", "don't", "didn't"].includes(key));
   // A1+ 2.3 (2026-11-19): I don't have a camera.
   if (negative > 0 && (ROUTINE_BASE.has(keys[negative + 1]) || keys[negative + 1] === 'have') && subject(0, negative)) {
     const person = phrase(0, negative).toLowerCase();
     const thirdPerson = ['he', 'she', 'it', 'ana', 'luis', 'sofia', 'diego'].includes(person);
-    if ((keys[negative] === "doesn't") !== thirdPerson) return { explanations, relations, supported: false };
+    if (keys[negative] !== "didn't" && (keys[negative] === "doesn't") !== thirdPerson) return { explanations, relations, supported: false };
     const inner = teachClause('I ' + phrase(negative + 1, keys.length) + '.');
     if (!inner.supported) return { explanations, relations, supported: false };
     teach(0, keys.length, `En esta negación, primero ${quote(phrase(0, negative))}, luego ${quote(tokens[negative])} y después la acción ${quote(tokens[negative + 1])}.`);
@@ -796,7 +891,8 @@ function teachClause(text: string): ClausePlan {
     relations.push({ start: 2, end: 4, explanation: `${quote(tokens[2])} indica por quién preguntamos y va antes de “doing”, la acción que queremos conocer.` });
     return { explanations, relations, supported: true };
   }
-  const question = /^(who|what number|what color|what time|what day|what|where|how old|how much|how) (am|is|are) (.+)$/.exec(joined);
+  // A1+ 4.13 (2026-11-21) adds When is your birthday?
+  const question = /^(who|what number|what color|what time|what day|what|where|when|how old|how much|how) (am|is|are) (.+)$/.exec(joined);
   if (question && text.trim().endsWith('?')) {
     const verbIndex = words(question[1]).length;
     const dayToday = ((keys[0] === 'what' && keys[1] === 'day') || (keys[0] === 'how' && keys.includes('weather')))
@@ -1124,6 +1220,24 @@ function teachClause(text: string): ClausePlan {
     teach(2, keys.length, '“do you want” va después: “do” antes de “you”, y al final “want”, lo que quieres.');
     return { explanations, relations, supported: explanations.every(Boolean) };
   }
+  // A1+ 4.13 (2026-11-21): It's on March fifth. answers When is …?
+  if (keys[0] === "it's" && keys.length === 4 && keys[1] === 'on' && MONTHS.has(keys[2]) && DATE_ORDINALS.has(keys[3])
+    && !text.trim().endsWith('?')) {
+    teach(0, 1, '“It’s” es la forma corta de “it is”: “it” (eso) y “is” (es) van juntos al principio.');
+    const supported = complement(1, 4, tokens[0]);
+    return { explanations, relations, supported: supported && explanations.every(Boolean) };
+  }
+  // A1+ 4.15 (2026-11-21): Yes, there are some. / No, there aren't any. (aren't reaches this rule as are not)
+  const shortThere = /^(yes|no) there (is|are)( not)?( some| any)?$/.exec(joined);
+  if (shortThere && (shortThere[1] === 'yes') === !shortThere[3] && !text.trim().endsWith('?')) {
+    teach(0, 1, `En esta respuesta corta, ${quote(tokens[0])} va primero y después ${quote(phrase(1, 3))}, sin repetir lo que hay.`);
+    teach(1, 3, `${quote(phrase(1, 3))} va después de ${quote(tokens[0])}: “there” va antes de ${quote(tokens[2])}.`);
+    if (shortThere[3]) teach(3, 4, `“not” va después de ${quote(tokens[2])} para decir que no hay.`);
+    if (shortThere[4]) teach(keys.length - 1, keys.length, keys[keys.length - 1] === 'some'
+      ? '“some” cierra la respuesta: hay algunos, sin repetir cuáles.'
+      : '“any” cierra la respuesta negativa: no hay ninguno.');
+    return { explanations, relations, supported: explanations.every(Boolean) };
+  }
   const shortIs = keys[0] === "it's" ? 1 : keys[0] === 'it' && keys[1] === "isn't" ? 2 : 0;
   if (shortIs && keys.length > shortIs && !text.trim().endsWith('?')) {
     teach(0, shortIs, shortIs === 1
@@ -1160,8 +1274,9 @@ function teachClause(text: string): ClausePlan {
     teach(0, 1, `${quote(tokens[0])} indica ${order} y abre esta frase, antes de quien realiza la acción.`);
     start = 1;
   }
+  // A word that is also a noun stays the noun after a number too (Three watches are on the table.).
   const verbIndex = keys.findIndex((key, index) => index > start && VERBS.has(key)
-    && !(NOUNS.has(key) && NOUN_MARKERS.has(keys[index - 1])));
+    && !(NOUNS.has(key) && (NOUN_MARKERS.has(keys[index - 1]) || NUMBERS.has(keys[index - 1]))));
   if (verbIndex < 0) {
     const supported = subject(start, keys.length);
     return { explanations, relations, supported: supported && explanations.every(Boolean) };

@@ -1,4 +1,5 @@
 import json
+import re
 from pathlib import Path
 import unittest
 
@@ -8,6 +9,10 @@ from backend.app.data import COURSE_LESSONS
 from backend.app.pronunciation_scoring import _speech_words
 
 ROOT = Path(__file__).resolve().parents[2]
+FIRST_PERSON = re.compile(r"\b(ich|mein|meine|meinen)\b", re.IGNORECASE)
+MASCULINE_ROLES = set("lehrer arzt koch fahrer bauer krankenpfleger kellner polizist künstler sänger arbeiter mechaniker "
+                      "mexikaner amerikaner kanadier spanier".split())
+FEMININE_ROLES = {"ärztin", "köchin", "bäuerin"} | {role + "in" for role in MASCULINE_ROLES - {"arzt", "koch", "bauer"}}
 
 
 class GermanCourseTests(unittest.TestCase):
@@ -34,6 +39,7 @@ class GermanCourseTests(unittest.TestCase):
         self.assertEqual(NARRATOR_VOICE_IDS[narrator_for_speaker("de-co-teacher")], "TUKJhQmz3RPYBNAgC5A1")
         lessons = COURSE_LESSONS["de-a1"].values()
         self.assertTrue(lessons)
+        narrators = {"de-teacher", "de-co-teacher"}
         for lesson in lessons:
             self.assertEqual(lesson.level, "Deutsch A1")
             mission = getattr(lesson, "experience_type", None) == "mission"
@@ -46,6 +52,18 @@ class GermanCourseTests(unittest.TestCase):
                 else:
                     expected = "de-teacher" if position[card.stage] % 2 else "de-co-teacher"
                 self.assertEqual(card.target_language, "de", (lesson.id, card.slide_id))
+                turns = [*(card.audio_turns or []), *(getattr(card, "answer_audio_turns", None) or [])]
+                if lesson.unit_id not in ("de-a1-unit-1", "de-a1-unit-2") and (
+                        turns or FIRST_PERSON.search(card.audio_text or card.answer_audio_text or "")):
+                    # German Unit 3 (2026-11-21): in a dialogue each speaker keeps a voice of their
+                    # gender, and a first-person line is read by the narrator of the speaker's gender.
+                    self.assertIn(card.audio_speaker, narrators | {None}, (lesson.id, card.slide_id))
+                    self.assertTrue({turn.speaker_role for turn in turns} <= narrators, (lesson.id, card.slide_id))
+                    for asset in card.audio_assets:
+                        if mission and "mission-intro" in asset.id:
+                            continue
+                        self.assertIn(asset.speaker_role, narrators, asset.id)
+                    continue
                 self.assertEqual(card.audio_speaker, expected, (lesson.id, card.slide_id))
                 for asset in card.audio_assets:
                     if mission and "mission-intro" in asset.id:
@@ -69,6 +87,33 @@ class GermanCourseTests(unittest.TestCase):
         self.assertEqual(getattr(COURSE_LESSONS["de-a1"]["de-a1-unit-2-lesson-2-15"], "experience_type", None), "mission")
         self.assertEqual(len(COURSE_LESSONS["de-a1"]["de-a1-unit-2-lesson-2-15"].cards), 15)
         self.assertEqual(len(COURSE_LESSONS["de-a1"]["de-a1-unit-2-lesson-2-14"].cards), 72)
+
+    def test_unit_3_has_sixteen_lessons_ending_in_review_and_mission(self):
+        # User approval of the German Unit 3 map ("Approve, build"), 2026-11-21.
+        ids = [lesson.id for lesson in COURSE_LESSONS["de-a1"].values() if lesson.unit_id == "de-a1-unit-3"]
+        self.assertEqual(sorted(ids), sorted(f"de-a1-unit-3-lesson-3-{n}" for n in range(1, 17)))
+        self.assertEqual(getattr(COURSE_LESSONS["de-a1"]["de-a1-unit-3-lesson-3-16"], "experience_type", None), "mission")
+        self.assertEqual(len(COURSE_LESSONS["de-a1"]["de-a1-unit-3-lesson-3-16"].cards), 16)
+        self.assertEqual(len(COURSE_LESSONS["de-a1"]["de-a1-unit-3-lesson-3-15"].cards), 58)
+
+    def test_unit_3_first_person_lines_match_the_speaker_and_use_du_only(self):
+        # A woman says Ich bin Lehrerin in Carola's voice; a man says Ich bin Lehrer in the
+        # co-teacher's voice. The polite Sie and ihr (you plural) are not taught in Unit 3.
+        for lesson in COURSE_LESSONS["de-a1"].values():
+            if lesson.unit_id != "de-a1-unit-3":
+                continue
+            for card in lesson.cards:
+                text = card.audio_text or card.answer_audio_text or ""
+                words = _speech_words(text)
+                for word, after in zip(words, words[1:]):
+                    self.assertFalse(word == "ihr" and after in {"seid", "macht", "habt", "kommt"}, (lesson.id, card.slide_id, text))
+                if card.audio_turns or getattr(card, "answer_audio_turns", None) or getattr(lesson, "experience_type", None) == "mission":
+                    continue
+                match = re.search(r"\bIch bin (\w+)\b", text)
+                if match and match.group(1).lower() in FEMININE_ROLES:
+                    self.assertEqual(card.audio_speaker, "de-teacher", (lesson.id, card.slide_id))
+                elif match and match.group(1).lower() in MASCULINE_ROLES:
+                    self.assertEqual(card.audio_speaker, "de-co-teacher", (lesson.id, card.slide_id))
 
     def test_unit_2_keeps_colors_and_sizes_after_the_noun(self):
         # Singular adjective endings (ein roter Bus) are deferred: German Unit 2 says

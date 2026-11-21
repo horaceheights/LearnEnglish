@@ -1,0 +1,55 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "b8f85d8b-2f26-4cd7-bf08-c7e52fd4ba19",
+  "asset_id": "w14-lamps",
+  "pack_sha256": "cbaf154fe98a134066b31c379f2ffeb22df91d6bcd6913c20591cf1be0ec2a4d",
+  "started_at": "2026-11-21T08:26:10.594969+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, menus, screens, cups, clothes or bags.\n\nThe place is Ana's bright, modern apartment on a Saturday: an open living and dining room with a light-grey sofa, a light wooden dining table with chairs, a big window, a big flat TV on a low white cabinet and a few plants.\n\nThere are no people and no animals anywhere in the photo.\n\nIt is evening: the big window shows a dark blue sky.\n\nThe TV and the computer show no words, numbers or logos.\n\nAna's living room in the evening, with nobody in it and the long curtains closed over the window, so there are no reflections anywhere. Seen straight from the front, four things stand in one row, clearly apart from each other and all inside the middle 80 percent of the photo width, from left to right: a tall floor lamp with a white fabric shade that is ON, its shade glowing brightly with warm yellow light; a big flat TV on a low white cabinet that is ON, its screen showing a bright, colorful picture of green mountains and a blue lake; a second tall floor lamp, exactly like the first one and just as large, that is OFF, its shade dull grey and dark with no light at all; and an open laptop computer on a small wooden desk that is OFF, its screen completely black. Only the first lamp and the TV give light; there is no other lamp or light in the photo.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "n1UBa9GwD5utqtsPyPm-qA4",
+  "usage": {
+    "promptTokenCount": 416,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1706,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 416
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038825",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 416,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 7.39,
+  "output": "output/imagegen/a1plus-unit-4-lesson-v4171/w14-lamps.png",
+  "sha256": "0688fa4e8f20946184d83e7b97a007cd868201c217ef48da0da8ab7ca4b8215b",
+  "byte_count": 1286809,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}

@@ -1,0 +1,918 @@
+{
+  "brief_version": 1,
+  "follows": {
+    "course": "a1",
+    "lesson": "4.10",
+    "title": "What Time Is It?"
+  },
+  "note": "A1+ Unit 4 Lesson 4.10, built on 2026-11-20 under the A1+ lesson standards approved 2026-10-27 and the user's 2026-11-09 rule that every A1+ lesson follows up the A1 lesson with the same number. The user approved the A1+ Unit 4 map on 2026-11-20 (A1+ 4.Y follows A1 4.Y, one step each; seventeen lessons) and asked for the Unit 2 and Unit 3 deal (\"Start working on A1+ Unit 4, same deal. make sure images make sense all the time\"): straight to Preview in batches, Gemini 2.5 Flash photos and ElevenLabs audio pre-approved, no per-lesson gates, reviewed in Preview. No new photos: A1+ 1.1's reviewed workday photos of Ana and Luis (leaving home, starting work, finishing work, arriving home, talking), with times on the shared teaching clock.",
+  "target": "backend/lessons/a1_plus/unit_4/a1plus-unit-4-lesson-4-10.yaml",
+  "captions": false,
+  "narrators": [
+    "teacher",
+    "co-teacher"
+  ],
+  "answer_audio_policy": "authored-only",
+  "speak_delivery": "a1-pronunciation-v1",
+  "lesson": {
+    "id": "a1plus-unit-4-lesson-4-10",
+    "title": "4.10 I start work at half past eight",
+    "level": "A1+",
+    "unit_id": "a1plus-unit-4",
+    "unit_title": "Life at home, every day and yesterday",
+    "unit_outcome": "Say where people and things are at home, talk about the lights and machines, ask what there is, describe someone's morning in order, say what you did yesterday and on which day, ask and tell the time, say how often you do things and give dates.",
+    "lesson_id": "a1plus-unit-4-lesson-4-10",
+    "lesson_title": "I start work at half past eight",
+    "sub_lesson_id": "4.10",
+    "sub_lesson_title": "I start work at half past eight",
+    "goal": "Ask and say when people start and finish work, with half past and o'clock (What time do you start work? I start work at half past eight.).",
+    "vocabulary": [
+      "half past",
+      "start work",
+      "finish work",
+      "What time do you"
+    ],
+    "review_vocabulary": [
+      "o'clock",
+      "at",
+      "leaves",
+      "arrives",
+      "home",
+      "starts",
+      "finishes",
+      "seven",
+      "eight",
+      "nine",
+      "four",
+      "five",
+      "six",
+      "What time",
+      "I",
+      "Ana",
+      "Luis"
+    ],
+    "grammar_function": "A follow-up of A1 4.10 What Time Is It?: A1 reads whole hours; A1+ 4.10 adds half past (half past eight) and asks about the workday with What time do you…? (What time do you start work? I start work at half past nine.). It is the only Unit 4 lesson with clock times, after the user's 2026-10-31 note that A1+ drilled clock time too much; the times hang on start work and finish work. The stated time is shown by the shared teaching clock, never by a photograph: A1+ 1.1's reviewed workday photos of Ana and Luis show no clock. Picture banks change only the person, never the time, and keep each person's start and finish (and leave and arrive) photos apart because they are close scenes; Listen sets half past against o'clock.",
+    "prerequisite": "A1 4.10 What time is it? / o'clock; A1+ 1.2 he/she -s; A1 6.12 What time does … leave?",
+    "speaking_outcome": "Say half past as one group (HAF-past) before the hour; start and finish keep their final sounds. Do not require native-like speed.",
+    "content_revision": 1,
+    "learn_context_groups": [
+      {
+        "kind": "sequence",
+        "targets": [
+          "start work",
+          "half past"
+        ],
+        "models": [
+          {
+            "slide_id": "L1",
+            "text": "I start work at half past eight."
+          }
+        ]
+      },
+      {
+        "kind": "exchange",
+        "targets": [
+          "What time do you",
+          "start work",
+          "half past"
+        ],
+        "models": [
+          {
+            "slide_id": "L2",
+            "text": "What time do you start work? I start work at half past nine.",
+            "turns": [
+              "What time do you start work?",
+              "I start work at half past nine."
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "sequence",
+        "targets": [
+          "finish work"
+        ],
+        "models": [
+          {
+            "slide_id": "L3",
+            "text": "I finish work at six o'clock."
+          }
+        ]
+      },
+      {
+        "kind": "exchange",
+        "targets": [
+          "What time do you",
+          "finish work"
+        ],
+        "models": [
+          {
+            "slide_id": "L4",
+            "text": "What time do you finish work? I finish work at four o'clock.",
+            "turns": [
+              "What time do you finish work?",
+              "I finish work at four o'clock."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "items": [
+    {
+      "id": "l-start",
+      "text": "I start work at half past eight.",
+      "es": "Empiezo a trabajar a las ocho y media.",
+      "image": "/lesson-assets/a1plus-unit-1-03-4b46d47974611e0e.webp",
+      "kind": "sequence",
+      "choices": false,
+      "use": false,
+      "speaker": "teacher",
+      "clock": {
+        "hour": 8,
+        "minute": 30
+      }
+    },
+    {
+      "id": "l-ask",
+      "text": "What time do you start work? I start work at half past nine.",
+      "es": "¿A qué hora empiezas a trabajar? A las nueve y media.",
+      "image": "/lesson-assets/a1plus-unit-1-05-5f0e93499fa3f0fc.webp",
+      "kind": "exchange",
+      "choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "What time do you start work?",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-1-05-5f0e93499fa3f0fc.webp"
+        },
+        {
+          "text": "I start work at half past nine.",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-1-05-5f0e93499fa3f0fc.webp",
+          "clock": {
+            "hour": 9,
+            "minute": 30
+          }
+        }
+      ]
+    },
+    {
+      "id": "l-finish",
+      "text": "I finish work at six o'clock.",
+      "es": "Termino de trabajar a las seis.",
+      "image": "/lesson-assets/a1plus-unit-1-16-c619dda46ab94abc.webp",
+      "kind": "sequence",
+      "choices": false,
+      "use": false,
+      "speaker": "co-teacher",
+      "clock": {
+        "hour": 6,
+        "minute": 0
+      }
+    },
+    {
+      "id": "l-ask2",
+      "text": "What time do you finish work? I finish work at four o'clock.",
+      "es": "¿A qué hora terminas de trabajar? A las cuatro.",
+      "image": "/lesson-assets/a1plus-unit-1-05-5f0e93499fa3f0fc.webp",
+      "kind": "exchange",
+      "choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "What time do you finish work?",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-1-05-5f0e93499fa3f0fc.webp"
+        },
+        {
+          "text": "I finish work at four o'clock.",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-1-05-5f0e93499fa3f0fc.webp",
+          "clock": {
+            "hour": 4,
+            "minute": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": "t-ana-leave",
+      "text": "Ana leaves home at half past seven.",
+      "es": "Ana sale de casa a las siete y media.",
+      "image": "/lesson-assets/a1plus-unit-1-01-89bf8aaaa67a79a6.webp",
+      "kind": "day",
+      "prefer": [
+        "Luis leaves home at nine o'clock."
+      ],
+      "accepts": {
+        "subject-variety": "The bank changes the person the picture shows; times are told apart only by what is heard and by the clock.",
+        "action-variety": "The bank changes the person the picture shows; times are told apart only by what is heard and by the clock.",
+        "conversational-response": "The bank changes the person the picture shows; times are told apart only by what is heard and by the clock.",
+        "reading-load": "The bank changes the person the picture shows; times are told apart only by what is heard and by the clock."
+      },
+      "avoid": [
+        "Ana arrives home at five o'clock."
+      ],
+      "blanks": null,
+      "clock": {
+        "hour": 7,
+        "minute": 30
+      },
+      "use": false,
+      "learn": false
+    },
+    {
+      "id": "t-ana-start",
+      "text": "Ana starts work at half past eight.",
+      "es": "Ana empieza a trabajar a las ocho y media.",
+      "image": "/lesson-assets/a1plus-unit-1-03-4b46d47974611e0e.webp",
+      "kind": "day",
+      "prefer": [
+        "Luis starts work at half past nine."
+      ],
+      "accepts": {
+        "subject-variety": "The bank changes the person the picture shows; times are told apart only by what is heard and by the clock.",
+        "action-variety": "The bank changes the person the picture shows; times are told apart only by what is heard and by the clock.",
+        "conversational-response": "The bank changes the person the picture shows; times are told apart only by what is heard and by the clock.",
+        "reading-load": "The bank changes the person the picture shows; times are told apart only by what is heard and by the clock."
+      },
+      "avoid": [
+        "Ana finishes work at four o'clock."
+      ],
+      "blanks": [
+        "half",
+        "past"
+      ],
+      "clock": {
+        "hour": 8,
+        "minute": 30
+      },
+      "use": true,
+      "learn": false
+    },
+    {
+      "id": "t-ana-finish",
+      "text": "Ana finishes work at four o'clock.",
+      "es": "Ana termina de trabajar a las cuatro.",
+      "image": "/lesson-assets/a1plus-unit-1-04-171744c29f68887e.webp",
+      "kind": "day",
+      "prefer": [
+        "Luis finishes work at six o'clock."
+      ],
+      "accepts": {
+        "subject-variety": "The bank changes the person the picture shows; times are told apart only by what is heard and by the clock.",
+        "action-variety": "The bank changes the person the picture shows; times are told apart only by what is heard and by the clock.",
+        "conversational-response": "The bank changes the person the picture shows; times are told apart only by what is heard and by the clock.",
+        "reading-load": "The bank changes the person the picture shows; times are told apart only by what is heard and by the clock."
+      },
+      "avoid": [
+        "Ana starts work at half past eight."
+      ],
+      "blanks": [
+        "work",
+        "at"
+      ],
+      "clock": {
+        "hour": 4,
+        "minute": 0
+      },
+      "use": true,
+      "learn": false
+    },
+    {
+      "id": "t-ana-home",
+      "text": "Ana arrives home at five o'clock.",
+      "es": "Ana llega a casa a las cinco.",
+      "image": "/lesson-assets/a1plus-unit-1-02-3ad100b718cc310c.webp",
+      "kind": "day",
+      "prefer": [
+        "Luis arrives home at half past six."
+      ],
+      "accepts": {
+        "subject-variety": "The bank changes the person the picture shows; times are told apart only by what is heard and by the clock.",
+        "action-variety": "The bank changes the person the picture shows; times are told apart only by what is heard and by the clock.",
+        "conversational-response": "The bank changes the person the picture shows; times are told apart only by what is heard and by the clock.",
+        "reading-load": "The bank changes the person the picture shows; times are told apart only by what is heard and by the clock."
+      },
+      "avoid": [
+        "Ana leaves home at half past seven."
+      ],
+      "blanks": null,
+      "clock": {
+        "hour": 5,
+        "minute": 0
+      },
+      "use": false,
+      "learn": false
+    },
+    {
+      "id": "t-luis-leave",
+      "text": "Luis leaves home at nine o'clock.",
+      "es": "Luis sale de casa a las nueve.",
+      "image": "/lesson-assets/a1plus-unit-1-t19-eec22d7a324abbdc.webp",
+      "kind": "day",
+      "prefer": [
+        "Ana leaves home at half past seven."
+      ],
+      "accepts": {
+        "subject-variety": "The bank changes the person the picture shows; times are told apart only by what is heard and by the clock.",
+        "action-variety": "The bank changes the person the picture shows; times are told apart only by what is heard and by the clock.",
+        "conversational-response": "The bank changes the person the picture shows; times are told apart only by what is heard and by the clock.",
+        "reading-load": "The bank changes the person the picture shows; times are told apart only by what is heard and by the clock."
+      },
+      "avoid": [
+        "Luis arrives home at half past six."
+      ],
+      "blanks": null,
+      "clock": {
+        "hour": 9,
+        "minute": 0
+      },
+      "use": false,
+      "learn": false
+    },
+    {
+      "id": "t-luis-start",
+      "text": "Luis starts work at half past nine.",
+      "es": "Luis empieza a trabajar a las nueve y media.",
+      "image": "/lesson-assets/a1plus-unit-1-t20-9b499b2f4d509ecd.webp",
+      "kind": "day",
+      "prefer": [
+        "Ana starts work at half past eight."
+      ],
+      "accepts": {
+        "subject-variety": "The bank changes the person the picture shows; times are told apart only by what is heard and by the clock.",
+        "action-variety": "The bank changes the person the picture shows; times are told apart only by what is heard and by the clock.",
+        "conversational-response": "The bank changes the person the picture shows; times are told apart only by what is heard and by the clock.",
+        "reading-load": "The bank changes the person the picture shows; times are told apart only by what is heard and by the clock."
+      },
+      "avoid": [
+        "Luis finishes work at six o'clock."
+      ],
+      "blanks": [
+        "at",
+        "half"
+      ],
+      "clock": {
+        "hour": 9,
+        "minute": 30
+      },
+      "use": true,
+      "learn": false
+    },
+    {
+      "id": "t-luis-finish",
+      "text": "Luis finishes work at six o'clock.",
+      "es": "Luis termina de trabajar a las seis.",
+      "image": "/lesson-assets/a1plus-unit-1-16-c619dda46ab94abc.webp",
+      "kind": "day",
+      "prefer": [
+        "Ana finishes work at four o'clock."
+      ],
+      "accepts": {
+        "subject-variety": "The bank changes the person the picture shows; times are told apart only by what is heard and by the clock.",
+        "action-variety": "The bank changes the person the picture shows; times are told apart only by what is heard and by the clock.",
+        "conversational-response": "The bank changes the person the picture shows; times are told apart only by what is heard and by the clock.",
+        "reading-load": "The bank changes the person the picture shows; times are told apart only by what is heard and by the clock."
+      },
+      "avoid": [
+        "Luis starts work at half past nine."
+      ],
+      "blanks": null,
+      "clock": {
+        "hour": 6,
+        "minute": 0
+      },
+      "use": false,
+      "learn": false
+    },
+    {
+      "id": "t-luis-home",
+      "text": "Luis arrives home at half past six.",
+      "es": "Luis llega a casa a las seis y media.",
+      "image": "/lesson-assets/a1plus-unit-1-t21-4712bffae46aeb72.webp",
+      "kind": "day",
+      "prefer": [
+        "Ana arrives home at five o'clock."
+      ],
+      "accepts": {
+        "subject-variety": "The bank changes the person the picture shows; times are told apart only by what is heard and by the clock.",
+        "action-variety": "The bank changes the person the picture shows; times are told apart only by what is heard and by the clock.",
+        "conversational-response": "The bank changes the person the picture shows; times are told apart only by what is heard and by the clock.",
+        "reading-load": "The bank changes the person the picture shows; times are told apart only by what is heard and by the clock."
+      },
+      "avoid": [
+        "Luis leaves home at nine o'clock."
+      ],
+      "blanks": [
+        "half",
+        "past"
+      ],
+      "clock": {
+        "hour": 6,
+        "minute": 30
+      },
+      "use": true,
+      "learn": false
+    },
+    {
+      "id": "lt-start",
+      "text": "Ana starts work at half past eight.",
+      "es": "Ana empieza a trabajar a las ocho y media.",
+      "image": "/lesson-assets/a1plus-unit-1-03-4b46d47974611e0e.webp",
+      "kind": "heard-lt-start",
+      "prefer": [
+        "Ana starts work at eight o'clock."
+      ],
+      "accepts": {
+        "subject-variety": "Listen sets the past against the present or one detail against another; the answer is what was heard.",
+        "action-variety": "Listen sets the past against the present or one detail against another; the answer is what was heard.",
+        "conversational-response": "Listen sets the past against the present or one detail against another; the answer is what was heard.",
+        "reading-load": "Listen sets the past against the present or one detail against another; the answer is what was heard."
+      },
+      "image_choices": false,
+      "use": false,
+      "clock": {
+        "hour": 8,
+        "minute": 30
+      },
+      "learn": false
+    },
+    {
+      "id": "lt-home",
+      "text": "Luis arrives home at half past six.",
+      "es": "Luis llega a casa a las seis y media.",
+      "image": "/lesson-assets/a1plus-unit-1-t21-4712bffae46aeb72.webp",
+      "kind": "heard-lt-home",
+      "prefer": [
+        "Luis arrives home at six o'clock."
+      ],
+      "accepts": {
+        "subject-variety": "Listen sets the past against the present or one detail against another; the answer is what was heard.",
+        "action-variety": "Listen sets the past against the present or one detail against another; the answer is what was heard.",
+        "conversational-response": "Listen sets the past against the present or one detail against another; the answer is what was heard.",
+        "reading-load": "Listen sets the past against the present or one detail against another; the answer is what was heard."
+      },
+      "image_choices": false,
+      "use": false,
+      "clock": {
+        "hour": 6,
+        "minute": 30
+      },
+      "learn": false
+    },
+    {
+      "id": "lt-leave",
+      "text": "Ana leaves home at half past seven.",
+      "es": "Ana sale de casa a las siete y media.",
+      "image": "/lesson-assets/a1plus-unit-1-01-89bf8aaaa67a79a6.webp",
+      "kind": "heard-lt-leave",
+      "prefer": [
+        "Ana leaves home at seven o'clock."
+      ],
+      "accepts": {
+        "subject-variety": "Listen sets the past against the present or one detail against another; the answer is what was heard.",
+        "action-variety": "Listen sets the past against the present or one detail against another; the answer is what was heard.",
+        "conversational-response": "Listen sets the past against the present or one detail against another; the answer is what was heard.",
+        "reading-load": "Listen sets the past against the present or one detail against another; the answer is what was heard."
+      },
+      "image_choices": false,
+      "use": false,
+      "clock": {
+        "hour": 7,
+        "minute": 30
+      },
+      "learn": false
+    },
+    {
+      "id": "lt-finish",
+      "text": "Luis finishes work at six o'clock.",
+      "es": "Luis termina de trabajar a las seis.",
+      "image": "/lesson-assets/a1plus-unit-1-16-c619dda46ab94abc.webp",
+      "kind": "heard-lt-finish",
+      "prefer": [
+        "Luis finishes work at half past six."
+      ],
+      "accepts": {
+        "subject-variety": "Listen sets the past against the present or one detail against another; the answer is what was heard.",
+        "action-variety": "Listen sets the past against the present or one detail against another; the answer is what was heard.",
+        "conversational-response": "Listen sets the past against the present or one detail against another; the answer is what was heard.",
+        "reading-load": "Listen sets the past against the present or one detail against another; the answer is what was heard."
+      },
+      "image_choices": false,
+      "use": false,
+      "clock": {
+        "hour": 6,
+        "minute": 0
+      },
+      "learn": false
+    },
+    {
+      "id": "lt-i-start",
+      "text": "I start work at half past eight.",
+      "es": "Empiezo a trabajar a las ocho y media.",
+      "image": "/lesson-assets/a1plus-unit-1-03-4b46d47974611e0e.webp",
+      "kind": "heard-lt-i-start",
+      "prefer": [
+        "I start work at eight o'clock."
+      ],
+      "accepts": {
+        "subject-variety": "Listen sets the past against the present or one detail against another; the answer is what was heard.",
+        "action-variety": "Listen sets the past against the present or one detail against another; the answer is what was heard.",
+        "conversational-response": "Listen sets the past against the present or one detail against another; the answer is what was heard.",
+        "reading-load": "Listen sets the past against the present or one detail against another; the answer is what was heard."
+      },
+      "image_choices": false,
+      "use": false,
+      "clock": {
+        "hour": 8,
+        "minute": 30
+      },
+      "speaker": "teacher",
+      "learn": false
+    },
+    {
+      "id": "lt-i-finish",
+      "text": "I finish work at six o'clock.",
+      "es": "Termino de trabajar a las seis.",
+      "image": "/lesson-assets/a1plus-unit-1-16-c619dda46ab94abc.webp",
+      "kind": "heard-lt-i-finish",
+      "prefer": [
+        "I finish work at half past six."
+      ],
+      "accepts": {
+        "subject-variety": "Listen sets the past against the present or one detail against another; the answer is what was heard.",
+        "action-variety": "Listen sets the past against the present or one detail against another; the answer is what was heard.",
+        "conversational-response": "Listen sets the past against the present or one detail against another; the answer is what was heard.",
+        "reading-load": "Listen sets the past against the present or one detail against another; the answer is what was heard."
+      },
+      "image_choices": false,
+      "use": false,
+      "clock": {
+        "hour": 6,
+        "minute": 0
+      },
+      "speaker": "co-teacher",
+      "learn": false
+    },
+    {
+      "id": "rq-start",
+      "text": "I start work at half past eight.",
+      "es": "Empiezo a trabajar a las ocho y media.",
+      "image": "/lesson-assets/a1plus-unit-1-03-4b46d47974611e0e.webp",
+      "kind": "rq1",
+      "question": "What time do you start work?",
+      "question_es": "¿A qué hora empiezas a trabajar?",
+      "question_speaker": "co-teacher",
+      "speaker": "teacher",
+      "use": false,
+      "image_choices": false,
+      "prefer": [
+        "I finish work at half past eight."
+      ],
+      "accepts": {
+        "subject-variety": "The answer keeps the time and changes only start or finish; the question decides it.",
+        "action-variety": "The answer keeps the time and changes only start or finish; the question decides it.",
+        "conversational-response": "The answer keeps the time and changes only start or finish; the question decides it.",
+        "reading-load": "The answer keeps the time and changes only start or finish; the question decides it."
+      },
+      "learn": false
+    },
+    {
+      "id": "rq-finish",
+      "text": "I finish work at six o'clock.",
+      "es": "Termino de trabajar a las seis.",
+      "image": "/lesson-assets/a1plus-unit-1-16-c619dda46ab94abc.webp",
+      "kind": "rq2",
+      "question": "What time do you finish work?",
+      "question_es": "¿A qué hora terminas de trabajar?",
+      "question_speaker": "teacher",
+      "speaker": "co-teacher",
+      "use": false,
+      "image_choices": false,
+      "prefer": [
+        "I start work at six o'clock."
+      ],
+      "accepts": {
+        "subject-variety": "The answer keeps the time and changes only start or finish; the question decides it.",
+        "action-variety": "The answer keeps the time and changes only start or finish; the question decides it.",
+        "conversational-response": "The answer keeps the time and changes only start or finish; the question decides it.",
+        "reading-load": "The answer keeps the time and changes only start or finish; the question decides it."
+      },
+      "learn": false
+    },
+    {
+      "id": "x-ask",
+      "text": "What time do you start work? I start work at half past nine.",
+      "es": "¿A qué hora empiezas a trabajar? A las nueve y media.",
+      "image": "/lesson-assets/a1plus-unit-1-05-5f0e93499fa3f0fc.webp",
+      "kind": "xa",
+      "image_choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "What time do you start work?",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-1-05-5f0e93499fa3f0fc.webp"
+        },
+        {
+          "text": "I start work at half past nine.",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-1-05-5f0e93499fa3f0fc.webp",
+          "clock": {
+            "hour": 9,
+            "minute": 30
+          }
+        }
+      ],
+      "accepts": {
+        "subject-variety": "Listen sets the past against the present or one detail against another; the answer is what was heard.",
+        "action-variety": "Listen sets the past against the present or one detail against another; the answer is what was heard.",
+        "conversational-response": "Listen sets the past against the present or one detail against another; the answer is what was heard.",
+        "reading-load": "Listen sets the past against the present or one detail against another; the answer is what was heard."
+      },
+      "prefer": [
+        "What time do you start work? I start work at nine o'clock."
+      ],
+      "learn": false
+    },
+    {
+      "id": "x-ask2",
+      "text": "What time do you finish work? I finish work at four o'clock.",
+      "es": "¿A qué hora terminas de trabajar? A las cuatro.",
+      "image": "/lesson-assets/a1plus-unit-1-05-5f0e93499fa3f0fc.webp",
+      "kind": "xb",
+      "image_choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "What time do you finish work?",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-1-05-5f0e93499fa3f0fc.webp"
+        },
+        {
+          "text": "I finish work at four o'clock.",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-1-05-5f0e93499fa3f0fc.webp",
+          "clock": {
+            "hour": 4,
+            "minute": 0
+          }
+        }
+      ],
+      "accepts": {
+        "subject-variety": "Listen sets the past against the present or one detail against another; the answer is what was heard.",
+        "action-variety": "Listen sets the past against the present or one detail against another; the answer is what was heard.",
+        "conversational-response": "Listen sets the past against the present or one detail against another; the answer is what was heard.",
+        "reading-load": "Listen sets the past against the present or one detail against another; the answer is what was heard."
+      },
+      "prefer": [
+        "What time do you finish work? I finish work at half past four."
+      ],
+      "learn": false
+    },
+    {
+      "id": "q-start",
+      "text": "What time do you start work?",
+      "es": "¿A qué hora empiezas a trabajar?",
+      "image": "/lesson-assets/a1plus-unit-1-05-5f0e93499fa3f0fc.webp",
+      "kind": "use",
+      "speaker": "teacher",
+      "choices": false,
+      "blanks": [
+        "time",
+        "do"
+      ],
+      "learn": false
+    },
+    {
+      "id": "q-finish",
+      "text": "What time do you finish work?",
+      "es": "¿A qué hora terminas de trabajar?",
+      "image": "/lesson-assets/a1plus-unit-1-05-5f0e93499fa3f0fc.webp",
+      "kind": "use",
+      "speaker": "co-teacher",
+      "choices": false,
+      "blanks": null,
+      "learn": false
+    },
+    {
+      "id": "u-start",
+      "text": "I start work at half past eight.",
+      "es": "Empiezo a trabajar a las ocho y media.",
+      "image": "/lesson-assets/a1plus-unit-1-03-4b46d47974611e0e.webp",
+      "kind": "use",
+      "speaker": "teacher",
+      "choices": false,
+      "blanks": null,
+      "clock": {
+        "hour": 8,
+        "minute": 30
+      },
+      "learn": false
+    },
+    {
+      "id": "u-finish",
+      "text": "I finish work at four o'clock.",
+      "es": "Termino de trabajar a las cuatro.",
+      "image": "/lesson-assets/a1plus-unit-1-04-171744c29f68887e.webp",
+      "kind": "use",
+      "speaker": "teacher",
+      "choices": false,
+      "blanks": null,
+      "clock": {
+        "hour": 4,
+        "minute": 0
+      },
+      "learn": false
+    }
+  ],
+  "pool": [
+    {
+      "text": "Luis leaves home at nine o'clock.",
+      "es": "Luis sale de casa a las nueve.",
+      "image": "/lesson-assets/a1plus-unit-1-01-89bf8aaaa67a79a6.webp",
+      "kind": "day",
+      "image_choices": false
+    },
+    {
+      "text": "Luis starts work at half past nine.",
+      "es": "Luis empieza a trabajar a las nueve y media.",
+      "image": "/lesson-assets/a1plus-unit-1-03-4b46d47974611e0e.webp",
+      "kind": "day",
+      "image_choices": false
+    },
+    {
+      "text": "Luis finishes work at six o'clock.",
+      "es": "Luis termina de trabajar a las seis.",
+      "image": "/lesson-assets/a1plus-unit-1-04-171744c29f68887e.webp",
+      "kind": "day",
+      "image_choices": false
+    },
+    {
+      "text": "Luis arrives home at half past six.",
+      "es": "Luis llega a casa a las seis y media.",
+      "image": "/lesson-assets/a1plus-unit-1-02-3ad100b718cc310c.webp",
+      "kind": "day",
+      "image_choices": false
+    },
+    {
+      "text": "Ana leaves home at half past seven.",
+      "es": "Ana sale de casa a las siete y media.",
+      "image": "/lesson-assets/a1plus-unit-1-t19-eec22d7a324abbdc.webp",
+      "kind": "day",
+      "image_choices": false
+    },
+    {
+      "text": "Ana starts work at half past eight.",
+      "es": "Ana empieza a trabajar a las ocho y media.",
+      "image": "/lesson-assets/a1plus-unit-1-t20-9b499b2f4d509ecd.webp",
+      "kind": "day",
+      "image_choices": false
+    },
+    {
+      "text": "Ana finishes work at four o'clock.",
+      "es": "Ana termina de trabajar a las cuatro.",
+      "image": "/lesson-assets/a1plus-unit-1-16-c619dda46ab94abc.webp",
+      "kind": "day",
+      "image_choices": false
+    },
+    {
+      "text": "Ana arrives home at five o'clock.",
+      "es": "Ana llega a casa a las cinco.",
+      "image": "/lesson-assets/a1plus-unit-1-t21-4712bffae46aeb72.webp",
+      "kind": "day",
+      "image_choices": false
+    },
+    {
+      "text": "Ana starts work at eight o'clock.",
+      "es": "Ana empieza a trabajar a las ocho.",
+      "image": "/lesson-assets/a1plus-unit-1-03-4b46d47974611e0e.webp",
+      "kind": "heard-lt-start",
+      "image_choices": false
+    },
+    {
+      "text": "Luis arrives home at six o'clock.",
+      "es": "Luis llega a casa a las seis.",
+      "image": "/lesson-assets/a1plus-unit-1-t21-4712bffae46aeb72.webp",
+      "kind": "heard-lt-home",
+      "image_choices": false
+    },
+    {
+      "text": "Ana leaves home at seven o'clock.",
+      "es": "Ana sale de casa a las siete.",
+      "image": "/lesson-assets/a1plus-unit-1-01-89bf8aaaa67a79a6.webp",
+      "kind": "heard-lt-leave",
+      "image_choices": false
+    },
+    {
+      "text": "Luis finishes work at half past six.",
+      "es": "Luis termina de trabajar a las seis y media.",
+      "image": "/lesson-assets/a1plus-unit-1-16-c619dda46ab94abc.webp",
+      "kind": "heard-lt-finish",
+      "image_choices": false
+    },
+    {
+      "text": "I start work at eight o'clock.",
+      "es": "Empiezo a trabajar a las ocho.",
+      "image": "/lesson-assets/a1plus-unit-1-03-4b46d47974611e0e.webp",
+      "kind": "heard-lt-i-start",
+      "image_choices": false
+    },
+    {
+      "text": "I finish work at half past six.",
+      "es": "Termino de trabajar a las seis y media.",
+      "image": "/lesson-assets/a1plus-unit-1-16-c619dda46ab94abc.webp",
+      "kind": "heard-lt-i-finish",
+      "image_choices": false
+    },
+    {
+      "text": "I finish work at half past eight.",
+      "es": "Termino de trabajar a las ocho y media.",
+      "image": "/lesson-assets/a1plus-unit-1-03-4b46d47974611e0e.webp",
+      "kind": "rq1",
+      "image_choices": false
+    },
+    {
+      "text": "I start work at six o'clock.",
+      "es": "Empiezo a trabajar a las seis.",
+      "image": "/lesson-assets/a1plus-unit-1-16-c619dda46ab94abc.webp",
+      "kind": "rq2",
+      "image_choices": false
+    },
+    {
+      "text": "What time do you start work? I start work at nine o'clock.",
+      "es": "¿A qué hora empiezas a trabajar? A las nueve.",
+      "image": "/lesson-assets/a1plus-unit-1-05-5f0e93499fa3f0fc.webp",
+      "kind": "xa",
+      "image_choices": false
+    },
+    {
+      "text": "What time do you finish work? I finish work at half past four.",
+      "es": "¿A qué hora terminas de trabajar? A las cuatro y media.",
+      "image": "/lesson-assets/a1plus-unit-1-05-5f0e93499fa3f0fc.webp",
+      "kind": "xb",
+      "image_choices": false
+    }
+  ],
+  "layout": {
+    "Recognize": 10,
+    "Listen": 10,
+    "Speak": 8,
+    "Use": 8
+  },
+  "stage_sequences": {
+    "Learn": [
+      "l-start",
+      "l-ask",
+      "l-finish",
+      "l-ask2"
+    ],
+    "Recognize": [
+      "t-ana-start",
+      "rq-start",
+      "t-luis-leave",
+      "t-ana-home",
+      "t-luis-start",
+      "t-ana-finish",
+      "t-ana-leave",
+      "t-luis-home",
+      "t-luis-finish",
+      "rq-finish"
+    ],
+    "Listen": [
+      "t-ana-start",
+      "lt-start",
+      "x-ask",
+      "t-luis-home",
+      "lt-i-start",
+      "lt-home",
+      "t-luis-finish",
+      "lt-finish",
+      "x-ask2",
+      "lt-i-finish"
+    ],
+    "Speak": [
+      "u-start",
+      "q-start",
+      "t-ana-start",
+      "u-finish",
+      "q-finish",
+      "t-luis-start",
+      "t-luis-home",
+      "t-ana-leave"
+    ],
+    "Use": [
+      "t-ana-start",
+      "t-luis-start",
+      "q-start",
+      "t-luis-home",
+      "t-ana-finish",
+      "q-finish",
+      "u-start",
+      "u-finish"
+    ]
+  }
+}

@@ -21,23 +21,41 @@ const BARE_PLURALS = set('babys kinder brüder schwestern haustiere freundinnen'
 // sind or a number without an article.
 const GENDER: Record<string, string> = {};
 for (const [gender, nouns] of [
-  ['der', 'park laden bus kuli rucksack stuhl tisch schreibtisch bleistift hund'],
-  ['die', 'schule straße brücke tasche klasse schülerin zahl farbe katze eins zwei drei vier fünf sechs sieben acht neun zehn'],
-  ['das', 'haus restaurant krankenhaus auto fahrrad buch handy klassenzimmer heft papier'],
+  ['der', 'park laden bus kuli rucksack stuhl tisch schreibtisch bleistift hund name'],
+  ['die', 'schule straße brücke tasche klasse schülerin zahl farbe katze eins zwei drei vier fünf sechs sieben acht neun zehn '
+    + 'null elf zwölf dreizehn vierzehn fünfzehn sechzehn siebzehn achtzehn neunzehn zwanzig adresse telefonnummer'],
+  ['das', 'haus restaurant krankenhaus auto fahrrad buch handy klassenzimmer heft papier gepäck'],
 ]) for (const noun of nouns.split(' ')) { GENDER[noun] = gender; NOUNS.add(noun); }
-const PLURALS = set('autos bücher handys kulis rucksäcke taschen stühle tische hefte bleistifte fahrräder busse häuser');
+const PLURALS = set('autos bücher handys kulis rucksäcke taschen stühle tische hefte bleistifte fahrräder busse häuser usa');
 for (const noun of PLURALS) { NOUNS.add(noun); BARE_PLURALS.add(noun); }
 // A role or job takes no article: Sie ist Schülerin.
 const ROLES = set('schülerin');
+// German Unit 3: jobs and nationalities work like roles, in a man's and a woman's
+// form (Lehrer, Lehrerin), with no article after sein: Sie ist Ärztin.
+for (const role of ('lehrer lehrerin arzt ärztin koch köchin fahrer fahrerin bauer bäuerin krankenpfleger krankenpflegerin '
+  + 'kellner kellnerin polizist polizistin künstler künstlerin sänger sängerin arbeiter arbeiterin mechaniker mechanikerin '
+  + 'mexikaner mexikanerin amerikaner amerikanerin kanadier kanadierin spanier spanierin').split(' ')) ROLES.add(role);
+const NAMES = set('ana luis sofia diego');
+const POSSESSIVES = set('mein meine dein deine sein seine ihr ihre unser unsere');
+const AGES = set('elf zwölf dreizehn vierzehn fünfzehn sechzehn siebzehn achtzehn neunzehn zwanzig');
+const COUNTRIES = set('mexiko kanada spanien');
+const QUESTION_WORDS: Record<string, string> = { wie: 'how', woher: 'where from', was: 'what' };
 const ADJECTIVES = set('rot blau grün gelb schwarz weiß braun rosa lila grau groß klein neu alt gleich verschieden');
 // Before a counted plural a color ends in -e (rosa and lila never change).
 const COUNTED = set('rote blaue grüne gelbe schwarze weiße braune graue rosa lila');
 const COUNTS = set('zwei drei vier fünf sechs sieben acht neun zehn');
 // Words that describe the person after ist/sind, with no article.
 const DESCRIPTIONS = set('erwachsen');
-const PRONOUNS = set('er sie');
+const PRONOUNS = set('er sie ich du wir');
 const QUESTION_OBJECTS = set('er sie das');
 const VERBS = set('ist sind isst trinkt liest schreibt essen lesen schreiben rennt rennen sitzt sitzen schwimmt schwimmen schläft schlafen spielt spielen lernt lernen arbeitet arbeiten kocht kochen redet reden frisst fressen hat haben');
+// German Unit 3: ich, du and wir forms, heißen, kommen, machen and haben.
+for (const verb of ('bin bist esse trinke trinkst lese schreibe schreibst renne rennst sitze schwimme schwimmst schlafe schläfst '
+  + 'spiele spielst lerne lernst arbeite arbeitest koche kochst rede redest heiße heißt komme kommst kommt kommen '
+  + 'mache machst macht machen habe hast').split(' ')) VERBS.add(verb);
+const BE = set('ist sind bin bist');
+const HAVE = set('habe hast hat haben');
+const COME = set('komme kommst kommt kommen');
 // One person against two: the verb ending is the only difference after sie.
 const NUMBER_PAIRS: Record<string, string> = {
   isst: 'essen', liest: 'lesen', schreibt: 'schreiben',
@@ -55,12 +73,16 @@ function teachClause(text: string): ClausePlan {
   const relations: Relation[] = [];
   let index = 0;
   const nounPhrase = () => {
-    if (!ARTICLES.has(key(tokens[index] || '')) || !NOUNS.has(key(tokens[index + 1] || ''))) return null;
+    const determiner = key(tokens[index] || '');
+    if (!(ARTICLES.has(determiner) || POSSESSIVES.has(determiner)) || !NOUNS.has(key(tokens[index + 1] || ''))) return null;
     const [article, noun] = [tokens[index], tokens[index + 1]];
     const kind = PLURALS.has(key(noun)) ? 'more than one' : GENDER[key(noun)] ? `a ${GENDER[key(noun)]}-word` : '';
-    explanations[index] = kind
-      ? `${quote(article)} goes with ${quote(noun)} (${kind}), so it comes right before it.`
-      : `${quote(article)} is the article of ${quote(noun)}, so it comes right before it.`;
+    explanations[index] = POSSESSIVES.has(determiner)
+      // German 3.10-3.12: mein/dein/sein/ihr/unser say whose it is; -e before a die-word or a plural.
+      ? `${quote(article)} says whose ${quote(noun)} it is${kind ? ` (${kind})` : ''}, so it comes right before it.`
+      : kind
+        ? `${quote(article)} goes with ${quote(noun)} (${kind}), so it comes right before it.`
+        : `${quote(article)} is the article of ${quote(noun)}, so it comes right before it.`;
     explanations[index + 1] = `${quote(noun)} comes right after its article ${quote(article)}.`;
     relations.push({ start: index, end: index + 2, explanation: `In ${quote(`${article} ${noun}`)} the article comes first, then the noun.` });
     index += 2;
@@ -70,7 +92,7 @@ function teachClause(text: string): ClausePlan {
   let subject = '';
   let pointsAtThing = false;
   const subjectStart = index;
-  if (key(tokens[0] || '') === 'wer' || key(tokens[0] || '') === 'was') {
+  if (key(tokens[0] || '') === 'wer' || (key(tokens[0] || '') === 'was' && ['ist', 'sind'].includes(key(tokens[1] || '')))) {
     // German 1.10: Wer + ist/sind + er/sie asks who someone is; German 2.4: Was ist das?
     const [wer = '', verb = '', pronoun = ''] = tokens;
     const what = key(wer) === 'wer' ? 'who' : 'what';
@@ -97,6 +119,67 @@ function teachClause(text: string): ClausePlan {
     explanations[3] = `${quote(object)} is what you ask about, so it comes last.`;
     relations.push({ start: 0, end: 4, explanation: `A which-question: ${quote(`${welche} ${what}`)}, then the verb, then ${quote(object)}.` });
     return { explanations, relations, supported: true };
+  }
+  if (tokens.length === 1 && ['ja', 'nein'].includes(key(tokens[0]))) {
+    // German 3.4: Ja, ... / Nein, ... answers a yes/no question before the comma.
+    explanations[0] = `${quote(tokens[0])} answers the question, so it comes first.`;
+    return { explanations, relations, supported: true };
+  }
+  if (QUESTION_WORDS[key(tokens[0] || '')]) {
+    // German 3.1-3.13: Wie heißt du? Wie alt bist du? Woher kommst du? Was machst du?
+    // Was bist du von Beruf? Wie ist deine Adresse? The verb comes second.
+    const word = tokens[0] || '';
+    let at = 1;
+    let asked = word;
+    explanations[0] = `${quote(word)} means “${QUESTION_WORDS[key(word)]}”, so it starts the question.`;
+    if (key(word) === 'wie' && key(tokens[1] || '') === 'alt') {
+      const alt = tokens[1] || '';
+      explanations[1] = `${quote(alt)} goes with ${quote(word)}: ${quote(`${word} ${alt}`)} means “how old”.`;
+      asked = `${word} ${alt}`;
+      at = 2;
+    }
+    const verb = tokens[at] || '';
+    if (!VERBS.has(key(verb))) return { explanations, relations, supported: false };
+    explanations[at] = `The verb comes second, right after ${quote(asked)}.`;
+    index = at + 1;
+    let about = '';
+    if (PRONOUNS.has(key(tokens[index] || ''))) {
+      about = tokens[index] || '';
+      explanations[index] = `${quote(about)} is who you ask about, so it comes after ${quote(verb)}.`;
+      index += 1;
+    } else {
+      about = nounPhrase() || '';
+      if (!about) return { explanations, relations, supported: false };
+    }
+    if (key(tokens[index] || '') === 'von' && key(tokens[index + 1] || '') === 'beruf') {
+      explanations[index] = `${quote(tokens[index])} starts ${quote(`${tokens[index]} ${tokens[index + 1]}`)} (by job), which ends the question.`;
+      explanations[index + 1] = `${quote(tokens[index + 1])} comes last, right after ${quote(tokens[index])}.`;
+      index += 2;
+    }
+    relations.push({ start: 0, end: index, explanation: `Question word first, then the verb, then who you ask about: ${quote(tokens.slice(0, index).join(' '))}.` });
+    return { explanations, relations, supported: index === tokens.length && explanations.every(Boolean) };
+  }
+  if (VERBS.has(key(tokens[0] || '')) && tokens.length >= 2) {
+    // German 3.4-3.14: a yes/no question puts the verb first: Isst er? Ist sie Ärztin?
+    const verb = tokens[0] || '';
+    explanations[0] = `A yes/no question starts with the verb: ${quote(verb)} comes first.`;
+    index = 1;
+    let about = '';
+    if (PRONOUNS.has(key(tokens[1] || ''))) {
+      about = tokens[1] || '';
+      explanations[1] = `${quote(about)} comes right after the verb ${quote(verb)}.`;
+      index = 2;
+    } else {
+      about = nounPhrase() || '';
+      if (!about) return { explanations, relations, supported: false };
+    }
+    const asked = tokens[index] || '';
+    if (asked && (ROLES.has(key(asked)) || AGES.has(key(asked)))) {
+      explanations[index] = `${quote(asked)} is what you ask about, so it comes last.`;
+      index += 1;
+    }
+    relations.push({ start: 0, end: index, explanation: `A yes/no question: the verb first, then ${quote(about)}: ${quote(tokens.slice(0, index).join(' '))}.` });
+    return { explanations, relations, supported: index === tokens.length && explanations.every(Boolean) };
   }
   if (tokens.length === 2 && ['kein', 'keine'].includes(key(tokens[0])) && NOUNS.has(key(tokens[1]))) {
     // German 2.2: ..., kein Bus. says what it is not.
@@ -154,10 +237,34 @@ function teachClause(text: string): ClausePlan {
       : `German puts the verb right after who does it: ${quote(`${subject} ${verb}`)}.` });
     const verbIndex = index;
     index += 1;
-    if (key(verb) === 'ist' || key(verb) === 'sind') {
+    if (BE.has(key(verb))) {
       const word = tokens[index] || '';
       const describesThing = ADJECTIVES.has(key(word)) || key(word) === 'sehr';
       let complement = nounPhrase();
+      if (!complement && NAMES.has(key(word))) {
+        // German 3.2 and 3.10: Ich bin Ana. Mein Name ist Ana.
+        explanations[index] = `${quote(word)} is the name, so it comes after ${quote(verb)}.`;
+        complement = word;
+        index += 1;
+      } else if (!complement && ['kein', 'keine'].includes(key(word)) && ROLES.has(key(tokens[index + 1] || ''))) {
+        // German 3.7-3.14: Nein, er ist kein Kellner. kein before a job or nationality.
+        const role = tokens[index + 1];
+        explanations[index] = `${quote(word)} means “not a”, so it goes right before ${quote(role)}.`;
+        explanations[index + 1] = `${quote(role)} comes right after ${quote(word)}.`;
+        complement = `${word} ${role}`;
+        index += 2;
+      } else if (!complement && AGES.has(key(word))) {
+        // German 3.5-3.6: Er ist elf Jahre alt. / Ja, sie ist sechzehn.
+        explanations[index] = `${quote(word)} is the age, so it comes right after ${quote(verb)}.`;
+        complement = word;
+        index += 1;
+        if (key(tokens[index] || '') === 'jahre' && key(tokens[index + 1] || '') === 'alt') {
+          explanations[index] = `${quote(tokens[index])} comes after the number: ${quote(`${word} ${tokens[index]}`)}.`;
+          explanations[index + 1] = `${quote(tokens[index + 1])} ends the age: ${quote(`${word} ${tokens[index]} ${tokens[index + 1]}`)}.`;
+          complement = `${word} ${tokens[index]} ${tokens[index + 1]}`;
+          index += 2;
+        }
+      }
       if (!complement && (BARE_PLURALS.has(key(word)) || DESCRIPTIONS.has(key(word)) || ROLES.has(key(word)))) {
         complement = word;
         explanations[index] = BARE_PLURALS.has(key(word))
@@ -185,6 +292,36 @@ function teachClause(text: string): ClausePlan {
         : pointsAtThing
           ? `After ${quote(verb)} comes what it is: ${quote(complement)}.`
           : `After ${quote(verb)} comes what the person is: ${quote(complement)}.` });
+    } else if (['heiße', 'heißt'].includes(key(verb)) && NAMES.has(key(tokens[index] || ''))) {
+      // German 3.1: Ich heiße Ana. The name comes right after heißen.
+      explanations[index] = `${quote(tokens[index])} is the name, so it comes right after ${quote(verb)}.`;
+      relations.push({ start: verbIndex, end: index + 1, explanation: `After ${quote(verb)} comes the name: ${quote(`${verb} ${tokens[index]}`)}.` });
+      index += 1;
+    } else if (HAVE.has(key(verb)) && index < tokens.length) {
+      // German 3.12: Er hat ein Auto. Sie haben ihr Gepäck. Wir haben Bücher.
+      const word = tokens[index] || '';
+      let thing = nounPhrase();
+      if (!thing && BARE_PLURALS.has(key(word))) {
+        explanations[index] = `${quote(word)} is a plural, so it comes right after ${quote(verb)} with no article.`;
+        thing = word;
+        index += 1;
+      }
+      if (!thing) return { explanations, relations, supported: false };
+      relations.push({ start: verbIndex, end: index, explanation: `After ${quote(verb)} comes what they have: ${quote(thing)}.` });
+    } else if (COME.has(key(verb)) && key(tokens[index] || '') === 'aus') {
+      // German 3.7-3.8: Ich komme aus Mexiko. Er kommt aus den USA.
+      const aus = tokens[index];
+      explanations[index] = `${quote(aus)} means “from”, so it comes right after ${quote(verb)}.`;
+      index += 1;
+      if (COUNTRIES.has(key(tokens[index] || ''))) {
+        explanations[index] = `${quote(tokens[index])} is the country, right after ${quote(aus)}.`;
+        index += 1;
+      } else if (key(tokens[index] || '') === 'den' && key(tokens[index + 1] || '') === 'usa') {
+        explanations[index] = `${quote(tokens[index])} goes before ${quote(tokens[index + 1])} after ${quote(aus)}: ${quote(`${aus} ${tokens[index]} ${tokens[index + 1]}`)}.`;
+        explanations[index + 1] = `${quote(tokens[index + 1])} is the country, so it comes last.`;
+        index += 2;
+      } else return { explanations, relations, supported: false };
+      relations.push({ start: verbIndex, end: index, explanation: `Where someone is from comes after the verb: ${quote(tokens.slice(verbIndex, index).join(' '))}.` });
     } else if (key(tokens[index] || '') === 'und' && VERBS.has(key(tokens[index + 1] || ''))) {
       // German 1.8: two actions, verb und verb.
       const second = tokens[index + 1];
@@ -274,6 +411,12 @@ export function germanChoiceHint(card: LessonCard, selectedId?: string | null): 
       const singular = NUMBER_PAIRS[expected] ? expected : NUMBER_PAIRS[picked] ? picked : '';
       if (singular && (NUMBER_PAIRS[singular] === expected || NUMBER_PAIRS[singular] === picked)) {
         return `${base} ${quote(singular)} is for one person; ${quote(NUMBER_PAIRS[singular])} is for two.`;
+      }
+      // German Unit 3: a job or nationality has a man's form and a woman's form with -in.
+      const [man, woman] = [expected, picked].sort((a, b) => a.length - b.length);
+      if (ROLES.has(man) && woman === `${man}in`) {
+        const word = (form: string) => germanWords(form === expected ? correct?.label || '' : wrong?.label || '').find(w => key(w) === form) || form;
+        return `${base} ${quote(word(woman))} is for a woman; ${quote(word(man))} is for a man.`;
       }
       // German Unit 2: ein/eine, kein/keine and der/die/das follow the noun's gender.
       const at = right.indexOf(expected);
