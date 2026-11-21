@@ -1,0 +1,55 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "be9ea1ec-76cf-4abe-a042-04e5bab001c9",
+  "asset_id": "m02-little-rice",
+  "pack_sha256": "3e64c4ecd44a2868972770b1402fef449ab08e001716171fc3d298537061adf8",
+  "started_at": "2026-11-21T04:07:46.915851+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, menus, screens, cups, clothes or bags.\n\nThe place is a bright, tidy home kitchen with a light wooden table, white walls and a big window; nothing else is on the table.\n\nNo people, hands or animals are in the photo. The food sits in the middle of the table and fills the central part of the photo, sharp and easy to count or judge on a small phone screen.\n\nIt is clearly daytime with soft natural light.\n\nThe same kind of big white plate, almost empty: only one small spoonful of cooked white rice sits in the middle of the plate, with lots of empty white plate around it, on a light wooden kitchen table.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "EBkBa8vcAbiJqtsPw5-KgAM",
+  "usage": {
+    "promptTokenCount": 258,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1548,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038777",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 258,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 5.59,
+  "output": "output/imagegen/a1plus-unit-5-lesson-v520/m02-little-rice.png",
+  "sha256": "b0bb43a682aa8a8ae7ce5a924ace4dc65d0e6ec200213d16f993a434a53bce15",
+  "byte_count": 1096089,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}

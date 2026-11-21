@@ -1,0 +1,55 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "2a1cf29f-c8c0-4e36-b419-3ec0d1bc5205",
+  "asset_id": "w07-dishes",
+  "pack_sha256": "6d36a1bbd89a2d44f09beaa6a01eeb60d7d611a39040c2514414419058e2b2c2",
+  "started_at": "2026-11-21T05:03:40.235624+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, menus, screens, cups, clothes or bags.\n\nIt is clearly daytime with soft natural light.\n\nA long light wooden table seen from a little above, with four dishes standing well apart in a row on white plates, each easy to see on a small phone screen: from left to right, one sandwich cut open with thick yellow cheese and bright red tomato slices clearly showing; a green salad with halves of boiled egg on top; a bowl of brown soup with big pieces of meat and potato; a green salad with strips of grilled chicken on top. No people.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "KSYBa8qjC7yLqtsP0LWgmQ4",
+  "usage": {
+    "promptTokenCount": 235,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1525,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 235
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038770",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 235,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 7.0,
+  "output": "output/imagegen/a1plus-unit-5-lesson-v5161/w07-dishes.png",
+  "sha256": "7d65caa627a18ed0a8e0d5576164a3d2cf2f1845e4d9738777453dd5ce84579c",
+  "byte_count": 1474036,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}

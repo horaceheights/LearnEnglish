@@ -1,0 +1,55 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "db4c7175-a558-43e3-919c-8e4571420def",
+  "asset_id": "k06-few-strawberries",
+  "pack_sha256": "05f00e9f5c6304cd56f9cac35db7d74612e1c4c6d1899c893f581bf89243afa8",
+  "started_at": "2026-11-21T04:06:06.513172+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, menus, screens, cups, clothes or bags.\n\nThe place is a bright, tidy home kitchen with a light wooden table, white walls and a big window; nothing else is on the table.\n\nNo people, hands or animals are in the photo. The food sits in the middle of the table and fills the central part of the photo, sharp and easy to count or judge on a small phone screen.\n\nIt is clearly daytime with soft natural light.\n\nExactly three pieces are visible, clearly separate, not touching, with plenty of empty space around them so the small amount is obvious at once.\n\nA large empty woven basket lying open, and beside it a small white plate with exactly three red strawberries on a light wooden kitchen table.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "qxgBa-eHHbuV6dkP-MG7kA4",
+  "usage": {
+    "promptTokenCount": 271,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1561,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 271
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038781",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 271,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 6.22,
+  "output": "output/imagegen/a1plus-unit-5-lesson-v510/k06-few-strawberries.png",
+  "sha256": "df75a4ef015563c4d4006bdbb52270ff635555831bc0f5e602c6997666c87efa",
+  "byte_count": 1213534,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}

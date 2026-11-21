@@ -1,0 +1,138 @@
+{
+  "schema_version": 1,
+  "pack": "a1plus-unit-5-lesson-5-16-mission-photos",
+  "revision": 1,
+  "output_namespace": "a1plus-unit-5-lesson-v5160",
+  "authorization": "2026-11-20: the user asked to \"work on a1+ Unit 5 same all deal as before none stop all approved\" (the Units 2-4 deal: straight to Preview in batches with Gemini 2.5 Flash photos and ElevenLabs audio pre-approved and reviewed in Preview). Gemini is the approved image tool (2026-09-23), Flash only (2026-11-17; \"lets switch to flash for any other images\", 2026-11-19).",
+  "image_settings": {
+    "provider": "google-gemini",
+    "model": "gemini-2.5-flash-image",
+    "aspect_ratio": "3:2",
+    "image_size": "1K",
+    "runtime_size": "1536x1024",
+    "runtime_format": "webp",
+    "n": 1
+  },
+  "production": {
+    "price_per_image_usd": "0.0387",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing (checked 2026-11-16: Gemini 2.5 Flash Image, about $0.039 per image)",
+    "planned_images": 7,
+    "expected_cost_usd": "0.27",
+    "requested_ceiling_usd": "0.50",
+    "ceiling_note": "The renderer reserves US$0.20 before each request; each request is sent on its own, and the expected spend for the pack is about US$0.27.",
+    "no_automatic_retries": true,
+    "order": [
+      "w00-kickoff",
+      "w01-shoppers",
+      "w02-price-stall",
+      "w03-cafe-wants",
+      "w04-dishes",
+      "w05-plates",
+      "w06-shelf"
+    ]
+  },
+  "shared_prompts": {
+    "photo": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, menus, screens, cups, clothes or bags.",
+    "safe_center": "Keep the people and the thing that carries the meaning inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.",
+    "solo": "Only this one person is in the photo; there is nobody else, even far in the background.",
+    "pair": "Only these two people are in the photo; there is nobody else, even far in the background.",
+    "daytime": "It is clearly daytime with soft natural light.",
+    "kitchen": "The place is a bright, tidy home kitchen with a light wooden table, white walls and a big window; nothing else is on the table.",
+    "still": "No people, hands or animals are in the photo. The food sits in the middle of the table and fills the central part of the photo, sharp and easy to count or judge on a small phone screen.",
+    "few": "Exactly three pieces are visible, clearly separate, not touching, with plenty of empty space around them so the small amount is obvious at once.",
+    "lots": "There are so many that they cannot be counted at a glance: a big generous heap.",
+    "keep": "Keep each pictured person's face, hair, skin, build and clothes exactly as in the reference image; they look natural and relaxed, not posing for the camera.",
+    "numeral": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. No letters, words, logos or brand marks anywhere. The only writing in the photo is each price card described: a small white card on a little stand with a dollar sign and a number in big, thick black print, upright, facing the camera, sharp and easy to read on a small phone screen. No other signs, labels, screens or clothes show any digit or letter.",
+    "stall": "The place is a bright, simple outdoor market stall by day, with a wooden counter; the background is softly out of focus and shows no signs.",
+    "cafe": "The place is a bright, simple neighborhood café by day, with a wooden counter, a glass food case and big windows; nobody else is in the café.",
+    "candle": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. No letters, words, logos or brand marks anywhere, and no number anywhere except the two candle digits described: no other candles, cards, signs, clocks, screens or clothes show any digit.",
+    "table": "They sit at a light wooden dining table in a bright, simple home dining room by day, with plates, glasses and a few dishes on the table.",
+    "strangers": "The people are ordinary adults who are not famous and do not look like any earlier course photo; nobody looks at the camera.",
+    "scene": "A busy but clear scene: every person named is fully visible, separated from the others by some space, and easy to find on a small phone screen. Nobody else is in the photo."
+  },
+  "assets": [
+    {
+      "id": "w00-kickoff",
+      "order": 1,
+      "item": "Ana and Luis arrive at the market.",
+      "shared": [
+        "photo",
+        "pair",
+        "daytime",
+        "keep"
+      ],
+      "prompt": "Image 1 shows Sofia (left) and Luis (right); use it only for Luis. Ana: long dark wavy hair, light-olive skin, sage-green overshirt over a white top, jeans. Luis: a very tall man with short dark curly hair, clean-shaven, warm medium-brown skin, navy crew-neck T-shirt. Ana (left) and Luis (right) walk into a bright, busy outdoor market on a sunny morning, each carrying an empty shopping bag, smiling and talking. Market stalls with fruit and vegetables are behind them, softly out of focus. There are no price cards, signs or numbers anywhere.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-p02-094cffd8654fde7e.webp",
+        "sha256": "094cffd8654fde7eacbcf5b643e8c43eebb30aff39e32cde627ca9861bda7b3d",
+        "observed_description": "Sofia (left: warm brown skin, dark curly hair in a high bun, bright blue blazer over a white blouse, black trousers) stands shoulder to shoulder with Luis (right: a very tall man with short dark curly hair, navy crew-neck T-shirt, khaki chinos, navy sneakers) against a plain light-grey wall; both smile at the camera (A1+ 1.1)."
+      }
+    },
+    {
+      "id": "w01-shoppers",
+      "order": 2,
+      "item": "Four shoppers: a lot of apples, a few oranges, a lot of strawberries, a few bananas.",
+      "shared": [
+        "photo",
+        "daytime",
+        "strangers",
+        "scene"
+      ],
+      "prompt": "The place is a bright, busy outdoor market by day with wooden stalls; the background is softly out of focus. Four shoppers stand in a row in front of one long fruit stall, each clearly apart: from left to right, a woman holding a big box full of lots of red apples; a man holding exactly three oranges in his two hands; a girl holding a big basket full of lots of strawberries; an old man holding exactly three single bananas. There are no price cards, signs or numbers anywhere."
+    },
+    {
+      "id": "w02-price-stall",
+      "order": 3,
+      "item": "Four things with prices: $25, $45, $68, $99.",
+      "shared": [
+        "numeral",
+        "daytime"
+      ],
+      "prompt": "The place is a bright, busy outdoor market by day with wooden stalls; the background is softly out of focus. One long wooden stall seen from the front, with four things standing apart on it from left to right, each with its own price card in front of it: a book ($25), a pair of brown shoes ($45), a green bag ($68) and a red guitar ($99). No people."
+    },
+    {
+      "id": "w03-cafe-wants",
+      "order": 4,
+      "item": "Four café customers: sandwich, hot chocolate, cake, water.",
+      "shared": [
+        "photo",
+        "daytime",
+        "strangers",
+        "scene",
+        "cafe"
+      ],
+      "prompt": "Four customers stand apart along the café's long glass counter, each looking at or pointing at one thing: from left to right, a man points at a big sandwich in the glass case; a woman holds a big mug of steaming hot chocolate; a boy presses his nose to the glass in front of a chocolate cake; a woman in sports clothes drinks from a bottle of water. Nobody behind the counter."
+    },
+    {
+      "id": "w04-dishes",
+      "order": 5,
+      "item": "Four dishes: sandwich with cheese and tomato, salad with egg, soup with meat and potato, sandwich with chicken.",
+      "shared": [
+        "photo",
+        "daytime"
+      ],
+      "prompt": "A long light wooden table seen from a little above, with four dishes standing apart in a row on white plates, each easy to see on a small phone screen: from left to right, a sandwich cut open showing cheese and tomato inside; a green salad with halves of boiled egg on top; a bowl of soup with big pieces of meat and potato; a sandwich cut open showing slices of chicken inside. No people."
+    },
+    {
+      "id": "w05-plates",
+      "order": 6,
+      "item": "Four plates: a lot of rice, a little rice, a lot of pasta, a little pasta.",
+      "shared": [
+        "photo",
+        "daytime"
+      ],
+      "prompt": "A long light wooden table seen from a little above, with four big white plates standing apart in a row, each easy to see on a small phone screen: from left to right, a plate heaped high with white rice; a plate with only one small spoonful of white rice; a plate heaped high with spaghetti in tomato sauce; a plate with only one small forkful of spaghetti. No people."
+    },
+    {
+      "id": "w06-shelf",
+      "order": 7,
+      "item": "Two bags and two watches with prices.",
+      "shared": [
+        "numeral",
+        "safe_center",
+        "daytime"
+      ],
+      "prompt": "A plain light wooden shop shelf against a plain light wall, with four things standing apart in a row, each with its own price card in front of it: from left to right, a small red bag ($20), a big black bag ($80), a black watch ($90) and a light-blue watch ($10). No people."
+    }
+  ]
+}

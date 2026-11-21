@@ -1,0 +1,62 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "366c6955-7cfe-49c4-af89-7b9b8301474c",
+  "asset_id": "t01-ana-salt-luis",
+  "pack_sha256": "f3ffcbfc1e02a4ca0307682d0295c401671b533075dc87fe34b999841218e41f",
+  "started_at": "2026-11-21T04:56:01.881175+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, menus, screens, cups, clothes or bags.\n\nKeep the people and the thing that carries the meaning inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nOnly these two people are in the photo; there is nobody else, even far in the background.\n\nKeep each pictured person's face, hair, skin, build and clothes exactly as in the reference image; they look natural and relaxed, not posing for the camera.\n\nThey sit at a light wooden dining table in a bright, simple home dining room by day, with plates, glasses and a few dishes on the table.\n\nImage 1 shows Sofia (left) and Luis (right); use it only for Luis. Ana: long dark wavy hair, light-olive skin, sage-green overshirt over a white top, jeans. Luis: a very tall man with short dark curly hair, clean-shaven, warm medium-brown skin, navy crew-neck T-shirt. At dinner, Ana (left) hands a small white salt shaker to Luis (right), who reaches out to take it. The two people sit across the corner of the table, facing each other; the thing passes clearly between them.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1plus-unit-1-p02-094cffd8654fde7e.webp",
+    "sha256": "094cffd8654fde7eacbcf5b643e8c43eebb30aff39e32cde627ca9861bda7b3d"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "XyQBa-RPj4uq2w_2ksfIDg",
+  "usage": {
+    "promptTokenCount": 645,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1935,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 387
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038894",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 645,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 9.62,
+  "output": "output/imagegen/a1plus-unit-5-lesson-v5140/t01-ana-salt-luis.png",
+  "sha256": "f9cfda46f15876a67700840d07dc32a45a2d09df51cbe084bc42dce1053e3927",
+  "byte_count": 1365782,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}

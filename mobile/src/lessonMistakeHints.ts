@@ -117,6 +117,12 @@ const MEANINGS: Record<string, string> = {
   // A1 5.12 (2026-11-15): the tens from thirty to one hundred.
   thirty: 'treinta', forty: 'cuarenta', fifty: 'cincuenta', sixty: 'sesenta', seventy: 'setenta', eighty: 'ochenta',
   ninety: 'noventa', hundred: 'cien',
+  // A1+ 5.1-5.5 (2026-11-20): amounts (a lot of, a few, a little, not much), pasta, and agreeing with
+  // So do I. / Neither do I.
+  pasta: 'pasta', few: 'unos pocos o unas pocas', little: 'un poco', much: 'mucho o mucha',
+  'lot of': 'mucho o mucha', so: 'también (a mí también)', neither: 'tampoco (a mí tampoco)',
+  // A1+ 5.11 and 5.14 (2026-11-20): comparing prices, and a piece of.
+  cheaper: 'más barato o más barata', 'more expensive': 'más caro o más cara', piece: 'pedazo',
   // A1 3.13 (2026-11-15): phone number and address.
   zero: 'cero', address: 'dirección',
   running: 'corriendo', walking: 'caminando', reading: 'leyendo', writing: 'escribiendo',
@@ -257,9 +263,26 @@ function normalized(value?: string | null) {
 const HAIR_LENGTH: Record<string, string> = { long: 'largo', short: 'corto' };
 const wordMeaning = (text: string) => meaning(text);
 
+// A1+ 5.12 (2026-11-20): a number from twenty-one to ninety-nine is its ten and its unit ("cuarenta y cinco").
+const TENS: Record<string, string> = {
+  twenty: 'veinti', thirty: 'treinta', forty: 'cuarenta', fifty: 'cincuenta', sixty: 'sesenta', seventy: 'setenta',
+  eighty: 'ochenta', ninety: 'noventa',
+};
+const UNITS: Record<string, string> = {
+  one: 'uno', two: 'dos', three: 'tres', four: 'cuatro', five: 'cinco', six: 'seis', seven: 'siete', eight: 'ocho',
+  nine: 'nueve',
+};
+function compoundNumber(key: string) {
+  const [ten, unit] = key.split('-');
+  if (!TENS[ten] || !UNITS[unit]) return '';
+  return ten === 'twenty' ? `${TENS[ten]}${UNITS[unit].replace(/^dos$/, 'dós').replace(/^tres$/, 'trés').replace(/^seis$/, 'séis')}` : `${TENS[ten]} y ${UNITS[unit]}`;
+}
+
 function meaning(text: string) {
   const key = normalized(text);
   if (MEANINGS[key]) return MEANINGS[key];
+  const compound = compoundNumber(key);
+  if (compound) return compound;
   // A possessive names its owner: "Ana's" is “de Ana”.
   const owner = /^(.+)'s$/.exec(key.replace(/’/g, "'"))?.[1];
   if (owner && MEANINGS[owner]) return `de ${MEANINGS[owner]}`;
@@ -614,6 +637,9 @@ const PHRASE_MEANINGS: Record<string, string> = {
   'far from the park': 'lejos del parque', 'next to the store': 'al lado de la tienda',
   sleep: 'dormir', 'a pear': 'una pera', grapes: 'uvas', 'a strawberry': 'una fresa',
   'watch tv': 'ver televisión',
+  // A1+ 5.10 (2026-11-20): the seller's and the waiter's questions, heard against each other.
+  'anything else': 'algo más', 'what would you like': 'qué le gustaría',
+  'would you like some tea': 'quieres un poco de té', 'how much are the apples': 'cuánto cuestan las manzanas',
 };
 
 function phraseMeaning(text: string) {

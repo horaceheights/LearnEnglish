@@ -1,0 +1,560 @@
+{
+  "brief_version": 1,
+  "follows": {
+    "course": "a1",
+    "lesson": "5.5",
+    "title": "Likes, Dislikes, and Agreement"
+  },
+  "note": "A1+ Unit 5 Lesson 5.5, built on 2026-11-20 under the A1+ lesson standards approved 2026-10-27 and the user's 2026-11-09 rule that every A1+ lesson follows up the A1 lesson with the same number. The user asked on 2026-11-20 to \"work on a1+ Unit 5 same all deal as before none stop all approved\": A1+ 5.Y follows A1 5.Y with one step each, straight to Preview in batches, Gemini 2.5 Flash photos and ElevenLabs audio pre-approved, no per-lesson gates, reviewed in Preview. Four café photos: Ana and Luis both love strawberries, Sofia and Diego both push away fish, Diego and Ana both love coffee, Luis and Sofia both push away milk. The speaker bubble shows who talks. Reply cards play the first line and the learner picks the reply.",
+  "target": "backend/lessons/a1_plus/unit_5/a1plus-unit-5-lesson-5-5.yaml",
+  "captions": false,
+  "narrators": [
+    "teacher",
+    "co-teacher"
+  ],
+  "answer_audio_policy": "authored-only",
+  "speak_delivery": "a1-pronunciation-v1",
+  "lesson": {
+    "id": "a1plus-unit-5-lesson-5-5",
+    "title": "5.5 So do I. Neither do I.",
+    "level": "A1+",
+    "unit_id": "a1plus-unit-5",
+    "unit_title": "Food, drinks and shopping",
+    "unit_outcome": "Say how much and how many, offer and order food and drinks politely, agree about likes, say what you want and need to do, talk about meals, prices and what is in your food, compare prices, use numbers to ninety-nine and ask for things at the table.",
+    "lesson_id": "a1plus-unit-5-lesson-5-5",
+    "lesson_title": "So do I. Neither do I.",
+    "sub_lesson_id": "5.5",
+    "sub_lesson_title": "So do I. Neither do I.",
+    "goal": "Agree with what someone likes (So do I.) and with what someone doesn't like (Neither do I.).",
+    "vocabulary": [
+      "So do I.",
+      "Neither do I."
+    ],
+    "review_vocabulary": [
+      "I like",
+      "I don't like",
+      "Me too.",
+      "Me neither.",
+      "strawberries",
+      "fish",
+      "coffee",
+      "milk"
+    ],
+    "grammar_function": "A follow-up of A1 5.5 Likes, Dislikes, and Agreement: A1 agrees with Me too. and Me neither.; A1+ 5.5 gives the forms that repeat the helping verb: So do I. after I like … and Neither do I. after I don't like …. Both are learnt as fixed replies. Each photo shows two cast members who both smile at a food or both push it away; the first line decides the reply. The pairs are Ana and Luis, Sofia and Diego, Diego and Ana, and Luis and Sofia, because Ana and Sofia share one voice, as do Luis and Diego.",
+    "prerequisite": "A1 5.5 I like …, I don't like …, Me too., Me neither.; A1 5.1-5.3 strawberries, fish, coffee, milk.",
+    "speaking_outcome": "Say So do I. with the stress on I, and Neither do I. as NEE-ther or NYE-ther, both fine; do not require native-like speed.",
+    "content_revision": 1,
+    "learn_context_groups": [
+      {
+        "kind": "sequence",
+        "targets": [
+          "So do I."
+        ],
+        "models": [
+          {
+            "slide_id": "L1",
+            "text": "So do I."
+          }
+        ]
+      },
+      {
+        "kind": "sequence",
+        "targets": [
+          "Neither do I."
+        ],
+        "models": [
+          {
+            "slide_id": "L2",
+            "text": "Neither do I."
+          }
+        ]
+      }
+    ]
+  },
+  "items": [
+    {
+      "id": "l-so",
+      "text": "So do I.",
+      "es": "A mí también.",
+      "image": "/lesson-assets/a1plus-unit-5-s01-36c3aaf7b55f876c.webp",
+      "kind": "sequence",
+      "choices": false,
+      "use": false,
+      "learn": true,
+      "speaker": "luis"
+    },
+    {
+      "id": "l-neither",
+      "text": "Neither do I.",
+      "es": "A mí tampoco.",
+      "image": "/lesson-assets/a1plus-unit-5-s02-7bcb56cc2b74eb7f.webp",
+      "kind": "sequence",
+      "choices": false,
+      "use": false,
+      "learn": true,
+      "speaker": "diego"
+    },
+    {
+      "id": "r-strawberries",
+      "text": "So do I.",
+      "es": "A mí también.",
+      "image": "/lesson-assets/a1plus-unit-5-s01-36c3aaf7b55f876c.webp",
+      "kind": "reply",
+      "speaker": "luis",
+      "question": "I like strawberries.",
+      "question_es": "Me gustan las fresas.",
+      "question_speaker": "ana",
+      "prefer": [
+        "Neither do I.",
+        "I do."
+      ],
+      "accepts": {
+        "conversational-response": "So do I. agrees with I like …, Neither do I. with I don't like …; the line heard first decides, and the photo shows both people liking or both refusing.",
+        "reading-load": "So do I. agrees with I like …, Neither do I. with I don't like …; the line heard first decides, and the photo shows both people liking or both refusing.",
+        "subject-variety": "So do I. agrees with I like …, Neither do I. with I don't like …; the line heard first decides, and the photo shows both people liking or both refusing.",
+        "action-variety": "So do I. agrees with I like …, Neither do I. with I don't like …; the line heard first decides, and the photo shows both people liking or both refusing."
+      },
+      "image_choices": false,
+      "use": false,
+      "learn": false
+    },
+    {
+      "id": "s-strawberries",
+      "text": "I like strawberries.",
+      "es": "Me gustan las fresas.",
+      "image": "/lesson-assets/a1plus-unit-5-s01-36c3aaf7b55f876c.webp",
+      "kind": "like",
+      "speaker": "ana",
+      "prefer": [
+        "I don't like strawberries.",
+        "I like fish."
+      ],
+      "accepts": {
+        "subject-variety": "Listen: the answer is what was heard.",
+        "action-variety": "Listen: the answer is what was heard.",
+        "conversational-response": "Listen: the answer is what was heard.",
+        "reading-load": "Listen: the answer is what was heard."
+      },
+      "blanks": [
+        "like",
+        "strawberries"
+      ],
+      "learn": false
+    },
+    {
+      "id": "x-strawberries",
+      "text": "I like strawberries. So do I.",
+      "es": "Me gustan las fresas. A mí también.",
+      "image": "/lesson-assets/a1plus-unit-5-s01-36c3aaf7b55f876c.webp",
+      "kind": "exchange",
+      "turns": [
+        {
+          "text": "I like strawberries.",
+          "speaker": "ana",
+          "image": "/lesson-assets/a1plus-unit-5-s01-36c3aaf7b55f876c.webp"
+        },
+        {
+          "text": "So do I.",
+          "speaker": "luis",
+          "image": "/lesson-assets/a1plus-unit-5-s01-36c3aaf7b55f876c.webp"
+        }
+      ],
+      "choices": false,
+      "use": false,
+      "learn": false
+    },
+    {
+      "id": "u-strawberries",
+      "text": "So do I.",
+      "es": "A mí también.",
+      "image": "/lesson-assets/a1plus-unit-5-s01-36c3aaf7b55f876c.webp",
+      "kind": "say",
+      "speaker": "luis",
+      "choices": false,
+      "blanks": [
+        "do",
+        "I"
+      ],
+      "learn": false
+    },
+    {
+      "id": "r-fish",
+      "text": "Neither do I.",
+      "es": "A mí tampoco.",
+      "image": "/lesson-assets/a1plus-unit-5-s02-7bcb56cc2b74eb7f.webp",
+      "kind": "reply",
+      "speaker": "diego",
+      "question": "I don't like fish.",
+      "question_es": "No me gusta el pescado.",
+      "question_speaker": "sofia",
+      "prefer": [
+        "So do I.",
+        "I don't."
+      ],
+      "accepts": {
+        "conversational-response": "So do I. agrees with I like …, Neither do I. with I don't like …; the line heard first decides, and the photo shows both people liking or both refusing.",
+        "reading-load": "So do I. agrees with I like …, Neither do I. with I don't like …; the line heard first decides, and the photo shows both people liking or both refusing.",
+        "subject-variety": "So do I. agrees with I like …, Neither do I. with I don't like …; the line heard first decides, and the photo shows both people liking or both refusing.",
+        "action-variety": "So do I. agrees with I like …, Neither do I. with I don't like …; the line heard first decides, and the photo shows both people liking or both refusing."
+      },
+      "image_choices": false,
+      "use": false,
+      "learn": false
+    },
+    {
+      "id": "s-fish",
+      "text": "I don't like fish.",
+      "es": "No me gusta el pescado.",
+      "image": "/lesson-assets/a1plus-unit-5-s02-7bcb56cc2b74eb7f.webp",
+      "kind": "like",
+      "speaker": "sofia",
+      "prefer": [
+        "I like fish.",
+        "I don't like coffee."
+      ],
+      "accepts": {
+        "subject-variety": "Listen: the answer is what was heard.",
+        "action-variety": "Listen: the answer is what was heard.",
+        "conversational-response": "Listen: the answer is what was heard.",
+        "reading-load": "Listen: the answer is what was heard."
+      },
+      "blanks": [
+        "don't",
+        "like"
+      ],
+      "learn": false
+    },
+    {
+      "id": "x-fish",
+      "text": "I don't like fish. Neither do I.",
+      "es": "No me gusta el pescado. A mí tampoco.",
+      "image": "/lesson-assets/a1plus-unit-5-s02-7bcb56cc2b74eb7f.webp",
+      "kind": "exchange",
+      "turns": [
+        {
+          "text": "I don't like fish.",
+          "speaker": "sofia",
+          "image": "/lesson-assets/a1plus-unit-5-s02-7bcb56cc2b74eb7f.webp"
+        },
+        {
+          "text": "Neither do I.",
+          "speaker": "diego",
+          "image": "/lesson-assets/a1plus-unit-5-s02-7bcb56cc2b74eb7f.webp"
+        }
+      ],
+      "choices": false,
+      "use": false,
+      "learn": false
+    },
+    {
+      "id": "u-fish",
+      "text": "Neither do I.",
+      "es": "A mí tampoco.",
+      "image": "/lesson-assets/a1plus-unit-5-s02-7bcb56cc2b74eb7f.webp",
+      "kind": "say",
+      "speaker": "diego",
+      "choices": false,
+      "blanks": [
+        "do",
+        "I"
+      ],
+      "learn": false
+    },
+    {
+      "id": "r-coffee",
+      "text": "So do I.",
+      "es": "A mí también.",
+      "image": "/lesson-assets/a1plus-unit-5-s03-d87ee0f93a99b049.webp",
+      "kind": "reply",
+      "speaker": "ana",
+      "question": "I like coffee.",
+      "question_es": "Me gusta el café.",
+      "question_speaker": "diego",
+      "prefer": [
+        "Neither do I.",
+        "I do."
+      ],
+      "accepts": {
+        "conversational-response": "So do I. agrees with I like …, Neither do I. with I don't like …; the line heard first decides, and the photo shows both people liking or both refusing.",
+        "reading-load": "So do I. agrees with I like …, Neither do I. with I don't like …; the line heard first decides, and the photo shows both people liking or both refusing.",
+        "subject-variety": "So do I. agrees with I like …, Neither do I. with I don't like …; the line heard first decides, and the photo shows both people liking or both refusing.",
+        "action-variety": "So do I. agrees with I like …, Neither do I. with I don't like …; the line heard first decides, and the photo shows both people liking or both refusing."
+      },
+      "image_choices": false,
+      "use": false,
+      "learn": false
+    },
+    {
+      "id": "s-coffee",
+      "text": "I like coffee.",
+      "es": "Me gusta el café.",
+      "image": "/lesson-assets/a1plus-unit-5-s03-d87ee0f93a99b049.webp",
+      "kind": "like",
+      "speaker": "diego",
+      "prefer": [
+        "I don't like coffee.",
+        "I like milk."
+      ],
+      "accepts": {
+        "subject-variety": "Listen: the answer is what was heard.",
+        "action-variety": "Listen: the answer is what was heard.",
+        "conversational-response": "Listen: the answer is what was heard.",
+        "reading-load": "Listen: the answer is what was heard."
+      },
+      "blanks": [
+        "like",
+        "coffee"
+      ],
+      "learn": false
+    },
+    {
+      "id": "x-coffee",
+      "text": "I like coffee. So do I.",
+      "es": "Me gusta el café. A mí también.",
+      "image": "/lesson-assets/a1plus-unit-5-s03-d87ee0f93a99b049.webp",
+      "kind": "exchange",
+      "turns": [
+        {
+          "text": "I like coffee.",
+          "speaker": "diego",
+          "image": "/lesson-assets/a1plus-unit-5-s03-d87ee0f93a99b049.webp"
+        },
+        {
+          "text": "So do I.",
+          "speaker": "ana",
+          "image": "/lesson-assets/a1plus-unit-5-s03-d87ee0f93a99b049.webp"
+        }
+      ],
+      "choices": false,
+      "use": false,
+      "learn": false
+    },
+    {
+      "id": "u-coffee",
+      "text": "So do I.",
+      "es": "A mí también.",
+      "image": "/lesson-assets/a1plus-unit-5-s03-d87ee0f93a99b049.webp",
+      "kind": "say",
+      "speaker": "ana",
+      "choices": false,
+      "blanks": [
+        "do",
+        "I"
+      ],
+      "learn": false
+    },
+    {
+      "id": "r-milk",
+      "text": "Neither do I.",
+      "es": "A mí tampoco.",
+      "image": "/lesson-assets/a1plus-unit-5-s04-93db9ea952f5bbdf.webp",
+      "kind": "reply",
+      "speaker": "sofia",
+      "question": "I don't like milk.",
+      "question_es": "No me gusta la leche.",
+      "question_speaker": "luis",
+      "prefer": [
+        "So do I.",
+        "I don't."
+      ],
+      "accepts": {
+        "conversational-response": "So do I. agrees with I like …, Neither do I. with I don't like …; the line heard first decides, and the photo shows both people liking or both refusing.",
+        "reading-load": "So do I. agrees with I like …, Neither do I. with I don't like …; the line heard first decides, and the photo shows both people liking or both refusing.",
+        "subject-variety": "So do I. agrees with I like …, Neither do I. with I don't like …; the line heard first decides, and the photo shows both people liking or both refusing.",
+        "action-variety": "So do I. agrees with I like …, Neither do I. with I don't like …; the line heard first decides, and the photo shows both people liking or both refusing."
+      },
+      "image_choices": false,
+      "use": false,
+      "learn": false
+    },
+    {
+      "id": "s-milk",
+      "text": "I don't like milk.",
+      "es": "No me gusta la leche.",
+      "image": "/lesson-assets/a1plus-unit-5-s04-93db9ea952f5bbdf.webp",
+      "kind": "like",
+      "speaker": "luis",
+      "prefer": [
+        "I like milk.",
+        "I don't like strawberries."
+      ],
+      "accepts": {
+        "subject-variety": "Listen: the answer is what was heard.",
+        "action-variety": "Listen: the answer is what was heard.",
+        "conversational-response": "Listen: the answer is what was heard.",
+        "reading-load": "Listen: the answer is what was heard."
+      },
+      "blanks": [
+        "don't",
+        "like"
+      ],
+      "learn": false
+    },
+    {
+      "id": "x-milk",
+      "text": "I don't like milk. Neither do I.",
+      "es": "No me gusta la leche. A mí tampoco.",
+      "image": "/lesson-assets/a1plus-unit-5-s04-93db9ea952f5bbdf.webp",
+      "kind": "exchange",
+      "turns": [
+        {
+          "text": "I don't like milk.",
+          "speaker": "luis",
+          "image": "/lesson-assets/a1plus-unit-5-s04-93db9ea952f5bbdf.webp"
+        },
+        {
+          "text": "Neither do I.",
+          "speaker": "sofia",
+          "image": "/lesson-assets/a1plus-unit-5-s04-93db9ea952f5bbdf.webp"
+        }
+      ],
+      "choices": false,
+      "use": false,
+      "learn": false
+    },
+    {
+      "id": "u-milk",
+      "text": "Neither do I.",
+      "es": "A mí tampoco.",
+      "image": "/lesson-assets/a1plus-unit-5-s04-93db9ea952f5bbdf.webp",
+      "kind": "say",
+      "speaker": "sofia",
+      "choices": false,
+      "blanks": [
+        "do",
+        "I"
+      ],
+      "learn": false
+    },
+    {
+      "id": "b-strawberries",
+      "text": "Ana and Luis like strawberries.",
+      "es": "A Ana y a Luis les gustan las fresas.",
+      "image": "/lesson-assets/a1plus-unit-5-s01-36c3aaf7b55f876c.webp",
+      "kind": "both",
+      "speaker": "teacher",
+      "choices": false,
+      "blanks": [
+        "like",
+        "strawberries"
+      ],
+      "learn": false
+    },
+    {
+      "id": "b-fish",
+      "text": "Sofia and Diego don't like fish.",
+      "es": "A Sofía y a Diego no les gusta el pescado.",
+      "image": "/lesson-assets/a1plus-unit-5-s02-7bcb56cc2b74eb7f.webp",
+      "kind": "both",
+      "speaker": "co-teacher",
+      "choices": false,
+      "blanks": [
+        "don't",
+        "like"
+      ],
+      "learn": false
+    }
+  ],
+  "pool": [
+    {
+      "text": "I do.",
+      "es": "Yo sí.",
+      "image": "/lesson-assets/a1plus-unit-5-s02-7bcb56cc2b74eb7f.webp",
+      "kind": "reply",
+      "image_choices": false
+    },
+    {
+      "text": "I don't.",
+      "es": "Yo no.",
+      "image": "/lesson-assets/a1plus-unit-5-s01-36c3aaf7b55f876c.webp",
+      "kind": "reply",
+      "image_choices": false
+    },
+    {
+      "text": "I don't like strawberries.",
+      "es": "No me gustan las fresas.",
+      "image": "/lesson-assets/a1plus-unit-5-s01-36c3aaf7b55f876c.webp",
+      "kind": "like",
+      "image_choices": false
+    },
+    {
+      "text": "I like fish.",
+      "es": "Me gusta el pescado.",
+      "image": "/lesson-assets/a1plus-unit-5-s02-7bcb56cc2b74eb7f.webp",
+      "kind": "like",
+      "image_choices": false
+    },
+    {
+      "text": "I don't like coffee.",
+      "es": "No me gusta el café.",
+      "image": "/lesson-assets/a1plus-unit-5-s03-d87ee0f93a99b049.webp",
+      "kind": "like",
+      "image_choices": false
+    },
+    {
+      "text": "I like milk.",
+      "es": "Me gusta la leche.",
+      "image": "/lesson-assets/a1plus-unit-5-s04-93db9ea952f5bbdf.webp",
+      "kind": "like",
+      "image_choices": false
+    }
+  ],
+  "layout": {
+    "Recognize": 12,
+    "Listen": 10,
+    "Speak": 8,
+    "Use": 8
+  },
+  "stage_sequences": {
+    "Learn": [
+      "l-so",
+      "l-neither"
+    ],
+    "Recognize": [
+      "s-strawberries",
+      "r-fish",
+      "s-coffee",
+      "r-strawberries",
+      "s-milk",
+      "r-coffee",
+      "s-fish",
+      "r-milk",
+      "r-fish",
+      "s-coffee",
+      "r-strawberries",
+      "s-milk"
+    ],
+    "Listen": [
+      "r-strawberries",
+      "s-fish",
+      "r-milk",
+      "s-coffee",
+      "r-coffee",
+      "s-strawberries",
+      "r-fish",
+      "s-milk",
+      "r-strawberries",
+      "r-milk"
+    ],
+    "Speak": [
+      "x-strawberries",
+      "u-fish",
+      "u-coffee",
+      "u-milk",
+      "s-strawberries",
+      "s-fish",
+      "s-coffee",
+      "s-milk"
+    ],
+    "Use": [
+      "s-strawberries",
+      "u-fish",
+      "s-fish",
+      "u-strawberries",
+      "s-coffee",
+      "b-strawberries",
+      "s-milk",
+      "b-fish"
+    ]
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "bf71fa67-3818-4f07-b57a-025e2cc6b3b8",
+  "asset_id": "w00-kickoff",
+  "pack_sha256": "056ebe95c63bc3fd10c6a68e6f7a3584fc356c2c1028c79aa6e4e6a07980cda3",
+  "started_at": "2026-11-21T05:00:29.334697+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, menus, screens, cups, clothes or bags.\n\nOnly these two people are in the photo; there is nobody else, even far in the background.\n\nIt is clearly daytime with soft natural light.\n\nKeep each pictured person's face, hair, skin, build and clothes exactly as in the reference image; they look natural and relaxed, not posing for the camera.\n\nImage 1 shows Sofia (left) and Luis (right); use it only for Luis. Ana: long dark wavy hair, light-olive skin, sage-green overshirt over a white top, jeans. Luis: a very tall man with short dark curly hair, clean-shaven, warm medium-brown skin, navy crew-neck T-shirt. Ana (left) and Luis (right) walk into a bright, busy outdoor market on a sunny morning, each carrying an empty shopping bag, smiling and talking. Market stalls with fruit and vegetables are behind them, softly out of focus. There are no price cards, signs or numbers anywhere.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1plus-unit-1-p02-094cffd8654fde7e.webp",
+    "sha256": "094cffd8654fde7eacbcf5b643e8c43eebb30aff39e32cde627ca9861bda7b3d"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "aiUBa7OdKPLQz7IPgeKRKQ",
+  "usage": {
+    "promptTokenCount": 589,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1879,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 331
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038877",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 589,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 8.09,
+  "output": "output/imagegen/a1plus-unit-5-lesson-v5160/w00-kickoff.png",
+  "sha256": "d9d57616b1c70f7b8a75be7dc095d845b7343a3c8f805bfc494bdf0da4cfcf6a",
+  "byte_count": 1488330,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}

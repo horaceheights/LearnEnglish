@@ -86,6 +86,9 @@ def is_known(word: str, known: set[str]) -> bool:
         return True
     if word.endswith(SIBILANT_ENDINGS) and word[:-2] in known:
         return True
+    # A1+ 5.15 (2026-11-20): the -oes plural of a taught noun in -o (potato, potatoes; tomato, tomatoes).
+    if word.endswith("oes") and word[:-2] in known:
+        return True
     return word.endswith("s") and word[:-1] in known
 
 
