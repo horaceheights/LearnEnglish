@@ -1,0 +1,62 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "f5bd6f6e-d202-4c57-969f-7bca20a9becc",
+  "asset_id": "c02-sofia-dress",
+  "pack_sha256": "af3f958d0ca28a61a8f02b01981d0a5dc88431956bb2e7cbb0d25a6c05f6acfb",
+  "started_at": "2026-11-21T04:18:18.280246+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, menus, screens, cups, clothes or bags.\n\nKeep the people and the thing that carries the meaning inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nOnly this one person is in the photo; there is nobody else, even far in the background.\n\nIt is clearly daytime with soft natural light.\n\nThe whole person is visible from head to shoes, standing, with a little space above the head and below the shoes.\n\nImage 1 shows Sofia. Keep her face, long curly dark hair, warm brown skin and build exactly. Create a new photograph: Sofia stands in a sunny garden with green bushes behind her and smiles. She is wearing a simple knee-length bright BLUE dress with short sleeves and plain white sandals; her long curly hair is down. The blue dress is the most obvious thing she is wearing. She wears no jacket, no hat and no scarf.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1plus-unit-1-q03-7d520a07846a47b8.webp",
+    "sha256": "7d520a07846a47b8e8389c3226f3b3639d7eed0d257318b08e4f9b77c5b2258b"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "hxsBa4iaJc2cz7IPjZ7x6Q8",
+  "usage": {
+    "promptTokenCount": 582,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1872,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 324
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038875",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 582,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 8.18,
+  "output": "output/imagegen/a1plus-unit-7-lesson-v730/c02-sofia-dress.png",
+  "sha256": "d178f41beaff6574d9f41abe5473a8ff3111f8f5d782bf96c85d6034f00564bb",
+  "byte_count": 2142182,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}

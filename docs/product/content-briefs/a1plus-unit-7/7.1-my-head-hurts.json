@@ -1,0 +1,602 @@
+{
+  "brief_version": 1,
+  "follows": {
+    "course": "a1",
+    "lesson": "7.1",
+    "title": "My Body"
+  },
+  "note": "A1+ Unit 7 Lesson 7.1, built on 2026-11-20 under the A1+ lesson standards approved 2026-10-27 and the user's 2026-11-09 rule that every A1+ lesson follows up the A1 lesson with the same number. On 2026-11-20 the user asked to \"work on a1+ Unit 7 same all deal as before none stop all approved\": the A1+ Unit 7 map (A1+ 7.Y follows A1 7.Y, one step each, fifteen lessons) approved up front, straight to Preview, Gemini 2.5 Flash photos and ElevenLabs audio pre-approved, no per-lesson gates, reviewed in Preview. Four new photos (Gemini 2.5 Flash): Sofia presses her forehead, Luis rubs his bare feet on a park bench, Diego holds his legs after a run, Ana presses her closed eyes at a bright laptop. Each photo shows one body part hurting, so a picture bank tells head, feet, legs and eyes apart; the person who hurts says the first-person line.",
+  "target": "backend/lessons/a1_plus/unit_7/a1plus-unit-7-lesson-7-1.yaml",
+  "captions": false,
+  "narrators": [
+    "teacher",
+    "co-teacher"
+  ],
+  "answer_audio_policy": "authored-only",
+  "speak_delivery": "a1-pronunciation-v1",
+  "lesson": {
+    "id": "a1plus-unit-7-lesson-7-1",
+    "title": "7.1 What's wrong? My head hurts",
+    "level": "A1+",
+    "unit_id": "a1plus-unit-7",
+    "unit_title": "Everyday needs, plans and free time",
+    "unit_outcome": "Say what hurts and why someone feels a certain way, describe what people are wearing and the weather as it happens, tell someone to put on or take off clothes, talk about what people like doing, invite and answer, ask someone to repeat or explain, talk about being sick, the months and seasons, compare with the biggest and the tallest, and say what people and animals can do and are good at.",
+    "lesson_id": "a1plus-unit-7-lesson-7-1",
+    "lesson_title": "What's wrong? My head hurts",
+    "sub_lesson_id": "7.1",
+    "sub_lesson_title": "What's wrong? My head hurts",
+    "goal": "Say what hurts with hurts and hurt (My head hurts. / My feet hurt.) and ask What's wrong?.",
+    "vocabulary": [
+      "hurts",
+      "hurt",
+      "What's wrong?"
+    ],
+    "review_vocabulary": [
+      "my",
+      "his",
+      "her",
+      "head",
+      "eyes",
+      "legs",
+      "feet",
+      "I'm",
+      "tired",
+      "sad"
+    ],
+    "grammar_function": "A follow-up of A1 7.1 My Body: A1 names the body (This is my head. I have two feet.); A1+ 7.1 says what hurts. The one new grammar relationship is a body part + hurts or hurt: one thing takes hurts (My head hurts.) and two take hurt (My feet hurt. / My legs hurt. / My eyes hurt.), with my, his and her before the body part; the question is What's wrong?. Four new photos show the cast in pain: Sofia's head, Luis's feet after a walk, Diego's legs after a run and Ana's eyes at a bright screen, and A1 7.2's tired and sad come back in front of the reason (I'm tired and my legs hurt.).",
+    "prerequisite": "A1 7.1 the body; A1 7.2 How are you? tired and sad; A1 3.10 his and her; A1+ 3.4 short forms of be.",
+    "speaking_outcome": "Say hurts with a clear s (HURTS) after head, and hurt with no s after feet, legs and eyes; say What's wrong? as two words (WHATS-RONG). Do not require native-like speed.",
+    "content_revision": 1,
+    "learn_context_groups": [
+      {
+        "kind": "sequence",
+        "targets": [
+          "hurts"
+        ],
+        "models": [
+          {
+            "slide_id": "L1",
+            "text": "My head hurts."
+          }
+        ]
+      },
+      {
+        "kind": "sequence",
+        "targets": [
+          "hurt"
+        ],
+        "models": [
+          {
+            "slide_id": "L2",
+            "text": "My feet hurt."
+          }
+        ]
+      },
+      {
+        "kind": "exchange",
+        "targets": [
+          "What's wrong?"
+        ],
+        "models": [
+          {
+            "slide_id": "L3",
+            "text": "What's wrong? My legs hurt.",
+            "turns": [
+              "What's wrong?",
+              "My legs hurt."
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "sequence",
+        "targets": [
+          "hurt"
+        ],
+        "models": [
+          {
+            "slide_id": "L4",
+            "text": "Her eyes hurt."
+          }
+        ]
+      }
+    ]
+  },
+  "items": [
+    {
+      "id": "l-head",
+      "text": "My head hurts.",
+      "es": "Me duele la cabeza.",
+      "image": "/lesson-assets/a1plus-unit-7-h01-1b2f3f21fafa53a0.webp",
+      "kind": "sequence",
+      "choices": false,
+      "use": false,
+      "speaker": "sofia"
+    },
+    {
+      "id": "l-feet",
+      "text": "My feet hurt.",
+      "es": "Me duelen los pies.",
+      "image": "/lesson-assets/a1plus-unit-7-h02-017060967999871e.webp",
+      "kind": "sequence",
+      "choices": false,
+      "use": false,
+      "speaker": "luis"
+    },
+    {
+      "id": "l-wrong",
+      "text": "What's wrong? My legs hurt.",
+      "es": "¿Qué te pasa? Me duelen las piernas.",
+      "image": "/lesson-assets/a1plus-unit-7-h03-30ce43e3a0087515.webp",
+      "kind": "exchange",
+      "choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "What's wrong?",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-7-h03-30ce43e3a0087515.webp"
+        },
+        {
+          "text": "My legs hurt.",
+          "speaker": "diego",
+          "image": "/lesson-assets/a1plus-unit-7-h03-30ce43e3a0087515.webp"
+        }
+      ]
+    },
+    {
+      "id": "l-her",
+      "text": "Her eyes hurt.",
+      "es": "Le duelen los ojos.",
+      "image": "/lesson-assets/a1plus-unit-7-h04-4c8bdcf5ee63be02.webp",
+      "kind": "sequence",
+      "choices": false,
+      "use": false,
+      "speaker": "teacher"
+    },
+    {
+      "id": "b-head",
+      "text": "Her head hurts.",
+      "es": "Le duele la cabeza.",
+      "image": "/lesson-assets/a1plus-unit-7-h01-1b2f3f21fafa53a0.webp",
+      "kind": "body",
+      "accepts": {
+        "subject-variety": "The bank keeps the person and changes only the part of the body; the picture shows which part hurts.",
+        "action-variety": "The bank keeps the person and changes only the part of the body; the picture shows which part hurts.",
+        "conversational-response": "The bank keeps the person and changes only the part of the body; the picture shows which part hurts.",
+        "reading-load": "The bank keeps the person and changes only the part of the body; the picture shows which part hurts."
+      },
+      "prefer": [
+        "Her eyes hurt."
+      ],
+      "blanks": [
+        "head",
+        "hurts"
+      ],
+      "learn": false
+    },
+    {
+      "id": "m-head",
+      "text": "My head hurts.",
+      "es": "Me duele la cabeza.",
+      "image": "/lesson-assets/a1plus-unit-7-h01-1b2f3f21fafa53a0.webp",
+      "kind": "me",
+      "speaker": "sofia",
+      "question": "What's wrong?",
+      "question_es": "¿Qué te pasa?",
+      "question_speaker": "co-teacher",
+      "image_choices": false,
+      "accepts": {
+        "subject-variety": "The bank keeps the person and changes only the part of the body; the picture shows which part hurts.",
+        "action-variety": "The bank keeps the person and changes only the part of the body; the picture shows which part hurts.",
+        "conversational-response": "The bank keeps the person and changes only the part of the body; the picture shows which part hurts.",
+        "reading-load": "The bank keeps the person and changes only the part of the body; the picture shows which part hurts."
+      },
+      "prefer": [
+        "My eyes hurt."
+      ],
+      "blanks": [
+        "head",
+        "hurts"
+      ],
+      "listening_turns": [
+        {
+          "text": "What's wrong?",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-7-h01-1b2f3f21fafa53a0.webp"
+        },
+        {
+          "text": "My head hurts.",
+          "speaker": "sofia",
+          "image": "/lesson-assets/a1plus-unit-7-h01-1b2f3f21fafa53a0.webp"
+        }
+      ],
+      "learn": false
+    },
+    {
+      "id": "b-feet",
+      "text": "His feet hurt.",
+      "es": "Le duelen los pies.",
+      "image": "/lesson-assets/a1plus-unit-7-h02-017060967999871e.webp",
+      "kind": "body",
+      "accepts": {
+        "subject-variety": "The bank keeps the person and changes only the part of the body; the picture shows which part hurts.",
+        "action-variety": "The bank keeps the person and changes only the part of the body; the picture shows which part hurts.",
+        "conversational-response": "The bank keeps the person and changes only the part of the body; the picture shows which part hurts.",
+        "reading-load": "The bank keeps the person and changes only the part of the body; the picture shows which part hurts."
+      },
+      "prefer": [
+        "His legs hurt."
+      ],
+      "blanks": [
+        "feet",
+        "hurt"
+      ],
+      "learn": false
+    },
+    {
+      "id": "m-feet",
+      "text": "My feet hurt.",
+      "es": "Me duelen los pies.",
+      "image": "/lesson-assets/a1plus-unit-7-h02-017060967999871e.webp",
+      "kind": "me",
+      "speaker": "luis",
+      "question": "What's wrong?",
+      "question_es": "¿Qué te pasa?",
+      "question_speaker": "co-teacher",
+      "image_choices": false,
+      "accepts": {
+        "subject-variety": "The bank keeps the person and changes only the part of the body; the picture shows which part hurts.",
+        "action-variety": "The bank keeps the person and changes only the part of the body; the picture shows which part hurts.",
+        "conversational-response": "The bank keeps the person and changes only the part of the body; the picture shows which part hurts.",
+        "reading-load": "The bank keeps the person and changes only the part of the body; the picture shows which part hurts."
+      },
+      "prefer": [
+        "My legs hurt."
+      ],
+      "blanks": [
+        "feet",
+        "hurt"
+      ],
+      "listening_turns": [
+        {
+          "text": "What's wrong?",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-7-h02-017060967999871e.webp"
+        },
+        {
+          "text": "My feet hurt.",
+          "speaker": "luis",
+          "image": "/lesson-assets/a1plus-unit-7-h02-017060967999871e.webp"
+        }
+      ],
+      "learn": false
+    },
+    {
+      "id": "b-legs",
+      "text": "His legs hurt.",
+      "es": "Le duelen las piernas.",
+      "image": "/lesson-assets/a1plus-unit-7-h03-30ce43e3a0087515.webp",
+      "kind": "body",
+      "accepts": {
+        "subject-variety": "The bank keeps the person and changes only the part of the body; the picture shows which part hurts.",
+        "action-variety": "The bank keeps the person and changes only the part of the body; the picture shows which part hurts.",
+        "conversational-response": "The bank keeps the person and changes only the part of the body; the picture shows which part hurts.",
+        "reading-load": "The bank keeps the person and changes only the part of the body; the picture shows which part hurts."
+      },
+      "prefer": [
+        "His feet hurt."
+      ],
+      "blanks": [
+        "legs",
+        "hurt"
+      ],
+      "learn": false
+    },
+    {
+      "id": "m-legs",
+      "text": "My legs hurt.",
+      "es": "Me duelen las piernas.",
+      "image": "/lesson-assets/a1plus-unit-7-h03-30ce43e3a0087515.webp",
+      "kind": "me",
+      "speaker": "diego",
+      "question": "What's wrong?",
+      "question_es": "¿Qué te pasa?",
+      "question_speaker": "co-teacher",
+      "image_choices": false,
+      "accepts": {
+        "subject-variety": "The bank keeps the person and changes only the part of the body; the picture shows which part hurts.",
+        "action-variety": "The bank keeps the person and changes only the part of the body; the picture shows which part hurts.",
+        "conversational-response": "The bank keeps the person and changes only the part of the body; the picture shows which part hurts.",
+        "reading-load": "The bank keeps the person and changes only the part of the body; the picture shows which part hurts."
+      },
+      "prefer": [
+        "My feet hurt."
+      ],
+      "blanks": [
+        "legs",
+        "hurt"
+      ],
+      "listening_turns": [
+        {
+          "text": "What's wrong?",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-7-h03-30ce43e3a0087515.webp"
+        },
+        {
+          "text": "My legs hurt.",
+          "speaker": "diego",
+          "image": "/lesson-assets/a1plus-unit-7-h03-30ce43e3a0087515.webp"
+        }
+      ],
+      "learn": false
+    },
+    {
+      "id": "b-eyes",
+      "text": "Her eyes hurt.",
+      "es": "Le duelen los ojos.",
+      "image": "/lesson-assets/a1plus-unit-7-h04-4c8bdcf5ee63be02.webp",
+      "kind": "body",
+      "accepts": {
+        "subject-variety": "The bank keeps the person and changes only the part of the body; the picture shows which part hurts.",
+        "action-variety": "The bank keeps the person and changes only the part of the body; the picture shows which part hurts.",
+        "conversational-response": "The bank keeps the person and changes only the part of the body; the picture shows which part hurts.",
+        "reading-load": "The bank keeps the person and changes only the part of the body; the picture shows which part hurts."
+      },
+      "prefer": [
+        "Her head hurts."
+      ],
+      "blanks": [
+        "eyes",
+        "hurt"
+      ],
+      "learn": false
+    },
+    {
+      "id": "m-eyes",
+      "text": "My eyes hurt.",
+      "es": "Me duelen los ojos.",
+      "image": "/lesson-assets/a1plus-unit-7-h04-4c8bdcf5ee63be02.webp",
+      "kind": "me",
+      "speaker": "ana",
+      "question": "What's wrong?",
+      "question_es": "¿Qué te pasa?",
+      "question_speaker": "co-teacher",
+      "image_choices": false,
+      "accepts": {
+        "subject-variety": "The bank keeps the person and changes only the part of the body; the picture shows which part hurts.",
+        "action-variety": "The bank keeps the person and changes only the part of the body; the picture shows which part hurts.",
+        "conversational-response": "The bank keeps the person and changes only the part of the body; the picture shows which part hurts.",
+        "reading-load": "The bank keeps the person and changes only the part of the body; the picture shows which part hurts."
+      },
+      "prefer": [
+        "My head hurts."
+      ],
+      "blanks": [
+        "eyes",
+        "hurt"
+      ],
+      "listening_turns": [
+        {
+          "text": "What's wrong?",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-7-h04-4c8bdcf5ee63be02.webp"
+        },
+        {
+          "text": "My eyes hurt.",
+          "speaker": "ana",
+          "image": "/lesson-assets/a1plus-unit-7-h04-4c8bdcf5ee63be02.webp"
+        }
+      ],
+      "learn": false
+    },
+    {
+      "id": "f-diego",
+      "text": "I'm tired and my legs hurt.",
+      "es": "Estoy cansado y me duelen las piernas.",
+      "image": "/lesson-assets/a1plus-unit-7-h03-30ce43e3a0087515.webp",
+      "kind": "feel",
+      "speaker": "diego",
+      "image_choices": false,
+      "use": false,
+      "accepts": {
+        "subject-variety": "The bank keeps the feeling and changes only the part of the body the picture shows.",
+        "action-variety": "The bank keeps the feeling and changes only the part of the body the picture shows.",
+        "conversational-response": "The bank keeps the feeling and changes only the part of the body the picture shows.",
+        "reading-load": "The bank keeps the feeling and changes only the part of the body the picture shows."
+      },
+      "prefer": [
+        "I'm tired and my eyes hurt."
+      ],
+      "learn": false
+    },
+    {
+      "id": "f-luis",
+      "text": "I'm tired and my feet hurt.",
+      "es": "Estoy cansado y me duelen los pies.",
+      "image": "/lesson-assets/a1plus-unit-7-h02-017060967999871e.webp",
+      "kind": "feel",
+      "speaker": "luis",
+      "image_choices": false,
+      "use": false,
+      "accepts": {
+        "subject-variety": "The bank keeps the feeling and changes only the part of the body the picture shows.",
+        "action-variety": "The bank keeps the feeling and changes only the part of the body the picture shows.",
+        "conversational-response": "The bank keeps the feeling and changes only the part of the body the picture shows.",
+        "reading-load": "The bank keeps the feeling and changes only the part of the body the picture shows."
+      },
+      "prefer": [
+        "I'm tired and my head hurts."
+      ],
+      "learn": false
+    },
+    {
+      "id": "f-sofia",
+      "text": "I'm sad and my head hurts.",
+      "es": "Estoy triste y me duele la cabeza.",
+      "image": "/lesson-assets/a1plus-unit-7-h01-1b2f3f21fafa53a0.webp",
+      "kind": "feel",
+      "speaker": "sofia",
+      "image_choices": false,
+      "use": false,
+      "accepts": {
+        "subject-variety": "The bank keeps the feeling and changes only the part of the body the picture shows.",
+        "action-variety": "The bank keeps the feeling and changes only the part of the body the picture shows.",
+        "conversational-response": "The bank keeps the feeling and changes only the part of the body the picture shows.",
+        "reading-load": "The bank keeps the feeling and changes only the part of the body the picture shows."
+      },
+      "prefer": [
+        "I'm sad and my feet hurt."
+      ],
+      "learn": false
+    },
+    {
+      "id": "q-wrong",
+      "text": "What's wrong?",
+      "es": "¿Qué te pasa?",
+      "image": "/lesson-assets/a1plus-unit-7-h04-4c8bdcf5ee63be02.webp",
+      "kind": "question",
+      "speaker": "co-teacher",
+      "choices": false,
+      "use": false,
+      "learn": false
+    }
+  ],
+  "pool": [
+    {
+      "text": "Her eyes hurt.",
+      "es": "Le duelen los ojos.",
+      "image": "/lesson-assets/a1plus-unit-7-h01-1b2f3f21fafa53a0.webp",
+      "kind": "body",
+      "image_choices": false
+    },
+    {
+      "text": "My eyes hurt.",
+      "es": "Me duelen los ojos.",
+      "image": "/lesson-assets/a1plus-unit-7-h01-1b2f3f21fafa53a0.webp",
+      "kind": "me",
+      "image_choices": false
+    },
+    {
+      "text": "His legs hurt.",
+      "es": "Le duelen las piernas.",
+      "image": "/lesson-assets/a1plus-unit-7-h02-017060967999871e.webp",
+      "kind": "body",
+      "image_choices": false
+    },
+    {
+      "text": "My legs hurt.",
+      "es": "Me duelen las piernas.",
+      "image": "/lesson-assets/a1plus-unit-7-h02-017060967999871e.webp",
+      "kind": "me",
+      "image_choices": false
+    },
+    {
+      "text": "His feet hurt.",
+      "es": "Le duelen los pies.",
+      "image": "/lesson-assets/a1plus-unit-7-h03-30ce43e3a0087515.webp",
+      "kind": "body",
+      "image_choices": false
+    },
+    {
+      "text": "My feet hurt.",
+      "es": "Me duelen los pies.",
+      "image": "/lesson-assets/a1plus-unit-7-h03-30ce43e3a0087515.webp",
+      "kind": "me",
+      "image_choices": false
+    },
+    {
+      "text": "Her head hurts.",
+      "es": "Le duele la cabeza.",
+      "image": "/lesson-assets/a1plus-unit-7-h04-4c8bdcf5ee63be02.webp",
+      "kind": "body",
+      "image_choices": false
+    },
+    {
+      "text": "My head hurts.",
+      "es": "Me duele la cabeza.",
+      "image": "/lesson-assets/a1plus-unit-7-h04-4c8bdcf5ee63be02.webp",
+      "kind": "me",
+      "image_choices": false
+    },
+    {
+      "text": "I'm tired and my eyes hurt.",
+      "es": "Estoy cansado y me duelen los ojos.",
+      "image": "/lesson-assets/a1plus-unit-7-h03-30ce43e3a0087515.webp",
+      "kind": "feel",
+      "image_choices": false
+    },
+    {
+      "text": "I'm tired and my head hurts.",
+      "es": "Estoy cansado y me duele la cabeza.",
+      "image": "/lesson-assets/a1plus-unit-7-h02-017060967999871e.webp",
+      "kind": "feel",
+      "image_choices": false
+    },
+    {
+      "text": "I'm sad and my feet hurt.",
+      "es": "Estoy triste y me duelen los pies.",
+      "image": "/lesson-assets/a1plus-unit-7-h01-1b2f3f21fafa53a0.webp",
+      "kind": "feel",
+      "image_choices": false
+    }
+  ],
+  "layout": {
+    "Recognize": 10,
+    "Listen": 10,
+    "Speak": 8,
+    "Use": 8
+  },
+  "stage_sequences": {
+    "Learn": [
+      "l-head",
+      "l-feet",
+      "l-wrong",
+      "l-her"
+    ],
+    "Recognize": [
+      "b-head",
+      "m-feet",
+      "b-legs",
+      "m-eyes",
+      "f-sofia",
+      "b-feet",
+      "m-head",
+      "b-eyes",
+      "f-diego",
+      "m-legs"
+    ],
+    "Listen": [
+      "m-head",
+      "b-feet",
+      "f-sofia",
+      "m-legs",
+      "b-eyes",
+      "f-luis",
+      "b-head",
+      "m-feet",
+      "f-diego",
+      "b-legs"
+    ],
+    "Speak": [
+      "q-wrong",
+      "m-head",
+      "b-feet",
+      "m-legs",
+      "b-eyes",
+      "f-luis",
+      "m-eyes",
+      "b-head"
+    ],
+    "Use": [
+      "m-head",
+      "b-feet",
+      "m-legs",
+      "b-eyes",
+      "b-head",
+      "m-feet",
+      "b-legs",
+      "m-eyes"
+    ]
+  }
+}

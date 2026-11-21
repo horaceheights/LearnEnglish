@@ -232,6 +232,11 @@ const MEANINGS: Record<string, string> = {
   our: 'nuestro', their: 'de ellos', mine: 'mío', yours: 'tuyo', ours: 'nuestro', have: 'tener', has: 'tiene',
   // A1+ 3.12 (2026-11-20): possessive pronouns after Whose…? (It's hers. / They're theirs.).
   hers: 'de ella', theirs: 'de ellos',
+  // A1+ 7.1-7.5 (2026-11-20): what hurts, why and because, what people are wearing, the weather happening
+  // now, and putting clothes on and taking them off.
+  hurts: 'duele', hurt: 'duelen', because: 'porque', wearing: 'llevando puesto', raining: 'lloviendo',
+  snowing: 'nevando', 'put on': 'ponerse', 'take off': 'quitarse', 'putting on': 'poniéndose',
+  'taking off': 'quitándose',
   grandchildren: 'nietos',
   cook: 'cocinero', brush: 'cepillar', wash: 'lavar',
   study: 'estudiar', run: 'correr', goes: 'va', walks: 'camina', likes: 'le gusta',

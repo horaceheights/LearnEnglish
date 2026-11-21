@@ -1,0 +1,62 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "b18cba6c-cc05-4cd0-bf06-d80de121f6a0",
+  "asset_id": "p03-ana-gloves-on",
+  "pack_sha256": "7e28fdc114335286a60b8695084d019a996e8a0c4f3374bef6c57ce917c876ae",
+  "started_at": "2026-11-21T04:20:11.989004+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, menus, screens, cups, clothes or bags.\n\nKeep the people and the thing that carries the meaning inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nOnly this one person is in the photo; there is nobody else, even far in the background.\n\nIt is clearly daytime with soft natural light.\n\nNobody looks at the camera.\n\nImage 1 shows Ana. Keep her face, long dark wavy hair, light-olive skin and build exactly. She wears a warm dark-blue winter coat and a white knitted hat. Create a new photograph: Ana stands on a snowy street in winter, her breath visible in the cold air, and PULLS a thick red woolen glove ONTO her left hand with her right hand; the matching right glove is already on her right hand. Her left hand is halfway into the glove. It is obvious it is very cold.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1plus-unit-1-q02-c2b4398b65207eff.webp",
+    "sha256": "c2b4398b65207effa51e51260cc607c38ada48caea82f14eb872e4c9c8b5d0d5"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "-RsBa9aKCsiez7IPkfuLoAg",
+  "usage": {
+    "promptTokenCount": 581,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1871,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 323
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038874",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 581,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 8.05,
+  "output": "output/imagegen/a1plus-unit-7-lesson-v750/p03-ana-gloves-on.png",
+  "sha256": "c46e2558c39d21093bb5d4412bdf2584a983acca427f42c81dbeae240fb063b3",
+  "byte_count": 1267288,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}

@@ -1,0 +1,62 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "4fd54017-12a4-4fcd-b170-0ef7b8a07899",
+  "asset_id": "p02-diego-jacket-off",
+  "pack_sha256": "e0a48dec762c395475029f4f5a37f0fa921a991326935ee60dd90ec50591e41e",
+  "started_at": "2026-11-21T04:21:43.385251+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, menus, screens, cups, clothes or bags.\n\nKeep the people and the thing that carries the meaning inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nOnly this one person is in the photo; there is nobody else, even far in the background.\n\nIt is clearly daytime with soft natural light.\n\nNobody looks at the camera.\n\nImage 1 shows Diego. Keep his face, dark curly hair with a little grey, short full beard and build exactly. He wears a light grey T-shirt and jeans. Create a new photograph: on a blazing hot summer day in a sunny park with harsh sunlight, Diego is clearly TOO HOT: his face is red and shiny with sweat and there are sweat marks on his T-shirt. He is TAKING OFF a heavy brown winter jacket: his RIGHT arm is already completely out of the jacket, bare in his T-shirt sleeve, and with his right hand he pulls the jacket DOWN and AWAY from his body, off his LEFT arm; the jacket hangs from his left elbow and is clearly coming off, not going on. The sun is bright overhead and the grass is dry and yellow.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1plus-unit-1-q04-ded74a2cb6021167.webp",
+    "sha256": "ded74a2cb6021167d6af2351e9012476d36c1b0936ca9f4f4b6dee68783bb9e2"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "VBwBa-7kJpONqtsPnbGn8QE",
+  "usage": {
+    "promptTokenCount": 635,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1925,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 377
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038890",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 635,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 8.29,
+  "output": "output/imagegen/a1plus-unit-7-lesson-v751/p02-diego-jacket-off.png",
+  "sha256": "b1279070e5a2e160f8f754833b625df0fce7686e087e7c477f19e9e294fd8bb5",
+  "byte_count": 1607338,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}

@@ -142,6 +142,14 @@ const FREQUENCY = set('always usually sometimes never');
 const ROUTINE_BASE = set('leave arrive start finish study work wake get eat wash brush come go sleep drink walk play watch open close clean run take put meet cook');
 // A1+ 1.9 (2026-11-18): live after does (Where does your aunt live?).
 ROUTINE_BASE.add('live');
+// A1+ 7.3-7.5 (2026-11-20): what someone is wearing, the weather happening now, and putting clothes on
+// or taking them off (She's wearing a red hat. / It's raining. / He's taking off his jacket.).
+for (const action of words('wearing raining snowing putting taking')) ACTIONS.add(action);
+// A1+ 7.5 (2026-11-20): the two-word verbs that put clothes on and take them off.
+const WEATHER_NOW: Record<string, string> = { raining: 'lloviendo', snowing: 'nevando' };
+const CLOTHES_PARTICLES: Record<string, [string, string, string]> = {
+  putting: ['on', 'putting on', 'poniéndose'], taking: ['off', 'taking off', 'quitándose'],
+};
 
 type Relation = { start: number; end: number; explanation: string };
 type ClausePlan = { explanations: string[]; relations: Relation[]; supported: boolean };
@@ -403,6 +411,12 @@ function teachClause(text: string): ClausePlan {
       }
       return complement(start + 1, end, tokens[start]);
     }
+    const particle = CLOTHES_PARTICLES[keys[start]];
+    if (particle && keys[start + 1] === particle[0] && end > start + 2) {
+      teach(start, start + 2, `${quote(phrase(start, start + 2))} (${particle[2]}) son dos palabras que van juntas; van después de ${quote(anchor)} y antes de la ropa.`);
+      teach(start + 2, end, `${quote(phrase(start + 2, end))} es la ropa y cierra la frase.`);
+      return nominal(start + 2, end);
+    }
     if (ACTIONS.has(keys[start])) {
       teach(start, start + 1, `${quote(tokens[start])} expresa la acción; aquí va después de ${quote(anchor)}.`);
       if (keys[start] === 'listening' && keys[start + 1] === 'to') {
@@ -603,7 +617,8 @@ function teachClause(text: string): ClausePlan {
     const supported = nominal(2, keys.length);
     return { explanations, relations, supported };
   }
-  if (/^take .+$/.test(joined)) {
+  // A1+ 7.5 (2026-11-20): Take off your jacket. is the clothes order below, not transport.
+  if (/^take (?!off ).+$/.test(joined)) {
     teach(0, keys.length, 'En esta indicación, primero “Take” (tome) y después el transporte que debe usar.');
     return { explanations, relations, supported: nominal(1, keys.length) };
   }
@@ -811,6 +826,25 @@ function teachClause(text: string): ClausePlan {
     teach(3, 4, 'El último “do” es el verbo hacer y cierra la pregunta: pregunta a qué se dedica.');
     return { explanations, relations, supported: true };
   }
+  // A1+ 7.1 (2026-11-20): what hurts, one body part with hurts and two with hurt (My head hurts. /
+  // His feet hurt.).
+  const hurts = /^(my|your|his|her) (head|eyes|ears|arms|hands|legs|feet|fingers|toes) (hurts|hurt)$/.exec(joined);
+  if (hurts && !text.trim().endsWith('?') && (hurts[3] === 'hurts') === (hurts[2] === 'head')) {
+    teach(0, 2, `${quote(phrase(0, 2))} dice qué parte del cuerpo duele y va primero.`);
+    teach(2, 3, hurts[3] === 'hurts'
+      ? `“hurts” (duele) lleva -s porque es una sola parte, ${quote(tokens[1])}; va al final.`
+      : `“hurt” (duelen) va sin -s porque son dos o más, ${quote(tokens[1])}; va al final.`);
+    return { explanations, relations, supported: true };
+  }
+  // A1+ 7.5 (2026-11-20): telling someone to put clothes on or take them off (Put on your coat.).
+  const clothesOrder = /^(put on|take off) (your|my|his|her) ([a-z]+)$/.exec(joined);
+  if (clothesOrder && !text.trim().endsWith('?') && NOUNS.has(clothesOrder[3])) {
+    teach(0, 2, clothesOrder[1] === 'put on'
+      ? '“Put on” (ponte) son dos palabras que van juntas y abren la indicación; no hay sujeto.'
+      : '“Take off” (quítate) son dos palabras que van juntas y abren la indicación; no hay sujeto.');
+    teach(2, 4, `${quote(phrase(2, 4))} es la ropa y va después de ${quote(phrase(0, 2))}.`);
+    return { explanations, relations, supported: true };
+  }
   // A1+ 3.12 (2026-11-20): Whose camera is this? asks who a thing belongs to.
   const whose = /^whose ([a-z]+) (is|are) (this|that|these|those)$/.exec(joined);
   if (whose && text.trim().endsWith('?') && NOUNS.has(whose[1])) {
@@ -853,8 +887,12 @@ function teachClause(text: string): ClausePlan {
     teach(0, shortIs, shortIs === 1
       ? '“It’s” es la forma corta de “it is”: “it” (eso) y “is” (es) van juntos al principio.'
       : '“Isn’t” es la forma corta de “is not”: va después de “It” y niega lo que sigue.');
-    teach(shortIs, keys.length, `${quote(phrase(shortIs, keys.length))} dice qué ${shortIs === 1 ? 'es' : 'no es'}; va después de ${quote(phrase(0, shortIs))}.`);
-    const supported = keys.length === shortIs + 1 && STATES.has(keys[shortIs]) ? true : nominal(shortIs, keys.length);
+    // A1+ 7.4 (2026-11-20): the weather happening now (It's raining. / It isn't snowing.).
+    const weatherNow = keys.length === shortIs + 1 && WEATHER_NOW[keys[shortIs]];
+    teach(shortIs, keys.length, weatherNow
+      ? `${quote(tokens[shortIs])} (${weatherNow}) dice qué ${shortIs === 1 ? 'pasa' : 'no pasa'} ahora con el tiempo; va después de ${quote(phrase(0, shortIs))}.`
+      : `${quote(phrase(shortIs, keys.length))} dice qué ${shortIs === 1 ? 'es' : 'no es'}; va después de ${quote(phrase(0, shortIs))}.`);
+    const supported = keys.length === shortIs + 1 && (STATES.has(keys[shortIs]) || Boolean(weatherNow)) ? true : nominal(shortIs, keys.length);
     return { explanations, relations, supported: supported && explanations.every(Boolean) };
   }
   // A closing "isn't" negates without repeating the description (… but that one isn't.).
