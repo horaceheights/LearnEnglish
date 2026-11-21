@@ -1,0 +1,193 @@
+{
+  "schema_version": 1,
+  "pack": "a1plus-unit-4-lesson-4-16-review-photos",
+  "revision": 1,
+  "output_namespace": "a1plus-unit-4-lesson-v4160",
+  "authorization": "2026-11-20: the user asked to \"Start working on A1+ Unit 4, same deal. make sure images make sense all the time\" (the Unit 2 and Unit 3 deal: an approved map, then straight to Preview in batches with media pre-approved and reviewed in Preview), approved the A1+ Unit 4 map (\"Approve this map\") and then said \"keep going until preview, I approve ALL, NO NEED to stop\". Gemini is the approved image tool (2026-09-23), Flash only (2026-11-17; \"lets switch to flash for any other images\", 2026-11-19).",
+  "image_settings": {
+    "provider": "google-gemini",
+    "model": "gemini-2.5-flash-image",
+    "aspect_ratio": "3:2",
+    "image_size": "1K",
+    "runtime_size": "1536x1024",
+    "runtime_format": "webp",
+    "n": 1
+  },
+  "production": {
+    "price_per_image_usd": "0.0387",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing (checked 2026-11-16: Gemini 2.5 Flash Image, about $0.039 per image)",
+    "planned_images": 12,
+    "expected_cost_usd": "0.46",
+    "requested_ceiling_usd": "0.70",
+    "ceiling_note": "The renderer reserves US$0.20 before each request; each request is sent on its own, and the expected spend for the pack is about US$0.46.",
+    "no_automatic_retries": true,
+    "order": "Generate v00 first and check each of the six family members and the dog is clearly different and fully visible; every later photo is an edit of v00 and keeps one or two of them. Check each photo shows only its own sentence: one lamp on in v02 and none elsewhere, one cup in v08, no cups on v06's table, no ball in v04."
+  },
+  "shared_prompts": {
+    "photo": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, menus, screens, cups, clothes or bags.",
+    "safe_center": "Keep the people and the thing that carries the meaning inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.",
+    "solo": "Only this one person is in the photo; there is nobody else, even far in the background.",
+    "pair": "Only these two people are in the photo; there is nobody else, even far in the background.",
+    "daytime": "It is clearly daytime with soft natural light.",
+    "nobody": "There are no people and no animals anywhere in the photo.",
+    "evening": "It is evening: the window shows a dark blue sky.",
+    "nolamp": "No lamp or light is switched on anywhere in the photo."
+  },
+  "assets": [
+    {
+      "id": "v00-family",
+      "order": 1,
+      "item": "Reference only: the review's fresh family.",
+      "shared": [
+        "photo",
+        "daytime"
+      ],
+      "prompt": "Create a photograph of a real, warm family of six standing together on the front lawn of their two-story house, all smiling at the camera, in a row from left to right in this order.  The family: a GRANDFATHER of about 75 with short white hair, thin round glasses and a navy cardigan over a white shirt; a GRANDMOTHER of about 72 with short grey curly hair and a red cardigan; a FATHER of about 45 with short black hair and a short black beard, in a light-blue shirt; a MOTHER of about 42 with long straight brown hair, in a green blouse; a GIRL of about twelve with two long dark braids, in a yellow T-shirt; a BOY of about nine with short brown hair, in an orange T-shirt; and their dog, a medium black-and-white dog with floppy ears. The dog sits on the grass in front of them. Every face is clearly visible."
+    },
+    {
+      "id": "v01-grandfather-upstairs",
+      "order": 2,
+      "item": "The grandfather is upstairs. / Where's the grandfather? He's upstairs.",
+      "shared": [
+        "photo",
+        "solo",
+        "daytime"
+      ],
+      "prompt": "Image 1 shows the family. Keep the GRANDFATHER exactly as in Image 1: face, hair, age and clothes. Create a new photograph inside their bright two-story house. The camera stands downstairs in the front hallway and looks at a straight wooden staircase that rises to an open upstairs landing with a white wooden banister; the whole staircase, the hallway floor at its foot and the landing are clearly visible. The grandfather stands UPSTAIRS on the landing at the top of the stairs, one hand on the banister, and smiles down toward the camera; his whole body is visible up on the landing. The stairs and the downstairs hallway are empty.",
+      "reference": "v00-family"
+    },
+    {
+      "id": "v02-girl-lamp-on",
+      "order": 3,
+      "item": "She turns on the lamp. / The lamp is on.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "solo",
+        "evening"
+      ],
+      "prompt": "Image 1 shows the family. Keep the GIRL exactly as in Image 1: face, hair, age and clothes. Create a new photograph: in the evening the girl sits at a small white desk in her bedroom with an open notebook, and reaches out to the switch of a desk lamp with a white shade that stands on the desk. The lamp is ON: it glows brightly and lights her notebook and her face. The lamp, its glow and her hand on the switch are large and clearly visible.",
+      "reference": "v00-family"
+    },
+    {
+      "id": "v03-dog-behind-chair",
+      "order": 4,
+      "item": "The dog is behind the chair.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "nobody",
+        "daytime"
+      ],
+      "prompt": "Image 1 shows the family and their dog. Keep only the DOG exactly: a medium black-and-white dog with floppy ears. Create a new photograph in their bright living room: a single mustard-yellow armchair stands in the middle of the photo, facing the camera. The dog is BEHIND the armchair: only its head and its two front paws show above the armchair's back, looking at the camera; the armchair hides the rest of its body. Nothing is on the armchair's seat or on the floor in front of it. No people are in the photo.",
+      "reference": "v00-family"
+    },
+    {
+      "id": "v04-children-garden",
+      "order": 5,
+      "item": "Are there two children in the garden? Yes, there are.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "pair",
+        "daytime"
+      ],
+      "prompt": "Image 1 shows the family. Keep the GIRL and the BOY exactly as in Image 1: face, hair, age and clothes. Create a new photograph in the sunny green garden behind their house: the girl and the boy sit side by side on the grass, each reading an open book. There is no ball, no bike and nothing else to play with in the photo.",
+      "reference": "v00-family"
+    },
+    {
+      "id": "v05-mother-teeth",
+      "order": 6,
+      "item": "She brushes her teeth.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "solo",
+        "daytime",
+        "nolamp"
+      ],
+      "prompt": "Image 1 shows the family. Keep the MOTHER exactly as in Image 1: face, hair, age and clothes. Create a new photograph in the morning in their bright white bathroom: the mother stands at the sink in front of the mirror and brushes her teeth with a blue toothbrush, a little white toothpaste foam at her mouth. Her face is NOT wet, there is no towel at her face and the tap is off. Her face and the toothbrush are clearly visible.",
+      "reference": "v00-family"
+    },
+    {
+      "id": "v06-father-cleans",
+      "order": 7,
+      "item": "He cleaned the table yesterday. / He didn't work on Sunday.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "solo",
+        "daytime",
+        "nolamp"
+      ],
+      "prompt": "Image 1 shows the family. Keep the FATHER exactly as in Image 1: face, hair, age and clothes. Create a new photograph in their bright kitchen: the father, his sleeves rolled up, wipes a light wooden kitchen table with a yellow cloth in one hand and a spray bottle in the other. The table is completely empty: no cups, no plates, no food. The cleaning is obvious at a glance.",
+      "reference": "v00-family"
+    },
+    {
+      "id": "v07-boy-washes-car",
+      "order": 8,
+      "item": "Did he wash the car? Yes, he did.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "solo",
+        "daytime"
+      ],
+      "prompt": "Image 1 shows the family. Keep the BOY exactly as in Image 1: face, hair, age and clothes. Create a new photograph in front of their house on a sunny day: the boy washes the family's small blue car with a big yellow sponge; white soap foam covers the car door, and a red bucket of soapy water stands on the ground beside him. The car has no number plate visible.",
+      "reference": "v00-family"
+    },
+    {
+      "id": "v08-boy-gives-cup",
+      "order": 9,
+      "item": "He gives it to his grandmother.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "pair",
+        "daytime",
+        "nolamp"
+      ],
+      "prompt": "Image 1 shows the family. Keep the BOY and the GRANDMOTHER exactly as in Image 1: face, hair, age and clothes. Create a new photograph in their bright living room: the grandmother sits in an armchair, and the boy stands beside her and gives her ONE white cup of tea with both hands; she reaches out to take it and smiles at him. There is only one cup in the photo, and no table with cups, plates or food.",
+      "reference": "v00-family"
+    },
+    {
+      "id": "v09-girl-football",
+      "order": 10,
+      "item": "She plays football every weekend.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "solo",
+        "daytime"
+      ],
+      "prompt": "Image 1 shows the family. Keep the GIRL exactly as in Image 1: face, hair, age and clothes. Create a new photograph on a green grass field in a park: the girl, in her yellow T-shirt, black shorts and football boots, kicks a black-and-white football in mid-kick, the ball just leaving her foot. Nobody else is in the photo.",
+      "reference": "v00-family"
+    },
+    {
+      "id": "v10-grandmother-birthday",
+      "order": 11,
+      "item": "Her birthday is on May fourth.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "solo",
+        "daytime"
+      ],
+      "prompt": "Image 1 shows the family. Keep the GRANDMOTHER exactly as in Image 1: face, hair, age and clothes. Create a new photograph of her birthday at home in the daytime: she sits alone at a light wooden dining table in a small kraft-paper party hat, smiling at a round chocolate cake on a white plate with six thin plain candles, all lit; a few plain balloons float behind her. Nothing anywhere shows a number or a letter.",
+      "reference": "v00-family"
+    },
+    {
+      "id": "v11-cups-some",
+      "order": 12,
+      "item": "There are some cups on the table.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "nobody",
+        "daytime",
+        "nolamp"
+      ],
+      "prompt": "A bright kitchen in the morning with nobody in it: in the middle of the photo stands a round white kitchen table, and on it stand four white cups of coffee, close together and clearly visible. There is nothing else on the table."
+    }
+  ]
+}

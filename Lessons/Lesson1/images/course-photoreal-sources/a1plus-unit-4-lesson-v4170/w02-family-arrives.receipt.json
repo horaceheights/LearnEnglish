@@ -1,0 +1,62 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "067c04ce-87bc-4936-b2ad-2ab618de1da4",
+  "asset_id": "w02-family-arrives",
+  "pack_sha256": "54e5e24a7bde0f5117e3837b6ae7a331b37aa349fa8ec0402021bdd134004421",
+  "started_at": "2026-11-21T08:18:49.540818+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, menus, screens, cups, clothes or bags.\n\nThe place is Ana's bright, modern apartment on a Saturday: an open living and dining room with a light-grey sofa, a light wooden dining table with chairs, a big window, a big flat TV on a low white cabinet and a few plants.\n\nIt is clearly daytime with soft natural light.\n\nImage 1 shows Ana's grandparents. Keep the GRANDMOTHER (white hair in a low bun, about 80, lavender blouse) and the GRANDFATHER (thin white hair, about 80, white short-sleeved shirt, brown trousers, a wooden walking cane) exactly. Create a new photograph in Ana's living and dining room: four members of Ana's family have just arrived and stand clearly apart from each other, all smiling, from left to right: the GRANDFATHER stands IN FRONT OF the big window, leaning on his cane, with the window behind him; the GRANDMOTHER stands BEHIND the light-grey sofa, her hands resting on its back, the sofa between her and the camera; Ana's MOTHER, a woman of about 58 with shoulder-length dark hair with grey streaks tied back, in a purple blouse, stands IN FRONT OF the open front door, the door behind her; and Ana's FATHER, a man of about 60 with short dark hair grey at the sides and a neat grey moustache, in a dark-green shirt, stands BEHIND the dining table, his hands on the back of a chair, the table between him and the camera. Nobody else is in the photo.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1plus-unit-1-k04-a3ea44bdfdd04521.webp",
+    "sha256": "a3ea44bdfdd04521e9c58cbe1dcd878a7650ee305da2cbd7b70bf7b9f8cb7de0"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "5lMBa4fgFbuV6dkP-MG7kA4",
+  "usage": {
+    "promptTokenCount": 718,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 2008,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 460
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038915",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 718,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 11.24,
+  "output": "output/imagegen/a1plus-unit-4-lesson-v4170/w02-family-arrives.png",
+  "sha256": "35f8a43f363b0e805189dcf426374147f9597b94b5f92f4a0e6769cd11242529",
+  "byte_count": 1297186,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}

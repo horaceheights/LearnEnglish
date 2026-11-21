@@ -241,6 +241,8 @@ const MEANINGS: Record<string, string> = {
   yesterday: 'ayer',
   // A1+ 4.10 (2026-11-20): What time do you start work? / I finish work at six o'clock.
   'start work': 'empezar a trabajar', 'finish work': 'terminar de trabajar',
+  // A1+ 4.12 (2026-11-21): how often, at the end of the sentence (Diego runs once a week.).
+  once: 'una vez', twice: 'dos veces',
   grandchildren: 'nietos',
   cook: 'cocinero', brush: 'cepillar', wash: 'lavar',
   study: 'estudiar', run: 'correr', goes: 'va', walks: 'camina', likes: 'le gusta',
