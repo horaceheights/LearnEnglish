@@ -149,6 +149,19 @@ test('Spanish course cards explain Spanish order, agreement, es/está and one-or
   const age = card('Tengo catorce años.');
   assert.equal(constructionMistakeHint(age, swap(age, 1, 2)),
     'You put “años” where “catorce” goes. Age uses tener: “Tengo catorce años”, not ser.');
+  // Spanish Unit 4: location with estar, hay, reflexive mornings, present tense, days, time and months.
+  for (const supported of ['El libro azul está al lado del teléfono.', 'La bolsa está debajo de la silla.', 'El gato está en las escaleras.',
+    'Hay dos bolsas debajo de la mesa.', 'Hay una cama en la recámara.', 'Hay doce meses en un año.', 'Me cepillo los dientes en el baño.',
+    'Primero, me despierto.', 'Por último, voy a la escuela.', 'Lavamos nuestra ropa.', 'Ellos vienen a mi casa.', 'Veo al gato sobre el sofá.',
+    'Encuentro mi libro debajo del sofá.', 'Vengo a casa.', '¿Tú trabajas?', 'No, no estudio.', 'Sí, juego en el parque.',
+    'Son las nueve de la noche.', 'Es la una.', 'Hoy es lunes.', 'Es marzo.', 'Mi cumpleaños es en diciembre.', 'Es el fin de semana.',
+    '¿Dónde está el teléfono?', '¿Qué hora es?', 'Esta es la cocina.', 'La sala']) {
+    assert.equal(constructionTeachingPlan(card(supported)).supported, true, supported);
+  }
+  for (const unsupported of ['El libro azul están al lado del teléfono.', 'La bolsa está debajo del silla.', 'Hay dos bolsa.',
+    'Me despiertas.', 'Lavamos nuestro ropa.', 'Ellos viene a mi casa.', 'Son las una.', 'Este es la cocina.', 'Vengo a la casa casa.']) {
+    assert.equal(constructionTeachingPlan(card(unsupported)).supported, false, unsupported);
+  }
   const notDoing = choice('Ella no está leyendo.', 'Ella está leyendo.', 'She is not reading.');
   assert.equal(spanishChoiceHint(notDoing, 'wrong'),
     'You heard “Ella no está leyendo”: She is not reading. “no” before the verb means “not”.');
