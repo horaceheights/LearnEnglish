@@ -30,8 +30,9 @@ test('installed listening cards explain the heard evidence, including the report
   // On 2026-11-19 A1+ Unit 2 began: 2.1-2.5 have ten Listen cards each, and so do 2.6-2.10; on 2026-11-20
   // 2.11-2.13 added ten each and the 2.14 review twenty (the 2.15 mission has no Listen stage).
   // On 2026-11-20 A1+ Unit 3 began: 3.1-3.5 have ten Listen cards each, and so do 3.6-3.10 and
-  // 3.11-3.14; the 3.15 review has twenty. On 2026-11-20 A1+ Unit 4 began: 4.1-4.6 have ten each.
-  assert.equal(cards.length, 499);
+  // 3.11-3.14; the 3.15 review has twenty. On 2026-11-20 A1+ Unit 4 began: 4.1-4.6 have ten each,
+  // and so do 4.7-4.11 and 4.12-4.15; the 4.16 review has twenty.
+  assert.equal(cards.length, 609);
   for (const card of cards) {
     assert.ok(!card.context_es, `${card.slide_id}: Spanish scenario text returned.`);
     for (const option of wrongOptions(card)) {

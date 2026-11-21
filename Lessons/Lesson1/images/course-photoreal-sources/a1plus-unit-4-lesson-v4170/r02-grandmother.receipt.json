@@ -1,0 +1,62 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "0524cf08-d625-4c3c-a7e9-af03e922ba92",
+  "asset_id": "r02-grandmother",
+  "pack_sha256": "54e5e24a7bde0f5117e3837b6ae7a331b37aa349fa8ec0402021bdd134004421",
+  "started_at": "2026-11-21T08:20:00.781566+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, menus, screens, cups, clothes or bags.\n\nThe place is Ana's bright, modern apartment on a Saturday: an open living and dining room with a light-grey sofa, a light wooden dining table with chairs, a big window, a big flat TV on a low white cabinet and a few plants.\n\nOnly this one person is in the photo; there is nobody else, even far in the background.\n\nIt is clearly daytime with soft natural light.\n\nImage 1 shows Ana's grandparents. Keep only the GRANDMOTHER exactly: her face, white hair in a low bun, age of about 80 and lavender blouse. Create a new photograph: the grandmother sits at Ana's light wooden dining table at lunch, smiling warmly at the camera, a glass of water and a plate in front of her. Nobody else is in the photo.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1plus-unit-1-k04-a3ea44bdfdd04521.webp",
+    "sha256": "a3ea44bdfdd04521e9c58cbe1dcd878a7650ee305da2cbd7b70bf7b9f8cb7de0"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "LVQBa5PFH4uhz7IP24j2uA4",
+  "usage": {
+    "promptTokenCount": 556,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1846,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 298
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038867",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 556,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 8.1,
+  "output": "output/imagegen/a1plus-unit-4-lesson-v4170/r02-grandmother.png",
+  "sha256": "60c9cad8d933ba2e88dfa4529433b1cb11ec03a04f43f3ca0011245a2a86f98c",
+  "byte_count": 1095552,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}

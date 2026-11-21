@@ -1,0 +1,226 @@
+{
+  "schema_version": 1,
+  "pack": "a1plus-unit-4-lesson-4-17-mission-photos",
+  "revision": 1,
+  "output_namespace": "a1plus-unit-4-lesson-v4170",
+  "authorization": "2026-11-20: the user asked to \"Start working on A1+ Unit 4, same deal. make sure images make sense all the time\" (the Unit 2 and Unit 3 deal: an approved map, then straight to Preview in batches with media pre-approved and reviewed in Preview), approved the A1+ Unit 4 map (\"Approve this map\") and then said \"keep going until preview, I approve ALL, NO NEED to stop\". Gemini is the approved image tool (2026-09-23), Flash only (2026-11-17; \"lets switch to flash for any other images\", 2026-11-19).",
+  "image_settings": {
+    "provider": "google-gemini",
+    "model": "gemini-2.5-flash-image",
+    "aspect_ratio": "3:2",
+    "image_size": "1K",
+    "runtime_size": "1536x1024",
+    "runtime_format": "webp",
+    "n": 1
+  },
+  "production": {
+    "price_per_image_usd": "0.0387",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing (checked 2026-11-16: Gemini 2.5 Flash Image, about $0.039 per image)",
+    "planned_images": 12,
+    "expected_cost_usd": "0.46",
+    "requested_ceiling_usd": "0.70",
+    "ceiling_note": "The renderer reserves US$0.20 before each request; each request is sent on its own, and the expected spend for the pack is about US$0.46.",
+    "no_automatic_retries": true,
+    "order": "Generate w00 and the four scenes first and check each scene's four targets are clearly separate and readable at 360 px, and that each sentence is true only of its own target; then the question and answer views."
+  },
+  "shared_prompts": {
+    "photo": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, menus, screens, cups, clothes or bags.",
+    "apartment": "The place is Ana's bright, modern apartment on a Saturday: an open living and dining room with a light-grey sofa, a light wooden dining table with chairs, a big window, a big flat TV on a low white cabinet and a few plants.",
+    "solo": "Only this one person is in the photo; there is nobody else, even far in the background.",
+    "pair": "Only these two people are in the photo; there is nobody else, even far in the background.",
+    "daytime": "It is clearly daytime with soft natural light.",
+    "nobody": "There are no people and no animals anywhere in the photo.",
+    "offframe_her": "The person she is talking to is NOT in the photo: they stand just outside the right edge of the photo, so no part of that person (no hand, arm, shoulder or shadow) is visible.",
+    "offframe_him": "The person he is talking to is NOT in the photo: they stand just outside the right edge of the photo, so no part of that person (no hand, arm, shoulder or shadow) is visible.",
+    "evening": "It is evening: the big window shows a dark blue sky.",
+    "nowords": "The TV and the computer show no words, numbers or logos."
+  },
+  "assets": [
+    {
+      "id": "w00-welcome",
+      "order": 1,
+      "item": "Kickoff: Ana welcomes her family.",
+      "shared": [
+        "photo",
+        "apartment",
+        "solo",
+        "offframe_her",
+        "daytime"
+      ],
+      "prompt": "Image 1 shows Ana. Keep her face, long dark wavy hair, light-olive skin and build exactly, in her sage-green overshirt over a white top. Create a new photograph: Ana stands in the open front door of her apartment and smiles, opening one arm in a big welcome to her family, who stand just outside the right edge of the photo. Behind her the living room is tidy and ready, with nobody in it.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-q02-c2b4398b65207eff.webp",
+        "sha256": "c2b4398b65207effa51e51260cc607c38ada48caea82f14eb872e4c9c8b5d0d5",
+        "observed_description": "Ana (long dark wavy hair, light-olive skin, sage-green overshirt over a white top, jeans) sits on a light-grey sofa and reads an open hardcover book (A1+ 1.2)."
+      }
+    },
+    {
+      "id": "w01-things",
+      "order": 2,
+      "item": "There are some apples on the table. / There are some bags on the chair. / There are some shoes under the table. / There are some books on the sofa.",
+      "shared": [
+        "photo",
+        "apartment",
+        "nobody",
+        "daytime"
+      ],
+      "prompt": "Ana's living and dining room before the visit, with nobody in it, seen from a little above so every place is clearly visible. Four groups of things, each clearly separate from the others, from left to right: on the light wooden dining table lie five shiny red apples, with nothing else on the table; on a wooden chair beside the table stand two backpacks, one red and one blue; under the dining table, on the floor, stand two pairs of shoes, white sneakers and brown shoes; and on the light-grey sofa on the right lie four hardcover books in different colors. There are no other apples, bags, shoes or books anywhere."
+    },
+    {
+      "id": "w02-family-arrives",
+      "order": 3,
+      "item": "The grandfather is in front of the window. / The grandmother is behind the sofa. / The mother is in front of the door. / The father is behind the table.",
+      "shared": [
+        "photo",
+        "apartment",
+        "daytime"
+      ],
+      "prompt": "Image 1 shows Ana's grandparents. Keep the GRANDMOTHER (white hair in a low bun, about 80, lavender blouse) and the GRANDFATHER (thin white hair, about 80, white short-sleeved shirt, brown trousers, a wooden walking cane) exactly. Create a new photograph in Ana's living and dining room: four members of Ana's family have just arrived and stand clearly apart from each other, all smiling, from left to right: the GRANDFATHER stands IN FRONT OF the big window, leaning on his cane, with the window behind him; the GRANDMOTHER stands BEHIND the light-grey sofa, her hands resting on its back, the sofa between her and the camera; Ana's MOTHER, a woman of about 58 with shoulder-length dark hair with grey streaks tied back, in a purple blouse, stands IN FRONT OF the open front door, the door behind her; and Ana's FATHER, a man of about 60 with short dark hair grey at the sides and a neat grey moustache, in a dark-green shirt, stands BEHIND the dining table, his hands on the back of a chair, the table between him and the camera. Nobody else is in the photo.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-k04-a3ea44bdfdd04521.webp",
+        "sha256": "a3ea44bdfdd04521e9c58cbe1dcd878a7650ee305da2cbd7b70bf7b9f8cb7de0",
+        "observed_description": "Ana's grandparents, a very old white-haired couple, in a green doorway (A1+ 1.4): the grandmother with white hair in a low bun and a lavender blouse, the grandfather with thin white hair, a white short-sleeved shirt and brown trousers."
+      }
+    },
+    {
+      "id": "w03-hide-and-seek",
+      "order": 4,
+      "item": "The boy is behind the sofa. / The girl is behind the door. / Coco is in front of the TV. / Max is behind the chair.",
+      "shared": [
+        "photo",
+        "apartment",
+        "daytime"
+      ],
+      "prompt": "Create a photograph of a game of hide-and-seek in Ana's living room, with four hiders clearly apart from each other, from left to right: a boy of about eight with short dark hair, in a red T-shirt, crouches BEHIND the light-grey sofa, so only his head and his hands show above its back; a girl of about seven with two dark braids, in a yellow dress, peeks out from BEHIND a half-open white door, only her face and one hand showing at its edge; Coco, a small white-and-brown rabbit, sits on the rug IN FRONT OF the TV cabinet, the TV above and behind it; and a short-haired tan dog with a white chest and floppy ears peeks out from BEHIND a mustard-yellow armchair, only its head and front paws showing beside the armchair. No adults are in the photo."
+    },
+    {
+      "id": "w04-lamps",
+      "order": 5,
+      "item": "The lamp isn't on. It's off. / The lamp is on. / The TV is on. / The computer is off.",
+      "shared": [
+        "photo",
+        "apartment",
+        "nobody",
+        "evening",
+        "nowords"
+      ],
+      "prompt": "Ana's living and dining room in the evening, with nobody in it. Four things stand clearly apart from each other, from left to right: a tall floor lamp with a white fabric shade that is ON, its shade glowing brightly with warm yellow light; a big flat TV on a low white cabinet that is ON, its screen showing a bright, colorful picture of green mountains and a blue lake; a second tall floor lamp, exactly like the first one, that is OFF, its shade plain white and dark with no glow at all; and an open laptop computer on the dining table that is OFF, its screen completely black. Only the first lamp and the TV give light; the room is otherwise dim, and there is no other lamp or light in the photo."
+    },
+    {
+      "id": "q01-luis-asks",
+      "order": 6,
+      "item": "Did you clean the kitchen? / Are there any apples?",
+      "shared": [
+        "photo",
+        "apartment",
+        "solo",
+        "offframe_him",
+        "daytime"
+      ],
+      "prompt": "Image 1 shows Luis. Keep his face, short dark curly hair, clean-shaven face, warm medium-brown skin and build exactly, in his navy crew-neck T-shirt. Create a new photograph: Luis stands in Ana's apartment by the dining table, turns his head toward someone just outside the right edge of the photo and asks a friendly, curious question, eyebrows raised, one open hand lifted. Nobody else is in the photo.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-q01-135c3f8f772bcbe4.webp",
+        "sha256": "135c3f8f772bcbe472b8cec719eb02318a7d52ce1c7152a94c6952aeb78566c2",
+        "observed_description": "Luis (short dark curly hair, clean-shaven, warm medium-brown skin, navy crew-neck T-shirt) drinks coffee from a white mug at a wooden table in his bright kitchen (A1+ 1.2)."
+      }
+    },
+    {
+      "id": "q02-sofia-asks",
+      "order": 7,
+      "item": "When is your grandmother's birthday? / Did you paint this last year?",
+      "shared": [
+        "photo",
+        "apartment",
+        "solo",
+        "offframe_her",
+        "daytime"
+      ],
+      "prompt": "Image 1 shows Sofia. Keep her face, long curly dark hair, warm brown skin and build exactly, in her bright blue blazer over a white blouse. Create a new photograph: Sofia stands in Ana's living room by the sofa, turns toward someone just outside the right edge of the photo and asks a friendly, curious question, one open hand lifted. Nobody else is in the photo.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-q03-7d520a07846a47b8.webp",
+        "sha256": "7d520a07846a47b8e8389c3226f3b3639d7eed0d257318b08e4f9b77c5b2258b",
+        "observed_description": "Sofia (long curly dark hair, warm brown skin, bright blue blazer over a white blouse) in A1+ 1.2."
+      }
+    },
+    {
+      "id": "q03-diego-asks",
+      "order": 8,
+      "item": "How often does he play football?",
+      "shared": [
+        "photo",
+        "apartment",
+        "solo",
+        "offframe_him",
+        "daytime"
+      ],
+      "prompt": "Image 1 shows Diego. Keep his face, dark curly hair with a little grey, short full beard and build exactly, in his burgundy button shirt. Create a new photograph: Diego stands in Ana's living room by the window, turns toward someone just outside the right edge of the photo and asks a friendly, curious question, eyebrows raised, one open hand lifted. Nobody else is in the photo.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-q04-ded74a2cb6021167.webp",
+        "sha256": "ded74a2cb6021167d6af2351e9012476d36c1b0936ca9f4f4b6dee68783bb9e2",
+        "observed_description": "Diego (dark curly hair with a little grey, short full beard, burgundy button shirt) sits at a wooden kitchen table and bites a red apple (A1+ 1.2)."
+      }
+    },
+    {
+      "id": "r01-ana-kitchen",
+      "order": 9,
+      "item": "Yes, I cleaned it yesterday.",
+      "shared": [
+        "photo",
+        "solo",
+        "daytime"
+      ],
+      "prompt": "Image 1 shows Ana. Keep her face, long dark wavy hair, light-olive skin and build exactly, in her sage-green overshirt over a white top. Create a new photograph: Ana stands proudly in her spotless, bright, tidy kitchen, a folded yellow cleaning cloth in one hand, and smiles at the camera; the counters and the small kitchen table are clean and empty. Nobody else is in the photo.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-q02-c2b4398b65207eff.webp",
+        "sha256": "c2b4398b65207effa51e51260cc607c38ada48caea82f14eb872e4c9c8b5d0d5",
+        "observed_description": "Ana (long dark wavy hair, light-olive skin, sage-green overshirt over a white top, jeans) sits on a light-grey sofa and reads an open hardcover book (A1+ 1.2)."
+      }
+    },
+    {
+      "id": "r02-grandmother",
+      "order": 10,
+      "item": "It's on May fifth.",
+      "shared": [
+        "photo",
+        "apartment",
+        "solo",
+        "daytime"
+      ],
+      "prompt": "Image 1 shows Ana's grandparents. Keep only the GRANDMOTHER exactly: her face, white hair in a low bun, age of about 80 and lavender blouse. Create a new photograph: the grandmother sits at Ana's light wooden dining table at lunch, smiling warmly at the camera, a glass of water and a plate in front of her. Nobody else is in the photo.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-k04-a3ea44bdfdd04521.webp",
+        "sha256": "a3ea44bdfdd04521e9c58cbe1dcd878a7650ee305da2cbd7b70bf7b9f8cb7de0",
+        "observed_description": "Ana's grandparents, a very old white-haired couple, in a green doorway (A1+ 1.4): the grandmother with white hair in a low bun and a lavender blouse, the grandfather with thin white hair, a white short-sleeved shirt and brown trousers."
+      }
+    },
+    {
+      "id": "r03-boy-football",
+      "order": 11,
+      "item": "He plays football twice a week.",
+      "shared": [
+        "photo",
+        "apartment",
+        "solo",
+        "daytime"
+      ],
+      "prompt": "Create a new photograph: a boy of about eight with short dark hair, in a red T-shirt, stands in Ana's living room and proudly holds a black-and-white football in both hands in front of his chest, smiling at the camera. Nobody else is in the photo."
+    },
+    {
+      "id": "r04-grandfather-painting",
+      "order": 12,
+      "item": "No, I didn't. My grandfather painted it.",
+      "shared": [
+        "photo",
+        "apartment",
+        "solo",
+        "daytime"
+      ],
+      "prompt": "Image 1 shows Ana's grandparents. Keep only the GRANDFATHER exactly: his face, thin white hair, age of about 80, white short-sleeved shirt, brown trousers and wooden walking cane. Create a new photograph: the grandfather stands proudly in Ana's living room next to a framed oil painting of green hills and a blue lake that hangs on the wall, points at the painting with one hand and smiles at the camera, as if to say he painted it. The painting has no signature, letters or numbers. Nobody else is in the photo.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-k04-a3ea44bdfdd04521.webp",
+        "sha256": "a3ea44bdfdd04521e9c58cbe1dcd878a7650ee305da2cbd7b70bf7b9f8cb7de0",
+        "observed_description": "Ana's grandparents, a very old white-haired couple, in a green doorway (A1+ 1.4): the grandmother with white hair in a low bun and a lavender blouse, the grandfather with thin white hair, a white short-sleeved shirt and brown trousers."
+      }
+    }
+  ]
+}
