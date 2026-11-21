@@ -870,6 +870,68 @@ function teachClause(text: string): ClausePlan {
       : `“hurt” (duelen) va sin -s porque son dos o más, ${quote(tokens[1])}; va al final.`);
     return { explanations, relations, supported: true };
   }
+  // A1+ 7.7 (2026-11-20): a polite invitation, Would you like to + a verb (Would you like to watch TV?), and
+  // its answers (I'd love to come to your party. / Sorry, I'm busy today.).
+  const invite = /^would you like to (come to my party|watch tv|play football|listen to music|read a book)$/.exec(joined);
+  if (invite && text.trim().endsWith('?')) {
+    teach(0, 2, '“Would” abre la pregunta y va antes de “you”: es la forma amable de invitar.');
+    teach(2, 4, '“like to” va después de “Would you”: juntos, “Would you like to” significa “¿te gustaría…?”.');
+    teach(4, keys.length, `${quote(phrase(4, keys.length))} es lo que proponemos hacer; el verbo va justo después de “to”.`);
+    return { explanations, relations, supported: true };
+  }
+  if (joined === "i'd love to come to your party" && !text.trim().endsWith('?')) {
+    teach(0, 3, '“I’d love to” (me encantaría) es la forma corta de “I would love to” y acepta la invitación.');
+    teach(3, keys.length, '“come to your party” va después de “to”: el verbo “come” y adónde.');
+    return { explanations, relations, supported: true };
+  }
+  // A comma before "I'm" splits the answer into two clauses: "Sorry," and "I am busy today.".
+  if (joined === 'sorry' && !text.trim().endsWith('?')) {
+    teach(0, 1, '“Sorry” (lo siento) abre la respuesta: así decimos que no, con amabilidad.');
+    return { explanations, relations, supported: true };
+  }
+  if (/^(i'm|i am) busy( today)?$/.test(joined) && !text.trim().endsWith('?')) {
+    const be = keys[0] === "i'm" ? 1 : 2;
+    teach(0, be, '“I’m” es la forma corta de “I am”: el sujeto y el verbo van juntos.');
+    teach(be, keys.length, `${quote(phrase(be, keys.length))} dice por qué no podemos; “busy” significa ocupado.`);
+    return { explanations, relations, supported: true };
+  }
+  // The short form reaches this rule as its full form (Sorry, I am busy today.).
+  const sorryBusy = /^sorry (i'm|i am) (busy|tired)( today)?$/.exec(joined);
+  if (sorryBusy && !text.trim().endsWith('?')) {
+    const be = words(sorryBusy[1]).length + 1;
+    teach(0, 1, '“Sorry” (lo siento) abre la respuesta: así decimos que no, con amabilidad.');
+    teach(1, be, '“I’m” es la forma corta de “I am” y va después de “Sorry,”.');
+    teach(be, keys.length, `${quote(phrase(be, keys.length))} dice por qué no podemos; va después de “I’m”.`);
+    return { explanations, relations, supported: true };
+  }
+  const isBusy = /^(ana|luis|sofia|diego|he|she) is busy$/.exec(joined);
+  if (isBusy && !text.trim().endsWith('?')) {
+    teach(0, 1, `${quote(tokens[0])} dice de quién hablamos y va primero.`);
+    teach(1, 3, '“is busy” (está ocupado) va después: “is” y luego cómo está.');
+    return { explanations, relations, supported: true };
+  }
+  // A1+ 7.8 (2026-11-20): polite repair (Could you repeat that, please?) and what a word means (What does
+  // hungry mean? It means you want to eat.).
+  const could = /^could you (repeat that|speak slowly) please$/.exec(joined);
+  if (could && text.trim().endsWith('?')) {
+    teach(0, 2, '“Could you” abre la pregunta: es la forma amable de pedir algo.');
+    teach(2, 4, `${quote(phrase(2, 4))} es lo que pedimos; el verbo va justo después de “Could you”.`);
+    teach(4, 5, '“please” (por favor) va al final, después de la coma.');
+    return { explanations, relations, supported: true };
+  }
+  const whatMean = /^what does ([a-z]+) mean$/.exec(joined);
+  if (whatMean && text.trim().endsWith('?') && STATES.has(whatMean[1])) {
+    teach(0, 2, '“What does” abre la pregunta: “does” va después de “What”.');
+    teach(2, 3, `${quote(tokens[2])} es la palabra que no entendemos; va entre “does” y “mean”.`);
+    teach(3, 4, '“mean” (significar) cierra la pregunta, sin -s porque ya está “does”.');
+    return { explanations, relations, supported: true };
+  }
+  const itMeans = /^it means you (want to (?:eat|drink|sleep)|need a coat)$/.exec(joined);
+  if (itMeans && !text.trim().endsWith('?')) {
+    teach(0, 2, '“It means” (significa) abre la respuesta: “means” lleva -s después de “it”.');
+    teach(2, keys.length, `${quote(phrase(2, keys.length))} explica la palabra con palabras que ya conocemos.`);
+    return { explanations, relations, supported: true };
+  }
   // A1+ 7.1-7.13 (2026-11-20): the unit's new questions, built whole in Use.
   if (text.trim().endsWith('?')) {
     if (joined === "what's wrong") {
@@ -893,6 +955,20 @@ function teachClause(text: string): ClausePlan {
         : '“like doing” va al final: “doing” en -ing pregunta qué actividad le gusta.');
       return { explanations, relations, supported: true };
     }
+  }
+  // A1+ 7.12 (2026-11-20): what people and animals are able to do, can/can't + a verb (A horse can run
+  // fast. / Luis can't play tennis. / Sofia and Luis can swim.).
+  const able = /^((?:a|an) [a-z]+|[a-z]+ and [a-z]+|i|you|we|they|he|she|it|ana|luis|sofia|diego) (can|can't) (run|walk|climb|swim|play|sing)( fast| trees| tennis| football)?$/.exec(joined);
+  if (able && !text.trim().endsWith('?')) {
+    const subjectEnd = words(able[1]).length;
+    const pair = / and /.test(able[1]);
+    teach(0, subjectEnd, `${quote(phrase(0, subjectEnd))} dice quién puede o no puede y va primero.`);
+    if (pair) teach(1, 2, `“and” une ${quote(tokens[0])} y ${quote(tokens[2])}: juntos son quienes pueden.`);
+    teach(subjectEnd, subjectEnd + 1, able[2] === 'can'
+      ? '“can” (puede o sabe) va antes del verbo, que no cambia: nunca lleva -s después de “can”.'
+      : '“can\'t” (no puede o no sabe) es la forma corta de “cannot” y va antes del verbo.');
+    teach(subjectEnd + 1, keys.length, `${quote(phrase(subjectEnd + 1, keys.length))} es lo que ${able[2] === 'can' ? 'puede' : 'no puede'} hacer; el verbo va justo después de ${quote(tokens[subjectEnd])}.`);
+    return { explanations, relations, supported: explanations.every(Boolean) };
   }
   // A1+ 7.6 (2026-11-20): what someone likes doing, like/likes + -ing (She likes dancing. / He likes
   // listening to music. / I like painting.).

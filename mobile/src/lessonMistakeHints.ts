@@ -248,6 +248,12 @@ const MEANINGS: Record<string, string> = {
   smallest: 'el más pequeño o la más pequeña',
   // A1+ 7.13 (2026-11-20): what people are good at.
   'good at': 'bueno o buena para', singing: 'cantar',
+  // A1+ 7.12 (2026-11-20): what people and animals can do.
+  climb: 'trepar',
+  // A1+ 7.7 (2026-11-20): polite invitations.
+  party: 'fiesta', busy: 'ocupado u ocupada', "i'd love to": 'me encantaría',
+  // A1+ 7.8 (2026-11-20): polite repair and asking what a word means.
+  means: 'significa', mean: 'significar',
   grandchildren: 'nietos',
   cook: 'cocinero', brush: 'cepillar', wash: 'lavar',
   study: 'estudiar', run: 'correr', goes: 'va', walks: 'camina', likes: 'le gusta',
