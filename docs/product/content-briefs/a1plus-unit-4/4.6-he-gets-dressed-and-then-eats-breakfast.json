@@ -1,0 +1,731 @@
+{
+  "brief_version": 1,
+  "follows": {
+    "course": "a1",
+    "lesson": "4.6",
+    "title": "Getting ready for school day routine"
+  },
+  "note": "A1+ Unit 4 Lesson 4.6, built on 2026-11-20 under the A1+ lesson standards approved 2026-10-27 and the user's 2026-11-09 rule that every A1+ lesson follows up the A1 lesson with the same number. The user approved the A1+ Unit 4 map on 2026-11-20 (A1+ 4.Y follows A1 4.Y, one step each; seventeen lessons) and asked for the Unit 2 and Unit 3 deal (\"Start working on A1+ Unit 4, same deal. make sure images make sense all the time\"): straight to Preview in batches, Gemini 2.5 Flash photos and ElevenLabs audio pre-approved, no per-lesson gates, reviewed in Preview. Two new photos (Gemini 2.5 Flash) of A1 4.6's schoolboy: walking past his school and climbing into a school bus. A1 4.6's one-action and two-panel photos are reused, and Ana rides her bike (A1+ 2.2).",
+  "target": "backend/lessons/a1_plus/unit_4/a1plus-unit-4-lesson-4-6.yaml",
+  "captions": false,
+  "narrators": [
+    "teacher",
+    "co-teacher"
+  ],
+  "answer_audio_policy": "authored-only",
+  "speak_delivery": "a1-pronunciation-v1",
+  "lesson": {
+    "id": "a1plus-unit-4-lesson-4-6",
+    "title": "4.6 He gets dressed and then eats breakfast",
+    "level": "A1+",
+    "unit_id": "a1plus-unit-4",
+    "unit_title": "Life at home, every day and yesterday",
+    "unit_outcome": "Say where people and things are at home, talk about the lights and machines, ask what there is, describe someone's morning in order, say what you did yesterday and on which day, ask and tell the time, say how often you do things and give dates.",
+    "lesson_id": "a1plus-unit-4-lesson-4-6",
+    "lesson_title": "He gets dressed and then eats breakfast",
+    "sub_lesson_id": "4.6",
+    "sub_lesson_title": "He gets dressed and then eats breakfast",
+    "goal": "Tell a schoolboy's morning in order with and then, ask What does he do first? / What does he do after that?, and say how he goes to school (He gets dressed and then eats breakfast.).",
+    "vocabulary": [
+      "and then",
+      "What does he do"
+    ],
+    "review_vocabulary": [
+      "first",
+      "after that",
+      "then",
+      "finally",
+      "wakes up",
+      "washes",
+      "gets dressed",
+      "eats breakfast",
+      "brushes",
+      "goes to school",
+      "walks",
+      "by bus",
+      "by bike",
+      "How does",
+      "How do you",
+      "his",
+      "he"
+    ],
+    "grammar_function": "A follow-up of A1 4.6 Getting ready for school: A1 tells the morning in order with I (First, I wake up. Then, I wash my face.); A1+ 4.6 tells it about the boy with 4.5's he form. The new items are and then joining two actions of one person in one sentence, the second without he (He gets dressed and then eats breakfast.), and the question What does he do first? / What does he do after that?, which asks for the next action, not a job as in 3.9. A1 4.6's own photos are reused: each one-action photo answers a question, and each two-panel photo shows two actions left to right, so it carries an and then sentence; its reversed version, which A1 approved for the same purpose, is a wrong picture only where the reversed order is a real morning (breakfast before getting dressed, teeth before breakfast). 2.2's How does … go…? comes back (How does he go to school? He walks.), with Ana, who teaches in a school (3.9), answering How do you go to school? I go by bike.",
+    "prerequisite": "A1 4.6 first, then, after that, finally; A1+ 4.5 the he form of the routine; A1+ 2.2 How do you / How does.",
+    "speaking_outcome": "Join and then to the next action without a stop (and-THEN-he-eats); keep does short (duz). Do not require native-like speed.",
+    "content_revision": 1,
+    "learn_context_groups": [
+      {
+        "kind": "sequence",
+        "targets": [
+          "and then"
+        ],
+        "models": [
+          {
+            "slide_id": "L1",
+            "text": "He wakes up and then washes his face."
+          }
+        ]
+      },
+      {
+        "kind": "exchange",
+        "targets": [
+          "What does he do"
+        ],
+        "models": [
+          {
+            "slide_id": "L2",
+            "text": "What does he do after that? He gets dressed.",
+            "turns": [
+              "What does he do after that?",
+              "He gets dressed."
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "exchange",
+        "targets": [
+          "What does he do"
+        ],
+        "models": [
+          {
+            "slide_id": "L3",
+            "text": "What does he do first? He wakes up.",
+            "turns": [
+              "What does he do first?",
+              "He wakes up."
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "sequence",
+        "targets": [
+          "and then"
+        ],
+        "models": [
+          {
+            "slide_id": "L4",
+            "text": "He gets dressed and then eats breakfast."
+          }
+        ]
+      }
+    ]
+  },
+  "items": [
+    {
+      "id": "l-then1",
+      "text": "He wakes up and then washes his face.",
+      "es": "Se despierta y luego se lava la cara.",
+      "image": "/lesson-assets/a1_photo_u4_rebuild_sequence_1_forward_v1.webp",
+      "kind": "sequence",
+      "choices": false,
+      "use": false,
+      "speaker": "teacher"
+    },
+    {
+      "id": "l-after",
+      "text": "What does he do after that? He gets dressed.",
+      "es": "¿Qué hace después? Se viste.",
+      "image": "/lesson-assets/a1_photo_u4_rebuild_morning_wash_face_v1.webp",
+      "kind": "exchange",
+      "choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "What does he do after that?",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1_photo_u4_rebuild_morning_wash_face_v1.webp"
+        },
+        {
+          "text": "He gets dressed.",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1_photo_u4_rebuild_morning_dress_v1.webp"
+        }
+      ]
+    },
+    {
+      "id": "l-first",
+      "text": "What does he do first? He wakes up.",
+      "es": "¿Qué hace primero? Se despierta.",
+      "image": "/lesson-assets/a1_photo_u4_rebuild_morning_wake_v1.webp",
+      "kind": "exchange",
+      "choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "What does he do first?",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1_photo_u4_rebuild_morning_wake_v1.webp"
+        },
+        {
+          "text": "He wakes up.",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1_photo_u4_rebuild_morning_wake_v1.webp"
+        }
+      ]
+    },
+    {
+      "id": "l-then2",
+      "text": "He gets dressed and then eats breakfast.",
+      "es": "Se viste y luego desayuna.",
+      "image": "/lesson-assets/a1_photo_u4_rebuild_sequence_3_forward_v1.webp",
+      "kind": "sequence",
+      "choices": false,
+      "use": false,
+      "speaker": "co-teacher"
+    },
+    {
+      "id": "o-1",
+      "text": "He wakes up and then washes his face.",
+      "es": "Se despierta y luego se lava la cara.",
+      "image": "/lesson-assets/a1_photo_u4_rebuild_sequence_1_forward_v1.webp",
+      "kind": "order",
+      "prefer": [
+        "He washes his face and then wakes up."
+      ],
+      "accepts": {
+        "subject-variety": "The bank keeps both actions and changes only their order; the two pictures show which comes first.",
+        "action-variety": "The bank keeps both actions and changes only their order; the two pictures show which comes first.",
+        "conversational-response": "The bank keeps both actions and changes only their order; the two pictures show which comes first.",
+        "reading-load": "The bank keeps both actions and changes only their order; the two pictures show which comes first."
+      },
+      "blanks": null,
+      "four_card": false,
+      "learn": false
+    },
+    {
+      "id": "o-2",
+      "text": "He washes his face and then gets dressed.",
+      "es": "Se lava la cara y luego se viste.",
+      "image": "/lesson-assets/a1_photo_u4_rebuild_sequence_2_forward_v1.webp",
+      "kind": "order",
+      "prefer": [
+        "He gets dressed and then washes his face."
+      ],
+      "accepts": {
+        "subject-variety": "The bank keeps both actions and changes only their order; the two pictures show which comes first.",
+        "action-variety": "The bank keeps both actions and changes only their order; the two pictures show which comes first.",
+        "conversational-response": "The bank keeps both actions and changes only their order; the two pictures show which comes first.",
+        "reading-load": "The bank keeps both actions and changes only their order; the two pictures show which comes first."
+      },
+      "blanks": [
+        "and",
+        "then"
+      ],
+      "four_card": false,
+      "learn": false
+    },
+    {
+      "id": "o-3",
+      "text": "He gets dressed and then eats breakfast.",
+      "es": "Se viste y luego desayuna.",
+      "image": "/lesson-assets/a1_photo_u4_rebuild_sequence_3_forward_v1.webp",
+      "kind": "order",
+      "prefer": [
+        "He eats breakfast and then gets dressed."
+      ],
+      "accepts": {
+        "subject-variety": "The bank keeps both actions and changes only their order; the two pictures show which comes first.",
+        "action-variety": "The bank keeps both actions and changes only their order; the two pictures show which comes first.",
+        "conversational-response": "The bank keeps both actions and changes only their order; the two pictures show which comes first.",
+        "reading-load": "The bank keeps both actions and changes only their order; the two pictures show which comes first."
+      },
+      "blanks": null,
+      "four_card": false,
+      "learn": false
+    },
+    {
+      "id": "o-3r",
+      "text": "He eats breakfast and then gets dressed.",
+      "es": "Desayuna y luego se viste.",
+      "image": "/lesson-assets/a1_photo_u4_rebuild_sequence_3_reverse_v1.webp",
+      "kind": "order",
+      "prefer": [
+        "He gets dressed and then eats breakfast."
+      ],
+      "accepts": {
+        "subject-variety": "The bank keeps both actions and changes only their order; the two pictures show which comes first.",
+        "action-variety": "The bank keeps both actions and changes only their order; the two pictures show which comes first.",
+        "conversational-response": "The bank keeps both actions and changes only their order; the two pictures show which comes first.",
+        "reading-load": "The bank keeps both actions and changes only their order; the two pictures show which comes first."
+      },
+      "blanks": null,
+      "four_card": false,
+      "learn": false
+    },
+    {
+      "id": "o-4",
+      "text": "He eats breakfast and then brushes his teeth.",
+      "es": "Desayuna y luego se lava los dientes.",
+      "image": "/lesson-assets/a1_photo_u4_rebuild_sequence_4_forward_v1.webp",
+      "kind": "order",
+      "prefer": [
+        "He brushes his teeth and then eats breakfast."
+      ],
+      "accepts": {
+        "subject-variety": "The bank keeps both actions and changes only their order; the two pictures show which comes first.",
+        "action-variety": "The bank keeps both actions and changes only their order; the two pictures show which comes first.",
+        "conversational-response": "The bank keeps both actions and changes only their order; the two pictures show which comes first.",
+        "reading-load": "The bank keeps both actions and changes only their order; the two pictures show which comes first."
+      },
+      "blanks": [
+        "and",
+        "then"
+      ],
+      "four_card": false,
+      "learn": false
+    },
+    {
+      "id": "o-4r",
+      "text": "He brushes his teeth and then eats breakfast.",
+      "es": "Se lava los dientes y luego desayuna.",
+      "image": "/lesson-assets/a1_photo_u4_rebuild_sequence_4_reverse_v1.webp",
+      "kind": "order",
+      "prefer": [
+        "He eats breakfast and then brushes his teeth."
+      ],
+      "accepts": {
+        "subject-variety": "The bank keeps both actions and changes only their order; the two pictures show which comes first.",
+        "action-variety": "The bank keeps both actions and changes only their order; the two pictures show which comes first.",
+        "conversational-response": "The bank keeps both actions and changes only their order; the two pictures show which comes first.",
+        "reading-load": "The bank keeps both actions and changes only their order; the two pictures show which comes first."
+      },
+      "blanks": null,
+      "four_card": false,
+      "learn": false
+    },
+    {
+      "id": "o-5",
+      "text": "He brushes his teeth and then goes to school.",
+      "es": "Se lava los dientes y luego va a la escuela.",
+      "image": "/lesson-assets/a1_photo_u4_rebuild_sequence_5_forward_v1.webp",
+      "kind": "order",
+      "prefer": [
+        "He goes to school and then brushes his teeth."
+      ],
+      "accepts": {
+        "subject-variety": "The bank keeps both actions and changes only their order; the two pictures show which comes first.",
+        "action-variety": "The bank keeps both actions and changes only their order; the two pictures show which comes first.",
+        "conversational-response": "The bank keeps both actions and changes only their order; the two pictures show which comes first.",
+        "reading-load": "The bank keeps both actions and changes only their order; the two pictures show which comes first."
+      },
+      "blanks": null,
+      "four_card": false,
+      "learn": false
+    },
+    {
+      "id": "a-1",
+      "text": "He washes his face.",
+      "es": "Se lava la cara.",
+      "image": "/lesson-assets/a1_photo_u4_rebuild_morning_wash_face_v1.webp",
+      "kind": "after",
+      "question": "He wakes up. What does he do after that?",
+      "question_es": "Se despierta. ¿Qué hace después?",
+      "question_speaker": "co-teacher",
+      "speaker": "teacher",
+      "use": false,
+      "image_choices": false,
+      "prefer": [
+        "He gets dressed."
+      ],
+      "accepts": {
+        "subject-variety": "The answer keeps he and changes only the action; the picture shows what he does next.",
+        "action-variety": "The answer keeps he and changes only the action; the picture shows what he does next.",
+        "conversational-response": "The answer keeps he and changes only the action; the picture shows what he does next.",
+        "reading-load": "The answer keeps he and changes only the action; the picture shows what he does next."
+      },
+      "learn": false
+    },
+    {
+      "id": "a-2",
+      "text": "He eats breakfast.",
+      "es": "Desayuna.",
+      "image": "/lesson-assets/a1_photo_u4_rebuild_morning_breakfast_v1.webp",
+      "kind": "after",
+      "question": "He gets dressed. What does he do after that?",
+      "question_es": "Se viste. ¿Qué hace después?",
+      "question_speaker": "co-teacher",
+      "speaker": "teacher",
+      "use": false,
+      "image_choices": false,
+      "prefer": [
+        "He brushes his teeth."
+      ],
+      "accepts": {
+        "subject-variety": "The answer keeps he and changes only the action; the picture shows what he does next.",
+        "action-variety": "The answer keeps he and changes only the action; the picture shows what he does next.",
+        "conversational-response": "The answer keeps he and changes only the action; the picture shows what he does next.",
+        "reading-load": "The answer keeps he and changes only the action; the picture shows what he does next."
+      },
+      "learn": false
+    },
+    {
+      "id": "a-3",
+      "text": "He brushes his teeth.",
+      "es": "Se lava los dientes.",
+      "image": "/lesson-assets/a1_photo_u4_rebuild_morning_teeth_v1.webp",
+      "kind": "after",
+      "question": "He eats breakfast. What does he do after that?",
+      "question_es": "Desayuna. ¿Qué hace después?",
+      "question_speaker": "co-teacher",
+      "speaker": "teacher",
+      "use": false,
+      "image_choices": false,
+      "prefer": [
+        "He washes his face."
+      ],
+      "accepts": {
+        "subject-variety": "The answer keeps he and changes only the action; the picture shows what he does next.",
+        "action-variety": "The answer keeps he and changes only the action; the picture shows what he does next.",
+        "conversational-response": "The answer keeps he and changes only the action; the picture shows what he does next.",
+        "reading-load": "The answer keeps he and changes only the action; the picture shows what he does next."
+      },
+      "learn": false
+    },
+    {
+      "id": "f-1",
+      "text": "He wakes up.",
+      "es": "Se despierta.",
+      "image": "/lesson-assets/a1_photo_u4_rebuild_morning_wake_v1.webp",
+      "kind": "first",
+      "question": "What does he do first?",
+      "question_es": "¿Qué hace primero?",
+      "question_speaker": "teacher",
+      "speaker": "co-teacher",
+      "use": false,
+      "image_choices": false,
+      "prefer": [
+        "He goes to school."
+      ],
+      "accepts": {
+        "subject-variety": "The answer keeps he and changes only the action; the picture shows what he does next.",
+        "action-variety": "The answer keeps he and changes only the action; the picture shows what he does next.",
+        "conversational-response": "The answer keeps he and changes only the action; the picture shows what he does next.",
+        "reading-load": "The answer keeps he and changes only the action; the picture shows what he does next."
+      },
+      "learn": false
+    },
+    {
+      "id": "h-walk",
+      "text": "He walks.",
+      "es": "Camina.",
+      "image": "/lesson-assets/a1plus-unit-4-w01-fd22298fab33976f.webp",
+      "kind": "how",
+      "question": "How does he go to school?",
+      "question_es": "¿Cómo va a la escuela?",
+      "question_speaker": "co-teacher",
+      "speaker": "teacher",
+      "use": false,
+      "image_choices": false,
+      "prefer": [
+        "He goes by bus."
+      ],
+      "accepts": {
+        "subject-variety": "The answer keeps the question and changes only the way; the picture shows how they go.",
+        "action-variety": "The answer keeps the question and changes only the way; the picture shows how they go.",
+        "conversational-response": "The answer keeps the question and changes only the way; the picture shows how they go.",
+        "reading-load": "The answer keeps the question and changes only the way; the picture shows how they go."
+      },
+      "learn": false
+    },
+    {
+      "id": "h-bus",
+      "text": "He goes by bus.",
+      "es": "Va en camión.",
+      "image": "/lesson-assets/a1plus-unit-4-w02-0fcde499430cff89.webp",
+      "kind": "how",
+      "question": "How does he go to school?",
+      "question_es": "¿Cómo va a la escuela?",
+      "question_speaker": "co-teacher",
+      "speaker": "teacher",
+      "use": false,
+      "image_choices": false,
+      "prefer": [
+        "He walks."
+      ],
+      "accepts": {
+        "subject-variety": "The answer keeps the question and changes only the way; the picture shows how they go.",
+        "action-variety": "The answer keeps the question and changes only the way; the picture shows how they go.",
+        "conversational-response": "The answer keeps the question and changes only the way; the picture shows how they go.",
+        "reading-load": "The answer keeps the question and changes only the way; the picture shows how they go."
+      },
+      "learn": false
+    },
+    {
+      "id": "h-ana",
+      "text": "I go by bike.",
+      "es": "Voy en bicicleta.",
+      "image": "/lesson-assets/a1plus-unit-2-r01-f09016e66cbd30a8.webp",
+      "kind": "how2",
+      "question": "How do you go to school?",
+      "question_es": "¿Cómo vas a la escuela?",
+      "question_speaker": "co-teacher",
+      "speaker": "teacher",
+      "use": false,
+      "image_choices": false,
+      "prefer": [
+        "I go by bus."
+      ],
+      "accepts": {
+        "subject-variety": "The answer keeps the question and changes only the way; the picture shows how they go.",
+        "action-variety": "The answer keeps the question and changes only the way; the picture shows how they go.",
+        "conversational-response": "The answer keeps the question and changes only the way; the picture shows how they go.",
+        "reading-load": "The answer keeps the question and changes only the way; the picture shows how they go."
+      },
+      "learn": false
+    },
+    {
+      "id": "g-walk",
+      "text": "He walks to school.",
+      "es": "Camina a la escuela.",
+      "image": "/lesson-assets/a1plus-unit-4-w01-fd22298fab33976f.webp",
+      "kind": "go",
+      "text_choices": false,
+      "use": false,
+      "accepts": {
+        "subject-variety": "A picture bank shows how the boy goes to school.",
+        "action-variety": "A picture bank shows how the boy goes to school."
+      },
+      "learn": false
+    },
+    {
+      "id": "g-bus",
+      "text": "He goes to school by bus.",
+      "es": "Va a la escuela en camión.",
+      "image": "/lesson-assets/a1plus-unit-4-w02-0fcde499430cff89.webp",
+      "kind": "go",
+      "text_choices": false,
+      "use": false,
+      "accepts": {
+        "subject-variety": "A picture bank shows how the boy goes to school.",
+        "action-variety": "A picture bank shows how the boy goes to school."
+      },
+      "learn": false
+    },
+    {
+      "id": "q-first",
+      "text": "What does he do first?",
+      "es": "¿Qué hace primero?",
+      "image": "/lesson-assets/a1_photo_u4_rebuild_morning_wake_v1.webp",
+      "kind": "question",
+      "speaker": "teacher",
+      "choices": false,
+      "blanks": [
+        "does",
+        "he"
+      ],
+      "learn": false
+    },
+    {
+      "id": "q-after",
+      "text": "What does he do after that?",
+      "es": "¿Qué hace después?",
+      "image": "/lesson-assets/a1_photo_u4_rebuild_morning_dress_v1.webp",
+      "kind": "question",
+      "speaker": "co-teacher",
+      "choices": false,
+      "blanks": [
+        "does",
+        "he"
+      ],
+      "learn": false
+    },
+    {
+      "id": "x-after",
+      "text": "He washes his face. What does he do after that? He gets dressed.",
+      "es": "Se lava la cara. ¿Qué hace después? Se viste.",
+      "image": "/lesson-assets/a1_photo_u4_rebuild_morning_dress_v1.webp",
+      "kind": "xa",
+      "image_choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "He washes his face. What does he do after that?",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1_photo_u4_rebuild_morning_wash_face_v1.webp"
+        },
+        {
+          "text": "He gets dressed.",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1_photo_u4_rebuild_morning_dress_v1.webp"
+        }
+      ],
+      "accepts": {
+        "subject-variety": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "action-variety": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "conversational-response": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "reading-load": "Listen keeps the question and changes only the answer; the answer is what was heard."
+      },
+      "prefer": [
+        "He washes his face. What does he do after that? He eats breakfast."
+      ],
+      "learn": false
+    }
+  ],
+  "pool": [
+    {
+      "text": "He washes his face and then wakes up.",
+      "es": "Se lava la cara y luego se despierta.",
+      "image": "/lesson-assets/a1_photo_u4_rebuild_sequence_1_forward_v1.webp",
+      "kind": "order",
+      "image_choices": false
+    },
+    {
+      "text": "He gets dressed and then washes his face.",
+      "es": "Se viste y luego se lava la cara.",
+      "image": "/lesson-assets/a1_photo_u4_rebuild_sequence_2_forward_v1.webp",
+      "kind": "order",
+      "image_choices": false
+    },
+    {
+      "text": "He eats breakfast and then gets dressed.",
+      "es": "Desayuna y luego se viste.",
+      "image": "/lesson-assets/a1_photo_u4_rebuild_sequence_3_forward_v1.webp",
+      "kind": "order",
+      "image_choices": false
+    },
+    {
+      "text": "He gets dressed and then eats breakfast.",
+      "es": "Se viste y luego desayuna.",
+      "image": "/lesson-assets/a1_photo_u4_rebuild_sequence_3_reverse_v1.webp",
+      "kind": "order",
+      "image_choices": false
+    },
+    {
+      "text": "He brushes his teeth and then eats breakfast.",
+      "es": "Se lava los dientes y luego desayuna.",
+      "image": "/lesson-assets/a1_photo_u4_rebuild_sequence_4_forward_v1.webp",
+      "kind": "order",
+      "image_choices": false
+    },
+    {
+      "text": "He eats breakfast and then brushes his teeth.",
+      "es": "Desayuna y luego se lava los dientes.",
+      "image": "/lesson-assets/a1_photo_u4_rebuild_sequence_4_reverse_v1.webp",
+      "kind": "order",
+      "image_choices": false
+    },
+    {
+      "text": "He goes to school and then brushes his teeth.",
+      "es": "Va a la escuela y luego se lava los dientes.",
+      "image": "/lesson-assets/a1_photo_u4_rebuild_sequence_5_forward_v1.webp",
+      "kind": "order",
+      "image_choices": false
+    },
+    {
+      "text": "He gets dressed.",
+      "es": "Se viste.",
+      "image": "/lesson-assets/a1_photo_u4_rebuild_morning_wash_face_v1.webp",
+      "kind": "after",
+      "image_choices": false
+    },
+    {
+      "text": "He brushes his teeth.",
+      "es": "Se lava los dientes.",
+      "image": "/lesson-assets/a1_photo_u4_rebuild_morning_breakfast_v1.webp",
+      "kind": "after",
+      "image_choices": false
+    },
+    {
+      "text": "He washes his face.",
+      "es": "Se lava la cara.",
+      "image": "/lesson-assets/a1_photo_u4_rebuild_morning_teeth_v1.webp",
+      "kind": "after",
+      "image_choices": false
+    },
+    {
+      "text": "He goes to school.",
+      "es": "Va a la escuela.",
+      "image": "/lesson-assets/a1_photo_u4_rebuild_morning_wake_v1.webp",
+      "kind": "first",
+      "image_choices": false
+    },
+    {
+      "text": "He goes by bus.",
+      "es": "Va en camión.",
+      "image": "/lesson-assets/a1plus-unit-4-w01-fd22298fab33976f.webp",
+      "kind": "how",
+      "image_choices": false
+    },
+    {
+      "text": "He walks.",
+      "es": "Camina.",
+      "image": "/lesson-assets/a1plus-unit-4-w02-0fcde499430cff89.webp",
+      "kind": "how",
+      "image_choices": false
+    },
+    {
+      "text": "I go by bus.",
+      "es": "Voy en camión.",
+      "image": "/lesson-assets/a1plus-unit-2-r01-f09016e66cbd30a8.webp",
+      "kind": "how2",
+      "image_choices": false
+    },
+    {
+      "text": "He washes his face. What does he do after that? He eats breakfast.",
+      "es": "Se lava la cara. ¿Qué hace después? Desayuna.",
+      "image": "/lesson-assets/a1_photo_u4_rebuild_morning_dress_v1.webp",
+      "kind": "xa",
+      "image_choices": false
+    }
+  ],
+  "layout": {
+    "Recognize": 10,
+    "Listen": 10,
+    "Speak": 8,
+    "Use": 8
+  },
+  "stage_sequences": {
+    "Learn": [
+      "l-then1",
+      "l-after",
+      "l-first",
+      "l-then2"
+    ],
+    "Recognize": [
+      "o-1",
+      "a-1",
+      "o-3",
+      "h-walk",
+      "o-4r",
+      "f-1",
+      "o-3r",
+      "a-2",
+      "g-walk",
+      "h-ana"
+    ],
+    "Listen": [
+      "o-2",
+      "x-after",
+      "h-bus",
+      "o-4",
+      "a-3",
+      "g-bus",
+      "o-5",
+      "h-walk",
+      "a-2",
+      "o-3"
+    ],
+    "Speak": [
+      "q-first",
+      "o-2",
+      "q-after",
+      "h-walk",
+      "o-3",
+      "a-2",
+      "o-5",
+      "h-ana"
+    ],
+    "Use": [
+      "o-2",
+      "o-4",
+      "q-after",
+      "q-first",
+      "o-1",
+      "o-3",
+      "o-4r",
+      "o-3r"
+    ]
+  }
+}

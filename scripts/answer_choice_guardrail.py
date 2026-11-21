@@ -29,11 +29,13 @@ VERBS = {
     "help": "helps helped", "cross": "crosses crossed", "turn": "turns turned",
     "repeat": "repeats repeated", "speak": "speaks spoke",
     "stand": "stands stood", "use": "uses",
+    # A1+ 4.5 (2026-11-20): the he/she form of the morning routine (Ana brushes her teeth.).
+    "brush": "brushes brushed",
 }
 FINITE = {form: root for root, forms in VERBS.items() for form in [root, *forms.split()]}
 PROGRESSIVE = dict(zip(
-    "arriving leaving playing studying working cooking talking eating drinking reading writing running sitting sleeping swimming walking going waking getting washing watching crossing turning speaking helping".split(),
-    "arrive leave play study work cook talk eat drink read write run sit sleep swim walk go wake get wash watch cross turn speak help".split(),
+    "arriving leaving playing studying working cooking talking eating drinking reading writing running sitting sleeping swimming walking going waking getting washing watching crossing turning speaking helping brushing".split(),
+    "arrive leave play study work cook talk eat drink read write run sit sleep swim walk go wake get wash watch cross turn speak help brush".split(),
 ))
 ACTION = {**FINITE, **PROGRESSIVE}
 AUXILIARIES = "am is are was were be been being can cannot could would should must will shall may might do does did have has had".split()

@@ -232,6 +232,10 @@ const MEANINGS: Record<string, string> = {
   our: 'nuestro', their: 'de ellos', mine: 'mío', yours: 'tuyo', ours: 'nuestro', have: 'tener', has: 'tiene',
   // A1+ 3.12 (2026-11-20): possessive pronouns after Whose…? (It's hers. / They're theirs.).
   hers: 'de ella', theirs: 'de ellos',
+  // A1+ 4.1 (2026-11-20): which floor of a house someone is on (She's upstairs.).
+  upstairs: 'arriba, en el piso de arriba', downstairs: 'abajo, en el piso de abajo',
+  // A1+ 4.3 (2026-11-20): where a pet is, seen from the camera (Luna is behind the door.).
+  behind: 'detrás de', 'in front of': 'delante de',
   grandchildren: 'nietos',
   cook: 'cocinero', brush: 'cepillar', wash: 'lavar',
   study: 'estudiar', run: 'correr', goes: 'va', walks: 'camina', likes: 'le gusta',
@@ -261,6 +265,8 @@ function normalized(value?: string | null) {
 
 // A1+ 3.10 (2026-11-20): hair is long or short (largo, corto); alone, short is A1+ 1.1's height (bajo o baja).
 const HAIR_LENGTH: Record<string, string> = { long: 'largo', short: 'corto' };
+// A1+ 4.2 (2026-11-20): after be, on and off say whether a lamp, a TV or a computer works (The TV is off.).
+const SWITCH_STATE: Record<string, string> = { on: 'prendido o encendido', off: 'apagado' };
 const wordMeaning = (text: string) => meaning(text);
 
 function meaning(text: string) {
@@ -620,6 +626,9 @@ const PHRASE_MEANINGS: Record<string, string> = {
   'far from the park': 'lejos del parque', 'next to the store': 'al lado de la tienda',
   sleep: 'dormir', 'a pear': 'una pera', grapes: 'uvas', 'a strawberry': 'una fresa',
   'watch tv': 'ver televisión',
+  // A1+ 4.5 (2026-11-20): the he/she form of the morning routine (Luis brushes his teeth.).
+  'wakes up': 'se despierta', 'gets dressed': 'se viste', 'brushes his teeth': 'se lava los dientes',
+  'brushes her teeth': 'se lava los dientes', 'washes his face': 'se lava la cara', 'washes her face': 'se lava la cara',
 };
 
 function phraseMeaning(text: string) {
@@ -652,7 +661,11 @@ function wordChoiceContrast(correct: string, wrong: string, isAudioChoice: boole
   }
   // A1+ 3.10 (2026-11-20): after "hair is", long and short describe the hair (largo, corto), not a person's height.
   const aboutHair = /\bhair is\b/i.test(correct) && /\bhair is\b/i.test(wrong);
-  const meaning = (word: string) => aboutHair && HAIR_LENGTH[word] ? HAIR_LENGTH[word] : wordMeaning(word);
+  // Only when on or off ends the sentence (The TV is off.), never a place (It is on the table.).
+  const switchedEnd = /\b(?:is|are|it's) (?:on|off)[.!?]*$/i;
+  const aboutSwitch = switchedEnd.test(correct.trim()) && switchedEnd.test(wrong.trim());
+  const meaning = (word: string) => aboutHair && HAIR_LENGTH[word] ? HAIR_LENGTH[word]
+    : aboutSwitch && SWITCH_STATE[word] ? SWITCH_STATE[word] : wordMeaning(word);
   const correctWords = normalized(correct).replace(/[?.!,]/g, '').split(/\s+/);
   const wrongWords = normalized(wrong).replace(/[?.!,]/g, '').split(/\s+/);
   while (correctWords.length && wrongWords.length && correctWords[0] === wrongWords[0]) {
@@ -783,6 +796,7 @@ function imageChoiceContrast(card: LessonCard, correctId: string, wrongId: strin
     if (word === 'watch' && words.includes('tv')) return '';
     if (word === 'office' && words[words.indexOf(word) - 1] === 'post') return '';
     if (HAIR_LENGTH[word] && words.includes('hair')) return HAIR_LENGTH[word];
+    if (SWITCH_STATE[word] && words.indexOf(word) === words.length - 1 && words[words.length - 2] === 'is') return SWITCH_STATE[word];
     return meaning(word);
   };
   const difference = expected.find((word, index) => word !== selected[index] && known(expected, word) && known(selected, selected[index] || ''));

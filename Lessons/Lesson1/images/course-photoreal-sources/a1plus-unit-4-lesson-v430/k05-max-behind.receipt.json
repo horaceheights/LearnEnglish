@@ -1,0 +1,62 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "c71dbee0-b402-48ae-9ff1-9bd6f5b3d945",
+  "asset_id": "k05-max-behind",
+  "pack_sha256": "1c9d42f006363dbfb64526372301aea8f3f307a846e6dd998013eb269a8e8555",
+  "started_at": "2026-11-21T03:12:34.847255+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Edit Image 1. Keep the place, the furniture, the light, the colors and the camera position exactly the same; change only what is described below.\n\nThere are no people anywhere in the photo.\n\nMove Max BEHIND the tree: he is now on the far side of the thick trunk, and only his head and one front paw peek out from the right side of the trunk; the trunk hides the rest of him. The grass in front of the tree is now empty.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": {
+    "path": "output/imagegen/a1plus-unit-4-lesson-v430/k04-max-front.png",
+    "sha256": "29e893a41120fe13cbc836f3975491163525bfc12f978fad31769fa89f14ad3c"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "IAwBa5nnD-LDqtsPxK-FwAY",
+  "usage": {
+    "promptTokenCount": 359,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1649,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 101
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038808",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 359,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 6.99,
+  "output": "output/imagegen/a1plus-unit-4-lesson-v430/k05-max-behind.png",
+  "sha256": "cc6bfa9d9fb00c6089c9a8dbe7b4ee8104390139c67d216bfae42cfe2d4bdc73",
+  "byte_count": 2221383,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}

@@ -1,0 +1,813 @@
+{
+  "brief_version": 1,
+  "follows": {
+    "course": "a1",
+    "lesson": "4.2",
+    "title": "Furniture and Home Objects"
+  },
+  "note": "A1+ Unit 4 Lesson 4.2, built on 2026-11-20 under the A1+ lesson standards approved 2026-10-27 and the user's 2026-11-09 rule that every A1+ lesson follows up the A1 lesson with the same number. The user approved the A1+ Unit 4 map on 2026-11-20 (A1+ 4.Y follows A1 4.Y, one step each; seventeen lessons) and asked for the Unit 2 and Unit 3 deal (\"Start working on A1+ Unit 4, same deal. make sure images make sense all the time\"): straight to Preview in batches, Gemini 2.5 Flash photos and ElevenLabs audio pre-approved, no per-lesson gates, reviewed in Preview. Six new photos (Gemini 2.5 Flash) in three on/off pairs, each OFF photo an edit of its ON photo: Ana's floor lamp at night, Luis pointing his remote at the TV, Diego at his laptop. A first lamp and TV pair was rejected on review (the lamp did not read as on in daylight; the TV photo drew a second arm) and remade.",
+  "target": "backend/lessons/a1_plus/unit_4/a1plus-unit-4-lesson-4-2.yaml",
+  "captions": false,
+  "narrators": [
+    "teacher",
+    "co-teacher"
+  ],
+  "answer_audio_policy": "authored-only",
+  "speak_delivery": "a1-pronunciation-v1",
+  "lesson": {
+    "id": "a1plus-unit-4-lesson-4-2",
+    "title": "4.2 Please turn off the TV",
+    "level": "A1+",
+    "unit_id": "a1plus-unit-4",
+    "unit_title": "Life at home, every day and yesterday",
+    "unit_outcome": "Say where people and things are at home, talk about the lights and machines, ask what there is, describe someone's morning in order, say what you did yesterday and on which day, ask and tell the time, say how often you do things and give dates.",
+    "lesson_id": "a1plus-unit-4-lesson-4-2",
+    "lesson_title": "Please turn off the TV",
+    "sub_lesson_id": "4.2",
+    "sub_lesson_title": "Please turn off the TV",
+    "goal": "Ask someone to turn a lamp, a TV or a computer on or off, and say whether it is on or off (Please turn off the TV. / The lamp is on.).",
+    "vocabulary": [
+      "turn on",
+      "turn off",
+      "on",
+      "off"
+    ],
+    "review_vocabulary": [
+      "please",
+      "lamp",
+      "TV",
+      "computer",
+      "is",
+      "it's",
+      "isn't",
+      "now",
+      "yes",
+      "no",
+      "the"
+    ],
+    "grammar_function": "A follow-up of A1 4.2 Furniture and Home Objects: A1 names a lamp, a computer and other home objects; A1+ 4.2 switches them. The new items are turn on and turn off in a request with please (Please turn off the TV.), 2.12's command form, and on and off after be for the state (The lamp is on. / Is the computer on? No, it's off.). Each thing is photographed twice from the same camera, on and off, with its person's hand on the switch, the remote or the key: Ana's floor lamp, Luis's TV and Diego's laptop. A request is shown with the thing still in the state it asks to change, and request banks change only the thing, never on and off, so the picture never has to decide between them; on and off are set against each other only in sentences about the state, which the picture shows. Learn and Listen play a request and its result as two turns, and the picture switches on the second turn.",
+    "prerequisite": "A1 4.2 lamp and computer; A1+ 1.8 Luis watches TV; A1+ 2.12 please + a command; A1+ 2.4 it's and isn't.",
+    "speaking_outcome": "Link turn on (tur-NON) and turn off (tur-NOFF); keep the f of off clear. Do not require native-like speed.",
+    "content_revision": 1,
+    "learn_context_groups": [
+      {
+        "kind": "contrast",
+        "targets": [
+          "on",
+          "off"
+        ],
+        "models": [
+          {
+            "slide_id": "L1",
+            "text": "The lamp is on. The lamp is off.",
+            "turns": [
+              "The lamp is on.",
+              "The lamp is off."
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "contrast",
+        "targets": [
+          "turn off",
+          "turn on"
+        ],
+        "models": [
+          {
+            "slide_id": "L2",
+            "text": "Please turn off the TV. Please turn on the TV.",
+            "turns": [
+              "Please turn off the TV.",
+              "Please turn on the TV."
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "sequence",
+        "targets": [
+          "turn on"
+        ],
+        "models": [
+          {
+            "slide_id": "L3",
+            "text": "Please turn on the computer."
+          }
+        ]
+      },
+      {
+        "kind": "exchange",
+        "targets": [
+          "on",
+          "off"
+        ],
+        "models": [
+          {
+            "slide_id": "L4",
+            "text": "Is the lamp on? No, it's off.",
+            "turns": [
+              "Is the lamp on?",
+              "No, it's off."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "items": [
+    {
+      "id": "l-lamp",
+      "text": "The lamp is on. The lamp is off.",
+      "es": "La lámpara está prendida. La lámpara está apagada.",
+      "image": "/lesson-assets/a1plus-unit-4-o11-4a21294e6a1e0bfd.webp",
+      "kind": "contrast",
+      "choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "The lamp is on.",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-4-o11-4a21294e6a1e0bfd.webp"
+        },
+        {
+          "text": "The lamp is off.",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-4-o12-4a07b86549ab2f07.webp"
+        }
+      ]
+    },
+    {
+      "id": "l-tv",
+      "text": "Please turn off the TV. Please turn on the TV.",
+      "es": "Por favor, apaga la tele. Por favor, prende la tele.",
+      "image": "/lesson-assets/a1plus-unit-4-o13-bfb710181980493d.webp",
+      "kind": "contrast",
+      "choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "Please turn off the TV.",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-4-o13-bfb710181980493d.webp"
+        },
+        {
+          "text": "Please turn on the TV.",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-4-o14-1248bf719ce64762.webp"
+        }
+      ]
+    },
+    {
+      "id": "l-pc",
+      "text": "Please turn on the computer.",
+      "es": "Por favor, prende la computadora.",
+      "image": "/lesson-assets/a1plus-unit-4-o06-1922a6df9b38e32b.webp",
+      "kind": "sequence",
+      "choices": false,
+      "use": false,
+      "speaker": "teacher"
+    },
+    {
+      "id": "l-is-on",
+      "text": "Is the lamp on? No, it's off.",
+      "es": "¿Está prendida la lámpara? No, está apagada.",
+      "image": "/lesson-assets/a1plus-unit-4-o12-4a07b86549ab2f07.webp",
+      "kind": "exchange",
+      "choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "Is the lamp on?",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-4-o12-4a07b86549ab2f07.webp"
+        },
+        {
+          "text": "No, it's off.",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-4-o12-4a07b86549ab2f07.webp"
+        }
+      ]
+    },
+    {
+      "id": "s-lam-on",
+      "text": "The lamp is on.",
+      "es": "La lámpara está prendida.",
+      "image": "/lesson-assets/a1plus-unit-4-o11-4a21294e6a1e0bfd.webp",
+      "kind": "state-lam",
+      "prefer": [
+        "The lamp is off.",
+        "The TV is on."
+      ],
+      "accepts": {
+        "subject-variety": "The bank keeps the thing and changes only on or off; the picture shows the light or the screen.",
+        "action-variety": "The bank keeps the thing and changes only on or off; the picture shows the light or the screen.",
+        "conversational-response": "The bank keeps the thing and changes only on or off; the picture shows the light or the screen.",
+        "reading-load": "The bank keeps the thing and changes only on or off; the picture shows the light or the screen."
+      },
+      "blanks": [
+        "is",
+        "on"
+      ],
+      "learn": false
+    },
+    {
+      "id": "s-lam-off",
+      "text": "The lamp is off.",
+      "es": "La lámpara está apagada.",
+      "image": "/lesson-assets/a1plus-unit-4-o12-4a07b86549ab2f07.webp",
+      "kind": "state-lam",
+      "prefer": [
+        "The lamp is on.",
+        "The TV is on."
+      ],
+      "accepts": {
+        "subject-variety": "The bank keeps the thing and changes only on or off; the picture shows the light or the screen.",
+        "action-variety": "The bank keeps the thing and changes only on or off; the picture shows the light or the screen.",
+        "conversational-response": "The bank keeps the thing and changes only on or off; the picture shows the light or the screen.",
+        "reading-load": "The bank keeps the thing and changes only on or off; the picture shows the light or the screen."
+      },
+      "blanks": [
+        "is",
+        "off"
+      ],
+      "learn": false
+    },
+    {
+      "id": "s-tv-on",
+      "text": "The TV is on.",
+      "es": "La tele está prendida.",
+      "image": "/lesson-assets/a1plus-unit-4-o13-bfb710181980493d.webp",
+      "kind": "state-tv",
+      "prefer": [
+        "The TV is off.",
+        "The lamp is off."
+      ],
+      "accepts": {
+        "subject-variety": "The bank keeps the thing and changes only on or off; the picture shows the light or the screen.",
+        "action-variety": "The bank keeps the thing and changes only on or off; the picture shows the light or the screen.",
+        "conversational-response": "The bank keeps the thing and changes only on or off; the picture shows the light or the screen.",
+        "reading-load": "The bank keeps the thing and changes only on or off; the picture shows the light or the screen."
+      },
+      "blanks": [
+        "is",
+        "on"
+      ],
+      "learn": false
+    },
+    {
+      "id": "s-tv-off",
+      "text": "The TV is off.",
+      "es": "La tele está apagada.",
+      "image": "/lesson-assets/a1plus-unit-4-o14-1248bf719ce64762.webp",
+      "kind": "state-tv",
+      "prefer": [
+        "The TV is on.",
+        "The lamp is off."
+      ],
+      "accepts": {
+        "subject-variety": "The bank keeps the thing and changes only on or off; the picture shows the light or the screen.",
+        "action-variety": "The bank keeps the thing and changes only on or off; the picture shows the light or the screen.",
+        "conversational-response": "The bank keeps the thing and changes only on or off; the picture shows the light or the screen.",
+        "reading-load": "The bank keeps the thing and changes only on or off; the picture shows the light or the screen."
+      },
+      "blanks": [
+        "is",
+        "off"
+      ],
+      "learn": false
+    },
+    {
+      "id": "s-com-on",
+      "text": "The computer is on.",
+      "es": "La computadora está prendida.",
+      "image": "/lesson-assets/a1plus-unit-4-o05-31d4a2bb7807c88d.webp",
+      "kind": "state-com",
+      "prefer": [
+        "The computer is off.",
+        "The lamp is on."
+      ],
+      "accepts": {
+        "subject-variety": "The bank keeps the thing and changes only on or off; the picture shows the light or the screen.",
+        "action-variety": "The bank keeps the thing and changes only on or off; the picture shows the light or the screen.",
+        "conversational-response": "The bank keeps the thing and changes only on or off; the picture shows the light or the screen.",
+        "reading-load": "The bank keeps the thing and changes only on or off; the picture shows the light or the screen."
+      },
+      "blanks": [
+        "is",
+        "on"
+      ],
+      "learn": false
+    },
+    {
+      "id": "s-com-off",
+      "text": "The computer is off.",
+      "es": "La computadora está apagada.",
+      "image": "/lesson-assets/a1plus-unit-4-o06-1922a6df9b38e32b.webp",
+      "kind": "state-com",
+      "prefer": [
+        "The computer is on.",
+        "The TV is on."
+      ],
+      "accepts": {
+        "subject-variety": "The bank keeps the thing and changes only on or off; the picture shows the light or the screen.",
+        "action-variety": "The bank keeps the thing and changes only on or off; the picture shows the light or the screen.",
+        "conversational-response": "The bank keeps the thing and changes only on or off; the picture shows the light or the screen.",
+        "reading-load": "The bank keeps the thing and changes only on or off; the picture shows the light or the screen."
+      },
+      "blanks": [
+        "is",
+        "off"
+      ],
+      "learn": false
+    },
+    {
+      "id": "c-tv-off",
+      "text": "Please turn off the TV.",
+      "es": "Por favor, apaga la tele.",
+      "image": "/lesson-assets/a1plus-unit-4-o13-bfb710181980493d.webp",
+      "kind": "ask-off",
+      "prefer": [
+        "Please turn off the computer."
+      ],
+      "accepts": {
+        "subject-variety": "A request is shown with the thing still in the state it asks to change; the bank keeps turn on or turn off and changes only the thing, so the picture never decides between on and off.",
+        "action-variety": "A request is shown with the thing still in the state it asks to change; the bank keeps turn on or turn off and changes only the thing, so the picture never decides between on and off.",
+        "conversational-response": "A request is shown with the thing still in the state it asks to change; the bank keeps turn on or turn off and changes only the thing, so the picture never decides between on and off.",
+        "reading-load": "A request is shown with the thing still in the state it asks to change; the bank keeps turn on or turn off and changes only the thing, so the picture never decides between on and off."
+      },
+      "image_choices": false,
+      "blanks": [
+        "turn",
+        "off"
+      ],
+      "avoid": [
+        "Please turn off the lamp."
+      ],
+      "learn": false
+    },
+    {
+      "id": "c-lam-off",
+      "text": "Please turn off the lamp.",
+      "es": "Por favor, apaga la lámpara.",
+      "image": "/lesson-assets/a1plus-unit-4-o11-4a21294e6a1e0bfd.webp",
+      "kind": "ask-off",
+      "prefer": [
+        "Please turn off the computer."
+      ],
+      "accepts": {
+        "subject-variety": "A request is shown with the thing still in the state it asks to change; the bank keeps turn on or turn off and changes only the thing, so the picture never decides between on and off.",
+        "action-variety": "A request is shown with the thing still in the state it asks to change; the bank keeps turn on or turn off and changes only the thing, so the picture never decides between on and off.",
+        "conversational-response": "A request is shown with the thing still in the state it asks to change; the bank keeps turn on or turn off and changes only the thing, so the picture never decides between on and off.",
+        "reading-load": "A request is shown with the thing still in the state it asks to change; the bank keeps turn on or turn off and changes only the thing, so the picture never decides between on and off."
+      },
+      "image_choices": false,
+      "blanks": [
+        "turn",
+        "off"
+      ],
+      "avoid": [
+        "Please turn off the TV."
+      ],
+      "learn": false
+    },
+    {
+      "id": "c-com-off",
+      "text": "Please turn off the computer.",
+      "es": "Por favor, apaga la computadora.",
+      "image": "/lesson-assets/a1plus-unit-4-o05-31d4a2bb7807c88d.webp",
+      "kind": "ask-off",
+      "prefer": [
+        "Please turn off the TV.",
+        "Please turn off the lamp."
+      ],
+      "accepts": {
+        "subject-variety": "A request is shown with the thing still in the state it asks to change; the bank keeps turn on or turn off and changes only the thing, so the picture never decides between on and off.",
+        "action-variety": "A request is shown with the thing still in the state it asks to change; the bank keeps turn on or turn off and changes only the thing, so the picture never decides between on and off.",
+        "conversational-response": "A request is shown with the thing still in the state it asks to change; the bank keeps turn on or turn off and changes only the thing, so the picture never decides between on and off.",
+        "reading-load": "A request is shown with the thing still in the state it asks to change; the bank keeps turn on or turn off and changes only the thing, so the picture never decides between on and off."
+      },
+      "image_choices": false,
+      "blanks": [
+        "turn",
+        "off"
+      ],
+      "avoid": [],
+      "learn": false
+    },
+    {
+      "id": "c-com-on",
+      "text": "Please turn on the computer.",
+      "es": "Por favor, prende la computadora.",
+      "image": "/lesson-assets/a1plus-unit-4-o06-1922a6df9b38e32b.webp",
+      "kind": "ask-on",
+      "prefer": [
+        "Please turn on the lamp.",
+        "Please turn on the TV."
+      ],
+      "accepts": {
+        "subject-variety": "A request is shown with the thing still in the state it asks to change; the bank keeps turn on or turn off and changes only the thing, so the picture never decides between on and off.",
+        "action-variety": "A request is shown with the thing still in the state it asks to change; the bank keeps turn on or turn off and changes only the thing, so the picture never decides between on and off.",
+        "conversational-response": "A request is shown with the thing still in the state it asks to change; the bank keeps turn on or turn off and changes only the thing, so the picture never decides between on and off.",
+        "reading-load": "A request is shown with the thing still in the state it asks to change; the bank keeps turn on or turn off and changes only the thing, so the picture never decides between on and off."
+      },
+      "image_choices": false,
+      "blanks": [
+        "turn",
+        "on"
+      ],
+      "avoid": [],
+      "learn": false
+    },
+    {
+      "id": "c-lam-on",
+      "text": "Please turn on the lamp.",
+      "es": "Por favor, prende la lámpara.",
+      "image": "/lesson-assets/a1plus-unit-4-o12-4a07b86549ab2f07.webp",
+      "kind": "ask-on",
+      "prefer": [
+        "Please turn on the computer."
+      ],
+      "accepts": {
+        "subject-variety": "A request is shown with the thing still in the state it asks to change; the bank keeps turn on or turn off and changes only the thing, so the picture never decides between on and off.",
+        "action-variety": "A request is shown with the thing still in the state it asks to change; the bank keeps turn on or turn off and changes only the thing, so the picture never decides between on and off.",
+        "conversational-response": "A request is shown with the thing still in the state it asks to change; the bank keeps turn on or turn off and changes only the thing, so the picture never decides between on and off.",
+        "reading-load": "A request is shown with the thing still in the state it asks to change; the bank keeps turn on or turn off and changes only the thing, so the picture never decides between on and off."
+      },
+      "image_choices": false,
+      "blanks": [
+        "turn",
+        "on"
+      ],
+      "avoid": [
+        "Please turn on the TV."
+      ],
+      "learn": false
+    },
+    {
+      "id": "c-tv-on",
+      "text": "Please turn on the TV.",
+      "es": "Por favor, prende la tele.",
+      "image": "/lesson-assets/a1plus-unit-4-o14-1248bf719ce64762.webp",
+      "kind": "ask-on",
+      "prefer": [
+        "Please turn on the computer."
+      ],
+      "accepts": {
+        "subject-variety": "A request is shown with the thing still in the state it asks to change; the bank keeps turn on or turn off and changes only the thing, so the picture never decides between on and off.",
+        "action-variety": "A request is shown with the thing still in the state it asks to change; the bank keeps turn on or turn off and changes only the thing, so the picture never decides between on and off.",
+        "conversational-response": "A request is shown with the thing still in the state it asks to change; the bank keeps turn on or turn off and changes only the thing, so the picture never decides between on and off.",
+        "reading-load": "A request is shown with the thing still in the state it asks to change; the bank keeps turn on or turn off and changes only the thing, so the picture never decides between on and off."
+      },
+      "image_choices": false,
+      "blanks": [
+        "turn",
+        "on"
+      ],
+      "avoid": [
+        "Please turn on the lamp."
+      ],
+      "learn": false
+    },
+    {
+      "id": "q-on",
+      "text": "Yes, it is.",
+      "es": "Sí.",
+      "image": "/lesson-assets/a1plus-unit-4-o13-bfb710181980493d.webp",
+      "kind": "yn1",
+      "question": "Is the TV on?",
+      "question_es": "¿Está prendida la tele?",
+      "question_speaker": "co-teacher",
+      "speaker": "teacher",
+      "use": false,
+      "image_choices": false,
+      "prefer": [
+        "No, it isn't.",
+        "No, it's off."
+      ],
+      "accepts": {
+        "subject-variety": "A short answer keeps the thing of the question; the picture shows whether it is on or off.",
+        "action-variety": "A short answer keeps the thing of the question; the picture shows whether it is on or off.",
+        "conversational-response": "A short answer keeps the thing of the question; the picture shows whether it is on or off.",
+        "reading-load": "A short answer keeps the thing of the question; the picture shows whether it is on or off."
+      },
+      "learn": false
+    },
+    {
+      "id": "q-off",
+      "text": "No, it's off.",
+      "es": "No, está apagada.",
+      "image": "/lesson-assets/a1plus-unit-4-o06-1922a6df9b38e32b.webp",
+      "kind": "yn2",
+      "question": "Is the computer on?",
+      "question_es": "¿Está prendida la computadora?",
+      "question_speaker": "co-teacher",
+      "speaker": "teacher",
+      "use": false,
+      "image_choices": false,
+      "prefer": [
+        "Yes, it's on.",
+        "Yes, it is."
+      ],
+      "accepts": {
+        "subject-variety": "A short answer keeps the thing of the question; the picture shows whether it is on or off.",
+        "action-variety": "A short answer keeps the thing of the question; the picture shows whether it is on or off.",
+        "conversational-response": "A short answer keeps the thing of the question; the picture shows whether it is on or off.",
+        "reading-load": "A short answer keeps the thing of the question; the picture shows whether it is on or off."
+      },
+      "learn": false
+    },
+    {
+      "id": "x-tv",
+      "text": "Please turn off the TV. The TV is off now.",
+      "es": "Por favor, apaga la tele. Ya está apagada.",
+      "image": "/lesson-assets/a1plus-unit-4-o14-1248bf719ce64762.webp",
+      "kind": "x1",
+      "image_choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "Please turn off the TV.",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-4-o13-bfb710181980493d.webp"
+        },
+        {
+          "text": "The TV is off now.",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-4-o14-1248bf719ce64762.webp"
+        }
+      ],
+      "accepts": {
+        "subject-variety": "Listen keeps the request and changes only what was heard; the answer is what was heard.",
+        "action-variety": "Listen keeps the request and changes only what was heard; the answer is what was heard.",
+        "conversational-response": "Listen keeps the request and changes only what was heard; the answer is what was heard.",
+        "reading-load": "Listen keeps the request and changes only what was heard; the answer is what was heard."
+      },
+      "prefer": [
+        "Please turn off the lamp. The lamp is off now.",
+        "Please turn on the TV. The TV is on now."
+      ],
+      "learn": false
+    },
+    {
+      "id": "x-lamp",
+      "text": "Please turn on the lamp. The lamp is on now.",
+      "es": "Por favor, prende la lámpara. Ya está prendida.",
+      "image": "/lesson-assets/a1plus-unit-4-o11-4a21294e6a1e0bfd.webp",
+      "kind": "x2",
+      "image_choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "Please turn on the lamp.",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-4-o12-4a07b86549ab2f07.webp"
+        },
+        {
+          "text": "The lamp is on now.",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-4-o11-4a21294e6a1e0bfd.webp"
+        }
+      ],
+      "accepts": {
+        "subject-variety": "Listen keeps the request and changes only what was heard; the answer is what was heard.",
+        "action-variety": "Listen keeps the request and changes only what was heard; the answer is what was heard.",
+        "conversational-response": "Listen keeps the request and changes only what was heard; the answer is what was heard.",
+        "reading-load": "Listen keeps the request and changes only what was heard; the answer is what was heard."
+      },
+      "prefer": [
+        "Please turn on the TV. The TV is on now.",
+        "Please turn off the lamp. The lamp is off now."
+      ],
+      "learn": false
+    }
+  ],
+  "pool": [
+    {
+      "text": "The lamp is off.",
+      "es": "La lámpara está apagada.",
+      "image": "/lesson-assets/a1plus-unit-4-o11-4a21294e6a1e0bfd.webp",
+      "kind": "state-lam",
+      "image_choices": false
+    },
+    {
+      "text": "The TV is on.",
+      "es": "La tele está prendida.",
+      "image": "/lesson-assets/a1plus-unit-4-o11-4a21294e6a1e0bfd.webp",
+      "kind": "state-lam",
+      "image_choices": false
+    },
+    {
+      "text": "The lamp is on.",
+      "es": "La lámpara está prendida.",
+      "image": "/lesson-assets/a1plus-unit-4-o12-4a07b86549ab2f07.webp",
+      "kind": "state-lam",
+      "image_choices": false
+    },
+    {
+      "text": "The TV is off.",
+      "es": "La tele está apagada.",
+      "image": "/lesson-assets/a1plus-unit-4-o13-bfb710181980493d.webp",
+      "kind": "state-tv",
+      "image_choices": false
+    },
+    {
+      "text": "The lamp is off.",
+      "es": "La lámpara está apagada.",
+      "image": "/lesson-assets/a1plus-unit-4-o13-bfb710181980493d.webp",
+      "kind": "state-tv",
+      "image_choices": false
+    },
+    {
+      "text": "The TV is on.",
+      "es": "La tele está prendida.",
+      "image": "/lesson-assets/a1plus-unit-4-o14-1248bf719ce64762.webp",
+      "kind": "state-tv",
+      "image_choices": false
+    },
+    {
+      "text": "The computer is off.",
+      "es": "La computadora está apagada.",
+      "image": "/lesson-assets/a1plus-unit-4-o05-31d4a2bb7807c88d.webp",
+      "kind": "state-com",
+      "image_choices": false
+    },
+    {
+      "text": "The lamp is on.",
+      "es": "La lámpara está prendida.",
+      "image": "/lesson-assets/a1plus-unit-4-o05-31d4a2bb7807c88d.webp",
+      "kind": "state-com",
+      "image_choices": false
+    },
+    {
+      "text": "The computer is on.",
+      "es": "La computadora está prendida.",
+      "image": "/lesson-assets/a1plus-unit-4-o06-1922a6df9b38e32b.webp",
+      "kind": "state-com",
+      "image_choices": false
+    },
+    {
+      "text": "The TV is on.",
+      "es": "La tele está prendida.",
+      "image": "/lesson-assets/a1plus-unit-4-o06-1922a6df9b38e32b.webp",
+      "kind": "state-com",
+      "image_choices": false
+    },
+    {
+      "text": "Please turn off the computer.",
+      "es": "Por favor, apaga la computadora.",
+      "image": "/lesson-assets/a1plus-unit-4-o13-bfb710181980493d.webp",
+      "kind": "ask-off",
+      "image_choices": false
+    },
+    {
+      "text": "Please turn off the TV.",
+      "es": "Por favor, apaga la tele.",
+      "image": "/lesson-assets/a1plus-unit-4-o05-31d4a2bb7807c88d.webp",
+      "kind": "ask-off",
+      "image_choices": false
+    },
+    {
+      "text": "Please turn off the lamp.",
+      "es": "Por favor, apaga la lámpara.",
+      "image": "/lesson-assets/a1plus-unit-4-o05-31d4a2bb7807c88d.webp",
+      "kind": "ask-off",
+      "image_choices": false
+    },
+    {
+      "text": "Please turn on the lamp.",
+      "es": "Por favor, prende la lámpara.",
+      "image": "/lesson-assets/a1plus-unit-4-o06-1922a6df9b38e32b.webp",
+      "kind": "ask-on",
+      "image_choices": false
+    },
+    {
+      "text": "Please turn on the TV.",
+      "es": "Por favor, prende la tele.",
+      "image": "/lesson-assets/a1plus-unit-4-o06-1922a6df9b38e32b.webp",
+      "kind": "ask-on",
+      "image_choices": false
+    },
+    {
+      "text": "Please turn on the computer.",
+      "es": "Por favor, prende la computadora.",
+      "image": "/lesson-assets/a1plus-unit-4-o12-4a07b86549ab2f07.webp",
+      "kind": "ask-on",
+      "image_choices": false
+    },
+    {
+      "text": "No, it isn't.",
+      "es": "No.",
+      "image": "/lesson-assets/a1plus-unit-4-o13-bfb710181980493d.webp",
+      "kind": "yn1",
+      "image_choices": false
+    },
+    {
+      "text": "No, it's off.",
+      "es": "No, está apagada.",
+      "image": "/lesson-assets/a1plus-unit-4-o13-bfb710181980493d.webp",
+      "kind": "yn1",
+      "image_choices": false
+    },
+    {
+      "text": "Yes, it's on.",
+      "es": "Sí, está prendida.",
+      "image": "/lesson-assets/a1plus-unit-4-o06-1922a6df9b38e32b.webp",
+      "kind": "yn2",
+      "image_choices": false
+    },
+    {
+      "text": "Yes, it is.",
+      "es": "Sí.",
+      "image": "/lesson-assets/a1plus-unit-4-o06-1922a6df9b38e32b.webp",
+      "kind": "yn2",
+      "image_choices": false
+    },
+    {
+      "text": "Please turn off the lamp. The lamp is off now.",
+      "es": "Por favor, apaga la lámpara. Ya está apagada.",
+      "image": "/lesson-assets/a1plus-unit-4-o14-1248bf719ce64762.webp",
+      "kind": "x1",
+      "image_choices": false
+    },
+    {
+      "text": "Please turn on the TV. The TV is on now.",
+      "es": "Por favor, prende la tele. Ya está prendida.",
+      "image": "/lesson-assets/a1plus-unit-4-o14-1248bf719ce64762.webp",
+      "kind": "x1",
+      "image_choices": false
+    },
+    {
+      "text": "Please turn on the TV. The TV is on now.",
+      "es": "Por favor, prende la tele. Ya está prendida.",
+      "image": "/lesson-assets/a1plus-unit-4-o11-4a21294e6a1e0bfd.webp",
+      "kind": "x2",
+      "image_choices": false
+    },
+    {
+      "text": "Please turn off the lamp. The lamp is off now.",
+      "es": "Por favor, apaga la lámpara. Ya está apagada.",
+      "image": "/lesson-assets/a1plus-unit-4-o11-4a21294e6a1e0bfd.webp",
+      "kind": "x2",
+      "image_choices": false
+    }
+  ],
+  "layout": {
+    "Recognize": 10,
+    "Listen": 10,
+    "Speak": 8,
+    "Use": 8
+  },
+  "stage_sequences": {
+    "Learn": [
+      "l-lamp",
+      "l-tv",
+      "l-pc",
+      "l-is-on"
+    ],
+    "Recognize": [
+      "s-lam-on",
+      "c-tv-off",
+      "s-tv-off",
+      "q-on",
+      "s-com-on",
+      "c-lam-on",
+      "s-lam-off",
+      "q-off",
+      "s-com-off",
+      "c-com-on"
+    ],
+    "Listen": [
+      "s-tv-on",
+      "x-tv",
+      "c-com-on",
+      "s-lam-off",
+      "q-off",
+      "x-lamp",
+      "s-com-on",
+      "c-lam-off",
+      "s-tv-off",
+      "q-on"
+    ],
+    "Speak": [
+      "c-tv-off",
+      "s-lam-on",
+      "c-com-on",
+      "s-tv-off",
+      "c-lam-on",
+      "c-com-off",
+      "c-tv-on",
+      "c-lam-off"
+    ],
+    "Use": [
+      "s-lam-on",
+      "s-tv-off",
+      "c-tv-off",
+      "c-lam-on",
+      "s-com-off",
+      "c-com-on",
+      "c-tv-on",
+      "s-tv-on"
+    ]
+  }
+}
