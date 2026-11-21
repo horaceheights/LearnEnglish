@@ -79,7 +79,7 @@ test('Spanish course cards explain Spanish order, agreement, es/está and one-or
     assert.equal(constructionTeachingPlan(card(supported)).supported, true, supported);
   }
   // Agreement errors and unknown words never get an invented rule.
-  for (const unsupported of ['La niño está comiendo.', 'Ellos está comiendo.', 'El hombre está sentados.', 'El perro está corriendo.']) {
+  for (const unsupported of ['La niño está comiendo.', 'Ellos está comiendo.', 'El hombre está sentados.', 'El caballo está corriendo.']) {
     assert.equal(constructionTeachingPlan(card(unsupported)).supported, false, unsupported);
   }
   const choice = (correct, wrong, english) => ({ stage: 'Listen', target_language: 'es', audio_text: correct, spanish_translation: english,
@@ -106,6 +106,18 @@ test('Spanish course cards explain Spanish order, agreement, es/está and one-or
   const question = card('¿Quiénes son ellos?');
   assert.equal(constructionMistakeHint(question, swap(question, 0, 2)),
     'You put “ellos” where “Quiénes” goes. “Quiénes” asks who about more than one person, so the question starts with it.');
+  // Spanish 1.10-1.13: pets, friends and people; mascota and persona are always feminine.
+  for (const supported of ['El perro es una mascota.', 'Son mascotas.', 'La persona está sentada.', 'Las personas están hablando.',
+    'Las amigas y el conejo están sentados.', 'La hija y una amiga están jugando.', 'Él es el esposo.',
+    '¿Quién es él? Él es el padre.', 'Ellos son los abuelos. Ellos no están durmiendo.']) {
+    assert.equal(constructionTeachingPlan(card(supported)).supported, true, supported);
+  }
+  for (const unsupported of ['El perro es un mascota.', 'La persona está sentado.', 'Los amigas están jugando.']) {
+    assert.equal(constructionTeachingPlan(card(unsupported)).supported, false, unsupported);
+  }
+  const mixed = card('Las amigas y el conejo están sentados.');
+  assert.equal(constructionMistakeHint(mixed, swap(mixed, 5, 6)),
+    'You put “sentados” where “están” goes. “están” + “sentados”: a group with a masculine noun takes the masculine plural “sentados”.');
   const notDoing = choice('Ella no está leyendo.', 'Ella está leyendo.', 'She is not reading.');
   assert.equal(spanishChoiceHint(notDoing, 'wrong'),
     'You heard “Ella no está leyendo”: She is not reading. “no” before the verb means “not”.');
