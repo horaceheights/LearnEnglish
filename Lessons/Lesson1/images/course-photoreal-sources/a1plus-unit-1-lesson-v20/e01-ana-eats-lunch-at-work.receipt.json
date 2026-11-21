@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "76807f42-0040-4b83-afa3-9e06d2d780ed",
+  "asset_id": "e01-ana-eats-lunch-at-work",
+  "pack_sha256": "f140cd5f93382ce5bb4b3857096f395ae469b40832cf3621926c63a0878a1426",
+  "started_at": "2026-10-31T21:46:08.895230+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture, soft natural light and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, logos or brand marks anywhere, including on objects, screens, clothing, signs and packaging. A first-time learner must understand the picture instantly on a small phone screen. Every hand has five natural fingers. Do not imitate earlier course photos.\n\nKeep every person, hand and object the meaning depends on inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nThe camera has a clear, unobstructed view of the scene from across the room: nothing stands between the camera and the person, no object is in the near foreground, and the whole photo is in sharp focus, with no blurred objects, shapes or bands at its edges.\n\nMidday on a weekday at work: bright, even daylight through the office window. No clock, watch, phone, tablet or screen anywhere in the photo; the lesson adds its own clocks.\n\nKeep the top-right corner of the photo (the right 30 percent of the width and the top 35 percent of the height) as plain, quiet background such as wall or window, with no face, hand or important object in it; the lesson places two small clocks there.\n\nImage 1 shows Ana. Keep her face, long dark wavy hair, earrings, necklace and build exactly, and her clothes (the sage-green overshirt with rolled sleeves over a white top). Create a new photograph at lunchtime in the bright break area of the same office: plants, a light wall and a large window. Ana sits at a small round light-wood table, away from her desk, turned toward the camera at a three-quarter angle. She is eating lunch: she holds half a sandwich in both hands near her mouth, about to take a bite, smiling. On the table in front of her, all clearly visible: a white plate with the other half of the sandwich and a small green salad, and one glass of water. No laptop, papers, phone or other food. She is the only person.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1plus-unit-1-03-4b46d47974611e0e.webp",
+    "sha256": "4b46d47974611e0ebe0f382d73daed6cfd980e9c69d1393152f0148f63158a59"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "omHmaqjeFfWYqtsPk-qcoQE",
+  "usage": {
+    "promptTokenCount": 760,
+    "candidatesTokenCount": 1360,
+    "totalTokenCount": 2403,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 502
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 283,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.138916",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 760,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 283
+  },
+  "elapsed_seconds": 26.31,
+  "output": "output/imagegen/a1plus-unit-1-lesson-v20/e01-ana-eats-lunch-at-work.png",
+  "sha256": "175ccf8ed09621067624684628aea0048b97231c414e623eafc779a15683ed95",
+  "byte_count": 4981473,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

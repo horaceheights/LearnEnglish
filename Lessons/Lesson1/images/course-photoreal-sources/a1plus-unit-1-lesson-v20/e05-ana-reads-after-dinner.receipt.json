@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "5c23977e-0d14-4190-8cb2-9f5e01beeb4d",
+  "asset_id": "e05-ana-reads-after-dinner",
+  "pack_sha256": "f140cd5f93382ce5bb4b3857096f395ae469b40832cf3621926c63a0878a1426",
+  "started_at": "2026-10-31T21:48:33.206873+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture, soft natural light and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, logos or brand marks anywhere, including on objects, screens, clothing, signs and packaging. A first-time learner must understand the picture instantly on a small phone screen. Every hand has five natural fingers. Do not imitate earlier course photos.\n\nKeep every person, hand and object the meaning depends on inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nThe camera has a clear, unobstructed view of the scene from across the room: nothing stands between the camera and the person, no object is in the near foreground, and the whole photo is in sharp focus, with no blurred objects, shapes or bands at its edges.\n\nEarly evening on a weekday at home, after work: warm light from indoor lamps, and any window shows a soft blue dusk sky. No clock, watch, phone, tablet or screen anywhere in the photo.\n\nImage 1 shows Ana. Keep her face, long dark wavy hair and build exactly, and her clothes (the sage-green overshirt over a white top, jeans). Create a new photograph in her small living room in the evening: a light-grey sofa, a warm floor lamp, a low wooden coffee table and a window with a dark blue sky. Ana sits on the sofa, relaxed, reading an open book held in both hands, her face and the book clearly visible. On the coffee table in front of her: one empty white dinner plate with only a few crumbs, a used fork and a crumpled napkin on it, finished, and a glass of water. She is the only person. No phone, television or screen.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1plus-unit-1-t22-296e96e660a3b079.webp",
+    "sha256": "296e96e660a3b079933bdea308db13c5c103ac07543a0d5223f2cc3ec1479db3"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "NGLmavL9Dt6VmtkPiKOCyQw",
+  "usage": {
+    "promptTokenCount": 683,
+    "candidatesTokenCount": 1335,
+    "totalTokenCount": 2240,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 425
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 222,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.138030",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 683,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 222
+  },
+  "elapsed_seconds": 27.11,
+  "output": "output/imagegen/a1plus-unit-1-lesson-v20/e05-ana-reads-after-dinner.png",
+  "sha256": "30ce07ad835a5cb52e57a770c493ba212eb25e7b103f6d656989e11b9da94917",
+  "byte_count": 5714902,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

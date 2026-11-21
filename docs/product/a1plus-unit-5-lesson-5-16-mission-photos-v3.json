@@ -1,0 +1,140 @@
+{
+  "schema_version": 1,
+  "pack": "a1plus-unit-5-lesson-5-16-mission-photos",
+  "revision": 3,
+  "output_namespace": "a1plus-unit-5-lesson-v5162",
+  "authorization": "2026-11-20: the user asked to \"work on a1+ Unit 5 same all deal as before none stop all approved\" (the Units 2-4 deal: straight to Preview in batches with Gemini 2.5 Flash photos and ElevenLabs audio pre-approved and reviewed in Preview). Gemini is the approved image tool (2026-09-23), Flash only (2026-11-17; \"lets switch to flash for any other images\", 2026-11-19).",
+  "image_settings": {
+    "provider": "google-gemini",
+    "model": "gemini-2.5-flash-image",
+    "aspect_ratio": "3:2",
+    "image_size": "1K",
+    "runtime_size": "1536x1024",
+    "runtime_format": "webp",
+    "n": 1
+  },
+  "production": {
+    "price_per_image_usd": "0.0387",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing (checked 2026-11-16: Gemini 2.5 Flash Image, about $0.039 per image)",
+    "planned_images": 5,
+    "expected_cost_usd": "0.19",
+    "requested_ceiling_usd": "0.40",
+    "ceiling_note": "The renderer reserves US$0.20 before each request; each request is sent on its own, and the expected spend for the pack is about US$0.19.",
+    "no_automatic_retries": true,
+    "order": [
+      "g01-luis-strawberries",
+      "g02-luis-water",
+      "g03-ana-full-bag",
+      "g04-diego-asks",
+      "g05-apples-3"
+    ]
+  },
+  "shared_prompts": {
+    "photo": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, menus, screens, cups, clothes or bags.",
+    "safe_center": "Keep the people and the thing that carries the meaning inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.",
+    "solo": "Only this one person is in the photo; there is nobody else, even far in the background.",
+    "pair": "Only these two people are in the photo; there is nobody else, even far in the background.",
+    "daytime": "It is clearly daytime with soft natural light.",
+    "kitchen": "The place is a bright, tidy home kitchen with a light wooden table, white walls and a big window; nothing else is on the table.",
+    "still": "No people, hands or animals are in the photo. The food sits in the middle of the table and fills the central part of the photo, sharp and easy to count or judge on a small phone screen.",
+    "few": "Exactly three pieces are visible, clearly separate, not touching, with plenty of empty space around them so the small amount is obvious at once.",
+    "lots": "There are so many that they cannot be counted at a glance: a big generous heap.",
+    "keep": "Keep each pictured person's face, hair, skin, build and clothes exactly as in the reference image; they look natural and relaxed, not posing for the camera.",
+    "numeral": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. No letters, words, logos or brand marks anywhere. The only writing in the photo is each price card described: a small white card on a little stand with a dollar sign and a number in big, thick black print, upright, facing the camera, sharp and easy to read on a small phone screen. No other signs, labels, screens or clothes show any digit or letter.",
+    "stall": "The place is a bright, simple outdoor market stall by day, with a wooden counter; the background is softly out of focus and shows no signs.",
+    "cafe": "The place is a bright, simple neighborhood café by day, with a wooden counter, a glass food case and big windows; nobody else is in the café.",
+    "candle": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. No letters, words, logos or brand marks anywhere, and no number anywhere except the two candle digits described: no other candles, cards, signs, clocks, screens or clothes show any digit.",
+    "table": "They sit at a light wooden dining table in a bright, simple home dining room by day, with plates, glasses and a few dishes on the table.",
+    "strangers": "The people are ordinary adults who are not famous and do not look like any earlier course photo; nobody looks at the camera.",
+    "scene": "A busy but clear scene: every person named is fully visible, separated from the others by some space, and easy to find on a small phone screen. Nobody else is in the photo."
+  },
+  "assets": [
+    {
+      "id": "g01-luis-strawberries",
+      "order": 1,
+      "item": "I like strawberries. (Luis to Ana at the fruit stall)",
+      "shared": [
+        "photo",
+        "safe_center",
+        "solo",
+        "daytime",
+        "keep",
+        "stall"
+      ],
+      "prompt": "Image 1 shows Luis. At a market fruit stall, Luis holds up a small box of red strawberries and smiles happily at someone just outside the left edge of the photo. There are no price cards, signs or numbers anywhere.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-q01-135c3f8f772bcbe4.webp",
+        "sha256": "135c3f8f772bcbe472b8cec719eb02318a7d52ce1c7152a94c6952aeb78566c2",
+        "observed_description": "Luis (short dark curly hair, clean-shaven, warm medium-brown skin, navy crew-neck T-shirt) drinks coffee from a white mug at a wooden table in his bright kitchen (A1+ 1.2)."
+      }
+    },
+    {
+      "id": "g02-luis-water",
+      "order": 2,
+      "item": "Would you like some water? (Luis to Ana at home)",
+      "shared": [
+        "photo",
+        "safe_center",
+        "solo",
+        "daytime",
+        "keep"
+      ],
+      "prompt": "Image 1 shows Luis. In a bright living room, Luis holds out a glass of water toward someone just outside the right edge of the photo, smiling, as if offering it.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-q01-135c3f8f772bcbe4.webp",
+        "sha256": "135c3f8f772bcbe472b8cec719eb02318a7d52ce1c7152a94c6952aeb78566c2",
+        "observed_description": "Luis (short dark curly hair, clean-shaven, warm medium-brown skin, navy crew-neck T-shirt) drinks coffee from a white mug at a wooden table in his bright kitchen (A1+ 1.2)."
+      }
+    },
+    {
+      "id": "g03-ana-full-bag",
+      "order": 3,
+      "item": "No, that's all, thank you. (Ana at the vegetable stall)",
+      "shared": [
+        "photo",
+        "safe_center",
+        "solo",
+        "daytime",
+        "keep",
+        "stall"
+      ],
+      "prompt": "Image 1 shows Ana. At a market vegetable stall, Ana holds a full paper bag of vegetables in one arm and lifts her other hand in a friendly 'that's all, thank you' gesture toward someone outside the photo. There are no price cards, signs or numbers anywhere.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-q02-c2b4398b65207eff.webp",
+        "sha256": "c2b4398b65207effa51e51260cc607c38ada48caea82f14eb872e4c9c8b5d0d5",
+        "observed_description": "Ana (long dark wavy hair, light-olive skin, sage-green overshirt over a white top, jeans) sits on a light-grey sofa and reads an open hardcover book (A1+ 1.2)."
+      }
+    },
+    {
+      "id": "g04-diego-asks",
+      "order": 4,
+      "item": "How much are the apples? (Diego at a cafe table)",
+      "shared": [
+        "photo",
+        "safe_center",
+        "solo",
+        "daytime",
+        "keep",
+        "cafe"
+      ],
+      "prompt": "Image 1 shows Diego. Diego sits at a small café table with a cup of coffee and looks up with a curious, friendly face, asking a question of someone just outside the right edge of the photo.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-q04-ded74a2cb6021167.webp",
+        "sha256": "ded74a2cb6021167d6af2351e9012476d36c1b0936ca9f4f4b6dee68783bb9e2",
+        "observed_description": "Diego (dark curly hair with a little grey, short full beard, burgundy button shirt) sits at a wooden kitchen table and bites a red apple (A1+ 1.2)."
+      }
+    },
+    {
+      "id": "g05-apples-3",
+      "order": 5,
+      "item": "They're three dollars. (Ana's bag of apples)",
+      "shared": [
+        "numeral",
+        "safe_center",
+        "daytime",
+        "cafe"
+      ],
+      "prompt": "On a small café table there is one open paper bag full of red apples, and right in front of it a price card that reads $3. Nothing else is on the table. No people."
+    }
+  ]
+}

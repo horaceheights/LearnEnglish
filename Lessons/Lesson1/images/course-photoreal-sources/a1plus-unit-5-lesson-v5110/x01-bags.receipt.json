@@ -1,0 +1,55 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "d3d34564-ec22-443b-8d5e-9cb807982690",
+  "asset_id": "x01-bags",
+  "pack_sha256": "a4b28fe55e8d4e5c31d3de29af38a6ec23d5a85b5d94ad490fd71f3e22042986",
+  "started_at": "2026-11-21T04:36:58.443434+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. No letters, words, logos or brand marks anywhere. The only writing in the photo is each price card described: a small white card on a little stand with a dollar sign and a number in big, thick black print, upright, facing the camera, sharp and easy to read on a small phone screen. No other signs, labels, screens or clothes show any digit or letter.\n\nKeep the people and the thing that carries the meaning inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nIt is clearly daytime with soft natural light.\n\nTwo of the same kind of thing stand side by side on a plain light wooden shop table against a plain light wall, each with its own price card right in front of it. No people. On the left a small red bag with a price card that reads $20; on the right a big black bag with a price card that reads $80.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "5x8Ba7SaG-etqtsP4Y6l4Qw",
+  "usage": {
+    "promptTokenCount": 304,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1594,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 304
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038791",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 304,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 5.68,
+  "output": "output/imagegen/a1plus-unit-5-lesson-v5110/x01-bags.png",
+  "sha256": "f19ac5b33c7a7f50d1418a7573687a791a4974c963a8837fb4f0fe417ffcf4dc",
+  "byte_count": 1276204,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}

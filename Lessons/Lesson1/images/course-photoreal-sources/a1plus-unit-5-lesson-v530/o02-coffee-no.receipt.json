@@ -1,0 +1,62 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "86774898-de2c-43fd-895f-7d508828df86",
+  "asset_id": "o02-coffee-no",
+  "pack_sha256": "9f96a4fb48f9d6a8391edeecfdd52fc28e7247419540e5ad21e5617a13192ce1",
+  "started_at": "2026-11-21T04:09:30.024733+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, menus, screens, cups, clothes or bags.\n\nKeep the people and the thing that carries the meaning inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nOnly these two people are in the photo; there is nobody else, even far in the background.\n\nIt is clearly daytime with soft natural light.\n\nKeep each pictured person's face, hair, skin, build and clothes exactly as in the reference image; they look natural and relaxed, not posing for the camera.\n\nImage 1 shows Diego. Ana: long dark wavy hair, light-olive skin, sage-green overshirt over a white top, jeans. Diego: dark curly hair with a little grey, short full beard, burgundy button shirt. Ana (left) holds out a white mug of black coffee toward Diego (right), who sits on the sofa. Diego smiles politely and holds up one open hand, palm toward the mug, in a friendly 'no, thank you' gesture; he does not take it. They are in Ana's bright living room by day: a light-grey sofa, a low wooden coffee table and plants. The drink is clearly visible between them. Nobody looks at the camera.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1plus-unit-1-q04-ded74a2cb6021167.webp",
+    "sha256": "ded74a2cb6021167d6af2351e9012476d36c1b0936ca9f4f4b6dee68783bb9e2"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "dxkBa9XPGLWtz7IPsKrioQ8",
+  "usage": {
+    "promptTokenCount": 645,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1935,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 387
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038894",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 645,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 8.32,
+  "output": "output/imagegen/a1plus-unit-5-lesson-v530/o02-coffee-no.png",
+  "sha256": "17e9f0dbfee05e500e67fbfd87ccae625a9fc1bf549d3f1888b79086a29d5380",
+  "byte_count": 1456117,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}

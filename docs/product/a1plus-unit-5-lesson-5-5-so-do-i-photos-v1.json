@@ -1,0 +1,117 @@
+{
+  "schema_version": 1,
+  "pack": "a1plus-unit-5-lesson-5-5-so-do-i-photos",
+  "revision": 1,
+  "output_namespace": "a1plus-unit-5-lesson-v550",
+  "authorization": "2026-11-20: the user asked to \"work on a1+ Unit 5 same all deal as before none stop all approved\" (the Units 2-4 deal: straight to Preview in batches with Gemini 2.5 Flash photos and ElevenLabs audio pre-approved and reviewed in Preview). Gemini is the approved image tool (2026-09-23), Flash only (2026-11-17; \"lets switch to flash for any other images\", 2026-11-19).",
+  "image_settings": {
+    "provider": "google-gemini",
+    "model": "gemini-2.5-flash-image",
+    "aspect_ratio": "3:2",
+    "image_size": "1K",
+    "runtime_size": "1536x1024",
+    "runtime_format": "webp",
+    "n": 1
+  },
+  "production": {
+    "price_per_image_usd": "0.0387",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing (checked 2026-11-16: Gemini 2.5 Flash Image, about $0.039 per image)",
+    "planned_images": 4,
+    "expected_cost_usd": "0.15",
+    "requested_ceiling_usd": "0.40",
+    "ceiling_note": "The renderer reserves US$0.20 before each request; each request is sent on its own, and the expected spend for the pack is about US$0.15.",
+    "no_automatic_retries": true,
+    "order": [
+      "s01-both-like-strawberries",
+      "s02-neither-likes-fish",
+      "s03-both-like-coffee",
+      "s04-neither-likes-milk"
+    ]
+  },
+  "shared_prompts": {
+    "photo": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, menus, screens, cups, clothes or bags.",
+    "safe_center": "Keep the people and the thing that carries the meaning inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.",
+    "solo": "Only this one person is in the photo; there is nobody else, even far in the background.",
+    "pair": "Only these two people are in the photo; there is nobody else, even far in the background.",
+    "daytime": "It is clearly daytime with soft natural light.",
+    "kitchen": "The place is a bright, tidy home kitchen with a light wooden table, white walls and a big window; nothing else is on the table.",
+    "still": "No people, hands or animals are in the photo. The food sits in the middle of the table and fills the central part of the photo, sharp and easy to count or judge on a small phone screen.",
+    "few": "Exactly three pieces are visible, clearly separate, not touching, with plenty of empty space around them so the small amount is obvious at once.",
+    "lots": "There are so many that they cannot be counted at a glance: a big generous heap.",
+    "keep": "Keep each pictured person's face, hair, skin, build and clothes exactly as in the reference image; they look natural and relaxed, not posing for the camera."
+  },
+  "assets": [
+    {
+      "id": "s01-both-like-strawberries",
+      "order": 1,
+      "item": "I like strawberries. So do I.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "pair",
+        "daytime",
+        "keep"
+      ],
+      "prompt": "Image 1 shows Sofia (left) and Luis (right); use it only for Luis. Ana: long dark wavy hair, light-olive skin, sage-green overshirt over a white top, jeans. Luis: a very tall man with short dark curly hair, clean-shaven, warm medium-brown skin, navy crew-neck T-shirt. Ana (left) and Luis (right) each have a small bowl of red strawberries; both hold up a strawberry and smile happily: they both clearly love them. They sit side by side at a small table in a bright, simple café with big windows; the tables behind them are empty. Both faces are clearly visible.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-p02-094cffd8654fde7e.webp",
+        "sha256": "094cffd8654fde7eacbcf5b643e8c43eebb30aff39e32cde627ca9861bda7b3d",
+        "observed_description": "Sofia (left: warm brown skin, dark curly hair in a high bun, bright blue blazer over a white blouse, black trousers) stands shoulder to shoulder with Luis (right: a very tall man with short dark curly hair, navy crew-neck T-shirt, khaki chinos, navy sneakers) against a plain light-grey wall; both smile at the camera (A1+ 1.1)."
+      }
+    },
+    {
+      "id": "s02-neither-likes-fish",
+      "order": 2,
+      "item": "I don't like fish. Neither do I.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "pair",
+        "daytime",
+        "keep"
+      ],
+      "prompt": "Image 1 shows Diego. Sofia: long dark curly hair (often in a high bun), warm brown skin, bright blue blazer over a white blouse. Diego: dark curly hair with a little grey, short full beard, burgundy button shirt. Sofia (left) and Diego (right) each have a plate with a whole cooked fish in front of them. Both make the same unhappy face and push their plates away with one hand: they both clearly do not like fish. They sit side by side at a small table in a bright, simple café with big windows; the tables behind them are empty. Both faces are clearly visible.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-q04-ded74a2cb6021167.webp",
+        "sha256": "ded74a2cb6021167d6af2351e9012476d36c1b0936ca9f4f4b6dee68783bb9e2",
+        "observed_description": "Diego (dark curly hair with a little grey, short full beard, burgundy button shirt) sits at a wooden kitchen table and bites a red apple (A1+ 1.2)."
+      }
+    },
+    {
+      "id": "s03-both-like-coffee",
+      "order": 3,
+      "item": "I like coffee. So do I.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "pair",
+        "daytime",
+        "keep"
+      ],
+      "prompt": "Image 1 shows Diego. Ana: long dark wavy hair, light-olive skin, sage-green overshirt over a white top, jeans. Diego: dark curly hair with a little grey, short full beard, burgundy button shirt. Ana (left) and Diego (right) each hold a white cup of coffee, smell it and smile happily: they both clearly love coffee. They sit side by side at a small table in a bright, simple café with big windows; the tables behind them are empty. Both faces are clearly visible.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-q04-ded74a2cb6021167.webp",
+        "sha256": "ded74a2cb6021167d6af2351e9012476d36c1b0936ca9f4f4b6dee68783bb9e2",
+        "observed_description": "Diego (dark curly hair with a little grey, short full beard, burgundy button shirt) sits at a wooden kitchen table and bites a red apple (A1+ 1.2)."
+      }
+    },
+    {
+      "id": "s04-neither-likes-milk",
+      "order": 4,
+      "item": "I don't like milk. Neither do I.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "pair",
+        "daytime",
+        "keep"
+      ],
+      "prompt": "Image 1 shows Sofia (left) and Luis (right). Sofia (left) and Luis (right) each have a full glass of white milk in front of them. Both make the same unhappy face and push their glasses away with one hand: they both clearly do not like milk. They sit side by side at a small table in a bright, simple café with big windows; the tables behind them are empty. Both faces are clearly visible.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-p02-094cffd8654fde7e.webp",
+        "sha256": "094cffd8654fde7eacbcf5b643e8c43eebb30aff39e32cde627ca9861bda7b3d",
+        "observed_description": "Sofia (left: warm brown skin, dark curly hair in a high bun, bright blue blazer over a white blouse, black trousers) stands shoulder to shoulder with Luis (right: a very tall man with short dark curly hair, navy crew-neck T-shirt, khaki chinos, navy sneakers) against a plain light-grey wall; both smile at the camera (A1+ 1.1)."
+      }
+    }
+  ]
+}
