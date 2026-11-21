@@ -1,0 +1,62 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "e29b1e9a-b28e-4ab9-9e7a-79ed824e2418",
+  "asset_id": "o06-pc-off",
+  "pack_sha256": "450765dccb5fca5c601741e74c2c55dc6d121223e8d4679baa3df3dc60d4ae90",
+  "started_at": "2026-11-21T03:12:07.226568+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Edit Image 1. Keep the place, the furniture, the light, the colors and the camera position exactly the same; change only what is described below.\n\nOnly this one person is in the photo; there is nobody else, even far in the background.\n\nChange only the laptop's screen: the laptop is now OFF and its whole screen is plain black, with no picture and no light. Diego, his pose and his finger on the key stay exactly the same.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": {
+    "path": "output/imagegen/a1plus-unit-4-lesson-v420/o05-pc-on.png",
+    "sha256": "3fff6043ff5f5abca0658f4931be449b0d7bcef9fd1fe3ff4be015253680b70f"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "BAwBa_X_HuWymtkP4oLYeQ",
+  "usage": {
+    "promptTokenCount": 356,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1646,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 98
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038807",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 356,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 8.52,
+  "output": "output/imagegen/a1plus-unit-4-lesson-v420/o06-pc-off.png",
+  "sha256": "1798d425558c8dfb9602c677dee330702a12fd4922d8978a8042203907bcd094",
+  "byte_count": 1216781,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}

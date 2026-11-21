@@ -1,0 +1,62 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "2c5fb145-43d8-4066-a620-8e2a3596f9fd",
+  "asset_id": "k04-max-front",
+  "pack_sha256": "1c9d42f006363dbfb64526372301aea8f3f307a846e6dd998013eb269a8e8555",
+  "started_at": "2026-11-21T03:07:56.630308+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, menus, screens, cups, clothes or bags.\n\nThere are no people anywhere in the photo.\n\nIt is clearly daytime with soft natural light.\n\nImage 1 shows Luis's dog Max, a short-haired tan dog with a white chest and floppy ears. Keep the dog exactly; Luis is not in this photo, and Max has no ball. Create a new photograph of a sunny park: one big old tree with a very thick trunk, much wider than the dog, stands in the middle of the photo on the grass. Max sits on the grass IN FRONT OF the tree, between the trunk and the camera, fully visible, looking at the camera.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1plus-unit-1-b01-d1e626b861ebbb7f.webp",
+    "sha256": "d1e626b861ebbb7f46e29c0a1a5ed62b885ddebc9e253594d6d53e963f606a80"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "CgsBa97_KNXzqtsP_bGVgQk",
+  "usage": {
+    "promptTokenCount": 514,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1804,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 256
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038854",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 514,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 9.87,
+  "output": "output/imagegen/a1plus-unit-4-lesson-v430/k04-max-front.png",
+  "sha256": "29e893a41120fe13cbc836f3975491163525bfc12f978fad31769fa89f14ad3c",
+  "byte_count": 2169160,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}
