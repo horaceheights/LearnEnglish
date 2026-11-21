@@ -1,0 +1,621 @@
+{
+  "brief_version": 1,
+  "follows": {
+    "course": "a1",
+    "lesson": "4.3",
+    "title": "Where Things Are"
+  },
+  "note": "A1+ Unit 4 Lesson 4.3, built on 2026-11-20 under the A1+ lesson standards approved 2026-10-27 and the user's 2026-11-09 rule that every A1+ lesson follows up the A1 lesson with the same number. The user approved the A1+ Unit 4 map on 2026-11-20 (A1+ 4.Y follows A1 4.Y, one step each; seventeen lessons) and asked for the Unit 2 and Unit 3 deal (\"Start working on A1+ Unit 4, same deal. make sure images make sense all the time\"): straight to Preview in batches, Gemini 2.5 Flash photos and ElevenLabs audio pre-approved, no per-lesson gates, reviewed in Preview. Five new photos (Gemini 2.5 Flash): Max in front of and behind a thick tree (an edit of the first), Luna in front of a sofa, and Luna in front of a closed door and behind a half-open door. A1 4.3's lamp and book photos bring back next to and under.",
+  "target": "backend/lessons/a1_plus/unit_4/a1plus-unit-4-lesson-4-3.yaml",
+  "captions": false,
+  "narrators": [
+    "teacher",
+    "co-teacher"
+  ],
+  "answer_audio_policy": "authored-only",
+  "speak_delivery": "a1-pronunciation-v1",
+  "lesson": {
+    "id": "a1plus-unit-4-lesson-4-3",
+    "title": "4.3 Luna is behind the door",
+    "level": "A1+",
+    "unit_id": "a1plus-unit-4",
+    "unit_title": "Life at home, every day and yesterday",
+    "unit_outcome": "Say where people and things are at home, talk about the lights and machines, ask what there is, describe someone's morning in order, say what you did yesterday and on which day, ask and tell the time, say how often you do things and give dates.",
+    "lesson_id": "a1plus-unit-4-lesson-4-3",
+    "lesson_title": "Luna is behind the door",
+    "sub_lesson_id": "4.3",
+    "sub_lesson_title": "Luna is behind the door",
+    "goal": "Say where pets and things are with behind and in front of, next to A1's in, on, under and next to (Luna is behind the door. / Max is in front of the tree.).",
+    "vocabulary": [
+      "behind",
+      "in front of"
+    ],
+    "review_vocabulary": [
+      "next to",
+      "under",
+      "on",
+      "Where's",
+      "she's",
+      "he's",
+      "isn't",
+      "door",
+      "sofa",
+      "lamp",
+      "tree",
+      "book",
+      "table",
+      "Luna",
+      "Max"
+    ],
+    "grammar_function": "A follow-up of A1 4.3 Where Things Are: A1 places things with in, on, under and next to; A1+ 4.3 adds behind and in front of, seen from the camera (Luna is behind the door. / Max is in front of the tree.), asked with 4.1's Where's…?. Sofia's cat Luna and Luis's dog Max (A1+ 1.10) are the pets: in front, the pet is whole and closer to the camera than the door, the sofa or the tree; behind, the door or the tree hides it and only its head and one paw peek out from the edge. Max's two photos are one park photo and its edit. Luna behind a sofa was tried three times and dropped (the edit did not move her; a new photo put her on the seat), so Luna is behind a half-open door instead, with a matching photo in front of the closed door.",
+    "prerequisite": "A1 4.3 in, on, under, next to; A1 4.2 door, sofa, lamp; A1+ 1.10 Luna and Max; A1+ 4.1 Where's…?.",
+    "speaking_outcome": "Say in front of as one group (in-FRUN-tuv); stress be-HIND. Do not require native-like speed.",
+    "content_revision": 1,
+    "learn_context_groups": [
+      {
+        "kind": "sequence",
+        "targets": [
+          "in front of"
+        ],
+        "models": [
+          {
+            "slide_id": "L1",
+            "text": "Max is in front of the tree."
+          }
+        ]
+      },
+      {
+        "kind": "sequence",
+        "targets": [
+          "behind"
+        ],
+        "models": [
+          {
+            "slide_id": "L2",
+            "text": "Max is behind the tree."
+          }
+        ]
+      },
+      {
+        "kind": "exchange",
+        "targets": [
+          "behind"
+        ],
+        "models": [
+          {
+            "slide_id": "L3",
+            "text": "Where's Luna? She's behind the door.",
+            "turns": [
+              "Where's Luna?",
+              "She's behind the door."
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "exchange",
+        "targets": [
+          "in front of"
+        ],
+        "models": [
+          {
+            "slide_id": "L4",
+            "text": "Where's Luna? She's in front of the sofa.",
+            "turns": [
+              "Where's Luna?",
+              "She's in front of the sofa."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "items": [
+    {
+      "id": "l-front",
+      "text": "Max is in front of the tree.",
+      "es": "Max está delante del árbol.",
+      "image": "/lesson-assets/a1plus-unit-4-k04-5b94221ac458c65f.webp",
+      "kind": "sequence",
+      "choices": false,
+      "use": false,
+      "speaker": "teacher"
+    },
+    {
+      "id": "l-behind",
+      "text": "Max is behind the tree.",
+      "es": "Max está detrás del árbol.",
+      "image": "/lesson-assets/a1plus-unit-4-k05-877526a0567bb235.webp",
+      "kind": "sequence",
+      "choices": false,
+      "use": false,
+      "speaker": "co-teacher"
+    },
+    {
+      "id": "l-where-luna",
+      "text": "Where's Luna? She's behind the door.",
+      "es": "¿Dónde está Luna? Está detrás de la puerta.",
+      "image": "/lesson-assets/a1plus-unit-4-k31-e6c71b7071a1ebe9.webp",
+      "kind": "exchange",
+      "choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "Where's Luna?",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-4-k31-e6c71b7071a1ebe9.webp"
+        },
+        {
+          "text": "She's behind the door.",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-4-k31-e6c71b7071a1ebe9.webp"
+        }
+      ]
+    },
+    {
+      "id": "l-where-sofa",
+      "text": "Where's Luna? She's in front of the sofa.",
+      "es": "¿Dónde está Luna? Está delante del sofá.",
+      "image": "/lesson-assets/a1plus-unit-4-k01-722a818e53749101.webp",
+      "kind": "exchange",
+      "choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "Where's Luna?",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-4-k01-722a818e53749101.webp"
+        },
+        {
+          "text": "She's in front of the sofa.",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-4-k01-722a818e53749101.webp"
+        }
+      ]
+    },
+    {
+      "id": "c-front",
+      "text": "Luna is in front of the door.",
+      "es": "Luna está delante de la puerta.",
+      "image": "/lesson-assets/a1plus-unit-4-k32-c5d1e5e9b4e4c5a3.webp",
+      "kind": "pet",
+      "prefer": [
+        "Luna is behind the door."
+      ],
+      "accepts": {
+        "subject-variety": "The bank keeps the pet and the thing and changes only where the pet is; the picture shows it.",
+        "action-variety": "The bank keeps the pet and the thing and changes only where the pet is; the picture shows it.",
+        "conversational-response": "The bank keeps the pet and the thing and changes only where the pet is; the picture shows it.",
+        "reading-load": "The bank keeps the pet and the thing and changes only where the pet is; the picture shows it."
+      },
+      "blanks": [
+        "in",
+        "front"
+      ],
+      "use": true,
+      "four_card": true,
+      "learn": false
+    },
+    {
+      "id": "c-behind",
+      "text": "Luna is behind the door.",
+      "es": "Luna está detrás de la puerta.",
+      "image": "/lesson-assets/a1plus-unit-4-k31-e6c71b7071a1ebe9.webp",
+      "kind": "pet",
+      "prefer": [
+        "Luna is in front of the door."
+      ],
+      "accepts": {
+        "subject-variety": "The bank keeps the pet and the thing and changes only where the pet is; the picture shows it.",
+        "action-variety": "The bank keeps the pet and the thing and changes only where the pet is; the picture shows it.",
+        "conversational-response": "The bank keeps the pet and the thing and changes only where the pet is; the picture shows it.",
+        "reading-load": "The bank keeps the pet and the thing and changes only where the pet is; the picture shows it."
+      },
+      "blanks": [
+        "is",
+        "behind"
+      ],
+      "use": true,
+      "four_card": false,
+      "learn": false
+    },
+    {
+      "id": "c-sofa",
+      "text": "Luna is in front of the sofa.",
+      "es": "Luna está delante del sofá.",
+      "image": "/lesson-assets/a1plus-unit-4-k01-722a818e53749101.webp",
+      "kind": "pet",
+      "prefer": [
+        "Luna is behind the sofa."
+      ],
+      "accepts": {
+        "subject-variety": "The bank keeps the pet and the thing and changes only where the pet is; the picture shows it.",
+        "action-variety": "The bank keeps the pet and the thing and changes only where the pet is; the picture shows it.",
+        "conversational-response": "The bank keeps the pet and the thing and changes only where the pet is; the picture shows it.",
+        "reading-load": "The bank keeps the pet and the thing and changes only where the pet is; the picture shows it."
+      },
+      "blanks": null,
+      "use": false,
+      "four_card": true,
+      "learn": false
+    },
+    {
+      "id": "d-front",
+      "text": "Max is in front of the tree.",
+      "es": "Max está delante del árbol.",
+      "image": "/lesson-assets/a1plus-unit-4-k04-5b94221ac458c65f.webp",
+      "kind": "pet",
+      "prefer": [
+        "Max is behind the tree."
+      ],
+      "accepts": {
+        "subject-variety": "The bank keeps the pet and the thing and changes only where the pet is; the picture shows it.",
+        "action-variety": "The bank keeps the pet and the thing and changes only where the pet is; the picture shows it.",
+        "conversational-response": "The bank keeps the pet and the thing and changes only where the pet is; the picture shows it.",
+        "reading-load": "The bank keeps the pet and the thing and changes only where the pet is; the picture shows it."
+      },
+      "blanks": [
+        "in",
+        "front"
+      ],
+      "use": true,
+      "four_card": true,
+      "learn": false
+    },
+    {
+      "id": "d-behind",
+      "text": "Max is behind the tree.",
+      "es": "Max está detrás del árbol.",
+      "image": "/lesson-assets/a1plus-unit-4-k05-877526a0567bb235.webp",
+      "kind": "pet",
+      "prefer": [
+        "Max is in front of the tree."
+      ],
+      "accepts": {
+        "subject-variety": "The bank keeps the pet and the thing and changes only where the pet is; the picture shows it.",
+        "action-variety": "The bank keeps the pet and the thing and changes only where the pet is; the picture shows it.",
+        "conversational-response": "The bank keeps the pet and the thing and changes only where the pet is; the picture shows it.",
+        "reading-load": "The bank keeps the pet and the thing and changes only where the pet is; the picture shows it."
+      },
+      "blanks": [
+        "is",
+        "behind"
+      ],
+      "use": true,
+      "four_card": false,
+      "learn": false
+    },
+    {
+      "id": "r-luna",
+      "text": "She's behind the door.",
+      "es": "Está detrás de la puerta.",
+      "image": "/lesson-assets/a1plus-unit-4-k31-e6c71b7071a1ebe9.webp",
+      "kind": "wl",
+      "question": "Where's Luna?",
+      "question_es": "¿Dónde está Luna?",
+      "question_speaker": "co-teacher",
+      "speaker": "teacher",
+      "use": false,
+      "image_choices": false,
+      "prefer": [
+        "She's in front of the door."
+      ],
+      "accepts": {
+        "subject-variety": "The bank keeps the pet and the thing and changes only where the pet is; the picture shows it.",
+        "action-variety": "The bank keeps the pet and the thing and changes only where the pet is; the picture shows it.",
+        "conversational-response": "The bank keeps the pet and the thing and changes only where the pet is; the picture shows it.",
+        "reading-load": "The bank keeps the pet and the thing and changes only where the pet is; the picture shows it."
+      },
+      "learn": false
+    },
+    {
+      "id": "r-max",
+      "text": "He's behind the tree.",
+      "es": "Está detrás del árbol.",
+      "image": "/lesson-assets/a1plus-unit-4-k05-877526a0567bb235.webp",
+      "kind": "wm",
+      "question": "Where's Max?",
+      "question_es": "¿Dónde está Max?",
+      "question_speaker": "teacher",
+      "speaker": "co-teacher",
+      "use": false,
+      "image_choices": false,
+      "prefer": [
+        "He's in front of the tree."
+      ],
+      "accepts": {
+        "subject-variety": "The bank keeps the pet and the thing and changes only where the pet is; the picture shows it.",
+        "action-variety": "The bank keeps the pet and the thing and changes only where the pet is; the picture shows it.",
+        "conversational-response": "The bank keeps the pet and the thing and changes only where the pet is; the picture shows it.",
+        "reading-load": "The bank keeps the pet and the thing and changes only where the pet is; the picture shows it."
+      },
+      "learn": false
+    },
+    {
+      "id": "s-luna",
+      "text": "No, she isn't.",
+      "es": "No.",
+      "image": "/lesson-assets/a1plus-unit-4-k32-c5d1e5e9b4e4c5a3.webp",
+      "kind": "sl",
+      "question": "Is Luna behind the door?",
+      "question_es": "¿Está Luna detrás de la puerta?",
+      "question_speaker": "co-teacher",
+      "speaker": "teacher",
+      "use": false,
+      "image_choices": false,
+      "prefer": [
+        "Yes, she is."
+      ],
+      "accepts": {
+        "subject-variety": "A short answer keeps the pet of the question; the picture shows where she is.",
+        "action-variety": "A short answer keeps the pet of the question; the picture shows where she is.",
+        "conversational-response": "A short answer keeps the pet of the question; the picture shows where she is.",
+        "reading-load": "A short answer keeps the pet of the question; the picture shows where she is."
+      },
+      "learn": false
+    },
+    {
+      "id": "a1-lamp",
+      "text": "The lamp is next to the sofa.",
+      "es": "La lámpara está junto al sofá.",
+      "image": "/lesson-assets/a1_photo_u4_lamp_next_to_sofa_v1.webp",
+      "kind": "a1lamp",
+      "prefer": [
+        "The lamp is behind the sofa."
+      ],
+      "accepts": {
+        "subject-variety": "The bank keeps the thing and changes only where it is; A1's photo shows it.",
+        "action-variety": "The bank keeps the thing and changes only where it is; A1's photo shows it.",
+        "conversational-response": "The bank keeps the thing and changes only where it is; A1's photo shows it.",
+        "reading-load": "The bank keeps the thing and changes only where it is; A1's photo shows it."
+      },
+      "use": false,
+      "image_choices": false,
+      "learn": false
+    },
+    {
+      "id": "a1-book",
+      "text": "The book is under the table.",
+      "es": "El libro está debajo de la mesa.",
+      "image": "/lesson-assets/a1_photo_u4_book_under_table_v1.webp",
+      "kind": "a1book",
+      "prefer": [
+        "The book is on the table."
+      ],
+      "accepts": {
+        "subject-variety": "The bank keeps the thing and changes only where it is; A1's photo shows it.",
+        "action-variety": "The bank keeps the thing and changes only where it is; A1's photo shows it.",
+        "conversational-response": "The bank keeps the thing and changes only where it is; A1's photo shows it.",
+        "reading-load": "The bank keeps the thing and changes only where it is; A1's photo shows it."
+      },
+      "use": false,
+      "image_choices": false,
+      "learn": false
+    },
+    {
+      "id": "q-where-luna",
+      "text": "Where's Luna?",
+      "es": "¿Dónde está Luna?",
+      "image": "/lesson-assets/a1plus-unit-4-k31-e6c71b7071a1ebe9.webp",
+      "kind": "question",
+      "speaker": "co-teacher",
+      "choices": false,
+      "use": false,
+      "learn": false
+    },
+    {
+      "id": "q-max",
+      "text": "Is Max behind the tree?",
+      "es": "¿Está Max detrás del árbol?",
+      "image": "/lesson-assets/a1plus-unit-4-k05-877526a0567bb235.webp",
+      "kind": "question",
+      "speaker": "teacher",
+      "choices": false,
+      "learn": false
+    },
+    {
+      "id": "u-max",
+      "text": "He's behind the tree.",
+      "es": "Está detrás del árbol.",
+      "image": "/lesson-assets/a1plus-unit-4-k05-877526a0567bb235.webp",
+      "kind": "use",
+      "choices": false,
+      "learn": false
+    },
+    {
+      "id": "u-luna",
+      "text": "She's in front of the sofa.",
+      "es": "Está delante del sofá.",
+      "image": "/lesson-assets/a1plus-unit-4-k01-722a818e53749101.webp",
+      "kind": "use",
+      "choices": false,
+      "learn": false
+    },
+    {
+      "id": "u-door",
+      "text": "She's behind the door.",
+      "es": "Está detrás de la puerta.",
+      "image": "/lesson-assets/a1plus-unit-4-k31-e6c71b7071a1ebe9.webp",
+      "kind": "use",
+      "choices": false,
+      "learn": false
+    },
+    {
+      "id": "u-short",
+      "text": "No, she isn't. She's in front of the door.",
+      "es": "No. Está delante de la puerta.",
+      "image": "/lesson-assets/a1plus-unit-4-k32-c5d1e5e9b4e4c5a3.webp",
+      "kind": "use",
+      "choices": false,
+      "learn": false
+    },
+    {
+      "id": "x-luna",
+      "text": "Where's Luna? She's behind the door.",
+      "es": "¿Dónde está Luna? Está detrás de la puerta.",
+      "image": "/lesson-assets/a1plus-unit-4-k31-e6c71b7071a1ebe9.webp",
+      "kind": "xl",
+      "image_choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "Where's Luna?",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-4-k31-e6c71b7071a1ebe9.webp"
+        },
+        {
+          "text": "She's behind the door.",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-4-k31-e6c71b7071a1ebe9.webp"
+        }
+      ],
+      "accepts": {
+        "subject-variety": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "action-variety": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "conversational-response": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "reading-load": "Listen keeps the question and changes only the answer; the answer is what was heard."
+      },
+      "prefer": [
+        "Where's Luna? She's in front of the door."
+      ],
+      "learn": false
+    }
+  ],
+  "pool": [
+    {
+      "text": "Luna is behind the door.",
+      "es": "Luna está detrás de la puerta.",
+      "image": "/lesson-assets/a1plus-unit-4-k32-c5d1e5e9b4e4c5a3.webp",
+      "kind": "pet",
+      "image_choices": false
+    },
+    {
+      "text": "Luna is in front of the door.",
+      "es": "Luna está delante de la puerta.",
+      "image": "/lesson-assets/a1plus-unit-4-k31-e6c71b7071a1ebe9.webp",
+      "kind": "pet",
+      "image_choices": false
+    },
+    {
+      "text": "Luna is behind the sofa.",
+      "es": "Luna está detrás del sofá.",
+      "image": "/lesson-assets/a1plus-unit-4-k01-722a818e53749101.webp",
+      "kind": "pet",
+      "image_choices": false
+    },
+    {
+      "text": "Max is behind the tree.",
+      "es": "Max está detrás del árbol.",
+      "image": "/lesson-assets/a1plus-unit-4-k04-5b94221ac458c65f.webp",
+      "kind": "pet",
+      "image_choices": false
+    },
+    {
+      "text": "Max is in front of the tree.",
+      "es": "Max está delante del árbol.",
+      "image": "/lesson-assets/a1plus-unit-4-k05-877526a0567bb235.webp",
+      "kind": "pet",
+      "image_choices": false
+    },
+    {
+      "text": "She's in front of the door.",
+      "es": "Está delante de la puerta.",
+      "image": "/lesson-assets/a1plus-unit-4-k31-e6c71b7071a1ebe9.webp",
+      "kind": "wl",
+      "image_choices": false
+    },
+    {
+      "text": "He's in front of the tree.",
+      "es": "Está delante del árbol.",
+      "image": "/lesson-assets/a1plus-unit-4-k05-877526a0567bb235.webp",
+      "kind": "wm",
+      "image_choices": false
+    },
+    {
+      "text": "Yes, she is.",
+      "es": "Sí.",
+      "image": "/lesson-assets/a1plus-unit-4-k32-c5d1e5e9b4e4c5a3.webp",
+      "kind": "sl",
+      "image_choices": false
+    },
+    {
+      "text": "The lamp is behind the sofa.",
+      "es": "La lámpara está detrás del sofá.",
+      "image": "/lesson-assets/a1_photo_u4_lamp_next_to_sofa_v1.webp",
+      "kind": "a1lamp",
+      "image_choices": false
+    },
+    {
+      "text": "The book is on the table.",
+      "es": "El libro está sobre la mesa.",
+      "image": "/lesson-assets/a1_photo_u4_book_under_table_v1.webp",
+      "kind": "a1book",
+      "image_choices": false
+    },
+    {
+      "text": "Where's Luna? She's in front of the door.",
+      "es": "¿Dónde está Luna? Está delante de la puerta.",
+      "image": "/lesson-assets/a1plus-unit-4-k31-e6c71b7071a1ebe9.webp",
+      "kind": "xl",
+      "image_choices": false
+    }
+  ],
+  "layout": {
+    "Recognize": 10,
+    "Listen": 10,
+    "Speak": 8,
+    "Use": 8
+  },
+  "stage_sequences": {
+    "Learn": [
+      "l-front",
+      "l-behind",
+      "l-where-luna",
+      "l-where-sofa"
+    ],
+    "Recognize": [
+      "c-front",
+      "r-luna",
+      "d-behind",
+      "s-luna",
+      "c-sofa",
+      "a1-lamp",
+      "c-behind",
+      "r-max",
+      "d-front",
+      "a1-book"
+    ],
+    "Listen": [
+      "c-behind",
+      "r-luna",
+      "r-max",
+      "d-front",
+      "a1-lamp",
+      "s-luna",
+      "c-sofa",
+      "d-behind",
+      "a1-book",
+      "c-front"
+    ],
+    "Speak": [
+      "c-behind",
+      "q-where-luna",
+      "d-front",
+      "u-max",
+      "c-sofa",
+      "u-short",
+      "u-luna",
+      "d-behind"
+    ],
+    "Use": [
+      "c-front",
+      "c-behind",
+      "d-front",
+      "d-behind",
+      "u-max",
+      "u-luna",
+      "u-door",
+      "q-max"
+    ]
+  }
+}

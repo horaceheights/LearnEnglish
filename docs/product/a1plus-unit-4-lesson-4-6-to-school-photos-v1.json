@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "pack": "a1plus-unit-4-lesson-4-6-to-school-photos",
+  "revision": 1,
+  "output_namespace": "a1plus-unit-4-lesson-v460",
+  "authorization": "2026-11-20: the user asked to \"Start working on A1+ Unit 4, same deal. make sure images make sense all the time\" (the Unit 2 and Unit 3 deal: an approved map, then straight to Preview in batches with media pre-approved and reviewed in Preview) and approved the A1+ Unit 4 map (\"Approve this map\"). Gemini is the approved image tool (2026-09-23), Flash only (2026-11-17; \"lets switch to flash for any other images\", 2026-11-19).",
+  "image_settings": {
+    "provider": "google-gemini",
+    "model": "gemini-2.5-flash-image",
+    "aspect_ratio": "3:2",
+    "image_size": "1K",
+    "runtime_size": "1536x1024",
+    "runtime_format": "webp",
+    "n": 1
+  },
+  "production": {
+    "price_per_image_usd": "0.0387",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing (checked 2026-11-16: Gemini 2.5 Flash Image, about $0.039 per image)",
+    "planned_images": 2,
+    "expected_cost_usd": "0.08",
+    "requested_ceiling_usd": "0.30",
+    "ceiling_note": "The renderer reserves US$0.20 before each request; each request is sent on its own, and the expected spend for the pack is about US$0.08.",
+    "no_automatic_retries": true,
+    "order": "Generate w01 and w02 in order; check the boy's face against the reference."
+  },
+  "shared_prompts": {
+    "photo": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, menus, screens, cups, clothes or bags.",
+    "safe_center": "Keep the people and the thing that carries the meaning inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.",
+    "solo": "Only this one person is in the photo; there is nobody else, even far in the background.",
+    "pair": "Only these two people are in the photo; there is nobody else, even far in the background.",
+    "daytime": "It is clearly daytime with soft natural light.",
+    "stairs": "The place is the inside of a bright, tidy two-story family house in the daytime. The camera stands downstairs in the front hallway and looks at a straight wooden staircase that rises from the hallway floor to an open upstairs landing with a white wooden banister. The whole staircase, the hallway floor at its foot and the upstairs landing are all clearly visible in the photo, so it is obvious at a glance whether a person is upstairs or downstairs.",
+    "edit": "Edit Image 1. Keep the place, the furniture, the light, the colors and the camera position exactly the same; change only what is described below.",
+    "nobody": "There are no people anywhere in the photo.",
+    "evening": "It is evening: the window shows a dark blue sky."
+  },
+  "assets": [
+    {
+      "id": "w01-walks",
+      "order": 1,
+      "item": "How does he go to school? He walks.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "solo",
+        "daytime"
+      ],
+      "prompt": "Image 1 shows a boy. Keep his face, short dark hair, blue short-sleeved button shirt and dark trousers exactly. Create a new photograph: a sunny morning on a quiet sidewalk. The boy walks to school with a green backpack on his back, mid-stride, smiling at the camera; behind him at the end of the sidewalk is a red-brick school building with big windows and a small playground with a slide in front of it. No cars, buses or bikes are anywhere in the photo.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1_photo_u4_rebuild_morning_dress_v1.webp",
+        "sha256": "f9b5fa2ca46c9d04013abf904b19abdde8c105c0191121a1794b2cb681ede674",
+        "observed_description": "A smiling boy of about eight with short dark hair, in a blue short-sleeved button shirt and dark trousers, buttons his shirt in his bright bedroom beside his bed (A1 4.6)."
+      }
+    },
+    {
+      "id": "w02-bus",
+      "order": 2,
+      "item": "How does he go to school? He goes by bus.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "solo",
+        "daytime"
+      ],
+      "prompt": "Image 1 shows a boy. Keep his face, short dark hair, blue short-sleeved button shirt and dark trousers exactly. Create a new photograph: a sunny morning at a bus stop on a street. A big yellow school bus has stopped with its front door open, and the boy, with a green backpack on his back, climbs the first step into the bus, turning his head to smile at the camera. Nobody else is visible; the bus driver is hidden inside.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1_photo_u4_rebuild_morning_dress_v1.webp",
+        "sha256": "f9b5fa2ca46c9d04013abf904b19abdde8c105c0191121a1794b2cb681ede674",
+        "observed_description": "A smiling boy of about eight with short dark hair, in a blue short-sleeved button shirt and dark trousers, buttons his shirt in his bright bedroom beside his bed (A1 4.6)."
+      }
+    }
+  ]
+}

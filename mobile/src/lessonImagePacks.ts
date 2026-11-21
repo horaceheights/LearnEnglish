@@ -34,6 +34,7 @@ export const LESSON_IMAGE_PACKS: Record<string, number> = {
   '1a-0': require('../assets/lesson-image-packs/lesson-images-1a-0.bin'),
   '1b-0': require('../assets/lesson-image-packs/lesson-images-1b-0.bin'),
   '1c-0': require('../assets/lesson-image-packs/lesson-images-1c-0.bin'),
+  '1c-1': require('../assets/lesson-image-packs/lesson-images-1c-1.bin'),
   '1d-0': require('../assets/lesson-image-packs/lesson-images-1d-0.bin'),
   '1e-0': require('../assets/lesson-image-packs/lesson-images-1e-0.bin'),
   '1f-0': require('../assets/lesson-image-packs/lesson-images-1f-0.bin'),

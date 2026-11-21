@@ -133,6 +133,13 @@ for (const verb of words('drive visit')) VERBS.add(verb);
 for (const verb of words('leave arrive start starts finish finishes studies meet put')) VERBS.add(verb);
 // A1+ 1.2 (2026-10-29): the he/she forms of A1 routine verbs.
 for (const verb of words('wakes gets eats brushes')) VERBS.add(verb);
+// A1+ 4.5 (2026-11-20): the he/she form of wash (Luis washes his face.).
+VERBS.add('washes');
+// A1+ 4.3 (2026-11-20): the pets and the tree of Luna is behind the door. / Max is in front of the tree.
+for (const noun of words('tree max luna')) NOUNS.add(noun);
+// A1+ 4.1 (2026-11-20): where someone is in a house (She's upstairs.); A1+ 4.2: whether a thing works (The TV is off.).
+const PLACE_ADVERBS: Record<string, string> = { upstairs: 'arriba', downstairs: 'abajo' };
+const SWITCHED: Record<string, string> = { on: 'prendido', off: 'apagado' };
 // A1+ 1.4 (2026-11-04): where someone lives, and who with.
 for (const verb of words('live lives')) VERBS.add(verb);
 // A1+ 1.2 (2026-11-10): what people do (Luis drinks coffee., Diego eats fruit.).
@@ -368,6 +375,14 @@ function teachClause(text: string): ClausePlan {
       teach(start, end, `Para decir qué número es, después de ${quote(anchor)} va el número: ${quote(original)}.`);
       return true;
     }
+    if (end - start === 1 && PLACE_ADVERBS[keys[start]] && BE.has(anchor.toLowerCase())) {
+      teach(start, end, `${quote(original)} (${PLACE_ADVERBS[keys[start]]}) dice en qué piso de la casa está; va después de ${quote(anchor)}.`);
+      return true;
+    }
+    if (end - start === 1 && SWITCHED[keys[start]] && BE.has(anchor.toLowerCase())) {
+      teach(start, end, `${quote(original)} (${SWITCHED[keys[start]]}) dice cómo está la cosa; va después de ${quote(anchor)}.`);
+      return true;
+    }
     if (tail === 'here' || tail === 'there') {
       teach(start, end, `${quote(original)} significa ${tail === 'here' ? 'aquí' : 'allá'} e indica dónde ocurre la acción; va después de ${quote(anchor)}.`);
       return true;
@@ -405,7 +420,8 @@ function teachClause(text: string): ClausePlan {
       teach(start, end, '“Fast” significa rápido e indica cómo habla la persona; va después de “speak”.');
       return true;
     }
-    const prep = /^(next to|far from|across from|between|in|on|under|near|from|by|at|for|to|with) (.+)$/.exec(tail);
+    // A1+ 4.3 (2026-11-20) adds behind and in front of (Luna is behind the door.).
+    const prep = /^(next to|far from|across from|in front of|behind|between|in|on|under|near|from|by|at|for|to|with) (.+)$/.exec(tail);
     if (prep) {
       const length = words(prep[1]).length;
       const nounStart = start + length;
@@ -474,6 +490,22 @@ function teachClause(text: string): ClausePlan {
   };
 
   const joined = keys.join(' ');
+  // A1+ 4.6 (2026-11-20): "and then" joins two actions of one person; the second has no subject
+  // (He gets dressed and then eats breakfast.).
+  const andThen = keys.findIndex((key, index) => index > 1 && key === 'and' && keys[index + 1] === 'then');
+  if (andThen > 0 && andThen + 2 < keys.length && !text.trim().endsWith('?') && ['he', 'she'].includes(keys[0])) {
+    const left = teachClause(phrase(0, andThen) + '.');
+    const right = teachClause(tokens[0] + ' ' + phrase(andThen + 2, keys.length) + '.');
+    if (left.supported && right.supported) {
+      left.explanations.forEach((why, index) => { explanations[index] = why; });
+      right.explanations.slice(1).forEach((why, index) => { explanations[andThen + 2 + index] = why; });
+      relations.push(...left.relations, ...right.relations.filter(relation => relation.start > 0)
+        .map(relation => ({ ...relation, start: relation.start + andThen + 1, end: relation.end + andThen + 1 })));
+      teach(andThen, andThen + 2, '“and then” (y luego) va entre las dos acciones: la primera ocurre antes que la segunda.');
+      teach(andThen + 2, andThen + 3, `${quote(tokens[andThen + 2])} es la segunda acción: va después de “and then” y no repite ${quote(tokens[0])}.`);
+      return { explanations, relations, supported: explanations.every(Boolean) };
+    }
+  }
   // Compose reviewed clauses while retaining their local relations. A connector
   // relates the clauses; it must not turn their verbs into noun complements.
   const connector = keys.findIndex((key, index) => index > 0 && ['before', 'after', 'because', 'but'].includes(key));
@@ -560,6 +592,15 @@ function teachClause(text: string): ClausePlan {
     teach(0, keys.length, `En esta instrucción no hay sujeto: “Please” pide con cortesía y va antes de la acción ${quote(phrase(1, 3))}.`);
     teach(1, 3, `${quote(phrase(1, 3))} significa ${posture[1] === 'sit down' ? 'sentarse' : 'levantarse'}: ${quote(tokens[2])} va después de ${quote(tokens[1])}.`);
     return { explanations, relations, supported: true };
+  }
+  // A1+ 4.2 (2026-11-20): Please turn on the lamp. / Please turn off the TV.
+  const turn = /^please turn (on|off) /.exec(joined + ' ');
+  if (turn && keys.length > 3 && !text.trim().endsWith('?')) {
+    teach(0, 1, '“Please” pide con cortesía y va primero; en una petición no hay sujeto.');
+    teach(1, 3, `${quote(phrase(1, 3))} significa ${turn[1] === 'on' ? 'prender' : 'apagar'}: ${quote(tokens[2])} va justo después de “turn”.`);
+    relations.push({ start: 1, end: keys.length, explanation: `Después de ${quote(phrase(1, 3))} va lo que ${turn[1] === 'on' ? 'prendemos' : 'apagamos'}: ${quote(phrase(3, keys.length))}.` });
+    const supported = nominal(3, keys.length);
+    return { explanations, relations, supported: supported && explanations.every(Boolean) };
   }
   const command = /^(don't )?(write|eat|use) /.exec(joined + ' ');
   if (command && keys.length > (command[1] ? 2 : 1) && !text.trim().endsWith('?')) {
@@ -852,6 +893,17 @@ function teachClause(text: string): ClausePlan {
     teach(4, 5, '“speak” (hablar) cierra la pregunta.');
     return { explanations, relations, supported: true };
   }
+  // A1+ 4.6 (2026-11-20): What does he do first? / What does he do after that? asks for an action in order.
+  const doNext = /^what (does (?:he|she)|do you) do (first|after that)$/.exec(joined);
+  if (doNext && text.trim().endsWith('?')) {
+    teach(0, 1, '“What” abre la pregunta.');
+    teach(1, 3, `${quote(phrase(1, 3))} va después de “What”: ${keys[1] === 'does' ? '“does” con he o she' : '“do” con you'}.`);
+    teach(3, 4, 'El último “do” es el verbo hacer: pregunta qué acción hace.');
+    teach(4, keys.length, doNext[2] === 'first'
+      ? '“first” (primero) cierra la pregunta: pide la primera acción.'
+      : '“after that” (después de eso) cierra la pregunta: pide la acción que sigue.');
+    return { explanations, relations, supported: true };
+  }
   // A1+ 3.9 (2026-11-20): What do you do? / What does she do? asks about someone's work.
   const doWhat = /^what (do you|does (?:he|she|ana|luis|sofia|diego)) do$/.exec(joined);
   if (doWhat && text.trim().endsWith('?')) {
@@ -980,13 +1032,15 @@ function teachClause(text: string): ClausePlan {
     return { explanations, relations, supported: true };
   }
   // 5.2, 5.4 and 5.13: There's a little rice. / There isn't much milk. / There's chicken in it. / There isn't any …
-  const there = /^there('s| isn't)( .+)$/.exec(joined);
+  // There isn't + a or the (There isn't a TV in the bedroom.) is A1+ 4.4's rule below; this one takes much and any.
+  const there = /^there('s .+| isn't (?:much|any) .+)$/.exec(joined);
   if (there && !asks) {
-    teach(0, 1, there[1] === "'s"
+    const negative = keys[0] === 'there' && keys[1] === "isn't";
+    teach(0, 1, !negative
       ? '“There’s” es la forma corta de “there is” (hay): abre la frase, antes de lo que hay.'
       : '“There” abre la frase; “isn’t” (no hay) va después y niega.');
     let start = 1;
-    if (there[1] === " isn't") {
+    if (negative) {
       teach(1, 2, '“isn’t” es la forma corta de “is not”: va después de “There” y niega.');
       start = 2;
       if (keys[start] === 'much' || keys[start] === 'any') {
@@ -1040,6 +1094,28 @@ function teachClause(text: string): ClausePlan {
     teach(0, 1, '“What’s” es la forma corta de “what is”: la pregunta empieza con él.');
     teach(1, keys.length, `${quote(phrase(1, keys.length))} es lo que preguntamos; va después de “What’s”.`);
     return { explanations, relations, supported: explanations.every(Boolean) };
+  }
+  // A1+ 4.1 (2026-11-20): Where's the boy? asks where someone is with the short form of where is.
+  if (keys[0] === "where's" && keys.length > 1 && text.trim().endsWith('?')) {
+    teach(0, 1, '“Where’s” es la forma corta de “Where is”: pregunta dónde está y va primero.');
+    relations.push({ start: 0, end: keys.length, explanation: `Después de “Where’s” va la persona o la cosa que buscamos: ${quote(phrase(1, keys.length))}.` });
+    const supported = subject(1, keys.length);
+    return { explanations, relations, supported: supported && explanations.every(Boolean) };
+  }
+  // A1+ 4.4 (2026-11-20): what there is not in a place (There isn't a TV in the bedroom.); "aren't"
+  // reaches this rule as "are not".
+  const thereNot = /^there (?:isn't|(?:is|are) not) /.exec(joined + ' ');
+  if (thereNot && !text.trim().endsWith('?')) {
+    const verbEnd = keys[1] === "isn't" ? 2 : 3;
+    teach(0, verbEnd, keys[1] === "isn't"
+      ? '“There isn’t” (no hay) es la forma corta de “There is not” y va primero, antes de lo que no hay.'
+      : `${quote(phrase(0, verbEnd))} (no hay) va primero, antes de lo que no hay.`);
+    const place = keys.findIndex((key, index) => index > verbEnd && ['in', 'on', 'under', 'next'].includes(key));
+    const thingEnd = place < 0 ? keys.length : place;
+    relations.push({ start: 0, end: thingEnd, explanation: `${quote(phrase(verbEnd, thingEnd))} es lo que no hay; va después de ${quote(phrase(0, verbEnd))}.` });
+    if (!nominal(verbEnd, thingEnd)) return { explanations, relations, supported: false };
+    const supported = place < 0 || complement(place, keys.length, phrase(verbEnd, thingEnd));
+    return { explanations, relations, supported: supported && explanations.every(Boolean) };
   }
   // A1+ 2.10 (2026-11-19): Which ones do you want? asks which group someone chooses.
   const whichDo = /^which (ones?) do you want$/.exec(joined);
