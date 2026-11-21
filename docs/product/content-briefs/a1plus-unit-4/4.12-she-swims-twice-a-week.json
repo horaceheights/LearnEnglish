@@ -1,0 +1,711 @@
+{
+  "brief_version": 1,
+  "follows": {
+    "course": "a1",
+    "lesson": "4.12",
+    "title": "Tomorrow and the Week"
+  },
+  "note": "A1+ Unit 4 Lesson 4.12, built on 2026-11-21 under the A1+ lesson standards approved 2026-10-27 and the user's 2026-11-09 rule that every A1+ lesson follows up the A1 lesson with the same number. The user approved the A1+ Unit 4 map on 2026-11-20 (A1+ 4.Y follows A1 4.Y, one step each; seventeen lessons) and asked for the Unit 2 and Unit 3 deal (\"Start working on A1+ Unit 4, same deal. make sure images make sense all the time\"): straight to Preview in batches, Gemini 2.5 Flash photos and ElevenLabs audio pre-approved, no per-lesson gates, reviewed in Preview. No new photos: the cast swimming and running (A1+ 1.3), cooking and watching TV (1.8) and Diego painting (3.14); how often is said, never shown.",
+  "target": "backend/lessons/a1_plus/unit_4/a1plus-unit-4-lesson-4-12.yaml",
+  "captions": false,
+  "narrators": [
+    "teacher",
+    "co-teacher"
+  ],
+  "answer_audio_policy": "authored-only",
+  "speak_delivery": "a1-pronunciation-v1",
+  "lesson": {
+    "id": "a1plus-unit-4-lesson-4-12",
+    "title": "4.12 She swims twice a week",
+    "level": "A1+",
+    "unit_id": "a1plus-unit-4",
+    "unit_title": "Life at home, every day and yesterday",
+    "unit_outcome": "Say where people and things are at home, talk about the lights and machines, ask what there is, describe someone's morning in order, say what you did yesterday and on which day, ask and tell the time, say how often you do things and give dates.",
+    "lesson_id": "a1plus-unit-4-lesson-4-12",
+    "lesson_title": "She swims twice a week",
+    "sub_lesson_id": "4.12",
+    "sub_lesson_title": "She swims twice a week",
+    "goal": "Say how often people do things with once a week, twice a week and every weekend (How often does Ana swim? She swims twice a week.).",
+    "vocabulary": [
+      "once a week",
+      "twice a week",
+      "every weekend"
+    ],
+    "review_vocabulary": [
+      "How often",
+      "does",
+      "do you",
+      "swim",
+      "swims",
+      "run",
+      "runs",
+      "paints",
+      "cooks",
+      "dinner",
+      "watches TV",
+      "watched",
+      "on Saturday",
+      "sometimes",
+      "she",
+      "he",
+      "I",
+      "and"
+    ],
+    "grammar_function": "A follow-up of A1 4.12 Tomorrow and the Week: A1 names the days of a week, the weekend, the months and the year on a calendar; A1+ 4.12 counts in them how often people do things, answering 1.7's How often…? The new items are once a week, twice a week and every weekend at the end of the sentence (Diego runs once a week.), after 1.6's frequency words before the verb (Diego sometimes paints.). How often cannot be photographed: each photo shows who does what (A1+ 1.3's swimming and running, 1.8's cooking and TV, 3.14's painting), a picture bank changes only the activity or the person, and Listen sets the frequencies against each other and against 4.9's past with a day.",
+    "prerequisite": "A1 4.12 week, weekend; A1+ 1.6 always, usually, sometimes, never; A1+ 1.7 How often…?; A1+ 1.3 swims, runs.",
+    "speaking_outcome": "Say once (WUNS) and twice (TWAIS) with a clear s and link a week (uh-WEEK); every weekend stresses WEEK. Do not require native-like speed.",
+    "content_revision": 1,
+    "learn_context_groups": [
+      {
+        "kind": "exchange",
+        "targets": [
+          "twice a week"
+        ],
+        "models": [
+          {
+            "slide_id": "L1",
+            "text": "How often does Ana swim? She swims twice a week.",
+            "turns": [
+              "How often does Ana swim?",
+              "She swims twice a week."
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "sequence",
+        "targets": [
+          "once a week"
+        ],
+        "models": [
+          {
+            "slide_id": "L2",
+            "text": "Diego runs once a week."
+          }
+        ]
+      },
+      {
+        "kind": "sequence",
+        "targets": [
+          "every weekend"
+        ],
+        "models": [
+          {
+            "slide_id": "L3",
+            "text": "Luis watches TV every weekend."
+          }
+        ]
+      },
+      {
+        "kind": "contrast",
+        "targets": [
+          "once a week",
+          "twice a week"
+        ],
+        "models": [
+          {
+            "slide_id": "L4",
+            "text": "Diego paints once a week. Diego paints twice a week.",
+            "turns": [
+              "Diego paints once a week.",
+              "Diego paints twice a week."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "items": [
+    {
+      "id": "l-twice",
+      "text": "How often does Ana swim? She swims twice a week.",
+      "es": "¿Con qué frecuencia nada Ana? Nada dos veces por semana.",
+      "image": "/lesson-assets/a1plus-unit-1-s02-6a10ecb13ff623c8.webp",
+      "kind": "exchange",
+      "choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "How often does Ana swim?",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-1-s02-6a10ecb13ff623c8.webp"
+        },
+        {
+          "text": "She swims twice a week.",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-1-s02-6a10ecb13ff623c8.webp"
+        }
+      ]
+    },
+    {
+      "id": "l-once",
+      "text": "Diego runs once a week.",
+      "es": "Diego corre una vez por semana.",
+      "image": "/lesson-assets/a1plus-unit-1-s04-1055dd20fb2b0977.webp",
+      "kind": "sequence",
+      "choices": false,
+      "use": false,
+      "speaker": "teacher"
+    },
+    {
+      "id": "l-weekend",
+      "text": "Luis watches TV every weekend.",
+      "es": "Luis ve la tele todos los fines de semana.",
+      "image": "/lesson-assets/a1plus-unit-1-e03-404d00e7aea3f372.webp",
+      "kind": "sequence",
+      "choices": false,
+      "use": false,
+      "speaker": "co-teacher"
+    },
+    {
+      "id": "l-paint",
+      "text": "Diego paints once a week. Diego paints twice a week.",
+      "es": "Diego pinta una vez por semana. Diego pinta dos veces por semana.",
+      "image": "/lesson-assets/a1plus-unit-3-c07-5a554636e3669bf8.webp",
+      "kind": "contrast",
+      "choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "Diego paints once a week.",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-3-c07-5a554636e3669bf8.webp"
+        },
+        {
+          "text": "Diego paints twice a week.",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-3-c07-5a554636e3669bf8.webp"
+        }
+      ]
+    },
+    {
+      "id": "f-ana-swim",
+      "text": "Ana swims twice a week.",
+      "es": "Ana nada dos veces por semana.",
+      "image": "/lesson-assets/a1plus-unit-1-s02-6a10ecb13ff623c8.webp",
+      "kind": "often",
+      "prefer": [
+        "Ana runs twice a week.",
+        "Ana cooks twice a week."
+      ],
+      "accepts": {
+        "subject-variety": "The bank keeps how often and changes only what the picture shows the person doing.",
+        "action-variety": "The bank keeps how often and changes only what the picture shows the person doing.",
+        "conversational-response": "The bank keeps how often and changes only what the picture shows the person doing.",
+        "reading-load": "The bank keeps how often and changes only what the picture shows the person doing."
+      },
+      "blanks": [
+        "twice",
+        "a"
+      ],
+      "learn": false
+    },
+    {
+      "id": "f-diego-run",
+      "text": "Diego runs once a week.",
+      "es": "Diego corre una vez por semana.",
+      "image": "/lesson-assets/a1plus-unit-1-s04-1055dd20fb2b0977.webp",
+      "kind": "often",
+      "prefer": [
+        "Diego swims once a week.",
+        "Diego paints once a week."
+      ],
+      "accepts": {
+        "subject-variety": "The bank keeps how often and changes only what the picture shows the person doing.",
+        "action-variety": "The bank keeps how often and changes only what the picture shows the person doing.",
+        "conversational-response": "The bank keeps how often and changes only what the picture shows the person doing.",
+        "reading-load": "The bank keeps how often and changes only what the picture shows the person doing."
+      },
+      "blanks": [
+        "once",
+        "a"
+      ],
+      "learn": false
+    },
+    {
+      "id": "f-luis-tv",
+      "text": "Luis watches TV every weekend.",
+      "es": "Luis ve la tele todos los fines de semana.",
+      "image": "/lesson-assets/a1plus-unit-1-e03-404d00e7aea3f372.webp",
+      "kind": "often",
+      "prefer": [
+        "Luis runs every weekend.",
+        "Luis cooks every weekend."
+      ],
+      "accepts": {
+        "subject-variety": "The bank keeps how often and changes only what the picture shows the person doing.",
+        "action-variety": "The bank keeps how often and changes only what the picture shows the person doing.",
+        "conversational-response": "The bank keeps how often and changes only what the picture shows the person doing.",
+        "reading-load": "The bank keeps how often and changes only what the picture shows the person doing."
+      },
+      "blanks": [
+        "every",
+        "weekend"
+      ],
+      "learn": false
+    },
+    {
+      "id": "f-diego-paint",
+      "text": "Diego paints twice a week.",
+      "es": "Diego pinta dos veces por semana.",
+      "image": "/lesson-assets/a1plus-unit-3-c07-5a554636e3669bf8.webp",
+      "kind": "often",
+      "prefer": [
+        "Diego runs twice a week.",
+        "Diego swims twice a week."
+      ],
+      "accepts": {
+        "subject-variety": "The bank keeps how often and changes only what the picture shows the person doing.",
+        "action-variety": "The bank keeps how often and changes only what the picture shows the person doing.",
+        "conversational-response": "The bank keeps how often and changes only what the picture shows the person doing.",
+        "reading-load": "The bank keeps how often and changes only what the picture shows the person doing."
+      },
+      "blanks": null,
+      "learn": false
+    },
+    {
+      "id": "f-ana-cook",
+      "text": "Ana cooks dinner every weekend.",
+      "es": "Ana cocina la cena todos los fines de semana.",
+      "image": "/lesson-assets/a1plus-unit-1-e01-475ff38c766cace5.webp",
+      "kind": "often",
+      "prefer": [
+        "Ana watches TV every weekend.",
+        "Ana swims every weekend."
+      ],
+      "accepts": {
+        "subject-variety": "The bank keeps how often and changes only what the picture shows the person doing.",
+        "action-variety": "The bank keeps how often and changes only what the picture shows the person doing.",
+        "conversational-response": "The bank keeps how often and changes only what the picture shows the person doing.",
+        "reading-load": "The bank keeps how often and changes only what the picture shows the person doing."
+      },
+      "blanks": null,
+      "learn": false
+    },
+    {
+      "id": "f-pair-run",
+      "text": "Sofia and Luis run every weekend.",
+      "es": "Sofía y Luis corren todos los fines de semana.",
+      "image": "/lesson-assets/a1plus-unit-1-s03-eb8f34195803a0a8.webp",
+      "kind": "often",
+      "prefer": [
+        "Sofia and Luis swim every weekend.",
+        "Sofia and Luis watch TV every weekend."
+      ],
+      "accepts": {
+        "subject-variety": "The bank keeps how often and changes only what the picture shows the person doing.",
+        "action-variety": "The bank keeps how often and changes only what the picture shows the person doing.",
+        "conversational-response": "The bank keeps how often and changes only what the picture shows the person doing.",
+        "reading-load": "The bank keeps how often and changes only what the picture shows the person doing."
+      },
+      "blanks": null,
+      "learn": false
+    },
+    {
+      "id": "lw-once",
+      "text": "Diego runs once a week.",
+      "es": "Diego corre una vez por semana.",
+      "image": "/lesson-assets/a1plus-unit-1-s04-1055dd20fb2b0977.webp",
+      "kind": "heard-lw-once",
+      "prefer": [
+        "Diego runs twice a week."
+      ],
+      "accepts": {
+        "subject-variety": "Listen sets one detail against another; the answer is what was heard.",
+        "action-variety": "Listen sets one detail against another; the answer is what was heard.",
+        "conversational-response": "Listen sets one detail against another; the answer is what was heard.",
+        "reading-load": "Listen sets one detail against another; the answer is what was heard."
+      },
+      "image_choices": false,
+      "use": false,
+      "learn": false
+    },
+    {
+      "id": "lw-twice",
+      "text": "Ana swims twice a week.",
+      "es": "Ana nada dos veces por semana.",
+      "image": "/lesson-assets/a1plus-unit-1-s02-6a10ecb13ff623c8.webp",
+      "kind": "heard-lw-twice",
+      "prefer": [
+        "Ana swims every weekend."
+      ],
+      "accepts": {
+        "subject-variety": "Listen sets one detail against another; the answer is what was heard.",
+        "action-variety": "Listen sets one detail against another; the answer is what was heard.",
+        "conversational-response": "Listen sets one detail against another; the answer is what was heard.",
+        "reading-load": "Listen sets one detail against another; the answer is what was heard."
+      },
+      "image_choices": false,
+      "use": false,
+      "learn": false
+    },
+    {
+      "id": "lw-weekend",
+      "text": "Luis watches TV every weekend.",
+      "es": "Luis ve la tele todos los fines de semana.",
+      "image": "/lesson-assets/a1plus-unit-1-e03-404d00e7aea3f372.webp",
+      "kind": "heard-lw-weekend",
+      "prefer": [
+        "Luis watches TV once a week."
+      ],
+      "accepts": {
+        "subject-variety": "Listen sets one detail against another; the answer is what was heard.",
+        "action-variety": "Listen sets one detail against another; the answer is what was heard.",
+        "conversational-response": "Listen sets one detail against another; the answer is what was heard.",
+        "reading-load": "Listen sets one detail against another; the answer is what was heard."
+      },
+      "image_choices": false,
+      "use": false,
+      "learn": false
+    },
+    {
+      "id": "lw-every",
+      "text": "Diego paints once a week.",
+      "es": "Diego pinta una vez por semana.",
+      "image": "/lesson-assets/a1plus-unit-3-c07-5a554636e3669bf8.webp",
+      "kind": "heard-lw-every",
+      "prefer": [
+        "Diego paints every weekend."
+      ],
+      "accepts": {
+        "subject-variety": "Listen sets one detail against another; the answer is what was heard.",
+        "action-variety": "Listen sets one detail against another; the answer is what was heard.",
+        "conversational-response": "Listen sets one detail against another; the answer is what was heard.",
+        "reading-load": "Listen sets one detail against another; the answer is what was heard."
+      },
+      "image_choices": false,
+      "use": false,
+      "learn": false
+    },
+    {
+      "id": "lw-past",
+      "text": "Luis watched TV on Saturday.",
+      "es": "Luis vio la tele el sábado.",
+      "image": "/lesson-assets/a1plus-unit-1-e03-404d00e7aea3f372.webp",
+      "kind": "heard-lw-past",
+      "prefer": [
+        "Luis watches TV every weekend."
+      ],
+      "accepts": {
+        "subject-variety": "Listen sets one detail against another; the answer is what was heard.",
+        "action-variety": "Listen sets one detail against another; the answer is what was heard.",
+        "conversational-response": "Listen sets one detail against another; the answer is what was heard.",
+        "reading-load": "Listen sets one detail against another; the answer is what was heard."
+      },
+      "image_choices": false,
+      "use": false,
+      "learn": false
+    },
+    {
+      "id": "x-often",
+      "text": "How often does Diego run? He runs once a week.",
+      "es": "¿Con qué frecuencia corre Diego? Corre una vez por semana.",
+      "image": "/lesson-assets/a1plus-unit-1-s04-1055dd20fb2b0977.webp",
+      "kind": "xo",
+      "image_choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "How often does Diego run?",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-1-s04-1055dd20fb2b0977.webp"
+        },
+        {
+          "text": "He runs once a week.",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-1-s04-1055dd20fb2b0977.webp"
+        }
+      ],
+      "accepts": {
+        "subject-variety": "Listen sets one detail against another; the answer is what was heard.",
+        "action-variety": "Listen sets one detail against another; the answer is what was heard.",
+        "conversational-response": "Listen sets one detail against another; the answer is what was heard.",
+        "reading-load": "Listen sets one detail against another; the answer is what was heard."
+      },
+      "prefer": [
+        "How often does Diego run? He runs every weekend."
+      ],
+      "learn": false
+    },
+    {
+      "id": "x-often2",
+      "text": "How often do you swim? I swim twice a week.",
+      "es": "¿Con qué frecuencia nadas? Nado dos veces por semana.",
+      "image": "/lesson-assets/a1plus-unit-1-s02-6a10ecb13ff623c8.webp",
+      "kind": "xt",
+      "image_choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "How often do you swim?",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-1-s02-6a10ecb13ff623c8.webp"
+        },
+        {
+          "text": "I swim twice a week.",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-1-s02-6a10ecb13ff623c8.webp"
+        }
+      ],
+      "accepts": {
+        "subject-variety": "Listen sets one detail against another; the answer is what was heard.",
+        "action-variety": "Listen sets one detail against another; the answer is what was heard.",
+        "conversational-response": "Listen sets one detail against another; the answer is what was heard.",
+        "reading-load": "Listen sets one detail against another; the answer is what was heard."
+      },
+      "prefer": [
+        "How often do you swim? I swim once a week."
+      ],
+      "learn": false
+    },
+    {
+      "id": "u-twice",
+      "text": "I swim twice a week.",
+      "es": "Nado dos veces por semana.",
+      "image": "/lesson-assets/a1plus-unit-1-s02-6a10ecb13ff623c8.webp",
+      "kind": "use",
+      "speaker": "teacher",
+      "choices": false,
+      "blanks": [
+        "twice",
+        "a"
+      ],
+      "learn": false
+    },
+    {
+      "id": "u-once",
+      "text": "He runs once a week.",
+      "es": "Corre una vez por semana.",
+      "image": "/lesson-assets/a1plus-unit-1-s04-1055dd20fb2b0977.webp",
+      "kind": "use",
+      "speaker": "co-teacher",
+      "choices": false,
+      "blanks": [
+        "once",
+        "a"
+      ],
+      "learn": false
+    },
+    {
+      "id": "u-weekend",
+      "text": "I watch TV every weekend.",
+      "es": "Veo la tele todos los fines de semana.",
+      "image": "/lesson-assets/a1plus-unit-1-e03-404d00e7aea3f372.webp",
+      "kind": "use",
+      "speaker": "co-teacher",
+      "choices": false,
+      "blanks": [
+        "every",
+        "weekend"
+      ],
+      "learn": false
+    },
+    {
+      "id": "q-often",
+      "text": "How often do you swim?",
+      "es": "¿Con qué frecuencia nadas?",
+      "image": "/lesson-assets/a1plus-unit-1-s02-6a10ecb13ff623c8.webp",
+      "kind": "use",
+      "speaker": "co-teacher",
+      "choices": false,
+      "blanks": [
+        "How",
+        "often"
+      ],
+      "learn": false
+    }
+  ],
+  "pool": [
+    {
+      "text": "Ana runs twice a week.",
+      "es": "Ana corre dos veces por semana.",
+      "image": "/lesson-assets/a1plus-unit-1-s02-6a10ecb13ff623c8.webp",
+      "kind": "often",
+      "image_choices": false
+    },
+    {
+      "text": "Ana cooks twice a week.",
+      "es": "Ana cocina dos veces por semana.",
+      "image": "/lesson-assets/a1plus-unit-1-s02-6a10ecb13ff623c8.webp",
+      "kind": "often",
+      "image_choices": false
+    },
+    {
+      "text": "Diego swims once a week.",
+      "es": "Diego nada una vez por semana.",
+      "image": "/lesson-assets/a1plus-unit-1-s04-1055dd20fb2b0977.webp",
+      "kind": "often",
+      "image_choices": false
+    },
+    {
+      "text": "Diego paints once a week.",
+      "es": "Diego pinta una vez por semana.",
+      "image": "/lesson-assets/a1plus-unit-1-s04-1055dd20fb2b0977.webp",
+      "kind": "often",
+      "image_choices": false
+    },
+    {
+      "text": "Luis runs every weekend.",
+      "es": "Luis corre todos los fines de semana.",
+      "image": "/lesson-assets/a1plus-unit-1-e03-404d00e7aea3f372.webp",
+      "kind": "often",
+      "image_choices": false
+    },
+    {
+      "text": "Luis cooks every weekend.",
+      "es": "Luis cocina todos los fines de semana.",
+      "image": "/lesson-assets/a1plus-unit-1-e03-404d00e7aea3f372.webp",
+      "kind": "often",
+      "image_choices": false
+    },
+    {
+      "text": "Diego runs twice a week.",
+      "es": "Diego corre dos veces por semana.",
+      "image": "/lesson-assets/a1plus-unit-3-c07-5a554636e3669bf8.webp",
+      "kind": "often",
+      "image_choices": false
+    },
+    {
+      "text": "Diego swims twice a week.",
+      "es": "Diego nada dos veces por semana.",
+      "image": "/lesson-assets/a1plus-unit-3-c07-5a554636e3669bf8.webp",
+      "kind": "often",
+      "image_choices": false
+    },
+    {
+      "text": "Ana watches TV every weekend.",
+      "es": "Ana ve la tele todos los fines de semana.",
+      "image": "/lesson-assets/a1plus-unit-1-e01-475ff38c766cace5.webp",
+      "kind": "often",
+      "image_choices": false
+    },
+    {
+      "text": "Ana swims every weekend.",
+      "es": "Ana nada todos los fines de semana.",
+      "image": "/lesson-assets/a1plus-unit-1-e01-475ff38c766cace5.webp",
+      "kind": "often",
+      "image_choices": false
+    },
+    {
+      "text": "Sofia and Luis swim every weekend.",
+      "es": "Sofía y Luis nadan todos los fines de semana.",
+      "image": "/lesson-assets/a1plus-unit-1-s03-eb8f34195803a0a8.webp",
+      "kind": "often",
+      "image_choices": false
+    },
+    {
+      "text": "Sofia and Luis watch TV every weekend.",
+      "es": "Sofía y Luis ven la tele todos los fines de semana.",
+      "image": "/lesson-assets/a1plus-unit-1-s03-eb8f34195803a0a8.webp",
+      "kind": "often",
+      "image_choices": false
+    },
+    {
+      "text": "Diego runs twice a week.",
+      "es": "Diego corre dos veces por semana.",
+      "image": "/lesson-assets/a1plus-unit-1-s04-1055dd20fb2b0977.webp",
+      "kind": "heard-lw-once",
+      "image_choices": false
+    },
+    {
+      "text": "Ana swims every weekend.",
+      "es": "Ana nada todos los fines de semana.",
+      "image": "/lesson-assets/a1plus-unit-1-s02-6a10ecb13ff623c8.webp",
+      "kind": "heard-lw-twice",
+      "image_choices": false
+    },
+    {
+      "text": "Luis watches TV once a week.",
+      "es": "Luis ve la tele una vez por semana.",
+      "image": "/lesson-assets/a1plus-unit-1-e03-404d00e7aea3f372.webp",
+      "kind": "heard-lw-weekend",
+      "image_choices": false
+    },
+    {
+      "text": "Diego paints every weekend.",
+      "es": "Diego pinta todos los fines de semana.",
+      "image": "/lesson-assets/a1plus-unit-3-c07-5a554636e3669bf8.webp",
+      "kind": "heard-lw-every",
+      "image_choices": false
+    },
+    {
+      "text": "Luis watches TV every weekend.",
+      "es": "Luis ve la tele todos los fines de semana.",
+      "image": "/lesson-assets/a1plus-unit-1-e03-404d00e7aea3f372.webp",
+      "kind": "heard-lw-past",
+      "image_choices": false
+    },
+    {
+      "text": "How often does Diego run? He runs every weekend.",
+      "es": "¿Con qué frecuencia corre Diego? Corre todos los fines de semana.",
+      "image": "/lesson-assets/a1plus-unit-1-s04-1055dd20fb2b0977.webp",
+      "kind": "xo",
+      "image_choices": false
+    },
+    {
+      "text": "How often do you swim? I swim once a week.",
+      "es": "¿Con qué frecuencia nadas? Nado una vez por semana.",
+      "image": "/lesson-assets/a1plus-unit-1-s02-6a10ecb13ff623c8.webp",
+      "kind": "xt",
+      "image_choices": false
+    }
+  ],
+  "layout": {
+    "Recognize": 10,
+    "Listen": 10,
+    "Speak": 8,
+    "Use": 8
+  },
+  "stage_sequences": {
+    "Learn": [
+      "l-twice",
+      "l-once",
+      "l-weekend",
+      "l-paint"
+    ],
+    "Recognize": [
+      "f-ana-swim",
+      "f-diego-run",
+      "f-luis-tv",
+      "f-diego-paint",
+      "f-ana-cook",
+      "f-pair-run",
+      "f-diego-run",
+      "f-ana-swim",
+      "f-luis-tv",
+      "f-diego-paint"
+    ],
+    "Listen": [
+      "f-diego-run",
+      "lw-once",
+      "x-often",
+      "f-ana-swim",
+      "lw-weekend",
+      "lw-past",
+      "f-pair-run",
+      "x-often2",
+      "lw-every",
+      "lw-twice"
+    ],
+    "Speak": [
+      "f-ana-swim",
+      "u-once",
+      "q-often",
+      "f-luis-tv",
+      "u-weekend",
+      "f-diego-paint",
+      "u-twice",
+      "f-pair-run"
+    ],
+    "Use": [
+      "f-ana-swim",
+      "f-diego-run",
+      "u-twice",
+      "f-luis-tv",
+      "u-once",
+      "q-often",
+      "u-weekend",
+      "f-diego-paint"
+    ]
+  }
+}

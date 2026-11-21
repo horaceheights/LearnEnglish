@@ -1,0 +1,826 @@
+{
+  "brief_version": 1,
+  "follows": {
+    "course": "a1",
+    "lesson": "4.13",
+    "title": "Months: January to June"
+  },
+  "note": "A1+ Unit 4 Lesson 4.13, built on 2026-11-21 under the A1+ lesson standards approved 2026-10-27 and the user's 2026-11-09 rule that every A1+ lesson follows up the A1 lesson with the same number. The user approved the A1+ Unit 4 map on 2026-11-20 (A1+ 4.Y follows A1 4.Y, one step each; seventeen lessons) and asked for the Unit 2 and Unit 3 deal (\"Start working on A1+ Unit 4, same deal. make sure images make sense all the time\"): straight to Preview in batches, Gemini 2.5 Flash photos and ElevenLabs audio pre-approved, no per-lesson gates, reviewed in Preview. Three new Flash photos of Luis, Sofia and Diego each alone at their own birthday cake, in the style of A1 4.14's photo of Ana; no photo shows a number.",
+  "target": "backend/lessons/a1_plus/unit_4/a1plus-unit-4-lesson-4-13.yaml",
+  "captions": false,
+  "narrators": [
+    "teacher",
+    "co-teacher"
+  ],
+  "answer_audio_policy": "authored-only",
+  "speak_delivery": "a1-pronunciation-v1",
+  "lesson": {
+    "id": "a1plus-unit-4-lesson-4-13",
+    "title": "4.13 When is your birthday?",
+    "level": "A1+",
+    "unit_id": "a1plus-unit-4",
+    "unit_title": "Life at home, every day and yesterday",
+    "unit_outcome": "Say where people and things are at home, talk about the lights and machines, ask what there is, describe someone's morning in order, say what you did yesterday and on which day, ask and tell the time, say how often you do things and give dates.",
+    "lesson_id": "a1plus-unit-4-lesson-4-13",
+    "lesson_title": "When is your birthday?",
+    "sub_lesson_id": "4.13",
+    "sub_lesson_title": "When is your birthday?",
+    "goal": "Ask when a birthday is and say a date with a month and an ordinal number (When is your birthday? It's on March fifth.).",
+    "vocabulary": [
+      "When is",
+      "birthday is on"
+    ],
+    "review_vocabulary": [
+      "birthday",
+      "March",
+      "June",
+      "August",
+      "October",
+      "May",
+      "July",
+      "second",
+      "fourth",
+      "fifth",
+      "tenth",
+      "'s",
+      "It's",
+      "my",
+      "your",
+      "Whose"
+    ],
+    "grammar_function": "A follow-up of A1 4.13 Months: January to June: A1 names the months and says My birthday is in July.; A1+ 4.13 asks When is your birthday? and gives the day with on + a month + an ordinal number (It's on March fifth.), bringing back 2.6–2.7's second, fourth, fifth and tenth and 3.11's Luis's. The cast's birthdays are fixed from here on: Ana March fifth, Luis June second, Sofia October tenth, Diego August fourth. A date cannot be photographed: each photo shows one cast member alone at their own birthday cake (A1 4.14's photo of Ana and three new Flash photos), a picture bank changes only whose birthday it is, and Listen sets the dates against each other.",
+    "prerequisite": "A1 4.13-4.14 months and birthday; A1+ 2.6-2.7 second to tenth; A1+ 3.11 's; A1+ 3.12 Whose.",
+    "speaking_outcome": "Say the date as month + ordinal (MARCH FIFTH); fifth ends in th after f, and When is links (WEN-iz). Do not require native-like speed.",
+    "content_revision": 1,
+    "learn_context_groups": [
+      {
+        "kind": "exchange",
+        "targets": [
+          "When is"
+        ],
+        "models": [
+          {
+            "slide_id": "L1",
+            "text": "When is your birthday? It's on March fifth.",
+            "turns": [
+              "When is your birthday?",
+              "It's on March fifth."
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "sequence",
+        "targets": [
+          "birthday is on"
+        ],
+        "models": [
+          {
+            "slide_id": "L2",
+            "text": "Luis's birthday is on June second."
+          }
+        ]
+      },
+      {
+        "kind": "sequence",
+        "targets": [
+          "birthday is on"
+        ],
+        "models": [
+          {
+            "slide_id": "L3",
+            "text": "Sofia's birthday is on October tenth."
+          }
+        ]
+      },
+      {
+        "kind": "exchange",
+        "targets": [
+          "When is"
+        ],
+        "models": [
+          {
+            "slide_id": "L4",
+            "text": "When is Diego's birthday? It's on August fourth.",
+            "turns": [
+              "When is Diego's birthday?",
+              "It's on August fourth."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "items": [
+    {
+      "id": "l-when",
+      "text": "When is your birthday? It's on March fifth.",
+      "es": "¿Cuándo es tu cumpleaños? Es el cinco de marzo.",
+      "image": "/lesson-assets/a1_photo_u4_birthday_ana_v1.webp",
+      "kind": "exchange",
+      "choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "When is your birthday?",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1_photo_u4_birthday_ana_v1.webp"
+        },
+        {
+          "text": "It's on March fifth.",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1_photo_u4_birthday_ana_v1.webp"
+        }
+      ]
+    },
+    {
+      "id": "l-luis",
+      "text": "Luis's birthday is on June second.",
+      "es": "El cumpleaños de Luis es el dos de junio.",
+      "image": "/lesson-assets/a1plus-unit-4-y01-1085725c0e31b38a.webp",
+      "kind": "sequence",
+      "choices": false,
+      "use": false,
+      "speaker": "teacher"
+    },
+    {
+      "id": "l-sofia",
+      "text": "Sofia's birthday is on October tenth.",
+      "es": "El cumpleaños de Sofía es el diez de octubre.",
+      "image": "/lesson-assets/a1plus-unit-4-y02-a8aa222a7525b1a1.webp",
+      "kind": "sequence",
+      "choices": false,
+      "use": false,
+      "speaker": "co-teacher"
+    },
+    {
+      "id": "l-diego",
+      "text": "When is Diego's birthday? It's on August fourth.",
+      "es": "¿Cuándo es el cumpleaños de Diego? Es el cuatro de agosto.",
+      "image": "/lesson-assets/a1plus-unit-4-y03-922f716aba71649a.webp",
+      "kind": "exchange",
+      "choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "When is Diego's birthday?",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-4-y03-922f716aba71649a.webp"
+        },
+        {
+          "text": "It's on August fourth.",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-4-y03-922f716aba71649a.webp"
+        }
+      ]
+    },
+    {
+      "id": "b-ana",
+      "text": "Ana's birthday is on March fifth.",
+      "es": "El cumpleaños de Ana es el cinco de marzo.",
+      "image": "/lesson-assets/a1_photo_u4_birthday_ana_v1.webp",
+      "kind": "bday",
+      "prefer": [
+        "Luis's birthday is on March fifth.",
+        "Sofia's birthday is on March fifth."
+      ],
+      "accepts": {
+        "subject-variety": "The bank keeps the date and changes only whose birthday the picture shows.",
+        "action-variety": "The bank keeps the date and changes only whose birthday the picture shows.",
+        "conversational-response": "The bank keeps the date and changes only whose birthday the picture shows.",
+        "reading-load": "The bank keeps the date and changes only whose birthday the picture shows."
+      },
+      "blanks": [
+        "birthday",
+        "is"
+      ],
+      "learn": false
+    },
+    {
+      "id": "b-luis",
+      "text": "Luis's birthday is on June second.",
+      "es": "El cumpleaños de Luis es el dos de junio.",
+      "image": "/lesson-assets/a1plus-unit-4-y01-1085725c0e31b38a.webp",
+      "kind": "bday",
+      "prefer": [
+        "Diego's birthday is on June second.",
+        "Ana's birthday is on June second."
+      ],
+      "accepts": {
+        "subject-variety": "The bank keeps the date and changes only whose birthday the picture shows.",
+        "action-variety": "The bank keeps the date and changes only whose birthday the picture shows.",
+        "conversational-response": "The bank keeps the date and changes only whose birthday the picture shows.",
+        "reading-load": "The bank keeps the date and changes only whose birthday the picture shows."
+      },
+      "blanks": null,
+      "learn": false
+    },
+    {
+      "id": "b-sofia",
+      "text": "Sofia's birthday is on October tenth.",
+      "es": "El cumpleaños de Sofía es el diez de octubre.",
+      "image": "/lesson-assets/a1plus-unit-4-y02-a8aa222a7525b1a1.webp",
+      "kind": "bday",
+      "prefer": [
+        "Ana's birthday is on October tenth.",
+        "Luis's birthday is on October tenth."
+      ],
+      "accepts": {
+        "subject-variety": "The bank keeps the date and changes only whose birthday the picture shows.",
+        "action-variety": "The bank keeps the date and changes only whose birthday the picture shows.",
+        "conversational-response": "The bank keeps the date and changes only whose birthday the picture shows.",
+        "reading-load": "The bank keeps the date and changes only whose birthday the picture shows."
+      },
+      "blanks": [
+        "is",
+        "on"
+      ],
+      "learn": false
+    },
+    {
+      "id": "b-diego",
+      "text": "Diego's birthday is on August fourth.",
+      "es": "El cumpleaños de Diego es el cuatro de agosto.",
+      "image": "/lesson-assets/a1plus-unit-4-y03-922f716aba71649a.webp",
+      "kind": "bday",
+      "prefer": [
+        "Luis's birthday is on August fourth.",
+        "Sofia's birthday is on August fourth."
+      ],
+      "accepts": {
+        "subject-variety": "The bank keeps the date and changes only whose birthday the picture shows.",
+        "action-variety": "The bank keeps the date and changes only whose birthday the picture shows.",
+        "conversational-response": "The bank keeps the date and changes only whose birthday the picture shows.",
+        "reading-load": "The bank keeps the date and changes only whose birthday the picture shows."
+      },
+      "blanks": null,
+      "learn": false
+    },
+    {
+      "id": "w-luis",
+      "text": "When is Luis's birthday? It's on June second.",
+      "es": "¿Cuándo es el cumpleaños de Luis? Es el dos de junio.",
+      "image": "/lesson-assets/a1plus-unit-4-y01-1085725c0e31b38a.webp",
+      "kind": "when",
+      "use": false,
+      "text_choices": false,
+      "accepts": {
+        "subject-variety": "The question names whose birthday it is; the picture shows that person.",
+        "action-variety": "The question names whose birthday it is; the picture shows that person.",
+        "conversational-response": "The question names whose birthday it is; the picture shows that person.",
+        "reading-load": "The question names whose birthday it is; the picture shows that person."
+      },
+      "turns": [
+        {
+          "text": "When is Luis's birthday?",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-4-y01-1085725c0e31b38a.webp"
+        },
+        {
+          "text": "It's on June second.",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-4-y01-1085725c0e31b38a.webp"
+        }
+      ],
+      "learn": false
+    },
+    {
+      "id": "w-sofia",
+      "text": "When is Sofia's birthday? It's on October tenth.",
+      "es": "¿Cuándo es el cumpleaños de Sofía? Es el diez de octubre.",
+      "image": "/lesson-assets/a1plus-unit-4-y02-a8aa222a7525b1a1.webp",
+      "kind": "when",
+      "use": false,
+      "text_choices": false,
+      "accepts": {
+        "subject-variety": "The question names whose birthday it is; the picture shows that person.",
+        "action-variety": "The question names whose birthday it is; the picture shows that person.",
+        "conversational-response": "The question names whose birthday it is; the picture shows that person.",
+        "reading-load": "The question names whose birthday it is; the picture shows that person."
+      },
+      "turns": [
+        {
+          "text": "When is Sofia's birthday?",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-4-y02-a8aa222a7525b1a1.webp"
+        },
+        {
+          "text": "It's on October tenth.",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-4-y02-a8aa222a7525b1a1.webp"
+        }
+      ],
+      "learn": false
+    },
+    {
+      "id": "w-diego",
+      "text": "When is Diego's birthday? It's on August fourth.",
+      "es": "¿Cuándo es el cumpleaños de Diego? Es el cuatro de agosto.",
+      "image": "/lesson-assets/a1plus-unit-4-y03-922f716aba71649a.webp",
+      "kind": "when",
+      "use": false,
+      "text_choices": false,
+      "accepts": {
+        "subject-variety": "The question names whose birthday it is; the picture shows that person.",
+        "action-variety": "The question names whose birthday it is; the picture shows that person.",
+        "conversational-response": "The question names whose birthday it is; the picture shows that person.",
+        "reading-load": "The question names whose birthday it is; the picture shows that person."
+      },
+      "turns": [
+        {
+          "text": "When is Diego's birthday?",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-4-y03-922f716aba71649a.webp"
+        },
+        {
+          "text": "It's on August fourth.",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-4-y03-922f716aba71649a.webp"
+        }
+      ],
+      "learn": false
+    },
+    {
+      "id": "w-ana",
+      "text": "When is Ana's birthday? It's on March fifth.",
+      "es": "¿Cuándo es el cumpleaños de Ana? Es el cinco de marzo.",
+      "image": "/lesson-assets/a1_photo_u4_birthday_ana_v1.webp",
+      "kind": "when",
+      "use": false,
+      "text_choices": false,
+      "accepts": {
+        "subject-variety": "The question names whose birthday it is; the picture shows that person.",
+        "action-variety": "The question names whose birthday it is; the picture shows that person.",
+        "conversational-response": "The question names whose birthday it is; the picture shows that person.",
+        "reading-load": "The question names whose birthday it is; the picture shows that person."
+      },
+      "turns": [
+        {
+          "text": "When is Ana's birthday?",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1_photo_u4_birthday_ana_v1.webp"
+        },
+        {
+          "text": "It's on March fifth.",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1_photo_u4_birthday_ana_v1.webp"
+        }
+      ],
+      "learn": false
+    },
+    {
+      "id": "r-whose",
+      "text": "It's Sofia's birthday.",
+      "es": "Es el cumpleaños de Sofía.",
+      "image": "/lesson-assets/a1plus-unit-4-y02-a8aa222a7525b1a1.webp",
+      "kind": "rw",
+      "question": "Whose birthday is it?",
+      "question_es": "¿De quién es el cumpleaños?",
+      "question_speaker": "teacher",
+      "speaker": "co-teacher",
+      "use": false,
+      "image_choices": false,
+      "prefer": [
+        "It's Luis's birthday.",
+        "It's Ana's birthday."
+      ],
+      "accepts": {
+        "subject-variety": "The question asks whose birthday it is; the picture shows whose it is.",
+        "action-variety": "The question asks whose birthday it is; the picture shows whose it is.",
+        "conversational-response": "The question asks whose birthday it is; the picture shows whose it is.",
+        "reading-load": "The question asks whose birthday it is; the picture shows whose it is."
+      },
+      "learn": false
+    },
+    {
+      "id": "r-whose2",
+      "text": "It's Luis's birthday.",
+      "es": "Es el cumpleaños de Luis.",
+      "image": "/lesson-assets/a1plus-unit-4-y01-1085725c0e31b38a.webp",
+      "kind": "rv",
+      "question": "Whose birthday is it?",
+      "question_es": "¿De quién es el cumpleaños?",
+      "question_speaker": "co-teacher",
+      "speaker": "teacher",
+      "use": false,
+      "image_choices": false,
+      "prefer": [
+        "It's Diego's birthday."
+      ],
+      "accepts": {
+        "subject-variety": "The question asks whose birthday it is; the picture shows whose it is.",
+        "action-variety": "The question asks whose birthday it is; the picture shows whose it is.",
+        "conversational-response": "The question asks whose birthday it is; the picture shows whose it is.",
+        "reading-load": "The question asks whose birthday it is; the picture shows whose it is."
+      },
+      "learn": false
+    },
+    {
+      "id": "lw-fifth",
+      "text": "Ana's birthday is on March fifth.",
+      "es": "El cumpleaños de Ana es el cinco de marzo.",
+      "image": "/lesson-assets/a1_photo_u4_birthday_ana_v1.webp",
+      "kind": "heard-lw-fifth",
+      "prefer": [
+        "Ana's birthday is on March fourth."
+      ],
+      "accepts": {
+        "subject-variety": "Listen sets one detail against another; the answer is what was heard.",
+        "action-variety": "Listen sets one detail against another; the answer is what was heard.",
+        "conversational-response": "Listen sets one detail against another; the answer is what was heard.",
+        "reading-load": "Listen sets one detail against another; the answer is what was heard."
+      },
+      "image_choices": false,
+      "use": false,
+      "learn": false
+    },
+    {
+      "id": "lw-month",
+      "text": "Luis's birthday is on June second.",
+      "es": "El cumpleaños de Luis es el dos de junio.",
+      "image": "/lesson-assets/a1plus-unit-4-y01-1085725c0e31b38a.webp",
+      "kind": "heard-lw-month",
+      "prefer": [
+        "Luis's birthday is on July second."
+      ],
+      "accepts": {
+        "subject-variety": "Listen sets one detail against another; the answer is what was heard.",
+        "action-variety": "Listen sets one detail against another; the answer is what was heard.",
+        "conversational-response": "Listen sets one detail against another; the answer is what was heard.",
+        "reading-load": "Listen sets one detail against another; the answer is what was heard."
+      },
+      "image_choices": false,
+      "use": false,
+      "learn": false
+    },
+    {
+      "id": "lw-tenth",
+      "text": "Sofia's birthday is on October tenth.",
+      "es": "El cumpleaños de Sofía es el diez de octubre.",
+      "image": "/lesson-assets/a1plus-unit-4-y02-a8aa222a7525b1a1.webp",
+      "kind": "heard-lw-tenth",
+      "prefer": [
+        "Sofia's birthday is on October second."
+      ],
+      "accepts": {
+        "subject-variety": "Listen sets one detail against another; the answer is what was heard.",
+        "action-variety": "Listen sets one detail against another; the answer is what was heard.",
+        "conversational-response": "Listen sets one detail against another; the answer is what was heard.",
+        "reading-load": "Listen sets one detail against another; the answer is what was heard."
+      },
+      "image_choices": false,
+      "use": false,
+      "learn": false
+    },
+    {
+      "id": "lw-fourth",
+      "text": "Diego's birthday is on August fourth.",
+      "es": "El cumpleaños de Diego es el cuatro de agosto.",
+      "image": "/lesson-assets/a1plus-unit-4-y03-922f716aba71649a.webp",
+      "kind": "heard-lw-fourth",
+      "prefer": [
+        "Diego's birthday is on August fifth."
+      ],
+      "accepts": {
+        "subject-variety": "Listen sets one detail against another; the answer is what was heard.",
+        "action-variety": "Listen sets one detail against another; the answer is what was heard.",
+        "conversational-response": "Listen sets one detail against another; the answer is what was heard.",
+        "reading-load": "Listen sets one detail against another; the answer is what was heard."
+      },
+      "image_choices": false,
+      "use": false,
+      "learn": false
+    },
+    {
+      "id": "lw-when",
+      "text": "When is Sofia's birthday?",
+      "es": "¿Cuándo es el cumpleaños de Sofía?",
+      "image": "/lesson-assets/a1plus-unit-4-y02-a8aa222a7525b1a1.webp",
+      "kind": "heard-lw-when",
+      "prefer": [
+        "Whose birthday is it?"
+      ],
+      "accepts": {
+        "subject-variety": "Listen sets one detail against another; the answer is what was heard.",
+        "action-variety": "Listen sets one detail against another; the answer is what was heard.",
+        "conversational-response": "Listen sets one detail against another; the answer is what was heard.",
+        "reading-load": "Listen sets one detail against another; the answer is what was heard."
+      },
+      "image_choices": false,
+      "use": false,
+      "learn": false
+    },
+    {
+      "id": "x-when",
+      "text": "When is your birthday? It's on March fifth.",
+      "es": "¿Cuándo es tu cumpleaños? Es el cinco de marzo.",
+      "image": "/lesson-assets/a1_photo_u4_birthday_ana_v1.webp",
+      "kind": "xw",
+      "image_choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "When is your birthday?",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1_photo_u4_birthday_ana_v1.webp"
+        },
+        {
+          "text": "It's on March fifth.",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1_photo_u4_birthday_ana_v1.webp"
+        }
+      ],
+      "accepts": {
+        "subject-variety": "Listen sets one detail against another; the answer is what was heard.",
+        "action-variety": "Listen sets one detail against another; the answer is what was heard.",
+        "conversational-response": "Listen sets one detail against another; the answer is what was heard.",
+        "reading-load": "Listen sets one detail against another; the answer is what was heard."
+      },
+      "prefer": [
+        "When is your birthday? It's on May fifth."
+      ],
+      "learn": false
+    },
+    {
+      "id": "x-when2",
+      "text": "When is Diego's birthday? It's on August fourth.",
+      "es": "¿Cuándo es el cumpleaños de Diego? Es el cuatro de agosto.",
+      "image": "/lesson-assets/a1plus-unit-4-y03-922f716aba71649a.webp",
+      "kind": "xv",
+      "image_choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "When is Diego's birthday?",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-4-y03-922f716aba71649a.webp"
+        },
+        {
+          "text": "It's on August fourth.",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-4-y03-922f716aba71649a.webp"
+        }
+      ],
+      "accepts": {
+        "subject-variety": "Listen sets one detail against another; the answer is what was heard.",
+        "action-variety": "Listen sets one detail against another; the answer is what was heard.",
+        "conversational-response": "Listen sets one detail against another; the answer is what was heard.",
+        "reading-load": "Listen sets one detail against another; the answer is what was heard."
+      },
+      "prefer": [
+        "When is Diego's birthday? It's on August tenth."
+      ],
+      "learn": false
+    },
+    {
+      "id": "q-when",
+      "text": "When is your birthday?",
+      "es": "¿Cuándo es tu cumpleaños?",
+      "image": "/lesson-assets/a1_photo_u4_birthday_ana_v1.webp",
+      "kind": "use",
+      "speaker": "co-teacher",
+      "choices": false,
+      "blanks": [
+        "When",
+        "is"
+      ],
+      "learn": false
+    },
+    {
+      "id": "u-my",
+      "text": "My birthday is on March fifth.",
+      "es": "Mi cumpleaños es el cinco de marzo.",
+      "image": "/lesson-assets/a1_photo_u4_birthday_ana_v1.webp",
+      "kind": "use",
+      "speaker": "teacher",
+      "choices": false,
+      "blanks": [
+        "is",
+        "on"
+      ],
+      "learn": false
+    },
+    {
+      "id": "u-its",
+      "text": "It's on August fourth.",
+      "es": "Es el cuatro de agosto.",
+      "image": "/lesson-assets/a1plus-unit-4-y03-922f716aba71649a.webp",
+      "kind": "use",
+      "speaker": "co-teacher",
+      "choices": false,
+      "blanks": [
+        "August",
+        "fourth"
+      ],
+      "learn": false
+    },
+    {
+      "id": "u-tenth",
+      "text": "My birthday is on October tenth.",
+      "es": "Mi cumpleaños es el diez de octubre.",
+      "image": "/lesson-assets/a1plus-unit-4-y02-a8aa222a7525b1a1.webp",
+      "kind": "use",
+      "speaker": "teacher",
+      "choices": false,
+      "blanks": null,
+      "learn": false
+    },
+    {
+      "id": "u-when2",
+      "text": "When is Luis's birthday?",
+      "es": "¿Cuándo es el cumpleaños de Luis?",
+      "image": "/lesson-assets/a1plus-unit-4-y01-1085725c0e31b38a.webp",
+      "kind": "use",
+      "speaker": "teacher",
+      "choices": false,
+      "blanks": null,
+      "learn": false
+    }
+  ],
+  "pool": [
+    {
+      "text": "Luis's birthday is on March fifth.",
+      "es": "El cumpleaños de Luis es el cinco de marzo.",
+      "image": "/lesson-assets/a1_photo_u4_birthday_ana_v1.webp",
+      "kind": "bday",
+      "image_choices": false
+    },
+    {
+      "text": "Sofia's birthday is on March fifth.",
+      "es": "El cumpleaños de Sofía es el cinco de marzo.",
+      "image": "/lesson-assets/a1_photo_u4_birthday_ana_v1.webp",
+      "kind": "bday",
+      "image_choices": false
+    },
+    {
+      "text": "Diego's birthday is on June second.",
+      "es": "El cumpleaños de Diego es el dos de junio.",
+      "image": "/lesson-assets/a1plus-unit-4-y01-1085725c0e31b38a.webp",
+      "kind": "bday",
+      "image_choices": false
+    },
+    {
+      "text": "Ana's birthday is on June second.",
+      "es": "El cumpleaños de Ana es el dos de junio.",
+      "image": "/lesson-assets/a1plus-unit-4-y01-1085725c0e31b38a.webp",
+      "kind": "bday",
+      "image_choices": false
+    },
+    {
+      "text": "Ana's birthday is on October tenth.",
+      "es": "El cumpleaños de Ana es el diez de octubre.",
+      "image": "/lesson-assets/a1plus-unit-4-y02-a8aa222a7525b1a1.webp",
+      "kind": "bday",
+      "image_choices": false
+    },
+    {
+      "text": "Luis's birthday is on October tenth.",
+      "es": "El cumpleaños de Luis es el diez de octubre.",
+      "image": "/lesson-assets/a1plus-unit-4-y02-a8aa222a7525b1a1.webp",
+      "kind": "bday",
+      "image_choices": false
+    },
+    {
+      "text": "Luis's birthday is on August fourth.",
+      "es": "El cumpleaños de Luis es el cuatro de agosto.",
+      "image": "/lesson-assets/a1plus-unit-4-y03-922f716aba71649a.webp",
+      "kind": "bday",
+      "image_choices": false
+    },
+    {
+      "text": "Sofia's birthday is on August fourth.",
+      "es": "El cumpleaños de Sofía es el cuatro de agosto.",
+      "image": "/lesson-assets/a1plus-unit-4-y03-922f716aba71649a.webp",
+      "kind": "bday",
+      "image_choices": false
+    },
+    {
+      "text": "It's Luis's birthday.",
+      "es": "Es el cumpleaños de Luis.",
+      "image": "/lesson-assets/a1plus-unit-4-y02-a8aa222a7525b1a1.webp",
+      "kind": "rw",
+      "image_choices": false
+    },
+    {
+      "text": "It's Ana's birthday.",
+      "es": "Es el cumpleaños de Ana.",
+      "image": "/lesson-assets/a1plus-unit-4-y02-a8aa222a7525b1a1.webp",
+      "kind": "rw",
+      "image_choices": false
+    },
+    {
+      "text": "It's Diego's birthday.",
+      "es": "Es el cumpleaños de Diego.",
+      "image": "/lesson-assets/a1plus-unit-4-y01-1085725c0e31b38a.webp",
+      "kind": "rv",
+      "image_choices": false
+    },
+    {
+      "text": "Ana's birthday is on March fourth.",
+      "es": "El cumpleaños de Ana es el cuatro de marzo.",
+      "image": "/lesson-assets/a1_photo_u4_birthday_ana_v1.webp",
+      "kind": "heard-lw-fifth",
+      "image_choices": false
+    },
+    {
+      "text": "Luis's birthday is on July second.",
+      "es": "El cumpleaños de Luis es el dos de julio.",
+      "image": "/lesson-assets/a1plus-unit-4-y01-1085725c0e31b38a.webp",
+      "kind": "heard-lw-month",
+      "image_choices": false
+    },
+    {
+      "text": "Sofia's birthday is on October second.",
+      "es": "El cumpleaños de Sofía es el dos de octubre.",
+      "image": "/lesson-assets/a1plus-unit-4-y02-a8aa222a7525b1a1.webp",
+      "kind": "heard-lw-tenth",
+      "image_choices": false
+    },
+    {
+      "text": "Diego's birthday is on August fifth.",
+      "es": "El cumpleaños de Diego es el cinco de agosto.",
+      "image": "/lesson-assets/a1plus-unit-4-y03-922f716aba71649a.webp",
+      "kind": "heard-lw-fourth",
+      "image_choices": false
+    },
+    {
+      "text": "Whose birthday is it?",
+      "es": "¿De quién es el cumpleaños?",
+      "image": "/lesson-assets/a1plus-unit-4-y02-a8aa222a7525b1a1.webp",
+      "kind": "heard-lw-when",
+      "image_choices": false
+    },
+    {
+      "text": "When is your birthday? It's on May fifth.",
+      "es": "¿Cuándo es tu cumpleaños? Es el cinco de mayo.",
+      "image": "/lesson-assets/a1_photo_u4_birthday_ana_v1.webp",
+      "kind": "xw",
+      "image_choices": false
+    },
+    {
+      "text": "When is Diego's birthday? It's on August tenth.",
+      "es": "¿Cuándo es el cumpleaños de Diego? Es el diez de agosto.",
+      "image": "/lesson-assets/a1plus-unit-4-y03-922f716aba71649a.webp",
+      "kind": "xv",
+      "image_choices": false
+    }
+  ],
+  "layout": {
+    "Recognize": 10,
+    "Listen": 10,
+    "Speak": 8,
+    "Use": 8
+  },
+  "stage_sequences": {
+    "Learn": [
+      "l-when",
+      "l-luis",
+      "l-sofia",
+      "l-diego"
+    ],
+    "Recognize": [
+      "b-ana",
+      "r-whose",
+      "b-luis",
+      "w-sofia",
+      "b-diego",
+      "r-whose2",
+      "w-luis",
+      "b-ana",
+      "w-diego",
+      "b-sofia"
+    ],
+    "Listen": [
+      "b-sofia",
+      "lw-fifth",
+      "x-when",
+      "b-luis",
+      "lw-month",
+      "lw-tenth",
+      "x-when2",
+      "lw-fourth",
+      "lw-when",
+      "b-diego"
+    ],
+    "Speak": [
+      "q-when",
+      "u-my",
+      "b-luis",
+      "b-sofia",
+      "u-its",
+      "b-diego",
+      "u-tenth",
+      "u-when2"
+    ],
+    "Use": [
+      "q-when",
+      "u-my",
+      "b-ana",
+      "b-sofia",
+      "u-its",
+      "b-luis",
+      "u-tenth",
+      "u-when2"
+    ]
+  }
+}

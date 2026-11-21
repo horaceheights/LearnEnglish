@@ -1,0 +1,62 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "96ee6d12-428c-4ae1-8d06-f3df474bd1bc",
+  "asset_id": "y02-sofia-birthday",
+  "pack_sha256": "c928ea793ad198513670783bc1ba5fcde49beb7015c3ec4c26e4fd955525ca34",
+  "started_at": "2026-11-21T08:07:35.876389+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, menus, screens, cups, clothes or bags.\n\nKeep the people and the thing that carries the meaning inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nOnly this one person is in the photo; there is nobody else, even far in the background.\n\nImage 1 shows Sofia. Keep her face, warm brown skin, dark curly shoulder-length hair, bright blue blazer and white blouse exactly. Create a new photograph in the style of a warm, simple birthday at home in the daytime: Sofia sits alone at a light wooden dining table in a bright living room with big windows and a few plants, wearing a small plain kraft-paper party hat. In front of her on the table is a round homemade cake with white frosting on a white plate, with six thin plain candles, all lit with small flames. Three plain balloons, one red, one yellow and one blue, float behind her. She smiles happily and looks down at the cake. The person, the cake and the candles are large and clearly visible in the middle of the photo. The candles are plain and thin, not number candles, and nothing anywhere shows a number or a letter.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1plus-unit-1-e04-6d90a3fba7400492.webp",
+    "sha256": "6d90a3fba74004929d74574bc70cc985787d3d9c37663cf080f52839afa3c312"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "RFEBa7ipIfDQz7IPo9iK4QU",
+  "usage": {
+    "promptTokenCount": 637,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1927,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 379
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038891",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 637,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 7.87,
+  "output": "output/imagegen/a1plus-unit-4-lesson-v4130/y02-sofia-birthday.png",
+  "sha256": "9b728948af9318f2bf0585f2e11a153383ddb7c3b3df5f217d708ad05d678ad8",
+  "byte_count": 1189440,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}

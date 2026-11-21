@@ -1,0 +1,55 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "ad0eaf1c-75e6-4e71-aca8-6afce34e61ad",
+  "asset_id": "s03-books-some",
+  "pack_sha256": "6b1926963bd089e4bff40b0242d901ffc735d855f228302eacc3d833325be56a",
+  "started_at": "2026-11-21T08:06:49.967446+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, menus, screens, cups, clothes or bags.\n\nKeep the people and the thing that carries the meaning inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nThere are no people and no animals anywhere in the photo.\n\nA bright, tidy living room in the daytime. In the middle of the photo stands a light-grey three-seat sofa with two plain cushions, seen from the front, with nothing on its seats but what is described. There is no table in the photo; a plant stands beside the sofa. Four hardcover books in different colors (red, blue, green and yellow) lie on the middle seat of the sofa, large and clearly visible.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "FlEBa77UF9q8qtsPooicsAw",
+  "usage": {
+    "promptTokenCount": 280,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1570,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 280
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038784",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 280,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 5.89,
+  "output": "output/imagegen/a1plus-unit-4-lesson-v4150/s03-books-some.png",
+  "sha256": "eef8cadd60ab0b792ac5bf363ec6fb8c144d557b1161dd3834c91538ed86ee2b",
+  "byte_count": 1578265,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}
