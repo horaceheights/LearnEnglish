@@ -97,7 +97,7 @@ test('Spanish course cards explain Spanish order, agreement, es/está and one-or
     '¿Quiénes son ellos?', '¿Quién es ella?']) {
     assert.equal(constructionTeachingPlan(card(supported)).supported, true, supported);
   }
-  for (const unsupported of ['¿Quiénes es ellos?', '¿Quién es ellos?', 'Él no es el padre.', 'La padre está cocinando.']) {
+  for (const unsupported of ['¿Quiénes es ellos?', '¿Quién es ellos?', 'La padre está cocinando.']) {
     assert.equal(constructionTeachingPlan(card(unsupported)).supported, false, unsupported);
   }
   const negation = card('Él no está cocinando.');
@@ -133,6 +133,22 @@ test('Spanish course cards explain Spanish order, agreement, es/está and one-or
   const color = card('Las bolsas son blancas.');
   assert.equal(constructionMistakeHint(color, swap(color, 2, 3)),
     'You put “blancas” where “son” goes. After “son” comes the color or size, matching “Las bolsas”: “blancas”.');
+  // Spanish Unit 3: yo/tú/nosotros, tener, de + country, jobs and nationalities that agree, mi/tu/su/nuestro.
+  for (const supported of ['Me llamo Ana.', '¿Cómo te llamas?', 'Yo soy Ana.', 'Tú eres Luis.', 'Nosotros estamos hablando.',
+    'Estoy cocinando.', 'Tengo catorce años.', 'Ella tiene dieciséis años.', 'Soy de Estados Unidos.', 'La abuela es de España.',
+    'Soy canadiense.', 'Ella es agricultora.', 'Él es mesero.', 'Este es mi libro.', 'Estos son nuestros libros.',
+    'Esta es nuestra casa.', 'Su nombre es Sofía.', 'Ellos tienen su equipaje.', 'Tenemos libros.', 'Esto es Estados Unidos.',
+    '¿Él está comiendo? No, no está comiendo.', '¿Estás leyendo?', '¿Ella es mecánica? No, no es mecánica.',
+    '¿Qué están haciendo ellos?', '¿De dónde eres?', 'Es el número diecinueve.', 'Él no es el padre.']) {
+    assert.equal(constructionTeachingPlan(card(supported)).supported, true, supported);
+  }
+  for (const unsupported of ['Yo es Ana.', 'Tú soy Luis.', 'Ella es agricultor.', 'Él es mesera.', 'Este es mi casa.',
+    'Estos son nuestras libros.', 'Ella tiene dieciséis.', 'Yo tengo una libro.', 'Me llamo.', 'Soy de Francia.']) {
+    assert.equal(constructionTeachingPlan(card(unsupported)).supported, false, unsupported);
+  }
+  const age = card('Tengo catorce años.');
+  assert.equal(constructionMistakeHint(age, swap(age, 1, 2)),
+    'You put “años” where “catorce” goes. Age uses tener: “Tengo catorce años”, not ser.');
   const notDoing = choice('Ella no está leyendo.', 'Ella está leyendo.', 'She is not reading.');
   assert.equal(spanishChoiceHint(notDoing, 'wrong'),
     'You heard “Ella no está leyendo”: She is not reading. “no” before the verb means “not”.');
