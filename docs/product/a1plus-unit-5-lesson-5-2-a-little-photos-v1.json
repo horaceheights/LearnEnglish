@@ -1,0 +1,160 @@
+{
+  "schema_version": 1,
+  "pack": "a1plus-unit-5-lesson-5-2-a-little-photos",
+  "revision": 1,
+  "output_namespace": "a1plus-unit-5-lesson-v520",
+  "authorization": "2026-11-20: the user asked to \"work on a1+ Unit 5 same all deal as before none stop all approved\" (the Units 2-4 deal: straight to Preview in batches with Gemini 2.5 Flash photos and ElevenLabs audio pre-approved and reviewed in Preview). Gemini is the approved image tool (2026-09-23), Flash only (2026-11-17; \"lets switch to flash for any other images\", 2026-11-19).",
+  "image_settings": {
+    "provider": "google-gemini",
+    "model": "gemini-2.5-flash-image",
+    "aspect_ratio": "3:2",
+    "image_size": "1K",
+    "runtime_size": "1536x1024",
+    "runtime_format": "webp",
+    "n": 1
+  },
+  "production": {
+    "price_per_image_usd": "0.0387",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing (checked 2026-11-16: Gemini 2.5 Flash Image, about $0.039 per image)",
+    "planned_images": 8,
+    "expected_cost_usd": "0.31",
+    "requested_ceiling_usd": "0.55",
+    "ceiling_note": "The renderer reserves US$0.20 before each request; each request is sent on its own, and the expected spend for the pack is about US$0.31.",
+    "no_automatic_retries": true,
+    "order": [
+      "m01-lots-rice",
+      "m02-little-rice",
+      "m03-lots-pasta",
+      "m04-little-pasta",
+      "m05-lots-cheese",
+      "m06-little-cheese",
+      "c04-luis-lots-pasta",
+      "c05-sofia-little-rice"
+    ]
+  },
+  "shared_prompts": {
+    "photo": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, menus, screens, cups, clothes or bags.",
+    "safe_center": "Keep the people and the thing that carries the meaning inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.",
+    "solo": "Only this one person is in the photo; there is nobody else, even far in the background.",
+    "pair": "Only these two people are in the photo; there is nobody else, even far in the background.",
+    "daytime": "It is clearly daytime with soft natural light.",
+    "kitchen": "The place is a bright, tidy home kitchen with a light wooden table, white walls and a big window; nothing else is on the table.",
+    "still": "No people, hands or animals are in the photo. The food sits in the middle of the table and fills the central part of the photo, sharp and easy to count or judge on a small phone screen.",
+    "few": "Exactly three pieces are visible, clearly separate, not touching, with plenty of empty space around them so the small amount is obvious at once.",
+    "lots": "There are so many that they cannot be counted at a glance: a big generous heap.",
+    "keep": "Keep each pictured person's face, hair, skin, build and clothes exactly as in the reference image; they look natural and relaxed, not posing for the camera."
+  },
+  "assets": [
+    {
+      "id": "m01-lots-rice",
+      "order": 1,
+      "item": "There's a lot of rice.",
+      "shared": [
+        "photo",
+        "kitchen",
+        "still",
+        "daytime",
+        "lots"
+      ],
+      "prompt": "A big white plate heaped high with a big mountain of cooked white rice, on a light wooden kitchen table."
+    },
+    {
+      "id": "m02-little-rice",
+      "order": 2,
+      "item": "There's a little rice.",
+      "shared": [
+        "photo",
+        "kitchen",
+        "still",
+        "daytime"
+      ],
+      "prompt": "The same kind of big white plate, almost empty: only one small spoonful of cooked white rice sits in the middle of the plate, with lots of empty white plate around it, on a light wooden kitchen table."
+    },
+    {
+      "id": "m03-lots-pasta",
+      "order": 3,
+      "item": "There's a lot of pasta.",
+      "shared": [
+        "photo",
+        "kitchen",
+        "still",
+        "daytime",
+        "lots"
+      ],
+      "prompt": "A big white bowl heaped high with lots of cooked spaghetti with red tomato sauce, on a light wooden kitchen table."
+    },
+    {
+      "id": "m04-little-pasta",
+      "order": 4,
+      "item": "There's a little pasta.",
+      "shared": [
+        "photo",
+        "kitchen",
+        "still",
+        "daytime"
+      ],
+      "prompt": "A big white bowl, almost empty: only a small forkful of cooked spaghetti with red tomato sauce lies at the bottom, with lots of empty white bowl around it, on a light wooden kitchen table."
+    },
+    {
+      "id": "m05-lots-cheese",
+      "order": 5,
+      "item": "There's a lot of cheese.",
+      "shared": [
+        "photo",
+        "kitchen",
+        "still",
+        "daytime",
+        "lots"
+      ],
+      "prompt": "A big wooden board with a huge round wheel of yellow cheese, on a light wooden kitchen table."
+    },
+    {
+      "id": "m06-little-cheese",
+      "order": 6,
+      "item": "There's a little cheese.",
+      "shared": [
+        "photo",
+        "kitchen",
+        "still",
+        "daytime"
+      ],
+      "prompt": "The same kind of big wooden board, almost empty: only one small thin slice of yellow cheese lies in the middle, with lots of empty board around it, on a light wooden kitchen table."
+    },
+    {
+      "id": "c04-luis-lots-pasta",
+      "order": 7,
+      "item": "Luis eats a lot of pasta.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "solo",
+        "daytime",
+        "keep"
+      ],
+      "prompt": "Image 1 shows Luis. Luis sits at the light wooden table of his bright kitchen and eats spaghetti with a fork. In front of him is a very big white bowl heaped high with lots of spaghetti with red tomato sauce.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-q01-135c3f8f772bcbe4.webp",
+        "sha256": "135c3f8f772bcbe472b8cec719eb02318a7d52ce1c7152a94c6952aeb78566c2",
+        "observed_description": "Luis (short dark curly hair, clean-shaven, warm medium-brown skin, navy crew-neck T-shirt) drinks coffee from a white mug at a wooden table in his bright kitchen (A1+ 1.2)."
+      }
+    },
+    {
+      "id": "c05-sofia-little-rice",
+      "order": 8,
+      "item": "Sofia eats a little rice.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "solo",
+        "daytime",
+        "keep"
+      ],
+      "prompt": "Image 1 shows Sofia. Sofia sits at a light wooden kitchen table and eats with a fork from a big white plate that is almost empty: only one small spoonful of white rice is on it, clearly a very small amount.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-q03-7d520a07846a47b8.webp",
+        "sha256": "7d520a07846a47b8e8389c3226f3b3639d7eed0d257318b08e4f9b77c5b2258b",
+        "observed_description": "Sofia (long curly dark hair, warm brown skin, white blouse under a bright blue blazer) writes in a large notebook at a wooden desk by a bright window in her home study (A1+ 1.2)."
+      }
+    }
+  ]
+}

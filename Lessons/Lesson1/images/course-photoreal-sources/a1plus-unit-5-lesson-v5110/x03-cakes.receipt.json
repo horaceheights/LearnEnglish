@@ -1,0 +1,55 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "f7c493a8-ea02-4c0e-8ae2-38d26ed32c3e",
+  "asset_id": "x03-cakes",
+  "pack_sha256": "a4b28fe55e8d4e5c31d3de29af38a6ec23d5a85b5d94ad490fd71f3e22042986",
+  "started_at": "2026-11-21T04:37:20.290478+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. No letters, words, logos or brand marks anywhere. The only writing in the photo is each price card described: a small white card on a little stand with a dollar sign and a number in big, thick black print, upright, facing the camera, sharp and easy to read on a small phone screen. No other signs, labels, screens or clothes show any digit or letter.\n\nKeep the people and the thing that carries the meaning inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nIt is clearly daytime with soft natural light.\n\nTwo of the same kind of thing stand side by side on a plain light wooden shop table against a plain light wall, each with its own price card right in front of it. No people. On the left one small round white cake with a price card that reads $20; on the right one big round white cake with a price card that reads $40.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "_R8Ba7iTHsiez7IPkfuLoAg",
+  "usage": {
+    "promptTokenCount": 306,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1596,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 306
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038792",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 306,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 5.94,
+  "output": "output/imagegen/a1plus-unit-5-lesson-v5110/x03-cakes.png",
+  "sha256": "90c2d516fbc4b4e83505f67ce233cc0a5714f5e5a0b1e89aa64b4753fc3214a5",
+  "byte_count": 1048293,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}

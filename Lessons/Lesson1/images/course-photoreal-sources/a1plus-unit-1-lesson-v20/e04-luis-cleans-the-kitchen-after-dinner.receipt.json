@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "6d6d4be8-efef-4451-a2a9-bd171448cbac",
+  "asset_id": "e04-luis-cleans-the-kitchen-after-dinner",
+  "pack_sha256": "f140cd5f93382ce5bb4b3857096f395ae469b40832cf3621926c63a0878a1426",
+  "started_at": "2026-10-31T21:47:46.566578+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture, soft natural light and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, logos or brand marks anywhere, including on objects, screens, clothing, signs and packaging. A first-time learner must understand the picture instantly on a small phone screen. Every hand has five natural fingers. Do not imitate earlier course photos.\n\nKeep every person, hand and object the meaning depends on inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nThe camera has a clear, unobstructed view of the scene from across the room: nothing stands between the camera and the person, no object is in the near foreground, and the whole photo is in sharp focus, with no blurred objects, shapes or bands at its edges.\n\nEarly evening on a weekday at home, after work: warm light from indoor lamps, and any window shows a soft blue dusk sky. No clock, watch, phone, tablet or screen anywhere in the photo.\n\nImage 1 shows Luis. Keep his face, hair and build exactly, and his clothes: the navy crew-neck T-shirt and khaki chinos. Create a new photograph in Luis's own small kitchen (not Ana's): grey-blue cabinets, a white countertop, a white gas stove, a stainless-steel sink, a small square wooden table with two chairs, and one window, later in the evening: the window is dark blue. Dinner is over. On the small wooden table stand one used white plate with a few leftover grains of rice and a smear of sauce, a used fork and an empty glass. Luis leans over the table and wipes it clean with a blue cloth in his right hand, turned three-quarters toward the camera with a calm smile. On the counter by the sink behind him wait the used frying pan and the empty rice pot. No backpack or keys. The dirty plate, the cloth and his face are clearly visible. He is the only person.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1plus-unit-1-t20-9b499b2f4d509ecd.webp",
+    "sha256": "9b499b2f4d509ecdc63949395583060de7bd3f1d97d481c06da57a9083c7cc5f"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "BWLmavDOOZaIqtsPoczniAE",
+  "usage": {
+    "promptTokenCount": 734,
+    "candidatesTokenCount": 1366,
+    "totalTokenCount": 2340,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 476
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 240,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.138348",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 734,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 240
+  },
+  "elapsed_seconds": 38.2,
+  "output": "output/imagegen/a1plus-unit-1-lesson-v20/e04-luis-cleans-the-kitchen-after-dinner.png",
+  "sha256": "4713f255d97fc1c2fbe7b3f9135bddd5fcb99f1d60d9bb6e80e5d7b7d60ef194",
+  "byte_count": 5102290,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

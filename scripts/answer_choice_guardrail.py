@@ -70,7 +70,8 @@ def normalized(text):
     for suffix, expansion in [("'re", " are"), ("'m", " am"), ("'ve", " have"),
                               ("'ll", " will"), ("'d", " would")]:
         text = text.replace(suffix, expansion)
-    # A1+ 6.6 and 6.13 (2026-11-20): where's and here's are where is and here is (Where's the bookstore? Here's your key.).
+    # A1+ 6.6 and 6.13 (2026-11-20): where's and here's are where is and here is (Where's the bookstore? Here's your key.);
+    # A1+ 4.1's Where's the boy? / Where's the grandmother? bank therefore reads as sentences, not phrases.
     text = re.sub(r"\b(he|she|it|that|this|there|what|who|where|here)'s\b", r"\1 is", text)
     text = re.sub(r"'s(?=\s+\w+ing\b)", " is", text)
     return text

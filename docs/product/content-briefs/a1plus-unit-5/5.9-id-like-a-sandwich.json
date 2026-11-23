@@ -1,0 +1,541 @@
+{
+  "brief_version": 1,
+  "follows": {
+    "course": "a1",
+    "lesson": "5.9",
+    "title": "Ordering Politely 1: At a Café"
+  },
+  "note": "A1+ Unit 5 Lesson 5.9, built on 2026-11-20 under the A1+ lesson standards approved 2026-10-27 and the user's 2026-11-09 rule that every A1+ lesson follows up the A1 lesson with the same number. The user asked on 2026-11-20 to \"work on a1+ Unit 5 same all deal as before none stop all approved\": A1+ 5.Y follows A1 5.Y with one step each, straight to Preview in batches, Gemini 2.5 Flash photos and ElevenLabs audio pre-approved, no per-lesson gates, reviewed in Preview. Four café counter photos: Luis with a sandwich, Ana with a cup of tea, Sofia with an orange juice, Diego with a slice of chocolate cake; the waiter is never pictured.",
+  "target": "backend/lessons/a1_plus/unit_5/a1plus-unit-5-lesson-5-9.yaml",
+  "captions": false,
+  "narrators": [
+    "teacher",
+    "co-teacher"
+  ],
+  "answer_audio_policy": "authored-only",
+  "speak_delivery": "a1-pronunciation-v1",
+  "lesson": {
+    "id": "a1plus-unit-5-lesson-5-9",
+    "title": "5.9 I'd like a sandwich, please",
+    "level": "A1+",
+    "unit_id": "a1plus-unit-5",
+    "unit_title": "Food, drinks and shopping",
+    "unit_outcome": "Say how much and how many, offer and order food and drinks politely, agree about likes, say what you want and need to do, talk about meals, prices and what is in your food, compare prices, use numbers to ninety-nine and ask for things at the table.",
+    "lesson_id": "a1plus-unit-5-lesson-5-9",
+    "lesson_title": "I'd like a sandwich, please",
+    "sub_lesson_id": "5.9",
+    "sub_lesson_title": "I'd like a sandwich, please",
+    "goal": "Order politely at a café with I'd like …, please. and understand the question What would you like?",
+    "vocabulary": [
+      "I'd like",
+      "What would you like?"
+    ],
+    "review_vocabulary": [
+      "please",
+      "a sandwich",
+      "a cup of tea",
+      "an orange juice",
+      "some cake",
+      "Can I have …?",
+      "Would you like …?"
+    ],
+    "grammar_function": "A follow-up of A1 5.9 Ordering Politely 1: At a Café: A1 orders with Can I have …, please? and hands things over with Here is your …; A1+ 5.9 orders with I'd like …, please. and understands the waiter's What would you like?, after 5.3's Would you like …? offer. I'd like is learnt as a whole (the short form of would is not taken apart). Each cast member stands at the café counter with what they ordered; the waiter is never pictured, so a narrator in a voice other than the customer's asks. Listen sets I'd like against A1's Can I have …?",
+    "prerequisite": "A1 5.9 Can I have …, please?; A1+ 5.3 Would you like …?; A1 5.13 sandwich; A1 5.14 cup, of, cake; A1+ 4.15 some.",
+    "speaking_outcome": "Say I'd like as one word-group (IDE-like), with the d short; do not require native-like speed.",
+    "content_revision": 1,
+    "learn_context_groups": [
+      {
+        "kind": "sequence",
+        "targets": [
+          "What would you like?"
+        ],
+        "models": [
+          {
+            "slide_id": "L1",
+            "text": "What would you like?"
+          }
+        ]
+      },
+      {
+        "kind": "sequence",
+        "targets": [
+          "I'd like"
+        ],
+        "models": [
+          {
+            "slide_id": "L2",
+            "text": "I'd like a sandwich, please."
+          }
+        ]
+      },
+      {
+        "kind": "sequence",
+        "targets": [
+          "I'd like"
+        ],
+        "models": [
+          {
+            "slide_id": "L3",
+            "text": "I'd like a cup of tea, please."
+          }
+        ]
+      },
+      {
+        "kind": "sequence",
+        "targets": [
+          "I'd like"
+        ],
+        "models": [
+          {
+            "slide_id": "L4",
+            "text": "I'd like some cake, please."
+          }
+        ]
+      }
+    ]
+  },
+  "items": [
+    {
+      "id": "l-what",
+      "text": "What would you like?",
+      "es": "¿Qué le gustaría?",
+      "image": "/lesson-assets/a1plus-unit-5-q01-ca6bd5e33bb6d4c3.webp",
+      "kind": "sequence",
+      "choices": false,
+      "use": false,
+      "learn": true,
+      "speaker": "teacher"
+    },
+    {
+      "id": "l-id-like",
+      "text": "I'd like a sandwich, please.",
+      "es": "Quisiera un sándwich, por favor.",
+      "image": "/lesson-assets/a1plus-unit-5-q01-ca6bd5e33bb6d4c3.webp",
+      "kind": "sequence",
+      "choices": false,
+      "use": false,
+      "learn": true,
+      "speaker": "luis"
+    },
+    {
+      "id": "l-tea",
+      "text": "I'd like a cup of tea, please.",
+      "es": "Quisiera una taza de té, por favor.",
+      "image": "/lesson-assets/a1plus-unit-5-q02-6e5d6f9c4b6cf6f6.webp",
+      "kind": "sequence",
+      "choices": false,
+      "use": false,
+      "learn": true,
+      "speaker": "ana"
+    },
+    {
+      "id": "l-cake",
+      "text": "I'd like some cake, please.",
+      "es": "Quisiera un poco de pastel, por favor.",
+      "image": "/lesson-assets/a1plus-unit-5-q04-f845d818de971072.webp",
+      "kind": "sequence",
+      "choices": false,
+      "use": false,
+      "learn": true,
+      "speaker": "diego"
+    },
+    {
+      "id": "o-sandwich",
+      "text": "I'd like a sandwich, please.",
+      "es": "Quisiera un sándwich, por favor.",
+      "image": "/lesson-assets/a1plus-unit-5-q01-ca6bd5e33bb6d4c3.webp",
+      "kind": "order",
+      "speaker": "luis",
+      "question": "What would you like?",
+      "question_es": "¿Qué le gustaría?",
+      "question_speaker": "teacher",
+      "prefer": [
+        "I'd like a cup of tea, please.",
+        "I'd like an orange juice, please."
+      ],
+      "accepts": {
+        "subject-variety": "Listen: the answer is what was heard; I'd like and Can I have … are told apart by ear.",
+        "action-variety": "Listen: the answer is what was heard; I'd like and Can I have … are told apart by ear.",
+        "conversational-response": "Listen: the answer is what was heard; I'd like and Can I have … are told apart by ear.",
+        "reading-load": "Listen: the answer is what was heard; I'd like and Can I have … are told apart by ear."
+      },
+      "blanks": [
+        "I'd",
+        "like"
+      ],
+      "learn": false
+    },
+    {
+      "id": "x-sandwich",
+      "text": "What would you like? I'd like a sandwich, please.",
+      "es": "¿Qué le gustaría? Quisiera un sándwich, por favor.",
+      "image": "/lesson-assets/a1plus-unit-5-q01-ca6bd5e33bb6d4c3.webp",
+      "kind": "exchange",
+      "turns": [
+        {
+          "text": "What would you like?",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-5-q01-ca6bd5e33bb6d4c3.webp"
+        },
+        {
+          "text": "I'd like a sandwich, please.",
+          "speaker": "luis",
+          "image": "/lesson-assets/a1plus-unit-5-q01-ca6bd5e33bb6d4c3.webp"
+        }
+      ],
+      "choices": false,
+      "use": false,
+      "learn": false
+    },
+    {
+      "id": "o-tea",
+      "text": "I'd like a cup of tea, please.",
+      "es": "Quisiera una taza de té, por favor.",
+      "image": "/lesson-assets/a1plus-unit-5-q02-6e5d6f9c4b6cf6f6.webp",
+      "kind": "order",
+      "speaker": "ana",
+      "question": "What would you like?",
+      "question_es": "¿Qué le gustaría?",
+      "question_speaker": "co-teacher",
+      "prefer": [
+        "I'd like a sandwich, please.",
+        "I'd like an orange juice, please."
+      ],
+      "accepts": {
+        "subject-variety": "Listen: the answer is what was heard; I'd like and Can I have … are told apart by ear.",
+        "action-variety": "Listen: the answer is what was heard; I'd like and Can I have … are told apart by ear.",
+        "conversational-response": "Listen: the answer is what was heard; I'd like and Can I have … are told apart by ear.",
+        "reading-load": "Listen: the answer is what was heard; I'd like and Can I have … are told apart by ear."
+      },
+      "blanks": [
+        "tea",
+        "please"
+      ],
+      "learn": false
+    },
+    {
+      "id": "x-tea",
+      "text": "What would you like? I'd like a cup of tea, please.",
+      "es": "¿Qué le gustaría? Quisiera una taza de té, por favor.",
+      "image": "/lesson-assets/a1plus-unit-5-q02-6e5d6f9c4b6cf6f6.webp",
+      "kind": "exchange",
+      "turns": [
+        {
+          "text": "What would you like?",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-5-q02-6e5d6f9c4b6cf6f6.webp"
+        },
+        {
+          "text": "I'd like a cup of tea, please.",
+          "speaker": "ana",
+          "image": "/lesson-assets/a1plus-unit-5-q02-6e5d6f9c4b6cf6f6.webp"
+        }
+      ],
+      "choices": false,
+      "use": false,
+      "learn": false
+    },
+    {
+      "id": "o-juice",
+      "text": "I'd like an orange juice, please.",
+      "es": "Quisiera un jugo de naranja, por favor.",
+      "image": "/lesson-assets/a1plus-unit-5-q03-70d3cb6c41177ac3.webp",
+      "kind": "order",
+      "speaker": "sofia",
+      "question": "What would you like?",
+      "question_es": "¿Qué le gustaría?",
+      "question_speaker": "co-teacher",
+      "prefer": [
+        "I'd like a sandwich, please.",
+        "I'd like a cup of tea, please."
+      ],
+      "accepts": {
+        "subject-variety": "Listen: the answer is what was heard; I'd like and Can I have … are told apart by ear.",
+        "action-variety": "Listen: the answer is what was heard; I'd like and Can I have … are told apart by ear.",
+        "conversational-response": "Listen: the answer is what was heard; I'd like and Can I have … are told apart by ear.",
+        "reading-load": "Listen: the answer is what was heard; I'd like and Can I have … are told apart by ear."
+      },
+      "blanks": [
+        "I'd",
+        "like"
+      ],
+      "learn": false
+    },
+    {
+      "id": "x-juice",
+      "text": "What would you like? I'd like an orange juice, please.",
+      "es": "¿Qué le gustaría? Quisiera un jugo de naranja, por favor.",
+      "image": "/lesson-assets/a1plus-unit-5-q03-70d3cb6c41177ac3.webp",
+      "kind": "exchange",
+      "turns": [
+        {
+          "text": "What would you like?",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-5-q03-70d3cb6c41177ac3.webp"
+        },
+        {
+          "text": "I'd like an orange juice, please.",
+          "speaker": "sofia",
+          "image": "/lesson-assets/a1plus-unit-5-q03-70d3cb6c41177ac3.webp"
+        }
+      ],
+      "choices": false,
+      "use": false,
+      "learn": false
+    },
+    {
+      "id": "o-cake",
+      "text": "I'd like some cake, please.",
+      "es": "Quisiera un poco de pastel, por favor.",
+      "image": "/lesson-assets/a1plus-unit-5-q04-f845d818de971072.webp",
+      "kind": "order",
+      "speaker": "diego",
+      "question": "What would you like?",
+      "question_es": "¿Qué le gustaría?",
+      "question_speaker": "teacher",
+      "prefer": [
+        "I'd like a sandwich, please.",
+        "I'd like a cup of tea, please."
+      ],
+      "accepts": {
+        "subject-variety": "Listen: the answer is what was heard; I'd like and Can I have … are told apart by ear.",
+        "action-variety": "Listen: the answer is what was heard; I'd like and Can I have … are told apart by ear.",
+        "conversational-response": "Listen: the answer is what was heard; I'd like and Can I have … are told apart by ear.",
+        "reading-load": "Listen: the answer is what was heard; I'd like and Can I have … are told apart by ear."
+      },
+      "blanks": [
+        "cake",
+        "please"
+      ],
+      "learn": false
+    },
+    {
+      "id": "x-cake",
+      "text": "What would you like? I'd like some cake, please.",
+      "es": "¿Qué le gustaría? Quisiera un poco de pastel, por favor.",
+      "image": "/lesson-assets/a1plus-unit-5-q04-f845d818de971072.webp",
+      "kind": "exchange",
+      "turns": [
+        {
+          "text": "What would you like?",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-5-q04-f845d818de971072.webp"
+        },
+        {
+          "text": "I'd like some cake, please.",
+          "speaker": "diego",
+          "image": "/lesson-assets/a1plus-unit-5-q04-f845d818de971072.webp"
+        }
+      ],
+      "choices": false,
+      "use": false,
+      "learn": false
+    },
+    {
+      "id": "h-can",
+      "text": "Can I have a sandwich, please?",
+      "es": "¿Me da un sándwich, por favor?",
+      "image": "/lesson-assets/a1plus-unit-5-q01-ca6bd5e33bb6d4c3.webp",
+      "kind": "order",
+      "speaker": "luis",
+      "image_choices": false,
+      "use": false,
+      "prefer": [
+        "I'd like a sandwich, please."
+      ],
+      "accepts": {
+        "subject-variety": "Listen: the answer is what was heard; I'd like and Can I have … are told apart by ear.",
+        "action-variety": "Listen: the answer is what was heard; I'd like and Can I have … are told apart by ear.",
+        "conversational-response": "Listen: the answer is what was heard; I'd like and Can I have … are told apart by ear.",
+        "reading-load": "Listen: the answer is what was heard; I'd like and Can I have … are told apart by ear."
+      },
+      "learn": false
+    },
+    {
+      "id": "h-would",
+      "text": "Would you like some tea?",
+      "es": "¿Quieres un poco de té?",
+      "image": "/lesson-assets/a1plus-unit-5-o01-2b72061f1a90e239.webp",
+      "kind": "offer",
+      "speaker": "ana",
+      "choices": false,
+      "use": false,
+      "learn": false
+    },
+    {
+      "id": "w-what",
+      "text": "What would you like?",
+      "es": "¿Qué le gustaría?",
+      "image": "/lesson-assets/a1plus-unit-5-q03-70d3cb6c41177ac3.webp",
+      "kind": "ask-q",
+      "speaker": "co-teacher",
+      "image_choices": false,
+      "blanks": [
+        "would",
+        "you"
+      ],
+      "prefer": [
+        "Would you like some tea?",
+        "How much are the apples?"
+      ],
+      "accepts": {
+        "subject-variety": "Listen: the answer is what was heard; I'd like and Can I have … are told apart by ear.",
+        "action-variety": "Listen: the answer is what was heard; I'd like and Can I have … are told apart by ear.",
+        "conversational-response": "Listen: the answer is what was heard; I'd like and Can I have … are told apart by ear.",
+        "reading-load": "Listen: the answer is what was heard; I'd like and Can I have … are told apart by ear."
+      },
+      "learn": false
+    },
+    {
+      "id": "u-tea-luis",
+      "text": "I'd like some tea, please.",
+      "es": "Quisiera un poco de té, por favor.",
+      "image": "/lesson-assets/a1plus-unit-5-o01-2b72061f1a90e239.webp",
+      "kind": "say",
+      "speaker": "luis",
+      "choices": false,
+      "blanks": [
+        "I'd",
+        "like"
+      ],
+      "learn": false
+    },
+    {
+      "id": "u-juice-sofia",
+      "text": "I'd like some juice, please.",
+      "es": "Quisiera un poco de jugo, por favor.",
+      "image": "/lesson-assets/a1plus-unit-5-o06-ea3556af242f7321.webp",
+      "kind": "say",
+      "speaker": "sofia",
+      "choices": false,
+      "blanks": [
+        "I'd",
+        "like"
+      ],
+      "learn": false
+    },
+    {
+      "id": "u-hot",
+      "text": "I'd like some hot chocolate, please.",
+      "es": "Quisiera un poco de chocolate caliente, por favor.",
+      "image": "/lesson-assets/a1plus-unit-5-o05-480c8d2bf11bb340.webp",
+      "kind": "say",
+      "speaker": "diego",
+      "choices": false,
+      "blanks": [
+        "hot",
+        "chocolate"
+      ],
+      "learn": false
+    }
+  ],
+  "pool": [
+    {
+      "text": "Can I have a sandwich, please?",
+      "es": "¿Me da un sándwich, por favor?",
+      "image": "/lesson-assets/a1plus-unit-5-q01-ca6bd5e33bb6d4c3.webp",
+      "kind": "order",
+      "image_choices": false
+    },
+    {
+      "text": "Can I have a cup of tea, please?",
+      "es": "¿Me da una taza de té, por favor?",
+      "image": "/lesson-assets/a1plus-unit-5-q02-6e5d6f9c4b6cf6f6.webp",
+      "kind": "order",
+      "image_choices": false
+    },
+    {
+      "text": "Can I have an orange juice, please?",
+      "es": "¿Me da un jugo de naranja, por favor?",
+      "image": "/lesson-assets/a1plus-unit-5-q03-70d3cb6c41177ac3.webp",
+      "kind": "order",
+      "image_choices": false
+    },
+    {
+      "text": "Can I have some cake, please?",
+      "es": "¿Me da un poco de pastel, por favor?",
+      "image": "/lesson-assets/a1plus-unit-5-q04-f845d818de971072.webp",
+      "kind": "order",
+      "image_choices": false
+    },
+    {
+      "text": "Would you like some tea?",
+      "es": "¿Quieres un poco de té?",
+      "image": "/lesson-assets/a1plus-unit-5-o01-2b72061f1a90e239.webp",
+      "kind": "ask-q",
+      "image_choices": false
+    },
+    {
+      "text": "How much are the apples?",
+      "es": "¿Cuánto cuestan las manzanas?",
+      "image": "/lesson-assets/a1plus-unit-5-p06-79c25e152a07f86f.webp",
+      "kind": "ask-q",
+      "image_choices": false
+    },
+    {
+      "text": "I'd like a sandwich, please.",
+      "es": "Quisiera un sándwich, por favor.",
+      "image": "/lesson-assets/a1plus-unit-5-q01-ca6bd5e33bb6d4c3.webp",
+      "kind": "order",
+      "image_choices": false
+    }
+  ],
+  "layout": {
+    "Recognize": 10,
+    "Listen": 10,
+    "Speak": 8,
+    "Use": 8
+  },
+  "stage_sequences": {
+    "Learn": [
+      "l-what",
+      "l-id-like",
+      "l-tea",
+      "l-cake"
+    ],
+    "Recognize": [
+      "o-sandwich",
+      "o-juice",
+      "o-tea",
+      "o-cake",
+      "o-juice",
+      "o-sandwich",
+      "o-cake",
+      "o-tea",
+      "o-juice",
+      "o-sandwich"
+    ],
+    "Listen": [
+      "o-tea",
+      "h-can",
+      "o-cake",
+      "w-what",
+      "o-juice",
+      "o-tea",
+      "o-sandwich",
+      "w-what",
+      "o-juice",
+      "o-tea"
+    ],
+    "Speak": [
+      "x-sandwich",
+      "o-tea",
+      "o-juice",
+      "o-cake",
+      "w-what",
+      "h-would",
+      "u-hot",
+      "u-tea-luis"
+    ],
+    "Use": [
+      "o-sandwich",
+      "o-tea",
+      "o-juice",
+      "o-cake",
+      "w-what",
+      "u-tea-luis",
+      "u-juice-sofia",
+      "u-hot"
+    ]
+  }
+}

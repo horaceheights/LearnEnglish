@@ -456,33 +456,33 @@
       "interaction_type": "i2t3",
       "prompt": "",
       "stage": "Recognize",
-      "correct_option_id": "a-one-way-ticket-please-r8",
+      "correct_option_id": "i-need-to-buy-a-ticket-r8",
       "options": [
         {
-          "id": "two-tickets-please-r8",
+          "id": "i-need-to-buy-a-backpack-r8",
           "image_url": "",
-          "label": "Two tickets, please.",
-          "spanish_translation": "Dos boletos, por favor."
+          "label": "I need to buy a backpack.",
+          "spanish_translation": "Necesito comprar una mochila."
         },
         {
-          "id": "a-one-way-ticket-please-r8",
+          "id": "i-need-to-buy-a-ticket-r8",
           "image_url": "",
-          "label": "A one-way ticket, please.",
-          "spanish_translation": "Un boleto sencillo, por favor."
+          "label": "I need to buy a ticket.",
+          "spanish_translation": "Necesito comprar un boleto."
         },
         {
-          "id": "a-round-trip-ticket-please-r8",
+          "id": "i-need-to-buy-a-passport-r8",
           "image_url": "",
-          "label": "A round-trip ticket, please.",
-          "spanish_translation": "Un boleto redondo, por favor."
+          "label": "I need to buy a passport.",
+          "spanish_translation": "Necesito comprar un pasaporte."
         }
       ],
       "audio_text": "",
-      "answer_audio_text": "A one-way ticket, please.",
+      "answer_audio_text": "I need to buy a ticket.",
       "prompt_image_url": "/lesson-assets/a1plus-unit-6-x01-396a25f8e16de8e1.webp",
       "spanish_translation": "Elige la frase correcta.",
       "answer_audio_speaker": "co-teacher",
-      "pedagogy_note": "Story beat 08: A one-way ticket, please.",
+      "pedagogy_note": "Story beat 08: I need to buy a ticket.",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -516,35 +516,29 @@
     },
     {
       "slide_id": "R10",
-      "interaction_type": "i2t3",
+      "interaction_type": "i2t2",
       "prompt": "",
       "stage": "Recognize",
-      "correct_option_id": "a-round-trip-ticket-to-the-airport-please-r10",
+      "correct_option_id": "a-round-trip-ticket-is-more-expensive-r10",
       "options": [
         {
-          "id": "a-round-trip-ticket-to-the-airport-please-r10",
+          "id": "a-round-trip-ticket-is-more-expensive-r10",
           "image_url": "",
-          "label": "A round-trip ticket to the airport, please.",
-          "spanish_translation": "Un boleto redondo al aeropuerto, por favor."
+          "label": "A round-trip ticket is more expensive.",
+          "spanish_translation": "Un boleto redondo es más caro."
         },
         {
-          "id": "a-one-way-ticket-to-the-airport-please-r10",
+          "id": "a-one-way-ticket-is-more-expensive-r10",
           "image_url": "",
-          "label": "A one-way ticket to the airport, please.",
-          "spanish_translation": "Un boleto sencillo al aeropuerto, por favor."
-        },
-        {
-          "id": "a-one-way-ticket-to-the-station-please-r10",
-          "image_url": "",
-          "label": "A one-way ticket to the station, please.",
-          "spanish_translation": "Un boleto sencillo a la estación, por favor."
+          "label": "A one-way ticket is more expensive.",
+          "spanish_translation": "Un boleto sencillo es más caro."
         }
       ],
       "audio_text": "",
-      "answer_audio_text": "A round-trip ticket to the airport, please.",
+      "answer_audio_text": "A round-trip ticket is more expensive.",
       "prompt_image_url": "/lesson-assets/a1plus-unit-6-x02-3e2cc6b8357b00f5.webp",
       "spanish_translation": "Elige la frase correcta.",
-      "pedagogy_note": "Story beat 10: A round-trip ticket to the airport, please.",
+      "pedagogy_note": "Story beat 10: A round-trip ticket is more expensive.",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -639,28 +633,41 @@
     },
     {
       "slide_id": "A4",
-      "interaction_type": "a2i2",
+      "interaction_type": "a2t2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "luis-is-at-gate-twelve-a4",
+      "correct_option_id": "how-much-is-a-round-trip-ticket-it's-forty-five-dollars-a4",
       "options": [
         {
-          "id": "ana-is-on-platform-four-a4",
-          "image_url": "/lesson-assets/a1plus-unit-6-g01-431d69f6535fe414.webp",
-          "label": null
+          "id": "how-much-is-a-round-trip-ticket-it's-sixty-eight-dollars-a4",
+          "image_url": "",
+          "label": "How much is a round-trip ticket? It's sixty-eight dollars.",
+          "spanish_translation": "¿Cuánto cuesta un boleto redondo? Cuesta sesenta y ocho dólares."
         },
         {
-          "id": "luis-is-at-gate-twelve-a4",
-          "image_url": "/lesson-assets/a1plus-unit-6-g03-de90fc3156e87869.webp",
-          "label": null
+          "id": "how-much-is-a-round-trip-ticket-it's-forty-five-dollars-a4",
+          "image_url": "",
+          "label": "How much is a round-trip ticket? It's forty-five dollars.",
+          "spanish_translation": "¿Cuánto cuesta un boleto redondo? Cuesta cuarenta y cinco dólares."
         }
       ],
-      "audio_text": "Luis is at gate twelve.",
+      "audio_text": "How much is a round-trip ticket? It's forty-five dollars.",
       "answer_audio_text": null,
       "prompt_image_url": "",
+      "audio_turns": [
+        {
+          "text": "How much is a round-trip ticket?",
+          "speaker_role": "co-teacher",
+          "image_url": "/lesson-assets/a1plus-unit-6-x04-e3b8ba3fa1edcd4f.webp"
+        },
+        {
+          "text": "It's forty-five dollars.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1plus-unit-6-x04-e3b8ba3fa1edcd4f.webp"
+        }
+      ],
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 04: Luis is at gate twelve.",
-      "audio_speaker": "teacher",
+      "pedagogy_note": "Story beat 04: How much is a round-trip ticket? It's forty-five dollars.",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -791,41 +798,47 @@
     },
     {
       "slide_id": "A9",
-      "interaction_type": "a2t2",
+      "interaction_type": "a2t3",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "do-you-want-one-way-or-round-trip-one-way-please-a9",
+      "correct_option_id": "do-you-need-anything-else-no-that's-all-thank-you-a9",
       "options": [
         {
-          "id": "do-you-want-one-way-or-round-trip-round-trip-please-a9",
+          "id": "do-you-need-anything-else-yes-i-need-a-round-trip-ticket-a9",
           "image_url": "",
-          "label": "Do you want one-way or round-trip? Round-trip, please.",
-          "spanish_translation": "¿Sencillo o redondo? Redondo, por favor."
+          "label": "Do you need anything else? Yes, I need a round-trip ticket.",
+          "spanish_translation": "¿Necesita algo más? Sí, necesito un boleto redondo."
         },
         {
-          "id": "do-you-want-one-way-or-round-trip-one-way-please-a9",
+          "id": "do-you-need-anything-else-yes-i-need-a-one-way-ticket-a9",
           "image_url": "",
-          "label": "Do you want one-way or round-trip? One-way, please.",
-          "spanish_translation": "¿Quiere sencillo o redondo? Sencillo, por favor."
+          "label": "Do you need anything else? Yes, I need a one-way ticket.",
+          "spanish_translation": "¿Necesita algo más? Sí, necesito un boleto sencillo."
+        },
+        {
+          "id": "do-you-need-anything-else-no-that's-all-thank-you-a9",
+          "image_url": "",
+          "label": "Do you need anything else? No, that's all, thank you.",
+          "spanish_translation": "¿Necesita algo más? No, es todo, gracias."
         }
       ],
-      "audio_text": "Do you want one-way or round-trip? One-way, please.",
+      "audio_text": "Do you need anything else? No, that's all, thank you.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "audio_turns": [
         {
-          "text": "Do you want one-way or round-trip?",
-          "speaker_role": "teacher",
-          "image_url": "/lesson-assets/a1plus-unit-6-x04-e3b8ba3fa1edcd4f.webp"
+          "text": "Do you need anything else?",
+          "speaker_role": "co-teacher",
+          "image_url": "/lesson-assets/a1plus-unit-6-x03-c1b43783df0d91a4.webp"
         },
         {
-          "text": "One-way, please.",
-          "speaker_role": "co-teacher",
-          "image_url": "/lesson-assets/a1plus-unit-6-x04-e3b8ba3fa1edcd4f.webp"
+          "text": "No, that's all, thank you.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1plus-unit-6-x03-c1b43783df0d91a4.webp"
         }
       ],
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 09: Do you want one-way or round-trip? One-way, please.",
+      "pedagogy_note": "Story beat 09: Do you need anything else? No, that's all, thank you.",
       "answer_audio_policy": "authored-only"
     },
     {

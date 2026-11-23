@@ -1,0 +1,55 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "f580b7cc-57ee-4e6e-9373-77fac4112231",
+  "asset_id": "v07-dishes-after-dinner",
+  "pack_sha256": "b67daa50a3e7e3908574ba1171189ddf7d45fafd4ba6eb75386c9eac2d545451",
+  "started_at": "2026-11-21T04:59:01.441579+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, menus, screens, cups, clothes or bags.\n\nKeep the people and the thing that carries the meaning inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nOnly this one person is in the photo; there is nobody else, even far in the background.\n\nIt is clearly daytime with soft natural light.\n\nThe people are ordinary adults who are not famous and do not look like any earlier course photo; nobody looks at the camera.\n\nIn the evening, a father with short hair washes dishes at the kitchen sink; behind him the dining table has empty plates with crumbs on it: dinner is clearly finished.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "EiUBa7SSJvWhz7IPqfTTyQs",
+  "usage": {
+    "promptTokenCount": 269,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1559,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 269
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038781",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 269,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 5.57,
+  "output": "output/imagegen/a1plus-unit-5-lesson-v5150/v07-dishes-after-dinner.png",
+  "sha256": "a4aa595f178b25cbfb1b2eb03e8cb9554fd92f55520022c8ab0feaa5d7c2c32e",
+  "byte_count": 1473093,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}

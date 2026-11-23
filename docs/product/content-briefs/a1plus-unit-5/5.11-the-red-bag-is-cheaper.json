@@ -1,0 +1,759 @@
+{
+  "brief_version": 1,
+  "follows": {
+    "course": "a1",
+    "lesson": "5.11",
+    "title": "Buying Things"
+  },
+  "note": "A1+ Unit 5 Lesson 5.11, built on 2026-11-20 under the A1+ lesson standards approved 2026-10-27 and the user's 2026-11-09 rule that every A1+ lesson follows up the A1 lesson with the same number. The user asked on 2026-11-20 to \"work on a1+ Unit 5 same all deal as before none stop all approved\": A1+ 5.Y follows A1 5.Y with one step each, straight to Preview in batches, Gemini 2.5 Flash photos and ElevenLabs audio pre-approved, no per-lesson gates, reviewed in Preview. Four photos of two things side by side with price cards: a red bag $20 and a black bag $80, a black watch $90 and a blue watch $10, a small cake $20 and a big cake $40, a red book $30 and a green book $10. Narrated; Ana says I want to buy the cheaper bag.",
+  "target": "backend/lessons/a1_plus/unit_5/a1plus-unit-5-lesson-5-11.yaml",
+  "captions": false,
+  "narrators": [
+    "teacher",
+    "co-teacher"
+  ],
+  "answer_audio_policy": "authored-only",
+  "speak_delivery": "a1-pronunciation-v1",
+  "lesson": {
+    "id": "a1plus-unit-5-lesson-5-11",
+    "title": "5.11 The red bag is cheaper",
+    "level": "A1+",
+    "unit_id": "a1plus-unit-5",
+    "unit_title": "Food, drinks and shopping",
+    "unit_outcome": "Say how much and how many, offer and order food and drinks politely, agree about likes, say what you want and need to do, talk about meals, prices and what is in your food, compare prices, use numbers to ninety-nine and ask for things at the table.",
+    "lesson_id": "a1plus-unit-5-lesson-5-11",
+    "lesson_title": "The red bag is cheaper",
+    "sub_lesson_id": "5.11",
+    "sub_lesson_title": "The red bag is cheaper",
+    "goal": "Compare prices with cheaper than and more expensive than (The red bag is cheaper than the black bag. / The black watch is more expensive than the blue watch.) and answer Which bag is cheaper? The red one.",
+    "vocabulary": [
+      "cheaper",
+      "more expensive"
+    ],
+    "review_vocabulary": [
+      "cheap",
+      "expensive",
+      "than",
+      "bag",
+      "watch",
+      "cake",
+      "book",
+      "red",
+      "black",
+      "blue",
+      "green",
+      "big",
+      "small",
+      "Which …?",
+      "one",
+      "ten",
+      "twenty",
+      "thirty",
+      "forty",
+      "eighty",
+      "ninety",
+      "dollars",
+      "want to",
+      "buy"
+    ],
+    "grammar_function": "A follow-up of A1 5.11 Buying Things: A1 says a thing is cheap or expensive; A1+ 5.11 compares two prices with A1+ 2.11's than: a short adjective takes -er (cheaper), and a long one takes more (more expensive), the one new relationship. Each photo shows two things of one kind side by side with their price cards, so every comparison is true of one photo only; a bank never offers the converse sentence that is also true (The black bag is more expensive than the red bag.). Which … is cheaper? is answered with A1+ 2.10's one. 5.6's want to comes back.",
+    "prerequisite": "A1 5.11 cheap, expensive, buy; A1+ 2.11 -er than; A1+ 2.10 Which …? The red one.; A1 5.12 the tens; A1+ 5.6 want to.",
+    "speaking_outcome": "Say more expensive as one group with the stress on PEN (more ex-PEN-sive) and cheaper with CHEAP; do not require native-like speed.",
+    "content_revision": 1,
+    "learn_context_groups": [
+      {
+        "kind": "sequence",
+        "targets": [
+          "cheaper"
+        ],
+        "models": [
+          {
+            "slide_id": "L1",
+            "text": "The red bag is cheaper."
+          }
+        ]
+      },
+      {
+        "kind": "sequence",
+        "targets": [
+          "more expensive"
+        ],
+        "models": [
+          {
+            "slide_id": "L2",
+            "text": "The black watch is more expensive."
+          }
+        ]
+      },
+      {
+        "kind": "sequence",
+        "targets": [
+          "cheaper"
+        ],
+        "models": [
+          {
+            "slide_id": "L3",
+            "text": "The green book is cheaper."
+          }
+        ]
+      },
+      {
+        "kind": "sequence",
+        "targets": [
+          "more expensive"
+        ],
+        "models": [
+          {
+            "slide_id": "L4",
+            "text": "The big cake is more expensive."
+          }
+        ]
+      }
+    ]
+  },
+  "items": [
+    {
+      "id": "l-cheaper",
+      "text": "The red bag is cheaper.",
+      "es": "La bolsa roja es más barata.",
+      "image": "/lesson-assets/a1plus-unit-5-x01-eb6d7b87921a8cbd.webp",
+      "kind": "sequence",
+      "choices": false,
+      "use": false,
+      "learn": true,
+      "speaker": "teacher"
+    },
+    {
+      "id": "l-more",
+      "text": "The black watch is more expensive.",
+      "es": "El reloj negro es más caro.",
+      "image": "/lesson-assets/a1plus-unit-5-x05-c703350fbd00804e.webp",
+      "kind": "sequence",
+      "choices": false,
+      "use": false,
+      "learn": true,
+      "speaker": "co-teacher"
+    },
+    {
+      "id": "l-cheaper-book",
+      "text": "The green book is cheaper.",
+      "es": "El libro verde es más barato.",
+      "image": "/lesson-assets/a1plus-unit-5-x04-23c247c1fc6556f7.webp",
+      "kind": "sequence",
+      "choices": false,
+      "use": false,
+      "learn": true,
+      "speaker": "teacher"
+    },
+    {
+      "id": "l-more-cake",
+      "text": "The big cake is more expensive.",
+      "es": "El pastel grande es más caro.",
+      "image": "/lesson-assets/a1plus-unit-5-x03-095752c692c04792.webp",
+      "kind": "sequence",
+      "choices": false,
+      "use": false,
+      "learn": true,
+      "speaker": "co-teacher"
+    },
+    {
+      "id": "c-bags",
+      "text": "The red bag is cheaper than the black bag.",
+      "es": "La bolsa roja es más barata que la bolsa negra.",
+      "image": "/lesson-assets/a1plus-unit-5-x01-eb6d7b87921a8cbd.webp",
+      "kind": "compare",
+      "speaker": "teacher",
+      "prefer": [
+        "The red bag is more expensive than the black bag."
+      ],
+      "avoid": [
+        "The black bag is more expensive than the red bag."
+      ],
+      "accepts": {
+        "subject-variety": "Listen: the answer is what was heard.",
+        "action-variety": "Listen: the answer is what was heard.",
+        "conversational-response": "Listen: the answer is what was heard.",
+        "reading-load": "Listen: the answer is what was heard."
+      },
+      "blanks": [
+        "is",
+        "cheaper"
+      ],
+      "learn": false
+    },
+    {
+      "id": "d-bags",
+      "text": "The black bag is more expensive than the red bag.",
+      "es": "La bolsa negra es más cara que la bolsa roja.",
+      "image": "/lesson-assets/a1plus-unit-5-x01-eb6d7b87921a8cbd.webp",
+      "kind": "compare",
+      "speaker": "co-teacher",
+      "prefer": [
+        "The black bag is cheaper than the red bag."
+      ],
+      "avoid": [
+        "The red bag is cheaper than the black bag."
+      ],
+      "accepts": {
+        "subject-variety": "Listen: the answer is what was heard.",
+        "action-variety": "Listen: the answer is what was heard.",
+        "conversational-response": "Listen: the answer is what was heard.",
+        "reading-load": "Listen: the answer is what was heard."
+      },
+      "blanks": [
+        "more",
+        "expensive"
+      ],
+      "learn": false
+    },
+    {
+      "id": "w-bags",
+      "text": "The red one.",
+      "es": "La roja.",
+      "image": "/lesson-assets/a1plus-unit-5-x01-eb6d7b87921a8cbd.webp",
+      "kind": "which",
+      "speaker": "teacher",
+      "question": "Which bag is cheaper?",
+      "question_es": "¿Qué bolsa es más barata?",
+      "question_speaker": "co-teacher",
+      "prefer": [
+        "The black one."
+      ],
+      "accepts": {
+        "subject-variety": "The reply names one of the two things in the photo; its price card decides.",
+        "action-variety": "The reply names one of the two things in the photo; its price card decides.",
+        "conversational-response": "The reply names one of the two things in the photo; its price card decides.",
+        "reading-load": "The reply names one of the two things in the photo; its price card decides."
+      },
+      "image_choices": false,
+      "use": false,
+      "learn": false
+    },
+    {
+      "id": "u-c-bags",
+      "text": "The red one is cheaper.",
+      "es": "La roja es más barata.",
+      "image": "/lesson-assets/a1plus-unit-5-x01-eb6d7b87921a8cbd.webp",
+      "kind": "short",
+      "speaker": "teacher",
+      "choices": false,
+      "blanks": [
+        "is",
+        "cheaper"
+      ],
+      "learn": false
+    },
+    {
+      "id": "u-d-bags",
+      "text": "The black one is more expensive.",
+      "es": "La negra es más cara.",
+      "image": "/lesson-assets/a1plus-unit-5-x01-eb6d7b87921a8cbd.webp",
+      "kind": "short",
+      "speaker": "co-teacher",
+      "choices": false,
+      "blanks": [
+        "more",
+        "expensive"
+      ],
+      "learn": false
+    },
+    {
+      "id": "p-bags",
+      "text": "The black bag is eighty dollars.",
+      "es": "La bolsa negra cuesta eighty dólares.",
+      "image": "/lesson-assets/a1plus-unit-5-x01-eb6d7b87921a8cbd.webp",
+      "kind": "price",
+      "speaker": "teacher",
+      "choices": false,
+      "use": false,
+      "learn": false
+    },
+    {
+      "id": "c-watches",
+      "text": "The blue watch is cheaper than the black watch.",
+      "es": "El reloj azul es más barato que el reloj negro.",
+      "image": "/lesson-assets/a1plus-unit-5-x05-c703350fbd00804e.webp",
+      "kind": "compare",
+      "speaker": "co-teacher",
+      "prefer": [
+        "The blue watch is more expensive than the black watch."
+      ],
+      "avoid": [
+        "The black watch is more expensive than the blue watch."
+      ],
+      "accepts": {
+        "subject-variety": "Listen: the answer is what was heard.",
+        "action-variety": "Listen: the answer is what was heard.",
+        "conversational-response": "Listen: the answer is what was heard.",
+        "reading-load": "Listen: the answer is what was heard."
+      },
+      "blanks": [
+        "is",
+        "cheaper"
+      ],
+      "learn": false
+    },
+    {
+      "id": "d-watches",
+      "text": "The black watch is more expensive than the blue watch.",
+      "es": "El reloj negro es más caro que el reloj azul.",
+      "image": "/lesson-assets/a1plus-unit-5-x05-c703350fbd00804e.webp",
+      "kind": "compare",
+      "speaker": "teacher",
+      "prefer": [
+        "The black watch is cheaper than the blue watch."
+      ],
+      "avoid": [
+        "The blue watch is cheaper than the black watch."
+      ],
+      "accepts": {
+        "subject-variety": "Listen: the answer is what was heard.",
+        "action-variety": "Listen: the answer is what was heard.",
+        "conversational-response": "Listen: the answer is what was heard.",
+        "reading-load": "Listen: the answer is what was heard."
+      },
+      "blanks": [
+        "more",
+        "expensive"
+      ],
+      "learn": false
+    },
+    {
+      "id": "w-watches",
+      "text": "The blue one.",
+      "es": "El azul.",
+      "image": "/lesson-assets/a1plus-unit-5-x05-c703350fbd00804e.webp",
+      "kind": "which",
+      "speaker": "co-teacher",
+      "question": "Which watch is cheaper?",
+      "question_es": "¿Qué reloj es más barato?",
+      "question_speaker": "teacher",
+      "prefer": [
+        "The black one."
+      ],
+      "accepts": {
+        "subject-variety": "The reply names one of the two things in the photo; its price card decides.",
+        "action-variety": "The reply names one of the two things in the photo; its price card decides.",
+        "conversational-response": "The reply names one of the two things in the photo; its price card decides.",
+        "reading-load": "The reply names one of the two things in the photo; its price card decides."
+      },
+      "image_choices": false,
+      "use": false,
+      "learn": false
+    },
+    {
+      "id": "u-c-watches",
+      "text": "The blue one is cheaper.",
+      "es": "El azul es más barato.",
+      "image": "/lesson-assets/a1plus-unit-5-x05-c703350fbd00804e.webp",
+      "kind": "short",
+      "speaker": "co-teacher",
+      "choices": false,
+      "blanks": [
+        "is",
+        "cheaper"
+      ],
+      "learn": false
+    },
+    {
+      "id": "u-d-watches",
+      "text": "The black one is more expensive.",
+      "es": "El negro es más caro.",
+      "image": "/lesson-assets/a1plus-unit-5-x05-c703350fbd00804e.webp",
+      "kind": "short",
+      "speaker": "teacher",
+      "choices": false,
+      "blanks": [
+        "more",
+        "expensive"
+      ],
+      "learn": false
+    },
+    {
+      "id": "p-watches",
+      "text": "The black watch is ninety dollars.",
+      "es": "El reloj negro cuesta ninety dólares.",
+      "image": "/lesson-assets/a1plus-unit-5-x05-c703350fbd00804e.webp",
+      "kind": "price",
+      "speaker": "co-teacher",
+      "choices": false,
+      "use": false,
+      "learn": false
+    },
+    {
+      "id": "c-cakes",
+      "text": "The small cake is cheaper than the big cake.",
+      "es": "El pastel pequeño es más barato que el pastel grande.",
+      "image": "/lesson-assets/a1plus-unit-5-x03-095752c692c04792.webp",
+      "kind": "compare",
+      "speaker": "teacher",
+      "prefer": [
+        "The small cake is more expensive than the big cake."
+      ],
+      "avoid": [
+        "The big cake is more expensive than the small cake."
+      ],
+      "accepts": {
+        "subject-variety": "Listen: the answer is what was heard.",
+        "action-variety": "Listen: the answer is what was heard.",
+        "conversational-response": "Listen: the answer is what was heard.",
+        "reading-load": "Listen: the answer is what was heard."
+      },
+      "blanks": [
+        "is",
+        "cheaper"
+      ],
+      "learn": false
+    },
+    {
+      "id": "d-cakes",
+      "text": "The big cake is more expensive than the small cake.",
+      "es": "El pastel grande es más caro que el pastel pequeño.",
+      "image": "/lesson-assets/a1plus-unit-5-x03-095752c692c04792.webp",
+      "kind": "compare",
+      "speaker": "co-teacher",
+      "prefer": [
+        "The big cake is cheaper than the small cake."
+      ],
+      "avoid": [
+        "The small cake is cheaper than the big cake."
+      ],
+      "accepts": {
+        "subject-variety": "Listen: the answer is what was heard.",
+        "action-variety": "Listen: the answer is what was heard.",
+        "conversational-response": "Listen: the answer is what was heard.",
+        "reading-load": "Listen: the answer is what was heard."
+      },
+      "blanks": [
+        "more",
+        "expensive"
+      ],
+      "learn": false
+    },
+    {
+      "id": "w-cakes",
+      "text": "The small one.",
+      "es": "El pequeño.",
+      "image": "/lesson-assets/a1plus-unit-5-x03-095752c692c04792.webp",
+      "kind": "which",
+      "speaker": "teacher",
+      "question": "Which cake is cheaper?",
+      "question_es": "¿Qué pastel es más barato?",
+      "question_speaker": "co-teacher",
+      "prefer": [
+        "The big one."
+      ],
+      "accepts": {
+        "subject-variety": "The reply names one of the two things in the photo; its price card decides.",
+        "action-variety": "The reply names one of the two things in the photo; its price card decides.",
+        "conversational-response": "The reply names one of the two things in the photo; its price card decides.",
+        "reading-load": "The reply names one of the two things in the photo; its price card decides."
+      },
+      "image_choices": false,
+      "use": false,
+      "learn": false
+    },
+    {
+      "id": "u-c-cakes",
+      "text": "The small one is cheaper.",
+      "es": "El pequeño es más barato.",
+      "image": "/lesson-assets/a1plus-unit-5-x03-095752c692c04792.webp",
+      "kind": "short",
+      "speaker": "teacher",
+      "choices": false,
+      "blanks": [
+        "is",
+        "cheaper"
+      ],
+      "learn": false
+    },
+    {
+      "id": "u-d-cakes",
+      "text": "The big one is more expensive.",
+      "es": "El grande es más caro.",
+      "image": "/lesson-assets/a1plus-unit-5-x03-095752c692c04792.webp",
+      "kind": "short",
+      "speaker": "co-teacher",
+      "choices": false,
+      "blanks": [
+        "more",
+        "expensive"
+      ],
+      "learn": false
+    },
+    {
+      "id": "p-cakes",
+      "text": "The big cake is forty dollars.",
+      "es": "El pastel grande cuesta forty dólares.",
+      "image": "/lesson-assets/a1plus-unit-5-x03-095752c692c04792.webp",
+      "kind": "price",
+      "speaker": "teacher",
+      "choices": false,
+      "use": false,
+      "learn": false
+    },
+    {
+      "id": "c-books",
+      "text": "The green book is cheaper than the red book.",
+      "es": "El libro verde es más barato que el libro rojo.",
+      "image": "/lesson-assets/a1plus-unit-5-x04-23c247c1fc6556f7.webp",
+      "kind": "compare",
+      "speaker": "co-teacher",
+      "prefer": [
+        "The green book is more expensive than the red book."
+      ],
+      "avoid": [
+        "The red book is more expensive than the green book."
+      ],
+      "accepts": {
+        "subject-variety": "Listen: the answer is what was heard.",
+        "action-variety": "Listen: the answer is what was heard.",
+        "conversational-response": "Listen: the answer is what was heard.",
+        "reading-load": "Listen: the answer is what was heard."
+      },
+      "blanks": [
+        "is",
+        "cheaper"
+      ],
+      "learn": false
+    },
+    {
+      "id": "d-books",
+      "text": "The red book is more expensive than the green book.",
+      "es": "El libro rojo es más caro que el libro verde.",
+      "image": "/lesson-assets/a1plus-unit-5-x04-23c247c1fc6556f7.webp",
+      "kind": "compare",
+      "speaker": "teacher",
+      "prefer": [
+        "The red book is cheaper than the green book."
+      ],
+      "avoid": [
+        "The green book is cheaper than the red book."
+      ],
+      "accepts": {
+        "subject-variety": "Listen: the answer is what was heard.",
+        "action-variety": "Listen: the answer is what was heard.",
+        "conversational-response": "Listen: the answer is what was heard.",
+        "reading-load": "Listen: the answer is what was heard."
+      },
+      "blanks": [
+        "more",
+        "expensive"
+      ],
+      "learn": false
+    },
+    {
+      "id": "w-books",
+      "text": "The green one.",
+      "es": "El verde.",
+      "image": "/lesson-assets/a1plus-unit-5-x04-23c247c1fc6556f7.webp",
+      "kind": "which",
+      "speaker": "co-teacher",
+      "question": "Which book is cheaper?",
+      "question_es": "¿Qué libro es más barato?",
+      "question_speaker": "teacher",
+      "prefer": [
+        "The red one."
+      ],
+      "accepts": {
+        "subject-variety": "The reply names one of the two things in the photo; its price card decides.",
+        "action-variety": "The reply names one of the two things in the photo; its price card decides.",
+        "conversational-response": "The reply names one of the two things in the photo; its price card decides.",
+        "reading-load": "The reply names one of the two things in the photo; its price card decides."
+      },
+      "image_choices": false,
+      "use": false,
+      "learn": false
+    },
+    {
+      "id": "u-c-books",
+      "text": "The green one is cheaper.",
+      "es": "El verde es más barato.",
+      "image": "/lesson-assets/a1plus-unit-5-x04-23c247c1fc6556f7.webp",
+      "kind": "short",
+      "speaker": "co-teacher",
+      "choices": false,
+      "blanks": [
+        "is",
+        "cheaper"
+      ],
+      "learn": false
+    },
+    {
+      "id": "u-d-books",
+      "text": "The red one is more expensive.",
+      "es": "El rojo es más caro.",
+      "image": "/lesson-assets/a1plus-unit-5-x04-23c247c1fc6556f7.webp",
+      "kind": "short",
+      "speaker": "teacher",
+      "choices": false,
+      "blanks": [
+        "more",
+        "expensive"
+      ],
+      "learn": false
+    },
+    {
+      "id": "p-books",
+      "text": "The red book is thirty dollars.",
+      "es": "El libro rojo cuesta thirty dólares.",
+      "image": "/lesson-assets/a1plus-unit-5-x04-23c247c1fc6556f7.webp",
+      "kind": "price",
+      "speaker": "co-teacher",
+      "choices": false,
+      "use": false,
+      "learn": false
+    },
+    {
+      "id": "i-cheaper",
+      "text": "I want to buy the cheaper bag.",
+      "es": "Quiero comprar la bolsa más barata.",
+      "image": "/lesson-assets/a1plus-unit-5-x01-eb6d7b87921a8cbd.webp",
+      "kind": "say",
+      "speaker": "ana",
+      "choices": false,
+      "blanks": [
+        "cheaper",
+        "bag"
+      ],
+      "learn": false
+    }
+  ],
+  "pool": [
+    {
+      "text": "The red bag is more expensive than the black bag.",
+      "es": "La bolsa roja es más cara que la bolsa negra.",
+      "image": "/lesson-assets/a1plus-unit-5-x01-eb6d7b87921a8cbd.webp",
+      "kind": "compare",
+      "image_choices": false
+    },
+    {
+      "text": "The black bag is cheaper than the red bag.",
+      "es": "La bolsa negra es más barata que la bolsa roja.",
+      "image": "/lesson-assets/a1plus-unit-5-x01-eb6d7b87921a8cbd.webp",
+      "kind": "compare",
+      "image_choices": false
+    },
+    {
+      "text": "The black one.",
+      "es": "La negra.",
+      "image": "/lesson-assets/a1plus-unit-5-x01-eb6d7b87921a8cbd.webp",
+      "kind": "which",
+      "image_choices": false
+    },
+    {
+      "text": "The blue watch is more expensive than the black watch.",
+      "es": "El reloj azul es más caro que el reloj negro.",
+      "image": "/lesson-assets/a1plus-unit-5-x05-c703350fbd00804e.webp",
+      "kind": "compare",
+      "image_choices": false
+    },
+    {
+      "text": "The black watch is cheaper than the blue watch.",
+      "es": "El reloj negro es más barato que el reloj azul.",
+      "image": "/lesson-assets/a1plus-unit-5-x05-c703350fbd00804e.webp",
+      "kind": "compare",
+      "image_choices": false
+    },
+    {
+      "text": "The small cake is more expensive than the big cake.",
+      "es": "El pastel pequeño es más caro que el pastel grande.",
+      "image": "/lesson-assets/a1plus-unit-5-x03-095752c692c04792.webp",
+      "kind": "compare",
+      "image_choices": false
+    },
+    {
+      "text": "The big cake is cheaper than the small cake.",
+      "es": "El pastel grande es más barato que el pastel pequeño.",
+      "image": "/lesson-assets/a1plus-unit-5-x03-095752c692c04792.webp",
+      "kind": "compare",
+      "image_choices": false
+    },
+    {
+      "text": "The big one.",
+      "es": "El grande.",
+      "image": "/lesson-assets/a1plus-unit-5-x03-095752c692c04792.webp",
+      "kind": "which",
+      "image_choices": false
+    },
+    {
+      "text": "The green book is more expensive than the red book.",
+      "es": "El libro verde es más caro que el libro rojo.",
+      "image": "/lesson-assets/a1plus-unit-5-x04-23c247c1fc6556f7.webp",
+      "kind": "compare",
+      "image_choices": false
+    },
+    {
+      "text": "The red book is cheaper than the green book.",
+      "es": "El libro rojo es más barato que el libro verde.",
+      "image": "/lesson-assets/a1plus-unit-5-x04-23c247c1fc6556f7.webp",
+      "kind": "compare",
+      "image_choices": false
+    },
+    {
+      "text": "The red one.",
+      "es": "El rojo.",
+      "image": "/lesson-assets/a1plus-unit-5-x04-23c247c1fc6556f7.webp",
+      "kind": "which",
+      "image_choices": false
+    }
+  ],
+  "layout": {
+    "Recognize": 10,
+    "Listen": 10,
+    "Speak": 8,
+    "Use": 8
+  },
+  "stage_sequences": {
+    "Learn": [
+      "l-cheaper",
+      "l-more",
+      "l-cheaper-book",
+      "l-more-cake"
+    ],
+    "Recognize": [
+      "c-bags",
+      "d-watches",
+      "w-books",
+      "c-cakes",
+      "d-bags",
+      "w-watches",
+      "c-books",
+      "d-cakes",
+      "w-bags",
+      "c-watches"
+    ],
+    "Listen": [
+      "d-books",
+      "c-bags",
+      "w-cakes",
+      "d-watches",
+      "c-cakes",
+      "w-watches",
+      "d-cakes",
+      "c-books",
+      "w-bags",
+      "d-bags"
+    ],
+    "Speak": [
+      "c-bags",
+      "d-watches",
+      "c-books",
+      "d-cakes",
+      "i-cheaper",
+      "d-bags",
+      "c-watches",
+      "d-books"
+    ],
+    "Use": [
+      "u-c-bags",
+      "u-d-watches",
+      "u-c-cakes",
+      "u-d-books",
+      "i-cheaper",
+      "u-d-bags",
+      "u-c-watches",
+      "u-d-cakes"
+    ]
+  }
+}

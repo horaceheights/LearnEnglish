@@ -642,6 +642,109 @@
         "Do you want one-way or round-trip? One-way, please. I go there once a week."
       ],
       "learn": false
+    },
+    {
+      "id": "u5-more",
+      "text": "A round-trip ticket is more expensive.",
+      "es": "Un boleto redondo es más caro.",
+      "image": "/lesson-assets/a1plus-unit-6-x02-3e2cc6b8357b00f5.webp",
+      "kind": "u5-more",
+      "image_choices": false,
+      "use": false,
+      "accepts": {
+        "subject-variety": "The sentence keeps the person and the place and changes only the reused detail; the photo fits each option and the words decide.",
+        "action-variety": "The sentence keeps the person and the place and changes only the reused detail; the photo fits each option and the words decide.",
+        "conversational-response": "The sentence keeps the person and the place and changes only the reused detail; the photo fits each option and the words decide.",
+        "reading-load": "The sentence keeps the person and the place and changes only the reused detail; the photo fits each option and the words decide."
+      },
+      "prefer": [
+        "A one-way ticket is more expensive."
+      ],
+      "learn": false
+    },
+    {
+      "id": "u5-need2",
+      "text": "I need to buy a ticket.",
+      "es": "Necesito comprar un boleto.",
+      "image": "/lesson-assets/a1plus-unit-6-x01-396a25f8e16de8e1.webp",
+      "kind": "u5-need2",
+      "image_choices": false,
+      "use": false,
+      "accepts": {
+        "subject-variety": "The sentence keeps the person and the place and changes only the reused detail; the photo fits each option and the words decide.",
+        "action-variety": "The sentence keeps the person and the place and changes only the reused detail; the photo fits each option and the words decide.",
+        "conversational-response": "The sentence keeps the person and the place and changes only the reused detail; the photo fits each option and the words decide.",
+        "reading-load": "The sentence keeps the person and the place and changes only the reused detail; the photo fits each option and the words decide."
+      },
+      "prefer": [
+        "I need to buy a passport.",
+        "I need to buy a backpack."
+      ],
+      "learn": false
+    },
+    {
+      "id": "u5-price",
+      "text": "How much is a round-trip ticket? It's forty-five dollars.",
+      "es": "¿Cuánto cuesta un boleto redondo? Cuesta cuarenta y cinco dólares.",
+      "image": "/lesson-assets/a1plus-unit-6-x04-e3b8ba3fa1edcd4f.webp",
+      "kind": "u5-price",
+      "image_choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "How much is a round-trip ticket?",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-6-x04-e3b8ba3fa1edcd4f.webp"
+        },
+        {
+          "text": "It's forty-five dollars.",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-6-x04-e3b8ba3fa1edcd4f.webp"
+        }
+      ],
+      "accepts": {
+        "subject-variety": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "action-variety": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "conversational-response": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "reading-load": "Listen keeps the question and changes only the answer; the answer is what was heard."
+      },
+      "prefer": [
+        "How much is a round-trip ticket? It's sixty-eight dollars.",
+        "How much is a round-trip ticket? It's twenty-four dollars."
+      ],
+      "learn": false
+    },
+    {
+      "id": "u5-all",
+      "text": "Do you need anything else? No, that's all, thank you.",
+      "es": "¿Necesita algo más? No, es todo, gracias.",
+      "image": "/lesson-assets/a1plus-unit-6-x03-c1b43783df0d91a4.webp",
+      "kind": "u5-all",
+      "image_choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "Do you need anything else?",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-6-x03-c1b43783df0d91a4.webp"
+        },
+        {
+          "text": "No, that's all, thank you.",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-6-x03-c1b43783df0d91a4.webp"
+        }
+      ],
+      "accepts": {
+        "subject-variety": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "action-variety": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "conversational-response": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "reading-load": "Listen keeps the question and changes only the answer; the answer is what was heard."
+      },
+      "prefer": [
+        "Do you need anything else? Yes, I need a round-trip ticket.",
+        "Do you need anything else? Yes, I need a one-way ticket."
+      ],
+      "learn": false
     }
   ],
   "pool": [
@@ -742,6 +845,55 @@
       "image": "/lesson-assets/a1plus-unit-6-x03-c1b43783df0d91a4.webp",
       "kind": "u4-once",
       "image_choices": false
+    },
+    {
+      "text": "A one-way ticket is more expensive.",
+      "es": "Un boleto sencillo es más caro.",
+      "image": "/lesson-assets/a1plus-unit-6-x02-3e2cc6b8357b00f5.webp",
+      "kind": "u5-more",
+      "image_choices": false
+    },
+    {
+      "text": "I need to buy a passport.",
+      "es": "Necesito comprar un pasaporte.",
+      "image": "/lesson-assets/a1plus-unit-6-x01-396a25f8e16de8e1.webp",
+      "kind": "u5-need2",
+      "image_choices": false
+    },
+    {
+      "text": "I need to buy a backpack.",
+      "es": "Necesito comprar una mochila.",
+      "image": "/lesson-assets/a1plus-unit-6-x01-396a25f8e16de8e1.webp",
+      "kind": "u5-need2",
+      "image_choices": false
+    },
+    {
+      "text": "How much is a round-trip ticket? It's sixty-eight dollars.",
+      "es": "¿Cuánto cuesta un boleto redondo? Cuesta sesenta y ocho dólares.",
+      "image": "/lesson-assets/a1plus-unit-6-x04-e3b8ba3fa1edcd4f.webp",
+      "kind": "u5-price",
+      "image_choices": false
+    },
+    {
+      "text": "How much is a round-trip ticket? It's twenty-four dollars.",
+      "es": "¿Cuánto cuesta un boleto redondo? Cuesta veinticuatro dólares.",
+      "image": "/lesson-assets/a1plus-unit-6-x04-e3b8ba3fa1edcd4f.webp",
+      "kind": "u5-price",
+      "image_choices": false
+    },
+    {
+      "text": "Do you need anything else? Yes, I need a round-trip ticket.",
+      "es": "¿Necesita algo más? Sí, necesito un boleto redondo.",
+      "image": "/lesson-assets/a1plus-unit-6-x03-c1b43783df0d91a4.webp",
+      "kind": "u5-all",
+      "image_choices": false
+    },
+    {
+      "text": "Do you need anything else? Yes, I need a one-way ticket.",
+      "es": "¿Necesita algo más? Sí, necesito un boleto sencillo.",
+      "image": "/lesson-assets/a1plus-unit-6-x03-c1b43783df0d91a4.webp",
+      "kind": "u5-all",
+      "image_choices": false
     }
   ],
   "layout": {
@@ -765,20 +917,20 @@
       "g-diego",
       "t-round",
       "g-luis",
-      "p-one",
+      "u5-need2",
       "r-one",
-      "a-air"
+      "u5-more"
     ],
     "Listen": [
       "g-diego",
       "g-sofia",
       "x-ten",
-      "g-luis",
+      "u5-price",
       "g-ana",
       "x-round",
       "t-round",
       "r-round",
-      "x-one",
+      "u5-all",
       "u4-once"
     ],
     "Speak": [

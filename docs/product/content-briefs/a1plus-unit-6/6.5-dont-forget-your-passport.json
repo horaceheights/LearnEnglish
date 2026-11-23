@@ -522,6 +522,25 @@
         "Is your suitcase upstairs? Yes, it's upstairs."
       ],
       "learn": false
+    },
+    {
+      "id": "u5-need",
+      "text": "I need to take my passport.",
+      "es": "Necesito llevar mi pasaporte.",
+      "image": "/lesson-assets/a1plus-unit-6-d01-07f1ca7cec27741c.webp",
+      "kind": "u5-need",
+      "image_choices": false,
+      "use": false,
+      "accepts": {
+        "subject-variety": "The sentence keeps the person and the place and changes only the reused detail; the photo fits each option and the words decide.",
+        "action-variety": "The sentence keeps the person and the place and changes only the reused detail; the photo fits each option and the words decide.",
+        "conversational-response": "The sentence keeps the person and the place and changes only the reused detail; the photo fits each option and the words decide.",
+        "reading-load": "The sentence keeps the person and the place and changes only the reused detail; the photo fits each option and the words decide."
+      },
+      "prefer": [
+        "I need to take my backpack."
+      ],
+      "learn": false
     }
   ],
   "pool": [
@@ -650,6 +669,13 @@
       "image": "/lesson-assets/a1plus-unit-6-d02-17408abcff84a62c.webp",
       "kind": "u4-stairs",
       "image_choices": false
+    },
+    {
+      "text": "I need to take my backpack.",
+      "es": "Necesito llevar mi mochila.",
+      "image": "/lesson-assets/a1plus-unit-6-d01-07f1ca7cec27741c.webp",
+      "kind": "u5-need",
+      "image_choices": false
     }
   ],
   "layout": {
@@ -674,7 +700,7 @@
       "w-passport",
       "h-diego",
       "t-ticket",
-      "r-backpack",
+      "u5-need",
       "h-luis",
       "w-suitcase"
     ],

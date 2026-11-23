@@ -1,0 +1,55 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "f67b1e9e-bc44-41e7-bbc2-cb6d22692dc4",
+  "asset_id": "w03-cafe-wants",
+  "pack_sha256": "056ebe95c63bc3fd10c6a68e6f7a3584fc356c2c1028c79aa6e4e6a07980cda3",
+  "started_at": "2026-11-21T05:01:06.750502+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, menus, screens, cups, clothes or bags.\n\nIt is clearly daytime with soft natural light.\n\nThe people are ordinary adults who are not famous and do not look like any earlier course photo; nobody looks at the camera.\n\nA busy but clear scene: every person named is fully visible, separated from the others by some space, and easy to find on a small phone screen. Nobody else is in the photo.\n\nThe place is a bright, simple neighborhood café by day, with a wooden counter, a glass food case and big windows; nobody else is in the café.\n\nFour customers stand apart along the café's long glass counter, each looking at or pointing at one thing: from left to right, a man points at a big sandwich in the glass case; a woman holds a big mug of steaming hot chocolate; a boy presses his nose to the glass in front of a chocolate cake; a woman in sports clothes drinks from a bottle of water. Nobody behind the counter.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "jyUBa4mrLoL0z7IPm4Dy8A0",
+  "usage": {
+    "promptTokenCount": 322,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1612,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 322
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038797",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 322,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 6.71,
+  "output": "output/imagegen/a1plus-unit-5-lesson-v5160/w03-cafe-wants.png",
+  "sha256": "e3f425c18b6726209f07e2bbb8232878a01b40e4b2a78d5423ad92080ccc0d13",
+  "byte_count": 1438014,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}

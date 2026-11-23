@@ -1,0 +1,55 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "5546ae39-3fb1-43bd-bb01-849b8f678a84",
+  "asset_id": "f03-salad-egg-tomato",
+  "pack_sha256": "ef05a7899daac63582fa35a93b0659c71522cbef7f73bffb5f60f41bf79a067e",
+  "started_at": "2026-11-21T04:55:13.083724+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, menus, screens, cups, clothes or bags.\n\nIt is clearly daytime with soft natural light.\n\nOne dish on a white plate in the middle of a light wooden kitchen table by a bright window, seen from a little above so every ingredient is easy to see on a small phone screen. Nothing else is on the table. No people. A green salad with halves of boiled egg and pieces of red tomato on top, clearly visible, and nothing else on it.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "LiQBa_WlBJiNqtsP3NrCmA4",
+  "usage": {
+    "promptTokenCount": 215,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1505,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 215
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038764",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 215,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 5.73,
+  "output": "output/imagegen/a1plus-unit-5-lesson-v5130/f03-salad-egg-tomato.png",
+  "sha256": "be68f8394ef6487c7b06046b1cb2becb68072d3b569ddd5edf82dfb57c4493ed",
+  "byte_count": 1517401,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}

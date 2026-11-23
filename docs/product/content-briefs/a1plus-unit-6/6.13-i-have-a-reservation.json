@@ -580,6 +580,56 @@
         "When is your reservation? It's on Monday."
       ],
       "learn": false
+    },
+    {
+      "id": "u5-else",
+      "text": "Do you need anything else? No, that's all, thanks.",
+      "es": "¿Necesita algo más? No, es todo, gracias.",
+      "image": "/lesson-assets/a1plus-unit-6-z02-baacaee429ba8d9d.webp",
+      "kind": "u5-else",
+      "image_choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "Do you need anything else?",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-6-z02-baacaee429ba8d9d.webp"
+        },
+        {
+          "text": "No, that's all, thanks.",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-6-z02-baacaee429ba8d9d.webp"
+        }
+      ],
+      "accepts": {
+        "subject-variety": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "action-variety": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "conversational-response": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "reading-load": "Listen keeps the question and changes only the answer; the answer is what was heard."
+      },
+      "prefer": [
+        "Do you need anything else? Yes, I need two keys."
+      ],
+      "learn": false
+    },
+    {
+      "id": "u5-room",
+      "text": "Ana's room is twenty-four.",
+      "es": "El cuarto de Ana es el veinticuatro.",
+      "image": "/lesson-assets/a1plus-unit-6-z04-1fe6dacb083fec63.webp",
+      "kind": "u5-room",
+      "image_choices": false,
+      "use": false,
+      "accepts": {
+        "subject-variety": "The sentence keeps the person and the place and changes only the reused detail; the photo fits each option and the words decide.",
+        "action-variety": "The sentence keeps the person and the place and changes only the reused detail; the photo fits each option and the words decide.",
+        "conversational-response": "The sentence keeps the person and the place and changes only the reused detail; the photo fits each option and the words decide.",
+        "reading-load": "The sentence keeps the person and the place and changes only the reused detail; the photo fits each option and the words decide."
+      },
+      "prefer": [
+        "Ana's room is ninety-nine."
+      ],
+      "learn": false
     }
   ],
   "pool": [
@@ -680,6 +730,20 @@
       "image": "/lesson-assets/a1plus-unit-6-z01-129d6e79e344e481.webp",
       "kind": "u4-res-when",
       "image_choices": false
+    },
+    {
+      "text": "Do you need anything else? Yes, I need two keys.",
+      "es": "¿Necesita algo más? Sí, necesito dos llaves.",
+      "image": "/lesson-assets/a1plus-unit-6-z02-baacaee429ba8d9d.webp",
+      "kind": "u5-else",
+      "image_choices": false
+    },
+    {
+      "text": "Ana's room is ninety-nine.",
+      "es": "El cuarto de Ana es el noventa y nueve.",
+      "image": "/lesson-assets/a1plus-unit-6-z04-1fe6dacb083fec63.webp",
+      "kind": "u5-room",
+      "image_choices": false
     }
   ],
   "layout": {
@@ -700,7 +764,7 @@
       "f-key",
       "p-elev",
       "f-room",
-      "p-key",
+      "u5-room",
       "f-res",
       "p-room",
       "f-elev",
@@ -716,7 +780,7 @@
       "f-key",
       "p-elev",
       "x-floor2",
-      "x-key",
+      "u5-else",
       "u4-upstairs"
     ],
     "Speak": [

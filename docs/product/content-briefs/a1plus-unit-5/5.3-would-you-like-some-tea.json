@@ -1,0 +1,614 @@
+{
+  "brief_version": 1,
+  "follows": {
+    "course": "a1",
+    "lesson": "5.3",
+    "title": "Drinks"
+  },
+  "note": "A1+ Unit 5 Lesson 5.3, built on 2026-11-20 under the A1+ lesson standards approved 2026-10-27 and the user's 2026-11-09 rule that every A1+ lesson follows up the A1 lesson with the same number. The user asked on 2026-11-20 to \"work on a1+ Unit 5 same all deal as before none stop all approved\": A1+ 5.Y follows A1 5.Y with one step each, straight to Preview in batches, Gemini 2.5 Flash photos and ElevenLabs audio pre-approved, no per-lesson gates, reviewed in Preview. Five offer photos in Ana's living room: Ana offers Luis tea (yes) and Diego coffee (no), Diego offers Sofia juice (yes), Luis offers Sofia hot chocolate (no) and Ana water (no). Photo pack revision 2 replaced o03 (Sofia offering Ana juice), because Sofia and Ana share one voice. Reply cards play the offer and the learner picks the reply that the photo shows.",
+  "target": "backend/lessons/a1_plus/unit_5/a1plus-unit-5-lesson-5-3.yaml",
+  "captions": false,
+  "narrators": [
+    "teacher",
+    "co-teacher"
+  ],
+  "answer_audio_policy": "authored-only",
+  "speak_delivery": "a1-pronunciation-v1",
+  "lesson": {
+    "id": "a1plus-unit-5-lesson-5-3",
+    "title": "5.3 Would you like some tea?",
+    "level": "A1+",
+    "unit_id": "a1plus-unit-5",
+    "unit_title": "Food, drinks and shopping",
+    "unit_outcome": "Say how much and how many, offer and order food and drinks politely, agree about likes, say what you want and need to do, talk about meals, prices and what is in your food, compare prices, use numbers to ninety-nine and ask for things at the table.",
+    "lesson_id": "a1plus-unit-5-lesson-5-3",
+    "lesson_title": "Would you like some tea?",
+    "sub_lesson_id": "5.3",
+    "sub_lesson_title": "Would you like some tea?",
+    "goal": "Offer a drink with Would you like some …? and accept or refuse it (Yes, please. / No, thank you.).",
+    "vocabulary": [
+      "Would you like",
+      "hot chocolate"
+    ],
+    "review_vocabulary": [
+      "some",
+      "tea",
+      "coffee",
+      "juice",
+      "water",
+      "Yes, please.",
+      "No, thank you.",
+      "It's",
+      "I like",
+      "drinks"
+    ],
+    "grammar_function": "A follow-up of A1 5.3 Drinks: A1 names drinks and says who drinks them, and A1 5.10 answers an offer with Yes, please. / No, thank you.; A1+ 5.3 makes the offer: Would you like some + a drink? It is one new frame, learnt as a whole (would is not taken apart), with A1+ 4.15's some; hot chocolate is the one new drink. In each photo a host holds out a drink and the guest takes it or holds up a hand, so the photo shows the reply. The asker's voice always differs from the answerer's (Ana and Sofia share one voice, as do Luis and Diego). I'd like waits for 5.9.",
+    "prerequisite": "A1 5.3 tea, coffee, juice, water; A1 5.10 Yes, please. / No, thank you.; A1+ 4.15 some; A1 5.5 I like.",
+    "speaking_outcome": "Say Would you like as one phrase (WOOD-ja-LIKE is fine) with rising intonation at the end of the offer; do not require native-like speed.",
+    "content_revision": 1,
+    "learn_context_groups": [
+      {
+        "kind": "exchange",
+        "targets": [
+          "Would you like"
+        ],
+        "models": [
+          {
+            "slide_id": "L1",
+            "text": "Would you like some tea? Yes, please.",
+            "turns": [
+              "Would you like some tea?",
+              "Yes, please."
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "exchange",
+        "targets": [
+          "Would you like"
+        ],
+        "models": [
+          {
+            "slide_id": "L2",
+            "text": "Would you like some coffee? No, thank you.",
+            "turns": [
+              "Would you like some coffee?",
+              "No, thank you."
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "sequence",
+        "targets": [
+          "hot chocolate"
+        ],
+        "models": [
+          {
+            "slide_id": "L3",
+            "text": "It's hot chocolate."
+          }
+        ]
+      }
+    ]
+  },
+  "items": [
+    {
+      "id": "l-tea",
+      "text": "Would you like some tea? Yes, please.",
+      "es": "¿Quieres un poco de té? Sí, por favor.",
+      "image": "/lesson-assets/a1plus-unit-5-o01-2b72061f1a90e239.webp",
+      "kind": "exchange",
+      "choices": false,
+      "use": false,
+      "learn": true,
+      "turns": [
+        {
+          "text": "Would you like some tea?",
+          "speaker": "ana",
+          "image": "/lesson-assets/a1plus-unit-5-o01-2b72061f1a90e239.webp"
+        },
+        {
+          "text": "Yes, please.",
+          "speaker": "luis",
+          "image": "/lesson-assets/a1plus-unit-5-o01-2b72061f1a90e239.webp"
+        }
+      ]
+    },
+    {
+      "id": "l-coffee",
+      "text": "Would you like some coffee? No, thank you.",
+      "es": "¿Quieres un poco de café? No, gracias.",
+      "image": "/lesson-assets/a1plus-unit-5-o02-c48db8fc1066e53b.webp",
+      "kind": "exchange",
+      "choices": false,
+      "use": false,
+      "learn": true,
+      "turns": [
+        {
+          "text": "Would you like some coffee?",
+          "speaker": "ana",
+          "image": "/lesson-assets/a1plus-unit-5-o02-c48db8fc1066e53b.webp"
+        },
+        {
+          "text": "No, thank you.",
+          "speaker": "diego",
+          "image": "/lesson-assets/a1plus-unit-5-o02-c48db8fc1066e53b.webp"
+        }
+      ]
+    },
+    {
+      "id": "l-chocolate",
+      "text": "It's hot chocolate.",
+      "es": "Es chocolate caliente.",
+      "image": "/lesson-assets/a1plus-unit-5-o05-480c8d2bf11bb340.webp",
+      "kind": "sequence",
+      "choices": false,
+      "use": false,
+      "learn": true,
+      "speaker": "teacher"
+    },
+    {
+      "id": "q-tea",
+      "text": "Would you like some tea?",
+      "es": "¿Quieres un poco de té?",
+      "image": "/lesson-assets/a1plus-unit-5-o01-2b72061f1a90e239.webp",
+      "kind": "offer",
+      "speaker": "ana",
+      "prefer": [
+        "Would you like some coffee?",
+        "Would you like some juice?"
+      ],
+      "accepts": {
+        "subject-variety": "Listen: the answer is what was heard; the other offers change only the drink.",
+        "action-variety": "Listen: the answer is what was heard; the other offers change only the drink.",
+        "conversational-response": "Listen: the answer is what was heard; the other offers change only the drink.",
+        "reading-load": "Listen: the answer is what was heard; the other offers change only the drink."
+      },
+      "blanks": [
+        "you",
+        "like"
+      ],
+      "learn": false
+    },
+    {
+      "id": "r-tea",
+      "text": "Yes, please.",
+      "es": "Sí, por favor.",
+      "image": "/lesson-assets/a1plus-unit-5-o01-2b72061f1a90e239.webp",
+      "kind": "reply",
+      "speaker": "luis",
+      "question": "Would you like some tea?",
+      "question_es": "¿Quieres un poco de té?",
+      "question_speaker": "ana",
+      "accepts": {
+        "conversational-response": "Yes, please. and No, thank you. both answer an offer; the photo shows the guest taking the drink or holding up a hand, so only one fits.",
+        "reading-load": "Yes, please. and No, thank you. both answer an offer; the photo shows the guest taking the drink or holding up a hand, so only one fits.",
+        "subject-variety": "Yes, please. and No, thank you. both answer an offer; the photo shows the guest taking the drink or holding up a hand, so only one fits.",
+        "action-variety": "Yes, please. and No, thank you. both answer an offer; the photo shows the guest taking the drink or holding up a hand, so only one fits."
+      },
+      "prefer": [
+        "No, thank you.",
+        "Here you are."
+      ],
+      "use": false,
+      "image_choices": false,
+      "learn": false
+    },
+    {
+      "id": "x-tea",
+      "text": "Would you like some tea? Yes, please.",
+      "es": "¿Quieres un poco de té? Sí, por favor.",
+      "image": "/lesson-assets/a1plus-unit-5-o01-2b72061f1a90e239.webp",
+      "kind": "exchange",
+      "turns": [
+        {
+          "text": "Would you like some tea?",
+          "speaker": "ana",
+          "image": "/lesson-assets/a1plus-unit-5-o01-2b72061f1a90e239.webp"
+        },
+        {
+          "text": "Yes, please.",
+          "speaker": "luis",
+          "image": "/lesson-assets/a1plus-unit-5-o01-2b72061f1a90e239.webp"
+        }
+      ],
+      "choices": false,
+      "use": false,
+      "learn": false
+    },
+    {
+      "id": "q-coffee",
+      "text": "Would you like some coffee?",
+      "es": "¿Quieres un poco de café?",
+      "image": "/lesson-assets/a1plus-unit-5-o02-c48db8fc1066e53b.webp",
+      "kind": "offer",
+      "speaker": "ana",
+      "prefer": [
+        "Would you like some tea?",
+        "Would you like some juice?"
+      ],
+      "accepts": {
+        "subject-variety": "Listen: the answer is what was heard; the other offers change only the drink.",
+        "action-variety": "Listen: the answer is what was heard; the other offers change only the drink.",
+        "conversational-response": "Listen: the answer is what was heard; the other offers change only the drink.",
+        "reading-load": "Listen: the answer is what was heard; the other offers change only the drink."
+      },
+      "blanks": [
+        "you",
+        "like"
+      ],
+      "learn": false
+    },
+    {
+      "id": "r-coffee",
+      "text": "No, thank you.",
+      "es": "No, gracias.",
+      "image": "/lesson-assets/a1plus-unit-5-o02-c48db8fc1066e53b.webp",
+      "kind": "reply",
+      "speaker": "diego",
+      "question": "Would you like some coffee?",
+      "question_es": "¿Quieres un poco de café?",
+      "question_speaker": "ana",
+      "accepts": {
+        "conversational-response": "Yes, please. and No, thank you. both answer an offer; the photo shows the guest taking the drink or holding up a hand, so only one fits.",
+        "reading-load": "Yes, please. and No, thank you. both answer an offer; the photo shows the guest taking the drink or holding up a hand, so only one fits.",
+        "subject-variety": "Yes, please. and No, thank you. both answer an offer; the photo shows the guest taking the drink or holding up a hand, so only one fits.",
+        "action-variety": "Yes, please. and No, thank you. both answer an offer; the photo shows the guest taking the drink or holding up a hand, so only one fits."
+      },
+      "prefer": [
+        "Yes, please.",
+        "Here you are."
+      ],
+      "use": false,
+      "image_choices": false,
+      "learn": false
+    },
+    {
+      "id": "x-coffee",
+      "text": "Would you like some coffee? No, thank you.",
+      "es": "¿Quieres un poco de café? No, gracias.",
+      "image": "/lesson-assets/a1plus-unit-5-o02-c48db8fc1066e53b.webp",
+      "kind": "exchange",
+      "turns": [
+        {
+          "text": "Would you like some coffee?",
+          "speaker": "ana",
+          "image": "/lesson-assets/a1plus-unit-5-o02-c48db8fc1066e53b.webp"
+        },
+        {
+          "text": "No, thank you.",
+          "speaker": "diego",
+          "image": "/lesson-assets/a1plus-unit-5-o02-c48db8fc1066e53b.webp"
+        }
+      ],
+      "choices": false,
+      "use": false,
+      "learn": false
+    },
+    {
+      "id": "q-juice",
+      "text": "Would you like some juice?",
+      "es": "¿Quieres un poco de jugo?",
+      "image": "/lesson-assets/a1plus-unit-5-o06-ea3556af242f7321.webp",
+      "kind": "offer",
+      "speaker": "diego",
+      "prefer": [
+        "Would you like some tea?",
+        "Would you like some coffee?"
+      ],
+      "accepts": {
+        "subject-variety": "Listen: the answer is what was heard; the other offers change only the drink.",
+        "action-variety": "Listen: the answer is what was heard; the other offers change only the drink.",
+        "conversational-response": "Listen: the answer is what was heard; the other offers change only the drink.",
+        "reading-load": "Listen: the answer is what was heard; the other offers change only the drink."
+      },
+      "blanks": [
+        "you",
+        "like"
+      ],
+      "learn": false
+    },
+    {
+      "id": "r-juice",
+      "text": "Yes, please.",
+      "es": "Sí, por favor.",
+      "image": "/lesson-assets/a1plus-unit-5-o06-ea3556af242f7321.webp",
+      "kind": "reply",
+      "speaker": "sofia",
+      "question": "Would you like some juice?",
+      "question_es": "¿Quieres un poco de jugo?",
+      "question_speaker": "diego",
+      "accepts": {
+        "conversational-response": "Yes, please. and No, thank you. both answer an offer; the photo shows the guest taking the drink or holding up a hand, so only one fits.",
+        "reading-load": "Yes, please. and No, thank you. both answer an offer; the photo shows the guest taking the drink or holding up a hand, so only one fits.",
+        "subject-variety": "Yes, please. and No, thank you. both answer an offer; the photo shows the guest taking the drink or holding up a hand, so only one fits.",
+        "action-variety": "Yes, please. and No, thank you. both answer an offer; the photo shows the guest taking the drink or holding up a hand, so only one fits."
+      },
+      "prefer": [
+        "No, thank you.",
+        "Here you are."
+      ],
+      "use": false,
+      "image_choices": false,
+      "learn": false
+    },
+    {
+      "id": "x-juice",
+      "text": "Would you like some juice? Yes, please.",
+      "es": "¿Quieres un poco de jugo? Sí, por favor.",
+      "image": "/lesson-assets/a1plus-unit-5-o06-ea3556af242f7321.webp",
+      "kind": "exchange",
+      "turns": [
+        {
+          "text": "Would you like some juice?",
+          "speaker": "diego",
+          "image": "/lesson-assets/a1plus-unit-5-o06-ea3556af242f7321.webp"
+        },
+        {
+          "text": "Yes, please.",
+          "speaker": "sofia",
+          "image": "/lesson-assets/a1plus-unit-5-o06-ea3556af242f7321.webp"
+        }
+      ],
+      "choices": false,
+      "use": false,
+      "learn": false
+    },
+    {
+      "id": "q-chocolate",
+      "text": "Would you like some hot chocolate?",
+      "es": "¿Quieres un poco de chocolate caliente?",
+      "image": "/lesson-assets/a1plus-unit-5-o04-46fa0f12814eaee3.webp",
+      "kind": "offer",
+      "speaker": "luis",
+      "prefer": [
+        "Would you like some tea?",
+        "Would you like some coffee?"
+      ],
+      "accepts": {
+        "subject-variety": "Listen: the answer is what was heard; the other offers change only the drink.",
+        "action-variety": "Listen: the answer is what was heard; the other offers change only the drink.",
+        "conversational-response": "Listen: the answer is what was heard; the other offers change only the drink.",
+        "reading-load": "Listen: the answer is what was heard; the other offers change only the drink."
+      },
+      "blanks": [
+        "hot",
+        "chocolate"
+      ],
+      "learn": false
+    },
+    {
+      "id": "r-chocolate",
+      "text": "No, thank you.",
+      "es": "No, gracias.",
+      "image": "/lesson-assets/a1plus-unit-5-o04-46fa0f12814eaee3.webp",
+      "kind": "reply",
+      "speaker": "sofia",
+      "question": "Would you like some hot chocolate?",
+      "question_es": "¿Quieres un poco de chocolate caliente?",
+      "question_speaker": "luis",
+      "accepts": {
+        "conversational-response": "Yes, please. and No, thank you. both answer an offer; the photo shows the guest taking the drink or holding up a hand, so only one fits.",
+        "reading-load": "Yes, please. and No, thank you. both answer an offer; the photo shows the guest taking the drink or holding up a hand, so only one fits.",
+        "subject-variety": "Yes, please. and No, thank you. both answer an offer; the photo shows the guest taking the drink or holding up a hand, so only one fits.",
+        "action-variety": "Yes, please. and No, thank you. both answer an offer; the photo shows the guest taking the drink or holding up a hand, so only one fits."
+      },
+      "prefer": [
+        "Yes, please.",
+        "Here you are."
+      ],
+      "use": false,
+      "image_choices": false,
+      "learn": false
+    },
+    {
+      "id": "x-chocolate",
+      "text": "Would you like some hot chocolate? No, thank you.",
+      "es": "¿Quieres un poco de chocolate caliente? No, gracias.",
+      "image": "/lesson-assets/a1plus-unit-5-o04-46fa0f12814eaee3.webp",
+      "kind": "exchange",
+      "turns": [
+        {
+          "text": "Would you like some hot chocolate?",
+          "speaker": "luis",
+          "image": "/lesson-assets/a1plus-unit-5-o04-46fa0f12814eaee3.webp"
+        },
+        {
+          "text": "No, thank you.",
+          "speaker": "sofia",
+          "image": "/lesson-assets/a1plus-unit-5-o04-46fa0f12814eaee3.webp"
+        }
+      ],
+      "choices": false,
+      "use": false,
+      "learn": false
+    },
+    {
+      "id": "q-water",
+      "text": "Would you like some water?",
+      "es": "¿Quieres un poco de agua?",
+      "image": "/lesson-assets/a1plus-unit-5-o07-06ab329abf678aae.webp",
+      "kind": "offer",
+      "speaker": "luis",
+      "prefer": [
+        "Would you like some tea?",
+        "Would you like some coffee?"
+      ],
+      "accepts": {
+        "subject-variety": "Listen: the answer is what was heard; the other offers change only the drink.",
+        "action-variety": "Listen: the answer is what was heard; the other offers change only the drink.",
+        "conversational-response": "Listen: the answer is what was heard; the other offers change only the drink.",
+        "reading-load": "Listen: the answer is what was heard; the other offers change only the drink."
+      },
+      "blanks": [
+        "you",
+        "like"
+      ],
+      "learn": false
+    },
+    {
+      "id": "r-water",
+      "text": "No, thank you.",
+      "es": "No, gracias.",
+      "image": "/lesson-assets/a1plus-unit-5-o07-06ab329abf678aae.webp",
+      "kind": "reply",
+      "speaker": "ana",
+      "question": "Would you like some water?",
+      "question_es": "¿Quieres un poco de agua?",
+      "question_speaker": "luis",
+      "accepts": {
+        "conversational-response": "Yes, please. and No, thank you. both answer an offer; the photo shows the guest taking the drink or holding up a hand, so only one fits.",
+        "reading-load": "Yes, please. and No, thank you. both answer an offer; the photo shows the guest taking the drink or holding up a hand, so only one fits.",
+        "subject-variety": "Yes, please. and No, thank you. both answer an offer; the photo shows the guest taking the drink or holding up a hand, so only one fits.",
+        "action-variety": "Yes, please. and No, thank you. both answer an offer; the photo shows the guest taking the drink or holding up a hand, so only one fits."
+      },
+      "prefer": [
+        "Yes, please.",
+        "Here you are."
+      ],
+      "use": false,
+      "image_choices": false,
+      "learn": false
+    },
+    {
+      "id": "x-water",
+      "text": "Would you like some water? No, thank you.",
+      "es": "¿Quieres un poco de agua? No, gracias.",
+      "image": "/lesson-assets/a1plus-unit-5-o07-06ab329abf678aae.webp",
+      "kind": "exchange",
+      "turns": [
+        {
+          "text": "Would you like some water?",
+          "speaker": "luis",
+          "image": "/lesson-assets/a1plus-unit-5-o07-06ab329abf678aae.webp"
+        },
+        {
+          "text": "No, thank you.",
+          "speaker": "ana",
+          "image": "/lesson-assets/a1plus-unit-5-o07-06ab329abf678aae.webp"
+        }
+      ],
+      "choices": false,
+      "use": false,
+      "learn": false
+    },
+    {
+      "id": "d-chocolate",
+      "text": "I like hot chocolate.",
+      "es": "Me gusta el chocolate caliente.",
+      "image": "/lesson-assets/a1plus-unit-5-o05-480c8d2bf11bb340.webp",
+      "kind": "like",
+      "speaker": "sofia",
+      "choices": false,
+      "blanks": [
+        "hot",
+        "chocolate"
+      ],
+      "learn": false
+    },
+    {
+      "id": "d-chocolate-luis",
+      "text": "Luis drinks hot chocolate.",
+      "es": "Luis toma chocolate caliente.",
+      "image": "/lesson-assets/a1plus-unit-5-o05-480c8d2bf11bb340.webp",
+      "kind": "like",
+      "speaker": "teacher",
+      "choices": false,
+      "learn": false
+    },
+    {
+      "id": "u-thank",
+      "text": "No, thank you.",
+      "es": "No, gracias.",
+      "image": "/lesson-assets/a1plus-unit-5-o02-c48db8fc1066e53b.webp",
+      "kind": "say",
+      "speaker": "diego",
+      "choices": false,
+      "blanks": [
+        "thank",
+        "you"
+      ],
+      "learn": false
+    },
+    {
+      "id": "u-please",
+      "text": "Yes, please.",
+      "es": "Sí, por favor.",
+      "image": "/lesson-assets/a1plus-unit-5-o01-2b72061f1a90e239.webp",
+      "kind": "say",
+      "speaker": "luis",
+      "choices": false,
+      "use": false,
+      "learn": false
+    }
+  ],
+  "pool": [
+    {
+      "text": "Here you are.",
+      "es": "Aquí tienes.",
+      "image": "/lesson-assets/a1plus-unit-5-o01-2b72061f1a90e239.webp",
+      "kind": "reply",
+      "image_choices": false
+    }
+  ],
+  "layout": {
+    "Recognize": 11,
+    "Listen": 10,
+    "Speak": 8,
+    "Use": 8
+  },
+  "stage_sequences": {
+    "Learn": [
+      "l-tea",
+      "l-coffee",
+      "l-chocolate"
+    ],
+    "Recognize": [
+      "q-tea",
+      "r-coffee",
+      "q-juice",
+      "r-tea",
+      "q-chocolate",
+      "r-water",
+      "q-coffee",
+      "r-juice",
+      "q-water",
+      "r-chocolate",
+      "q-chocolate"
+    ],
+    "Listen": [
+      "q-coffee",
+      "r-tea",
+      "q-water",
+      "r-chocolate",
+      "q-tea",
+      "r-juice",
+      "q-chocolate",
+      "r-coffee",
+      "q-juice",
+      "r-water"
+    ],
+    "Speak": [
+      "x-tea",
+      "q-coffee",
+      "u-please",
+      "u-thank",
+      "d-chocolate",
+      "q-juice",
+      "q-chocolate",
+      "q-water"
+    ],
+    "Use": [
+      "q-tea",
+      "u-thank",
+      "q-coffee",
+      "d-chocolate",
+      "q-juice",
+      "d-chocolate-luis",
+      "q-chocolate",
+      "q-water"
+    ]
+  }
+}
