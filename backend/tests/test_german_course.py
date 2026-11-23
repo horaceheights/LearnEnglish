@@ -96,6 +96,29 @@ class GermanCourseTests(unittest.TestCase):
         self.assertEqual(len(COURSE_LESSONS["de-a1"]["de-a1-unit-3-lesson-3-16"].cards), 16)
         self.assertEqual(len(COURSE_LESSONS["de-a1"]["de-a1-unit-3-lesson-3-15"].cards), 58)
 
+    def test_unit_4_has_seventeen_lessons_ending_in_review_and_mission(self):
+        # User approval of the German Unit 4 map ("Approve, build"), 2026-11-23.
+        ids = [lesson.id for lesson in COURSE_LESSONS["de-a1"].values() if lesson.unit_id == "de-a1-unit-4"]
+        self.assertEqual(sorted(ids), sorted(f"de-a1-unit-4-lesson-4-{n}" for n in range(1, 18)))
+        self.assertEqual(getattr(COURSE_LESSONS["de-a1"]["de-a1-unit-4-lesson-4-17"], "experience_type", None), "mission")
+        self.assertEqual(len(COURSE_LESSONS["de-a1"]["de-a1-unit-4-lesson-4-17"].cards), 20)
+        self.assertEqual(len(COURSE_LESSONS["de-a1"]["de-a1-unit-4-lesson-4-16"].cards), 86)
+
+    def test_unit_4_keeps_colors_before_the_verb_and_no_am_pm(self):
+        # Approved Unit 4 map, 2026-11-23: a color only follows der/die/das (das blaue Buch),
+        # never ein/einen (no ein blaues Buch yet), and German clock times never say a.m./p.m.
+        colors = "rot blau grün gelb schwarz weiß braun grau".split()
+        for lesson in COURSE_LESSONS["de-a1"].values():
+            if lesson.unit_id != "de-a1-unit-4":
+                continue
+            for card in lesson.cards:
+                text = card.audio_text or card.answer_audio_text or ""
+                words = _speech_words(text)
+                self.assertNotRegex(text.lower(), r"\b[ap]\.m\.", (lesson.id, card.slide_id))
+                for word, after in zip(words, words[1:]):
+                    if any(after.startswith(c) and after != c for c in colors):
+                        self.assertIn(word, {"der", "die", "das"}, (lesson.id, card.slide_id, text))
+
     def test_unit_3_first_person_lines_match_the_speaker_and_use_du_only(self):
         # A woman says Ich bin Lehrerin in Carola's voice; a man says Ich bin Lehrer in the
         # co-teacher's voice. The polite Sie and ihr (you plural) are not taught in Unit 3.
