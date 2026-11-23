@@ -1,0 +1,179 @@
+from __future__ import annotations
+
+from dataclasses import dataclass, replace
+import re
+
+
+COURSE_AUDIO_PROFILE_ID = "a1-elevenlabs-character-cast-v1"
+COURSE_AUDIO_PROVIDER = "elevenlabs-premium"
+COURSE_AUDIO_MODEL_ID = "eleven_multilingual_v2"
+DEFAULT_GENERATION_MODEL_ID = "eleven_v4"
+COURSE_AUDIO_OUTPUT_FORMAT = "mp3_44100_128"
+COURSE_AUDIO_SEED = 1101
+
+# Native v4 delivery directions for paired communication-repair models. These
+# tags guide a fresh performance; they never change the learner-visible words
+# or apply digital speed/pitch processing to an existing recording.
+NATURAL_DELIVERY_TAGS = {
+    "quick": "[speaking at a brisk but intelligible conversational pace]",
+    "clear": "[speaking clearly at a measured conversational pace]",
+    "a1-pronunciation-v1": "[speaking very slowly and clearly]",
+}
+
+
+def natural_delivery_text(text: str, delivery: str | None) -> str:
+    if delivery is None:
+        return text
+    if delivery not in NATURAL_DELIVERY_TAGS:
+        raise ValueError(f"Unsupported natural delivery: {delivery}")
+    return f"{NATURAL_DELIVERY_TAGS[delivery]} {text}"
+
+
+def matches_delivery_request(text: str, delivery: str, request_text: object) -> bool:
+    """Validate the approved prepared pace without altering the original take.
+
+    This delivery permits capitalized emphasis and native pause tags, but no
+    additional spoken words or unrecognized direction tags. Other deliveries
+    retain their exact request comparison.
+    """
+    if delivery != "a1-pronunciation-v1":
+        return request_text == natural_delivery_text(text, delivery)
+    if not isinstance(request_text, str):
+        return False
+    prefixes = ("[speaking very slowly and clearly] ", "[speaking slowly and clearly] ")
+    prefix = next((value for value in prefixes if request_text.startswith(value)), None)
+    if prefix is None:
+        return False
+    spoken = request_text[len(prefix):].replace("[pause]", " ")
+    if "[" in spoken or "]" in spoken:
+        return False
+    return re.sub(r"\s+", " ", spoken).strip().casefold() == text.casefold()
+
+# One user-reviewed standalone correction, authorized only by the exact
+# checksum and card bindings in course_audio_receipts.py.
+PLAYING_CORRECTION_MODEL_ID = "eleven_flash_v2"
+PLAYING_CORRECTION_SPEED = 0.85
+
+# Exact, user-requested In/On replacements; never applied to other course audio.
+LOCATION_WORD_CORRECTION_MODEL_ID = "eleven_flash_v2"
+LOCATION_WORD_CORRECTION_SPEED = 0.85
+
+# User-auditioned standalone Our; exact bytes and bindings gate this exception.
+OUR_CORRECTION_MODEL_ID = "eleven_flash_v2"
+OUR_CORRECTION_SPEED = 1.0
+
+NARRATOR_VOICE_IDS = {
+    "female-teacher": "XfNU2rGpBa01ckF309OY",  # Nichalia
+    "female-warm": "EXAVITQu4vr4xnSDxMaL",  # Sarah
+    "male-conversational": "TX3LPaxmHKxFdv7VOQHJ",  # Liam
+    "male-teacher": "cjVigY5qzO86Huf0OWal",  # Eric, the second neutral narrator (2026-09-25)
+    # Native German narrator for the German course (user-auditioned 2026-11-18).
+    "german-teacher": "K75lPKuh15SyVhQC1LrE",  # Carola
+    # Native German male co-teacher (user-auditioned 2026-11-19), alternating with Carola like Eric with Nichalia.
+    "german-co-teacher": "TUKJhQmz3RPYBNAgC5A1",  # German Narration
+    # Native Mexican Spanish narrators for the Spanish course (user-auditioned 2026-11-19):
+    # Pamela reads odd cards, Enrique Mondragón even cards.
+    "spanish-teacher": "pmruOMcxgUotq2bYO5Ne",  # Pamela
+    "spanish-co-teacher": "iDEmt5MnqUotdwCIVplo",  # Enrique Mondragón
+}
+
+# Lesson content names the semantic speaker, never a provider voice ID. Named
+# characters stay recognizable across stages while neutral teaching language
+# keeps the established teacher voice.
+SPEAKER_NARRATORS = {
+    "teacher": "female-teacher",
+    "question": "female-teacher",
+    "answer": "female-teacher",
+    "ana": "female-warm",
+    "sofia": "female-warm",
+    "female-character": "female-warm",
+    "luis": "male-conversational",
+    "diego": "male-conversational",
+    "male-character": "male-conversational",
+    # A second neutral narrator (user direction, 2026-09-25): lessons built from
+    # briefs alternate neutral narration between the teacher and this co-teacher.
+    "co-teacher": "male-teacher",
+    # The German course is read by a native German narrator, never the English cast.
+    "de-teacher": "german-teacher",
+    "de-co-teacher": "german-co-teacher",
+    # The Spanish course is read by native Mexican Spanish narrators.
+    "es-teacher": "spanish-teacher",
+    "es-co-teacher": "spanish-co-teacher",
+}
+
+# Roles that may still fall back to the reviewed legacy (voice-unknown) cache.
+NEUTRAL_SPEAKER_ROLES = frozenset({"teacher", "question", "answer"})
+NAMED_SPEAKER_ROLES = frozenset(set(SPEAKER_NARRATORS) - NEUTRAL_SPEAKER_ROLES)
+# Off-camera narration: a line no pictured person says, in either neutral narrator.
+NARRATION_SPEAKER_ROLES = frozenset(NEUTRAL_SPEAKER_ROLES | {"co-teacher", "de-teacher", "de-co-teacher", "es-teacher", "es-co-teacher"})
+
+
+@dataclass(frozen=True)
+class CourseAudioRenderProfile:
+    profile_id: str
+    provider: str
+    model_id: str
+    narrator: str
+    voice_id: str
+    output_format: str
+    seed: int
+    stability: float
+    similarity_boost: float
+    style: float | None
+    use_speaker_boost: bool | None
+    speed: float | None
+
+    def as_provenance_contract(self) -> dict[str, object]:
+        """Return the exact provider request contract stored in receipts.
+
+        The provider output format is intentionally distinct from the probed
+        format of the reviewed file on disk. Older approved takes were
+        normalized after ElevenLabs returned them, while new offline renders
+        may retain the provider bytes unchanged.
+        """
+        settings = {"stability": self.stability, "similarity_boost": self.similarity_boost}
+        if self.model_id != DEFAULT_GENERATION_MODEL_ID:
+            settings.update(style=self.style, use_speaker_boost=self.use_speaker_boost, speed=self.speed)
+        return {
+            "provider": self.provider,
+            "model_id": self.model_id,
+            "narrator": self.narrator,
+            "voice_id": self.voice_id,
+            "provider_output_format": self.output_format,
+            "seed": self.seed,
+            "settings": settings,
+        }
+
+
+def narrator_for_speaker(speaker_role: str) -> str:
+    try:
+        return SPEAKER_NARRATORS[speaker_role]
+    except KeyError as error:
+        raise ValueError(f"Unsupported course audio speaker role: {speaker_role}") from error
+
+
+def render_profile_for(speaker_role: str, mode: str) -> CourseAudioRenderProfile:
+    """Frozen v2 contract for existing receipts and legacy cache compatibility."""
+    narrator = narrator_for_speaker(speaker_role)
+    # These are the already-approved ElevenLabs values. Prompt and
+    # pronunciation speed deliberately remain identical at 0.70.
+    return CourseAudioRenderProfile(
+        profile_id=COURSE_AUDIO_PROFILE_ID,
+        provider=COURSE_AUDIO_PROVIDER,
+        model_id=COURSE_AUDIO_MODEL_ID,
+        narrator=narrator,
+        voice_id=NARRATOR_VOICE_IDS[narrator],
+        output_format=COURSE_AUDIO_OUTPUT_FORMAT,
+        seed=COURSE_AUDIO_SEED,
+        stability=0.55,
+        similarity_boost=0.80,
+        style=0.0,
+        use_speaker_boost=True,
+        speed=0.70,
+    )
+
+
+def generation_profile_for(speaker_role: str, mode: str) -> CourseAudioRenderProfile:
+    """New offline recordings use v4 with its native pacing and supported controls."""
+    return replace(render_profile_for(speaker_role, mode), model_id=DEFAULT_GENERATION_MODEL_ID,
+                   style=None, use_speaker_boost=None, speed=None)

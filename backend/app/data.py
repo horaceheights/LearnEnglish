@@ -1,0 +1,141 @@
+from pathlib import Path
+import json
+from typing import Any
+import yaml
+
+from .schemas import ChoiceOption, Lesson, LessonCard, MissionLesson
+from .card_audio_assets import bind_lesson_audio_assets
+
+
+ROOT_DIR = Path(__file__).resolve().parents[2]
+LESSON_IMAGE_DIR = ROOT_DIR / "Lessons" / "Lesson1" / "images"
+LESSONS_DIR = ROOT_DIR / "backend" / "lessons"
+
+
+def image_url(name: str) -> str:
+    if not name:
+        return ""
+    if name.startswith("/lesson-assets/"):
+        return name
+    image_name = Path(name).with_suffix('.webp').name
+    if image_name.startswith("they_"):
+        cache_version = "?v=20260802-plural-unified-scenes-v1"
+    elif image_name in {
+        "girl_is_running.webp",
+    }:
+        cache_version = "?v=20260802-running-girl-proportions-v2"
+    elif image_name == "boy_is_reading.webp" or image_name.startswith("man"):
+        cache_version = "?v=20260802-boy-man-age-distinction-v1"
+    elif image_name == "place_park.webp":
+        cache_version = "?v=20260802-kids-playground-park-v1"
+    elif image_name.startswith("place_"):
+        cache_version = "?v=20260802-uniform-place-frames-v1"
+    elif image_name.startswith("object_"):
+        cache_version = "?v=20260801-objects-places-v2"
+    elif image_name.startswith("unit2_"):
+        cache_version = "?v=20260822-unit-2-v1"
+    else:
+        cache_version = ""
+    return f"/lesson-assets/{image_name}{cache_version}"
+
+
+def load_lesson_from_file(file_path: Path) -> Lesson:
+    with open(file_path, "r", encoding="utf-8") as f:
+        data = yaml.safe_load(f)
+
+    if "cards" in data and isinstance(data["cards"], list):
+        for card_data in data["cards"]:
+            if "prompt_image_url" in card_data and card_data["prompt_image_url"]:
+                card_data["prompt_image_url"] = image_url(card_data["prompt_image_url"])
+            for turn_field in ("audio_turns", "answer_audio_turns", "success_audio_turns"):
+                turns = card_data.get(turn_field)
+                if not isinstance(turns, list):
+                    continue
+                for turn in turns:
+                    if isinstance(turn, dict) and turn.get("image_url"):
+                        turn["image_url"] = image_url(turn["image_url"])
+            if "options" in card_data and isinstance(card_data["options"], list):
+                for option in card_data["options"]:
+                    if "image_url" in option and option["image_url"]:
+                        option["image_url"] = image_url(option["image_url"])
+                    elif "image" in option and option["image"]:
+                        option["image_url"] = image_url(option["image"])
+
+    experience_type = data.get("experience_type")
+    if experience_type is None:
+        lesson_model = Lesson
+    elif experience_type == "mission":
+        lesson_model = MissionLesson
+    else:
+        raise ValueError(
+            f"Unsupported lesson experience_type {experience_type!r} in {file_path}."
+        )
+
+    return bind_lesson_audio_assets(lesson_model(**data))
+
+
+def load_all_lessons(lessons_dir: Path = LESSONS_DIR) -> dict[str, Lesson]:
+    loaded_lessons: list[Lesson] = []
+    if not lessons_dir.exists():
+        return {}
+
+    # Only this course's unit folders: another course kept under backend/lessons
+    # (for example a future A1+ folder) must never leak into the A1 catalog.
+    yaml_files = sorted(lessons_dir.glob("unit_*/*.yaml"))
+    for file_path in yaml_files:
+        lesson = load_lesson_from_file(file_path)
+        loaded_lessons.append(lesson)
+
+    def lesson_order(lesson: Lesson) -> tuple[int, ...]:
+        try:
+            return tuple(int(part) for part in lesson.sub_lesson_id.split("."))
+        except (AttributeError, ValueError):
+            return (999,)
+
+    if len({lesson.id for lesson in loaded_lessons}) != len(loaded_lessons):
+        raise ValueError(f"Duplicate lesson identity in {lessons_dir}")
+    return {
+        lesson.id: lesson
+        for lesson in sorted(loaded_lessons, key=lesson_order)
+    }
+
+
+LESSONS = load_all_lessons()
+
+
+def load_course_catalogs(root: Path = ROOT_DIR) -> tuple[list[dict], dict[str, dict[str, Lesson]]]:
+    """Only explicitly registered courses enter the application catalog."""
+    descriptors = json.loads((root / "backend/courses.json").read_text(encoding="utf-8"))
+    courses, lesson_ids, unit_owners = {}, set(), {}
+    for descriptor in descriptors:
+        course_id = descriptor["id"]
+        if not course_id or course_id in courses:
+            raise ValueError("Duplicate or empty course identity")
+        source = (root / descriptor["lessonRoot"]).resolve()
+        if not source.is_relative_to((root / "backend/lessons").resolve()):
+            raise ValueError("Course source must stay inside backend/lessons")
+        lessons = LESSONS if source == LESSONS_DIR.resolve() else load_all_lessons(source)
+        if not lessons:
+            raise ValueError(f"Registered course has no lessons: {course_id}")
+        for lesson in lessons.values():
+            if lesson.id in lesson_ids or lesson.level != descriptor["level"]:
+                raise ValueError(f"Duplicate lesson or mismatched course level: {lesson.id}")
+            if unit_owners.setdefault(lesson.unit_id, course_id) != course_id:
+                raise ValueError(f"Unit identity belongs to two courses: {lesson.unit_id}")
+            lesson_ids.add(lesson.id)
+        courses[course_id] = lessons
+    return descriptors, courses
+
+
+COURSE_DESCRIPTORS, COURSE_LESSONS = load_course_catalogs()
+ALL_LESSONS = {key: lesson for lessons in COURSE_LESSONS.values() for key, lesson in lessons.items()}
+LESSON_COURSES = {key: course_id for course_id, lessons in COURSE_LESSONS.items() for key in lessons}
+
+
+def lesson_thumbnail_url(lesson: Lesson) -> str:
+    for card in lesson.cards:
+        for url in [card.prompt_image_url, *(turn.image_url for turn in card.audio_turns),
+                    *(option.image_url for option in card.options)]:
+            if url:
+                return url
+    return ""

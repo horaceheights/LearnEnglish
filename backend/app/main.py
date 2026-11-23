@@ -1,0 +1,653 @@
+import os
+import threading
+import time
+from pathlib import Path
+import random
+from typing import Annotated
+
+from fastapi import FastAPI, File, Form, HTTPException, Query, Request, UploadFile
+from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import HTMLResponse, JSONResponse, Response, RedirectResponse
+
+from .api_auth import api_request_is_authorized
+from . import accounts, account_routes, clerk_webhooks, lesson_tutor, lesson_practice
+from .diagnostics import initialize_diagnostics
+from .deploy_source import deployed_identity
+from .course_audio import audio_debug, ready_cue_wav
+from . import cloudflare_media
+from .data import ALL_LESSONS as LESSONS
+from .data import LESSONS as LEGACY_LESSONS, LESSON_COURSES, lesson_thumbnail_url
+from .legal import account_deletion_html, privacy_policy_html
+from .schemas import AzureAssessmentInterpretRequest, Lesson, LessonCard
+from .pronunciation import (
+    close_pronunciation_clients,
+    get_pronunciation_browser_token,
+    interpret_azure_assessment,
+    pronunciation_debug,
+    score_pronunciation,
+)
+from .azure_pronunciation import transcribe_with_azure
+from .conversation import (
+    ConversationStartRequest,
+    ConversationTurnRequest,
+    get_conversation_service,
+)
+from .tracking import (
+    CardAttemptCreate,
+    LessonFeedbackCreate,
+    LessonResultSync,
+    SessionCreate,
+    SessionFinish,
+    UserCreate,
+    admin_summary,
+    create_attempt,
+    create_lesson_feedback,
+    create_or_update_user,
+    create_session,
+    delete_user_and_activity,
+    finish_session,
+    sync_lesson_result,
+    get_lesson_progress,
+    get_user_by_name,
+    get_user,
+    init_db,
+    record_client_release,
+    reset_user_activity,
+    storage_info,
+)
+
+initialize_diagnostics()
+app = FastAPI(title="Learn English API", version="0.1.0")
+init_db()
+accounts.init_account_db()
+app.include_router(account_routes.router)
+app.include_router(lesson_tutor.router)
+app.include_router(lesson_practice.router)
+app.add_api_route('/api/webhooks/clerk', clerk_webhooks.receive, methods=['POST'])
+
+APP_API_KEY = os.getenv("APP_API_KEY", "").strip()
+ADMIN_API_KEY = os.getenv("ADMIN_API_KEY", "").strip()
+if not APP_API_KEY:
+    print("WARNING: APP_API_KEY is not set; app-key enforcement is disabled for legacy clients.")
+if not ADMIN_API_KEY:
+    print("WARNING: ADMIN_API_KEY is not set; admin endpoints are unavailable.")
+
+
+@app.on_event("startup")
+def prepare_persistent_course_audio() -> None:
+    # Local authoring/tests remain offline. Deployment never seeds a disk.
+    if not os.getenv("RENDER_GIT_COMMIT") and os.getenv("APP_ENVIRONMENT") != "production":
+        return
+    def seed_in_background() -> None:
+        try:
+            status = cloudflare_media.verify_inventory()
+            print(f"Cloudflare course-audio verification: {status}")
+        except Exception as error:
+            # Keep the already-shipped Production client online on the shared
+            # backend while health reports that persistent assets are unready.
+            print(f"Cloudflare course-audio verification failed: {error!r}")
+
+    threading.Thread(
+        target=seed_in_background,
+        name="cloudflare-course-audio-verification",
+        daemon=True,
+    ).start()
+
+
+@app.on_event("shutdown")
+async def shutdown_clients():
+    await close_pronunciation_clients()
+
+
+def allowed_origins() -> list[str]:
+    configured = os.getenv("ALLOWED_ORIGINS", "")
+    origins = [origin.strip() for origin in configured.split(",") if origin.strip()]
+    return origins or ["http://localhost:3000"]
+
+
+def allowed_origin_regex() -> str | None:
+    if os.getenv("ALLOWED_ORIGINS"):
+        return None
+
+    return r"^https?://(localhost|127\.0\.0\.1|10(?:\.\d{1,3}){3}|192\.168(?:\.\d{1,3}){2}|172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2}):3000$"
+
+# Per-path request ceilings for the endpoints that call metered, paid
+# providers (Azure pronunciation, OpenAI/ElevenLabs TTS). Generous enough
+# that a real learner never notices; tight enough to stop scripted abuse.
+# (path, requests allowed, window in seconds)
+_RATE_LIMITS: dict[str, tuple[int, float]] = {
+    "/api/pronunciation/score": (30, 60.0),
+    "/api/pronunciation/interpret-azure": (30, 60.0),
+    "/api/pronunciation/token": (30, 60.0),
+    "/api/audio/course": (90, 60.0),
+    "/api/audio/course.mp3": (90, 60.0),
+    "/api/audio/course-completion": (90, 60.0),
+    "/api/audio/course-completion.mp3": (90, 60.0),
+    "/api/feedback/transcribe": (15, 60.0),
+    "/api/conversation/start": (20, 60.0),
+    "/api/conversation/turn": (40, 60.0),
+}
+
+_rate_limit_hits: dict[tuple[str, str], list[float]] = {}
+
+
+def _client_ip(request: Request) -> str:
+    forwarded = request.headers.get("x-forwarded-for")
+    if forwarded:
+        return forwarded.split(",")[0].strip()
+    return request.client.host if request.client else "unknown"
+
+
+def _is_rate_limited(request: Request) -> bool:
+    limit = _RATE_LIMITS.get(request.url.path)
+    if not limit:
+        return False
+    max_requests, window_seconds = limit
+    key = (request.url.path, _client_ip(request))
+    now = time.monotonic()
+    hits = [hit for hit in _rate_limit_hits.get(key, []) if now - hit < window_seconds]
+    if len(hits) >= max_requests:
+        _rate_limit_hits[key] = hits
+        return True
+    hits.append(now)
+    _rate_limit_hits[key] = hits
+    return False
+
+
+@app.middleware("http")
+async def guard_api_requests(request: Request, call_next):
+    """Keep the public internet out of learner data and metered providers.
+
+    - /api/admin/* needs the separate, stronger admin key (never shipped in
+      either app) -- this is an operator-only surface.
+    - Every other /api/* route (except the open health/release-status paths) needs
+      the app key that ships inside the mobile app and web frontend once
+      APP_API_KEY is configured. Leaving it unset keeps legacy clients
+      working during a staged rollout. A valid admin key may also authorize
+      these routes for server-side admin mutations.
+    - Paid, metered endpoints are additionally rate-limited per IP address
+      regardless of whether the key check passes, as a second layer against
+      a leaked key being hammered.
+    """
+    path = request.url.path
+    if not api_request_is_authorized(
+        path,
+        configured_app_key=APP_API_KEY,
+        configured_admin_key=ADMIN_API_KEY,
+        provided_app_key=request.headers.get("x-app-key") or request.query_params.get("key"),
+        provided_admin_key=request.headers.get("x-admin-key"),
+    ):
+        return JSONResponse(status_code=401, content={"detail": "Not authorized."})
+
+    if _is_rate_limited(request):
+        return JSONResponse(
+            status_code=429,
+            content={"detail": "Demasiadas solicitudes. Espera un momento e intentalo de nuevo."},
+        )
+
+    context_token = None
+    operator_token = None
+    try:
+        import hmac
+        admin_authorized = bool(ADMIN_API_KEY and hmac.compare_digest(ADMIN_API_KEY, request.headers.get("x-admin-key", "")))
+        operator_token = accounts.operator_access.set(admin_authorized)
+        context = await account_routes.guard_learner_request(request, admin_authorized)
+        if context:
+            context_token = accounts.write_account.set(context)
+        return await call_next(request)
+    except HTTPException as error:
+        return JSONResponse(status_code=error.status_code, content={"detail": error.detail})
+    finally:
+        if context_token is not None:
+            accounts.write_account.reset(context_token)
+        if operator_token is not None:
+            accounts.operator_access.reset(operator_token)
+
+
+# CORS must wrap authentication: browsers send preflight without credentials,
+# and authenticated failures also need CORS headers so clients can read them.
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=allowed_origins(),
+    allow_origin_regex=allowed_origin_regex(),
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+
+@app.get("/lesson-assets/{name:path}")
+def legacy_lesson_media(name: str, request: Request = None):
+    try:
+        url = cloudflare_media.object_url(f"lesson-assets/{name}")
+    except ValueError as error:
+        raise HTTPException(404, "Lesson media not found.") from error
+    if request is not None and request.url.query:
+        url += f"?{request.url.query}"
+    return RedirectResponse(url, status_code=307)
+
+
+def copy_model(model, update: dict):
+    if hasattr(model, "model_copy"):
+        return model.model_copy(update=update)
+    return model.copy(update=update)
+
+
+def balanced_correct_positions(cards: list[LessonCard], rng: random.Random) -> dict[int, int]:
+    card_groups: dict[int, list[int]] = {}
+    for card_index, card in enumerate(cards):
+        option_count = len(card.options)
+        if option_count > 1:
+            card_groups.setdefault(option_count, []).append(card_index)
+
+    positions: dict[int, int] = {}
+    for option_count, card_indices in card_groups.items():
+        target_positions = (list(range(option_count)) * ((len(card_indices) // option_count) + 1))[: len(card_indices)]
+        rng.shuffle(target_positions)
+        for card_index, target_position in zip(card_indices, target_positions):
+            positions[card_index] = target_position
+
+    return positions
+
+
+def shuffle_card_options(card: LessonCard, correct_position: int | None, rng: random.Random) -> LessonCard:
+    options = [*card.options]
+    if len(options) <= 1:
+        return card
+
+    correct_options = [option for option in options if option.id == card.correct_option_id]
+    if len(correct_options) != 1:
+        rng.shuffle(options)
+        return copy_model(card, {"options": options})
+
+    correct_option = correct_options[0]
+    distractors = [option for option in options if option.id != card.correct_option_id]
+    rng.shuffle(distractors)
+
+    target_position = correct_position if correct_position is not None else rng.randrange(len(options))
+    target_position = max(0, min(target_position, len(distractors)))
+    shuffled_options = [*distractors]
+    shuffled_options.insert(target_position, correct_option)
+    return copy_model(card, {"options": shuffled_options})
+
+
+def lesson_for_delivery(lesson: Lesson) -> Lesson:
+    rng = random.SystemRandom()
+    correct_positions = balanced_correct_positions(lesson.cards, rng)
+    cards = [
+        shuffle_card_options(card, correct_positions.get(card_index), rng)
+        for card_index, card in enumerate(lesson.cards)
+    ]
+    return copy_model(lesson, {"cards": cards})
+
+
+@app.get("/health", include_in_schema=False)
+@app.get("/api/health")
+def health() -> dict[str, str]:
+    return {"status": "ok"}
+
+
+@app.get("/privacy", response_class=HTMLResponse, include_in_schema=False)
+def privacy_policy():
+    return privacy_policy_html()
+
+
+@app.get("/delete-account", response_class=HTMLResponse, include_in_schema=False)
+def account_deletion():
+    return account_deletion_html()
+
+
+@app.get("/api/pronunciation/health")
+def pronunciation_health():
+    return pronunciation_debug()
+
+
+@app.get("/api/pronunciation/token")
+async def pronunciation_token():
+    return await get_pronunciation_browser_token()
+
+
+@app.get("/api/audio/health")
+def audio_health():
+    return {
+        **audio_debug(),
+        "persistent_assets": cloudflare_media.release_status(),
+        "persistent_elevenlabs_assets": cloudflare_media.release_status(),
+        "media_base_url": cloudflare_media.MEDIA_BASE_URL,
+        # The already-shipped Production client still uses the legacy routes.
+        # Persistent clients never use them as a cache-miss fallback.
+        "legacy_production_audio_enabled": True,
+    }
+
+
+@app.get("/api/release/status")
+def release_status():
+    """Expose the deployed commit and immutable-audio readiness to CI.
+
+    git_branch/git_commit name the main commit the service was built from, even
+    though Render deploys the render-deploy copy; deploy_* are Render's own values.
+    """
+    identity = deployed_identity()
+    branch = identity["git_branch"] or ""
+    configured_environment = os.getenv("APP_ENVIRONMENT", "").strip().lower()
+    if configured_environment:
+        environment = configured_environment
+    elif branch == "main":
+        environment = "production"
+    else:
+        environment = "development"
+
+    return {
+        "environment": environment,
+        "git_branch": identity["git_branch"],
+        "git_commit": identity["git_commit"],
+        "deploy_branch": identity["deploy_branch"],
+        "deploy_commit": identity["deploy_commit"],
+        "service_name": os.getenv("RENDER_SERVICE_NAME", "").strip() or None,
+        "audio": cloudflare_media.release_status(),
+    }
+
+
+@app.get("/api/audio/course")
+@app.get("/api/audio/course.mp3")
+async def read_course_audio(
+    text: str,
+    mode: str = "prompt",
+    lang: str = "en-US",
+    variant: str = "default",
+    provider: str = "openai",
+    narrator: str = "female-teacher",
+):
+    return cloudflare_media.legacy_course_audio(
+        text=text,
+        mode=mode,
+        lang=lang,
+        variant=variant,
+        provider=provider,
+        narrator=narrator,
+    )
+
+
+@app.get("/api/audio/course-completion")
+@app.get("/api/audio/course-completion.mp3")
+async def read_course_completion_audio(
+    visual_prompt: str,
+    full_text: str,
+    blank_text: str,
+    mode: str = "prompt",
+    lang: str = "en-US",
+    variant: str = "prompt",
+    provider: str = "elevenlabs-premium",
+    narrator: str = "female-teacher",
+):
+    return cloudflare_media.legacy_completion_audio(
+        visual_prompt=visual_prompt,
+        full_text=full_text,
+        blank_text=blank_text,
+        mode=mode,
+        lang=lang,
+        variant=variant,
+        provider=provider,
+        narrator=narrator,
+    )
+
+
+@app.get("/api/audio/assets/{asset_id}.mp3")
+def read_course_audio_asset(asset_id: str):
+    return cloudflare_media.read_legacy_asset(asset_id)
+
+
+@app.get("/api/audio/assets-v2/{asset_id}.mp3")
+def read_course_audio_asset_v2(asset_id: str):
+    return cloudflare_media.read_asset(asset_id)
+
+
+@app.get("/api/admin/audio/assets")
+def read_course_audio_asset_inventory():
+    return {
+        "legacy": cloudflare_media.release_status(),
+        "elevenlabs_v2": cloudflare_media.release_status(),
+    }
+
+
+@app.get("/api/audio/ready-cue")
+@app.get("/api/audio/ready-cue.wav")
+def read_ready_cue():
+    return Response(
+        content=ready_cue_wav(),
+        media_type="audio/wav",
+        headers={"Cache-Control": "public, max-age=31536000, immutable"},
+    )
+
+
+@app.post("/api/pronunciation/score")
+async def score_pronunciation_practice(
+    request: Request,
+    text: str = Form(...),
+    audio: UploadFile = File(...),
+    user_id: str | None = Form(None),
+    question_info: str | None = Form(None),
+    provider: str | None = Form(None),
+    level: str | None = Form(None),
+    exercise_type: str | None = Form(None),
+    locale: str | None = Form(None),
+):
+    if user_id:
+        bound = accounts.account_for_user(user_id)
+        identity = getattr(request.state, "identity", None)
+        if (bound and (not identity or bound["issuer"] != identity.issuer or bound["subject"] != identity.subject or bound["deleted"])):
+            raise HTTPException(403, "Esta información pertenece a otra cuenta.")
+    return await score_pronunciation(
+        text=text,
+        audio_file=audio,
+        user_id=user_id,
+        question_info=question_info,
+        provider_override=provider,
+        level=level,
+        exercise_type=exercise_type,
+        locale=locale,
+    )
+
+
+@app.post("/api/pronunciation/interpret-azure")
+def interpret_browser_pronunciation(request: AzureAssessmentInterpretRequest):
+    """Apply the server's teacher policy to a browser SDK Azure result."""
+    return interpret_azure_assessment(
+        text=request.expected_text,
+        payload=request.payload,
+        level=request.level,
+        exercise_type=request.exercise_type,
+    )
+
+
+@app.get("/api/admin/storage")
+def read_admin_storage():
+    return storage_info()
+
+
+@app.get("/api/lessons")
+def list_lessons(catalog_version: Annotated[int, Query(ge=1, le=2)] = 1) -> list[dict[str, str | int]]:
+    # Existing installed clients keep their supported A1 catalog. A client
+    # explicitly opts into the registered-course contract with its new build.
+    lessons = LESSONS if catalog_version == 2 else LEGACY_LESSONS
+    return [
+        {
+            "id": lesson.id,
+            "title": lesson.title,
+            "level": lesson.level,
+            "course_id": LESSON_COURSES[lesson.id],
+            "thumbnail_image_url": lesson_thumbnail_url(lesson),
+            "description": lesson.goal,
+            "unit_id": lesson.unit_id,
+            "unit_title": lesson.unit_title,
+            "lesson_id": lesson.lesson_id,
+            "lesson_title": lesson.lesson_title,
+            "sub_lesson_id": lesson.sub_lesson_id,
+            "sub_lesson_title": lesson.sub_lesson_title,
+            "content_revision": lesson.content_revision,
+        }
+        for lesson in lessons.values()
+    ]
+
+
+@app.get("/api/lessons/{lesson_id}")
+def get_lesson(lesson_id: str):
+    lesson = LESSONS.get(lesson_id)
+    if lesson is None:
+        raise HTTPException(status_code=404, detail="Lesson not found")
+    return lesson_for_delivery(lesson)
+
+
+def report_client_release(user_id: str, request: Request) -> None:
+    record_client_release(user_id, request.headers.get("X-App-Version"), request.headers.get("X-Release-Commit"))
+
+
+@app.post("/api/users")
+def create_user(payload: UserCreate, request: Request):
+    user = create_or_update_user(payload)
+    report_client_release(user["id"], request)
+    return user
+
+
+@app.put("/api/users/{user_id}")
+def update_user(user_id: str, payload: UserCreate, request: Request):
+    user = create_or_update_user(payload, user_id=user_id)
+    report_client_release(user["id"], request)
+    return user
+
+
+@app.get("/api/users/{user_id}")
+def read_user(user_id: str, request: Request):
+    user = get_user(user_id)
+    if user is None:
+        raise HTTPException(status_code=404, detail="User not found")
+    report_client_release(user["id"], request)
+    return user
+
+
+@app.get("/api/users/{user_id}/lesson-progress")
+def read_lesson_progress(user_id: str, request: Request):
+    progress = get_lesson_progress(user_id)
+    if progress is None:
+        raise HTTPException(status_code=404, detail="User not found")
+    report_client_release(user_id, request)
+    return progress
+
+
+@app.get("/api/users/by-name/{display_name}")
+def read_user_by_name(display_name: str, request: Request):
+    user = get_user_by_name(display_name)
+    if user is None:
+        raise HTTPException(status_code=404, detail="User not found")
+    report_client_release(user["id"], request)
+    return user
+
+
+@app.delete("/api/users/{user_id}")
+def delete_user(user_id: str):
+    if not delete_user_and_activity(user_id):
+        raise HTTPException(status_code=404, detail="User not found")
+    return {"deleted": True}
+
+
+@app.delete("/api/users/{user_id}/activity")
+def reset_user_progress(user_id: str):
+    if not reset_user_activity(user_id):
+        raise HTTPException(status_code=404, detail="User not found")
+    return {"reset": True}
+
+
+@app.post("/api/sessions")
+def start_session(payload: SessionCreate, request: Request):
+    try:
+        session = create_session(payload)
+    except ValueError as error:
+        raise HTTPException(status_code=409, detail=str(error)) from error
+    report_client_release(payload.user_id, request)
+    return session
+
+
+@app.patch("/api/sessions/{session_id}/finish")
+def complete_session(session_id: str, payload: SessionFinish, request: Request):
+    session = finish_session(session_id, payload)
+    if session is None:
+        raise HTTPException(status_code=404, detail="Session not found")
+    report_client_release(session["user_id"], request)
+    return session
+
+
+@app.post("/api/card-attempts")
+def log_card_attempt(payload: CardAttemptCreate, request: Request):
+    try:
+        attempt = create_attempt(payload)
+        report_client_release(payload.user_id, request)
+        return attempt
+    except ValueError as error:
+        raise HTTPException(status_code=409, detail=str(error)) from error
+
+
+@app.put("/api/lesson-results/{session_id}")
+def save_lesson_result(session_id: str, payload: LessonResultSync, request: Request):
+    if session_id != payload.id:
+        raise HTTPException(status_code=409, detail="Result identity mismatch")
+    try:
+        result = sync_lesson_result(payload)
+        report_client_release(payload.userId, request)
+        return result
+    except ValueError as error:
+        raise HTTPException(status_code=409, detail=str(error)) from error
+
+
+@app.post("/api/feedback")
+def save_lesson_feedback(payload: LessonFeedbackCreate, request: Request):
+    try:
+        feedback = create_lesson_feedback(payload)
+        report_client_release(payload.user_id, request)
+        return feedback
+    except ValueError as error:
+        raise HTTPException(status_code=404, detail=str(error)) from error
+
+
+@app.post("/api/feedback/transcribe")
+async def transcribe_lesson_feedback(
+    audio: UploadFile = File(...),
+    locale: str = Form("es-MX"),
+):
+    return await transcribe_with_azure(audio_file=audio, locale=locale)
+
+
+@app.get("/api/admin/summary")
+def read_admin_summary():
+    return admin_summary()
+
+
+@app.post("/api/conversation/start")
+def conversation_start(payload: ConversationStartRequest):
+    service = get_conversation_service()
+    try:
+        return service.start_conversation(
+            scenario_id=payload.scenario_id,
+            include_audio=payload.include_audio,
+        )
+    except Exception as error:
+        raise HTTPException(status_code=500, detail=str(error)) from error
+
+
+@app.post("/api/conversation/turn")
+def conversation_turn(payload: ConversationTurnRequest):
+    service = get_conversation_service()
+    try:
+        return service.send_turn(
+            interaction_id=payload.interaction_id,
+            learner_text=payload.learner_text,
+            scenario_id=payload.scenario_id,
+            include_audio=payload.include_audio,
+        )
+    except Exception as error:
+        raise HTTPException(status_code=500, detail=str(error)) from error
+
+
+@app.get("/conversation", response_class=HTMLResponse, include_in_schema=False)
+def conversation_web_page():
+    html_path = Path(__file__).parent / "conversation_web.html"
+    return HTMLResponse(content=html_path.read_text(encoding="utf-8"))

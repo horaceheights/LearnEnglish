@@ -1,0 +1,659 @@
+from typing import Any, Literal
+import re
+
+from pydantic import BaseModel, Field, field_validator, model_validator, model_serializer
+
+from .course_audio_profile import narrator_for_speaker
+
+
+class TeachingClock(BaseModel):
+    """An authored time cue, never inferred from an answer or a photograph."""
+
+    hour: int = Field(ge=1, le=12, strict=True)
+    minute: int = Field(ge=0, le=59, strict=True)
+    label: str | None = Field(default=None, min_length=1, max_length=80)
+
+    @model_serializer(mode="wrap")
+    def omit_unset_label(self, handler):
+        payload = handler(self)
+        if self.label is None:
+            payload.pop("label", None)
+        return payload
+
+
+class ChoiceOption(BaseModel):
+    id: str
+    image_url: str = ""
+    label: str | None = None
+    clock_cues: list[TeachingClock] = Field(default_factory=list, max_length=4)
+    # Authored Spanish for a written choice, revealed only by the Recognize
+    # Traducir button (user decision 2026-11-18). Omitted where unset so
+    # existing serialized choices keep their exact contracts.
+    spanish_translation: str | None = None
+
+    @model_serializer(mode="wrap")
+    def omit_unset_clock_cues(self, handler):
+        payload = handler(self)
+        if not self.clock_cues:
+            payload.pop("clock_cues", None)
+        if not self.spanish_translation:
+            payload.pop("spanish_translation", None)
+        return payload
+
+
+class CourseAudioAsset(BaseModel):
+    """Immutable audio contract published by an approved lesson release."""
+
+    id: str
+    purpose: str
+    text: str
+    mode: str
+    variant: str
+    image_ref: str
+    semantic_role: str
+    speaker_role: str
+    profile_id: str
+    revision: int
+    delivery: Literal["quick", "clear", "a1-pronunciation-v1"] | None = None
+
+    @model_serializer(mode="wrap")
+    def omit_unset_delivery(self, handler):
+        payload = handler(self)
+        if self.delivery is None:
+            payload.pop("delivery", None)
+        return payload
+
+
+class CourseAudioTurn(BaseModel):
+    text: str = Field(min_length=1)
+    speaker_role: str = Field(min_length=1)
+    image_url: str = Field(min_length=1)
+    delivery: Literal["quick", "clear", "a1-pronunciation-v1"] | None = None
+    clock_cues: list[TeachingClock] = Field(default_factory=list, max_length=4)
+    spanish_translation: str | None = Field(default=None, min_length=1)
+
+    @model_serializer(mode="wrap")
+    def omit_unset_delivery(self, handler):
+        payload = handler(self)
+        if self.delivery is None:
+            payload.pop("delivery", None)
+        if not self.clock_cues:
+            payload.pop("clock_cues", None)
+        if self.spanish_translation is None:
+            payload.pop("spanish_translation", None)
+        return payload
+
+    @field_validator("text", "speaker_role", "image_url")
+    @classmethod
+    def require_exact_nonempty_value(cls, value: str) -> str:
+        if not value.strip():
+            raise ValueError("Course audio turn values must not be blank.")
+        if value != value.strip():
+            raise ValueError(
+                "Course audio turn values must not have leading or trailing whitespace."
+            )
+        return value
+
+    @field_validator("speaker_role")
+    @classmethod
+    def require_supported_speaker_role(cls, value: str) -> str:
+        narrator_for_speaker(value)
+        return value
+
+
+class LessonCard(BaseModel):
+    slide_id: str | None = None
+    interaction_type: str | None = None
+    prompt: str
+    prompt_presentation: Literal["written"] | None = None
+    context_es: str | None = Field(default=None, min_length=1, max_length=240)
+    # Set only on German course cards (German grammar feedback in English);
+    # omitted otherwise so English exports stay byte-identical.
+    target_language: Literal["de", "es"] | None = None
+    stage: str
+    correct_option_id: str
+    correct_option_ids: list[str] = Field(default_factory=list)
+    options: list[ChoiceOption]
+    audio_text: str | None = None
+    answer_audio_text: str | None = None
+    prompt_image_url: str = ""
+    spanish_translation: str | None = None
+    learn_translation_preview_ms: int | None = Field(default=None, ge=100, le=10000)
+    pedagogy_note: str | None = None
+    audio_speaker: str | None = None
+    answer_audio_speaker: str | None = None
+    audio_turns: list[CourseAudioTurn] = Field(default_factory=list)
+    answer_audio_turns: list[CourseAudioTurn] = Field(default_factory=list)
+    success_audio_turns: list[CourseAudioTurn] = Field(default_factory=list)
+    answer_audio_policy: Literal["authored-only"] | None = None
+    clock_cues: list[TeachingClock] = Field(default_factory=list, max_length=4)
+    reply_image_timing: Literal["after-prompt"] | None = None
+    audio_revision: int = Field(default=1, ge=1)
+    answer_audio_revision: int = Field(default=1, ge=1)
+    audio_assets: list[CourseAudioAsset] = Field(default_factory=list)
+
+    @model_serializer(mode="wrap")
+    def omit_unset_prompt_presentation(self, handler):
+        payload = handler(self)
+        if self.prompt_presentation is None:
+            payload.pop("prompt_presentation", None)
+        if self.context_es is None:
+            payload.pop("context_es", None)
+        if self.target_language is None:
+            payload.pop("target_language", None)
+        if self.learn_translation_preview_ms is None:
+            payload.pop("learn_translation_preview_ms", None)
+        if self.reply_image_timing is None:
+            payload.pop("reply_image_timing", None)
+        for name in ("clock_cues", "success_audio_turns"):
+            if not getattr(self, name):
+                payload.pop(name, None)
+        if self.answer_audio_policy is None:
+            payload.pop("answer_audio_policy", None)
+        return payload
+
+    @model_validator(mode="after")
+    def require_success_reply_contract(self):
+        if self.success_audio_turns and (
+            self.stage != "Use" or self.interaction_type not in {"complete2", "complete-sentence"}
+        ):
+            raise ValueError("A success reply must follow a guided or full sentence construction.")
+        if self.success_audio_turns and (
+            not self.answer_audio_turns
+            or self.answer_audio_text != " ".join(turn.text for turn in self.answer_audio_turns)
+        ):
+            raise ValueError("A success reply needs the exact constructed model audio turns first.")
+        return self
+
+    @field_validator("context_es")
+    @classmethod
+    def require_exact_context(cls, value: str | None) -> str | None:
+        if value is not None and (not value.strip() or value != value.strip()):
+            raise ValueError("Visible story context must be exact nonblank Spanish.")
+        return value
+
+    @model_validator(mode="after")
+    def require_teaching_translation_preview(self):
+        if self.learn_translation_preview_ms is not None and (
+            self.stage != "Learn" or len(self.options) != 1
+            or not self.options[0].image_url.strip()
+            or not (self.spanish_translation or "").strip()
+        ):
+            raise ValueError("An automatic translation preview needs one Learn image and authored Spanish.")
+        return self
+
+    @model_validator(mode="after")
+    def require_reply_image_sequence(self):
+        if self.reply_image_timing is not None and (
+            self.stage != "Recognize" or not self.prompt_image_url.strip()
+            or not (self.audio_text or "").strip() or self.audio_turns
+            or len(self.answer_audio_turns) != 1
+            or len(self.options) < 2 or any(option.image_url for option in self.options)
+        ):
+            raise ValueError("A pre-choice reply image needs a spoken prompt, one response turn and text choices.")
+        if (self.reply_image_timing is not None
+                and self.answer_audio_turns[0].image_url == self.prompt_image_url):
+            raise ValueError("A pre-choice reply must show a distinct response image.")
+        return self
+
+    @model_validator(mode="after")
+    def require_complete_sentence_contract(self):
+        if self.interaction_type != "complete-sentence":
+            return self
+        ids = [option.id for option in self.options]
+        ordered = self.correct_option_ids
+        if (self.stage != "Use" or not 2 <= len(ids) <= 8
+                or len(ids) != len(set(ids)) or len(ordered) != len(ids)
+                or set(ordered) != set(ids) or self.correct_option_id != ordered[0]):
+            raise ValueError("Sentence construction needs exactly its ordered word tiles in Use.")
+        # Time abbreviations are one movable token; internal dots are not slots.
+        # [^\W\d_] is any Unicode letter, so German tiles such as Mädchen pass;
+        # English tiles are ASCII letters and behave exactly as before.
+        if any(option.image_url or not re.fullmatch(r"(?:[^\W\d_]+(?:'[^\W\d_]+)?|[aApP]\.m\.)", option.label or "") for option in self.options):
+            raise ValueError("Sentence construction tiles must contain one word each.")
+        if re.sub(r"___|[\s.!?,¿¡]", "", self.prompt) or self.prompt.count("___") != len(ids):
+            raise ValueError("Sentence construction must hide every word behind its own blank.")
+        labels = {option.id: option.label for option in self.options}
+        words = iter(labels[option_id] for option_id in ordered)
+        completed = re.sub(r"___", lambda _: next(words), self.prompt)
+        if self.audio_text != completed or self.answer_audio_text != completed:
+            raise ValueError("Sentence construction audio must model the exact complete phrase.")
+        return self
+
+
+class MissionNormalizedRect(BaseModel):
+    """A mission hit/destination area expressed relative to its hero still."""
+
+    x: float = Field(ge=0, le=1)
+    y: float = Field(ge=0, le=1)
+    width: float = Field(gt=0, le=1)
+    height: float = Field(gt=0, le=1)
+
+    @model_validator(mode="after")
+    def require_rect_inside_image(self):
+        if self.x + self.width > 1:
+            raise ValueError("Mission target rectangles must fit within image width.")
+        if self.y + self.height > 1:
+            raise ValueError("Mission target rectangles must fit within image height.")
+        return self
+
+
+class MissionHeadAnchor(BaseModel):
+    """Reviewed crown position in the complete, uncropped scene."""
+
+    x: float = Field(ge=0, le=1)
+    y: float = Field(ge=0, le=1)
+
+
+class MissionGameTarget(BaseModel):
+    id: str = Field(min_length=1)
+    label_es: str = Field(min_length=1)
+    rect: MissionNormalizedRect
+    accepted_option_ids: list[str] = Field(min_length=1)
+    head_anchors: list[MissionHeadAnchor] = Field(default_factory=list, max_length=12)
+    # Optional reviewed chest position for standing groups with individual member dots.
+    group_chest_anchor: MissionHeadAnchor | None = None
+    # Explicit opt-in for object/venue scenes; never infer geometry from translated labels.
+    subject_kind: Literal["object"] | None = None
+
+    @model_serializer(mode="wrap")
+    def omit_unset_subject_kind(self, handler):
+        payload = handler(self)
+        if self.subject_kind is None:
+            payload.pop("subject_kind", None)
+        return payload
+
+    @field_validator("id", "label_es")
+    @classmethod
+    def require_exact_nonempty_value(cls, value: str) -> str:
+        if not value.strip():
+            raise ValueError("Mission target values must not be blank.")
+        if value != value.strip():
+            raise ValueError(
+                "Mission target values must not have leading or trailing whitespace."
+            )
+        return value
+
+    @field_validator("accepted_option_ids")
+    @classmethod
+    def require_unique_exact_option_ids(cls, values: list[str]) -> list[str]:
+        if any(not value.strip() or value != value.strip() for value in values):
+            raise ValueError("Accepted mission option IDs must be exact nonblank values.")
+        if len(values) != len(set(values)):
+            raise ValueError("Accepted mission option IDs must be unique within a target.")
+        return values
+
+
+class MissionGameCue(BaseModel):
+    id: str = Field(min_length=1)
+    text: str = Field(min_length=1)
+    answer_text: str = Field(min_length=1)
+    target_id: str = Field(min_length=1)
+    option_id: str = Field(min_length=1)
+    delivery: Literal["quick", "clear"] | None = None
+
+    @model_serializer(mode="wrap")
+    def omit_unset_delivery(self, handler):
+        payload = handler(self)
+        if self.delivery is None:
+            payload.pop("delivery", None)
+        return payload
+
+    @field_validator("id", "text", "answer_text", "target_id", "option_id")
+    @classmethod
+    def require_exact_nonempty_value(cls, value: str) -> str:
+        if not value.strip() or value != value.strip():
+            raise ValueError("Mission cue values must be exact nonblank values.")
+        return value
+
+
+class MissionCompletionScene(BaseModel):
+    """A non-assessed story outcome shown after the last scene cue."""
+
+    image_url: str = Field(min_length=1)
+    context_es: str = Field(min_length=1, max_length=240)
+
+    @field_validator("image_url", "context_es")
+    @classmethod
+    def require_exact_scene_values(cls, value: str) -> str:
+        if not value.strip() or value != value.strip():
+            raise ValueError("Mission completion scene values must be exact and nonblank.")
+        return value
+
+
+class MissionGame(BaseModel):
+    kind: Literal[
+        "guided-search",
+        "crowd-search",
+        "family-link",
+        "action-hunt",
+        "contrast-hunt",
+        "voice-gate",
+        "conversation-decision",
+    ]
+    instruction_es: str = Field(min_length=1)
+    validation: Literal["single", "ordered", "unordered"]
+    targets: list[MissionGameTarget] = Field(default_factory=list)
+    cues: list[MissionGameCue] = Field(default_factory=list)
+    tutorial_mode: Literal["guided-no-fail"] | None = None
+    cue_audio_text: str | None = None
+    cue_order: Literal["authored"] | None = None
+    scene_scope: Literal["two-person-dialogue"] | None = None
+    completion_scene: MissionCompletionScene | None = None
+
+    @model_serializer(mode="wrap")
+    def omit_unset_cue_order(self, handler):
+        payload = handler(self)
+        if self.cue_order is None:
+            payload.pop("cue_order", None)
+        if self.scene_scope is None:
+            payload.pop("scene_scope", None)
+        if self.completion_scene is None:
+            payload.pop("completion_scene", None)
+        return payload
+
+    @field_validator("instruction_es")
+    @classmethod
+    def require_exact_instruction(cls, value: str) -> str:
+        if not value.strip() or value != value.strip():
+            raise ValueError("Mission instructions must be exact nonblank values.")
+        return value
+
+    @field_validator("cue_audio_text")
+    @classmethod
+    def require_exact_optional_cue(cls, value: str | None) -> str | None:
+        if value is not None and (not value.strip() or value != value.strip()):
+            raise ValueError("Mission cue audio must be an exact nonblank value.")
+        return value
+
+    @model_validator(mode="after")
+    def require_coherent_target_plan(self):
+        if self.kind == "conversation-decision":
+            if (self.validation != "single" or self.targets or self.cues
+                    or self.tutorial_mode is not None or self.cue_audio_text is not None
+                    or self.cue_order is not None or self.scene_scope is not None):
+                raise ValueError("Conversation decisions use one ordinary choice, not search targets or cues.")
+            if self.instruction_es != "Escucha y elige cómo continuar.":
+                raise ValueError("Conversation decisions use the shared neutral instruction.")
+            return self
+        if not self.targets or not self.cues:
+            raise ValueError("Scene searches and voice gates require targets and cues.")
+        if self.completion_scene is not None and self.kind == "voice-gate":
+            raise ValueError("Completion scenes follow listening games, not voice gates.")
+        if self.scene_scope == "two-person-dialogue":
+            if (self.kind != "crowd-search" or self.cue_order != "authored"
+                    or len(self.targets) != 2 or len(self.cues) != 2
+                    or any(target.subject_kind is not None for target in self.targets)):
+                raise ValueError("Two-person dialogue needs two person targets, two cues, authored order and crowd-search.")
+        individual_heads = {
+            (t.head_anchors[0].x, t.head_anchors[0].y)
+            for t in self.targets
+            if t.label_es not in {"Grupo", "Pareja", "Familia"} and len(t.head_anchors) == 1
+        }
+        for target in self.targets:
+            if target.group_chest_anchor is not None:
+                if (len(target.head_anchors) < 2
+                        or any((h.x, h.y) not in individual_heads for h in target.head_anchors)):
+                    raise ValueError("Chest group markers require individual targets for every member.")
+                if target.group_chest_anchor.y <= max(h.y for h in target.head_anchors):
+                    raise ValueError("Reviewed group chest anchors must be below their heads.")
+        target_ids = [target.id for target in self.targets]
+        if len(target_ids) != len(set(target_ids)):
+            raise ValueError("Mission target IDs must be unique within a card.")
+        cue_ids = [cue.id for cue in self.cues]
+        if len(cue_ids) != len(set(cue_ids)):
+            raise ValueError("Mission cue IDs must be unique within a card.")
+        option_ids = {
+            option_id
+            for target in self.targets
+            for option_id in target.accepted_option_ids
+        }
+        missing_targets = sorted({cue.target_id for cue in self.cues} - set(target_ids))
+        if missing_targets:
+            raise ValueError(f"Mission cues reference missing targets: {', '.join(missing_targets)}")
+        cue_target_ids = [cue.target_id for cue in self.cues]
+        if len(cue_target_ids) != len(set(cue_target_ids)):
+            raise ValueError("Every mission target may receive only one cue per card.")
+        unpracticed_targets = sorted(set(target_ids) - set(cue_target_ids))
+        if unpracticed_targets:
+            raise ValueError(
+                "Every visible mission target requires a cue: "
+                + ", ".join(unpracticed_targets)
+            )
+        missing_options = sorted({cue.option_id for cue in self.cues} - option_ids)
+        if missing_options:
+            raise ValueError(f"Mission cues reference missing options: {', '.join(missing_options)}")
+        if self.validation == "single" and len(self.cues) != 1:
+            raise ValueError("Single mission validation requires exactly one cue.")
+        if self.validation == "ordered" and len(self.cues) < 2:
+            raise ValueError("Ordered mission validation requires at least two cues.")
+        if self.tutorial_mode is not None and self.kind != "guided-search":
+            raise ValueError("Guided no-fail tutorials are reserved for guided searches.")
+        return self
+
+
+class MissionLessonCard(LessonCard):
+    mission_chapter_id: str = Field(min_length=1)
+    mission_game: MissionGame
+
+    @field_validator("mission_chapter_id")
+    @classmethod
+    def require_exact_chapter_id(cls, value: str) -> str:
+        if value != value.strip():
+            raise ValueError("Mission chapter IDs must not have surrounding whitespace.")
+        return value
+
+    @model_validator(mode="after")
+    def require_game_targets_to_match_answers(self):
+        if self.mission_game.kind == "conversation-decision":
+            expected = self.correct_option_ids or [self.correct_option_id]
+            text_bank = all(option.label and not option.image_url for option in self.options)
+            image_bank = all(option.image_url and not option.label for option in self.options)
+            visible_choices = [(" ".join(option.label.split()).casefold() if text_bank
+                                else (option.image_url or "").strip()) for option in self.options]
+            if (self.stage != "Listen" or self.prompt != "Listen and choose."
+                    or self.interaction_type != ("a2t" if text_bank else "a2i")
+                    or len(expected) != 1 or expected[0] != self.correct_option_id
+                    or self.correct_option_id not in {option.id for option in self.options}
+                    or len({option.id for option in self.options}) != len(self.options)
+                    or not ((text_bank and 2 <= len(self.options) <= 3)
+                            or (image_bank and len(self.options) == 2))
+                    or not self.audio_text or not self.audio_text.strip()
+                    or not self.prompt_image_url.strip()
+                    or not self.audio_turns
+                    or self.audio_text != " ".join(turn.text for turn in self.audio_turns)
+                    or bool(self.answer_audio_text) != bool(self.answer_audio_turns)
+                    or (self.answer_audio_turns and self.answer_audio_text != " ".join(
+                        turn.text for turn in self.answer_audio_turns))
+                    or any(not option.id.strip() for option in self.options)
+                    or not all(visible_choices) or len(set(visible_choices)) != len(self.options)
+                    or (image_bank and any(option.image_url != option.image_url.strip() for option in self.options))):
+                raise ValueError("Conversation decisions need English audio, a scene, and one answer in a coherent supported choice bank.")
+            return self
+        option_ids = {option.id for option in self.options}
+        target_option_ids = [
+            option_id
+            for target in self.mission_game.targets
+            for option_id in target.accepted_option_ids
+        ]
+        missing_ids = sorted(set(target_option_ids) - option_ids)
+        if missing_ids:
+            raise ValueError(
+                "Mission targets reference missing option IDs: "
+                + ", ".join(missing_ids)
+                + "."
+            )
+        if len(target_option_ids) != len(set(target_option_ids)):
+            raise ValueError(
+                "One mission option cannot satisfy more than one target on the same card."
+            )
+
+        expected_ids = self.correct_option_ids or [self.correct_option_id]
+        cue_option_ids = [cue.option_id for cue in self.mission_game.cues]
+        if cue_option_ids != expected_ids:
+            raise ValueError(
+                "Mission cue answers must match correct_option_ids in order."
+            )
+        targets_by_id = {target.id: target for target in self.mission_game.targets}
+        incoherent_cues = [
+            cue.id
+            for cue in self.mission_game.cues
+            if cue.option_id not in targets_by_id[cue.target_id].accepted_option_ids
+        ]
+        if incoherent_cues:
+            raise ValueError(
+                "Mission cues must bind an option accepted by their target: "
+                + ", ".join(incoherent_cues)
+                + "."
+            )
+
+        if self.mission_game.kind == "voice-gate":
+            if self.stage != "Speak" or self.mission_game.validation != "single":
+                raise ValueError("Mission voice gates require one Speak-stage cue.")
+        elif self.stage == "Speak":
+            raise ValueError("Only mission voice gates may use the Speak stage.")
+        return self
+
+
+class MissionChapter(BaseModel):
+    id: str = Field(min_length=1)
+    title: str = Field(min_length=1)
+    objective: str = Field(min_length=1)
+
+    @field_validator("id", "title", "objective")
+    @classmethod
+    def require_exact_nonempty_value(cls, value: str) -> str:
+        if not value.strip():
+            raise ValueError("Mission chapter values must not be blank.")
+        if value != value.strip():
+            raise ValueError(
+                "Mission chapter values must not have leading or trailing whitespace."
+            )
+        return value
+
+
+class MissionPresentation(BaseModel):
+    label: str = Field(min_length=1)
+    title: str = Field(min_length=1)
+    briefing: str = Field(min_length=1)
+    kickoff_image_url: str = Field(min_length=1)
+    objectives: list[str] = Field(min_length=1)
+    completion_title: str = Field(min_length=1)
+    completion_message: str = Field(min_length=1)
+    voice_heading: str = Field(default="ABRE LA CELEBRACIÓN", min_length=1)
+    voice_instruction: str = Field(default="Activa la entrada con tu voz", min_length=1)
+    voice_success_label: str = Field(default="ENTRADA ACTIVADA", min_length=1)
+    chapters: list[MissionChapter] = Field(min_length=1)
+
+    @field_validator(
+        "label",
+        "title",
+        "briefing",
+        "kickoff_image_url",
+        "completion_title",
+        "completion_message",
+        "voice_heading",
+        "voice_instruction",
+        "voice_success_label",
+    )
+    @classmethod
+    def require_exact_nonempty_value(cls, value: str) -> str:
+        if not value.strip():
+            raise ValueError("Mission presentation values must not be blank.")
+        if value != value.strip():
+            raise ValueError(
+                "Mission presentation values must not have leading or trailing whitespace."
+            )
+        return value
+
+    @field_validator("objectives")
+    @classmethod
+    def require_unique_exact_objectives(cls, values: list[str]) -> list[str]:
+        if any(not value.strip() or value != value.strip() for value in values):
+            raise ValueError("Mission objectives must be exact nonblank values.")
+        if len(values) != len(set(values)):
+            raise ValueError("Mission objectives must be unique.")
+        return values
+
+    @model_validator(mode="after")
+    def require_unique_chapter_ids(self):
+        chapter_ids = [chapter.id for chapter in self.chapters]
+        if len(chapter_ids) != len(set(chapter_ids)):
+            raise ValueError("Mission chapter IDs must be unique.")
+        return self
+
+
+class Lesson(BaseModel):
+    id: str
+    title: str
+    level: str
+    unit_id: str
+    unit_title: str
+    unit_outcome: str = ""
+    lesson_id: str
+    lesson_title: str
+    sub_lesson_id: str
+    sub_lesson_title: str
+    goal: str
+    vocabulary: list[str]
+    review_vocabulary: list[str] = Field(default_factory=list)
+    grammar_function: str = ""
+    prerequisite: str = ""
+    speaking_outcome: str = ""
+    purposeful_review_slides: list[str] = Field(default_factory=list)
+    content_revision: int = Field(ge=1)
+    cards: list[LessonCard]
+
+    @model_validator(mode="after")
+    def require_stable_card_ids(self):
+        card_ids = [card.slide_id for card in self.cards]
+        if any(
+            card_id is None or not card_id.strip() or card_id != card_id.strip()
+            for card_id in card_ids
+        ):
+            raise ValueError("Every lesson card must declare an exact nonblank slide_id.")
+        if len(card_ids) != len(set(card_ids)):
+            raise ValueError("Lesson card slide_ids must be unique within a lesson.")
+        return self
+
+
+class MissionLesson(Lesson):
+    experience_type: Literal["mission"]
+    mission: MissionPresentation
+    cards: list[MissionLessonCard]
+
+    @model_validator(mode="after")
+    def require_declared_contiguous_chapters(self):
+        declared_ids = [chapter.id for chapter in self.mission.chapters]
+        declared = set(declared_ids)
+        card_ids = [card.mission_chapter_id for card in self.cards]
+
+        unknown_ids = sorted(set(card_ids) - declared)
+        if unknown_ids:
+            raise ValueError(
+                f"Mission cards reference undeclared chapters: {', '.join(unknown_ids)}."
+            )
+
+        missing_ids = [chapter_id for chapter_id in declared_ids if chapter_id not in card_ids]
+        if missing_ids:
+            raise ValueError(
+                f"Mission chapters have no cards: {', '.join(missing_ids)}."
+            )
+
+        encountered_ids: list[str] = []
+        for chapter_id in card_ids:
+            if not encountered_ids or encountered_ids[-1] != chapter_id:
+                encountered_ids.append(chapter_id)
+        if encountered_ids != declared_ids:
+            raise ValueError(
+                "Mission cards must follow the declared chapter order without returning "
+                "to an earlier chapter."
+            )
+        return self
+
+
+class AzureAssessmentInterpretRequest(BaseModel):
+    expected_text: str
+    payload: dict[str, Any]
+    level: str | None = None
+    exercise_type: str | None = None
