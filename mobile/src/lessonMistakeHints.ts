@@ -252,6 +252,12 @@ const MEANINGS: Record<string, string> = {
   grandchildren: 'nietos',
   cook: 'cocinero', brush: 'cepillar', wash: 'lavar',
   study: 'estudiar', run: 'correr', goes: 'va', walks: 'camina', likes: 'le gusta',
+  // A1+ Unit 6 (2026-11-20): places, transport and travel things around town (Is there a bakery near here?).
+  bakery: 'panadería', bookstore: 'librería', 'police station': 'estación de policía', 'gas station': 'gasolinera',
+  subway: 'metro', motorcycle: 'moto', platform: 'andén', gate: 'puerta de embarque', passport: 'pasaporte',
+  suitcase: 'maleta', backpack: 'mochila', opposite: 'enfrente de', along: 'por la orilla de',
+  'one-way': 'sencillo, solo de ida', 'round-trip': 'redondo, de ida y vuelta', late: 'tarde', early: 'temprano',
+  'on time': 'a tiempo', reservation: 'reservación', elevator: 'elevador',
   '1': 'uno', '2': 'dos', '3': 'tres', '4': 'cuatro', '5': 'cinco',
   '6': 'seis', '7': 'siete', '8': 'ocho', '9': 'nueve', '10': 'diez', '11': 'once', '12': 'doce',
   mon: 'lunes', tue: 'martes', wed: 'miércoles', thu: 'jueves',

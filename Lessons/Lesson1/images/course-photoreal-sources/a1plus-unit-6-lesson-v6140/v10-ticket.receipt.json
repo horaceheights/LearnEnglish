@@ -1,0 +1,55 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "8172087f-cb1a-48d0-bcb7-626d5f597b54",
+  "asset_id": "v10-ticket",
+  "pack_sha256": "76cc6c49b22afb75e64379cb2641da0fd2ee94a64dd51dd39a83941bc8e73d3c",
+  "started_at": "2026-11-21T05:39:44.748972+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, menus, screens, cups, clothes or bags.\n\nKeep the people and the thing that carries the meaning inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nIt is clearly daytime with soft natural light.\n\nThe people are new: they are not the course's usual cast and do not look like each other.\n\nNo sign, screen, ticket, car, train or building shows any letters, words, numbers, logos or clocks.\n\nA young man's hand holds up one plain cream paper train ticket in front of a blurred station hall; the ticket has NO letters or numbers, only one big black two-way arrow, a straight line with an arrowhead at BOTH ends. The hand and ticket fill the middle of the photo.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "nS4Ba7PUIYOdz7IP-NfF6Aw",
+  "usage": {
+    "promptTokenCount": 296,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1586,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 296
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038789",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 296,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 5.89,
+  "output": "output/imagegen/a1plus-unit-6-lesson-v6140/v10-ticket.png",
+  "sha256": "7666903cd69804cfd297e8c2e1e5d04752f007c786db756efbdcb30330f80e5e",
+  "byte_count": 1125753,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}

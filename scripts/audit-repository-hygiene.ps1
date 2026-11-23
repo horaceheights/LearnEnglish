@@ -39,8 +39,10 @@ foreach ($branchName in $localBranches) {
 Write-Output ''
 Write-Output 'Remote task branches compared with the canonical line:'
 
+# render-deploy is the machine-written copy Render deploys (scripts/render_deploy_copy.py).
+# It shares no history with main by design; it is neither a task branch nor stale.
 $remoteBranches = git for-each-ref --format='%(refname:short)' refs/remotes/origin |
-    Where-Object { $_ -notin @('origin', 'origin/HEAD', 'origin/main') }
+    Where-Object { $_ -notin @('origin', 'origin/HEAD', 'origin/main', 'origin/render-deploy') }
 
 if (@($remoteBranches).Count -eq 0) {
     Write-Output '  none'

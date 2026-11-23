@@ -1,0 +1,62 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "49459954-6aec-4c5a-9472-308d3b6af11f",
+  "asset_id": "y02-ana-on-time",
+  "pack_sha256": "e9fb9e36d81d313e8267e34cb43ee25fb5de8670e811f5b0daf2cfed83dd54ef",
+  "started_at": "2026-11-21T04:54:54.661820+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, menus, screens, cups, clothes or bags.\n\nKeep the people and the thing that carries the meaning inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nIt is clearly daytime with soft natural light.\n\nNo sign, screen, ticket, car, train or building shows any letters, words, numbers, logos or clocks.\n\nImage 1 shows Ana. Keep the face, hair, skin and build exactly; keep her sage-green overshirt over a white top and her jeans. Create a new photograph on a train platform: Ana walks calmly and smiles as she steps toward the open door of a silver train that is waiting at the platform with its doors wide open; she pulls her dark-blue rolling suitcase. It is plain that she is in time. Nobody else is clearly visible.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1plus-unit-1-q02-c2b4398b65207eff.webp",
+    "sha256": "c2b4398b65207effa51e51260cc607c38ada48caea82f14eb872e4c9c8b5d0d5"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "GyQBa87MN6jpz7IP36LaoA8",
+  "usage": {
+    "promptTokenCount": 564,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1854,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 306
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038869",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 564,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 8.79,
+  "output": "output/imagegen/a1plus-unit-6-lesson-v6120/y02-ana-on-time.png",
+  "sha256": "b2509e6b057f1ff5a794bc90d26def624fd3cf0f212bbc33056a16bb4f19aa22",
+  "byte_count": 1348587,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}

@@ -47,3 +47,7 @@ Thumbs.db
 # config is ever wanted here, negate the specific file rather than dropping
 # this line -- the .local and .lock files should stay out regardless.
 /.claude/
+
+# Written only into the render-deploy copy by scripts/render_deploy_copy.py; it
+# names the main commit Render runs. main must never carry it.
+/backend/deploy-source.json

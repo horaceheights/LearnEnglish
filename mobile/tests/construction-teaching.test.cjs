@@ -174,6 +174,19 @@ test('Spanish course cards explain Spanish order, agreement, es/está and one-or
     'Aquí está sus tres manzanas.', 'La pluma es barato.', 'Hay un poco de manzanas.', 'Ellos almuerzan a las una.']) {
     assert.equal(constructionTeachingPlan(card(unsupported)).supported, false, unsupported);
   }
+  // Spanish Unit 6: places, ir en, subirse/bajarse, where places are, tú directions, poder and timetables.
+  for (const supported of ['Voy a la plaza en taxi.', 'Ellos van en barco.', '¿Adónde va ella?', '¿Adónde vas?', 'Me bajo del autobús en la plaza.',
+    'Luego, nos bajamos del barco.', 'Se suben al autobús.', 'La biblioteca está entre el banco y la farmacia.', 'El aeropuerto está lejos del hotel.',
+    'La biblioteca está enfrente de la plaza.', 'El banco está a la izquierda.', 'Dobla a la izquierda en la esquina.', 'Para en el cine.',
+    'Pasa el banco.', 'Sigue derecho.', 'No pueden ir en tren.', 'Puedes cruzar ahí.', 'Sí, puedo.', '¿Cómo llego al museo?',
+    '¿Qué autobús va al museo?', '¿A qué hora sale el tren?', 'El tren llega a las diez.', 'La siguiente parada es el museo.',
+    'Es una parada de autobús.', 'Manejo un carro.', 'Disculpa, por favor.', 'Lo siento, no.']) {
+    assert.equal(constructionTeachingPlan(card(supported)).supported, true, supported);
+  }
+  for (const unsupported of ['¿Adónde va ellos?', 'Me bajo al autobús.', 'Nos subo al barco.', 'El banco está a la izquierdo.',
+    'La biblioteca está entre el banco.', 'Voy en el tren azul rojo.', 'El tren llega a las una.']) {
+    assert.equal(constructionTeachingPlan(card(unsupported)).supported, false, unsupported);
+  }
   const notDoing = choice('Ella no está leyendo.', 'Ella está leyendo.', 'She is not reading.');
   assert.equal(spanishChoiceHint(notDoing, 'wrong'),
     'You heard “Ella no está leyendo”: She is not reading. “no” before the verb means “not”.');

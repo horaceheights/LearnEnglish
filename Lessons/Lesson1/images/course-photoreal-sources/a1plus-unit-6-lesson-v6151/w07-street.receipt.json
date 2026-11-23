@@ -1,0 +1,55 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "c6acf0aa-35fe-40f8-a7da-aa2231748ec1",
+  "asset_id": "w07-street",
+  "pack_sha256": "e4517f78db05c83f4be5d9c0c94c287f48200db77a086170370dd85458da85ab",
+  "started_at": "2026-11-21T05:56:14.533542+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, menus, screens, cups, clothes or bags.\n\nIt is clearly daytime with soft natural light.\n\nOne wide, sharp, evenly lit photograph in which every person and place named below is clearly separate, large enough to tap on a phone, and not overlapping anyone else; nobody else is in the foreground.\n\nNo sign, screen, ticket, car, train or building shows any letters, words, numbers, logos or clocks.\n\nThere are no people anywhere in the photo.\n\nONE single continuous photograph, NOT a collage, NOT panels, NOT a grid. A wide sunny view along one side of a town street, seen from across the road, with four separate buildings in a row from LEFT to RIGHT: (1) a bakery with a big window full of bread loaves; (2) a bookstore with a big window full of colorful books; (3) a red-brick police station with a white police car parked right in front of its door, the car clearly a police car with a big blue-and-red light bar on its roof and a blue stripe, but no word; (4) a small gas station with a white roof over two gas pumps with blank displays. Each building fills about a quarter of the photo width.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "ezIBa42kGdvWz7IPx5a5yQw",
+  "usage": {
+    "promptTokenCount": 373,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1663,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 373
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038812",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 373,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 7.19,
+  "output": "output/imagegen/a1plus-unit-6-lesson-v6151/w07-street.png",
+  "sha256": "6db8a82aaf933cb1312ac26e8d7c768f0836e86603250a907bbee243090be6c3",
+  "byte_count": 1914372,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}

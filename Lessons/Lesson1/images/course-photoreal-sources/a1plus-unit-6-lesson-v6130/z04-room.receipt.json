@@ -1,0 +1,62 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "dce67aec-1373-4f19-a155-03d405524225",
+  "asset_id": "z04-room",
+  "pack_sha256": "9f380ceb35dbf0dacebd05dba2741c9ee0866e40039aeeb4149b358ccb94d919",
+  "started_at": "2026-11-21T04:56:34.950711+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, menus, screens, cups, clothes or bags.\n\nKeep the people and the thing that carries the meaning inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nIt is clearly daytime with soft natural light.\n\nNo sign, screen, ticket, car, train or building shows any letters, words, numbers, logos or clocks.\n\nImage 1 shows Ana. Keep the face, hair, skin and build exactly; keep her sage-green overshirt over a white top and her jeans. Create a new photograph inside a bright, simple hotel room: Ana has just come in, her dark-blue suitcase beside her, and smiles as she looks at a big neatly made white bed by a window with a city view. The brass key is in her hand. Only Ana is in the photo.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1plus-unit-1-q02-c2b4398b65207eff.webp",
+    "sha256": "c2b4398b65207effa51e51260cc607c38ada48caea82f14eb872e4c9c8b5d0d5"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "gCQBa-DLCb_pz7IP4_XcuQU",
+  "usage": {
+    "promptTokenCount": 564,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1854,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 306
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038869",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 564,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 9.1,
+  "output": "output/imagegen/a1plus-unit-6-lesson-v6130/z04-room.png",
+  "sha256": "4c9818184168981a24ca439acf40e9e95c8c8ce7954360b4098b51e0f0eaed45",
+  "byte_count": 1140861,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}

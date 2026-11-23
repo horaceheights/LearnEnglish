@@ -1,0 +1,797 @@
+{
+  "brief_version": 1,
+  "follows": {
+    "course": "a1",
+    "lesson": "6.2",
+    "title": "Ways to Travel"
+  },
+  "note": "A1+ Unit 6 Lesson 6.2, built on 2026-11-20 under the A1+ lesson standards approved 2026-10-27 and the user's 2026-11-09 rule that every A1+ lesson follows up the A1 lesson with the same number. The user asked on 2026-11-20 \"Lets work on a1+ Unit 6 same all deal as before none stop all approved\" (A1+ 6.Y follows A1 6.Y, one step each; fifteen lessons; the Units 2-4 deal: straight to Preview in batches, Gemini 2.5 Flash photos and ElevenLabs audio pre-approved, no per-lesson gates, reviewed in Preview). Two new photos (Gemini 2.5 Flash): Sofia standing in an underground subway car and Diego on his motorcycle in an open-face helmet. Ana boarding A1 6's bus, A1 6's man boarding a train and a taxi, and Luis driving his red car (A1+ 2.2) are reused.",
+  "target": "backend/lessons/a1_plus/unit_6/a1plus-unit-6-lesson-6-2.yaml",
+  "captions": false,
+  "narrators": [
+    "teacher",
+    "co-teacher"
+  ],
+  "answer_audio_policy": "authored-only",
+  "speak_delivery": "a1-pronunciation-v1",
+  "lesson": {
+    "id": "a1plus-unit-6-lesson-6-2",
+    "title": "6.2 Sofia takes the subway",
+    "level": "A1+",
+    "unit_id": "a1plus-unit-6",
+    "unit_title": "Getting around town and traveling",
+    "unit_outcome": "Ask whether a place is near, say how people go to work and why they go somewhere, find a platform or gate, pack for a trip, find places on a street, follow and ask for directions, ask permission, buy tickets, understand delays and check in at a hotel.",
+    "lesson_id": "a1plus-unit-6-lesson-6-2",
+    "lesson_title": "Sofia takes the subway",
+    "sub_lesson_id": "6.2",
+    "sub_lesson_title": "Sofia takes the subway",
+    "goal": "Say how people go to work with take and by (Sofia takes the subway to work. Diego goes to work by motorcycle.).",
+    "vocabulary": [
+      "subway",
+      "motorcycle",
+      "takes"
+    ],
+    "review_vocabulary": [
+      "take",
+      "the",
+      "bus",
+      "train",
+      "taxi",
+      "car",
+      "drives",
+      "his",
+      "goes",
+      "by",
+      "to work",
+      "How does",
+      "How do",
+      "go",
+      "you",
+      "I",
+      "he",
+      "she",
+      "man",
+      "is on",
+      "Sofia",
+      "Diego",
+      "Ana",
+      "Luis",
+      "walked"
+    ],
+    "grammar_function": "A follow-up of A1 6.2 Ways to Travel: A1 names transport and says by bus; A1+ 6.2 says how a person gets to work. The new items are subway and motorcycle, and take + the vehicle in the he/she form (Sofia takes the subway to work.), beside A1's by (Diego goes to work by motorcycle.). 2.2's How does … go…? asks it. Each cast member has one way to work in every photo: Sofia the subway, Diego his motorcycle, Ana the bus (A1 6) and Luis his red car (A1+ 2.2).",
+    "prerequisite": "A1 6.2 transport and by; A1 6.11 take; A1+ 2.2 How do/does … go…?; A1+ 3.9 work.",
+    "speaking_outcome": "Stress SUB-way and MO-tor-cy-cle; say takes with a clear s. Do not require native-like speed.",
+    "content_revision": 1,
+    "learn_context_groups": [
+      {
+        "kind": "sequence",
+        "targets": [
+          "subway",
+          "takes"
+        ],
+        "models": [
+          {
+            "slide_id": "L1",
+            "text": "Sofia takes the subway to work."
+          }
+        ]
+      },
+      {
+        "kind": "sequence",
+        "targets": [
+          "motorcycle"
+        ],
+        "models": [
+          {
+            "slide_id": "L2",
+            "text": "Diego goes to work by motorcycle."
+          }
+        ]
+      },
+      {
+        "kind": "exchange",
+        "targets": [
+          "takes",
+          "subway"
+        ],
+        "models": [
+          {
+            "slide_id": "L3",
+            "text": "How does Sofia go to work? She takes the subway.",
+            "turns": [
+              "How does Sofia go to work?",
+              "She takes the subway."
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "exchange",
+        "targets": [
+          "motorcycle"
+        ],
+        "models": [
+          {
+            "slide_id": "L4",
+            "text": "How does Diego go to work? He goes by motorcycle.",
+            "turns": [
+              "How does Diego go to work?",
+              "He goes by motorcycle."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "items": [
+    {
+      "id": "l-subway",
+      "text": "Sofia takes the subway to work.",
+      "es": "Sofía toma el metro para ir al trabajo.",
+      "image": "/lesson-assets/a1plus-unit-6-t01-32f5dcfc47db5eec.webp",
+      "kind": "sequence",
+      "choices": false,
+      "use": false,
+      "speaker": "teacher"
+    },
+    {
+      "id": "l-moto",
+      "text": "Diego goes to work by motorcycle.",
+      "es": "Diego va al trabajo en moto.",
+      "image": "/lesson-assets/a1plus-unit-6-t03-1194a71acc61480b.webp",
+      "kind": "sequence",
+      "choices": false,
+      "use": false,
+      "speaker": "co-teacher"
+    },
+    {
+      "id": "l-how-s",
+      "text": "How does Sofia go to work? She takes the subway.",
+      "es": "¿Cómo va Sofía al trabajo? Toma el metro.",
+      "image": "/lesson-assets/a1plus-unit-6-t01-32f5dcfc47db5eec.webp",
+      "kind": "exchange",
+      "choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "How does Sofia go to work?",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-6-t01-32f5dcfc47db5eec.webp"
+        },
+        {
+          "text": "She takes the subway.",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-6-t01-32f5dcfc47db5eec.webp"
+        }
+      ]
+    },
+    {
+      "id": "l-how-d",
+      "text": "How does Diego go to work? He goes by motorcycle.",
+      "es": "¿Cómo va Diego al trabajo? Va en moto.",
+      "image": "/lesson-assets/a1plus-unit-6-t03-1194a71acc61480b.webp",
+      "kind": "exchange",
+      "choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "How does Diego go to work?",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-6-t03-1194a71acc61480b.webp"
+        },
+        {
+          "text": "He goes by motorcycle.",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-6-t03-1194a71acc61480b.webp"
+        }
+      ]
+    },
+    {
+      "id": "f-sofia",
+      "text": "Sofia takes the subway to work.",
+      "es": "Sofía toma el metro para ir al trabajo.",
+      "image": "/lesson-assets/a1plus-unit-6-t01-32f5dcfc47db5eec.webp",
+      "kind": "way",
+      "prefer": [
+        "Sofia goes to work by motorcycle.",
+        "Sofia takes the bus to work."
+      ],
+      "accepts": {
+        "subject-variety": "The answer keeps the person and changes only the way to work; the photo shows how they go.",
+        "action-variety": "The answer keeps the person and changes only the way to work; the photo shows how they go.",
+        "conversational-response": "The answer keeps the person and changes only the way to work; the photo shows how they go.",
+        "reading-load": "The answer keeps the person and changes only the way to work; the photo shows how they go."
+      },
+      "blanks": [
+        "takes",
+        "the"
+      ],
+      "learn": false
+    },
+    {
+      "id": "r-sofia",
+      "text": "She takes the subway.",
+      "es": "Toma el metro.",
+      "image": "/lesson-assets/a1plus-unit-6-t01-32f5dcfc47db5eec.webp",
+      "kind": "how",
+      "question": "How does Sofia go to work?",
+      "question_es": "¿Cómo va Sofía al trabajo?",
+      "question_speaker": "co-teacher",
+      "speaker": "teacher",
+      "use": false,
+      "image_choices": false,
+      "prefer": [
+        "She goes by motorcycle.",
+        "She takes the bus."
+      ],
+      "accepts": {
+        "subject-variety": "The answer keeps the person and changes only the way to work; the photo shows how they go.",
+        "action-variety": "The answer keeps the person and changes only the way to work; the photo shows how they go.",
+        "conversational-response": "The answer keeps the person and changes only the way to work; the photo shows how they go.",
+        "reading-load": "The answer keeps the person and changes only the way to work; the photo shows how they go."
+      },
+      "learn": false
+    },
+    {
+      "id": "f-diego",
+      "text": "Diego goes to work by motorcycle.",
+      "es": "Diego va en moto para ir al trabajo.",
+      "image": "/lesson-assets/a1plus-unit-6-t03-1194a71acc61480b.webp",
+      "kind": "way",
+      "prefer": [
+        "Diego takes the bus to work.",
+        "Diego drives his car to work."
+      ],
+      "accepts": {
+        "subject-variety": "The answer keeps the person and changes only the way to work; the photo shows how they go.",
+        "action-variety": "The answer keeps the person and changes only the way to work; the photo shows how they go.",
+        "conversational-response": "The answer keeps the person and changes only the way to work; the photo shows how they go.",
+        "reading-load": "The answer keeps the person and changes only the way to work; the photo shows how they go."
+      },
+      "blanks": [
+        "goes",
+        "to"
+      ],
+      "learn": false
+    },
+    {
+      "id": "r-diego",
+      "text": "He goes by motorcycle.",
+      "es": "Va en moto.",
+      "image": "/lesson-assets/a1plus-unit-6-t03-1194a71acc61480b.webp",
+      "kind": "how",
+      "question": "How does Diego go to work?",
+      "question_es": "¿Cómo va Diego al trabajo?",
+      "question_speaker": "co-teacher",
+      "speaker": "teacher",
+      "use": false,
+      "image_choices": false,
+      "prefer": [
+        "He takes the bus.",
+        "He drives his car."
+      ],
+      "accepts": {
+        "subject-variety": "The answer keeps the person and changes only the way to work; the photo shows how they go.",
+        "action-variety": "The answer keeps the person and changes only the way to work; the photo shows how they go.",
+        "conversational-response": "The answer keeps the person and changes only the way to work; the photo shows how they go.",
+        "reading-load": "The answer keeps the person and changes only the way to work; the photo shows how they go."
+      },
+      "learn": false
+    },
+    {
+      "id": "f-ana",
+      "text": "Ana takes the bus to work.",
+      "es": "Ana toma el camión para ir al trabajo.",
+      "image": "/lesson-assets/a1_photo_u6_story_ana_bus_on_v1.webp",
+      "kind": "way",
+      "prefer": [
+        "Ana drives his car to work.",
+        "Ana takes the subway to work."
+      ],
+      "accepts": {
+        "subject-variety": "The answer keeps the person and changes only the way to work; the photo shows how they go.",
+        "action-variety": "The answer keeps the person and changes only the way to work; the photo shows how they go.",
+        "conversational-response": "The answer keeps the person and changes only the way to work; the photo shows how they go.",
+        "reading-load": "The answer keeps the person and changes only the way to work; the photo shows how they go."
+      },
+      "blanks": [
+        "takes",
+        "the"
+      ],
+      "learn": false
+    },
+    {
+      "id": "r-ana",
+      "text": "She takes the bus.",
+      "es": "Toma el camión.",
+      "image": "/lesson-assets/a1_photo_u6_story_ana_bus_on_v1.webp",
+      "kind": "how",
+      "question": "How does Ana go to work?",
+      "question_es": "¿Cómo va Ana al trabajo?",
+      "question_speaker": "co-teacher",
+      "speaker": "teacher",
+      "use": false,
+      "image_choices": false,
+      "prefer": [
+        "She drives his car.",
+        "She takes the subway."
+      ],
+      "accepts": {
+        "subject-variety": "The answer keeps the person and changes only the way to work; the photo shows how they go.",
+        "action-variety": "The answer keeps the person and changes only the way to work; the photo shows how they go.",
+        "conversational-response": "The answer keeps the person and changes only the way to work; the photo shows how they go.",
+        "reading-load": "The answer keeps the person and changes only the way to work; the photo shows how they go."
+      },
+      "learn": false
+    },
+    {
+      "id": "f-luis",
+      "text": "Luis drives his car to work.",
+      "es": "Luis maneja su carro para ir al trabajo.",
+      "image": "/lesson-assets/a1plus-unit-2-r03-25906e003b1ad6b1.webp",
+      "kind": "way",
+      "prefer": [
+        "Luis takes the subway to work.",
+        "Luis goes to work by motorcycle."
+      ],
+      "accepts": {
+        "subject-variety": "The answer keeps the person and changes only the way to work; the photo shows how they go.",
+        "action-variety": "The answer keeps the person and changes only the way to work; the photo shows how they go.",
+        "conversational-response": "The answer keeps the person and changes only the way to work; the photo shows how they go.",
+        "reading-load": "The answer keeps the person and changes only the way to work; the photo shows how they go."
+      },
+      "blanks": [
+        "drives",
+        "his"
+      ],
+      "learn": false
+    },
+    {
+      "id": "r-luis",
+      "text": "He drives his car.",
+      "es": "Maneja su carro.",
+      "image": "/lesson-assets/a1plus-unit-2-r03-25906e003b1ad6b1.webp",
+      "kind": "how",
+      "question": "How does Luis go to work?",
+      "question_es": "¿Cómo va Luis al trabajo?",
+      "question_speaker": "co-teacher",
+      "speaker": "teacher",
+      "use": false,
+      "image_choices": false,
+      "prefer": [
+        "He takes the subway.",
+        "He goes by motorcycle."
+      ],
+      "accepts": {
+        "subject-variety": "The answer keeps the person and changes only the way to work; the photo shows how they go.",
+        "action-variety": "The answer keeps the person and changes only the way to work; the photo shows how they go.",
+        "conversational-response": "The answer keeps the person and changes only the way to work; the photo shows how they go.",
+        "reading-load": "The answer keeps the person and changes only the way to work; the photo shows how they go."
+      },
+      "learn": false
+    },
+    {
+      "id": "p-train",
+      "text": "The man takes the train.",
+      "es": "El hombre toma el tren.",
+      "image": "/lesson-assets/a1_photo_u6_man_boards_train_v1.webp",
+      "kind": "picture",
+      "text_choices": false,
+      "use": false,
+      "accepts": {
+        "subject-variety": "A picture bank shows one way to travel in each photo; the sentence names it.",
+        "action-variety": "A picture bank shows one way to travel in each photo; the sentence names it."
+      },
+      "learn": false
+    },
+    {
+      "id": "p-taxi",
+      "text": "The man takes a taxi.",
+      "es": "El hombre toma un taxi.",
+      "image": "/lesson-assets/a1_photo_u6_man_boards_taxi_v1.webp",
+      "kind": "picture",
+      "text_choices": false,
+      "use": false,
+      "accepts": {
+        "subject-variety": "A picture bank shows one way to travel in each photo; the sentence names it.",
+        "action-variety": "A picture bank shows one way to travel in each photo; the sentence names it."
+      },
+      "learn": false
+    },
+    {
+      "id": "p-subway",
+      "text": "Sofia takes the subway.",
+      "es": "Sofía toma el metro.",
+      "image": "/lesson-assets/a1plus-unit-6-t01-32f5dcfc47db5eec.webp",
+      "kind": "picture",
+      "text_choices": false,
+      "use": false,
+      "accepts": {
+        "subject-variety": "A picture bank shows one way to travel in each photo; the sentence names it.",
+        "action-variety": "A picture bank shows one way to travel in each photo; the sentence names it."
+      },
+      "learn": false
+    },
+    {
+      "id": "p-moto",
+      "text": "Diego is on his motorcycle.",
+      "es": "Diego está en su moto.",
+      "image": "/lesson-assets/a1plus-unit-6-t03-1194a71acc61480b.webp",
+      "kind": "picture",
+      "text_choices": false,
+      "use": false,
+      "accepts": {
+        "subject-variety": "A picture bank shows one way to travel in each photo; the sentence names it.",
+        "action-variety": "A picture bank shows one way to travel in each photo; the sentence names it."
+      },
+      "learn": false
+    },
+    {
+      "id": "x-s",
+      "text": "How does Sofia go to work? She takes the subway.",
+      "es": "¿Cómo va Sofía al trabajo? Toma el metro.",
+      "image": "/lesson-assets/a1plus-unit-6-t01-32f5dcfc47db5eec.webp",
+      "kind": "xs",
+      "image_choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "How does Sofia go to work?",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-6-t01-32f5dcfc47db5eec.webp"
+        },
+        {
+          "text": "She takes the subway.",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-6-t01-32f5dcfc47db5eec.webp"
+        }
+      ],
+      "accepts": {
+        "subject-variety": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "action-variety": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "conversational-response": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "reading-load": "Listen keeps the question and changes only the answer; the answer is what was heard."
+      },
+      "prefer": [
+        "How does Sofia go to work? She takes the bus."
+      ],
+      "learn": false
+    },
+    {
+      "id": "x-d",
+      "text": "How does Diego go to work? He goes by motorcycle.",
+      "es": "¿Cómo va Diego al trabajo? Va en moto.",
+      "image": "/lesson-assets/a1plus-unit-6-t03-1194a71acc61480b.webp",
+      "kind": "xd",
+      "image_choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "How does Diego go to work?",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-6-t03-1194a71acc61480b.webp"
+        },
+        {
+          "text": "He goes by motorcycle.",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-6-t03-1194a71acc61480b.webp"
+        }
+      ],
+      "accepts": {
+        "subject-variety": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "action-variety": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "conversational-response": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "reading-load": "Listen keeps the question and changes only the answer; the answer is what was heard."
+      },
+      "prefer": [
+        "How does Diego go to work? He goes by bus."
+      ],
+      "learn": false
+    },
+    {
+      "id": "u-i-sub",
+      "text": "I take the subway to work.",
+      "es": "Tomo el metro para ir al trabajo.",
+      "image": "/lesson-assets/a1plus-unit-6-t01-32f5dcfc47db5eec.webp",
+      "kind": "use",
+      "choices": false,
+      "blanks": [
+        "take",
+        "the"
+      ],
+      "learn": false
+    },
+    {
+      "id": "u-i-bus",
+      "text": "I take the bus to work.",
+      "es": "Tomo el camión para ir al trabajo.",
+      "image": "/lesson-assets/a1_photo_u6_story_ana_bus_on_v1.webp",
+      "kind": "use",
+      "choices": false,
+      "blanks": null,
+      "learn": false
+    },
+    {
+      "id": "u-moto",
+      "text": "I go to work by motorcycle.",
+      "es": "Voy al trabajo en moto.",
+      "image": "/lesson-assets/a1plus-unit-6-t03-1194a71acc61480b.webp",
+      "kind": "use",
+      "choices": false,
+      "blanks": [
+        "by",
+        "motorcycle"
+      ],
+      "learn": false
+    },
+    {
+      "id": "q-how",
+      "text": "How do you go to work?",
+      "es": "¿Cómo vas al trabajo?",
+      "image": "/lesson-assets/a1plus-unit-6-t01-32f5dcfc47db5eec.webp",
+      "kind": "question",
+      "speaker": "co-teacher",
+      "choices": false,
+      "use": true,
+      "learn": false
+    },
+    {
+      "id": "u4-walked",
+      "text": "I walked to the station.",
+      "es": "Caminé a la estación.",
+      "image": "/lesson-assets/a1_station.webp",
+      "kind": "u4-walked",
+      "image_choices": false,
+      "use": false,
+      "accepts": {
+        "subject-variety": "The sentence keeps the person and the place and changes only the reused detail; the photo fits each option and the words decide.",
+        "action-variety": "The sentence keeps the person and the place and changes only the reused detail; the photo fits each option and the words decide.",
+        "conversational-response": "The sentence keeps the person and the place and changes only the reused detail; the photo fits each option and the words decide.",
+        "reading-load": "The sentence keeps the person and the place and changes only the reused detail; the photo fits each option and the words decide."
+      },
+      "prefer": [
+        "I walked to the bank.",
+        "I walked to the library."
+      ],
+      "learn": false
+    },
+    {
+      "id": "u4-did-she",
+      "text": "Did she take the subway yesterday? Yes, she did.",
+      "es": "¿Tomó el metro ayer? Sí.",
+      "image": "/lesson-assets/a1plus-unit-6-t01-32f5dcfc47db5eec.webp",
+      "kind": "u4-did-she",
+      "image_choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "Did she take the subway yesterday?",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-6-t01-32f5dcfc47db5eec.webp"
+        },
+        {
+          "text": "Yes, she did.",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-6-t01-32f5dcfc47db5eec.webp"
+        }
+      ],
+      "accepts": {
+        "subject-variety": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "action-variety": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "conversational-response": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "reading-load": "Listen keeps the question and changes only the answer; the answer is what was heard."
+      },
+      "prefer": [
+        "Did she take the subway yesterday? No, she didn't."
+      ],
+      "learn": false
+    }
+  ],
+  "pool": [
+    {
+      "text": "Sofia goes to work by motorcycle.",
+      "es": "Sofía va en moto para ir al trabajo.",
+      "image": "/lesson-assets/a1plus-unit-6-t01-32f5dcfc47db5eec.webp",
+      "kind": "way",
+      "image_choices": false
+    },
+    {
+      "text": "Sofia takes the bus to work.",
+      "es": "Sofía toma el camión para ir al trabajo.",
+      "image": "/lesson-assets/a1plus-unit-6-t01-32f5dcfc47db5eec.webp",
+      "kind": "way",
+      "image_choices": false
+    },
+    {
+      "text": "She goes by motorcycle.",
+      "es": "Va en moto.",
+      "image": "/lesson-assets/a1plus-unit-6-t01-32f5dcfc47db5eec.webp",
+      "kind": "how",
+      "image_choices": false
+    },
+    {
+      "text": "She takes the bus.",
+      "es": "Toma el camión.",
+      "image": "/lesson-assets/a1plus-unit-6-t01-32f5dcfc47db5eec.webp",
+      "kind": "how",
+      "image_choices": false
+    },
+    {
+      "text": "Diego takes the bus to work.",
+      "es": "Diego toma el camión para ir al trabajo.",
+      "image": "/lesson-assets/a1plus-unit-6-t03-1194a71acc61480b.webp",
+      "kind": "way",
+      "image_choices": false
+    },
+    {
+      "text": "Diego drives his car to work.",
+      "es": "Diego maneja su carro para ir al trabajo.",
+      "image": "/lesson-assets/a1plus-unit-6-t03-1194a71acc61480b.webp",
+      "kind": "way",
+      "image_choices": false
+    },
+    {
+      "text": "He takes the bus.",
+      "es": "Toma el camión.",
+      "image": "/lesson-assets/a1plus-unit-6-t03-1194a71acc61480b.webp",
+      "kind": "how",
+      "image_choices": false
+    },
+    {
+      "text": "He drives his car.",
+      "es": "Maneja su carro.",
+      "image": "/lesson-assets/a1plus-unit-6-t03-1194a71acc61480b.webp",
+      "kind": "how",
+      "image_choices": false
+    },
+    {
+      "text": "Ana drives his car to work.",
+      "es": "Ana maneja su carro para ir al trabajo.",
+      "image": "/lesson-assets/a1_photo_u6_story_ana_bus_on_v1.webp",
+      "kind": "way",
+      "image_choices": false
+    },
+    {
+      "text": "Ana takes the subway to work.",
+      "es": "Ana toma el metro para ir al trabajo.",
+      "image": "/lesson-assets/a1_photo_u6_story_ana_bus_on_v1.webp",
+      "kind": "way",
+      "image_choices": false
+    },
+    {
+      "text": "She drives his car.",
+      "es": "Maneja su carro.",
+      "image": "/lesson-assets/a1_photo_u6_story_ana_bus_on_v1.webp",
+      "kind": "how",
+      "image_choices": false
+    },
+    {
+      "text": "She takes the subway.",
+      "es": "Toma el metro.",
+      "image": "/lesson-assets/a1_photo_u6_story_ana_bus_on_v1.webp",
+      "kind": "how",
+      "image_choices": false
+    },
+    {
+      "text": "Luis takes the subway to work.",
+      "es": "Luis toma el metro para ir al trabajo.",
+      "image": "/lesson-assets/a1plus-unit-2-r03-25906e003b1ad6b1.webp",
+      "kind": "way",
+      "image_choices": false
+    },
+    {
+      "text": "Luis goes to work by motorcycle.",
+      "es": "Luis va en moto para ir al trabajo.",
+      "image": "/lesson-assets/a1plus-unit-2-r03-25906e003b1ad6b1.webp",
+      "kind": "way",
+      "image_choices": false
+    },
+    {
+      "text": "He takes the subway.",
+      "es": "Toma el metro.",
+      "image": "/lesson-assets/a1plus-unit-2-r03-25906e003b1ad6b1.webp",
+      "kind": "how",
+      "image_choices": false
+    },
+    {
+      "text": "He goes by motorcycle.",
+      "es": "Va en moto.",
+      "image": "/lesson-assets/a1plus-unit-2-r03-25906e003b1ad6b1.webp",
+      "kind": "how",
+      "image_choices": false
+    },
+    {
+      "text": "How does Sofia go to work? She takes the bus.",
+      "es": "¿Cómo va Sofía al trabajo? Toma el camión.",
+      "image": "/lesson-assets/a1plus-unit-6-t01-32f5dcfc47db5eec.webp",
+      "kind": "xs",
+      "image_choices": false
+    },
+    {
+      "text": "How does Diego go to work? He goes by bus.",
+      "es": "¿Cómo va Diego al trabajo? Va en camión.",
+      "image": "/lesson-assets/a1plus-unit-6-t03-1194a71acc61480b.webp",
+      "kind": "xd",
+      "image_choices": false
+    },
+    {
+      "text": "I walked to the bank.",
+      "es": "Caminé al banco.",
+      "image": "/lesson-assets/a1_station.webp",
+      "kind": "u4-walked",
+      "image_choices": false
+    },
+    {
+      "text": "I walked to the library.",
+      "es": "Caminé a la biblioteca.",
+      "image": "/lesson-assets/a1_station.webp",
+      "kind": "u4-walked",
+      "image_choices": false
+    },
+    {
+      "text": "Did she take the subway yesterday? No, she didn't.",
+      "es": "¿Tomó el metro ayer? No.",
+      "image": "/lesson-assets/a1plus-unit-6-t01-32f5dcfc47db5eec.webp",
+      "kind": "u4-did-she",
+      "image_choices": false
+    }
+  ],
+  "layout": {
+    "Recognize": 10,
+    "Listen": 10,
+    "Speak": 8,
+    "Use": 8
+  },
+  "stage_sequences": {
+    "Learn": [
+      "l-subway",
+      "l-moto",
+      "l-how-s",
+      "l-how-d"
+    ],
+    "Recognize": [
+      "f-sofia",
+      "p-train",
+      "r-diego",
+      "f-ana",
+      "p-subway",
+      "r-luis",
+      "f-diego",
+      "p-taxi",
+      "r-sofia",
+      "u4-walked"
+    ],
+    "Listen": [
+      "r-sofia",
+      "p-moto",
+      "x-s",
+      "f-luis",
+      "r-ana",
+      "p-subway",
+      "x-d",
+      "f-diego",
+      "p-train",
+      "u4-did-she"
+    ],
+    "Speak": [
+      "u-i-sub",
+      "f-diego",
+      "q-how",
+      "r-sofia",
+      "u-moto",
+      "f-ana",
+      "r-diego",
+      "u-i-bus"
+    ],
+    "Use": [
+      "f-sofia",
+      "f-diego",
+      "f-ana",
+      "f-luis",
+      "u-i-sub",
+      "u-moto",
+      "u-i-bus",
+      "q-how"
+    ]
+  }
+}

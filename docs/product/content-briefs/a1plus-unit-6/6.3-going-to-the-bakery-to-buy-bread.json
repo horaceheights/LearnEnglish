@@ -1,0 +1,700 @@
+{
+  "brief_version": 1,
+  "follows": {
+    "course": "a1",
+    "lesson": "6.3",
+    "title": "Where Are You Going?"
+  },
+  "note": "A1+ Unit 6 Lesson 6.3, built on 2026-11-20 under the A1+ lesson standards approved 2026-10-27 and the user's 2026-11-09 rule that every A1+ lesson follows up the A1 lesson with the same number. The user asked on 2026-11-20 \"Lets work on a1+ Unit 6 same all deal as before none stop all approved\" (A1+ 6.Y follows A1 6.Y, one step each; fifteen lessons; the Units 2-4 deal: straight to Preview in batches, Gemini 2.5 Flash photos and ElevenLabs audio pre-approved, no per-lesson gates, reviewed in Preview). Three new photos (Gemini 2.5 Flash): Ana buying a loaf of bread in a bakery, Diego with a book in a bookstore and Luis taking money from a bank's cash machine. Ana swimming and Sofia and Luis running (A1+ 1.3) and A1 6's children in the library are reused.",
+  "target": "backend/lessons/a1_plus/unit_6/a1plus-unit-6-lesson-6-3.yaml",
+  "captions": false,
+  "narrators": [
+    "teacher",
+    "co-teacher"
+  ],
+  "answer_audio_policy": "authored-only",
+  "speak_delivery": "a1-pronunciation-v1",
+  "lesson": {
+    "id": "a1plus-unit-6-lesson-6-3",
+    "title": "6.3 Going to the bakery to buy bread",
+    "level": "A1+",
+    "unit_id": "a1plus-unit-6",
+    "unit_title": "Getting around town and traveling",
+    "unit_outcome": "Ask whether a place is near, say how people go to work and why they go somewhere, find a platform or gate, pack for a trip, find places on a street, follow and ask for directions, ask permission, buy tickets, understand delays and check in at a hotel.",
+    "lesson_id": "a1plus-unit-6-lesson-6-3",
+    "lesson_title": "Going to the bakery to buy bread",
+    "sub_lesson_id": "6.3",
+    "sub_lesson_title": "Going to the bakery to buy bread",
+    "goal": "Say where someone is going and what for with to + a verb (Ana is going to the bakery to buy bread.).",
+    "vocabulary": [
+      "to buy",
+      "to get",
+      "to swim"
+    ],
+    "review_vocabulary": [
+      "I'm",
+      "He's",
+      "She's",
+      "We're",
+      "They're",
+      "is going",
+      "are going",
+      "Where are you going?",
+      "Where is",
+      "going",
+      "the",
+      "bakery",
+      "bank",
+      "bookstore",
+      "pool",
+      "park",
+      "library",
+      "bread",
+      "money",
+      "a book",
+      "run",
+      "read",
+      "Ana",
+      "Luis",
+      "Diego",
+      "Sofia",
+      "and",
+      "children"
+    ],
+    "grammar_function": "A follow-up of A1 6.3 Where Are You Going?: A1 asks and says where someone is going; A1+ 6.3 adds what for, with to + a verb after the place (I'm going to the pool to swim.). The new items are to buy, to get and to swim as the first purposes, then to run and to read with known verbs. Each photo shows the person at the place doing the thing they go there for: Ana buying bread, Luis taking money from the bank's cash machine, Diego with a book in the bookstore, Ana in the pool (A1+ 1.3), Sofia and Luis running in the park (A1+ 1.3), the children reading in A1 6's library.",
+    "prerequisite": "A1 6.3 Where are you going?; A1+ 6.1 bakery and bookstore; A1 buy, money, bread, swim, run, read.",
+    "speaking_outcome": "Say to as a weak tuh before the verb: tuh-BUY, tuh-GET. Do not require native-like speed.",
+    "content_revision": 1,
+    "learn_context_groups": [
+      {
+        "kind": "sequence",
+        "targets": [
+          "to buy"
+        ],
+        "models": [
+          {
+            "slide_id": "L1",
+            "text": "She's going to the bakery to buy bread."
+          }
+        ]
+      },
+      {
+        "kind": "sequence",
+        "targets": [
+          "to get"
+        ],
+        "models": [
+          {
+            "slide_id": "L2",
+            "text": "He's going to the bank to get money."
+          }
+        ]
+      },
+      {
+        "kind": "exchange",
+        "targets": [
+          "to swim"
+        ],
+        "models": [
+          {
+            "slide_id": "L3",
+            "text": "Where are you going? I'm going to the pool to swim.",
+            "turns": [
+              "Where are you going?",
+              "I'm going to the pool to swim."
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "exchange",
+        "targets": [
+          "to buy"
+        ],
+        "models": [
+          {
+            "slide_id": "L4",
+            "text": "Where is Diego going? He's going to the bookstore to buy books.",
+            "turns": [
+              "Where is Diego going?",
+              "He's going to the bookstore to buy books."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "items": [
+    {
+      "id": "l-bread",
+      "text": "She's going to the bakery to buy bread.",
+      "es": "Va a la panadería a comprar pan.",
+      "image": "/lesson-assets/a1plus-unit-6-p01-6aa4bdc255a3ecb7.webp",
+      "kind": "sequence",
+      "choices": false,
+      "use": false,
+      "speaker": "teacher"
+    },
+    {
+      "id": "l-money",
+      "text": "He's going to the bank to get money.",
+      "es": "Va al banco a sacar dinero.",
+      "image": "/lesson-assets/a1plus-unit-6-p03-8512e54e83af7341.webp",
+      "kind": "sequence",
+      "choices": false,
+      "use": false,
+      "speaker": "co-teacher"
+    },
+    {
+      "id": "l-swim",
+      "text": "Where are you going? I'm going to the pool to swim.",
+      "es": "¿A dónde vas? Voy a la alberca a nadar.",
+      "image": "/lesson-assets/a1plus-unit-1-s02-6a10ecb13ff623c8.webp",
+      "kind": "exchange",
+      "choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "Where are you going?",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-1-s02-6a10ecb13ff623c8.webp"
+        },
+        {
+          "text": "I'm going to the pool to swim.",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-1-s02-6a10ecb13ff623c8.webp"
+        }
+      ]
+    },
+    {
+      "id": "l-book",
+      "text": "Where is Diego going? He's going to the bookstore to buy books.",
+      "es": "¿A dónde va Diego? Va a la librería a comprar libros.",
+      "image": "/lesson-assets/a1plus-unit-6-p02-eeb56427ba2ad824.webp",
+      "kind": "exchange",
+      "choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "Where is Diego going?",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-6-p02-eeb56427ba2ad824.webp"
+        },
+        {
+          "text": "He's going to the bookstore to buy books.",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-6-p02-eeb56427ba2ad824.webp"
+        }
+      ]
+    },
+    {
+      "id": "f-bread",
+      "text": "Ana is going to the bakery to buy bread.",
+      "es": "Ana va a la panadería a comprar pan.",
+      "image": "/lesson-assets/a1plus-unit-6-p01-6aa4bdc255a3ecb7.webp",
+      "kind": "purpose",
+      "prefer": [
+        "Ana is going to the bakery to get money.",
+        "Ana is going to the bakery to buy a book."
+      ],
+      "accepts": {
+        "subject-variety": "The bank keeps the person and the place and changes only what they go there to do; the photo shows what they do there.",
+        "action-variety": "The bank keeps the person and the place and changes only what they go there to do; the photo shows what they do there.",
+        "conversational-response": "The bank keeps the person and the place and changes only what they go there to do; the photo shows what they do there.",
+        "reading-load": "The bank keeps the person and the place and changes only what they go there to do; the photo shows what they do there."
+      },
+      "blanks": [
+        "to",
+        "buy"
+      ],
+      "learn": false
+    },
+    {
+      "id": "f-money",
+      "text": "Luis is going to the bank to get money.",
+      "es": "Luis va al banco a sacar dinero.",
+      "image": "/lesson-assets/a1plus-unit-6-p03-8512e54e83af7341.webp",
+      "kind": "purpose",
+      "prefer": [
+        "Luis is going to the bank to buy a book.",
+        "Luis is going to the bank to run."
+      ],
+      "accepts": {
+        "subject-variety": "The bank keeps the person and the place and changes only what they go there to do; the photo shows what they do there.",
+        "action-variety": "The bank keeps the person and the place and changes only what they go there to do; the photo shows what they do there.",
+        "conversational-response": "The bank keeps the person and the place and changes only what they go there to do; the photo shows what they do there.",
+        "reading-load": "The bank keeps the person and the place and changes only what they go there to do; the photo shows what they do there."
+      },
+      "blanks": [
+        "to",
+        "get"
+      ],
+      "learn": false
+    },
+    {
+      "id": "f-book",
+      "text": "Diego is going to the bookstore to buy a book.",
+      "es": "Diego va a la librería a comprar un libro.",
+      "image": "/lesson-assets/a1plus-unit-6-p02-eeb56427ba2ad824.webp",
+      "kind": "purpose",
+      "prefer": [
+        "Diego is going to the bookstore to run.",
+        "Diego is going to the bookstore to read."
+      ],
+      "accepts": {
+        "subject-variety": "The bank keeps the person and the place and changes only what they go there to do; the photo shows what they do there.",
+        "action-variety": "The bank keeps the person and the place and changes only what they go there to do; the photo shows what they do there.",
+        "conversational-response": "The bank keeps the person and the place and changes only what they go there to do; the photo shows what they do there.",
+        "reading-load": "The bank keeps the person and the place and changes only what they go there to do; the photo shows what they do there."
+      },
+      "blanks": [
+        "to",
+        "buy"
+      ],
+      "learn": false
+    },
+    {
+      "id": "f-run",
+      "text": "Sofia and Luis are going to the park to run.",
+      "es": "Sofía y Luis van al parque a correr.",
+      "image": "/lesson-assets/a1plus-unit-1-s03-eb8f34195803a0a8.webp",
+      "kind": "purpose",
+      "prefer": [
+        "Sofia and Luis are going to the park to read.",
+        "Sofia and Luis are going to the park to buy bread."
+      ],
+      "accepts": {
+        "subject-variety": "The bank keeps the person and the place and changes only what they go there to do; the photo shows what they do there.",
+        "action-variety": "The bank keeps the person and the place and changes only what they go there to do; the photo shows what they do there.",
+        "conversational-response": "The bank keeps the person and the place and changes only what they go there to do; the photo shows what they do there.",
+        "reading-load": "The bank keeps the person and the place and changes only what they go there to do; the photo shows what they do there."
+      },
+      "blanks": [
+        "to",
+        "run"
+      ],
+      "learn": false
+    },
+    {
+      "id": "f-read",
+      "text": "The children are going to the library to read.",
+      "es": "Los niños van a la biblioteca a leer.",
+      "image": "/lesson-assets/a1_photo_u6_children_in_library_v1.webp",
+      "kind": "purpose",
+      "prefer": [
+        "The children are going to the library to buy bread.",
+        "The children are going to the library to get money."
+      ],
+      "accepts": {
+        "subject-variety": "The bank keeps the person and the place and changes only what they go there to do; the photo shows what they do there.",
+        "action-variety": "The bank keeps the person and the place and changes only what they go there to do; the photo shows what they do there.",
+        "conversational-response": "The bank keeps the person and the place and changes only what they go there to do; the photo shows what they do there.",
+        "reading-load": "The bank keeps the person and the place and changes only what they go there to do; the photo shows what they do there."
+      },
+      "blanks": [
+        "to",
+        "read"
+      ],
+      "learn": false
+    },
+    {
+      "id": "r-swim",
+      "text": "I'm going to the pool to swim.",
+      "es": "Voy a la alberca a nadar.",
+      "image": "/lesson-assets/a1plus-unit-1-s02-6a10ecb13ff623c8.webp",
+      "kind": "where",
+      "question": "Where are you going?",
+      "question_es": "¿A dónde vas?",
+      "question_speaker": "co-teacher",
+      "speaker": "teacher",
+      "use": false,
+      "image_choices": false,
+      "prefer": [
+        "I'm going to the park to run.",
+        "I'm going to the bank to get money."
+      ],
+      "accepts": {
+        "subject-variety": "The answer keeps I'm going and changes only the place and what the speaker does there; the photo shows the speaker there.",
+        "action-variety": "The answer keeps I'm going and changes only the place and what the speaker does there; the photo shows the speaker there.",
+        "conversational-response": "The answer keeps I'm going and changes only the place and what the speaker does there; the photo shows the speaker there.",
+        "reading-load": "The answer keeps I'm going and changes only the place and what the speaker does there; the photo shows the speaker there."
+      },
+      "learn": false
+    },
+    {
+      "id": "r-bread",
+      "text": "I'm going to the bakery to buy bread.",
+      "es": "Voy a la panadería a comprar pan.",
+      "image": "/lesson-assets/a1plus-unit-6-p01-6aa4bdc255a3ecb7.webp",
+      "kind": "where",
+      "question": "Where are you going?",
+      "question_es": "¿A dónde vas?",
+      "question_speaker": "co-teacher",
+      "speaker": "teacher",
+      "use": false,
+      "image_choices": false,
+      "prefer": [
+        "I'm going to the bookstore to buy a book.",
+        "I'm going to the pool to swim."
+      ],
+      "accepts": {
+        "subject-variety": "The answer keeps I'm going and changes only the place and what the speaker does there; the photo shows the speaker there.",
+        "action-variety": "The answer keeps I'm going and changes only the place and what the speaker does there; the photo shows the speaker there.",
+        "conversational-response": "The answer keeps I'm going and changes only the place and what the speaker does there; the photo shows the speaker there.",
+        "reading-load": "The answer keeps I'm going and changes only the place and what the speaker does there; the photo shows the speaker there."
+      },
+      "learn": false
+    },
+    {
+      "id": "r-money",
+      "text": "I'm going to the bank to get money.",
+      "es": "Voy al banco a sacar dinero.",
+      "image": "/lesson-assets/a1plus-unit-6-p03-8512e54e83af7341.webp",
+      "kind": "where",
+      "question": "Where are you going?",
+      "question_es": "¿A dónde vas?",
+      "question_speaker": "co-teacher",
+      "speaker": "teacher",
+      "use": false,
+      "image_choices": false,
+      "prefer": [
+        "I'm going to the bakery to buy bread.",
+        "I'm going to the park to run."
+      ],
+      "accepts": {
+        "subject-variety": "The answer keeps I'm going and changes only the place and what the speaker does there; the photo shows the speaker there.",
+        "action-variety": "The answer keeps I'm going and changes only the place and what the speaker does there; the photo shows the speaker there.",
+        "conversational-response": "The answer keeps I'm going and changes only the place and what the speaker does there; the photo shows the speaker there.",
+        "reading-load": "The answer keeps I'm going and changes only the place and what the speaker does there; the photo shows the speaker there."
+      },
+      "learn": false
+    },
+    {
+      "id": "x-d",
+      "text": "Where is Diego going? He's going to the bookstore to buy a book.",
+      "es": "¿A dónde va Diego? Va a la librería a comprar un libro.",
+      "image": "/lesson-assets/a1plus-unit-6-p02-eeb56427ba2ad824.webp",
+      "kind": "xd",
+      "image_choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "Where is Diego going?",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-6-p02-eeb56427ba2ad824.webp"
+        },
+        {
+          "text": "He's going to the bookstore to buy a book.",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-6-p02-eeb56427ba2ad824.webp"
+        }
+      ],
+      "accepts": {
+        "subject-variety": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "action-variety": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "conversational-response": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "reading-load": "Listen keeps the question and changes only the answer; the answer is what was heard."
+      },
+      "prefer": [
+        "Where is Diego going? He's going to the bakery to buy bread."
+      ],
+      "learn": false
+    },
+    {
+      "id": "x-a",
+      "text": "Where are you going? I'm going to the pool to swim.",
+      "es": "¿A dónde vas? Voy a la alberca a nadar.",
+      "image": "/lesson-assets/a1plus-unit-1-s02-6a10ecb13ff623c8.webp",
+      "kind": "xa",
+      "image_choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "Where are you going?",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-1-s02-6a10ecb13ff623c8.webp"
+        },
+        {
+          "text": "I'm going to the pool to swim.",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-1-s02-6a10ecb13ff623c8.webp"
+        }
+      ],
+      "accepts": {
+        "subject-variety": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "action-variety": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "conversational-response": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "reading-load": "Listen keeps the question and changes only the answer; the answer is what was heard."
+      },
+      "prefer": [
+        "Where are you going? I'm going to the park to run."
+      ],
+      "learn": false
+    },
+    {
+      "id": "u-bread",
+      "text": "I'm going to the bakery to buy bread.",
+      "es": "Voy a la panadería a comprar pan.",
+      "image": "/lesson-assets/a1plus-unit-6-p01-6aa4bdc255a3ecb7.webp",
+      "kind": "use",
+      "choices": false,
+      "blanks": [
+        "to",
+        "buy"
+      ],
+      "learn": false
+    },
+    {
+      "id": "u-money",
+      "text": "I'm going to the bank to get money.",
+      "es": "Voy al banco a sacar dinero.",
+      "image": "/lesson-assets/a1plus-unit-6-p03-8512e54e83af7341.webp",
+      "kind": "use",
+      "choices": false,
+      "blanks": [
+        "to",
+        "get"
+      ],
+      "learn": false
+    },
+    {
+      "id": "u-swim",
+      "text": "I'm going to the pool to swim.",
+      "es": "Voy a la alberca a nadar.",
+      "image": "/lesson-assets/a1plus-unit-1-s02-6a10ecb13ff623c8.webp",
+      "kind": "use",
+      "choices": false,
+      "blanks": null,
+      "learn": false
+    },
+    {
+      "id": "u-park",
+      "text": "We're going to the park to run.",
+      "es": "Vamos al parque a correr.",
+      "image": "/lesson-assets/a1plus-unit-1-s03-eb8f34195803a0a8.webp",
+      "kind": "use",
+      "choices": false,
+      "blanks": null,
+      "learn": false
+    },
+    {
+      "id": "u-she",
+      "text": "She's going to the bakery to buy bread.",
+      "es": "Va a la panadería a comprar pan.",
+      "image": "/lesson-assets/a1plus-unit-6-p01-6aa4bdc255a3ecb7.webp",
+      "kind": "use",
+      "choices": false,
+      "blanks": null,
+      "learn": false
+    },
+    {
+      "id": "u-he",
+      "text": "He's going to the bank to get money.",
+      "es": "Va al banco a sacar dinero.",
+      "image": "/lesson-assets/a1plus-unit-6-p03-8512e54e83af7341.webp",
+      "kind": "use",
+      "choices": false,
+      "blanks": null,
+      "learn": false
+    },
+    {
+      "id": "u-pool",
+      "text": "We're going to the pool to swim.",
+      "es": "Vamos a la alberca a nadar.",
+      "image": "/lesson-assets/a1plus-unit-1-s02-6a10ecb13ff623c8.webp",
+      "kind": "use",
+      "choices": false,
+      "blanks": null,
+      "learn": false
+    },
+    {
+      "id": "u-read",
+      "text": "They're going to the library to read.",
+      "es": "Van a la biblioteca a leer.",
+      "image": "/lesson-assets/a1_photo_u6_children_in_library_v1.webp",
+      "kind": "use",
+      "choices": false,
+      "blanks": null,
+      "learn": false
+    }
+  ],
+  "pool": [
+    {
+      "text": "Ana is going to the bakery to get money.",
+      "es": "Ana va a la panadería a sacar dinero.",
+      "image": "/lesson-assets/a1plus-unit-6-p01-6aa4bdc255a3ecb7.webp",
+      "kind": "purpose",
+      "image_choices": false
+    },
+    {
+      "text": "Ana is going to the bakery to buy a book.",
+      "es": "Ana va a la panadería a comprar un libro.",
+      "image": "/lesson-assets/a1plus-unit-6-p01-6aa4bdc255a3ecb7.webp",
+      "kind": "purpose",
+      "image_choices": false
+    },
+    {
+      "text": "Luis is going to the bank to buy a book.",
+      "es": "Luis va al banco a comprar un libro.",
+      "image": "/lesson-assets/a1plus-unit-6-p03-8512e54e83af7341.webp",
+      "kind": "purpose",
+      "image_choices": false
+    },
+    {
+      "text": "Luis is going to the bank to run.",
+      "es": "Luis va al banco a correr.",
+      "image": "/lesson-assets/a1plus-unit-6-p03-8512e54e83af7341.webp",
+      "kind": "purpose",
+      "image_choices": false
+    },
+    {
+      "text": "Diego is going to the bookstore to run.",
+      "es": "Diego va a la librería a correr.",
+      "image": "/lesson-assets/a1plus-unit-6-p02-eeb56427ba2ad824.webp",
+      "kind": "purpose",
+      "image_choices": false
+    },
+    {
+      "text": "Diego is going to the bookstore to read.",
+      "es": "Diego va a la librería a leer.",
+      "image": "/lesson-assets/a1plus-unit-6-p02-eeb56427ba2ad824.webp",
+      "kind": "purpose",
+      "image_choices": false
+    },
+    {
+      "text": "Sofia and Luis are going to the park to read.",
+      "es": "Sofía y Luis van al parque a leer.",
+      "image": "/lesson-assets/a1plus-unit-1-s03-eb8f34195803a0a8.webp",
+      "kind": "purpose",
+      "image_choices": false
+    },
+    {
+      "text": "Sofia and Luis are going to the park to buy bread.",
+      "es": "Sofía y Luis van al parque a comprar pan.",
+      "image": "/lesson-assets/a1plus-unit-1-s03-eb8f34195803a0a8.webp",
+      "kind": "purpose",
+      "image_choices": false
+    },
+    {
+      "text": "The children are going to the library to buy bread.",
+      "es": "Los niños van a la biblioteca a comprar pan.",
+      "image": "/lesson-assets/a1_photo_u6_children_in_library_v1.webp",
+      "kind": "purpose",
+      "image_choices": false
+    },
+    {
+      "text": "The children are going to the library to get money.",
+      "es": "Los niños van a la biblioteca a sacar dinero.",
+      "image": "/lesson-assets/a1_photo_u6_children_in_library_v1.webp",
+      "kind": "purpose",
+      "image_choices": false
+    },
+    {
+      "text": "I'm going to the park to run.",
+      "es": "Voy al parque a correr.",
+      "image": "/lesson-assets/a1plus-unit-1-s02-6a10ecb13ff623c8.webp",
+      "kind": "where",
+      "image_choices": false
+    },
+    {
+      "text": "I'm going to the bank to get money.",
+      "es": "Voy al banco a sacar dinero.",
+      "image": "/lesson-assets/a1plus-unit-1-s02-6a10ecb13ff623c8.webp",
+      "kind": "where",
+      "image_choices": false
+    },
+    {
+      "text": "I'm going to the bookstore to buy a book.",
+      "es": "Voy a la librería a comprar un libro.",
+      "image": "/lesson-assets/a1plus-unit-6-p01-6aa4bdc255a3ecb7.webp",
+      "kind": "where",
+      "image_choices": false
+    },
+    {
+      "text": "I'm going to the pool to swim.",
+      "es": "Voy a la alberca a nadar.",
+      "image": "/lesson-assets/a1plus-unit-6-p01-6aa4bdc255a3ecb7.webp",
+      "kind": "where",
+      "image_choices": false
+    },
+    {
+      "text": "I'm going to the bakery to buy bread.",
+      "es": "Voy a la panadería a comprar pan.",
+      "image": "/lesson-assets/a1plus-unit-6-p03-8512e54e83af7341.webp",
+      "kind": "where",
+      "image_choices": false
+    },
+    {
+      "text": "Where is Diego going? He's going to the bakery to buy bread.",
+      "es": "¿A dónde va Diego? Va a la panadería a comprar pan.",
+      "image": "/lesson-assets/a1plus-unit-6-p02-eeb56427ba2ad824.webp",
+      "kind": "xd",
+      "image_choices": false
+    },
+    {
+      "text": "Where are you going? I'm going to the park to run.",
+      "es": "¿A dónde vas? Voy al parque a correr.",
+      "image": "/lesson-assets/a1plus-unit-1-s02-6a10ecb13ff623c8.webp",
+      "kind": "xa",
+      "image_choices": false
+    }
+  ],
+  "layout": {
+    "Recognize": 10,
+    "Listen": 10,
+    "Speak": 8,
+    "Use": 8
+  },
+  "stage_sequences": {
+    "Learn": [
+      "l-bread",
+      "l-money",
+      "l-swim",
+      "l-book"
+    ],
+    "Recognize": [
+      "f-bread",
+      "r-swim",
+      "f-run",
+      "r-money",
+      "f-book",
+      "f-read",
+      "r-bread",
+      "f-money",
+      "x-d",
+      "f-run"
+    ],
+    "Listen": [
+      "f-money",
+      "r-bread",
+      "x-a",
+      "f-read",
+      "r-swim",
+      "f-book",
+      "x-d",
+      "f-run",
+      "r-money",
+      "f-bread"
+    ],
+    "Speak": [
+      "u-bread",
+      "f-book",
+      "u-money",
+      "r-swim",
+      "f-run",
+      "u-swim",
+      "f-read",
+      "u-park"
+    ],
+    "Use": [
+      "u-she",
+      "u-he",
+      "u-read",
+      "u-bread",
+      "u-money",
+      "u-swim",
+      "u-park",
+      "u-pool"
+    ]
+  }
+}
