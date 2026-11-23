@@ -70,7 +70,9 @@ def normalized(text):
     for suffix, expansion in [("'re", " are"), ("'m", " am"), ("'ve", " have"),
                               ("'ll", " will"), ("'d", " would")]:
         text = text.replace(suffix, expansion)
-    text = re.sub(r"\b(he|she|it|that|this|there|what|who)'s\b", r"\1 is", text)
+    # A1+ 6.6 and 6.13 (2026-11-20): where's and here's are where is and here is (Where's the bookstore? Here's your key.);
+    # A1+ 4.1's Where's the boy? / Where's the grandmother? bank therefore reads as sentences, not phrases.
+    text = re.sub(r"\b(he|she|it|that|this|there|what|who|where|here)'s\b", r"\1 is", text)
     text = re.sub(r"'s(?=\s+\w+ing\b)", " is", text)
     return text
 
@@ -128,8 +130,9 @@ def bank_fingerprint(card):
     return hashlib.sha256(payload.encode("utf-8")).hexdigest()
 
 
-# German course cards: words keep their umlauts and ß, and the English sentence
-# and action heuristics do not apply (German "was" is "what", not English "was").
+# German and Spanish course cards: words keep their umlauts, accents, ñ and ß, and the
+# English sentence and action heuristics do not apply (German "was" is "what", not
+# English "was"; Spanish "Adiós" and "España" are one word each).
 GERMAN_TOKEN = re.compile(r"[^\W\d_]+|\d+")
 
 
@@ -163,7 +166,7 @@ def analyze_bank(card):
         return "images", hard, conflicts
     if not all(labels):
         return "invalid", ["missing option text or partially labeled image bank"], conflicts
-    if value(card, "target_language") == "de":
+    if value(card, "target_language") in ("de", "es"):
         return analyze_german_bank(labels)
     forms = {text_form(label) for label in labels}
     if "mixed" in forms or (forms & {"words", "phrases"} and forms & {"sentences", "utterances"}):

@@ -117,6 +117,12 @@ const MEANINGS: Record<string, string> = {
   // A1 5.12 (2026-11-15): the tens from thirty to one hundred.
   thirty: 'treinta', forty: 'cuarenta', fifty: 'cincuenta', sixty: 'sesenta', seventy: 'setenta', eighty: 'ochenta',
   ninety: 'noventa', hundred: 'cien',
+  // A1+ 5.1-5.5 (2026-11-20): amounts (a lot of, a few, a little, not much), pasta, and agreeing with
+  // So do I. / Neither do I.
+  pasta: 'pasta', few: 'unos pocos o unas pocas', little: 'un poco', much: 'mucho o mucha',
+  'lot of': 'mucho o mucha', so: 'también (a mí también)', neither: 'tampoco (a mí tampoco)',
+  // A1+ 5.11 and 5.14 (2026-11-20): comparing prices, and a piece of.
+  cheaper: 'más barato o más barata', 'more expensive': 'más caro o más cara', piece: 'pedazo',
   // A1 3.13 (2026-11-15): phone number and address.
   zero: 'cero', address: 'dirección',
   running: 'corriendo', walking: 'caminando', reading: 'leyendo', writing: 'escribiendo',
@@ -236,6 +242,13 @@ const MEANINGS: Record<string, string> = {
   upstairs: 'arriba, en el piso de arriba', downstairs: 'abajo, en el piso de abajo',
   // A1+ 4.3 (2026-11-20): where a pet is, seen from the camera (Luna is behind the door.).
   behind: 'detrás de', 'in front of': 'delante de',
+  // A1+ 4.7-4.9 (2026-11-20): the past with -ed (She cleaned the table yesterday. / Luis worked on Saturday.).
+  cleaned: 'limpió', washed: 'lavó', opened: 'abrió', worked: 'trabajó', watched: 'vio', painted: 'pintó',
+  yesterday: 'ayer',
+  // A1+ 4.10 (2026-11-20): What time do you start work? / I finish work at six o'clock.
+  'start work': 'empezar a trabajar', 'finish work': 'terminar de trabajar',
+  // A1+ 4.12 (2026-11-21): how often, at the end of the sentence (Diego runs once a week.).
+  once: 'una vez', twice: 'dos veces',
   // A1+ 7.1-7.5 (2026-11-20): what hurts, why and because, what people are wearing, the weather happening
   // now, and putting clothes on and taking them off.
   hurts: 'duele', hurt: 'duelen', because: 'porque', wearing: 'llevando puesto', raining: 'lloviendo',
@@ -261,6 +274,12 @@ const MEANINGS: Record<string, string> = {
   grandchildren: 'nietos',
   cook: 'cocinero', brush: 'cepillar', wash: 'lavar',
   study: 'estudiar', run: 'correr', goes: 'va', walks: 'camina', likes: 'le gusta',
+  // A1+ Unit 6 (2026-11-20): places, transport and travel things around town (Is there a bakery near here?).
+  bakery: 'panadería', bookstore: 'librería', 'police station': 'estación de policía', 'gas station': 'gasolinera',
+  subway: 'metro', motorcycle: 'moto', platform: 'andén', gate: 'puerta de embarque', passport: 'pasaporte',
+  suitcase: 'maleta', backpack: 'mochila', opposite: 'enfrente de', along: 'por la orilla de',
+  'one-way': 'sencillo, solo de ida', 'round-trip': 'redondo, de ida y vuelta', late: 'tarde', early: 'temprano',
+  'on time': 'a tiempo', reservation: 'reservación', elevator: 'elevador',
   '1': 'uno', '2': 'dos', '3': 'tres', '4': 'cuatro', '5': 'cinco',
   '6': 'seis', '7': 'siete', '8': 'ocho', '9': 'nueve', '10': 'diez', '11': 'once', '12': 'doce',
   mon: 'lunes', tue: 'martes', wed: 'miércoles', thu: 'jueves',
@@ -285,9 +304,26 @@ const HAIR_LENGTH: Record<string, string> = { long: 'largo', short: 'corto' };
 const SWITCH_STATE: Record<string, string> = { on: 'prendido o encendido', off: 'apagado' };
 const wordMeaning = (text: string) => meaning(text);
 
+// A1+ 5.12 (2026-11-20): a number from twenty-one to ninety-nine is its ten and its unit ("cuarenta y cinco").
+const TENS: Record<string, string> = {
+  twenty: 'veinti', thirty: 'treinta', forty: 'cuarenta', fifty: 'cincuenta', sixty: 'sesenta', seventy: 'setenta',
+  eighty: 'ochenta', ninety: 'noventa',
+};
+const UNITS: Record<string, string> = {
+  one: 'uno', two: 'dos', three: 'tres', four: 'cuatro', five: 'cinco', six: 'seis', seven: 'siete', eight: 'ocho',
+  nine: 'nueve',
+};
+function compoundNumber(key: string) {
+  const [ten, unit] = key.split('-');
+  if (!TENS[ten] || !UNITS[unit]) return '';
+  return ten === 'twenty' ? `${TENS[ten]}${UNITS[unit].replace(/^dos$/, 'dós').replace(/^tres$/, 'trés').replace(/^seis$/, 'séis')}` : `${TENS[ten]} y ${UNITS[unit]}`;
+}
+
 function meaning(text: string) {
   const key = normalized(text);
   if (MEANINGS[key]) return MEANINGS[key];
+  const compound = compoundNumber(key);
+  if (compound) return compound;
   // A possessive names its owner: "Ana's" is “de Ana”.
   const owner = /^(.+)'s$/.exec(key.replace(/’/g, "'"))?.[1];
   if (owner && MEANINGS[owner]) return `de ${MEANINGS[owner]}`;
@@ -507,9 +543,87 @@ function sentenceChoiceContrast(card: LessonCard, correct: string, wrong: string
   return `Tu opción dice “${selected}”; la imagen muestra “${expected}”.`;
 }
 
+// A1+ 4.7-4.10 (2026-11-20): the past against the present, did against do or does, didn't against what did
+// happen, and half past against o'clock. Each rule needs two choices that differ only there.
+const PAST_FORMS: Record<string, string> = {
+  cleaned: 'clean', washed: 'wash', opened: 'open', worked: 'work', watched: 'watch', painted: 'paint',
+};
+
+function pastTenseContrast(expected: string, selected: string): string {
+  const words = (text: string) => text.replace(/[?.!,]/g, '').split(/\s+/).filter(Boolean);
+  const [right, wrong] = [words(expected), words(selected)];
+  const title = (word: string) => word.charAt(0).toUpperCase() + word.slice(1);
+  if (right.length === wrong.length && right[0] !== wrong[0] && right.slice(1).join(' ') === wrong.slice(1).join(' ')) {
+    if (right[0] === 'did' && ['do', 'does'].includes(wrong[0])) {
+      return `“${title(wrong[0])}” pregunta por lo que pasa siempre; aquí la pregunta es por el pasado, con “Did”.`;
+    }
+    if (wrong[0] === 'did' && ['do', 'does'].includes(right[0])) {
+      return `“Did” pregunta por el pasado; aquí la pregunta es por lo que pasa siempre, con “${title(right[0])}”.`;
+    }
+  }
+  const short = /^(yes|no),? (i|you|he|she|it|we|they) (did|didn't|do|don't|does|doesn't)$/;
+  const [rightShort, wrongShort] = [short.exec(words(expected).join(' ')), short.exec(words(selected).join(' '))];
+  if (rightShort && wrongShort && rightShort[1] === wrongShort[1] && rightShort[2] === wrongShort[2]
+      && rightShort[3] !== wrongShort[3] && [rightShort[3], wrongShort[3]].some(word => word.startsWith('did'))) {
+    return rightShort[3].startsWith('did')
+      ? `“${wrongShort[3]}” responde sobre lo que pasa siempre; la pregunta es por el pasado, por eso decimos “${rightShort[3]}”.`
+      : `“${wrongShort[3]}” responde sobre el pasado; la pregunta es por lo que pasa siempre, por eso decimos “${rightShort[3]}”.`;
+  }
+  if (rightShort && wrongShort && rightShort[2] === wrongShort[2] && rightShort[1] !== wrongShort[1]
+      && rightShort[3].startsWith('did') && wrongShort[3].startsWith('did')) {
+    return rightShort[1] === 'yes'
+      ? `Tu opción responde “No”; aquí la respuesta es sí, por eso decimos “${rightShort[1] === 'yes' ? 'Yes' : 'No'}, ${rightShort[2]} ${rightShort[3]}”.`
+      : `Tu opción responde “Yes”; aquí la respuesta es no, por eso decimos “No, ${rightShort[2]} ${rightShort[3]}”.`;
+  }
+  // The same sentence with the -ed past against the present of the same verb.
+  const pastIndex = right.findIndex(word => PAST_FORMS[word]);
+  const presentIndex = wrong.findIndex(word => PAST_FORMS[word]);
+  if (pastIndex >= 0 && presentIndex < 0) {
+    const base = PAST_FORMS[right[pastIndex]];
+    const present = wrong.find(word => [base, `${base}s`, `${base}es`].includes(word));
+    if (present) return `“${present}” es presente, lo que pasa siempre; aquí es “${right[pastIndex]}” (${meaning(right[pastIndex])}), el pasado con -ed.`;
+  }
+  if (presentIndex >= 0 && pastIndex < 0) {
+    const base = PAST_FORMS[wrong[presentIndex]];
+    const present = right.find(word => [base, `${base}s`, `${base}es`].includes(word));
+    if (present) return `“${wrong[presentIndex]}” es pasado; aquí es “${present}”, el presente, lo que pasa siempre.`;
+  }
+  // didn't + the base against the -ed past of the same verb.
+  const not = right.indexOf("didn't");
+  if (not >= 0 && presentIndex >= 0 && PAST_FORMS[wrong[presentIndex]] === right[not + 1]) {
+    return `Tu opción dice que sí pasó (“${wrong[presentIndex]}”); aquí se niega con “didn't ${right[not + 1]}”.`;
+  }
+  const wrongNot = wrong.indexOf("didn't");
+  if (wrongNot >= 0 && pastIndex >= 0 && PAST_FORMS[right[pastIndex]] === wrong[wrongNot + 1]) {
+    return `Tu opción lo niega con “didn't”; aquí sí pasó: “${right[pastIndex]}”.`;
+  }
+  // half past against o'clock for the same hour.
+  const half = /\bhalf past (\w+)\b/;
+  const whole = /\b(\w+) o'clock\b/;
+  const [rightHalf, wrongHalf, rightWhole, wrongWhole] = [half.exec(expected), half.exec(selected),
+    whole.exec(expected), whole.exec(selected)];
+  if (rightHalf && wrongWhole && rightHalf[1] === wrongWhole[1]) {
+    return `“${wrongWhole[0]}” es la hora en punto; aquí es “${rightHalf[0]}”, ${meaning(rightHalf[1]) ? `las ${meaning(rightHalf[1])} y media` : 'la hora y media'}.`;
+  }
+  if (rightWhole && wrongHalf && rightWhole[1] === wrongHalf[1]) {
+    return `“${wrongHalf[0]}” es la hora y media; aquí es “${rightWhole[0]}”, ${meaning(rightWhole[1]) ? `las ${meaning(rightWhole[1])} en punto` : 'la hora en punto'}.`;
+  }
+  // A1+ 4.11: after a verb, it stands for one thing and them for several; the picture shows how many.
+  const changed = right.length === wrong.length ? right.flatMap((word, index) => word === wrong[index] ? [] : [index]) : [];
+  if (changed.length === 1 && new Set([right[changed[0]], wrong[changed[0]]]).size === 2
+      && ['it', 'them'].includes(right[changed[0]]) && ['it', 'them'].includes(wrong[changed[0]]) && changed[0] > 1) {
+    return right[changed[0]] === 'them'
+      ? '“it” reemplaza a una sola cosa; aquí son varias, por eso decimos “them”.'
+      : '“them” reemplaza a varias cosas; aquí es una sola, por eso decimos “it”.';
+  }
+  return '';
+}
+
 function grammarChoiceContrast(correct: string, wrong: string): string {
   const expected = normalized(correct);
   const selected = normalized(wrong);
+  const past = pastTenseContrast(expected, selected);
+  if (past) return past;
   // A yes/no question answered both ways: only the short answer changes.
   const answer = /^(.+\?)\s*(yes|no),/;
   const [expectedAnswer, selectedAnswer] = [answer.exec(expected), answer.exec(selected)];
@@ -645,6 +759,11 @@ const PHRASE_MEANINGS: Record<string, string> = {
   // A1+ 4.5 (2026-11-20): the he/she form of the morning routine (Luis brushes his teeth.).
   'wakes up': 'se despierta', 'gets dressed': 'se viste', 'brushes his teeth': 'se lava los dientes',
   'brushes her teeth': 'se lava los dientes', 'washes his face': 'se lava la cara', 'washes her face': 'se lava la cara',
+  // A1+ 4.9 (2026-11-20): Luis watched TV on Sunday.
+  'watched tv': 'vio la tele',
+  // A1+ 5.10 (2026-11-20): the seller's and the waiter's questions, heard against each other.
+  'anything else': 'algo más', 'what would you like': 'qué le gustaría',
+  'would you like some tea': 'quieres un poco de té', 'how much are the apples': 'cuánto cuestan las manzanas',
 };
 
 function phraseMeaning(text: string) {

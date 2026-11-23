@@ -1,0 +1,546 @@
+{
+  "brief_version": 1,
+  "follows": {
+    "course": "a1",
+    "lesson": "5.7",
+    "title": "Meals"
+  },
+  "note": "A1+ Unit 5 Lesson 5.7, built on 2026-11-20 under the A1+ lesson standards approved 2026-10-27 and the user's 2026-11-09 rule that every A1+ lesson follows up the A1 lesson with the same number. The user asked on 2026-11-20 to \"work on a1+ Unit 5 same all deal as before none stop all approved\": A1+ 5.Y follows A1 5.Y with one step each, straight to Preview in batches, Gemini 2.5 Flash photos and ElevenLabs audio pre-approved, no per-lesson gates, reviewed in Preview. Ana washes her hands while dinner waits on the table, Luis wipes the table by an empty plate, Ana reads by an empty plate, Luis cooks dinner, Ana eats a sandwich at lunch (the 2026-10-31 A1+ 1.3 photos, Gemini 3 Pro, kept for this lesson), and two new Flash photos: Diego drinks coffee by an empty breakfast plate, Sofia runs in the park early in the morning.",
+  "target": "backend/lessons/a1_plus/unit_5/a1plus-unit-5-lesson-5-7.yaml",
+  "captions": false,
+  "narrators": [
+    "teacher",
+    "co-teacher"
+  ],
+  "answer_audio_policy": "authored-only",
+  "speak_delivery": "a1-pronunciation-v1",
+  "lesson": {
+    "id": "a1plus-unit-5-lesson-5-7",
+    "title": "5.7 Before dinner, after dinner",
+    "level": "A1+",
+    "unit_id": "a1plus-unit-5",
+    "unit_title": "Food, drinks and shopping",
+    "unit_outcome": "Say how much and how many, offer and order food and drinks politely, agree about likes, say what you want and need to do, talk about meals, prices and what is in your food, compare prices, use numbers to ninety-nine and ask for things at the table.",
+    "lesson_id": "a1plus-unit-5-lesson-5-7",
+    "lesson_title": "Before dinner, after dinner",
+    "sub_lesson_id": "5.7",
+    "sub_lesson_title": "Before dinner, after dinner",
+    "goal": "Say what you do before or after a meal (Ana washes her hands before dinner. / I drink coffee after breakfast.) and ask What do you do after dinner?",
+    "vocabulary": [
+      "before",
+      "after"
+    ],
+    "review_vocabulary": [
+      "breakfast",
+      "lunch",
+      "dinner",
+      "for lunch",
+      "washes",
+      "hands",
+      "cleans",
+      "table",
+      "reads",
+      "drinks",
+      "coffee",
+      "runs",
+      "What do you do …?",
+      "cooked",
+      "yesterday",
+      "sandwich"
+    ],
+    "grammar_function": "A follow-up of A1 5.7 Meals: A1 says what I eat for breakfast, lunch and dinner and at what time; A1+ 5.7 places an action before or after a meal (Ana washes her hands before dinner. / Luis cleans the table after dinner.), with A1+ 1.2's he/she -s and the I-form. This is the before/after topic that left A1+ Unit 1 for A1 5.7 (2026-11-09); four of its 2026-10-31 dinner photos come back. A photo can show a meal waiting (a full plate) or finished (an empty plate), so only those photos set before against after; otherwise before and after are told apart by ear. A1+ 4.7's past comes back with cooked (Luis cooked dinner yesterday.). No clock times.",
+    "prerequisite": "A1 5.7 breakfast, lunch, dinner, for lunch; A1+ 1.2 he/she -s; A1 4.7 clean; A1+ 4.5 washes; A1+ 4.7 -ed and yesterday; A1+ 1.7 What do you do …? frames.",
+    "speaking_outcome": "Stress the meal after before and after (before DINner, after BREAKfast); do not require native-like speed.",
+    "content_revision": 1,
+    "learn_context_groups": [
+      {
+        "kind": "sequence",
+        "targets": [
+          "before"
+        ],
+        "models": [
+          {
+            "slide_id": "L1",
+            "text": "Ana washes her hands before dinner."
+          }
+        ]
+      },
+      {
+        "kind": "sequence",
+        "targets": [
+          "after"
+        ],
+        "models": [
+          {
+            "slide_id": "L2",
+            "text": "Luis cleans the table after dinner."
+          }
+        ]
+      },
+      {
+        "kind": "sequence",
+        "targets": [
+          "after"
+        ],
+        "models": [
+          {
+            "slide_id": "L3",
+            "text": "I drink coffee after breakfast."
+          }
+        ]
+      },
+      {
+        "kind": "sequence",
+        "targets": [
+          "before"
+        ],
+        "models": [
+          {
+            "slide_id": "L4",
+            "text": "I run before breakfast."
+          }
+        ]
+      }
+    ]
+  },
+  "items": [
+    {
+      "id": "l-before",
+      "text": "Ana washes her hands before dinner.",
+      "es": "Ana se lava las manos antes de la cena.",
+      "image": "/lesson-assets/a1plus-unit-1-e02-130850e74cd1e984.webp",
+      "kind": "sequence",
+      "choices": false,
+      "use": false,
+      "learn": true,
+      "speaker": "teacher"
+    },
+    {
+      "id": "l-after",
+      "text": "Luis cleans the table after dinner.",
+      "es": "Luis limpia la mesa después de la cena.",
+      "image": "/lesson-assets/a1plus-unit-1-e04-cc8c41d692c6c9b6.webp",
+      "kind": "sequence",
+      "choices": false,
+      "use": false,
+      "learn": true,
+      "speaker": "co-teacher"
+    },
+    {
+      "id": "l-after-i",
+      "text": "I drink coffee after breakfast.",
+      "es": "Tomo café después del desayuno.",
+      "image": "/lesson-assets/a1plus-unit-5-d01-f735c4278de86230.webp",
+      "kind": "sequence",
+      "choices": false,
+      "use": false,
+      "learn": true,
+      "speaker": "diego"
+    },
+    {
+      "id": "l-before-i",
+      "text": "I run before breakfast.",
+      "es": "Corro antes del desayuno.",
+      "image": "/lesson-assets/a1plus-unit-5-d02-4f922cae336ec76d.webp",
+      "kind": "sequence",
+      "choices": false,
+      "use": false,
+      "learn": true,
+      "speaker": "sofia"
+    },
+    {
+      "id": "t-hands",
+      "text": "Ana washes her hands before dinner.",
+      "es": "Ana se lava las manos antes de la cena.",
+      "image": "/lesson-assets/a1plus-unit-1-e02-130850e74cd1e984.webp",
+      "kind": "third",
+      "speaker": "teacher",
+      "accepts": {
+        "subject-variety": "Listen: the answer is what was heard; before and after are told apart by ear.",
+        "action-variety": "Listen: the answer is what was heard; before and after are told apart by ear.",
+        "conversational-response": "Listen: the answer is what was heard; before and after are told apart by ear.",
+        "reading-load": "Listen: the answer is what was heard; before and after are told apart by ear."
+      },
+      "blanks": [
+        "before",
+        "dinner"
+      ],
+      "prefer": [
+        "Ana washes her hands after dinner.",
+        "Ana reads after dinner."
+      ],
+      "learn": false
+    },
+    {
+      "id": "t-cleans",
+      "text": "Luis cleans the table after dinner.",
+      "es": "Luis limpia la mesa después de la cena.",
+      "image": "/lesson-assets/a1plus-unit-1-e04-cc8c41d692c6c9b6.webp",
+      "kind": "third",
+      "speaker": "co-teacher",
+      "accepts": {
+        "subject-variety": "Listen: the answer is what was heard; before and after are told apart by ear.",
+        "action-variety": "Listen: the answer is what was heard; before and after are told apart by ear.",
+        "conversational-response": "Listen: the answer is what was heard; before and after are told apart by ear.",
+        "reading-load": "Listen: the answer is what was heard; before and after are told apart by ear."
+      },
+      "blanks": [
+        "after",
+        "dinner"
+      ],
+      "prefer": [
+        "Luis cleans the table before dinner.",
+        "Diego drinks coffee after breakfast."
+      ],
+      "learn": false
+    },
+    {
+      "id": "t-reads",
+      "text": "Ana reads after dinner.",
+      "es": "Ana lee después de la cena.",
+      "image": "/lesson-assets/a1plus-unit-1-e05-ccee0b5bb5ce70ab.webp",
+      "kind": "third",
+      "speaker": "teacher",
+      "accepts": {
+        "subject-variety": "Listen: the answer is what was heard; before and after are told apart by ear.",
+        "action-variety": "Listen: the answer is what was heard; before and after are told apart by ear.",
+        "conversational-response": "Listen: the answer is what was heard; before and after are told apart by ear.",
+        "reading-load": "Listen: the answer is what was heard; before and after are told apart by ear."
+      },
+      "blanks": [
+        "reads",
+        "after"
+      ],
+      "prefer": [
+        "Ana reads before dinner.",
+        "Ana washes her hands before dinner."
+      ],
+      "learn": false
+    },
+    {
+      "id": "t-coffee",
+      "text": "Diego drinks coffee after breakfast.",
+      "es": "Diego toma café después del desayuno.",
+      "image": "/lesson-assets/a1plus-unit-5-d01-f735c4278de86230.webp",
+      "kind": "third",
+      "speaker": "co-teacher",
+      "accepts": {
+        "subject-variety": "Listen: the answer is what was heard; before and after are told apart by ear.",
+        "action-variety": "Listen: the answer is what was heard; before and after are told apart by ear.",
+        "conversational-response": "Listen: the answer is what was heard; before and after are told apart by ear.",
+        "reading-load": "Listen: the answer is what was heard; before and after are told apart by ear."
+      },
+      "blanks": [
+        "after",
+        "breakfast"
+      ],
+      "prefer": [
+        "Diego drinks coffee before breakfast.",
+        "Luis cleans the table after dinner."
+      ],
+      "learn": false
+    },
+    {
+      "id": "t-runs",
+      "text": "Sofia runs before breakfast.",
+      "es": "Sofía corre antes del desayuno.",
+      "image": "/lesson-assets/a1plus-unit-5-d02-4f922cae336ec76d.webp",
+      "kind": "third",
+      "speaker": "teacher",
+      "accepts": {
+        "subject-variety": "Listen: the answer is what was heard; before and after are told apart by ear.",
+        "action-variety": "Listen: the answer is what was heard; before and after are told apart by ear.",
+        "conversational-response": "Listen: the answer is what was heard; before and after are told apart by ear.",
+        "reading-load": "Listen: the answer is what was heard; before and after are told apart by ear."
+      },
+      "blanks": [
+        "runs",
+        "before"
+      ],
+      "prefer": [
+        "Ana reads after dinner.",
+        "Diego drinks coffee after breakfast."
+      ],
+      "avoid": [
+        "Sofia runs after breakfast."
+      ],
+      "learn": false
+    },
+    {
+      "id": "i-hands",
+      "text": "I wash my hands before dinner.",
+      "es": "Me lavo las manos antes de la cena.",
+      "image": "/lesson-assets/a1plus-unit-1-e02-130850e74cd1e984.webp",
+      "kind": "first",
+      "speaker": "ana",
+      "question": "What do you do before dinner?",
+      "question_es": "¿Qué haces antes de la cena?",
+      "question_speaker": "luis",
+      "image_choices": false,
+      "accepts": {
+        "subject-variety": "Listen: the answer is what was heard; before and after are told apart by ear.",
+        "action-variety": "Listen: the answer is what was heard; before and after are told apart by ear.",
+        "conversational-response": "Each reply answers What do you do before/after …? with the asked meal.",
+        "reading-load": "The replies are full answers."
+      },
+      "blanks": [
+        "before",
+        "dinner"
+      ],
+      "learn": false
+    },
+    {
+      "id": "i-cleans",
+      "text": "I clean the table after dinner.",
+      "es": "Limpio la mesa después de la cena.",
+      "image": "/lesson-assets/a1plus-unit-1-e04-cc8c41d692c6c9b6.webp",
+      "kind": "first",
+      "speaker": "luis",
+      "question": "What do you do after dinner?",
+      "question_es": "¿Qué haces después de la cena?",
+      "question_speaker": "ana",
+      "image_choices": false,
+      "accepts": {
+        "subject-variety": "Listen: the answer is what was heard; before and after are told apart by ear.",
+        "action-variety": "Listen: the answer is what was heard; before and after are told apart by ear.",
+        "conversational-response": "Each reply answers What do you do before/after …? with the asked meal.",
+        "reading-load": "The replies are full answers."
+      },
+      "blanks": [
+        "after",
+        "dinner"
+      ],
+      "learn": false
+    },
+    {
+      "id": "i-reads",
+      "text": "I read after dinner.",
+      "es": "Leo después de la cena.",
+      "image": "/lesson-assets/a1plus-unit-1-e05-ccee0b5bb5ce70ab.webp",
+      "kind": "first",
+      "speaker": "ana",
+      "question": "What do you do after dinner?",
+      "question_es": "¿Qué haces después de la cena?",
+      "question_speaker": "diego",
+      "image_choices": false,
+      "accepts": {
+        "subject-variety": "Listen: the answer is what was heard; before and after are told apart by ear.",
+        "action-variety": "Listen: the answer is what was heard; before and after are told apart by ear.",
+        "conversational-response": "Each reply answers What do you do before/after …? with the asked meal.",
+        "reading-load": "The replies are full answers."
+      },
+      "blanks": [
+        "after",
+        "dinner"
+      ],
+      "learn": false
+    },
+    {
+      "id": "i-coffee",
+      "text": "I drink coffee after breakfast.",
+      "es": "Tomo café después del desayuno.",
+      "image": "/lesson-assets/a1plus-unit-5-d01-f735c4278de86230.webp",
+      "kind": "first",
+      "speaker": "diego",
+      "question": "What do you do after breakfast?",
+      "question_es": "¿Qué haces después del desayuno?",
+      "question_speaker": "sofia",
+      "image_choices": false,
+      "accepts": {
+        "subject-variety": "Listen: the answer is what was heard; before and after are told apart by ear.",
+        "action-variety": "Listen: the answer is what was heard; before and after are told apart by ear.",
+        "conversational-response": "Each reply answers What do you do before/after …? with the asked meal.",
+        "reading-load": "The replies are full answers."
+      },
+      "blanks": [
+        "after",
+        "breakfast"
+      ],
+      "learn": false
+    },
+    {
+      "id": "i-runs",
+      "text": "I run before breakfast.",
+      "es": "Corro antes del desayuno.",
+      "image": "/lesson-assets/a1plus-unit-5-d02-4f922cae336ec76d.webp",
+      "kind": "first",
+      "speaker": "sofia",
+      "question": "What do you do before breakfast?",
+      "question_es": "¿Qué haces antes del desayuno?",
+      "question_speaker": "luis",
+      "image_choices": false,
+      "accepts": {
+        "subject-variety": "Listen: the answer is what was heard; before and after are told apart by ear.",
+        "action-variety": "Listen: the answer is what was heard; before and after are told apart by ear.",
+        "conversational-response": "Each reply answers What do you do before/after …? with the asked meal.",
+        "reading-load": "The replies are full answers."
+      },
+      "blanks": [
+        "before",
+        "breakfast"
+      ],
+      "learn": false
+    },
+    {
+      "id": "p-cooked",
+      "text": "Luis cooked dinner yesterday.",
+      "es": "Luis cocinó la cena ayer.",
+      "image": "/lesson-assets/a1plus-unit-1-e03-1834538a1c176c8d.webp",
+      "kind": "past",
+      "speaker": "co-teacher",
+      "choices": false,
+      "blanks": [
+        "cooked",
+        "dinner"
+      ],
+      "learn": false
+    },
+    {
+      "id": "p-cooked-i",
+      "text": "I cooked dinner yesterday.",
+      "es": "Cociné la cena ayer.",
+      "image": "/lesson-assets/a1plus-unit-1-e03-1834538a1c176c8d.webp",
+      "kind": "past",
+      "speaker": "luis",
+      "choices": false,
+      "use": false,
+      "learn": false
+    },
+    {
+      "id": "f-lunch",
+      "text": "Ana eats a sandwich for lunch.",
+      "es": "Ana come un sándwich en el almuerzo.",
+      "image": "/lesson-assets/a1plus-unit-1-e01-56ab0202befb04f1.webp",
+      "kind": "third",
+      "speaker": "teacher",
+      "accepts": {
+        "subject-variety": "Listen: the answer is what was heard; before and after are told apart by ear.",
+        "action-variety": "Listen: the answer is what was heard; before and after are told apart by ear.",
+        "conversational-response": "Listen: the answer is what was heard; before and after are told apart by ear.",
+        "reading-load": "Listen: the answer is what was heard; before and after are told apart by ear."
+      },
+      "use": false,
+      "prefer": [
+        "Ana reads after dinner.",
+        "Luis cleans the table after dinner."
+      ],
+      "learn": false
+    }
+  ],
+  "pool": [
+    {
+      "text": "I clean the table before dinner.",
+      "es": "Limpio la mesa antes de la cena.",
+      "image": "/lesson-assets/a1plus-unit-1-e04-cc8c41d692c6c9b6.webp",
+      "kind": "first",
+      "image_choices": false
+    },
+    {
+      "text": "I read before dinner.",
+      "es": "Leo antes de la cena.",
+      "image": "/lesson-assets/a1plus-unit-1-e05-ccee0b5bb5ce70ab.webp",
+      "kind": "first",
+      "image_choices": false
+    },
+    {
+      "text": "I drink coffee before breakfast.",
+      "es": "Tomo café antes del desayuno.",
+      "image": "/lesson-assets/a1plus-unit-5-d01-f735c4278de86230.webp",
+      "kind": "first",
+      "image_choices": false
+    },
+    {
+      "text": "I wash my hands after dinner.",
+      "es": "Me lavo las manos después de la cena.",
+      "image": "/lesson-assets/a1plus-unit-1-e02-130850e74cd1e984.webp",
+      "kind": "first",
+      "image_choices": false
+    },
+    {
+      "text": "Luis cleans the table before dinner.",
+      "es": "Luis limpia la mesa antes de la cena.",
+      "image": "/lesson-assets/a1plus-unit-1-e04-cc8c41d692c6c9b6.webp",
+      "kind": "third",
+      "image_choices": false
+    },
+    {
+      "text": "Ana reads before dinner.",
+      "es": "Ana lee antes de la cena.",
+      "image": "/lesson-assets/a1plus-unit-1-e05-ccee0b5bb5ce70ab.webp",
+      "kind": "third",
+      "image_choices": false
+    },
+    {
+      "text": "Ana washes her hands after dinner.",
+      "es": "Ana se lava las manos después de la cena.",
+      "image": "/lesson-assets/a1plus-unit-1-e02-130850e74cd1e984.webp",
+      "kind": "third",
+      "image_choices": false
+    },
+    {
+      "text": "Diego drinks coffee before breakfast.",
+      "es": "Diego toma café antes del desayuno.",
+      "image": "/lesson-assets/a1plus-unit-5-d01-f735c4278de86230.webp",
+      "kind": "third",
+      "image_choices": false
+    }
+  ],
+  "layout": {
+    "Recognize": 10,
+    "Listen": 10,
+    "Speak": 8,
+    "Use": 8
+  },
+  "stage_sequences": {
+    "Learn": [
+      "l-before",
+      "l-after",
+      "l-after-i",
+      "l-before-i"
+    ],
+    "Recognize": [
+      "t-hands",
+      "i-cleans",
+      "t-coffee",
+      "i-reads",
+      "t-runs",
+      "t-cleans",
+      "i-hands",
+      "t-reads",
+      "i-coffee",
+      "f-lunch"
+    ],
+    "Listen": [
+      "t-cleans",
+      "i-runs",
+      "t-reads",
+      "i-hands",
+      "t-coffee",
+      "i-cleans",
+      "t-hands",
+      "i-reads",
+      "t-runs",
+      "i-coffee"
+    ],
+    "Speak": [
+      "i-hands",
+      "i-cleans",
+      "i-coffee",
+      "i-runs",
+      "i-reads",
+      "t-hands",
+      "p-cooked-i",
+      "t-coffee"
+    ],
+    "Use": [
+      "t-hands",
+      "i-cleans",
+      "t-coffee",
+      "i-runs",
+      "t-reads",
+      "p-cooked",
+      "i-coffee",
+      "t-runs"
+    ]
+  }
+}

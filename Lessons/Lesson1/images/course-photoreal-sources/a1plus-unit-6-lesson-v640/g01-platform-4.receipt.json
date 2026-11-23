@@ -1,0 +1,62 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "32ac326b-a8af-44da-9122-e69d27086a92",
+  "asset_id": "g01-platform-4",
+  "pack_sha256": "307fe46b97bd74cbb23f509ac3b8f8de38f3baf105f8f1e444b145d8c3a1b87e",
+  "started_at": "2026-11-21T04:14:18.472549+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, logos or brand marks anywhere, and no number anywhere except the one sign number described (4): no other signs, screens, clocks, tickets, trains, planes or clothes show any digit.\n\nKeep the people and the thing that carries the meaning inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nIt is clearly daytime with soft natural light.\n\nImage 1 shows Ana. Keep the face, hair, skin and build exactly; keep her sage-green overshirt over a white top and her jeans. Create a new photograph on a long train station platform under a high roof: a silver train waits at the platform with its doors open. Ana stands on the platform with a dark-blue rolling suitcase and looks at the camera. Right above her hangs one big square dark-blue sign with one huge white number: 4. The number is upright, sharp and easy to read even on a small phone screen. Only Ana is near the camera; a few people far down the platform are small.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1plus-unit-1-q02-c2b4398b65207eff.webp",
+    "sha256": "c2b4398b65207effa51e51260cc607c38ada48caea82f14eb872e4c9c8b5d0d5"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "mBoBa5j9MJDRz7IPsbyRsQc",
+  "usage": {
+    "promptTokenCount": 593,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1883,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 335
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038878",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 593,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 10.07,
+  "output": "output/imagegen/a1plus-unit-6-lesson-v640/g01-platform-4.png",
+  "sha256": "95dad6acdba789e28839045e144fc61825bbbf8d0e5b837bbdc872363f80af2a",
+  "byte_count": 1486952,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}

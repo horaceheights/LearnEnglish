@@ -107,9 +107,10 @@ class ContentPracticeTests(unittest.TestCase):
         self.assertEqual(rules(audit([early], STANDARDS), "untaught-word"), {("1.1", "red")})
 
     def test_plurals_are_known_but_third_person_verbs_are_not(self):
-        known = {"apple", "box", "strawberry", "go"}
-        self.assertTrue(all(is_known(word, known) for word in ("apples", "boxes", "strawberries")))
+        known = {"apple", "box", "strawberry", "go", "do", "potato"}
+        self.assertTrue(all(is_known(word, known) for word in ("apples", "boxes", "strawberries", "potatoes")))
         self.assertFalse(is_known("goes", known))
+        self.assertFalse(is_known("does", known))
 
     def test_standards_are_configuration_for_each_course(self):
         standards = json.loads((ROOT / "docs/product/content-standards.json").read_text(encoding="utf-8"))

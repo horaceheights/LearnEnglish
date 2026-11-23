@@ -1,0 +1,601 @@
+{
+  "brief_version": 1,
+  "follows": {
+    "course": "a1",
+    "lesson": "4.7",
+    "title": "Helping at home"
+  },
+  "note": "A1+ Unit 4 Lesson 4.7, built on 2026-11-20 under the A1+ lesson standards approved 2026-10-27 and the user's 2026-11-09 rule that every A1+ lesson follows up the A1 lesson with the same number. The user approved the A1+ Unit 4 map on 2026-11-20 (A1+ 4.Y follows A1 4.Y, one step each; seventeen lessons) and asked for the Unit 2 and Unit 3 deal (\"Start working on A1+ Unit 4, same deal. make sure images make sense all the time\"): straight to Preview in batches, Gemini 2.5 Flash photos and ElevenLabs audio pre-approved, no per-lesson gates, reviewed in Preview. No new photos: A1 4.7's photos of the schoolboy's mother and the boy cleaning, washing and opening the door.",
+  "target": "backend/lessons/a1_plus/unit_4/a1plus-unit-4-lesson-4-7.yaml",
+  "captions": false,
+  "narrators": [
+    "teacher",
+    "co-teacher"
+  ],
+  "answer_audio_policy": "authored-only",
+  "speak_delivery": "a1-pronunciation-v1",
+  "lesson": {
+    "id": "a1plus-unit-4-lesson-4-7",
+    "title": "4.7 She cleaned the table yesterday",
+    "level": "A1+",
+    "unit_id": "a1plus-unit-4",
+    "unit_title": "Life at home, every day and yesterday",
+    "unit_outcome": "Say where people and things are at home, talk about the lights and machines, ask what there is, describe someone's morning in order, say what you did yesterday and on which day, ask and tell the time, say how often you do things and give dates.",
+    "lesson_id": "a1plus-unit-4-lesson-4-7",
+    "lesson_title": "She cleaned the table yesterday",
+    "sub_lesson_id": "4.7",
+    "sub_lesson_title": "She cleaned the table yesterday",
+    "goal": "Say what someone did yesterday at home with -ed (She cleaned the table yesterday. / They washed the clothes yesterday.).",
+    "vocabulary": [
+      "yesterday",
+      "cleaned",
+      "washed",
+      "opened"
+    ],
+    "review_vocabulary": [
+      "clean",
+      "cleans",
+      "wash",
+      "washes",
+      "open",
+      "the",
+      "table",
+      "clothes",
+      "door",
+      "kitchen",
+      "living room",
+      "bedroom",
+      "she",
+      "he",
+      "they",
+      "in"
+    ],
+    "grammar_function": "A follow-up of A1 4.7 Helping at home: A1 says what people do at home (I clean the table. / They wash their clothes.); A1+ 4.7 says what they did yesterday. The one new grammar relationship is the past with -ed (cleaned, washed, opened) and yesterday, under the user's 2026-11-13 decision to teach the past with regular -ed verbs and did only. The past has no he/she -s, so she cleaned and they cleaned are the same. A past cannot be photographed: each photo shows what its person does, and Listen sets the past against the present (She cleaned the table yesterday. / She cleans the table.). A1 4.7's photos of the schoolboy's mother and the boy are reused; the door photos are A1's two-panel changes (shut, then open), and the mother also washes in the photo of them both, so a She or He washed line never meets that photo as a wrong picture.",
+    "prerequisite": "A1 4.7 open, close, clean, wash clothes; A1+ 1.2 he/she -s; A1 4.1 rooms.",
+    "speaking_outcome": "End cleaned and opened with a soft d (CLEEND, OH-pund) and washed with a t (WOSHT); no extra syllable. Do not require native-like speed.",
+    "content_revision": 1,
+    "learn_context_groups": [
+      {
+        "kind": "contrast",
+        "targets": [
+          "cleaned",
+          "yesterday"
+        ],
+        "models": [
+          {
+            "slide_id": "L1",
+            "text": "She cleans the table. She cleaned the table yesterday.",
+            "turns": [
+              "She cleans the table.",
+              "She cleaned the table yesterday."
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "contrast",
+        "targets": [
+          "washed",
+          "yesterday"
+        ],
+        "models": [
+          {
+            "slide_id": "L2",
+            "text": "She washes the clothes. She washed the clothes yesterday.",
+            "turns": [
+              "She washes the clothes.",
+              "She washed the clothes yesterday."
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "sequence",
+        "targets": [
+          "opened",
+          "yesterday"
+        ],
+        "models": [
+          {
+            "slide_id": "L3",
+            "text": "She opened the door yesterday."
+          }
+        ]
+      },
+      {
+        "kind": "sequence",
+        "targets": [
+          "cleaned",
+          "yesterday"
+        ],
+        "models": [
+          {
+            "slide_id": "L4",
+            "text": "They cleaned the kitchen yesterday."
+          }
+        ]
+      }
+    ]
+  },
+  "items": [
+    {
+      "id": "l-clean",
+      "text": "She cleans the table. She cleaned the table yesterday.",
+      "es": "Ella limpia la mesa. Ella limpió la mesa ayer.",
+      "image": "/lesson-assets/a1_photo_u4_rebuild_home_clean_single_v1.webp",
+      "kind": "contrast",
+      "choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "She cleans the table.",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1_photo_u4_rebuild_home_clean_single_v1.webp"
+        },
+        {
+          "text": "She cleaned the table yesterday.",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1_photo_u4_rebuild_home_clean_single_v1.webp"
+        }
+      ]
+    },
+    {
+      "id": "l-wash",
+      "text": "She washes the clothes. She washed the clothes yesterday.",
+      "es": "Ella lava la ropa. Ella lavó la ropa ayer.",
+      "image": "/lesson-assets/a1_photo_u4_rebuild_home_wash_single_v1.webp",
+      "kind": "contrast",
+      "choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "She washes the clothes.",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1_photo_u4_rebuild_home_wash_single_v1.webp"
+        },
+        {
+          "text": "She washed the clothes yesterday.",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1_photo_u4_rebuild_home_wash_single_v1.webp"
+        }
+      ]
+    },
+    {
+      "id": "l-open",
+      "text": "She opened the door yesterday.",
+      "es": "Ella abrió la puerta ayer.",
+      "image": "/lesson-assets/a1_photo_u4_rebuild_home_open_corrected_v1.webp",
+      "kind": "sequence",
+      "choices": false,
+      "use": false,
+      "speaker": "teacher"
+    },
+    {
+      "id": "l-they",
+      "text": "They cleaned the kitchen yesterday.",
+      "es": "Ellos limpiaron la cocina ayer.",
+      "image": "/lesson-assets/a1_u4_review_repair_clean_kitchen_v1.webp",
+      "kind": "sequence",
+      "choices": false,
+      "use": false,
+      "speaker": "co-teacher"
+    },
+    {
+      "id": "p-m-clean",
+      "text": "She cleaned the table yesterday.",
+      "es": "Ella limpió la mesa ayer.",
+      "image": "/lesson-assets/a1_photo_u4_rebuild_home_clean_single_v1.webp",
+      "kind": "past",
+      "prefer": [
+        "She washed the clothes yesterday.",
+        "She opened the door yesterday."
+      ],
+      "accepts": {
+        "subject-variety": "The bank keeps yesterday and changes only who or what the picture shows; the past has no -s.",
+        "action-variety": "The bank keeps yesterday and changes only who or what the picture shows; the past has no -s.",
+        "conversational-response": "The bank keeps yesterday and changes only who or what the picture shows; the past has no -s.",
+        "reading-load": "The bank keeps yesterday and changes only who or what the picture shows; the past has no -s."
+      },
+      "blanks": [
+        "cleaned",
+        "the"
+      ],
+      "learn": false
+    },
+    {
+      "id": "p-m-wash",
+      "text": "She washed the clothes yesterday.",
+      "es": "Ella lavó la ropa ayer.",
+      "image": "/lesson-assets/a1_photo_u4_rebuild_home_wash_single_v1.webp",
+      "kind": "past",
+      "prefer": [
+        "She cleaned the table yesterday.",
+        "She opened the door yesterday."
+      ],
+      "accepts": {
+        "subject-variety": "The bank keeps yesterday and changes only who or what the picture shows; the past has no -s.",
+        "action-variety": "The bank keeps yesterday and changes only who or what the picture shows; the past has no -s.",
+        "conversational-response": "The bank keeps yesterday and changes only who or what the picture shows; the past has no -s.",
+        "reading-load": "The bank keeps yesterday and changes only who or what the picture shows; the past has no -s."
+      },
+      "blanks": [
+        "washed",
+        "the"
+      ],
+      "avoid": [
+        "They washed the clothes yesterday."
+      ],
+      "learn": false
+    },
+    {
+      "id": "p-m-open",
+      "text": "She opened the door yesterday.",
+      "es": "Ella abrió la puerta ayer.",
+      "image": "/lesson-assets/a1_photo_u4_rebuild_home_open_corrected_v1.webp",
+      "kind": "past",
+      "prefer": [
+        "She cleaned the table yesterday.",
+        "She washed the clothes yesterday."
+      ],
+      "accepts": {
+        "subject-variety": "The bank keeps yesterday and changes only who or what the picture shows; the past has no -s.",
+        "action-variety": "The bank keeps yesterday and changes only who or what the picture shows; the past has no -s.",
+        "conversational-response": "The bank keeps yesterday and changes only who or what the picture shows; the past has no -s.",
+        "reading-load": "The bank keeps yesterday and changes only who or what the picture shows; the past has no -s."
+      },
+      "blanks": null,
+      "four_card": false,
+      "learn": false
+    },
+    {
+      "id": "p-b-open",
+      "text": "He opened the door yesterday.",
+      "es": "Él abrió la puerta ayer.",
+      "image": "/lesson-assets/a1_photo_u4_rebuild_home_open_boy_fixed_v1.webp",
+      "kind": "past",
+      "prefer": [
+        "He cleaned the table yesterday.",
+        "He washed the clothes yesterday."
+      ],
+      "accepts": {
+        "subject-variety": "The bank keeps yesterday and changes only who or what the picture shows; the past has no -s.",
+        "action-variety": "The bank keeps yesterday and changes only who or what the picture shows; the past has no -s.",
+        "conversational-response": "The bank keeps yesterday and changes only who or what the picture shows; the past has no -s.",
+        "reading-load": "The bank keeps yesterday and changes only who or what the picture shows; the past has no -s."
+      },
+      "blanks": [
+        "opened",
+        "the"
+      ],
+      "four_card": false,
+      "learn": false
+    },
+    {
+      "id": "p-b-clean",
+      "text": "He cleaned the table yesterday.",
+      "es": "Él limpió la mesa ayer.",
+      "image": "/lesson-assets/a1_photo_u4_rebuild_home_clean_you_v1.webp",
+      "kind": "past",
+      "prefer": [
+        "He washed the clothes yesterday.",
+        "He opened the door yesterday."
+      ],
+      "accepts": {
+        "subject-variety": "The bank keeps yesterday and changes only who or what the picture shows; the past has no -s.",
+        "action-variety": "The bank keeps yesterday and changes only who or what the picture shows; the past has no -s.",
+        "conversational-response": "The bank keeps yesterday and changes only who or what the picture shows; the past has no -s.",
+        "reading-load": "The bank keeps yesterday and changes only who or what the picture shows; the past has no -s."
+      },
+      "blanks": null,
+      "learn": false
+    },
+    {
+      "id": "p-b-wash",
+      "text": "He washed the clothes yesterday.",
+      "es": "Él lavó la ropa ayer.",
+      "image": "/lesson-assets/a1_photo_u4_rebuild_home_wash_you_v1.webp",
+      "kind": "past",
+      "prefer": [
+        "He cleaned the table yesterday.",
+        "He opened the door yesterday."
+      ],
+      "accepts": {
+        "subject-variety": "The bank keeps yesterday and changes only who or what the picture shows; the past has no -s.",
+        "action-variety": "The bank keeps yesterday and changes only who or what the picture shows; the past has no -s.",
+        "conversational-response": "The bank keeps yesterday and changes only who or what the picture shows; the past has no -s.",
+        "reading-load": "The bank keeps yesterday and changes only who or what the picture shows; the past has no -s."
+      },
+      "blanks": null,
+      "avoid": [
+        "They washed the clothes yesterday."
+      ],
+      "learn": false
+    },
+    {
+      "id": "p-both",
+      "text": "They washed the clothes yesterday.",
+      "es": "Ellos lavaron la ropa ayer.",
+      "image": "/lesson-assets/a1_photo_u4_rebuild_home_wash_pair_v1.webp",
+      "kind": "past",
+      "prefer": [
+        "They cleaned the kitchen yesterday."
+      ],
+      "accepts": {
+        "subject-variety": "The bank keeps yesterday and changes only who or what the picture shows; the past has no -s.",
+        "action-variety": "The bank keeps yesterday and changes only who or what the picture shows; the past has no -s.",
+        "conversational-response": "The bank keeps yesterday and changes only who or what the picture shows; the past has no -s.",
+        "reading-load": "The bank keeps yesterday and changes only who or what the picture shows; the past has no -s."
+      },
+      "blanks": [
+        "washed",
+        "the"
+      ],
+      "learn": false
+    },
+    {
+      "id": "r-kitchen",
+      "text": "They cleaned the table in the kitchen.",
+      "es": "Limpiaron la mesa en la cocina.",
+      "image": "/lesson-assets/a1_u4_review_repair_clean_kitchen_v1.webp",
+      "kind": "room",
+      "prefer": [
+        "They cleaned the table in the living room.",
+        "They cleaned the table in the bedroom."
+      ],
+      "accepts": {
+        "subject-variety": "The bank keeps They cleaned the table and changes only the room the picture shows.",
+        "action-variety": "The bank keeps They cleaned the table and changes only the room the picture shows.",
+        "conversational-response": "The bank keeps They cleaned the table and changes only the room the picture shows.",
+        "reading-load": "The bank keeps They cleaned the table and changes only the room the picture shows."
+      },
+      "use": true,
+      "learn": false
+    },
+    {
+      "id": "r-living",
+      "text": "They cleaned the table in the living room.",
+      "es": "Limpiaron la mesa en la sala.",
+      "image": "/lesson-assets/a1_u4_review_repair_clean_living_v1.webp",
+      "kind": "room",
+      "prefer": [
+        "They cleaned the table in the kitchen.",
+        "They cleaned the table in the bedroom."
+      ],
+      "accepts": {
+        "subject-variety": "The bank keeps They cleaned the table and changes only the room the picture shows.",
+        "action-variety": "The bank keeps They cleaned the table and changes only the room the picture shows.",
+        "conversational-response": "The bank keeps They cleaned the table and changes only the room the picture shows.",
+        "reading-load": "The bank keeps They cleaned the table and changes only the room the picture shows."
+      },
+      "use": false,
+      "learn": false
+    },
+    {
+      "id": "r-bedroom",
+      "text": "They cleaned the table in the bedroom.",
+      "es": "Limpiaron la mesa en la recámara.",
+      "image": "/lesson-assets/a1_u4_review_repair_clean_bedroom_v1.webp",
+      "kind": "room",
+      "prefer": [
+        "They cleaned the table in the kitchen.",
+        "They cleaned the table in the living room."
+      ],
+      "accepts": {
+        "subject-variety": "The bank keeps They cleaned the table and changes only the room the picture shows.",
+        "action-variety": "The bank keeps They cleaned the table and changes only the room the picture shows.",
+        "conversational-response": "The bank keeps They cleaned the table and changes only the room the picture shows.",
+        "reading-load": "The bank keeps They cleaned the table and changes only the room the picture shows."
+      },
+      "use": false,
+      "learn": false
+    },
+    {
+      "id": "lw-clean",
+      "text": "She cleaned the table yesterday.",
+      "es": "Ella limpió la mesa ayer.",
+      "image": "/lesson-assets/a1_photo_u4_rebuild_home_clean_single_v1.webp",
+      "kind": "heard-lw-clean",
+      "prefer": [
+        "She cleans the table."
+      ],
+      "accepts": {
+        "subject-variety": "Listen sets the past against the present or one detail against another; the answer is what was heard.",
+        "action-variety": "Listen sets the past against the present or one detail against another; the answer is what was heard.",
+        "conversational-response": "Listen sets the past against the present or one detail against another; the answer is what was heard.",
+        "reading-load": "Listen sets the past against the present or one detail against another; the answer is what was heard."
+      },
+      "image_choices": false,
+      "use": false,
+      "learn": false
+    },
+    {
+      "id": "lw-wash",
+      "text": "He washed the clothes yesterday.",
+      "es": "Él lavó la ropa ayer.",
+      "image": "/lesson-assets/a1_photo_u4_rebuild_home_wash_you_v1.webp",
+      "kind": "heard-lw-wash",
+      "prefer": [
+        "He washes the clothes."
+      ],
+      "accepts": {
+        "subject-variety": "Listen sets the past against the present or one detail against another; the answer is what was heard.",
+        "action-variety": "Listen sets the past against the present or one detail against another; the answer is what was heard.",
+        "conversational-response": "Listen sets the past against the present or one detail against another; the answer is what was heard.",
+        "reading-load": "Listen sets the past against the present or one detail against another; the answer is what was heard."
+      },
+      "image_choices": false,
+      "use": false,
+      "learn": false
+    },
+    {
+      "id": "lw-open",
+      "text": "She opened the door yesterday.",
+      "es": "Ella abrió la puerta ayer.",
+      "image": "/lesson-assets/a1_photo_u4_rebuild_home_open_corrected_v1.webp",
+      "kind": "heard-lw-open",
+      "prefer": [
+        "She opens the door."
+      ],
+      "accepts": {
+        "subject-variety": "Listen sets the past against the present or one detail against another; the answer is what was heard.",
+        "action-variety": "Listen sets the past against the present or one detail against another; the answer is what was heard.",
+        "conversational-response": "Listen sets the past against the present or one detail against another; the answer is what was heard.",
+        "reading-load": "Listen sets the past against the present or one detail against another; the answer is what was heard."
+      },
+      "image_choices": false,
+      "use": false,
+      "learn": false
+    }
+  ],
+  "pool": [
+    {
+      "text": "She washed the clothes yesterday.",
+      "es": "Ella lavó la ropa ayer.",
+      "image": "/lesson-assets/a1_photo_u4_rebuild_home_clean_single_v1.webp",
+      "kind": "past",
+      "image_choices": false
+    },
+    {
+      "text": "She opened the door yesterday.",
+      "es": "Ella abrió la puerta ayer.",
+      "image": "/lesson-assets/a1_photo_u4_rebuild_home_clean_single_v1.webp",
+      "kind": "past",
+      "image_choices": false
+    },
+    {
+      "text": "She cleaned the table yesterday.",
+      "es": "Ella limpió la mesa ayer.",
+      "image": "/lesson-assets/a1_photo_u4_rebuild_home_wash_single_v1.webp",
+      "kind": "past",
+      "image_choices": false
+    },
+    {
+      "text": "He cleaned the table yesterday.",
+      "es": "Él limpió la mesa ayer.",
+      "image": "/lesson-assets/a1_photo_u4_rebuild_home_open_boy_fixed_v1.webp",
+      "kind": "past",
+      "image_choices": false
+    },
+    {
+      "text": "He washed the clothes yesterday.",
+      "es": "Él lavó la ropa ayer.",
+      "image": "/lesson-assets/a1_photo_u4_rebuild_home_open_boy_fixed_v1.webp",
+      "kind": "past",
+      "image_choices": false
+    },
+    {
+      "text": "He opened the door yesterday.",
+      "es": "Él abrió la puerta ayer.",
+      "image": "/lesson-assets/a1_photo_u4_rebuild_home_clean_you_v1.webp",
+      "kind": "past",
+      "image_choices": false
+    },
+    {
+      "text": "They cleaned the kitchen yesterday.",
+      "es": "Ellos limpiaron la cocina ayer.",
+      "image": "/lesson-assets/a1_photo_u4_rebuild_home_wash_pair_v1.webp",
+      "kind": "past",
+      "image_choices": false
+    },
+    {
+      "text": "They cleaned the table in the living room.",
+      "es": "Limpiaron la mesa en la sala.",
+      "image": "/lesson-assets/a1_u4_review_repair_clean_kitchen_v1.webp",
+      "kind": "room",
+      "image_choices": false
+    },
+    {
+      "text": "They cleaned the table in the bedroom.",
+      "es": "Limpiaron la mesa en la recámara.",
+      "image": "/lesson-assets/a1_u4_review_repair_clean_kitchen_v1.webp",
+      "kind": "room",
+      "image_choices": false
+    },
+    {
+      "text": "They cleaned the table in the kitchen.",
+      "es": "Limpiaron la mesa en la cocina.",
+      "image": "/lesson-assets/a1_u4_review_repair_clean_living_v1.webp",
+      "kind": "room",
+      "image_choices": false
+    },
+    {
+      "text": "She cleans the table.",
+      "es": "Ella limpia la mesa.",
+      "image": "/lesson-assets/a1_photo_u4_rebuild_home_clean_single_v1.webp",
+      "kind": "heard-lw-clean",
+      "image_choices": false
+    },
+    {
+      "text": "He washes the clothes.",
+      "es": "Él lava la ropa.",
+      "image": "/lesson-assets/a1_photo_u4_rebuild_home_wash_you_v1.webp",
+      "kind": "heard-lw-wash",
+      "image_choices": false
+    },
+    {
+      "text": "She opens the door.",
+      "es": "Ella abre la puerta.",
+      "image": "/lesson-assets/a1_photo_u4_rebuild_home_open_corrected_v1.webp",
+      "kind": "heard-lw-open",
+      "image_choices": false
+    }
+  ],
+  "layout": {
+    "Recognize": 10,
+    "Listen": 10,
+    "Speak": 8,
+    "Use": 8
+  },
+  "stage_sequences": {
+    "Learn": [
+      "l-clean",
+      "l-wash",
+      "l-open",
+      "l-they"
+    ],
+    "Recognize": [
+      "p-m-clean",
+      "p-b-wash",
+      "p-m-wash",
+      "r-living",
+      "p-both",
+      "p-b-clean",
+      "p-b-open",
+      "r-kitchen",
+      "p-m-open",
+      "r-bedroom"
+    ],
+    "Listen": [
+      "p-m-wash",
+      "lw-clean",
+      "p-b-clean",
+      "p-both",
+      "lw-open",
+      "r-living",
+      "p-m-clean",
+      "lw-wash",
+      "r-bedroom",
+      "p-b-wash"
+    ],
+    "Speak": [
+      "p-m-clean",
+      "p-b-wash",
+      "p-m-open",
+      "p-both",
+      "r-kitchen",
+      "p-b-clean",
+      "p-m-wash",
+      "p-b-open"
+    ],
+    "Use": [
+      "p-m-clean",
+      "p-m-wash",
+      "p-b-open",
+      "p-both",
+      "p-b-clean",
+      "p-m-open",
+      "p-b-wash",
+      "r-kitchen"
+    ]
+  }
+}

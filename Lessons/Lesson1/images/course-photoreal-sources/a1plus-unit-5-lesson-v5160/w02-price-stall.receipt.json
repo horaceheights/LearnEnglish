@@ -1,0 +1,55 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "e4ced60d-4323-40f1-8049-b2f24a8e51cc",
+  "asset_id": "w02-price-stall",
+  "pack_sha256": "056ebe95c63bc3fd10c6a68e6f7a3584fc356c2c1028c79aa6e4e6a07980cda3",
+  "started_at": "2026-11-21T05:00:54.115932+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. No letters, words, logos or brand marks anywhere. The only writing in the photo is each price card described: a small white card on a little stand with a dollar sign and a number in big, thick black print, upright, facing the camera, sharp and easy to read on a small phone screen. No other signs, labels, screens or clothes show any digit or letter.\n\nIt is clearly daytime with soft natural light.\n\nThe place is a bright, busy outdoor market by day with wooden stalls; the background is softly out of focus. One long wooden stall seen from the front, with four things standing apart on it from left to right, each with its own price card in front of it: a book ($25), a pair of brown shoes ($45), a green bag ($68) and a red guitar ($99). No people.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "gyUBa4K-B_fQz7IP6LDoyQo",
+  "usage": {
+    "promptTokenCount": 273,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1563,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 273
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038782",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 273,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 7.59,
+  "output": "output/imagegen/a1plus-unit-5-lesson-v5160/w02-price-stall.png",
+  "sha256": "d3c76a701c7648ed6ca6f8fc25cd24a3a930760f3970f3da079d5857b608d25d",
+  "byte_count": 1479815,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}

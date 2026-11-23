@@ -1,0 +1,62 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "140d1d27-1f1d-4288-9a2c-16a4a4bf384d",
+  "asset_id": "b04-gas",
+  "pack_sha256": "03a6ea13754ce8b69ff612202574e6af7b280122510b520af31fef35b14ec85b",
+  "started_at": "2026-11-21T04:18:27.793948+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, menus, screens, cups, clothes or bags.\n\nKeep the people and the thing that carries the meaning inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nOnly this one person is in the photo; there is nobody else, even far in the background.\n\nIt is clearly daytime with soft natural light.\n\nImage 1 shows Luis. Keep the face, hair, skin and build exactly; dress him in his navy crew-neck T-shirt. Create a new photograph of Luis at a gas station on a sunny day: he stands beside his red car and holds the black fuel nozzle in the open fuel cap of the car, filling it. The gas pump stands right next to him and the gas station roof is above, so the place is instantly a gas station. The pump has NO numbers, screens with digits, words or logos; its display is blank. He looks at the camera and smiles.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1plus-unit-1-q01-135c3f8f772bcbe4.webp",
+    "sha256": "135c3f8f772bcbe472b8cec719eb02318a7d52ce1c7152a94c6952aeb78566c2"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "kRsBa6eVB7Gcz7IP1vbj-QY",
+  "usage": {
+    "promptTokenCount": 587,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1877,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 329
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038876",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 587,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 9.48,
+  "output": "output/imagegen/a1plus-unit-6-lesson-v610/b04-gas.png",
+  "sha256": "83872585f26fbf2d72d13cc33ac77f4d838c64ce73296bf78ada5a7af1127c5d",
+  "byte_count": 1263275,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}

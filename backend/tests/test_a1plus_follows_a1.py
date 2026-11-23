@@ -26,9 +26,10 @@ NOT_YET_REBUILT: set[str] = set()
 # A1 lessons whose A1+ follow-up does not exist yet.
 # A1+ Unit 2 (user decision, 2026-11-19): 2.1-2.15 built (Batch C, 2026-11-20).
 # A1+ Unit 3 (user decision, 2026-11-20): 3.1-3.16 built (Batch C, 2026-11-20).
-# A1+ Unit 4 (user decision, 2026-11-20): 4.1-4.6 built; 4.7-4.17 planned in the guardrails' Unit 4 order.
+# A1+ Unit 4 (user decision, 2026-11-20): 4.1-4.17 built on 2026-11-20 and 2026-11-21.
+# A1+ Unit 6 (user decision, 2026-11-20): 6.1-6.15 built on 2026-11-20 and 2026-11-21.
 # A1+ Unit 7 (user decision, 2026-11-20): 7.1-7.15 built (2026-11-21).
-NOT_YET_BUILT: set[str] = {f"4.{n}" for n in range(7, 18)}
+NOT_YET_BUILT: set[str] = set()
 
 
 def lessons(course: str) -> dict:

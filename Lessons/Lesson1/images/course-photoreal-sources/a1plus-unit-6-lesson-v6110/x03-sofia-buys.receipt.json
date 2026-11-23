@@ -1,0 +1,62 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "9c2dbd72-20d3-43d2-8fdd-5a8a24ffdafd",
+  "asset_id": "x03-sofia-buys",
+  "pack_sha256": "4772a5b407af94d4ded1fd1842178e4e0bf8bb5b7fbfe79cf52ab9adf2ad3b9e",
+  "started_at": "2026-11-21T04:54:05.629456+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, menus, screens, cups, clothes or bags.\n\nKeep the people and the thing that carries the meaning inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nIt is clearly daytime with soft natural light.\n\nOnly these two people are in the photo; there is nobody else, even far in the background.\n\nNo sign, screen, ticket, car, train or building shows any letters, words, numbers, logos or clocks.\n\nImage 1 shows Sofia. Keep the face, hair, skin and build exactly; keep her bright blue blazer over a white blouse. Create a new photograph at the ticket window of a bright train station: Sofia stands at the counter and takes a paper ticket from a smiling ticket clerk in a grey uniform shirt behind the glass window; both faces show. Trains are blurred far behind.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1plus-unit-1-q03-7d520a07846a47b8.webp",
+    "sha256": "7d520a07846a47b8e8389c3226f3b3639d7eed0d257318b08e4f9b77c5b2258b"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "6yMBa8eQCPWhz7IPqfTTyQs",
+  "usage": {
+    "promptTokenCount": 568,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1858,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 310
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038870",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 568,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 8.55,
+  "output": "output/imagegen/a1plus-unit-6-lesson-v6110/x03-sofia-buys.png",
+  "sha256": "511bfdacc55eedf51a33c291e973ecc8f0b069ccd9e8cd6dc85f67aa9a1a915c",
+  "byte_count": 1263335,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}

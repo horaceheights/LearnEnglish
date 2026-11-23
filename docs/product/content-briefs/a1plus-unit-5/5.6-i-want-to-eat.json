@@ -1,0 +1,540 @@
+{
+  "brief_version": 1,
+  "follows": {
+    "course": "a1",
+    "lesson": "5.6",
+    "title": "Wants and Needs"
+  },
+  "note": "A1+ Unit 5 Lesson 5.6, built on 2026-11-20 under the A1+ lesson standards approved 2026-10-27 and the user's 2026-11-09 rule that every A1+ lesson follows up the A1 lesson with the same number. The user asked on 2026-11-20 to \"work on a1+ Unit 5 same all deal as before none stop all approved\": A1+ 5.Y follows A1 5.Y with one step each, straight to Preview in batches, Gemini 2.5 Flash photos and ElevenLabs audio pre-approved, no per-lesson gates, reviewed in Preview. Five one-person photos: Ana at the fridge with an empty milk bottle, Luis after a run with an empty water bottle, Diego at a café counter pointing at a sandwich, Sofia with raw chicken and an empty pot, Luis at a bakery window. Reply cards ask What do you want/need to do? in a voice other than the answerer's.",
+  "target": "backend/lessons/a1_plus/unit_5/a1plus-unit-5-lesson-5-6.yaml",
+  "captions": false,
+  "narrators": [
+    "teacher",
+    "co-teacher"
+  ],
+  "answer_audio_policy": "authored-only",
+  "speak_delivery": "a1-pronunciation-v1",
+  "lesson": {
+    "id": "a1plus-unit-5-lesson-5-6",
+    "title": "5.6 I want to eat a sandwich",
+    "level": "A1+",
+    "unit_id": "a1plus-unit-5",
+    "unit_title": "Food, drinks and shopping",
+    "unit_outcome": "Say how much and how many, offer and order food and drinks politely, agree about likes, say what you want and need to do, talk about meals, prices and what is in your food, compare prices, use numbers to ninety-nine and ask for things at the table.",
+    "lesson_id": "a1plus-unit-5-lesson-5-6",
+    "lesson_title": "I want to eat a sandwich",
+    "sub_lesson_id": "5.6",
+    "sub_lesson_title": "I want to eat a sandwich",
+    "goal": "Say what you want or need to do with want to / need to + a verb (I want to drink water. / Ana needs to buy milk.) and ask What do you want to do?",
+    "vocabulary": [
+      "want to",
+      "need to"
+    ],
+    "review_vocabulary": [
+      "want",
+      "wants",
+      "need",
+      "needs",
+      "eat",
+      "drink",
+      "buy",
+      "cook",
+      "dinner",
+      "sandwich",
+      "milk",
+      "water",
+      "cake",
+      "What do you … do?"
+    ],
+    "grammar_function": "A follow-up of A1 5.6 Wants and Needs: A1 wants or needs a thing (She wants water. He needs bread.); A1+ 5.6 puts to + a verb after want and need (Ana needs to buy milk. / I want to drink water.), with A1's he/she -s on wants and needs and the plain verb after to. The photos show the situation (an empty milk bottle at the fridge, an empty water bottle after a run, a sandwich behind a café counter, a raw chicken and an empty pot, a cake in a bakery window); want and need cannot be photographed, so they are set against each other only in Listen.",
+    "prerequisite": "A1 5.6 want(s), need(s); A1 5.2-5.3 eat, drink; A1 5.11 buy; A1+ 1.2 cook; A1 5.13 sandwich, A1 5.14 cake.",
+    "speaking_outcome": "Join want to (WAN-tuh) and need to (NEED-tuh) with a short to; do not require native-like speed.",
+    "content_revision": 1,
+    "learn_context_groups": [
+      {
+        "kind": "sequence",
+        "targets": [
+          "want to"
+        ],
+        "models": [
+          {
+            "slide_id": "L1",
+            "text": "I want to eat a sandwich."
+          }
+        ]
+      },
+      {
+        "kind": "sequence",
+        "targets": [
+          "need to"
+        ],
+        "models": [
+          {
+            "slide_id": "L2",
+            "text": "I need to buy milk."
+          }
+        ]
+      },
+      {
+        "kind": "sequence",
+        "targets": [
+          "want to"
+        ],
+        "models": [
+          {
+            "slide_id": "L3",
+            "text": "I want to drink water."
+          }
+        ]
+      },
+      {
+        "kind": "sequence",
+        "targets": [
+          "need to"
+        ],
+        "models": [
+          {
+            "slide_id": "L4",
+            "text": "I need to cook dinner."
+          }
+        ]
+      }
+    ]
+  },
+  "items": [
+    {
+      "id": "l-want",
+      "text": "I want to eat a sandwich.",
+      "es": "Quiero comer un sándwich.",
+      "image": "/lesson-assets/a1plus-unit-5-w06-53479ef2ca4a5864.webp",
+      "kind": "sequence",
+      "choices": false,
+      "use": false,
+      "learn": true,
+      "speaker": "diego"
+    },
+    {
+      "id": "l-need",
+      "text": "I need to buy milk.",
+      "es": "Necesito comprar leche.",
+      "image": "/lesson-assets/a1plus-unit-5-w01-47802bd1319f796e.webp",
+      "kind": "sequence",
+      "choices": false,
+      "use": false,
+      "learn": true,
+      "speaker": "ana"
+    },
+    {
+      "id": "l-want-i",
+      "text": "I want to drink water.",
+      "es": "Quiero tomar agua.",
+      "image": "/lesson-assets/a1plus-unit-5-w02-6e8b4849e7783dcb.webp",
+      "kind": "sequence",
+      "choices": false,
+      "use": false,
+      "learn": true,
+      "speaker": "luis"
+    },
+    {
+      "id": "l-need-i",
+      "text": "I need to cook dinner.",
+      "es": "Necesito cocinar la cena.",
+      "image": "/lesson-assets/a1plus-unit-5-w07-8088c2e3f77d84d3.webp",
+      "kind": "sequence",
+      "choices": false,
+      "use": false,
+      "learn": true,
+      "speaker": "sofia"
+    },
+    {
+      "id": "t-diego",
+      "text": "Diego wants to eat a sandwich.",
+      "es": "Diego quiere comer un sándwich.",
+      "image": "/lesson-assets/a1plus-unit-5-w06-53479ef2ca4a5864.webp",
+      "kind": "third",
+      "speaker": "teacher",
+      "prefer": [
+        "Diego wants to buy milk.",
+        "Diego wants to drink water."
+      ],
+      "accepts": {
+        "subject-variety": "Listen: the answer is what was heard; want to and need to are told apart only by ear.",
+        "action-variety": "Listen: the answer is what was heard; want to and need to are told apart only by ear.",
+        "conversational-response": "Listen: the answer is what was heard; want to and need to are told apart only by ear.",
+        "reading-load": "Listen: the answer is what was heard; want to and need to are told apart only by ear."
+      },
+      "blanks": [
+        "wants",
+        "to"
+      ],
+      "learn": false
+    },
+    {
+      "id": "i-diego",
+      "text": "I want to eat a sandwich.",
+      "es": "Quiero comer un sándwich.",
+      "image": "/lesson-assets/a1plus-unit-5-w06-53479ef2ca4a5864.webp",
+      "kind": "first",
+      "speaker": "diego",
+      "question": "What do you want to do?",
+      "question_es": "¿Qué quieres hacer?",
+      "question_speaker": "ana",
+      "prefer": [
+        "I want to buy milk.",
+        "I want to cook dinner."
+      ],
+      "accepts": {
+        "subject-variety": "Listen: the answer is what was heard; want to and need to are told apart only by ear.",
+        "action-variety": "Listen: the answer is what was heard; want to and need to are told apart only by ear.",
+        "conversational-response": "Each reply answers What do you want to do? or What do you need to do? about the person in the photo.",
+        "reading-load": "The replies are full answers."
+      },
+      "blanks": [
+        "want",
+        "to"
+      ],
+      "image_choices": false,
+      "learn": false
+    },
+    {
+      "id": "t-ana",
+      "text": "Ana needs to buy milk.",
+      "es": "Ana necesita comprar leche.",
+      "image": "/lesson-assets/a1plus-unit-5-w01-47802bd1319f796e.webp",
+      "kind": "third",
+      "speaker": "co-teacher",
+      "prefer": [
+        "Ana needs to eat a sandwich.",
+        "Ana needs to drink water."
+      ],
+      "accepts": {
+        "subject-variety": "Listen: the answer is what was heard; want to and need to are told apart only by ear.",
+        "action-variety": "Listen: the answer is what was heard; want to and need to are told apart only by ear.",
+        "conversational-response": "Listen: the answer is what was heard; want to and need to are told apart only by ear.",
+        "reading-load": "Listen: the answer is what was heard; want to and need to are told apart only by ear."
+      },
+      "blanks": [
+        "needs",
+        "to"
+      ],
+      "learn": false
+    },
+    {
+      "id": "i-ana",
+      "text": "I need to buy milk.",
+      "es": "Necesito comprar leche.",
+      "image": "/lesson-assets/a1plus-unit-5-w01-47802bd1319f796e.webp",
+      "kind": "first",
+      "speaker": "ana",
+      "question": "What do you need to do?",
+      "question_es": "¿Qué necesitas hacer?",
+      "question_speaker": "luis",
+      "prefer": [
+        "I need to eat a sandwich.",
+        "I need to cook dinner."
+      ],
+      "accepts": {
+        "subject-variety": "Listen: the answer is what was heard; want to and need to are told apart only by ear.",
+        "action-variety": "Listen: the answer is what was heard; want to and need to are told apart only by ear.",
+        "conversational-response": "Each reply answers What do you want to do? or What do you need to do? about the person in the photo.",
+        "reading-load": "The replies are full answers."
+      },
+      "blanks": [
+        "need",
+        "to"
+      ],
+      "image_choices": false,
+      "learn": false
+    },
+    {
+      "id": "t-luis",
+      "text": "Luis wants to drink water.",
+      "es": "Luis quiere tomar agua.",
+      "image": "/lesson-assets/a1plus-unit-5-w02-6e8b4849e7783dcb.webp",
+      "kind": "third",
+      "speaker": "teacher",
+      "prefer": [
+        "Luis wants to eat a sandwich.",
+        "Luis wants to buy milk."
+      ],
+      "accepts": {
+        "subject-variety": "Listen: the answer is what was heard; want to and need to are told apart only by ear.",
+        "action-variety": "Listen: the answer is what was heard; want to and need to are told apart only by ear.",
+        "conversational-response": "Listen: the answer is what was heard; want to and need to are told apart only by ear.",
+        "reading-load": "Listen: the answer is what was heard; want to and need to are told apart only by ear."
+      },
+      "blanks": [
+        "wants",
+        "to"
+      ],
+      "learn": false
+    },
+    {
+      "id": "i-luis",
+      "text": "I want to drink water.",
+      "es": "Quiero tomar agua.",
+      "image": "/lesson-assets/a1plus-unit-5-w02-6e8b4849e7783dcb.webp",
+      "kind": "first",
+      "speaker": "luis",
+      "question": "What do you want to do?",
+      "question_es": "¿Qué quieres hacer?",
+      "question_speaker": "sofia",
+      "prefer": [
+        "I want to eat a sandwich.",
+        "I want to cook dinner."
+      ],
+      "accepts": {
+        "subject-variety": "Listen: the answer is what was heard; want to and need to are told apart only by ear.",
+        "action-variety": "Listen: the answer is what was heard; want to and need to are told apart only by ear.",
+        "conversational-response": "Each reply answers What do you want to do? or What do you need to do? about the person in the photo.",
+        "reading-load": "The replies are full answers."
+      },
+      "blanks": [
+        "want",
+        "to"
+      ],
+      "image_choices": false,
+      "learn": false
+    },
+    {
+      "id": "t-sofia",
+      "text": "Sofia needs to cook dinner.",
+      "es": "Sofía necesita cocinar la cena.",
+      "image": "/lesson-assets/a1plus-unit-5-w07-8088c2e3f77d84d3.webp",
+      "kind": "third",
+      "speaker": "co-teacher",
+      "prefer": [
+        "Sofia needs to eat a sandwich.",
+        "Sofia needs to buy milk."
+      ],
+      "accepts": {
+        "subject-variety": "Listen: the answer is what was heard; want to and need to are told apart only by ear.",
+        "action-variety": "Listen: the answer is what was heard; want to and need to are told apart only by ear.",
+        "conversational-response": "Listen: the answer is what was heard; want to and need to are told apart only by ear.",
+        "reading-load": "Listen: the answer is what was heard; want to and need to are told apart only by ear."
+      },
+      "blanks": [
+        "needs",
+        "to"
+      ],
+      "learn": false
+    },
+    {
+      "id": "i-sofia",
+      "text": "I need to cook dinner.",
+      "es": "Necesito cocinar la cena.",
+      "image": "/lesson-assets/a1plus-unit-5-w07-8088c2e3f77d84d3.webp",
+      "kind": "first",
+      "speaker": "sofia",
+      "question": "What do you need to do?",
+      "question_es": "¿Qué necesitas hacer?",
+      "question_speaker": "diego",
+      "prefer": [
+        "I need to eat a sandwich.",
+        "I need to drink water."
+      ],
+      "accepts": {
+        "subject-variety": "Listen: the answer is what was heard; want to and need to are told apart only by ear.",
+        "action-variety": "Listen: the answer is what was heard; want to and need to are told apart only by ear.",
+        "conversational-response": "Each reply answers What do you want to do? or What do you need to do? about the person in the photo.",
+        "reading-load": "The replies are full answers."
+      },
+      "blanks": [
+        "need",
+        "to"
+      ],
+      "image_choices": false,
+      "learn": false
+    },
+    {
+      "id": "t-cake",
+      "text": "Luis wants to buy a cake.",
+      "es": "Luis quiere comprar un pastel.",
+      "image": "/lesson-assets/a1plus-unit-5-w08-2cd5323e1fa626fa.webp",
+      "kind": "third",
+      "speaker": "teacher",
+      "prefer": [
+        "Luis wants to eat a sandwich.",
+        "Luis wants to buy milk."
+      ],
+      "accepts": {
+        "subject-variety": "Listen: the answer is what was heard; want to and need to are told apart only by ear.",
+        "action-variety": "Listen: the answer is what was heard; want to and need to are told apart only by ear.",
+        "conversational-response": "Listen: the answer is what was heard; want to and need to are told apart only by ear.",
+        "reading-load": "Listen: the answer is what was heard; want to and need to are told apart only by ear."
+      },
+      "blanks": [
+        "wants",
+        "to"
+      ],
+      "learn": false
+    },
+    {
+      "id": "i-cake",
+      "text": "I want to buy a cake.",
+      "es": "Quiero comprar un pastel.",
+      "image": "/lesson-assets/a1plus-unit-5-w08-2cd5323e1fa626fa.webp",
+      "kind": "first",
+      "speaker": "luis",
+      "question": "What do you want to do?",
+      "question_es": "¿Qué quieres hacer?",
+      "question_speaker": "ana",
+      "prefer": [
+        "I want to eat a sandwich.",
+        "I want to drink water."
+      ],
+      "accepts": {
+        "subject-variety": "Listen: the answer is what was heard; want to and need to are told apart only by ear.",
+        "action-variety": "Listen: the answer is what was heard; want to and need to are told apart only by ear.",
+        "conversational-response": "Each reply answers What do you want to do? or What do you need to do? about the person in the photo.",
+        "reading-load": "The replies are full answers."
+      },
+      "blanks": [
+        "want",
+        "to"
+      ],
+      "image_choices": false,
+      "learn": false
+    },
+    {
+      "id": "a1-want",
+      "text": "Diego wants a sandwich.",
+      "es": "Diego quiere un sándwich.",
+      "image": "/lesson-assets/a1plus-unit-5-w06-53479ef2ca4a5864.webp",
+      "kind": "third",
+      "speaker": "teacher",
+      "use": false,
+      "image_choices": false,
+      "prefer": [
+        "Diego wants to eat a sandwich."
+      ],
+      "accepts": {
+        "subject-variety": "Listen: the answer is what was heard; want to and need to are told apart only by ear.",
+        "action-variety": "Listen: the answer is what was heard; want to and need to are told apart only by ear.",
+        "conversational-response": "Listen: the answer is what was heard; want to and need to are told apart only by ear.",
+        "reading-load": "Listen: the answer is what was heard; want to and need to are told apart only by ear."
+      },
+      "learn": false
+    },
+    {
+      "id": "q-want",
+      "text": "What do you want to do?",
+      "es": "¿Qué quieres hacer?",
+      "image": "/lesson-assets/a1plus-unit-5-w06-53479ef2ca4a5864.webp",
+      "kind": "question",
+      "speaker": "ana",
+      "choices": false,
+      "blanks": [
+        "want",
+        "to"
+      ],
+      "learn": false
+    },
+    {
+      "id": "q-need",
+      "text": "What do you need to do?",
+      "es": "¿Qué necesitas hacer?",
+      "image": "/lesson-assets/a1plus-unit-5-w01-47802bd1319f796e.webp",
+      "kind": "question",
+      "speaker": "luis",
+      "choices": false,
+      "use": false,
+      "learn": false
+    }
+  ],
+  "pool": [
+    {
+      "text": "Diego needs to eat a sandwich.",
+      "es": "Diego necesita comer un sándwich.",
+      "image": "/lesson-assets/a1plus-unit-5-w06-53479ef2ca4a5864.webp",
+      "kind": "third",
+      "image_choices": false
+    },
+    {
+      "text": "Ana wants to buy milk.",
+      "es": "Ana quiere comprar leche.",
+      "image": "/lesson-assets/a1plus-unit-5-w01-47802bd1319f796e.webp",
+      "kind": "third",
+      "image_choices": false
+    },
+    {
+      "text": "Luis needs to drink water.",
+      "es": "Luis necesita tomar agua.",
+      "image": "/lesson-assets/a1plus-unit-5-w02-6e8b4849e7783dcb.webp",
+      "kind": "third",
+      "image_choices": false
+    },
+    {
+      "text": "Sofia wants to cook dinner.",
+      "es": "Sofía quiere cocinar la cena.",
+      "image": "/lesson-assets/a1plus-unit-5-w07-8088c2e3f77d84d3.webp",
+      "kind": "third",
+      "image_choices": false
+    },
+    {
+      "text": "Luis needs to buy a cake.",
+      "es": "Luis necesita comprar un pastel.",
+      "image": "/lesson-assets/a1plus-unit-5-w08-2cd5323e1fa626fa.webp",
+      "kind": "third",
+      "image_choices": false
+    }
+  ],
+  "layout": {
+    "Recognize": 10,
+    "Listen": 10,
+    "Speak": 8,
+    "Use": 8
+  },
+  "stage_sequences": {
+    "Learn": [
+      "l-want",
+      "l-need",
+      "l-want-i",
+      "l-need-i"
+    ],
+    "Recognize": [
+      "t-diego",
+      "i-ana",
+      "t-luis",
+      "i-sofia",
+      "t-cake",
+      "i-diego",
+      "t-ana",
+      "i-luis",
+      "t-sofia",
+      "i-cake"
+    ],
+    "Listen": [
+      "t-ana",
+      "i-diego",
+      "t-sofia",
+      "t-cake",
+      "i-luis",
+      "t-diego",
+      "i-sofia",
+      "t-luis",
+      "i-ana",
+      "a1-want"
+    ],
+    "Speak": [
+      "i-diego",
+      "i-ana",
+      "q-want",
+      "i-luis",
+      "q-need",
+      "i-sofia",
+      "t-diego",
+      "i-cake"
+    ],
+    "Use": [
+      "t-diego",
+      "i-ana",
+      "t-sofia",
+      "i-luis",
+      "q-want",
+      "t-cake",
+      "i-sofia",
+      "t-ana"
+    ]
+  }
+}

@@ -1,0 +1,630 @@
+{
+  "brief_version": 1,
+  "follows": {
+    "course": "a1",
+    "lesson": "6.6",
+    "title": "Finding Places in the Neighborhood"
+  },
+  "note": "A1+ Unit 6 Lesson 6.6, built on 2026-11-20 under the A1+ lesson standards approved 2026-10-27 and the user's 2026-11-09 rule that every A1+ lesson follows up the A1 lesson with the same number. The user asked on 2026-11-20 \"Lets work on a1+ Unit 6 same all deal as before none stop all approved\" (A1+ 6.Y follows A1 6.Y, one step each; fifteen lessons; the Units 2-4 deal: straight to Preview in batches, Gemini 2.5 Flash photos and ElevenLabs audio pre-approved, no per-lesson gates, reviewed in Preview). Four new photos (Gemini 2.5 Flash): a bakery and a bookstore each in a corner building at a crossroads, and a police station and a gas station each across a street from a small park.",
+  "target": "backend/lessons/a1_plus/unit_6/a1plus-unit-6-lesson-6-6.yaml",
+  "captions": false,
+  "narrators": [
+    "teacher",
+    "co-teacher"
+  ],
+  "answer_audio_policy": "authored-only",
+  "speak_delivery": "a1-pronunciation-v1",
+  "lesson": {
+    "id": "a1plus-unit-6-lesson-6-6",
+    "title": "6.6 The bakery is on the corner",
+    "level": "A1+",
+    "unit_id": "a1plus-unit-6",
+    "unit_title": "Getting around town and traveling",
+    "unit_outcome": "Ask whether a place is near, say how people go to work and why they go somewhere, find a platform or gate, pack for a trip, find places on a street, follow and ask for directions, ask permission, buy tickets, understand delays and check in at a hotel.",
+    "lesson_id": "a1plus-unit-6-lesson-6-6",
+    "lesson_title": "The bakery is on the corner",
+    "sub_lesson_id": "6.6",
+    "sub_lesson_title": "The bakery is on the corner",
+    "goal": "Say where a place is with on the corner and opposite (The bakery is on the corner. The police station is opposite the park.).",
+    "vocabulary": [
+      "on the corner",
+      "opposite"
+    ],
+    "review_vocabulary": [
+      "The",
+      "is",
+      "It's",
+      "Where's",
+      "bakery",
+      "bookstore",
+      "police station",
+      "gas station",
+      "the park"
+    ],
+    "grammar_function": "A follow-up of A1 6.6 Finding Places in the Neighborhood: A1 locates places with near, far from, between and across from; A1+ 6.6 adds on the corner and opposite. Each photo shows one place from 6.1 either in a corner building where two streets meet, with a crosswalk on each side, or across one street from a small park, seen from the park, so the photo tells on the corner from opposite the park.",
+    "prerequisite": "A1 6.6 across from; A1+ 6.1 bakery, bookstore, police station, gas station; A1+ 4.1 Where's…?.",
+    "speaking_outcome": "Stress the CORN-er and OP-po-site. Do not require native-like speed.",
+    "content_revision": 1,
+    "learn_context_groups": [
+      {
+        "kind": "sequence",
+        "targets": [
+          "on the corner"
+        ],
+        "models": [
+          {
+            "slide_id": "L1",
+            "text": "The bakery is on the corner."
+          }
+        ]
+      },
+      {
+        "kind": "sequence",
+        "targets": [
+          "opposite"
+        ],
+        "models": [
+          {
+            "slide_id": "L2",
+            "text": "The police station is opposite the park."
+          }
+        ]
+      },
+      {
+        "kind": "exchange",
+        "targets": [
+          "on the corner"
+        ],
+        "models": [
+          {
+            "slide_id": "L3",
+            "text": "Where's the bookstore? It's on the corner.",
+            "turns": [
+              "Where's the bookstore?",
+              "It's on the corner."
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "exchange",
+        "targets": [
+          "opposite"
+        ],
+        "models": [
+          {
+            "slide_id": "L4",
+            "text": "Where's the gas station? It's opposite the park.",
+            "turns": [
+              "Where's the gas station?",
+              "It's opposite the park."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "items": [
+    {
+      "id": "l-corner",
+      "text": "The bakery is on the corner.",
+      "es": "La panadería está en la esquina.",
+      "image": "/lesson-assets/a1plus-unit-6-c01-bed86d009f018e78.webp",
+      "kind": "sequence",
+      "choices": false,
+      "use": false,
+      "speaker": "teacher"
+    },
+    {
+      "id": "l-opp",
+      "text": "The police station is opposite the park.",
+      "es": "La estación de policía está enfrente del parque.",
+      "image": "/lesson-assets/a1plus-unit-6-c03-3a1ffd359f9e0b2d.webp",
+      "kind": "sequence",
+      "choices": false,
+      "use": false,
+      "speaker": "co-teacher"
+    },
+    {
+      "id": "l-where-b",
+      "text": "Where's the bookstore? It's on the corner.",
+      "es": "¿Dónde está la librería? Está en la esquina.",
+      "image": "/lesson-assets/a1plus-unit-6-c02-cd038cdc73640095.webp",
+      "kind": "exchange",
+      "choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "Where's the bookstore?",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-6-c02-cd038cdc73640095.webp"
+        },
+        {
+          "text": "It's on the corner.",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-6-c02-cd038cdc73640095.webp"
+        }
+      ]
+    },
+    {
+      "id": "l-where-g",
+      "text": "Where's the gas station? It's opposite the park.",
+      "es": "¿Dónde está la gasolinera? Está enfrente del parque.",
+      "image": "/lesson-assets/a1plus-unit-6-c04-a749eb532fa5d942.webp",
+      "kind": "exchange",
+      "choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "Where's the gas station?",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-6-c04-a749eb532fa5d942.webp"
+        },
+        {
+          "text": "It's opposite the park.",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-6-c04-a749eb532fa5d942.webp"
+        }
+      ]
+    },
+    {
+      "id": "f-bakery",
+      "text": "The bakery is on the corner.",
+      "es": "La panadería está en la esquina.",
+      "image": "/lesson-assets/a1plus-unit-6-c01-bed86d009f018e78.webp",
+      "kind": "spot",
+      "prefer": [
+        "The bakery is opposite the park.",
+        "The police station is on the corner."
+      ],
+      "accepts": {
+        "subject-variety": "The bank keeps the place and changes only where it is; the photo shows it on a corner or across the street from a park.",
+        "action-variety": "The bank keeps the place and changes only where it is; the photo shows it on a corner or across the street from a park.",
+        "conversational-response": "The bank keeps the place and changes only where it is; the photo shows it on a corner or across the street from a park.",
+        "reading-load": "The bank keeps the place and changes only where it is; the photo shows it on a corner or across the street from a park."
+      },
+      "blanks": [
+        "on",
+        "the"
+      ],
+      "learn": false
+    },
+    {
+      "id": "r-bakery",
+      "text": "It's on the corner.",
+      "es": "Está en la esquina.",
+      "image": "/lesson-assets/a1plus-unit-6-c01-bed86d009f018e78.webp",
+      "kind": "where",
+      "question": "Where's the bakery?",
+      "question_es": "¿Dónde está la panadería?",
+      "question_speaker": "co-teacher",
+      "speaker": "teacher",
+      "use": false,
+      "image_choices": false,
+      "prefer": [
+        "It's opposite the park.",
+        "It's next to the park."
+      ],
+      "accepts": {
+        "subject-variety": "The bank keeps the place and changes only where it is; the photo shows it on a corner or across the street from a park.",
+        "action-variety": "The bank keeps the place and changes only where it is; the photo shows it on a corner or across the street from a park.",
+        "conversational-response": "The bank keeps the place and changes only where it is; the photo shows it on a corner or across the street from a park.",
+        "reading-load": "The bank keeps the place and changes only where it is; the photo shows it on a corner or across the street from a park."
+      },
+      "learn": false
+    },
+    {
+      "id": "f-books",
+      "text": "The bookstore is on the corner.",
+      "es": "La librería está en la esquina.",
+      "image": "/lesson-assets/a1plus-unit-6-c02-cd038cdc73640095.webp",
+      "kind": "spot",
+      "prefer": [
+        "The bookstore is opposite the park.",
+        "The police station is on the corner."
+      ],
+      "accepts": {
+        "subject-variety": "The bank keeps the place and changes only where it is; the photo shows it on a corner or across the street from a park.",
+        "action-variety": "The bank keeps the place and changes only where it is; the photo shows it on a corner or across the street from a park.",
+        "conversational-response": "The bank keeps the place and changes only where it is; the photo shows it on a corner or across the street from a park.",
+        "reading-load": "The bank keeps the place and changes only where it is; the photo shows it on a corner or across the street from a park."
+      },
+      "blanks": [
+        "on",
+        "the"
+      ],
+      "learn": false
+    },
+    {
+      "id": "r-books",
+      "text": "It's on the corner.",
+      "es": "Está en la esquina.",
+      "image": "/lesson-assets/a1plus-unit-6-c02-cd038cdc73640095.webp",
+      "kind": "where",
+      "question": "Where's the bookstore?",
+      "question_es": "¿Dónde está la librería?",
+      "question_speaker": "co-teacher",
+      "speaker": "teacher",
+      "use": false,
+      "image_choices": false,
+      "prefer": [
+        "It's opposite the park.",
+        "It's next to the park."
+      ],
+      "accepts": {
+        "subject-variety": "The bank keeps the place and changes only where it is; the photo shows it on a corner or across the street from a park.",
+        "action-variety": "The bank keeps the place and changes only where it is; the photo shows it on a corner or across the street from a park.",
+        "conversational-response": "The bank keeps the place and changes only where it is; the photo shows it on a corner or across the street from a park.",
+        "reading-load": "The bank keeps the place and changes only where it is; the photo shows it on a corner or across the street from a park."
+      },
+      "learn": false
+    },
+    {
+      "id": "f-police",
+      "text": "The police station is opposite the park.",
+      "es": "La estación de policía está enfrente del parque.",
+      "image": "/lesson-assets/a1plus-unit-6-c03-3a1ffd359f9e0b2d.webp",
+      "kind": "spot",
+      "prefer": [
+        "The police station is on the corner.",
+        "The bakery is opposite the park."
+      ],
+      "accepts": {
+        "subject-variety": "The bank keeps the place and changes only where it is; the photo shows it on a corner or across the street from a park.",
+        "action-variety": "The bank keeps the place and changes only where it is; the photo shows it on a corner or across the street from a park.",
+        "conversational-response": "The bank keeps the place and changes only where it is; the photo shows it on a corner or across the street from a park.",
+        "reading-load": "The bank keeps the place and changes only where it is; the photo shows it on a corner or across the street from a park."
+      },
+      "blanks": [
+        "opposite",
+        "the"
+      ],
+      "learn": false
+    },
+    {
+      "id": "r-police",
+      "text": "It's opposite the park.",
+      "es": "Está enfrente del parque.",
+      "image": "/lesson-assets/a1plus-unit-6-c03-3a1ffd359f9e0b2d.webp",
+      "kind": "where",
+      "question": "Where's the police station?",
+      "question_es": "¿Dónde está la estación de policía?",
+      "question_speaker": "co-teacher",
+      "speaker": "teacher",
+      "use": false,
+      "image_choices": false,
+      "prefer": [
+        "It's on the corner.",
+        "It's next to the park."
+      ],
+      "accepts": {
+        "subject-variety": "The bank keeps the place and changes only where it is; the photo shows it on a corner or across the street from a park.",
+        "action-variety": "The bank keeps the place and changes only where it is; the photo shows it on a corner or across the street from a park.",
+        "conversational-response": "The bank keeps the place and changes only where it is; the photo shows it on a corner or across the street from a park.",
+        "reading-load": "The bank keeps the place and changes only where it is; the photo shows it on a corner or across the street from a park."
+      },
+      "learn": false
+    },
+    {
+      "id": "f-gas",
+      "text": "The gas station is opposite the park.",
+      "es": "La gasolinera está enfrente del parque.",
+      "image": "/lesson-assets/a1plus-unit-6-c04-a749eb532fa5d942.webp",
+      "kind": "spot",
+      "prefer": [
+        "The gas station is on the corner.",
+        "The bakery is opposite the park."
+      ],
+      "accepts": {
+        "subject-variety": "The bank keeps the place and changes only where it is; the photo shows it on a corner or across the street from a park.",
+        "action-variety": "The bank keeps the place and changes only where it is; the photo shows it on a corner or across the street from a park.",
+        "conversational-response": "The bank keeps the place and changes only where it is; the photo shows it on a corner or across the street from a park.",
+        "reading-load": "The bank keeps the place and changes only where it is; the photo shows it on a corner or across the street from a park."
+      },
+      "blanks": [
+        "opposite",
+        "the"
+      ],
+      "learn": false
+    },
+    {
+      "id": "r-gas",
+      "text": "It's opposite the park.",
+      "es": "Está enfrente del parque.",
+      "image": "/lesson-assets/a1plus-unit-6-c04-a749eb532fa5d942.webp",
+      "kind": "where",
+      "question": "Where's the gas station?",
+      "question_es": "¿Dónde está la gasolinera?",
+      "question_speaker": "co-teacher",
+      "speaker": "teacher",
+      "use": false,
+      "image_choices": false,
+      "prefer": [
+        "It's on the corner.",
+        "It's next to the park."
+      ],
+      "accepts": {
+        "subject-variety": "The bank keeps the place and changes only where it is; the photo shows it on a corner or across the street from a park.",
+        "action-variety": "The bank keeps the place and changes only where it is; the photo shows it on a corner or across the street from a park.",
+        "conversational-response": "The bank keeps the place and changes only where it is; the photo shows it on a corner or across the street from a park.",
+        "reading-load": "The bank keeps the place and changes only where it is; the photo shows it on a corner or across the street from a park."
+      },
+      "learn": false
+    },
+    {
+      "id": "x-b",
+      "text": "Where's the bookstore? It's on the corner.",
+      "es": "¿Dónde está la librería? Está en la esquina.",
+      "image": "/lesson-assets/a1plus-unit-6-c02-cd038cdc73640095.webp",
+      "kind": "xb",
+      "image_choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "Where's the bookstore?",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-6-c02-cd038cdc73640095.webp"
+        },
+        {
+          "text": "It's on the corner.",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-6-c02-cd038cdc73640095.webp"
+        }
+      ],
+      "accepts": {
+        "subject-variety": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "action-variety": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "conversational-response": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "reading-load": "Listen keeps the question and changes only the answer; the answer is what was heard."
+      },
+      "prefer": [
+        "Where's the bookstore? It's opposite the park."
+      ],
+      "learn": false
+    },
+    {
+      "id": "x-g",
+      "text": "Where's the gas station? It's opposite the park.",
+      "es": "¿Dónde está la gasolinera? Está enfrente del parque.",
+      "image": "/lesson-assets/a1plus-unit-6-c04-a749eb532fa5d942.webp",
+      "kind": "xg",
+      "image_choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "Where's the gas station?",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-6-c04-a749eb532fa5d942.webp"
+        },
+        {
+          "text": "It's opposite the park.",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-6-c04-a749eb532fa5d942.webp"
+        }
+      ],
+      "accepts": {
+        "subject-variety": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "action-variety": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "conversational-response": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "reading-load": "Listen keeps the question and changes only the answer; the answer is what was heard."
+      },
+      "prefer": [
+        "Where's the gas station? It's on the corner."
+      ],
+      "learn": false
+    },
+    {
+      "id": "q-bakery",
+      "text": "Where's the bakery?",
+      "es": "¿Dónde está la panadería?",
+      "image": "/lesson-assets/a1plus-unit-6-c01-bed86d009f018e78.webp",
+      "kind": "question",
+      "choices": false,
+      "use": true,
+      "blanks": null,
+      "speaker": "co-teacher",
+      "learn": false
+    },
+    {
+      "id": "q-police",
+      "text": "Where's the police station?",
+      "es": "¿Dónde está la estación de policía?",
+      "image": "/lesson-assets/a1plus-unit-6-c03-3a1ffd359f9e0b2d.webp",
+      "kind": "question",
+      "choices": false,
+      "use": true,
+      "blanks": null,
+      "speaker": "teacher",
+      "learn": false
+    },
+    {
+      "id": "u-corner",
+      "text": "It's on the corner.",
+      "es": "Está en la esquina.",
+      "image": "/lesson-assets/a1plus-unit-6-c02-cd038cdc73640095.webp",
+      "kind": "use",
+      "choices": false,
+      "use": true,
+      "blanks": [
+        "on",
+        "the"
+      ],
+      "learn": false
+    },
+    {
+      "id": "u-opp",
+      "text": "It's opposite the park.",
+      "es": "Está enfrente del parque.",
+      "image": "/lesson-assets/a1plus-unit-6-c03-3a1ffd359f9e0b2d.webp",
+      "kind": "use",
+      "choices": false,
+      "use": true,
+      "blanks": [
+        "opposite",
+        "the"
+      ],
+      "learn": false
+    },
+    {
+      "id": "u4-front",
+      "text": "Where's the bank? It's in front of the park.",
+      "es": "¿Dónde está el banco? Está enfrente del parque.",
+      "image": "/lesson-assets/a1_photo_u6_bank_central_v1.webp",
+      "kind": "u4-front",
+      "image_choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "Where's the bank?",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1_photo_u6_bank_central_v1.webp"
+        },
+        {
+          "text": "It's in front of the park.",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1_photo_u6_bank_central_v1.webp"
+        }
+      ],
+      "accepts": {
+        "subject-variety": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "action-variety": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "conversational-response": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "reading-load": "Listen keeps the question and changes only the answer; the answer is what was heard."
+      },
+      "prefer": [
+        "Where's the bank? It's on the corner."
+      ],
+      "learn": false
+    }
+  ],
+  "pool": [
+    {
+      "text": "The bakery is opposite the park.",
+      "es": "La panadería está enfrente del parque.",
+      "image": "/lesson-assets/a1plus-unit-6-c01-bed86d009f018e78.webp",
+      "kind": "spot",
+      "image_choices": false
+    },
+    {
+      "text": "The police station is on the corner.",
+      "es": "La estación de policía está en la esquina.",
+      "image": "/lesson-assets/a1plus-unit-6-c01-bed86d009f018e78.webp",
+      "kind": "spot",
+      "image_choices": false
+    },
+    {
+      "text": "It's opposite the park.",
+      "es": "Está enfrente del parque.",
+      "image": "/lesson-assets/a1plus-unit-6-c01-bed86d009f018e78.webp",
+      "kind": "where",
+      "image_choices": false
+    },
+    {
+      "text": "It's next to the park.",
+      "es": "Está junto al parque.",
+      "image": "/lesson-assets/a1plus-unit-6-c01-bed86d009f018e78.webp",
+      "kind": "where",
+      "image_choices": false
+    },
+    {
+      "text": "The bookstore is opposite the park.",
+      "es": "La librería está enfrente del parque.",
+      "image": "/lesson-assets/a1plus-unit-6-c02-cd038cdc73640095.webp",
+      "kind": "spot",
+      "image_choices": false
+    },
+    {
+      "text": "It's on the corner.",
+      "es": "Está en la esquina.",
+      "image": "/lesson-assets/a1plus-unit-6-c03-3a1ffd359f9e0b2d.webp",
+      "kind": "where",
+      "image_choices": false
+    },
+    {
+      "text": "The gas station is on the corner.",
+      "es": "La gasolinera está en la esquina.",
+      "image": "/lesson-assets/a1plus-unit-6-c04-a749eb532fa5d942.webp",
+      "kind": "spot",
+      "image_choices": false
+    },
+    {
+      "text": "Where's the bookstore? It's opposite the park.",
+      "es": "¿Dónde está la librería? Está enfrente del parque.",
+      "image": "/lesson-assets/a1plus-unit-6-c02-cd038cdc73640095.webp",
+      "kind": "xb",
+      "image_choices": false
+    },
+    {
+      "text": "Where's the gas station? It's on the corner.",
+      "es": "¿Dónde está la gasolinera? Está en la esquina.",
+      "image": "/lesson-assets/a1plus-unit-6-c04-a749eb532fa5d942.webp",
+      "kind": "xg",
+      "image_choices": false
+    },
+    {
+      "text": "Where's the bank? It's on the corner.",
+      "es": "¿Dónde está el banco? Está en la esquina.",
+      "image": "/lesson-assets/a1_photo_u6_bank_central_v1.webp",
+      "kind": "u4-front",
+      "image_choices": false
+    }
+  ],
+  "layout": {
+    "Recognize": 10,
+    "Listen": 10,
+    "Speak": 8,
+    "Use": 8
+  },
+  "stage_sequences": {
+    "Learn": [
+      "l-corner",
+      "l-opp",
+      "l-where-b",
+      "l-where-g"
+    ],
+    "Recognize": [
+      "f-bakery",
+      "r-police",
+      "f-gas",
+      "r-books",
+      "f-police",
+      "r-bakery",
+      "f-books",
+      "r-gas",
+      "x-b",
+      "f-bakery"
+    ],
+    "Listen": [
+      "f-police",
+      "f-books",
+      "x-g",
+      "f-gas",
+      "f-bakery",
+      "x-b",
+      "r-bakery",
+      "r-gas",
+      "r-police",
+      "u4-front"
+    ],
+    "Speak": [
+      "u-corner",
+      "f-police",
+      "q-bakery",
+      "r-books",
+      "u-opp",
+      "f-gas",
+      "r-bakery",
+      "f-books"
+    ],
+    "Use": [
+      "f-bakery",
+      "f-books",
+      "f-police",
+      "f-gas",
+      "u-corner",
+      "u-opp",
+      "q-bakery",
+      "q-police"
+    ]
+  }
+}

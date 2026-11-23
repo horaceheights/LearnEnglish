@@ -1,0 +1,55 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "c6a8219f-8513-4dc8-980d-451a04f9af7d",
+  "asset_id": "k04-right-police",
+  "pack_sha256": "4ff6aa6ece27b068a9f3b8e387ecdcda2ff4349f0d41fdc147cd717ed8aaa49e",
+  "started_at": "2026-11-21T04:42:47.363837+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, menus, screens, cups, clothes or bags.\n\nKeep the people and the thing that carries the meaning inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nIt is clearly daytime with soft natural light.\n\nThe camera stands on the sidewalk a few steps behind one person and looks the way they look: straight ahead is a crossroads where a side street goes off to the left and another to the right. The person is seen from behind (back of the head and back only, no face) and stretches one whole arm straight out sideways, pointing along one side street. The pointing arm is long, level and unmistakable.\n\nNo shop, car or building shows any sign, name, letters, words, numbers or logos.\n\nThe person is a woman with long dark wavy hair in a sage-green overshirt. On the RIGHT corner of the crossroads is a red-brick police station with a plain white police car with a blue-and-red light bar parked in front; the left corner is a plain grey office building with no shop. The woman points her RIGHT arm straight out to the right, along the side street that goes past the police station. Nobody else is in the photo.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "RCEBa9XwIr_Vz7IPs_iEyQY",
+  "usage": {
+    "promptTokenCount": 386,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1676,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 386
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038816",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 386,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 6.19,
+  "output": "output/imagegen/a1plus-unit-6-lesson-v671/k04-right-police.png",
+  "sha256": "cf6dba6ff1ac494b6864828c9e95ba6499044cd733f20efc76e33c9a8aa1e4bd",
+  "byte_count": 1594948,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}

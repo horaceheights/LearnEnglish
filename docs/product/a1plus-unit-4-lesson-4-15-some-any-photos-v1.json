@@ -1,0 +1,102 @@
+{
+  "schema_version": 1,
+  "pack": "a1plus-unit-4-lesson-4-15-some-any-photos",
+  "revision": 1,
+  "output_namespace": "a1plus-unit-4-lesson-v4150",
+  "authorization": "2026-11-20: the user asked to \"Start working on A1+ Unit 4, same deal. make sure images make sense all the time\" (the Unit 2 and Unit 3 deal: an approved map, then straight to Preview in batches with media pre-approved and reviewed in Preview), approved the A1+ Unit 4 map (\"Approve this map\") and then said \"keep going until preview, I approve ALL, NO NEED to stop\". Gemini is the approved image tool (2026-09-23), Flash only (2026-11-17; \"lets switch to flash for any other images\", 2026-11-19).",
+  "image_settings": {
+    "provider": "google-gemini",
+    "model": "gemini-2.5-flash-image",
+    "aspect_ratio": "3:2",
+    "image_size": "1K",
+    "runtime_size": "1536x1024",
+    "runtime_format": "webp",
+    "n": 1
+  },
+  "production": {
+    "price_per_image_usd": "0.0387",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing (checked 2026-11-16: Gemini 2.5 Flash Image, about $0.039 per image)",
+    "planned_images": 6,
+    "expected_cost_usd": "0.23",
+    "requested_ceiling_usd": "0.45",
+    "ceiling_note": "The renderer reserves US$0.20 before each request; each request is sent on its own, and the expected spend for the pack is about US$0.23.",
+    "no_automatic_retries": true,
+    "order": "Generate each base photo first (s01, s03, s05) and check the things are plural, clearly countable and nothing else of their kind is in the photo; then each edit, and check the place is unchanged and completely empty of those things, so a some sentence and its any sentence are told apart only by them."
+  },
+  "shared_prompts": {
+    "photo": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, menus, screens, cups, clothes or bags.",
+    "safe_center": "Keep the people and the thing that carries the meaning inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.",
+    "solo": "Only this one person is in the photo; there is nobody else, even far in the background.",
+    "daytime": "It is clearly daytime with soft natural light.",
+    "edit": "Edit Image 1. Keep the place, the furniture, the light, the colors and the camera position exactly the same; change only what is described below.",
+    "nobody": "There are no people and no animals anywhere in the photo."
+  },
+  "assets": [
+    {
+      "id": "s01-apples-some",
+      "order": 1,
+      "item": "There are some apples on the table.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "nobody"
+      ],
+      "prompt": "A bright, tidy kitchen in the daytime. In the middle of the photo stands a light wooden kitchen table with nothing on it but what is described. The whole table top is clearly visible from slightly above. Five shiny red apples lie together in the middle of the table, large and clearly visible. There is no bowl, no plate and no other food anywhere in the photo."
+    },
+    {
+      "id": "s02-apples-none",
+      "order": 2,
+      "item": "There aren't any apples on the table. / Are there any apples? No, there aren't.",
+      "shared": [
+        "edit",
+        "nobody"
+      ],
+      "prompt": "Remove all five apples: the table top is now completely empty, clean and bare, with nothing at all on it. Nothing else in the photo changes.",
+      "reference": "s01-apples-some"
+    },
+    {
+      "id": "s03-books-some",
+      "order": 3,
+      "item": "There are some books on the sofa.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "nobody"
+      ],
+      "prompt": "A bright, tidy living room in the daytime. In the middle of the photo stands a light-grey three-seat sofa with two plain cushions, seen from the front, with nothing on its seats but what is described. There is no table in the photo; a plant stands beside the sofa. Four hardcover books in different colors (red, blue, green and yellow) lie on the middle seat of the sofa, large and clearly visible."
+    },
+    {
+      "id": "s04-books-none",
+      "order": 4,
+      "item": "There aren't any books on the sofa.",
+      "shared": [
+        "edit",
+        "nobody"
+      ],
+      "prompt": "Remove all four books: the sofa's seats are now completely empty except for its two cushions. Nothing else in the photo changes.",
+      "reference": "s03-books-some"
+    },
+    {
+      "id": "s05-shoes-some",
+      "order": 5,
+      "item": "There are some shoes under the bed.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "nobody"
+      ],
+      "prompt": "A bright, tidy bedroom in the daytime. In the middle of the photo is a neatly made bed with a plain white cover on short wooden legs, seen from the foot of the bed at a low angle, so the whole floor under the bed is clearly visible and well lit. Nothing is on the bed. Under the bed, on the floor, stand three pairs of shoes in a neat row: white sneakers, brown shoes and red shoes, large and clearly visible."
+    },
+    {
+      "id": "s06-shoes-none",
+      "order": 6,
+      "item": "There aren't any shoes under the bed.",
+      "shared": [
+        "edit",
+        "nobody"
+      ],
+      "prompt": "Remove all the shoes: the floor under the bed is now completely empty and clearly visible. Nothing else in the photo changes.",
+      "reference": "s05-shoes-some"
+    }
+  ]
+}

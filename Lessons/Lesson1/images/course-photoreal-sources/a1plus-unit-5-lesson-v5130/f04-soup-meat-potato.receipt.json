@@ -1,0 +1,55 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "e7f2bf65-1875-4767-89b6-fe390b2c7762",
+  "asset_id": "f04-soup-meat-potato",
+  "pack_sha256": "ef05a7899daac63582fa35a93b0659c71522cbef7f73bffb5f60f41bf79a067e",
+  "started_at": "2026-11-21T04:55:23.834762+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, menus, screens, cups, clothes or bags.\n\nIt is clearly daytime with soft natural light.\n\nOne dish on a white plate in the middle of a light wooden kitchen table by a bright window, seen from a little above so every ingredient is easy to see on a small phone screen. Nothing else is on the table. No people. A white bowl of brown soup with big pieces of meat and big pieces of potato clearly visible in it, and nothing else in it.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "OCQBa6eyMtXzqtsP_bGVgQk",
+  "usage": {
+    "promptTokenCount": 217,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1507,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 217
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038765",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 217,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 6.03,
+  "output": "output/imagegen/a1plus-unit-5-lesson-v5130/f04-soup-meat-potato.png",
+  "sha256": "c2b17b58c71664f74458572b7ad5ddb58ee0457c841fdb35865df0baa8ad8af2",
+  "byte_count": 1265719,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}

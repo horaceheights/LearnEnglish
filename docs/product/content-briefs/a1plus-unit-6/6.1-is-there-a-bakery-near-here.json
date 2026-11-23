@@ -1,0 +1,767 @@
+{
+  "brief_version": 1,
+  "follows": {
+    "course": "a1",
+    "lesson": "6.1",
+    "title": "Places Around Town"
+  },
+  "note": "A1+ Unit 6 Lesson 6.1, built on 2026-11-20 under the A1+ lesson standards approved 2026-10-27 and the user's 2026-11-09 rule that every A1+ lesson follows up the A1 lesson with the same number. The user asked on 2026-11-20 \"Lets work on a1+ Unit 6 same all deal as before none stop all approved\" (A1+ 6.Y follows A1 6.Y, one step each; fifteen lessons; the Units 2-4 deal: straight to Preview in batches, Gemini 2.5 Flash photos and ElevenLabs audio pre-approved, no per-lesson gates, reviewed in Preview). Four new photos (Gemini 2.5 Flash): a bakery window full of bread, a bookstore window full of books, a police station with a police car and an officer, and Luis filling his red car at a gas station. A1 6's Ana asking a woman for help and A1 6's shopping street are reused.",
+  "target": "backend/lessons/a1_plus/unit_6/a1plus-unit-6-lesson-6-1.yaml",
+  "captions": false,
+  "narrators": [
+    "teacher",
+    "co-teacher"
+  ],
+  "answer_audio_policy": "authored-only",
+  "speak_delivery": "a1-pronunciation-v1",
+  "lesson": {
+    "id": "a1plus-unit-6-lesson-6-1",
+    "title": "6.1 Is there a bakery near here?",
+    "level": "A1+",
+    "unit_id": "a1plus-unit-6",
+    "unit_title": "Getting around town and traveling",
+    "unit_outcome": "Ask whether a place is near, say how people go to work and why they go somewhere, find a platform or gate, pack for a trip, find places on a street, follow and ask for directions, ask permission, buy tickets, understand delays and check in at a hotel.",
+    "lesson_id": "a1plus-unit-6-lesson-6-1",
+    "lesson_title": "Is there a bakery near here?",
+    "sub_lesson_id": "6.1",
+    "sub_lesson_title": "Is there a bakery near here?",
+    "goal": "Name four more places in town and ask whether one is near (Is there a bakery near here? Yes, there's one on Park Street.).",
+    "vocabulary": [
+      "bakery",
+      "bookstore",
+      "police station",
+      "gas station",
+      "near here",
+      "there's one"
+    ],
+    "review_vocabulary": [
+      "This is",
+      "a",
+      "pharmacy",
+      "library",
+      "Is there",
+      "there isn't",
+      "on",
+      "Park Street",
+      "Luis",
+      "is at",
+      "the",
+      "yes",
+      "no"
+    ],
+    "grammar_function": "A follow-up of A1 6.1 Places Around Town: A1 names useful places; A1+ 6.1 adds four more and asks whether one is near. The new items are bakery, bookstore, police station and gas station, the phrase near here after 4.4's Is there…? (Is there a bakery near here?) and the answer there's one + where it is (Yes, there's one on Park Street.), with 4.4's No, there isn't. Each new place is a photo whose window, car or pump shows what it is without any sign. A Yes answer is shown with that place; a No answer only with A1's shopping street, which has no gas station and no police station.",
+    "prerequisite": "A1 6.1 places; A1 3.13 streets; A1+ 4.4 Is there…? and short answers.",
+    "speaking_outcome": "Stress the place: BAKE-ry, BOOK-store, po-LICE sta-tion, GAS sta-tion; link there's one (therz-WUN). Do not require native-like speed.",
+    "content_revision": 1,
+    "learn_context_groups": [
+      {
+        "kind": "sequence",
+        "targets": [
+          "bakery"
+        ],
+        "models": [
+          {
+            "slide_id": "L1",
+            "text": "This is a bakery."
+          }
+        ]
+      },
+      {
+        "kind": "sequence",
+        "targets": [
+          "bookstore"
+        ],
+        "models": [
+          {
+            "slide_id": "L2",
+            "text": "This is a bookstore."
+          }
+        ]
+      },
+      {
+        "kind": "sequence",
+        "targets": [
+          "police station"
+        ],
+        "models": [
+          {
+            "slide_id": "L3",
+            "text": "This is a police station."
+          }
+        ]
+      },
+      {
+        "kind": "sequence",
+        "targets": [
+          "gas station"
+        ],
+        "models": [
+          {
+            "slide_id": "L4",
+            "text": "This is a gas station."
+          }
+        ]
+      },
+      {
+        "kind": "exchange",
+        "targets": [
+          "near here",
+          "there's one",
+          "bakery"
+        ],
+        "models": [
+          {
+            "slide_id": "L5",
+            "text": "Is there a bakery near here? Yes, there's one on Park Street.",
+            "turns": [
+              "Is there a bakery near here?",
+              "Yes, there's one on Park Street."
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "exchange",
+        "targets": [
+          "near here",
+          "gas station"
+        ],
+        "models": [
+          {
+            "slide_id": "L6",
+            "text": "Is there a gas station near here? No, there isn't.",
+            "turns": [
+              "Is there a gas station near here?",
+              "No, there isn't."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "items": [
+    {
+      "id": "l-bakery",
+      "text": "This is a bakery.",
+      "es": "Esta es una panadería.",
+      "image": "/lesson-assets/a1plus-unit-6-b01-26fe3298c0cc0983.webp",
+      "kind": "sequence",
+      "choices": false,
+      "use": false,
+      "speaker": "teacher"
+    },
+    {
+      "id": "l-books",
+      "text": "This is a bookstore.",
+      "es": "Esta es una librería.",
+      "image": "/lesson-assets/a1plus-unit-6-b02-eb4a7a3266cb508d.webp",
+      "kind": "sequence",
+      "choices": false,
+      "use": false,
+      "speaker": "co-teacher"
+    },
+    {
+      "id": "l-police",
+      "text": "This is a police station.",
+      "es": "Esta es una estación de policía.",
+      "image": "/lesson-assets/a1plus-unit-6-b03-2dfe578558c5e8d3.webp",
+      "kind": "sequence",
+      "choices": false,
+      "use": false,
+      "speaker": "teacher"
+    },
+    {
+      "id": "l-gas",
+      "text": "This is a gas station.",
+      "es": "Esta es una gasolinera.",
+      "image": "/lesson-assets/a1plus-unit-6-b04-d0d6c5e8b513c522.webp",
+      "kind": "sequence",
+      "choices": false,
+      "use": false,
+      "speaker": "co-teacher"
+    },
+    {
+      "id": "l-near",
+      "text": "Is there a bakery near here? Yes, there's one on Park Street.",
+      "es": "¿Hay una panadería cerca de aquí? Sí, hay una en la calle Park.",
+      "image": "/lesson-assets/a1_photo_u6_story_help_first_question_v1.webp",
+      "kind": "exchange",
+      "choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "Is there a bakery near here?",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1_photo_u6_story_help_first_question_v1.webp"
+        },
+        {
+          "text": "Yes, there's one on Park Street.",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-6-b01-26fe3298c0cc0983.webp"
+        }
+      ]
+    },
+    {
+      "id": "l-no",
+      "text": "Is there a gas station near here? No, there isn't.",
+      "es": "¿Hay una gasolinera cerca de aquí? No, no hay.",
+      "image": "/lesson-assets/a1_photo_u6_story_help_first_question_v1.webp",
+      "kind": "exchange",
+      "choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "Is there a gas station near here?",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1_photo_u6_story_help_first_question_v1.webp"
+        },
+        {
+          "text": "No, there isn't.",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1_photo_u6_story_neighborhood_across_v1.webp"
+        }
+      ]
+    },
+    {
+      "id": "t-bakery",
+      "text": "This is a bakery.",
+      "es": "Esta es una panadería.",
+      "image": "/lesson-assets/a1plus-unit-6-b01-26fe3298c0cc0983.webp",
+      "kind": "place",
+      "prefer": [
+        "This is a bookstore.",
+        "This is a police station."
+      ],
+      "accepts": {
+        "subject-variety": "The bank keeps This is a and changes only the place; the photo shows which place it is.",
+        "action-variety": "The bank keeps This is a and changes only the place; the photo shows which place it is.",
+        "conversational-response": "The bank keeps This is a and changes only the place; the photo shows which place it is.",
+        "reading-load": "The bank keeps This is a and changes only the place; the photo shows which place it is."
+      },
+      "learn": false
+    },
+    {
+      "id": "t-books",
+      "text": "This is a bookstore.",
+      "es": "Esta es una librería.",
+      "image": "/lesson-assets/a1plus-unit-6-b02-eb4a7a3266cb508d.webp",
+      "kind": "place",
+      "prefer": [
+        "This is a police station.",
+        "This is a gas station."
+      ],
+      "accepts": {
+        "subject-variety": "The bank keeps This is a and changes only the place; the photo shows which place it is.",
+        "action-variety": "The bank keeps This is a and changes only the place; the photo shows which place it is.",
+        "conversational-response": "The bank keeps This is a and changes only the place; the photo shows which place it is.",
+        "reading-load": "The bank keeps This is a and changes only the place; the photo shows which place it is."
+      },
+      "learn": false
+    },
+    {
+      "id": "t-police",
+      "text": "This is a police station.",
+      "es": "Esta es una estación de policía.",
+      "image": "/lesson-assets/a1plus-unit-6-b03-2dfe578558c5e8d3.webp",
+      "kind": "place",
+      "prefer": [
+        "This is a gas station.",
+        "This is a bakery."
+      ],
+      "accepts": {
+        "subject-variety": "The bank keeps This is a and changes only the place; the photo shows which place it is.",
+        "action-variety": "The bank keeps This is a and changes only the place; the photo shows which place it is.",
+        "conversational-response": "The bank keeps This is a and changes only the place; the photo shows which place it is.",
+        "reading-load": "The bank keeps This is a and changes only the place; the photo shows which place it is."
+      },
+      "learn": false
+    },
+    {
+      "id": "t-gas",
+      "text": "This is a gas station.",
+      "es": "Esta es una gasolinera.",
+      "image": "/lesson-assets/a1plus-unit-6-b04-d0d6c5e8b513c522.webp",
+      "kind": "place",
+      "prefer": [
+        "This is a bakery.",
+        "This is a bookstore."
+      ],
+      "accepts": {
+        "subject-variety": "The bank keeps This is a and changes only the place; the photo shows which place it is.",
+        "action-variety": "The bank keeps This is a and changes only the place; the photo shows which place it is.",
+        "conversational-response": "The bank keeps This is a and changes only the place; the photo shows which place it is.",
+        "reading-load": "The bank keeps This is a and changes only the place; the photo shows which place it is."
+      },
+      "learn": false
+    },
+    {
+      "id": "t-pharmacy",
+      "text": "This is a pharmacy.",
+      "es": "Esta es una farmacia.",
+      "image": "/lesson-assets/a1_pharmacy.webp",
+      "kind": "place",
+      "prefer": [],
+      "accepts": {
+        "subject-variety": "The bank keeps This is a and changes only the place; the photo shows which place it is.",
+        "action-variety": "The bank keeps This is a and changes only the place; the photo shows which place it is.",
+        "conversational-response": "The bank keeps This is a and changes only the place; the photo shows which place it is.",
+        "reading-load": "The bank keeps This is a and changes only the place; the photo shows which place it is."
+      },
+      "use": false,
+      "learn": false
+    },
+    {
+      "id": "t-library",
+      "text": "This is a library.",
+      "es": "Esta es una biblioteca.",
+      "image": "/lesson-assets/a1_library.webp",
+      "kind": "place",
+      "prefer": [],
+      "accepts": {
+        "subject-variety": "The bank keeps This is a and changes only the place; the photo shows which place it is.",
+        "action-variety": "The bank keeps This is a and changes only the place; the photo shows which place it is.",
+        "conversational-response": "The bank keeps This is a and changes only the place; the photo shows which place it is.",
+        "reading-load": "The bank keeps This is a and changes only the place; the photo shows which place it is."
+      },
+      "use": false,
+      "learn": false
+    },
+    {
+      "id": "r-bakery",
+      "text": "Yes, there's one on Park Street.",
+      "es": "Sí, hay una en la calle Park.",
+      "image": "/lesson-assets/a1plus-unit-6-b01-26fe3298c0cc0983.webp",
+      "kind": "near",
+      "question": "Is there a bakery near here?",
+      "question_es": "¿Hay una panadería cerca de aquí?",
+      "question_speaker": "co-teacher",
+      "speaker": "teacher",
+      "use": false,
+      "image_choices": false,
+      "prefer": [
+        "No, there isn't."
+      ],
+      "accepts": {
+        "subject-variety": "The short answer keeps the question's place; the photo shows that place is there.",
+        "action-variety": "The short answer keeps the question's place; the photo shows that place is there.",
+        "conversational-response": "The short answer keeps the question's place; the photo shows that place is there.",
+        "reading-load": "The short answer keeps the question's place; the photo shows that place is there."
+      },
+      "learn": false
+    },
+    {
+      "id": "r-books",
+      "text": "Yes, there's one on Park Street.",
+      "es": "Sí, hay una en la calle Park.",
+      "image": "/lesson-assets/a1plus-unit-6-b02-eb4a7a3266cb508d.webp",
+      "kind": "near",
+      "question": "Is there a bookstore near here?",
+      "question_es": "¿Hay una librería cerca de aquí?",
+      "question_speaker": "co-teacher",
+      "speaker": "teacher",
+      "use": false,
+      "image_choices": false,
+      "prefer": [
+        "No, there isn't."
+      ],
+      "accepts": {
+        "subject-variety": "The short answer keeps the question's place; the photo shows that place is there.",
+        "action-variety": "The short answer keeps the question's place; the photo shows that place is there.",
+        "conversational-response": "The short answer keeps the question's place; the photo shows that place is there.",
+        "reading-load": "The short answer keeps the question's place; the photo shows that place is there."
+      },
+      "learn": false
+    },
+    {
+      "id": "r-police",
+      "text": "Yes, there's one on Park Street.",
+      "es": "Sí, hay una en la calle Park.",
+      "image": "/lesson-assets/a1plus-unit-6-b03-2dfe578558c5e8d3.webp",
+      "kind": "near",
+      "question": "Is there a police station near here?",
+      "question_es": "¿Hay una estación de policía cerca de aquí?",
+      "question_speaker": "co-teacher",
+      "speaker": "teacher",
+      "use": false,
+      "image_choices": false,
+      "prefer": [
+        "No, there isn't."
+      ],
+      "accepts": {
+        "subject-variety": "The short answer keeps the question's place; the photo shows that place is there.",
+        "action-variety": "The short answer keeps the question's place; the photo shows that place is there.",
+        "conversational-response": "The short answer keeps the question's place; the photo shows that place is there.",
+        "reading-load": "The short answer keeps the question's place; the photo shows that place is there."
+      },
+      "learn": false
+    },
+    {
+      "id": "r-no-gas",
+      "text": "No, there isn't.",
+      "es": "No, no hay.",
+      "image": "/lesson-assets/a1_photo_u6_story_neighborhood_across_v1.webp",
+      "kind": "near",
+      "question": "Is there a gas station near here?",
+      "question_es": "¿Hay una gasolinera cerca de aquí?",
+      "question_speaker": "co-teacher",
+      "speaker": "teacher",
+      "use": false,
+      "image_choices": false,
+      "prefer": [
+        "Yes, there's one on Park Street."
+      ],
+      "accepts": {
+        "subject-variety": "The photo shows a shopping street with no gas station or police station, so the answer is no.",
+        "action-variety": "The photo shows a shopping street with no gas station or police station, so the answer is no.",
+        "conversational-response": "The photo shows a shopping street with no gas station or police station, so the answer is no.",
+        "reading-load": "The photo shows a shopping street with no gas station or police station, so the answer is no."
+      },
+      "learn": false
+    },
+    {
+      "id": "r-no-police",
+      "text": "No, there isn't.",
+      "es": "No, no hay.",
+      "image": "/lesson-assets/a1_photo_u6_story_neighborhood_across_v1.webp",
+      "kind": "near",
+      "question": "Is there a police station near here?",
+      "question_es": "¿Hay una estación de policía cerca de aquí?",
+      "question_speaker": "co-teacher",
+      "speaker": "teacher",
+      "use": false,
+      "image_choices": false,
+      "prefer": [
+        "Yes, there's one on Park Street."
+      ],
+      "accepts": {
+        "subject-variety": "The photo shows a shopping street with no gas station or police station, so the answer is no.",
+        "action-variety": "The photo shows a shopping street with no gas station or police station, so the answer is no.",
+        "conversational-response": "The photo shows a shopping street with no gas station or police station, so the answer is no.",
+        "reading-load": "The photo shows a shopping street with no gas station or police station, so the answer is no."
+      },
+      "learn": false
+    },
+    {
+      "id": "a-luis",
+      "text": "Luis is at the gas station.",
+      "es": "Luis está en la gasolinera.",
+      "image": "/lesson-assets/a1plus-unit-6-b04-d0d6c5e8b513c522.webp",
+      "kind": "at",
+      "prefer": [
+        "Luis is at the bakery.",
+        "Luis is at the police station."
+      ],
+      "image_choices": false,
+      "accepts": {
+        "subject-variety": "The bank keeps the person and changes only the place the photo shows.",
+        "action-variety": "The bank keeps the person and changes only the place the photo shows.",
+        "conversational-response": "The bank keeps the person and changes only the place the photo shows.",
+        "reading-load": "The bank keeps the person and changes only the place the photo shows."
+      },
+      "blanks": [
+        "gas",
+        "station"
+      ],
+      "learn": false
+    },
+    {
+      "id": "x-near",
+      "text": "Is there a bakery near here? Yes, there's one on Park Street.",
+      "es": "¿Hay una panadería cerca de aquí? Sí, hay una en la calle Park.",
+      "image": "/lesson-assets/a1plus-unit-6-b01-26fe3298c0cc0983.webp",
+      "kind": "xn",
+      "image_choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "Is there a bakery near here?",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1_photo_u6_story_help_first_question_v1.webp"
+        },
+        {
+          "text": "Yes, there's one on Park Street.",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-6-b01-26fe3298c0cc0983.webp"
+        }
+      ],
+      "accepts": {
+        "subject-variety": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "action-variety": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "conversational-response": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "reading-load": "Listen keeps the question and changes only the answer; the answer is what was heard."
+      },
+      "prefer": [
+        "Is there a bakery near here? No, there isn't."
+      ],
+      "learn": false
+    },
+    {
+      "id": "x-no",
+      "text": "Is there a gas station near here? No, there isn't.",
+      "es": "¿Hay una gasolinera cerca de aquí? No, no hay.",
+      "image": "/lesson-assets/a1_photo_u6_story_neighborhood_across_v1.webp",
+      "kind": "xg",
+      "image_choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "Is there a gas station near here?",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1_photo_u6_story_help_first_question_v1.webp"
+        },
+        {
+          "text": "No, there isn't.",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1_photo_u6_story_neighborhood_across_v1.webp"
+        }
+      ],
+      "accepts": {
+        "subject-variety": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "action-variety": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "conversational-response": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "reading-load": "Listen keeps the question and changes only the answer; the answer is what was heard."
+      },
+      "prefer": [
+        "Is there a gas station near here? Yes, there's one on Park Street."
+      ],
+      "learn": false
+    },
+    {
+      "id": "q-bakery",
+      "text": "Is there a bakery near here?",
+      "es": "¿Hay una panadería cerca de aquí?",
+      "image": "/lesson-assets/a1_photo_u6_story_help_first_question_v1.webp",
+      "kind": "question",
+      "speaker": "co-teacher",
+      "choices": false,
+      "use": true,
+      "blanks": [
+        "near",
+        "here"
+      ],
+      "learn": false
+    },
+    {
+      "id": "q-books",
+      "text": "Is there a bookstore near here?",
+      "es": "¿Hay una librería cerca de aquí?",
+      "image": "/lesson-assets/a1_photo_u6_story_help_first_question_v1.webp",
+      "kind": "question",
+      "speaker": "teacher",
+      "choices": false,
+      "use": true,
+      "blanks": [
+        "bookstore",
+        "near"
+      ],
+      "learn": false
+    },
+    {
+      "id": "q-gas",
+      "text": "Is there a gas station near here?",
+      "es": "¿Hay una gasolinera cerca de aquí?",
+      "image": "/lesson-assets/a1_photo_u6_story_help_first_question_v1.webp",
+      "kind": "question",
+      "speaker": "co-teacher",
+      "choices": false,
+      "use": true,
+      "blanks": null,
+      "learn": false
+    },
+    {
+      "id": "q-police",
+      "text": "Is there a police station near here?",
+      "es": "¿Hay una estación de policía cerca de aquí?",
+      "image": "/lesson-assets/a1_photo_u6_story_help_first_question_v1.webp",
+      "kind": "question",
+      "speaker": "teacher",
+      "choices": false,
+      "use": true,
+      "blanks": null,
+      "learn": false
+    },
+    {
+      "id": "u-one",
+      "text": "There's one on Park Street.",
+      "es": "Hay una en la calle Park.",
+      "image": "/lesson-assets/a1plus-unit-6-b02-eb4a7a3266cb508d.webp",
+      "kind": "use",
+      "choices": false,
+      "blanks": [
+        "There's",
+        "one"
+      ],
+      "learn": false
+    },
+    {
+      "id": "u4-none",
+      "text": "Is there a bookstore near here? No, there isn't. There aren't any bookstores here.",
+      "es": "¿Hay una librería cerca de aquí? No, no hay. Aquí no hay librerías.",
+      "image": "/lesson-assets/a1_photo_u6_story_neighborhood_across_v1.webp",
+      "kind": "u4-none",
+      "image_choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "Is there a bookstore near here?",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1_photo_u6_story_neighborhood_across_v1.webp"
+        },
+        {
+          "text": "No, there isn't. There aren't any bookstores here.",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1_photo_u6_story_neighborhood_across_v1.webp"
+        }
+      ],
+      "accepts": {
+        "subject-variety": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "action-variety": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "conversational-response": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "reading-load": "Listen keeps the question and changes only the answer; the answer is what was heard."
+      },
+      "prefer": [
+        "Is there a bookstore near here? Yes, there is. There's one on Park Street."
+      ],
+      "learn": false
+    }
+  ],
+  "pool": [
+    {
+      "text": "This is a bookstore.",
+      "es": "Esta es una librería.",
+      "image": "/lesson-assets/a1plus-unit-6-b01-26fe3298c0cc0983.webp",
+      "kind": "place",
+      "image_choices": false
+    },
+    {
+      "text": "This is a police station.",
+      "es": "Esta es una estación de policía.",
+      "image": "/lesson-assets/a1plus-unit-6-b01-26fe3298c0cc0983.webp",
+      "kind": "place",
+      "image_choices": false
+    },
+    {
+      "text": "This is a gas station.",
+      "es": "Esta es una gasolinera.",
+      "image": "/lesson-assets/a1plus-unit-6-b02-eb4a7a3266cb508d.webp",
+      "kind": "place",
+      "image_choices": false
+    },
+    {
+      "text": "This is a bakery.",
+      "es": "Esta es una panadería.",
+      "image": "/lesson-assets/a1plus-unit-6-b03-2dfe578558c5e8d3.webp",
+      "kind": "place",
+      "image_choices": false
+    },
+    {
+      "text": "No, there isn't.",
+      "es": "No, no hay.",
+      "image": "/lesson-assets/a1plus-unit-6-b01-26fe3298c0cc0983.webp",
+      "kind": "near",
+      "image_choices": false
+    },
+    {
+      "text": "Yes, there's one on Park Street.",
+      "es": "Sí, hay una en la calle Park.",
+      "image": "/lesson-assets/a1_photo_u6_story_neighborhood_across_v1.webp",
+      "kind": "near",
+      "image_choices": false
+    },
+    {
+      "text": "Luis is at the bakery.",
+      "es": "Luis está en la panadería.",
+      "image": "/lesson-assets/a1plus-unit-6-b04-d0d6c5e8b513c522.webp",
+      "kind": "at",
+      "image_choices": false
+    },
+    {
+      "text": "Luis is at the police station.",
+      "es": "Luis está en la estación de policía.",
+      "image": "/lesson-assets/a1plus-unit-6-b04-d0d6c5e8b513c522.webp",
+      "kind": "at",
+      "image_choices": false
+    },
+    {
+      "text": "Is there a bakery near here? No, there isn't.",
+      "es": "¿Hay una panadería cerca de aquí? No, no hay.",
+      "image": "/lesson-assets/a1plus-unit-6-b01-26fe3298c0cc0983.webp",
+      "kind": "xn",
+      "image_choices": false
+    },
+    {
+      "text": "Is there a gas station near here? Yes, there's one on Park Street.",
+      "es": "¿Hay una gasolinera cerca de aquí? Sí, hay una en la calle Park.",
+      "image": "/lesson-assets/a1_photo_u6_story_neighborhood_across_v1.webp",
+      "kind": "xg",
+      "image_choices": false
+    },
+    {
+      "text": "Is there a bookstore near here? Yes, there is. There's one on Park Street.",
+      "es": "¿Hay una librería cerca de aquí? Sí, hay. Hay una en Park Street.",
+      "image": "/lesson-assets/a1_photo_u6_story_neighborhood_across_v1.webp",
+      "kind": "u4-none",
+      "image_choices": false
+    }
+  ],
+  "layout": {
+    "Recognize": 10,
+    "Listen": 10,
+    "Speak": 8,
+    "Use": 8
+  },
+  "stage_sequences": {
+    "Learn": [
+      "l-bakery",
+      "l-books",
+      "l-police",
+      "l-gas",
+      "l-near",
+      "l-no"
+    ],
+    "Recognize": [
+      "t-bakery",
+      "r-books",
+      "t-police",
+      "r-no-gas",
+      "t-gas",
+      "a-luis",
+      "t-books",
+      "r-bakery",
+      "t-pharmacy",
+      "r-no-police"
+    ],
+    "Listen": [
+      "t-books",
+      "r-bakery",
+      "x-near",
+      "t-gas",
+      "r-no-police",
+      "t-library",
+      "x-no",
+      "t-police",
+      "r-police",
+      "u4-none"
+    ],
+    "Speak": [
+      "q-bakery",
+      "t-gas",
+      "u-one",
+      "q-books",
+      "t-police",
+      "q-police",
+      "t-bakery",
+      "q-gas"
+    ],
+    "Use": [
+      "t-bakery",
+      "t-books",
+      "t-police",
+      "t-gas",
+      "a-luis",
+      "q-bakery",
+      "u-one",
+      "q-books"
+    ]
+  }
+}

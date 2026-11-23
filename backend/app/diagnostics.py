@@ -2,6 +2,8 @@ import os
 
 import sentry_sdk
 
+from .deploy_source import deployed_identity
+
 
 def _sample_rate(value: str | None, fallback: float = 0.2) -> float:
     try:
@@ -22,7 +24,8 @@ def initialize_diagnostics() -> bool:
         "send_default_pii": False,
         "traces_sample_rate": _sample_rate(os.getenv("SENTRY_TRACES_SAMPLE_RATE")),
     }
-    release = os.getenv("RENDER_GIT_COMMIT", "").strip()
+    # Tag errors with the main commit, not the render-deploy copy's commit.
+    release = deployed_identity()["git_commit"]
     if release:
         options["release"] = release
 

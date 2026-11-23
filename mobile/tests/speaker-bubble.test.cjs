@@ -28,7 +28,9 @@ const REGISTERED_LESSONS = [
   ...[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map(n => `a1plus-unit-1-lesson-1-${n}`),
   ...Array.from({ length: 14 }, (_, i) => `a1plus-unit-2-lesson-2-${i + 1}`),
   ...Array.from({ length: 15 }, (_, i) => `a1plus-unit-3-lesson-3-${i + 1}`),
-  ...Array.from({ length: 6 }, (_, i) => `a1plus-unit-4-lesson-4-${i + 1}`),
+  ...Array.from({ length: 16 }, (_, i) => `a1plus-unit-4-lesson-4-${i + 1}`),
+  ...Array.from({ length: 15 }, (_, i) => `a1plus-unit-5-lesson-5-${i + 1}`),
+  ...Array.from({ length: 14 }, (_, i) => `a1plus-unit-6-lesson-6-${i + 1}`),
   ...Array.from({ length: 14 }, (_, i) => `a1plus-unit-7-lesson-7-${i + 1}`),
 ];
 const lessons = courses.filter(lesson => REGISTERED_LESSONS.includes(lesson.id));
