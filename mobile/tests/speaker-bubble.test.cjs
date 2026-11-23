@@ -30,6 +30,7 @@ const REGISTERED_LESSONS = [
   ...Array.from({ length: 15 }, (_, i) => `a1plus-unit-3-lesson-3-${i + 1}`),
   ...Array.from({ length: 16 }, (_, i) => `a1plus-unit-4-lesson-4-${i + 1}`),
   ...Array.from({ length: 15 }, (_, i) => `a1plus-unit-5-lesson-5-${i + 1}`),
+  ...Array.from({ length: 14 }, (_, i) => `a1plus-unit-6-lesson-6-${i + 1}`),
 ];
 const lessons = courses.filter(lesson => REGISTERED_LESSONS.includes(lesson.id));
 const cardImages = card => [card.prompt_image_url, ...(card.options || []).map(option => option.image_url),

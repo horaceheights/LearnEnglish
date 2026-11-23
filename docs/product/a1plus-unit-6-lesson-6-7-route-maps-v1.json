@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "pack": "a1plus-unit-6-lesson-6-7-route-maps",
+  "revision": 1,
+  "output_namespace": "a1plus-unit-6-lesson-v670",
+  "authorization": "2026-11-20: the user asked \"Lets work on a1+ Unit 6 same all deal as before none stop all approved\" (the Units 2-4 deal: straight to Preview in batches with media pre-approved and reviewed in Preview; the map is approved with the request). Gemini is the approved image tool (2026-09-23), Flash only (2026-11-17; \"lets switch to flash for any other images\", 2026-11-19).",
+  "image_settings": {
+    "provider": "google-gemini",
+    "model": "gemini-2.5-flash-image",
+    "aspect_ratio": "3:2",
+    "image_size": "1K",
+    "runtime_size": "1536x1024",
+    "runtime_format": "webp",
+    "n": 1
+  },
+  "production": {
+    "price_per_image_usd": "0.0387",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing (checked 2026-11-16: Gemini 2.5 Flash Image, about $0.039 per image)",
+    "planned_images": 4,
+    "expected_cost_usd": "0.15",
+    "requested_ceiling_usd": "0.40",
+    "ceiling_note": "The renderer reserves US$0.20 before each request; each request is sent on its own, and the expected spend for the pack is about US$0.15.",
+    "no_automatic_retries": true,
+    "order": "Generate m01 first; check the route passes exactly one side street and turns left at the second; then m02-m04."
+  },
+  "shared_prompts": {
+    "photo": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, menus, screens, cups, clothes or bags.",
+    "safe_center": "Keep the people and the thing that carries the meaning inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.",
+    "solo": "Only this one person is in the photo; there is nobody else, even far in the background.",
+    "pair": "Only these two people are in the photo; there is nobody else, even far in the background.",
+    "daytime": "It is clearly daytime with soft natural light.",
+    "store": "The camera stands on the sidewalk across from the shop and looks straight at its whole front: the door and the big shop window are clearly visible. The shop has NO sign, no name and no writing anywhere; what it is must be obvious only from what fills the window.",
+    "nobody": "There are no people anywhere in the photo.",
+    "n4": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, logos or brand marks anywhere, and no number anywhere except the one sign number described (4): no other signs, screens, clocks, tickets, trains, planes or clothes show any digit.",
+    "n7": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, logos or brand marks anywhere, and no number anywhere except the one sign number described (7): no other signs, screens, clocks, tickets, trains, planes or clothes show any digit.",
+    "n12": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, logos or brand marks anywhere, and no number anywhere except the one sign number described (12): no other signs, screens, clocks, tickets, trains, planes or clothes show any digit.",
+    "n9": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, logos or brand marks anywhere, and no number anywhere except the one sign number described (9): no other signs, screens, clocks, tickets, trains, planes or clothes show any digit.",
+    "corner": "The camera stands across the crossroads, so the corner building is in the middle of the photo with one street running along its left side and another along its right side, each with a white zebra crosswalk; it is plain to see that the shop is on the corner where the two streets meet. The shop has NO sign, name or writing anywhere.",
+    "opposite": "The camera stands inside a small green park with trees and a bench in the front of the photo and looks across one quiet street at the building on the other side, which faces the park directly. Both the park and the building are clearly visible, with the street between them.",
+    "map": "Use case: a simple top-down street map illustration for a Spanish-speaking adult beginner learning English: flat clean colors, light-grey streets on a pale green background, small rounded grey building blocks, a few trees. Full-bleed 3:2 landscape, no frame, no compass, no legend, no letters, words, numbers or icons anywhere. A first-time learner must understand the route instantly on a small phone screen.",
+    "grid": "The map is a regular grid: one long main street runs straight up the middle of the map from the bottom edge to the top edge, and side streets cross it at right angles, evenly spaced, so the blocks between them are equal squares. A big red round dot at the bottom of the main street marks where you start. A thick bright-blue line with an arrowhead shows the route.",
+    "sign": "The sign is one round white traffic sign with a thick red border and a red diagonal bar, on a grey metal pole, showing one simple black pictogram and NO letters, words or numbers; it is big, upright and easy to read even on a small phone screen."
+  },
+  "assets": [
+    {
+      "id": "m01-second-left",
+      "order": 1,
+      "item": "Take the second street on the left.",
+      "shared": [
+        "map",
+        "grid"
+      ],
+      "prompt": "The blue route line starts at the red dot, goes straight up the main street, passes the FIRST side street without turning, and turns LEFT into the SECOND side street, ending in a big arrowhead pointing left. A small red-roofed house with a yellow star above it stands on that second street on the left, where the arrow ends. The first side street is clearly crossed, not taken."
+    },
+    {
+      "id": "m02-second-right",
+      "order": 2,
+      "item": "Take the second street on the right.",
+      "shared": [
+        "map",
+        "grid"
+      ],
+      "prompt": "The blue route line starts at the red dot, goes straight up the main street, passes the FIRST side street without turning, and turns RIGHT into the SECOND side street, ending in a big arrowhead pointing right. A small red-roofed house with a yellow star above it stands on that second street on the right, where the arrow ends. The first side street is clearly crossed, not taken."
+    },
+    {
+      "id": "m03-first-left",
+      "order": 3,
+      "item": "Take the first street on the left.",
+      "shared": [
+        "map",
+        "grid"
+      ],
+      "prompt": "The blue route line starts at the red dot, goes a short way up the main street and turns LEFT into the FIRST side street, ending in a big arrowhead pointing left. A small red-roofed house with a yellow star above it stands on that first street on the left, where the arrow ends. The other side streets further up are empty."
+    },
+    {
+      "id": "m04-first-right",
+      "order": 4,
+      "item": "Take the first street on the right.",
+      "shared": [
+        "map",
+        "grid"
+      ],
+      "prompt": "The blue route line starts at the red dot, goes a short way up the main street and turns RIGHT into the FIRST side street, ending in a big arrowhead pointing right. A small red-roofed house with a yellow star above it stands on that first street on the right, where the arrow ends. The other side streets further up are empty."
+    }
+  ]
+}

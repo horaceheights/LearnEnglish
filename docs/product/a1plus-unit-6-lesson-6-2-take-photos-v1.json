@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "pack": "a1plus-unit-6-lesson-6-2-take-photos",
+  "revision": 1,
+  "output_namespace": "a1plus-unit-6-lesson-v620",
+  "authorization": "2026-11-20: the user asked \"Lets work on a1+ Unit 6 same all deal as before none stop all approved\" (the Units 2-4 deal: straight to Preview in batches with media pre-approved and reviewed in Preview; the map is approved with the request). Gemini is the approved image tool (2026-09-23), Flash only (2026-11-17; \"lets switch to flash for any other images\", 2026-11-19).",
+  "image_settings": {
+    "provider": "google-gemini",
+    "model": "gemini-2.5-flash-image",
+    "aspect_ratio": "3:2",
+    "image_size": "1K",
+    "runtime_size": "1536x1024",
+    "runtime_format": "webp",
+    "n": 1
+  },
+  "production": {
+    "price_per_image_usd": "0.0387",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing (checked 2026-11-16: Gemini 2.5 Flash Image, about $0.039 per image)",
+    "planned_images": 2,
+    "expected_cost_usd": "0.08",
+    "requested_ceiling_usd": "0.30",
+    "ceiling_note": "The renderer reserves US$0.20 before each request; each request is sent on its own, and the expected spend for the pack is about US$0.08.",
+    "no_automatic_retries": true,
+    "order": "Generate t01 first; check Sofia's face and that the car reads as underground; then t02."
+  },
+  "shared_prompts": {
+    "photo": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, menus, screens, cups, clothes or bags.",
+    "safe_center": "Keep the people and the thing that carries the meaning inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.",
+    "solo": "Only this one person is in the photo; there is nobody else, even far in the background.",
+    "pair": "Only these two people are in the photo; there is nobody else, even far in the background.",
+    "daytime": "It is clearly daytime with soft natural light.",
+    "store": "The camera stands on the sidewalk across from the shop and looks straight at its whole front: the door and the big shop window are clearly visible. The shop has NO sign, no name and no writing anywhere; what it is must be obvious only from what fills the window.",
+    "nobody": "There are no people anywhere in the photo.",
+    "n4": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, logos or brand marks anywhere, and no number anywhere except the one sign number described (4): no other signs, screens, clocks, tickets, trains, planes or clothes show any digit.",
+    "n7": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, logos or brand marks anywhere, and no number anywhere except the one sign number described (7): no other signs, screens, clocks, tickets, trains, planes or clothes show any digit.",
+    "n12": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, logos or brand marks anywhere, and no number anywhere except the one sign number described (12): no other signs, screens, clocks, tickets, trains, planes or clothes show any digit.",
+    "n9": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, logos or brand marks anywhere, and no number anywhere except the one sign number described (9): no other signs, screens, clocks, tickets, trains, planes or clothes show any digit."
+  },
+  "assets": [
+    {
+      "id": "t01-subway",
+      "order": 1,
+      "item": "Sofia takes the subway to work.",
+      "shared": [
+        "photo",
+        "safe_center"
+      ],
+      "prompt": "Image 1 shows Sofia. Keep the face, hair, skin and build exactly; keep her bright blue blazer over a white blouse. Create a new photograph of Sofia standing inside a modern subway train car in the morning, holding a silver pole with one hand and a small bag on her shoulder, smiling at the camera. Behind her the subway car's windows show a dark underground tunnel wall, and there are seats and silver handrails, so it is instantly a subway train underground. Two or three other passengers sit far behind her, small and out of focus. No maps, signs, screens, words or numbers anywhere.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-q03-7d520a07846a47b8.webp",
+        "sha256": "7d520a07846a47b8e8389c3226f3b3639d7eed0d257318b08e4f9b77c5b2258b",
+        "observed_description": "Sofia (long curly dark hair, warm brown skin, white blouse under a bright blue blazer) writes in a large notebook at a wooden desk by a bright window in her home study (A1+ 1.2)."
+      }
+    },
+    {
+      "id": "t02-motorcycle",
+      "order": 2,
+      "item": "Diego goes to work by motorcycle. / Diego takes his motorcycle.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "solo",
+        "daytime"
+      ],
+      "prompt": "Image 1 shows Diego. Keep the face, hair, skin and build exactly; keep his short full beard and his burgundy button shirt; add a dark jacket over it. Create a new photograph of Diego riding a dark-red motorcycle slowly along a quiet sunny city street, seen from the side and a little in front. He wears an open-face black helmet so his whole face and beard are clearly visible, and he smiles. The motorcycle has no number plate, writing or logos. Only this one person is in the photo.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-q04-ded74a2cb6021167.webp",
+        "sha256": "ded74a2cb6021167d6af2351e9012476d36c1b0936ca9f4f4b6dee68783bb9e2",
+        "observed_description": "Diego (dark curly hair with a little grey, short full beard, burgundy button shirt) sits at a wooden kitchen table and bites a red apple (A1+ 1.2)."
+      }
+    }
+  ]
+}
