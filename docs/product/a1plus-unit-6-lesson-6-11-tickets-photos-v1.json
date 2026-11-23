@@ -1,0 +1,106 @@
+{
+  "schema_version": 1,
+  "pack": "a1plus-unit-6-lesson-6-11-tickets-photos",
+  "revision": 1,
+  "output_namespace": "a1plus-unit-6-lesson-v6110",
+  "authorization": "2026-11-20: the user asked \"Lets work on a1+ Unit 6 same all deal as before none stop all approved\" (the Units 2-4 deal: straight to Preview in batches with media pre-approved and reviewed in Preview; the map is approved with the request). Gemini is the approved image tool (2026-09-23), Flash only (2026-11-17; \"lets switch to flash for any other images\", 2026-11-19).",
+  "image_settings": {
+    "provider": "google-gemini",
+    "model": "gemini-2.5-flash-image",
+    "aspect_ratio": "3:2",
+    "image_size": "1K",
+    "runtime_size": "1536x1024",
+    "runtime_format": "webp",
+    "n": 1
+  },
+  "production": {
+    "price_per_image_usd": "0.0387",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing (checked 2026-11-16: Gemini 2.5 Flash Image, about $0.039 per image)",
+    "planned_images": 4,
+    "expected_cost_usd": "0.15",
+    "requested_ceiling_usd": "0.40",
+    "ceiling_note": "The renderer reserves US$0.20 before each request; each request is sent on its own, and the expected spend for the pack is about US$0.15.",
+    "no_automatic_retries": true,
+    "order": "Generate x01 first; check the arrow is one-way and no text appears; then x02-x04."
+  },
+  "shared_prompts": {
+    "photo": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, menus, screens, cups, clothes or bags.",
+    "safe_center": "Keep the people and the thing that carries the meaning inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.",
+    "solo": "Only this one person is in the photo; there is nobody else, even far in the background.",
+    "pair": "Only these two people are in the photo; there is nobody else, even far in the background.",
+    "daytime": "It is clearly daytime with soft natural light.",
+    "store": "The camera stands on the sidewalk across from the shop and looks straight at its whole front: the door and the big shop window are clearly visible. The shop has NO sign, no name and no writing anywhere; what it is must be obvious only from what fills the window.",
+    "nobody": "There are no people anywhere in the photo.",
+    "n4": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, logos or brand marks anywhere, and no number anywhere except the one sign number described (4): no other signs, screens, clocks, tickets, trains, planes or clothes show any digit.",
+    "n7": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, logos or brand marks anywhere, and no number anywhere except the one sign number described (7): no other signs, screens, clocks, tickets, trains, planes or clothes show any digit.",
+    "n12": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, logos or brand marks anywhere, and no number anywhere except the one sign number described (12): no other signs, screens, clocks, tickets, trains, planes or clothes show any digit.",
+    "n9": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, logos or brand marks anywhere, and no number anywhere except the one sign number described (9): no other signs, screens, clocks, tickets, trains, planes or clothes show any digit.",
+    "noword": "No sign, screen, ticket, car, train or building shows any letters, words, numbers, logos or clocks.",
+    "ticket": "The ticket is a plain cream-colored paper train ticket with NO letters, words or numbers, only one big bold black arrow symbol printed in its middle, as described.",
+    "hotel": "The place is the bright, simple front desk of a small modern hotel: a wooden counter, a plant and a wall of soft light behind; there are no signs, screens with writing or room numbers."
+  },
+  "assets": [
+    {
+      "id": "x01-one-way",
+      "order": 1,
+      "item": "a one-way ticket",
+      "shared": [
+        "photo",
+        "safe_center",
+        "daytime",
+        "nobody",
+        "ticket"
+      ],
+      "prompt": "A close-up of one paper train ticket lying on a grey stone counter. In its middle is ONE big black arrow pointing to the right, from left to right only. The ticket fills the middle of the photo."
+    },
+    {
+      "id": "x02-round-trip",
+      "order": 2,
+      "item": "a round-trip ticket",
+      "shared": [
+        "photo",
+        "safe_center",
+        "daytime",
+        "nobody",
+        "ticket"
+      ],
+      "prompt": "A close-up of one paper train ticket lying on a grey stone counter. In its middle is ONE big black two-way arrow: a straight line with an arrowhead at BOTH ends, pointing left and right, showing going and coming back. The ticket fills the middle of the photo."
+    },
+    {
+      "id": "x03-sofia-buys",
+      "order": 3,
+      "item": "Sofia buys a round-trip ticket.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "daytime",
+        "pair",
+        "noword"
+      ],
+      "prompt": "Image 1 shows Sofia. Keep the face, hair, skin and build exactly; keep her bright blue blazer over a white blouse. Create a new photograph at the ticket window of a bright train station: Sofia stands at the counter and takes a paper ticket from a smiling ticket clerk in a grey uniform shirt behind the glass window; both faces show. Trains are blurred far behind.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-q03-7d520a07846a47b8.webp",
+        "sha256": "7d520a07846a47b8e8389c3226f3b3639d7eed0d257318b08e4f9b77c5b2258b",
+        "observed_description": "Sofia (long curly dark hair, warm brown skin, white blouse under a bright blue blazer) writes in a large notebook at a wooden desk by a bright window in her home study (A1+ 1.2)."
+      }
+    },
+    {
+      "id": "x04-diego-buys",
+      "order": 4,
+      "item": "Diego buys a one-way ticket.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "daytime",
+        "pair",
+        "noword"
+      ],
+      "prompt": "Image 1 shows Diego. Keep the face, hair, skin and build exactly; keep his short full beard and his burgundy button shirt and add his grey backpack. Create a new photograph at the ticket window of a bright bus station: Diego stands at the counter and hands two banknotes to a smiling ticket clerk, a woman with a grey bun in a dark-blue uniform, behind the glass window; both faces show. Buses are blurred far behind.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-q04-ded74a2cb6021167.webp",
+        "sha256": "ded74a2cb6021167d6af2351e9012476d36c1b0936ca9f4f4b6dee68783bb9e2",
+        "observed_description": "Diego (dark curly hair with a little grey, short full beard, burgundy button shirt) sits at a wooden kitchen table and bites a red apple (A1+ 1.2)."
+      }
+    }
+  ]
+}

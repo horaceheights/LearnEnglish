@@ -1,0 +1,807 @@
+{
+  "brief_version": 1,
+  "follows": {
+    "course": "a1",
+    "lesson": "6.13",
+    "title": "In the City"
+  },
+  "note": "A1+ Unit 6 Lesson 6.13, built on 2026-11-20 under the A1+ lesson standards approved 2026-10-27 and the user's 2026-11-09 rule that every A1+ lesson follows up the A1 lesson with the same number. The user asked on 2026-11-20 \"Lets work on a1+ Unit 6 same all deal as before none stop all approved\" (A1+ 6.Y follows A1 6.Y, one step each; fifteen lessons; the Units 2-4 deal: straight to Preview in batches, Gemini 2.5 Flash photos and ElevenLabs audio pre-approved, no per-lesson gates, reviewed in Preview). Four new photos (Gemini 2.5 Flash) of Ana's hotel check-in: at the front desk with her passport, taking a brass key from the receptionist, stepping out of the elevator with her suitcase, and in her room.",
+  "target": "backend/lessons/a1_plus/unit_6/a1plus-unit-6-lesson-6-13.yaml",
+  "captions": false,
+  "narrators": [
+    "teacher",
+    "co-teacher"
+  ],
+  "answer_audio_policy": "authored-only",
+  "speak_delivery": "a1-pronunciation-v1",
+  "lesson": {
+    "id": "a1plus-unit-6-lesson-6-13",
+    "title": "6.13 I have a reservation",
+    "level": "A1+",
+    "unit_id": "a1plus-unit-6",
+    "unit_title": "Getting around town and traveling",
+    "unit_outcome": "Ask whether a place is near, say how people go to work and why they go somewhere, find a platform or gate, pack for a trip, find places on a street, follow and ask for directions, ask permission, buy tickets, understand delays and check in at a hotel.",
+    "lesson_id": "a1plus-unit-6-lesson-6-13",
+    "lesson_title": "I have a reservation",
+    "sub_lesson_id": "6.13",
+    "sub_lesson_title": "I have a reservation",
+    "goal": "Check in at a hotel: say you have a reservation, take your key and ask what floor your room is on (I have a reservation. Here's your key. It's on the fifth floor.).",
+    "vocabulary": [
+      "reservation",
+      "Here's your",
+      "elevator",
+      "What floor"
+    ],
+    "review_vocabulary": [
+      "I have a",
+      "Do you have",
+      "Yes, I do",
+      "No, I don't",
+      "key",
+      "passport",
+      "ticket",
+      "Thank you",
+      "Ana",
+      "takes",
+      "take",
+      "We",
+      "the bus",
+      "the subway",
+      "This is her",
+      "This is his",
+      "room",
+      "my",
+      "It's on the",
+      "fifth floor",
+      "second floor",
+      "third floor",
+      "fourth floor",
+      "your",
+      "her",
+      "has",
+      "She"
+    ],
+    "grammar_function": "A follow-up of A1 6.13 In the City: A1 names a city, a hotel and things to visit; A1+ 6.13 checks in at the hotel. The new items are reservation (I have a reservation.), the handing-over phrase Here's your … (Here's your key.), elevator, and the question What floor is my room on? answered with 2.6-2.7's ordinals (It's on the fifth floor.). Four photos follow Ana through one hotel: at the front desk with her passport, taking her key, stepping out of the elevator and smiling in her room. The floor is never shown in a photo, so which floor is only heard.",
+    "prerequisite": "A1 6.13 hotel; A1+ 2.6-2.7 floors and ordinals; A1+ 6.2 takes; A1+ 6.5 passport.",
+    "speaking_outcome": "Stress res-er-VA-tion and EL-e-va-tor; link Here's your (HEERZ-yer). Do not require native-like speed.",
+    "content_revision": 1,
+    "learn_context_groups": [
+      {
+        "kind": "sequence",
+        "targets": [
+          "reservation"
+        ],
+        "models": [
+          {
+            "slide_id": "L1",
+            "text": "I have a reservation."
+          }
+        ]
+      },
+      {
+        "kind": "sequence",
+        "targets": [
+          "Here's your"
+        ],
+        "models": [
+          {
+            "slide_id": "L2",
+            "text": "Here's your key."
+          }
+        ]
+      },
+      {
+        "kind": "sequence",
+        "targets": [
+          "elevator"
+        ],
+        "models": [
+          {
+            "slide_id": "L3",
+            "text": "Ana takes the elevator."
+          }
+        ]
+      },
+      {
+        "kind": "exchange",
+        "targets": [
+          "What floor"
+        ],
+        "models": [
+          {
+            "slide_id": "L4",
+            "text": "What floor is my room on? It's on the fifth floor.",
+            "turns": [
+              "What floor is my room on?",
+              "It's on the fifth floor."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "items": [
+    {
+      "id": "l-res",
+      "text": "I have a reservation.",
+      "es": "Tengo una reservación.",
+      "image": "/lesson-assets/a1plus-unit-6-z01-129d6e79e344e481.webp",
+      "kind": "sequence",
+      "choices": false,
+      "use": false,
+      "speaker": "co-teacher"
+    },
+    {
+      "id": "l-key",
+      "text": "Here's your key.",
+      "es": "Aquí está su llave.",
+      "image": "/lesson-assets/a1plus-unit-6-z02-baacaee429ba8d9d.webp",
+      "kind": "sequence",
+      "choices": false,
+      "use": false,
+      "speaker": "teacher"
+    },
+    {
+      "id": "l-elev",
+      "text": "Ana takes the elevator.",
+      "es": "Ana toma el elevador.",
+      "image": "/lesson-assets/a1plus-unit-6-z03-893afc20dc5b6173.webp",
+      "kind": "sequence",
+      "choices": false,
+      "use": false,
+      "speaker": "co-teacher"
+    },
+    {
+      "id": "l-floor",
+      "text": "What floor is my room on? It's on the fifth floor.",
+      "es": "¿En qué piso está mi cuarto? Está en el quinto piso.",
+      "image": "/lesson-assets/a1plus-unit-6-z02-baacaee429ba8d9d.webp",
+      "kind": "exchange",
+      "choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "What floor is my room on?",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-6-z02-baacaee429ba8d9d.webp"
+        },
+        {
+          "text": "It's on the fifth floor.",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-6-z03-893afc20dc5b6173.webp"
+        }
+      ]
+    },
+    {
+      "id": "f-res",
+      "text": "Ana has a reservation.",
+      "es": "Ana tiene una reservación.",
+      "image": "/lesson-assets/a1plus-unit-6-z01-129d6e79e344e481.webp",
+      "kind": "hotelf-res",
+      "prefer": [
+        "Ana has a key.",
+        "Ana has a ticket."
+      ],
+      "accepts": {
+        "subject-variety": "The bank keeps Ana's hotel visit and changes only the step the photo shows: at the desk, the key, the elevator or her room.",
+        "action-variety": "The bank keeps Ana's hotel visit and changes only the step the photo shows: at the desk, the key, the elevator or her room.",
+        "conversational-response": "The bank keeps Ana's hotel visit and changes only the step the photo shows: at the desk, the key, the elevator or her room.",
+        "reading-load": "The bank keeps Ana's hotel visit and changes only the step the photo shows: at the desk, the key, the elevator or her room."
+      },
+      "image_choices": false,
+      "learn": false
+    },
+    {
+      "id": "f-key",
+      "text": "Here's your key.",
+      "es": "Aquí está su llave.",
+      "image": "/lesson-assets/a1plus-unit-6-z02-baacaee429ba8d9d.webp",
+      "kind": "hotelf-key",
+      "prefer": [
+        "Here's your passport.",
+        "Here's your ticket."
+      ],
+      "accepts": {
+        "subject-variety": "The bank keeps Ana's hotel visit and changes only the step the photo shows: at the desk, the key, the elevator or her room.",
+        "action-variety": "The bank keeps Ana's hotel visit and changes only the step the photo shows: at the desk, the key, the elevator or her room.",
+        "conversational-response": "The bank keeps Ana's hotel visit and changes only the step the photo shows: at the desk, the key, the elevator or her room.",
+        "reading-load": "The bank keeps Ana's hotel visit and changes only the step the photo shows: at the desk, the key, the elevator or her room."
+      },
+      "image_choices": false,
+      "learn": false
+    },
+    {
+      "id": "f-elev",
+      "text": "Ana takes the elevator.",
+      "es": "Ana toma el elevador.",
+      "image": "/lesson-assets/a1plus-unit-6-z03-893afc20dc5b6173.webp",
+      "kind": "hotelf-elev",
+      "prefer": [
+        "Ana takes the bus.",
+        "Ana takes the subway."
+      ],
+      "accepts": {
+        "subject-variety": "The bank keeps Ana's hotel visit and changes only the step the photo shows: at the desk, the key, the elevator or her room.",
+        "action-variety": "The bank keeps Ana's hotel visit and changes only the step the photo shows: at the desk, the key, the elevator or her room.",
+        "conversational-response": "The bank keeps Ana's hotel visit and changes only the step the photo shows: at the desk, the key, the elevator or her room.",
+        "reading-load": "The bank keeps Ana's hotel visit and changes only the step the photo shows: at the desk, the key, the elevator or her room."
+      },
+      "image_choices": false,
+      "learn": false
+    },
+    {
+      "id": "f-room",
+      "text": "This is her room.",
+      "es": "Este es su cuarto.",
+      "image": "/lesson-assets/a1plus-unit-6-z04-1fe6dacb083fec63.webp",
+      "kind": "hotelf-room",
+      "prefer": [
+        "This is his room."
+      ],
+      "accepts": {
+        "subject-variety": "The bank keeps Ana's hotel visit and changes only the step the photo shows: at the desk, the key, the elevator or her room.",
+        "action-variety": "The bank keeps Ana's hotel visit and changes only the step the photo shows: at the desk, the key, the elevator or her room.",
+        "conversational-response": "The bank keeps Ana's hotel visit and changes only the step the photo shows: at the desk, the key, the elevator or her room.",
+        "reading-load": "The bank keeps Ana's hotel visit and changes only the step the photo shows: at the desk, the key, the elevator or her room."
+      },
+      "image_choices": false,
+      "learn": false
+    },
+    {
+      "id": "p-res",
+      "text": "I have a reservation.",
+      "es": "Tengo una reservación.",
+      "image": "/lesson-assets/a1plus-unit-6-z01-129d6e79e344e481.webp",
+      "kind": "picture",
+      "text_choices": false,
+      "use": false,
+      "accepts": {
+        "subject-variety": "A picture bank shows one step of Ana's hotel visit in each photo; the sentence names it.",
+        "action-variety": "A picture bank shows one step of Ana's hotel visit in each photo; the sentence names it."
+      },
+      "learn": false
+    },
+    {
+      "id": "p-key",
+      "text": "Here's your key.",
+      "es": "Aquí está su llave.",
+      "image": "/lesson-assets/a1plus-unit-6-z02-baacaee429ba8d9d.webp",
+      "kind": "picture",
+      "text_choices": false,
+      "use": false,
+      "accepts": {
+        "subject-variety": "A picture bank shows one step of Ana's hotel visit in each photo; the sentence names it.",
+        "action-variety": "A picture bank shows one step of Ana's hotel visit in each photo; the sentence names it."
+      },
+      "learn": false
+    },
+    {
+      "id": "p-elev",
+      "text": "She takes the elevator.",
+      "es": "Toma el elevador.",
+      "image": "/lesson-assets/a1plus-unit-6-z03-893afc20dc5b6173.webp",
+      "kind": "picture",
+      "text_choices": false,
+      "use": false,
+      "accepts": {
+        "subject-variety": "A picture bank shows one step of Ana's hotel visit in each photo; the sentence names it.",
+        "action-variety": "A picture bank shows one step of Ana's hotel visit in each photo; the sentence names it."
+      },
+      "learn": false
+    },
+    {
+      "id": "p-room",
+      "text": "This is her room.",
+      "es": "Este es su cuarto.",
+      "image": "/lesson-assets/a1plus-unit-6-z04-1fe6dacb083fec63.webp",
+      "kind": "picture",
+      "text_choices": false,
+      "use": false,
+      "accepts": {
+        "subject-variety": "A picture bank shows one step of Ana's hotel visit in each photo; the sentence names it.",
+        "action-variety": "A picture bank shows one step of Ana's hotel visit in each photo; the sentence names it."
+      },
+      "learn": false
+    },
+    {
+      "id": "x-floor",
+      "text": "What floor is my room on? It's on the fifth floor.",
+      "es": "¿En qué piso está mi cuarto? Está en el quinto piso.",
+      "image": "/lesson-assets/a1plus-unit-6-z03-893afc20dc5b6173.webp",
+      "kind": "xf",
+      "image_choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "What floor is my room on?",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-6-z02-baacaee429ba8d9d.webp"
+        },
+        {
+          "text": "It's on the fifth floor.",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-6-z03-893afc20dc5b6173.webp"
+        }
+      ],
+      "accepts": {
+        "subject-variety": "Listen keeps the question and changes only the floor; the answer is what was heard.",
+        "action-variety": "Listen keeps the question and changes only the floor; the answer is what was heard.",
+        "conversational-response": "Listen keeps the question and changes only the floor; the answer is what was heard.",
+        "reading-load": "Listen keeps the question and changes only the floor; the answer is what was heard."
+      },
+      "prefer": [
+        "What floor is my room on? It's on the second floor."
+      ],
+      "learn": false
+    },
+    {
+      "id": "x-floor2",
+      "text": "What floor is your room on? It's on the third floor.",
+      "es": "¿En qué piso está tu cuarto? Está en el tercer piso.",
+      "image": "/lesson-assets/a1plus-unit-6-z03-893afc20dc5b6173.webp",
+      "kind": "xf2",
+      "image_choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "What floor is your room on?",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-6-z03-893afc20dc5b6173.webp"
+        },
+        {
+          "text": "It's on the third floor.",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-6-z03-893afc20dc5b6173.webp"
+        }
+      ],
+      "accepts": {
+        "subject-variety": "Listen keeps the question and changes only the floor; the answer is what was heard.",
+        "action-variety": "Listen keeps the question and changes only the floor; the answer is what was heard.",
+        "conversational-response": "Listen keeps the question and changes only the floor; the answer is what was heard.",
+        "reading-load": "Listen keeps the question and changes only the floor; the answer is what was heard."
+      },
+      "prefer": [
+        "What floor is your room on? It's on the fourth floor."
+      ],
+      "learn": false
+    },
+    {
+      "id": "x-res",
+      "text": "Do you have a reservation? Yes, I do.",
+      "es": "¿Tiene una reservación? Sí.",
+      "image": "/lesson-assets/a1plus-unit-6-z01-129d6e79e344e481.webp",
+      "kind": "xr",
+      "image_choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "Do you have a reservation?",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-6-z01-129d6e79e344e481.webp"
+        },
+        {
+          "text": "Yes, I do.",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-6-z01-129d6e79e344e481.webp"
+        }
+      ],
+      "accepts": {
+        "subject-variety": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "action-variety": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "conversational-response": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "reading-load": "Listen keeps the question and changes only the answer; the answer is what was heard."
+      },
+      "prefer": [
+        "Do you have a reservation? No, I don't."
+      ],
+      "learn": false
+    },
+    {
+      "id": "x-key",
+      "text": "Here's your key. Thank you.",
+      "es": "Aquí está su llave. Gracias.",
+      "image": "/lesson-assets/a1plus-unit-6-z02-baacaee429ba8d9d.webp",
+      "kind": "xk",
+      "image_choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "Here's your key.",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-6-z02-baacaee429ba8d9d.webp"
+        },
+        {
+          "text": "Thank you.",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-6-z02-baacaee429ba8d9d.webp"
+        }
+      ],
+      "accepts": {
+        "subject-variety": "Listen keeps Here's your … and Thank you and changes only the thing; the answer is what was heard.",
+        "action-variety": "Listen keeps Here's your … and Thank you and changes only the thing; the answer is what was heard.",
+        "conversational-response": "Listen keeps Here's your … and Thank you and changes only the thing; the answer is what was heard.",
+        "reading-load": "Listen keeps Here's your … and Thank you and changes only the thing; the answer is what was heard."
+      },
+      "prefer": [
+        "Here's your ticket. Thank you."
+      ],
+      "learn": false
+    },
+    {
+      "id": "u-res",
+      "text": "I have a reservation.",
+      "es": "Tengo una reservación.",
+      "image": "/lesson-assets/a1plus-unit-6-z01-129d6e79e344e481.webp",
+      "kind": "use",
+      "choices": false,
+      "use": true,
+      "learn": false
+    },
+    {
+      "id": "u-q",
+      "text": "Do you have a reservation?",
+      "es": "¿Tiene una reservación?",
+      "image": "/lesson-assets/a1plus-unit-6-z01-129d6e79e344e481.webp",
+      "kind": "question",
+      "choices": false,
+      "use": true,
+      "speaker": "teacher",
+      "learn": false
+    },
+    {
+      "id": "u-floor",
+      "text": "What floor is my room on?",
+      "es": "¿En qué piso está mi cuarto?",
+      "image": "/lesson-assets/a1plus-unit-6-z02-baacaee429ba8d9d.webp",
+      "kind": "question",
+      "choices": false,
+      "use": true,
+      "speaker": "co-teacher",
+      "learn": false
+    },
+    {
+      "id": "u-fifth",
+      "text": "It's on the fifth floor.",
+      "es": "Está en el quinto piso.",
+      "image": "/lesson-assets/a1plus-unit-6-z03-893afc20dc5b6173.webp",
+      "kind": "use",
+      "choices": false,
+      "use": true,
+      "learn": false
+    },
+    {
+      "id": "u-key",
+      "text": "Here's your key.",
+      "es": "Aquí está su llave.",
+      "image": "/lesson-assets/a1plus-unit-6-z02-baacaee429ba8d9d.webp",
+      "kind": "use",
+      "choices": false,
+      "use": true,
+      "learn": false
+    },
+    {
+      "id": "u-floor2",
+      "text": "What floor is her room on?",
+      "es": "¿En qué piso está su cuarto?",
+      "image": "/lesson-assets/a1plus-unit-6-z04-1fe6dacb083fec63.webp",
+      "kind": "question",
+      "choices": false,
+      "use": true,
+      "speaker": "teacher",
+      "learn": false
+    },
+    {
+      "id": "u-elev",
+      "text": "We take the elevator.",
+      "es": "Tomamos el elevador.",
+      "image": "/lesson-assets/a1plus-unit-6-z03-893afc20dc5b6173.webp",
+      "kind": "use",
+      "choices": false,
+      "use": true,
+      "learn": false
+    },
+    {
+      "id": "u4-opened",
+      "text": "Ana opened the door of her room.",
+      "es": "Ana abrió la puerta de su cuarto.",
+      "image": "/lesson-assets/a1plus-unit-6-z04-1fe6dacb083fec63.webp",
+      "kind": "u4-opened",
+      "image_choices": false,
+      "use": false,
+      "accepts": {
+        "subject-variety": "The sentence keeps the person and the place and changes only the reused detail; the photo fits each option and the words decide.",
+        "action-variety": "The sentence keeps the person and the place and changes only the reused detail; the photo fits each option and the words decide.",
+        "conversational-response": "The sentence keeps the person and the place and changes only the reused detail; the photo fits each option and the words decide.",
+        "reading-load": "The sentence keeps the person and the place and changes only the reused detail; the photo fits each option and the words decide."
+      },
+      "prefer": [
+        "Ana opened the door of the bank."
+      ],
+      "learn": false
+    },
+    {
+      "id": "u4-upstairs",
+      "text": "Where's my room? It's upstairs.",
+      "es": "¿Dónde está mi cuarto? Está arriba.",
+      "image": "/lesson-assets/a1plus-unit-6-z03-893afc20dc5b6173.webp",
+      "kind": "u4-upstairs",
+      "image_choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "Where's my room?",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-6-z03-893afc20dc5b6173.webp"
+        },
+        {
+          "text": "It's upstairs.",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-6-z03-893afc20dc5b6173.webp"
+        }
+      ],
+      "accepts": {
+        "subject-variety": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "action-variety": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "conversational-response": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "reading-load": "Listen keeps the question and changes only the answer; the answer is what was heard."
+      },
+      "prefer": [
+        "Where's my room? It's downstairs."
+      ],
+      "learn": false
+    },
+    {
+      "id": "u4-res-when",
+      "text": "When is your reservation? It's on Friday.",
+      "es": "¿Cuándo es tu reservación? Es el viernes.",
+      "image": "/lesson-assets/a1plus-unit-6-z01-129d6e79e344e481.webp",
+      "kind": "u4-res-when",
+      "image_choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "When is your reservation?",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-6-z01-129d6e79e344e481.webp"
+        },
+        {
+          "text": "It's on Friday.",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-6-z01-129d6e79e344e481.webp"
+        }
+      ],
+      "accepts": {
+        "subject-variety": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "action-variety": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "conversational-response": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "reading-load": "Listen keeps the question and changes only the answer; the answer is what was heard."
+      },
+      "prefer": [
+        "When is your reservation? It's on Monday."
+      ],
+      "learn": false
+    },
+    {
+      "id": "u5-else",
+      "text": "Do you need anything else? No, that's all, thanks.",
+      "es": "¿Necesita algo más? No, es todo, gracias.",
+      "image": "/lesson-assets/a1plus-unit-6-z02-baacaee429ba8d9d.webp",
+      "kind": "u5-else",
+      "image_choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "Do you need anything else?",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-6-z02-baacaee429ba8d9d.webp"
+        },
+        {
+          "text": "No, that's all, thanks.",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-6-z02-baacaee429ba8d9d.webp"
+        }
+      ],
+      "accepts": {
+        "subject-variety": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "action-variety": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "conversational-response": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "reading-load": "Listen keeps the question and changes only the answer; the answer is what was heard."
+      },
+      "prefer": [
+        "Do you need anything else? Yes, I need two keys."
+      ],
+      "learn": false
+    },
+    {
+      "id": "u5-room",
+      "text": "Ana's room is twenty-four.",
+      "es": "El cuarto de Ana es el veinticuatro.",
+      "image": "/lesson-assets/a1plus-unit-6-z04-1fe6dacb083fec63.webp",
+      "kind": "u5-room",
+      "image_choices": false,
+      "use": false,
+      "accepts": {
+        "subject-variety": "The sentence keeps the person and the place and changes only the reused detail; the photo fits each option and the words decide.",
+        "action-variety": "The sentence keeps the person and the place and changes only the reused detail; the photo fits each option and the words decide.",
+        "conversational-response": "The sentence keeps the person and the place and changes only the reused detail; the photo fits each option and the words decide.",
+        "reading-load": "The sentence keeps the person and the place and changes only the reused detail; the photo fits each option and the words decide."
+      },
+      "prefer": [
+        "Ana's room is ninety-nine."
+      ],
+      "learn": false
+    }
+  ],
+  "pool": [
+    {
+      "text": "Ana has a key.",
+      "es": "Ana tiene una llave.",
+      "image": "/lesson-assets/a1plus-unit-6-z01-129d6e79e344e481.webp",
+      "kind": "hotelf-res",
+      "image_choices": false
+    },
+    {
+      "text": "Ana has a ticket.",
+      "es": "Ana tiene un boleto.",
+      "image": "/lesson-assets/a1plus-unit-6-z01-129d6e79e344e481.webp",
+      "kind": "hotelf-res",
+      "image_choices": false
+    },
+    {
+      "text": "Here's your passport.",
+      "es": "Aquí está su pasaporte.",
+      "image": "/lesson-assets/a1plus-unit-6-z02-baacaee429ba8d9d.webp",
+      "kind": "hotelf-key",
+      "image_choices": false
+    },
+    {
+      "text": "Here's your ticket.",
+      "es": "Aquí está su boleto.",
+      "image": "/lesson-assets/a1plus-unit-6-z02-baacaee429ba8d9d.webp",
+      "kind": "hotelf-key",
+      "image_choices": false
+    },
+    {
+      "text": "Ana takes the bus.",
+      "es": "Ana toma el camión.",
+      "image": "/lesson-assets/a1plus-unit-6-z03-893afc20dc5b6173.webp",
+      "kind": "hotelf-elev",
+      "image_choices": false
+    },
+    {
+      "text": "Ana takes the subway.",
+      "es": "Ana toma el metro.",
+      "image": "/lesson-assets/a1plus-unit-6-z03-893afc20dc5b6173.webp",
+      "kind": "hotelf-elev",
+      "image_choices": false
+    },
+    {
+      "text": "This is his room.",
+      "es": "Este es el cuarto de él.",
+      "image": "/lesson-assets/a1plus-unit-6-z04-1fe6dacb083fec63.webp",
+      "kind": "hotelf-room",
+      "image_choices": false
+    },
+    {
+      "text": "What floor is my room on? It's on the second floor.",
+      "es": "¿En qué piso está mi cuarto? Está en el segundo piso.",
+      "image": "/lesson-assets/a1plus-unit-6-z03-893afc20dc5b6173.webp",
+      "kind": "xf",
+      "image_choices": false
+    },
+    {
+      "text": "What floor is your room on? It's on the fourth floor.",
+      "es": "¿En qué piso está tu cuarto? Está en el cuarto piso.",
+      "image": "/lesson-assets/a1plus-unit-6-z03-893afc20dc5b6173.webp",
+      "kind": "xf2",
+      "image_choices": false
+    },
+    {
+      "text": "Do you have a reservation? No, I don't.",
+      "es": "¿Tiene una reservación? No.",
+      "image": "/lesson-assets/a1plus-unit-6-z01-129d6e79e344e481.webp",
+      "kind": "xr",
+      "image_choices": false
+    },
+    {
+      "text": "Here's your ticket. Thank you.",
+      "es": "Aquí está su boleto. Gracias.",
+      "image": "/lesson-assets/a1plus-unit-6-z02-baacaee429ba8d9d.webp",
+      "kind": "xk",
+      "image_choices": false
+    },
+    {
+      "text": "Ana opened the door of the bank.",
+      "es": "Ana abrió la puerta del banco.",
+      "image": "/lesson-assets/a1plus-unit-6-z04-1fe6dacb083fec63.webp",
+      "kind": "u4-opened",
+      "image_choices": false
+    },
+    {
+      "text": "Where's my room? It's downstairs.",
+      "es": "¿Dónde está mi cuarto? Está abajo.",
+      "image": "/lesson-assets/a1plus-unit-6-z03-893afc20dc5b6173.webp",
+      "kind": "u4-upstairs",
+      "image_choices": false
+    },
+    {
+      "text": "When is your reservation? It's on Monday.",
+      "es": "¿Cuándo es tu reservación? Es el lunes.",
+      "image": "/lesson-assets/a1plus-unit-6-z01-129d6e79e344e481.webp",
+      "kind": "u4-res-when",
+      "image_choices": false
+    },
+    {
+      "text": "Do you need anything else? Yes, I need two keys.",
+      "es": "¿Necesita algo más? Sí, necesito dos llaves.",
+      "image": "/lesson-assets/a1plus-unit-6-z02-baacaee429ba8d9d.webp",
+      "kind": "u5-else",
+      "image_choices": false
+    },
+    {
+      "text": "Ana's room is ninety-nine.",
+      "es": "El cuarto de Ana es el noventa y nueve.",
+      "image": "/lesson-assets/a1plus-unit-6-z04-1fe6dacb083fec63.webp",
+      "kind": "u5-room",
+      "image_choices": false
+    }
+  ],
+  "layout": {
+    "Recognize": 10,
+    "Listen": 10,
+    "Speak": 8,
+    "Use": 8
+  },
+  "stage_sequences": {
+    "Learn": [
+      "l-res",
+      "l-key",
+      "l-elev",
+      "l-floor"
+    ],
+    "Recognize": [
+      "p-res",
+      "f-key",
+      "p-elev",
+      "f-room",
+      "u5-room",
+      "f-res",
+      "p-room",
+      "f-elev",
+      "x-floor",
+      "u4-opened"
+    ],
+    "Listen": [
+      "p-key",
+      "p-room",
+      "x-floor",
+      "p-res",
+      "u4-res-when",
+      "f-key",
+      "p-elev",
+      "x-floor2",
+      "u5-else",
+      "u4-upstairs"
+    ],
+    "Speak": [
+      "u-res",
+      "f-key",
+      "u-floor",
+      "f-elev",
+      "u-q",
+      "u-fifth",
+      "u-floor2",
+      "u-key"
+    ],
+    "Use": [
+      "u-res",
+      "u-q",
+      "u-floor",
+      "u-fifth",
+      "u-key",
+      "f-elev",
+      "f-room",
+      "u-elev"
+    ]
+  }
+}

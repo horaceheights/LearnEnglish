@@ -1,0 +1,62 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "ffb9a562-b58d-451d-a04d-c2679665b44a",
+  "asset_id": "d03-backpack",
+  "pack_sha256": "25c54c2755a5d965df07c188f6de99f672b9c5b2ccc483fc582c0e8fc5d841d8",
+  "started_at": "2026-11-21T04:15:39.096874+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, menus, screens, cups, clothes or bags.\n\nKeep the people and the thing that carries the meaning inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nOnly this one person is in the photo; there is nobody else, even far in the background.\n\nIt is clearly daytime with soft natural light.\n\nImage 1 shows Diego. Keep the face, hair, skin and build exactly; keep his short full beard and his burgundy button shirt. Create a new photograph of Diego in the bright hallway of his home putting on a grey backpack: one strap is already on his shoulder and he pulls the other strap on, smiling at the camera. No words or logos anywhere.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1plus-unit-1-q04-ded74a2cb6021167.webp",
+    "sha256": "ded74a2cb6021167d6af2351e9012476d36c1b0936ca9f4f4b6dee68783bb9e2"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "6xoBa5iKAcaf6dkP16aB8AQ",
+  "usage": {
+    "promptTokenCount": 540,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1830,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 282
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038862",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 540,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 18.02,
+  "output": "output/imagegen/a1plus-unit-6-lesson-v650/d03-backpack.png",
+  "sha256": "b5b9a8e735280e3334ddd80bd5ef13f919bb6c56683444515b501033aa467ee8",
+  "byte_count": 1203073,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}
