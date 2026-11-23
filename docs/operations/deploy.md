@@ -122,6 +122,10 @@ Render shallow-clones the tip of the branch it deploys and gives up when GitHub 
 - If the backend starts reading another repository path, add it to `DEPLOY_PATHS`. `backend/tests/test_render_deploy_copy.py` fails until it is added.
 - Never merge, edit or delete `render-deploy`; it only moves forward from its previous tip.
 
+### Render memory budget
+
+The service runs on a 512 MiB instance. Render kills the process above that (`Out of memory (used over 512Mi)`, event `server_failed` with `oomKilled`), and a deploy that is killed this way ends `update_failed`, leaving the earlier deploy in place. Startup memory grows with the course catalog, because the backend loads every lesson and, after startup, checks the course-audio upload manifest and the approved take registry. On 2026-11-23, with A1+ Unit 7, the old check peaked at about 512 MiB: it parsed both files at once, and a learner request could parse the manifest a second time. Since then `cloudflare_media.inventory()` parses one file at a time, under a lock, and keeps only the keys of `historical_objects`. Measured locally on that catalog, the peak is about 415 MiB. If OOM kills return as content grows, measure again: run the startup stages under `psutil` from `backend/`. Then either trim memory again or move the service to a larger instance (that is a billing change, so the owner decides).
+
 ## Shipping Pregenerated Course Audio
 
 Cloudflare R2 at `https://cdn.learnspanglish.app` is the default for images, videos, posters, SFX, static legacy audio and immutable course recordings. Render hosts API compute only, with no course-audio disk dependency. Follow [Cloudflare course media](cloudflare-course-media.md) for the complete upload and verification procedure.

@@ -45,15 +45,45 @@ def object_url(key: str) -> str:
     return f"{MEDIA_BASE_URL}/{key}"
 
 
+_inventory_lock = threading.Lock()
+
+
+def _validate_registry_bindings(index: dict) -> None:
+    """Validate active registry contracts for every catalog asset.
+
+    The manifest must list exactly these assets, so this covers the same
+    bindings. It runs before the manifest is parsed and releases the registry
+    afterwards, so the two large files are never parsed in memory together on
+    the 512 MiB Render instance.
+    """
+    registry = load_approved_take_registry()
+    bindings, takes = registry["bindings"], registry["takes"]
+    for asset_id, asset in index.items():
+        # Validate active registry contracts without rebinding an already-owned
+        # immutable ID to a later equivalent take. Installed receipts remain
+        # the authoritative provenance for those existing bytes.
+        binding = bindings.get(asset_id)
+        if binding is not None:
+            take = takes.get(binding.get("take_id"), {})
+            if (take.get("text") != asset.text or take.get("profile_id") != asset.profile_id
+                    or asset.speaker_role not in take.get("compatible_speaker_roles", [take.get("speaker_role")])
+                    or asset.mode not in take.get("compatible_modes", [])
+                    or asset.variant not in take.get("compatible_variants", [])
+                    or binding.get("approved_at") != take.get("provenance", {}).get("approved_at")):
+                raise ValueError("Cloudflare catalog has an invalid approved registry binding")
+            validate_provenance(asset, take["provenance"], audio_sha256=take.get("audio_sha256"))
+
+
 @lru_cache(maxsize=1)
-def inventory() -> dict:
+def _verified_inventory() -> dict:
+    index = asset_index()
+    _validate_registry_bindings(index)
     data = json.loads(MANIFEST_PATH.read_text(encoding="utf-8"))
     if (data.get("schema_version") != 1 or data.get("base_url") != MEDIA_BASE_URL
             or data.get("catalog_sha256") != catalog_sha256()
             or data.get("profile_id") != COURSE_AUDIO_PROFILE_ID
-            or set(data.get("assets", {})) != set(asset_index())):
+            or set(data.get("assets", {})) != set(index)):
         raise ValueError("Cloudflare inventory does not match the exact release catalog")
-    registry = load_approved_take_registry()
     for asset_id, entry in data["assets"].items():
         if entry.get("key") != f"course-audio/elevenlabs-v2/{asset_id}.mp3":
             raise ValueError("Cloudflare audio key does not match its immutable ID")
@@ -63,21 +93,20 @@ def inventory() -> dict:
                     or not re.fullmatch(r"[a-f0-9]{32}", value.get("etag", ""))
                     or not isinstance(value.get("bytes"), int) or value["bytes"] <= 0):
                 raise ValueError("Cloudflare object descriptor is invalid")
-        # Validate active registry contracts without rebinding an already-owned
-        # immutable ID to a later equivalent take. Installed receipts remain
-        # the authoritative provenance for those existing bytes.
-        binding = registry["bindings"].get(asset_id)
-        if binding is not None:
-            asset = asset_index()[asset_id]
-            take = registry["takes"].get(binding.get("take_id"), {})
-            if (take.get("text") != asset.text or take.get("profile_id") != asset.profile_id
-                    or asset.speaker_role not in take.get("compatible_speaker_roles", [take.get("speaker_role")])
-                    or asset.mode not in take.get("compatible_modes", [])
-                    or asset.variant not in take.get("compatible_variants", [])
-                    or binding.get("approved_at") != take.get("provenance", {}).get("approved_at")):
-                raise ValueError("Cloudflare catalog has an invalid approved registry binding")
-            validate_provenance(asset, take["provenance"], audio_sha256=take.get("audio_sha256"))
+    # Runtime only asks whether a superseded object exists; the publisher reads
+    # their descriptors from the file. Keeping the keys alone saves memory.
+    data["historical_objects"] = frozenset(data.get("historical_objects", {}))
     return data
+
+
+def inventory() -> dict:
+    # Startup verification and early learner requests must not parse the
+    # manifest twice at once: concurrent misses would double peak memory.
+    with _inventory_lock:
+        return _verified_inventory()
+
+
+inventory.cache_clear = _verified_inventory.cache_clear
 
 
 def validate_receipt(asset, receipt: dict, descriptor: dict) -> None:

@@ -1,6 +1,10 @@
 import hashlib
 import json
+import tempfile
+import time
 import unittest
+from concurrent.futures import ThreadPoolExecutor
+from pathlib import Path
 from unittest.mock import patch, MagicMock
 import httpx
 from fastapi import HTTPException
@@ -165,6 +169,40 @@ class CloudflareMediaTests(unittest.TestCase):
             main.legacy_lesson_media('../private.env')
         result = main.legacy_lesson_media('boy.webp')
         self.assertEqual('https://cdn.learnspanglish.app/lesson-assets/boy.webp',result.headers['location'])
+
+    def test_inventory_fits_render_memory_by_parsing_one_large_file_at_a_time(self):
+        # Render's 512 MiB instance was OOM-killed on 2026-11-23 while the
+        # registry and manifest were parsed together, or twice concurrently.
+        events = []
+        legacy_key = 'course-audio/compatibility-cache/old.mp3'
+        manifest = {'schema_version':1, 'base_url':media.MEDIA_BASE_URL, 'catalog_sha256':'c'*64,
+                    'profile_id':media.COURSE_AUDIO_PROFILE_ID, 'assets':{self.asset.id:self.entry},
+                    'historical_objects':{legacy_key:{'sha256':'0'*64, 'bytes':1, 'etag':'0'*32}}}
+        real_loads = json.loads
+        def validate(index):
+            self.assertEqual({self.asset.id}, set(index))
+            events.append('registry')
+            time.sleep(0.05)
+        def loads(text, *args, **kwargs):
+            events.append('manifest')
+            return real_loads(text, *args, **kwargs)
+        with tempfile.TemporaryDirectory() as folder:
+            path = Path(folder) / 'manifest.json'
+            path.write_text(json.dumps(manifest), encoding='utf-8')
+            with patch.object(media,'MANIFEST_PATH',path), patch.object(media,'catalog_sha256',return_value='c'*64), \
+                    patch.object(media,'asset_index',return_value={self.asset.id:self.asset}), \
+                    patch.object(media,'_validate_registry_bindings',side_effect=validate), \
+                    patch.object(media.json,'loads',side_effect=loads):
+                media.inventory.cache_clear()
+                try:
+                    with ThreadPoolExecutor(max_workers=4) as pool:
+                        results = list(pool.map(lambda _: media.inventory(), range(4)))
+                finally:
+                    media.inventory.cache_clear()
+        self.assertEqual(['registry','manifest'], events)
+        self.assertTrue(all(result is results[0] for result in results))
+        self.assertEqual(frozenset({legacy_key}), results[0]['historical_objects'])
+        self.assertEqual(self.entry, results[0]['assets'][self.asset.id])
 
     def test_committed_inventory_covers_exact_catalog(self):
         media.inventory.cache_clear()
