@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "pack": "a1plus-unit-7-lesson-7-5-put-on-photos",
+  "revision": 2,
+  "output_namespace": "a1plus-unit-7-lesson-v751",
+  "authorization": "2026-11-20: the user asked to \"work on a1+ Unit 7 same all deal as before none stop all approved\" (the Unit 2-4 deal: the A1+ Unit 7 map approved up front, straight to Preview with media pre-approved and reviewed in Preview). Gemini is the approved image tool (2026-09-23), Flash only (2026-11-17; \"lets switch to flash for any other images\", 2026-11-19).",
+  "image_settings": {
+    "provider": "google-gemini",
+    "model": "gemini-2.5-flash-image",
+    "aspect_ratio": "3:2",
+    "image_size": "1K",
+    "runtime_size": "1536x1024",
+    "runtime_format": "webp",
+    "n": 1
+  },
+  "production": {
+    "price_per_image_usd": "0.0387",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing (checked 2026-11-16: Gemini 2.5 Flash Image, about $0.039 per image)",
+    "planned_images": 2,
+    "expected_cost_usd": "0.08",
+    "requested_ceiling_usd": "0.30",
+    "ceiling_note": "The renderer reserves US$0.20 before each request; each request is sent on its own, and the expected spend for the pack is about US$0.08.",
+    "no_automatic_retries": true,
+    "order": "v1's p02 read as putting the jacket on and did not look hot, and v1's p04 drew three boots; both are described again with the arm, the sweat, the sock and the exact number of boots. Generate p02 first, then p04."
+  },
+  "shared_prompts": {
+    "photo": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, menus, screens, cups, clothes or bags.",
+    "safe_center": "Keep the people and the thing that carries the meaning inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.",
+    "solo": "Only this one person is in the photo; there is nobody else, even far in the background.",
+    "pair": "Only these two people are in the photo; there is nobody else, even far in the background.",
+    "daytime": "It is clearly daytime with soft natural light.",
+    "nolook": "Nobody looks at the camera.",
+    "fullbody": "The whole person is visible from head to shoes, standing, with a little space above the head and below the shoes."
+  },
+  "assets": [
+    {
+      "id": "p02-diego-jacket-off",
+      "order": 1,
+      "item": "It's hot. He's taking off his jacket.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "solo",
+        "daytime",
+        "nolook"
+      ],
+      "prompt": "Image 1 shows Diego. Keep his face, dark curly hair with a little grey, short full beard and build exactly. He wears a light grey T-shirt and jeans. Create a new photograph: on a blazing hot summer day in a sunny park with harsh sunlight, Diego is clearly TOO HOT: his face is red and shiny with sweat and there are sweat marks on his T-shirt. He is TAKING OFF a heavy brown winter jacket: his RIGHT arm is already completely out of the jacket, bare in his T-shirt sleeve, and with his right hand he pulls the jacket DOWN and AWAY from his body, off his LEFT arm; the jacket hangs from his left elbow and is clearly coming off, not going on. The sun is bright overhead and the grass is dry and yellow.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-q04-ded74a2cb6021167.webp",
+        "sha256": "ded74a2cb6021167d6af2351e9012476d36c1b0936ca9f4f4b6dee68783bb9e2",
+        "observed_description": "Diego (dark curly hair with a little grey, short full beard, burgundy button shirt) sits at a wooden kitchen table and bites a red apple (A1+ 1.2)."
+      }
+    },
+    {
+      "id": "p04-luis-boots-off",
+      "order": 2,
+      "item": "It's raining. He's taking off his boots.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "solo",
+        "daytime",
+        "nolook"
+      ],
+      "prompt": "Image 1 shows Luis. Keep his face, short dark curly hair, clean-shaven warm medium-brown skin and tall build exactly. He wears a dark navy raincoat wet with rain. Create a new photograph: Luis has just come home out of the rain. He sits on a small wooden bench just inside his open front door; outside the door, heavy rain falls on a wet path. He is TAKING OFF his black rubber rain boots: he holds ONE black boot in both hands, lifted off his LEFT foot, which now wears only a grey sock; his RIGHT foot still wears the other black boot on the floor. There are exactly TWO boots in the whole photo: one in his hands and one on his right foot. Water drips from the boot onto a doormat.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-q01-135c3f8f772bcbe4.webp",
+        "sha256": "135c3f8f772bcbe472b8cec719eb02318a7d52ce1c7152a94c6952aeb78566c2",
+        "observed_description": "Luis (short dark curly hair, clean-shaven, warm medium-brown skin, navy crew-neck T-shirt) drinks coffee from a white mug at a wooden table in his bright kitchen (A1+ 1.2)."
+      }
+    }
+  ]
+}

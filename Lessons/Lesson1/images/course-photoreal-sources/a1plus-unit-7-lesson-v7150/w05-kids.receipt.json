@@ -1,0 +1,55 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "780c8e81-0cee-4c51-be58-91f2d02373a4",
+  "asset_id": "w05-kids",
+  "pack_sha256": "561d6ca0662f1c3067e83b01a66600a22f33c54e7da39fc163de17fcdb955712",
+  "started_at": "2026-11-21T06:14:10.385572+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, menus, screens, cups, clothes or bags.\n\nThe place is a big green city park on a sunny spring afternoon, with trees, grass and a few picnic blankets.\n\nIt is clearly daytime with soft natural light.\n\nThese are new people who have never appeared in the course; none of them looks like Ana, Luis, Sofia or Diego.\n\nOn the grass in the park three real children of about ten stand side by side with space between them, smiling at the camera: on the left a girl in a PURPLE T-shirt who is clearly the TALLEST, in the middle a boy in an ORANGE T-shirt of medium height, and on the right a girl in a PINK T-shirt who is clearly the SHORTEST. In front of them on the right, a small brown dog jumps high in the air to catch a ball. Only these three children and the dog are in the photo.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "rzYBa8rWDMToz7IPvdvN2As",
+  "usage": {
+    "promptTokenCount": 309,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1599,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 309
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038793",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 309,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 8.31,
+  "output": "output/imagegen/a1plus-unit-7-lesson-v7150/w05-kids.png",
+  "sha256": "89e59ea14ff02de08b5a5bbf201988369bdf381f9b9667a6812f90dfc942e488",
+  "byte_count": 2234469,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}

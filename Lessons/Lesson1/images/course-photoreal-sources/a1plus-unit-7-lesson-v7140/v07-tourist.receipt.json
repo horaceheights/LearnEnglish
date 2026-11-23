@@ -1,0 +1,55 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "32693fbe-431b-4fd8-83cc-7a0e27e08353",
+  "asset_id": "v07-tourist",
+  "pack_sha256": "c4eb3a19ca7f9a409ee9eef689c51489d8c65d7c0b2fe2a9619a6e7e3c2904b2",
+  "started_at": "2026-11-21T06:12:28.842872+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, menus, screens, cups, clothes or bags.\n\nKeep the people and the thing that carries the meaning inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nIt is clearly daytime with soft natural light.\n\nThese are new people who have never appeared in the course; none of them looks like Ana, Luis, Sofia or Diego.\n\nOnly these two people are in the photo; there is nobody else, even far in the background.\n\nA real tourist, a young woman of about twenty-five with a backpack and a paper map, stands at the counter of a museum information desk and talks to a man behind the counter; she looks confused, with one hand raised a little as if to say 'slowly, please'. The man behind the counter talks to her.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "STYBa4ikIL_pz7IP4_XcuQU",
+  "usage": {
+    "promptTokenCount": 302,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1592,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 302
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038791",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 302,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 7.4,
+  "output": "output/imagegen/a1plus-unit-7-lesson-v7140/v07-tourist.png",
+  "sha256": "70d1726d684a85bad092e14ce6115ba51999e9aaf1ed5ba0d52b362a2c3bddc6",
+  "byte_count": 1449396,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}

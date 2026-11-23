@@ -1,0 +1,768 @@
+{
+  "brief_version": 1,
+  "follows": {
+    "course": "a1",
+    "lesson": "7.11",
+    "title": "Outdoors"
+  },
+  "note": "A1+ Unit 7 Lesson 7.11, built on 2026-11-20 under the A1+ lesson standards approved 2026-10-27 and the user's 2026-11-09 rule that every A1+ lesson follows up the A1 lesson with the same number. On 2026-11-20 the user asked to \"work on a1+ Unit 7 same all deal as before none stop all approved\": the A1+ Unit 7 map (A1+ 7.Y follows A1 7.Y, one step each, fifteen lessons) approved up front, straight to Preview, Gemini 2.5 Flash photos and ElevenLabs audio pre-approved, no per-lesson gates, reviewed in Preview. Three new photos (Gemini 2.5 Flash): Sofia, Ana and Luis against a wall from shortest to tallest, Diego with a big black, a medium brown and a tiny white dog, and a big green, a medium white and a small red house. Every wrong option is false of its photo; the other true sentences about the same photo are never offered as wrong.",
+  "target": "backend/lessons/a1_plus/unit_7/a1plus-unit-7-lesson-7-11.yaml",
+  "captions": false,
+  "narrators": [
+    "teacher",
+    "co-teacher"
+  ],
+  "answer_audio_policy": "authored-only",
+  "speak_delivery": "a1-pronunciation-v1",
+  "lesson": {
+    "id": "a1plus-unit-7-lesson-7-11",
+    "title": "7.11 Luis is the tallest",
+    "level": "A1+",
+    "unit_id": "a1plus-unit-7",
+    "unit_title": "Everyday needs, plans and free time",
+    "unit_outcome": "Say what hurts and why someone feels a certain way, describe what people are wearing and the weather as it happens, tell someone to put on or take off clothes, talk about what people like doing, invite and answer, ask someone to repeat or explain, talk about being sick, the months and seasons, compare with the biggest and the tallest, and say what people and animals can do and are good at.",
+    "lesson_id": "a1plus-unit-7-lesson-7-11",
+    "lesson_title": "Luis is the tallest",
+    "sub_lesson_id": "7.11",
+    "sub_lesson_title": "Luis is the tallest",
+    "goal": "Compare three people or things with the + -est (Luis is the tallest. / The red house is the smallest.) and ask Which … is the biggest?.",
+    "vocabulary": [
+      "the tallest",
+      "the shortest",
+      "the biggest",
+      "the smallest"
+    ],
+    "review_vocabulary": [
+      "is",
+      "Luis",
+      "Sofia",
+      "Ana",
+      "the",
+      "black",
+      "brown",
+      "white",
+      "green",
+      "red",
+      "dog",
+      "house",
+      "taller",
+      "shorter",
+      "bigger",
+      "smaller",
+      "than",
+      "which",
+      "who",
+      "one",
+      "bag",
+      "Luis's",
+      "Sofia's"
+    ],
+    "grammar_function": "A follow-up of A1 7.11 Outdoors, where A1 names the things around us; A1+ 7.11 compares three of them. The one new grammar relationship is the + adjective + -est for the top of three (Luis is the tallest. / The black dog is the biggest.), set against A1+ 2.11's -er than for two (Luis is taller than Sofia.); big doubles its g (bigger, biggest). Three new photos line up three of a kind: Sofia, Ana and Luis by height, Diego's three dogs and three houses on a street; A1+ 2.10's The red one. answers Which …?.",
+    "prerequisite": "A1+ 2.10 Which one? The red one.; A1+ 2.11 -er than; A1 2.11 big and small; A1 1.10 dog; A1 4.15 house.",
+    "speaking_outcome": "Say the -est ending clearly (TALL-ist, BIG-ist, SMALL-ist) and stress the adjective. Do not require native-like speed.",
+    "content_revision": 1,
+    "learn_context_groups": [
+      {
+        "kind": "sequence",
+        "targets": [
+          "the tallest"
+        ],
+        "models": [
+          {
+            "slide_id": "L1",
+            "text": "Luis is the tallest."
+          }
+        ]
+      },
+      {
+        "kind": "sequence",
+        "targets": [
+          "the shortest"
+        ],
+        "models": [
+          {
+            "slide_id": "L2",
+            "text": "Sofia is the shortest."
+          }
+        ]
+      },
+      {
+        "kind": "exchange",
+        "targets": [
+          "the biggest"
+        ],
+        "models": [
+          {
+            "slide_id": "L3",
+            "text": "Which dog is the biggest? The black one.",
+            "turns": [
+              "Which dog is the biggest?",
+              "The black one."
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "sequence",
+        "targets": [
+          "the smallest"
+        ],
+        "models": [
+          {
+            "slide_id": "L4",
+            "text": "The red house is the smallest."
+          }
+        ]
+      }
+    ]
+  },
+  "items": [
+    {
+      "id": "l-luis",
+      "text": "Luis is the tallest.",
+      "es": "Luis es el más alto.",
+      "image": "/lesson-assets/a1plus-unit-7-t01-e62120839fd28156.webp",
+      "kind": "sequence",
+      "choices": false,
+      "use": false,
+      "speaker": "teacher"
+    },
+    {
+      "id": "l-sofia",
+      "text": "Sofia is the shortest.",
+      "es": "Sofía es la más baja.",
+      "image": "/lesson-assets/a1plus-unit-7-t01-e62120839fd28156.webp",
+      "kind": "sequence",
+      "choices": false,
+      "use": false,
+      "speaker": "co-teacher"
+    },
+    {
+      "id": "l-dog",
+      "text": "Which dog is the biggest? The black one.",
+      "es": "¿Cuál perro es el más grande? El negro.",
+      "image": "/lesson-assets/a1plus-unit-7-t02-8b1f4e126aaea441.webp",
+      "kind": "exchange",
+      "choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "Which dog is the biggest?",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-7-t02-8b1f4e126aaea441.webp"
+        },
+        {
+          "text": "The black one.",
+          "speaker": "diego",
+          "image": "/lesson-assets/a1plus-unit-7-t02-8b1f4e126aaea441.webp"
+        }
+      ]
+    },
+    {
+      "id": "l-house",
+      "text": "The red house is the smallest.",
+      "es": "La casa roja es la más pequeña.",
+      "image": "/lesson-assets/a1plus-unit-7-t03-aa07ecfe4a270c19.webp",
+      "kind": "sequence",
+      "choices": false,
+      "use": false,
+      "speaker": "teacher"
+    },
+    {
+      "id": "w-luis",
+      "text": "Luis is the tallest.",
+      "es": "Luis es el más alto.",
+      "image": "/lesson-assets/a1plus-unit-7-t01-e62120839fd28156.webp",
+      "kind": "most-t01",
+      "image_choices": false,
+      "accepts": {
+        "subject-variety": "The bank keeps the comparison and changes only who or which one; the photo shows all three.",
+        "action-variety": "The bank keeps the comparison and changes only who or which one; the photo shows all three.",
+        "conversational-response": "The bank keeps the comparison and changes only who or which one; the photo shows all three.",
+        "reading-load": "The bank keeps the comparison and changes only who or which one; the photo shows all three."
+      },
+      "prefer": [
+        "Ana is the tallest."
+      ],
+      "blanks": [
+        "the",
+        "tallest"
+      ],
+      "avoid": [
+        "Luis is the tallest.",
+        "Sofia is the shortest.",
+        "Ana is taller than Sofia."
+      ],
+      "learn": false
+    },
+    {
+      "id": "w-sofia",
+      "text": "Sofia is the shortest.",
+      "es": "Sofía es la más baja.",
+      "image": "/lesson-assets/a1plus-unit-7-t01-e62120839fd28156.webp",
+      "kind": "most-t01",
+      "image_choices": false,
+      "accepts": {
+        "subject-variety": "The bank keeps the comparison and changes only who or which one; the photo shows all three.",
+        "action-variety": "The bank keeps the comparison and changes only who or which one; the photo shows all three.",
+        "conversational-response": "The bank keeps the comparison and changes only who or which one; the photo shows all three.",
+        "reading-load": "The bank keeps the comparison and changes only who or which one; the photo shows all three."
+      },
+      "prefer": [
+        "Ana is the shortest."
+      ],
+      "blanks": [
+        "the",
+        "shortest"
+      ],
+      "avoid": [
+        "Luis is the tallest.",
+        "Sofia is the shortest.",
+        "Ana is taller than Sofia."
+      ],
+      "learn": false
+    },
+    {
+      "id": "w-black",
+      "text": "The black dog is the biggest.",
+      "es": "El perro negro es el más grande.",
+      "image": "/lesson-assets/a1plus-unit-7-t02-8b1f4e126aaea441.webp",
+      "kind": "most-t02",
+      "image_choices": false,
+      "accepts": {
+        "subject-variety": "The bank keeps the comparison and changes only who or which one; the photo shows all three.",
+        "action-variety": "The bank keeps the comparison and changes only who or which one; the photo shows all three.",
+        "conversational-response": "The bank keeps the comparison and changes only who or which one; the photo shows all three.",
+        "reading-load": "The bank keeps the comparison and changes only who or which one; the photo shows all three."
+      },
+      "prefer": [
+        "The brown dog is the biggest."
+      ],
+      "blanks": [
+        "the",
+        "biggest"
+      ],
+      "avoid": [
+        "The black dog is the biggest.",
+        "The white dog is the smallest.",
+        "The brown dog is bigger than the white dog."
+      ],
+      "learn": false
+    },
+    {
+      "id": "w-white",
+      "text": "The white dog is the smallest.",
+      "es": "El perro blanco es el más pequeño.",
+      "image": "/lesson-assets/a1plus-unit-7-t02-8b1f4e126aaea441.webp",
+      "kind": "most-t02",
+      "image_choices": false,
+      "accepts": {
+        "subject-variety": "The bank keeps the comparison and changes only who or which one; the photo shows all three.",
+        "action-variety": "The bank keeps the comparison and changes only who or which one; the photo shows all three.",
+        "conversational-response": "The bank keeps the comparison and changes only who or which one; the photo shows all three.",
+        "reading-load": "The bank keeps the comparison and changes only who or which one; the photo shows all three."
+      },
+      "prefer": [
+        "The black dog is the smallest."
+      ],
+      "blanks": [
+        "the",
+        "smallest"
+      ],
+      "avoid": [
+        "The black dog is the biggest.",
+        "The white dog is the smallest.",
+        "The brown dog is bigger than the white dog."
+      ],
+      "learn": false
+    },
+    {
+      "id": "w-green",
+      "text": "The green house is the biggest.",
+      "es": "La casa verde es la más grande.",
+      "image": "/lesson-assets/a1plus-unit-7-t03-aa07ecfe4a270c19.webp",
+      "kind": "most-t03",
+      "image_choices": false,
+      "accepts": {
+        "subject-variety": "The bank keeps the comparison and changes only who or which one; the photo shows all three.",
+        "action-variety": "The bank keeps the comparison and changes only who or which one; the photo shows all three.",
+        "conversational-response": "The bank keeps the comparison and changes only who or which one; the photo shows all three.",
+        "reading-load": "The bank keeps the comparison and changes only who or which one; the photo shows all three."
+      },
+      "prefer": [
+        "The white house is the biggest."
+      ],
+      "blanks": [
+        "the",
+        "biggest"
+      ],
+      "avoid": [
+        "The green house is the biggest.",
+        "The red house is the smallest.",
+        "The white house is bigger than the red house."
+      ],
+      "learn": false
+    },
+    {
+      "id": "w-red",
+      "text": "The red house is the smallest.",
+      "es": "La casa roja es la más pequeña.",
+      "image": "/lesson-assets/a1plus-unit-7-t03-aa07ecfe4a270c19.webp",
+      "kind": "most-t03",
+      "image_choices": false,
+      "accepts": {
+        "subject-variety": "The bank keeps the comparison and changes only who or which one; the photo shows all three.",
+        "action-variety": "The bank keeps the comparison and changes only who or which one; the photo shows all three.",
+        "conversational-response": "The bank keeps the comparison and changes only who or which one; the photo shows all three.",
+        "reading-load": "The bank keeps the comparison and changes only who or which one; the photo shows all three."
+      },
+      "prefer": [
+        "The green house is the smallest."
+      ],
+      "blanks": [
+        "the",
+        "smallest"
+      ],
+      "avoid": [
+        "The green house is the biggest.",
+        "The red house is the smallest.",
+        "The white house is bigger than the red house."
+      ],
+      "learn": false
+    },
+    {
+      "id": "c-ana",
+      "text": "Ana is taller than Sofia.",
+      "es": "Ana es más alta que Sofía.",
+      "image": "/lesson-assets/a1plus-unit-7-t01-e62120839fd28156.webp",
+      "kind": "more-t01",
+      "image_choices": false,
+      "accepts": {
+        "subject-variety": "The bank keeps the two things compared and changes only -er; the photo shows which is bigger or taller.",
+        "action-variety": "The bank keeps the two things compared and changes only -er; the photo shows which is bigger or taller.",
+        "conversational-response": "The bank keeps the two things compared and changes only -er; the photo shows which is bigger or taller.",
+        "reading-load": "The bank keeps the two things compared and changes only -er; the photo shows which is bigger or taller."
+      },
+      "prefer": [
+        "Ana is shorter than Sofia."
+      ],
+      "use": true,
+      "avoid": [
+        "Luis is the tallest.",
+        "Sofia is the shortest.",
+        "Ana is taller than Sofia."
+      ],
+      "learn": false
+    },
+    {
+      "id": "c-brown",
+      "text": "The brown dog is bigger than the white dog.",
+      "es": "El perro café es más grande que el perro blanco.",
+      "image": "/lesson-assets/a1plus-unit-7-t02-8b1f4e126aaea441.webp",
+      "kind": "more-t02",
+      "image_choices": false,
+      "accepts": {
+        "subject-variety": "The bank keeps the two things compared and changes only -er; the photo shows which is bigger or taller.",
+        "action-variety": "The bank keeps the two things compared and changes only -er; the photo shows which is bigger or taller.",
+        "conversational-response": "The bank keeps the two things compared and changes only -er; the photo shows which is bigger or taller.",
+        "reading-load": "The bank keeps the two things compared and changes only -er; the photo shows which is bigger or taller."
+      },
+      "prefer": [
+        "The brown dog is smaller than the white dog."
+      ],
+      "use": false,
+      "avoid": [
+        "The black dog is the biggest.",
+        "The white dog is the smallest.",
+        "The brown dog is bigger than the white dog."
+      ],
+      "learn": false
+    },
+    {
+      "id": "c-white",
+      "text": "The white house is bigger than the red house.",
+      "es": "La casa blanca es más grande que la casa roja.",
+      "image": "/lesson-assets/a1plus-unit-7-t03-aa07ecfe4a270c19.webp",
+      "kind": "more-t03",
+      "image_choices": false,
+      "accepts": {
+        "subject-variety": "The bank keeps the two things compared and changes only -er; the photo shows which is bigger or taller.",
+        "action-variety": "The bank keeps the two things compared and changes only -er; the photo shows which is bigger or taller.",
+        "conversational-response": "The bank keeps the two things compared and changes only -er; the photo shows which is bigger or taller.",
+        "reading-load": "The bank keeps the two things compared and changes only -er; the photo shows which is bigger or taller."
+      },
+      "prefer": [
+        "The white house is smaller than the red house."
+      ],
+      "use": false,
+      "avoid": [
+        "The green house is the biggest.",
+        "The red house is the smallest.",
+        "The white house is bigger than the red house."
+      ],
+      "learn": false
+    },
+    {
+      "id": "p-luis",
+      "text": "Luis is the tallest.",
+      "es": "Luis es el más alto.",
+      "image": "/lesson-assets/a1plus-unit-7-t01-e62120839fd28156.webp",
+      "kind": "pic",
+      "text_choices": false,
+      "use": false,
+      "accepts": {
+        "subject-variety": "A picture bank: only one photo shows that person or thing at the top of three.",
+        "action-variety": "A picture bank: only one photo shows that person or thing at the top of three."
+      },
+      "learn": false
+    },
+    {
+      "id": "p-dog",
+      "text": "The black dog is the biggest.",
+      "es": "El perro negro es el más grande.",
+      "image": "/lesson-assets/a1plus-unit-7-t02-8b1f4e126aaea441.webp",
+      "kind": "pic",
+      "text_choices": false,
+      "use": false,
+      "accepts": {
+        "subject-variety": "A picture bank: only one photo shows that person or thing at the top of three.",
+        "action-variety": "A picture bank: only one photo shows that person or thing at the top of three."
+      },
+      "learn": false
+    },
+    {
+      "id": "p-house",
+      "text": "The green house is the biggest.",
+      "es": "La casa verde es la más grande.",
+      "image": "/lesson-assets/a1plus-unit-7-t03-aa07ecfe4a270c19.webp",
+      "kind": "pic",
+      "text_choices": false,
+      "use": false,
+      "accepts": {
+        "subject-variety": "A picture bank: only one photo shows that person or thing at the top of three.",
+        "action-variety": "A picture bank: only one photo shows that person or thing at the top of three."
+      },
+      "learn": false
+    },
+    {
+      "id": "r-dog",
+      "text": "The white one.",
+      "es": "El blanco.",
+      "image": "/lesson-assets/a1plus-unit-7-t02-8b1f4e126aaea441.webp",
+      "kind": "which",
+      "question": "Which dog is the smallest?",
+      "question_es": "¿Cuál perro es el más pequeño?",
+      "question_speaker": "co-teacher",
+      "speaker": "diego",
+      "image_choices": false,
+      "use": false,
+      "accepts": {
+        "subject-variety": "The question stays the same and the reply changes only the color; the photo shows which one.",
+        "action-variety": "The question stays the same and the reply changes only the color; the photo shows which one.",
+        "conversational-response": "The question stays the same and the reply changes only the color; the photo shows which one.",
+        "reading-load": "The question stays the same and the reply changes only the color; the photo shows which one."
+      },
+      "prefer": [
+        "The black one."
+      ],
+      "listening_turns": [
+        {
+          "text": "Which dog is the smallest?",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-7-t02-8b1f4e126aaea441.webp"
+        },
+        {
+          "text": "The white one.",
+          "speaker": "diego",
+          "image": "/lesson-assets/a1plus-unit-7-t02-8b1f4e126aaea441.webp"
+        }
+      ],
+      "learn": false
+    },
+    {
+      "id": "r-house",
+      "text": "The green one.",
+      "es": "La verde.",
+      "image": "/lesson-assets/a1plus-unit-7-t03-aa07ecfe4a270c19.webp",
+      "kind": "which",
+      "question": "Which house is the biggest?",
+      "question_es": "¿Cuál casa es la más grande?",
+      "question_speaker": "co-teacher",
+      "speaker": "teacher",
+      "image_choices": false,
+      "use": false,
+      "accepts": {
+        "subject-variety": "The question stays the same and the reply changes only the color; the photo shows which one.",
+        "action-variety": "The question stays the same and the reply changes only the color; the photo shows which one.",
+        "conversational-response": "The question stays the same and the reply changes only the color; the photo shows which one.",
+        "reading-load": "The question stays the same and the reply changes only the color; the photo shows which one."
+      },
+      "prefer": [
+        "The red one."
+      ],
+      "listening_turns": [
+        {
+          "text": "Which house is the biggest?",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-7-t03-aa07ecfe4a270c19.webp"
+        },
+        {
+          "text": "The green one.",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-7-t03-aa07ecfe4a270c19.webp"
+        }
+      ],
+      "learn": false
+    },
+    {
+      "id": "r-who",
+      "text": "Luis is.",
+      "es": "Luis.",
+      "image": "/lesson-assets/a1plus-unit-7-t01-e62120839fd28156.webp",
+      "kind": "who",
+      "question": "Who is the tallest?",
+      "question_es": "¿Quién es el más alto?",
+      "question_speaker": "co-teacher",
+      "speaker": "teacher",
+      "image_choices": false,
+      "use": false,
+      "accepts": {
+        "subject-variety": "The question stays the same and the reply changes only the color; the photo shows which one.",
+        "action-variety": "The question stays the same and the reply changes only the color; the photo shows which one.",
+        "conversational-response": "The question stays the same and the reply changes only the color; the photo shows which one.",
+        "reading-load": "The question stays the same and the reply changes only the color; the photo shows which one."
+      },
+      "prefer": [
+        "Sofia is."
+      ],
+      "listening_turns": [
+        {
+          "text": "Who is the tallest?",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-7-t01-e62120839fd28156.webp"
+        },
+        {
+          "text": "Luis is.",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-7-t01-e62120839fd28156.webp"
+        }
+      ],
+      "learn": false
+    },
+    {
+      "id": "r-short",
+      "text": "Sofia is.",
+      "es": "Sofía.",
+      "image": "/lesson-assets/a1plus-unit-7-t01-e62120839fd28156.webp",
+      "kind": "who",
+      "question": "Who is the shortest?",
+      "question_es": "¿Quién es la más baja?",
+      "question_speaker": "co-teacher",
+      "speaker": "teacher",
+      "image_choices": false,
+      "use": false,
+      "accepts": {
+        "subject-variety": "The question stays the same and the reply changes only the color; the photo shows which one.",
+        "action-variety": "The question stays the same and the reply changes only the color; the photo shows which one.",
+        "conversational-response": "The question stays the same and the reply changes only the color; the photo shows which one.",
+        "reading-load": "The question stays the same and the reply changes only the color; the photo shows which one."
+      },
+      "prefer": [
+        "Luis is."
+      ],
+      "listening_turns": [
+        {
+          "text": "Who is the shortest?",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-7-t01-e62120839fd28156.webp"
+        },
+        {
+          "text": "Sofia is.",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-7-t01-e62120839fd28156.webp"
+        }
+      ],
+      "learn": false
+    },
+    {
+      "id": "q-who",
+      "text": "Who is the tallest?",
+      "es": "¿Quién es el más alto?",
+      "image": "/lesson-assets/a1plus-unit-7-t01-e62120839fd28156.webp",
+      "kind": "question",
+      "speaker": "co-teacher",
+      "choices": false,
+      "use": false,
+      "learn": false
+    },
+    {
+      "id": "q-dog",
+      "text": "Which dog is the biggest?",
+      "es": "¿Cuál perro es el más grande?",
+      "image": "/lesson-assets/a1plus-unit-7-t02-8b1f4e126aaea441.webp",
+      "kind": "question",
+      "speaker": "co-teacher",
+      "choices": false,
+      "use": false,
+      "learn": false
+    }
+  ],
+  "pool": [
+    {
+      "text": "Ana is the tallest.",
+      "es": "Ana es la más alta.",
+      "image": "/lesson-assets/a1plus-unit-7-t01-e62120839fd28156.webp",
+      "kind": "most-t01",
+      "image_choices": false
+    },
+    {
+      "text": "Ana is the shortest.",
+      "es": "Ana es la más baja.",
+      "image": "/lesson-assets/a1plus-unit-7-t01-e62120839fd28156.webp",
+      "kind": "most-t01",
+      "image_choices": false
+    },
+    {
+      "text": "The brown dog is the biggest.",
+      "es": "El perro café es el más grande.",
+      "image": "/lesson-assets/a1plus-unit-7-t02-8b1f4e126aaea441.webp",
+      "kind": "most-t02",
+      "image_choices": false
+    },
+    {
+      "text": "The black dog is the smallest.",
+      "es": "El perro negro es el más pequeño.",
+      "image": "/lesson-assets/a1plus-unit-7-t02-8b1f4e126aaea441.webp",
+      "kind": "most-t02",
+      "image_choices": false
+    },
+    {
+      "text": "The white house is the biggest.",
+      "es": "La casa blanca es la más grande.",
+      "image": "/lesson-assets/a1plus-unit-7-t03-aa07ecfe4a270c19.webp",
+      "kind": "most-t03",
+      "image_choices": false
+    },
+    {
+      "text": "The green house is the smallest.",
+      "es": "La casa verde es la más pequeña.",
+      "image": "/lesson-assets/a1plus-unit-7-t03-aa07ecfe4a270c19.webp",
+      "kind": "most-t03",
+      "image_choices": false
+    },
+    {
+      "text": "Ana is shorter than Sofia.",
+      "es": "Ana es más baja que Sofía.",
+      "image": "/lesson-assets/a1plus-unit-7-t01-e62120839fd28156.webp",
+      "kind": "more-t01",
+      "image_choices": false
+    },
+    {
+      "text": "Ana is shorter than Luis.",
+      "es": "Ana es más baja que Sofía.",
+      "image": "/lesson-assets/a1plus-unit-7-t01-e62120839fd28156.webp",
+      "kind": "more-t01",
+      "image_choices": false
+    },
+    {
+      "text": "The brown dog is smaller than the white dog.",
+      "es": "El perro café es más pequeño que el perro blanco.",
+      "image": "/lesson-assets/a1plus-unit-7-t02-8b1f4e126aaea441.webp",
+      "kind": "more-t02",
+      "image_choices": false
+    },
+    {
+      "text": "The white house is smaller than the red house.",
+      "es": "La casa blanca es más pequeña que la casa roja.",
+      "image": "/lesson-assets/a1plus-unit-7-t03-aa07ecfe4a270c19.webp",
+      "kind": "more-t03",
+      "image_choices": false
+    },
+    {
+      "text": "The black one.",
+      "es": "El negro.",
+      "image": "/lesson-assets/a1plus-unit-7-t02-8b1f4e126aaea441.webp",
+      "kind": "which",
+      "image_choices": false
+    },
+    {
+      "text": "The red one.",
+      "es": "La roja.",
+      "image": "/lesson-assets/a1plus-unit-7-t03-aa07ecfe4a270c19.webp",
+      "kind": "which",
+      "image_choices": false
+    },
+    {
+      "text": "Sofia is.",
+      "es": "Sofía.",
+      "image": "/lesson-assets/a1plus-unit-7-t01-e62120839fd28156.webp",
+      "kind": "who",
+      "image_choices": false
+    },
+    {
+      "text": "Luis is.",
+      "es": "Luis.",
+      "image": "/lesson-assets/a1plus-unit-7-t01-e62120839fd28156.webp",
+      "kind": "which",
+      "image_choices": false
+    }
+  ],
+  "layout": {
+    "Recognize": 10,
+    "Listen": 10,
+    "Speak": 8,
+    "Use": 8
+  },
+  "stage_sequences": {
+    "Learn": [
+      "l-luis",
+      "l-sofia",
+      "l-dog",
+      "l-house"
+    ],
+    "Recognize": [
+      "p-luis",
+      "c-white",
+      "w-black",
+      "r-dog",
+      "p-house",
+      "c-brown",
+      "w-sofia",
+      "p-dog",
+      "r-short",
+      "w-green"
+    ],
+    "Listen": [
+      "w-sofia",
+      "r-who",
+      "p-dog",
+      "w-luis",
+      "p-house",
+      "r-dog",
+      "c-brown",
+      "r-short",
+      "p-luis",
+      "w-red"
+    ],
+    "Speak": [
+      "q-who",
+      "w-luis",
+      "q-dog",
+      "w-black",
+      "w-sofia",
+      "w-white",
+      "w-red",
+      "c-ana"
+    ],
+    "Use": [
+      "w-luis",
+      "w-sofia",
+      "w-black",
+      "w-white",
+      "w-green",
+      "w-red",
+      "c-ana",
+      "w-sofia"
+    ]
+  }
+}

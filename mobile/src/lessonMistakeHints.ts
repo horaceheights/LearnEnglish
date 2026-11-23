@@ -249,6 +249,28 @@ const MEANINGS: Record<string, string> = {
   'start work': 'empezar a trabajar', 'finish work': 'terminar de trabajar',
   // A1+ 4.12 (2026-11-21): how often, at the end of the sentence (Diego runs once a week.).
   once: 'una vez', twice: 'dos veces',
+  // A1+ 7.1-7.5 (2026-11-20): what hurts, why and because, what people are wearing, the weather happening
+  // now, and putting clothes on and taking them off.
+  hurts: 'duele', hurt: 'duelen', because: 'porque', wearing: 'llevando puesto', raining: 'lloviendo',
+  snowing: 'nevando', 'put on': 'ponerse', 'take off': 'quitarse', 'putting on': 'poniéndose',
+  'taking off': 'quitándose',
+  // A1+ 7.6 (2026-11-20): what people like doing, like/likes + -ing (She likes dancing.).
+  dancing: 'bailar', painting: 'pintar', drawing: 'dibujar', 'riding her bike': 'andar en bicicleta',
+  'riding my bike': 'andar en bicicleta', 'taking photos': 'tomar fotos', 'playing football': 'jugar al fútbol',
+  // A1+ 7.9 (2026-11-20): being sick, have/has + an illness and feel/feels.
+  headache: 'dolor de cabeza', stomachache: 'dolor de estómago', cough: 'tos', fever: 'fiebre', feel: 'sentirse',
+  feels: 'se siente',
+  // A1+ 7.11 (2026-11-20): the top of three with the + -est.
+  tallest: 'el más alto o la más alta', shortest: 'el más bajo o la más baja', biggest: 'el más grande o la más grande',
+  smallest: 'el más pequeño o la más pequeña',
+  // A1+ 7.13 (2026-11-20): what people are good at.
+  'good at': 'bueno o buena para', singing: 'cantar',
+  // A1+ 7.12 (2026-11-20): what people and animals can do.
+  climb: 'trepar',
+  // A1+ 7.7 (2026-11-20): polite invitations.
+  party: 'fiesta', busy: 'ocupado u ocupada', "i'd love to": 'me encantaría',
+  // A1+ 7.8 (2026-11-20): polite repair and asking what a word means.
+  means: 'significa', mean: 'significar',
   grandchildren: 'nietos',
   cook: 'cocinero', brush: 'cepillar', wash: 'lavar',
   study: 'estudiar', run: 'correr', goes: 'va', walks: 'camina', likes: 'le gusta',

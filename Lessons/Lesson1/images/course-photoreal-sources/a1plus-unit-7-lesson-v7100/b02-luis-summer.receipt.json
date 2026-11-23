@@ -1,0 +1,62 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "a8e56afc-b7bf-471d-83cf-d46d8344c885",
+  "asset_id": "b02-luis-summer",
+  "pack_sha256": "dd0f8e8462405296ee8f376097ea978f079ae5d19ad400f8d79a3176ddef7b57",
+  "started_at": "2026-11-21T05:00:22.885372+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, menus, screens, cups, clothes or bags.\n\nKeep the people and the thing that carries the meaning inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nOnly this one person is in the photo; there is nobody else, even far in the background.\n\nThe cake has a few plain thin birthday candles with small flames; there are no number candles and no writing on the cake.\n\nIt is clearly daytime with soft natural light.\n\nImage 1 shows Luis. Keep his face, short dark curly hair, clean-shaven warm medium-brown skin and tall build exactly. He wears a short-sleeved light blue shirt and sunglasses pushed up on his head. Create a new photograph: on a hot, sunny SUMMER day Luis stands on a sandy beach with the blue sea behind him, smiling and holding a small round white birthday cake in both hands. It is obviously summer.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1plus-unit-1-q01-135c3f8f772bcbe4.webp",
+    "sha256": "135c3f8f772bcbe472b8cec719eb02318a7d52ce1c7152a94c6952aeb78566c2"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "ZCUBa9qnBseGqtsPj5nCyAk",
+  "usage": {
+    "promptTokenCount": 583,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1873,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 325
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038875",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 583,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 8.56,
+  "output": "output/imagegen/a1plus-unit-7-lesson-v7100/b02-luis-summer.png",
+  "sha256": "54073c3cc8a4fcc94af44d58a8423a44ce5f393e763f7e4a037f170b44370422",
+  "byte_count": 1341341,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}

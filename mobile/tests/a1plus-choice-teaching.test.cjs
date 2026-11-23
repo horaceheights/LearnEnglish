@@ -36,7 +36,8 @@ test('installed listening cards explain the heard evidence, including the report
   // twenty (the 5.16 mission has no Listen stage).
   // On 2026-11-20 A1+ Unit 6 was built: 6.1-6.13 have ten Listen cards each and the 6.14 review
   // twenty (the 6.15 mission's Listen beats are mission cards).
-  assert.equal(cards.length, 919);
+  // On 2026-11-21 A1+ Unit 7 added ten each for 7.1-7.13 and twenty for the 7.14 review.
+  assert.equal(cards.length, 1069);
   for (const card of cards) {
     assert.ok(!card.context_es, `${card.slide_id}: Spanish scenario text returned.`);
     for (const option of wrongOptions(card)) {

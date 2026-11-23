@@ -1,0 +1,62 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "917d6840-5055-4d08-b8de-597e2223d88f",
+  "asset_id": "h01-sofia-head",
+  "pack_sha256": "a6b426d9367cea876d4b6ae47f84edb8cf9c09b406f91bd35a5a818c1b141dc6",
+  "started_at": "2026-11-21T04:15:54.850579+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, menus, screens, cups, clothes or bags.\n\nKeep the people and the thing that carries the meaning inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nOnly this one person is in the photo; there is nobody else, even far in the background.\n\nIt is clearly daytime with soft natural light.\n\nNobody looks at the camera.\n\nImage 1 shows Sofia. Keep her face, long curly dark hair, warm brown skin and build exactly. She wears a plain light-grey sweater. Create a new photograph: Sofia sits at a wooden desk in her bright home study with a closed laptop in front of her; her eyes are shut tight, her face shows pain, and she presses the fingertips of both hands against the two sides of her forehead. It is obvious at a glance that her HEAD hurts. Nothing touches her eyes, ears or mouth.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1plus-unit-1-q03-7d520a07846a47b8.webp",
+    "sha256": "7d520a07846a47b8e8389c3226f3b3639d7eed0d257318b08e4f9b77c5b2258b"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "-RoBa4ffGMzVz7IPlr-jsQ4",
+  "usage": {
+    "promptTokenCount": 577,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1867,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 319
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038873",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 577,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 9.09,
+  "output": "output/imagegen/a1plus-unit-7-lesson-v710/h01-sofia-head.png",
+  "sha256": "ebf5643d3b154b23f1444f1685bb3c51e06cbbe1d1c866de5065f57e92e8442e",
+  "byte_count": 1310029,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}

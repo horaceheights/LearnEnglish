@@ -194,6 +194,26 @@ const TIME_TAILS: Record<string, string> = {
 // A1+ 4.13 (2026-11-21): a date is on + a month + an ordinal number (It's on March fifth.).
 const MONTHS = set('january february march april may june july august september october november december');
 const DATE_ORDINALS = set('first second third fourth fifth sixth seventh eighth ninth tenth');
+// A1+ 7.3-7.5 (2026-11-20): what someone is wearing, the weather happening now, and putting clothes on
+// or taking them off (She's wearing a red hat. / It's raining. / He's taking off his jacket.).
+for (const action of words('wearing raining snowing putting taking')) ACTIONS.add(action);
+// A1+ 7.5 (2026-11-20): the two-word verbs that put clothes on and take them off.
+const WEATHER_NOW: Record<string, string> = { raining: 'lloviendo', snowing: 'nevando' };
+// A1+ 7.6 and 7.13 (2026-11-20): activities in -ing after like/likes or good at.
+const ACTIVITIES = set('dancing painting drawing singing');
+// A1+ 7.9 (2026-11-20): illnesses after have/has a.
+for (const noun of words('headache stomachache cough fever')) NOUNS.add(noun);
+const FEELINGS: Record<string, string> = { sick: 'enfermo o enferma', fine: 'bien', great: 'muy bien', tired: 'cansado o cansada' };
+// A1+ 7.10 (2026-11-20): seasons after in.
+const SEASONS: Record<string, string> = { spring: 'primavera', summer: 'verano', fall: 'otoño', winter: 'invierno' };
+// A1+ 7.11 (2026-11-20): the top of three.
+const SUPERLATIVES: Record<string, string> = {
+  tallest: 'el más alto o la más alta', shortest: 'el más bajo o la más baja', biggest: 'el más grande',
+  smallest: 'el más pequeño o la más pequeña',
+};
+const CLOTHES_PARTICLES: Record<string, [string, string, string]> = {
+  putting: ['on', 'putting on', 'poniéndose'], taking: ['off', 'taking off', 'quitándose'],
+};
 
 type Relation = { start: number; end: number; explanation: string };
 type ClausePlan = { explanations: string[]; relations: Relation[]; supported: boolean };
@@ -379,6 +399,18 @@ function teachClause(text: string): ClausePlan {
       teach(notIndex, notIndex + 1, `Primero afirmamos ${quote(phrase(start, notIndex))}; después “not” introduce lo que descartamos: ${quote(phrase(notIndex, end))}.`);
       return complement(notIndex + 1, end, 'not');
     }
+    // A1+ 7.11 (2026-11-20): the top of three, the + -est (Luis is the tallest.).
+    if (end === start + 2 && keys[start] === 'the' && SUPERLATIVES[keys[start + 1]] && BE.has(anchor.toLowerCase())) {
+      teach(start, end, `${quote(phrase(start, end))} (${SUPERLATIVES[keys[start + 1]]}) compara a tres o más: “the” va antes y la palabra termina en -est; va después de ${quote(anchor)}.`);
+      return true;
+    }
+    // A1+ 7.13 (2026-11-20): what someone is good at (She is good at tennis. / I am good at painting.).
+    if (end >= start + 3 && keys[start] === 'good' && keys[start + 1] === 'at' && BE.has(anchor.toLowerCase())
+      && (end === start + 3 && (NOUNS.has(keys[start + 2]) || ACTIONS.has(keys[start + 2]) || ACTIVITIES.has(keys[start + 2])))) {
+      teach(start, start + 2, `“good at” (bueno o buena para) va después de ${quote(anchor)}; “at” va justo antes de la actividad.`);
+      teach(start + 2, end, `${quote(tokens[start + 2])} es la actividad y va después de “good at”${/ing$/.test(keys[start + 2]) ? ', con -ing' : ''}.`);
+      return true;
+    }
     // A1+ 2.11 (2026-11-20): Luis is taller than Sofia. / I am older than my brother. / … than me.
     if (end - start >= 3 && COMPARATIVES[keys[start]] && keys[start + 1] === 'than' && BE.has(anchor.toLowerCase())) {
       const other = start + 2;
@@ -512,7 +544,9 @@ function teachClause(text: string): ClausePlan {
           : prep[1] === 'from' ? 'el lugar de origen'
             : prep[1] === 'with' ? 'con quién'
             : prep[1] === 'to' && /listen/i.test(anchor) ? 'lo que escuchamos'
-              : NUMBERS.has(keys[nounStart]) || /night|morning|afternoon|evening|day$/.test(keys[nounEnd - 1]) ? 'cuándo ocurre'
+              // A1+ 7.10 (2026-11-21): in + a season or a month says when (Luis's birthday is in summer.).
+              : NUMBERS.has(keys[nounStart]) || /night|morning|afternoon|evening|day$/.test(keys[nounEnd - 1])
+                || (prep[1] === 'in' && nounEnd === nounStart + 1 && (keys[nounStart] in SEASONS || MONTHS.has(keys[nounStart]))) ? 'cuándo ocurre'
                 : 'el lugar o la dirección';
       teach(start, nounEnd, `${quote(phrase(start, nounStart))} va antes de ${quote(location)}: introduce ${relation}. Juntos completan ${quote(anchor)}.`);
       const clockTime = nounEnd === nounStart + 2 && NUMBERS.has(keys[nounStart]) && keys[nounStart + 1] === "o'clock";
@@ -551,6 +585,12 @@ function teachClause(text: string): ClausePlan {
         return end - start === 2;
       }
       return complement(start + 1, end, tokens[start]);
+    }
+    const particle = CLOTHES_PARTICLES[keys[start]];
+    if (particle && keys[start + 1] === particle[0] && end > start + 2) {
+      teach(start, start + 2, `${quote(phrase(start, start + 2))} (${particle[2]}) son dos palabras que van juntas; van después de ${quote(anchor)} y antes de la ropa.`);
+      teach(start + 2, end, `${quote(phrase(start + 2, end))} es la ropa y cierra la frase.`);
+      return nominal(start + 2, end);
     }
     if (ACTIONS.has(keys[start])) {
       teach(start, start + 1, `${quote(tokens[start])} expresa la acción; aquí va después de ${quote(anchor)}.`);
@@ -948,7 +988,8 @@ function teachClause(text: string): ClausePlan {
     const supported = nominal(2, keys.length);
     return { explanations, relations, supported };
   }
-  if (/^take .+$/.test(joined)) {
+  // A1+ 7.5 (2026-11-20): Take off your jacket. is the clothes order below, not transport.
+  if (/^take (?!off ).+$/.test(joined)) {
     teach(0, keys.length, 'En esta indicación, primero “Take” (tome) y después el transporte que debe usar.');
     return { explanations, relations, supported: nominal(1, keys.length) };
   }
@@ -1049,6 +1090,16 @@ function teachClause(text: string): ClausePlan {
     teach(0, keys.length, `Para preguntar por la acción actual, primero “What”, luego ${quote(tokens[1])}, después ${quote(tokens[2])} y al final “doing”.`);
     teach(1, 3, `En esta pregunta usamos ${quote(tokens[1])} con ${quote(tokens[2])}; el auxiliar va antes de la persona: ${quote(phrase(1, 3))}.`);
     relations.push({ start: 2, end: 4, explanation: `${quote(tokens[2])} indica por quién preguntamos y va antes de “doing”, la acción que queremos conocer.` });
+    return { explanations, relations, supported: true };
+  }
+  // A1+ 7.3 and 7.13 (2026-11-20): What are you wearing? / What are you good at?
+  const whatAre = /^what are you (wearing|good at)$/.exec(joined);
+  if (whatAre && text.trim().endsWith('?')) {
+    teach(0, 1, '“What” (qué) abre la pregunta.');
+    teach(1, 3, '“are” va antes de “you”, como en toda pregunta con “be”.');
+    teach(3, keys.length, whatAre[1] === 'wearing'
+      ? '“wearing” (llevando puesto) va al final, con -ing: pregunta por la ropa de ahora.'
+      : '“good at” va al final: pregunta para qué es buena la persona.');
     return { explanations, relations, supported: true };
   }
   // A1+ 4.13 (2026-11-21) adds When is your birthday?
@@ -1166,6 +1217,158 @@ function teachClause(text: string): ClausePlan {
     teach(0, 1, '“What” abre la pregunta.');
     teach(1, 3, `${quote(phrase(1, 3))} va después de “What”: ${keys[1] === 'does' ? '“does” con he, she o un nombre' : '“do” con you'}.`);
     teach(3, 4, 'El último “do” es el verbo hacer y cierra la pregunta: pregunta a qué se dedica.');
+    return { explanations, relations, supported: true };
+  }
+  // A1+ 7.1 (2026-11-20): what hurts, one body part with hurts and two with hurt (My head hurts. /
+  // His feet hurt.).
+  const hurts = /^(my|your|his|her) (head|eyes|ears|arms|hands|legs|feet|fingers|toes) (hurts|hurt)$/.exec(joined);
+  if (hurts && !text.trim().endsWith('?') && (hurts[3] === 'hurts') === (hurts[2] === 'head')) {
+    teach(0, 2, `${quote(phrase(0, 2))} dice qué parte del cuerpo duele y va primero.`);
+    teach(2, 3, hurts[3] === 'hurts'
+      ? `“hurts” (duele) lleva -s porque es una sola parte, ${quote(tokens[1])}; va al final.`
+      : `“hurt” (duelen) va sin -s porque son dos o más, ${quote(tokens[1])}; va al final.`);
+    return { explanations, relations, supported: true };
+  }
+  // A1+ 7.7 (2026-11-20): a polite invitation, Would you like to + a verb (Would you like to watch TV?), and
+  // its answers (I'd love to come to your party. / Sorry, I'm busy today.).
+  const invite = /^would you like to (come to my party|watch tv|play football|listen to music|read a book)$/.exec(joined);
+  if (invite && text.trim().endsWith('?')) {
+    teach(0, 2, '“Would” abre la pregunta y va antes de “you”: es la forma amable de invitar.');
+    teach(2, 4, '“like to” va después de “Would you”: juntos, “Would you like to” significa “¿te gustaría…?”.');
+    teach(4, keys.length, `${quote(phrase(4, keys.length))} es lo que proponemos hacer; el verbo va justo después de “to”.`);
+    return { explanations, relations, supported: true };
+  }
+  if (joined === "i'd love to come to your party" && !text.trim().endsWith('?')) {
+    teach(0, 3, '“I’d love to” (me encantaría) es la forma corta de “I would love to” y acepta la invitación.');
+    teach(3, keys.length, '“come to your party” va después de “to”: el verbo “come” y adónde.');
+    return { explanations, relations, supported: true };
+  }
+  // A comma before "I'm" splits the answer into two clauses: "Sorry," and "I am busy today.".
+  if (joined === 'sorry' && !text.trim().endsWith('?')) {
+    teach(0, 1, '“Sorry” (lo siento) abre la respuesta: así decimos que no, con amabilidad.');
+    return { explanations, relations, supported: true };
+  }
+  if (/^(i'm|i am) busy( today)?$/.test(joined) && !text.trim().endsWith('?')) {
+    const be = keys[0] === "i'm" ? 1 : 2;
+    teach(0, be, '“I’m” es la forma corta de “I am”: el sujeto y el verbo van juntos.');
+    teach(be, keys.length, `${quote(phrase(be, keys.length))} dice por qué no podemos; “busy” significa ocupado.`);
+    return { explanations, relations, supported: true };
+  }
+  // The short form reaches this rule as its full form (Sorry, I am busy today.).
+  const sorryBusy = /^sorry (i'm|i am) (busy|tired)( today)?$/.exec(joined);
+  if (sorryBusy && !text.trim().endsWith('?')) {
+    const be = words(sorryBusy[1]).length + 1;
+    teach(0, 1, '“Sorry” (lo siento) abre la respuesta: así decimos que no, con amabilidad.');
+    teach(1, be, '“I’m” es la forma corta de “I am” y va después de “Sorry,”.');
+    teach(be, keys.length, `${quote(phrase(be, keys.length))} dice por qué no podemos; va después de “I’m”.`);
+    return { explanations, relations, supported: true };
+  }
+  const isBusy = /^(ana|luis|sofia|diego|he|she) is busy$/.exec(joined);
+  if (isBusy && !text.trim().endsWith('?')) {
+    teach(0, 1, `${quote(tokens[0])} dice de quién hablamos y va primero.`);
+    teach(1, 3, '“is busy” (está ocupado) va después: “is” y luego cómo está.');
+    return { explanations, relations, supported: true };
+  }
+  // A1+ 7.8 (2026-11-20): polite repair (Could you repeat that, please?) and what a word means (What does
+  // hungry mean? It means you want to eat.).
+  const could = /^could you (repeat that|speak slowly) please$/.exec(joined);
+  if (could && text.trim().endsWith('?')) {
+    teach(0, 2, '“Could you” abre la pregunta: es la forma amable de pedir algo.');
+    teach(2, 4, `${quote(phrase(2, 4))} es lo que pedimos; el verbo va justo después de “Could you”.`);
+    teach(4, 5, '“please” (por favor) va al final, después de la coma.');
+    return { explanations, relations, supported: true };
+  }
+  const whatMean = /^what does ([a-z]+) mean$/.exec(joined);
+  if (whatMean && text.trim().endsWith('?') && STATES.has(whatMean[1])) {
+    teach(0, 2, '“What does” abre la pregunta: “does” va después de “What”.');
+    teach(2, 3, `${quote(tokens[2])} es la palabra que no entendemos; va entre “does” y “mean”.`);
+    teach(3, 4, '“mean” (significar) cierra la pregunta, sin -s porque ya está “does”.');
+    return { explanations, relations, supported: true };
+  }
+  const itMeans = /^it means you (want to (?:eat|drink|sleep)|need a coat)$/.exec(joined);
+  if (itMeans && !text.trim().endsWith('?')) {
+    teach(0, 2, '“It means” (significa) abre la respuesta: “means” lleva -s después de “it”.');
+    teach(2, keys.length, `${quote(phrase(2, keys.length))} explica la palabra con palabras que ya conocemos.`);
+    return { explanations, relations, supported: true };
+  }
+  // A1+ 7.1-7.13 (2026-11-20): the unit's new questions, built whole in Use.
+  if (text.trim().endsWith('?')) {
+    if (joined === "what's wrong") {
+      teach(0, 1, '“What’s” es la forma corta de “what is” y abre la pregunta.');
+      teach(1, 2, '“wrong” va después de “What’s”: juntos preguntan qué le pasa a alguien.');
+      return { explanations, relations, supported: true };
+    }
+    const why = /^why (is|are) (he|she|you|they|ana|luis|sofia|diego) ([a-z]+)$/.exec(joined);
+    if (why && STATES.has(why[3]) && (why[1] === 'are') === /^(you|they)$/.test(why[2])) {
+      teach(0, 1, '“Why” (por qué) abre la pregunta: pide el motivo.');
+      teach(1, 3, `${quote(tokens[1])} va antes de quien preguntamos, ${quote(tokens[2])}, como en toda pregunta con “be”.`);
+      teach(3, 4, `${quote(tokens[3])} dice cómo está y cierra la pregunta.`);
+      return { explanations, relations, supported: true };
+    }
+    const doYou = /^(how|what) do you (feel|like doing)$/.exec(joined);
+    if (doYou && (doYou[1] === 'how') === (doYou[2] === 'feel')) {
+      teach(0, 1, doYou[1] === 'how' ? '“How” (cómo) abre la pregunta.' : '“What” (qué) abre la pregunta.');
+      teach(1, 3, '“do” va antes de “you”: así se pregunta con un verbo que no es “be”.');
+      teach(3, keys.length, doYou[2] === 'feel'
+        ? '“feel” (sentirse) va al final: pregunta cómo se siente la persona.'
+        : '“like doing” va al final: “doing” en -ing pregunta qué actividad le gusta.');
+      return { explanations, relations, supported: true };
+    }
+  }
+  // A1+ 7.12 (2026-11-20): what people and animals are able to do, can/can't + a verb (A horse can run
+  // fast. / Luis can't play tennis. / Sofia and Luis can swim.).
+  const able = /^((?:a|an) [a-z]+|[a-z]+ and [a-z]+|i|you|we|they|he|she|it|ana|luis|sofia|diego) (can|can't) (run|walk|climb|swim|play|sing)( fast| trees| tennis| football)?$/.exec(joined);
+  if (able && !text.trim().endsWith('?')) {
+    const subjectEnd = words(able[1]).length;
+    const pair = / and /.test(able[1]);
+    teach(0, subjectEnd, `${quote(phrase(0, subjectEnd))} dice quién puede o no puede y va primero.`);
+    if (pair) teach(1, 2, `“and” une ${quote(tokens[0])} y ${quote(tokens[2])}: juntos son quienes pueden.`);
+    teach(subjectEnd, subjectEnd + 1, able[2] === 'can'
+      ? '“can” (puede o sabe) va antes del verbo, que no cambia: nunca lleva -s después de “can”.'
+      : '“can\'t” (no puede o no sabe) es la forma corta de “cannot” y va antes del verbo.');
+    teach(subjectEnd + 1, keys.length, `${quote(phrase(subjectEnd + 1, keys.length))} es lo que ${able[2] === 'can' ? 'puede' : 'no puede'} hacer; el verbo va justo después de ${quote(tokens[subjectEnd])}.`);
+    return { explanations, relations, supported: explanations.every(Boolean) };
+  }
+  // A1+ 7.6 (2026-11-20): what someone likes doing, like/likes + -ing (She likes dancing. / He likes
+  // listening to music. / I like painting.).
+  const likes = /^(i|you|we|they|he|she|ana|luis|sofia|diego) (like|likes) ([a-z]+ing)( tv| football| to music)?$/.exec(joined);
+  // "like" + an -ing verb the earlier rules already teach (I like listening to music.) keeps their explanation.
+  if (likes && !text.trim().endsWith('?') && (ACTIVITIES.has(likes[3]) || (ACTIONS.has(likes[3]) && likes[2] === 'likes'))
+    && (likes[2] === 'likes') === /^(he|she|ana|luis|sofia|diego)$/.test(likes[1])
+    && (!likes[4] || { watching: ' tv', playing: ' football', listening: ' to music' }[likes[3]] === likes[4])) {
+    teach(0, 1, `${quote(tokens[0])} dice a quién le gusta y va primero.`);
+    teach(1, 2, likes[2] === 'likes'
+      ? '“likes” lleva -s después de he, she o un nombre; va antes de la actividad.'
+      : '“like” va sin -s después de I, you, we o they; va antes de la actividad.');
+    teach(2, keys.length, `${quote(phrase(2, keys.length))} es la actividad, con el verbo en -ing; va después de ${quote(tokens[1])}.`);
+    return { explanations, relations, supported: true };
+  }
+  // A1+ 7.9 (2026-11-20): how someone feels (He feels sick. / I feel fine.).
+  const feels = /^(i|you|we|they|he|she|ana|luis|sofia|diego) (feel|feels) ([a-z]+)$/.exec(joined);
+  if (feels && !text.trim().endsWith('?') && FEELINGS[feels[3]]
+    && (feels[2] === 'feels') === /^(he|she|ana|luis|sofia|diego)$/.test(feels[1])) {
+    teach(0, 1, `${quote(tokens[0])} dice quién se siente así y va primero.`);
+    teach(1, 2, feels[2] === 'feels'
+      ? '“feels” (se siente) lleva -s después de he, she o un nombre.'
+      : '“feel” (me siento) va sin -s después de I, you, we o they.');
+    teach(2, 3, `${quote(tokens[2])} (${FEELINGS[feels[3]]}) dice cómo se siente y va al final.`);
+    return { explanations, relations, supported: true };
+  }
+  // A1+ 7.10 (2026-11-20): the weather in a season (It's hot in summer.).
+  const seasonal = /^it's (hot|cold|warm|windy|sunny) in (spring|summer|fall|winter)$/.exec(joined);
+  if (seasonal && !text.trim().endsWith('?')) {
+    teach(0, 1, '“It’s” es la forma corta de “it is”: “it” (eso) y “is” (es) van juntos al principio.');
+    teach(1, 2, `${quote(tokens[1])} dice cómo es el tiempo; va después de “It's”.`);
+    teach(2, 4, `“in” va antes de la estación: ${quote(phrase(2, 4))} (en ${SEASONS[seasonal[2]]}) dice cuándo y va al final.`);
+    return { explanations, relations, supported: true };
+  }
+  // A1+ 7.5 (2026-11-20): telling someone to put clothes on or take them off (Put on your coat.).
+  const clothesOrder = /^(put on|take off) (your|my|his|her) ([a-z]+)$/.exec(joined);
+  if (clothesOrder && !text.trim().endsWith('?') && NOUNS.has(clothesOrder[3])) {
+    teach(0, 2, clothesOrder[1] === 'put on'
+      ? '“Put on” (ponte) son dos palabras que van juntas y abren la indicación; no hay sujeto.'
+      : '“Take off” (quítate) son dos palabras que van juntas y abren la indicación; no hay sujeto.');
+    teach(2, 4, `${quote(phrase(2, 4))} es la ropa y va después de ${quote(phrase(0, 2))}.`);
     return { explanations, relations, supported: true };
   }
   // A1+ 3.12 (2026-11-20): Whose camera is this? asks who a thing belongs to.
@@ -1403,10 +1606,14 @@ function teachClause(text: string): ClausePlan {
     teach(0, shortIs, shortIs === 1
       ? '“It’s” es la forma corta de “it is”: “it” (eso) y “is” (es) van juntos al principio.'
       : '“Isn’t” es la forma corta de “is not”: va después de “It” y niega lo que sigue.');
-    teach(shortIs, keys.length, `${quote(phrase(shortIs, keys.length))} dice qué ${shortIs === 1 ? 'es' : 'no es'}; va después de ${quote(phrase(0, shortIs))}.`);
+    // A1+ 7.4 (2026-11-20): the weather happening now (It's raining. / It isn't snowing.).
+    const weatherNow = keys.length === shortIs + 1 && WEATHER_NOW[keys[shortIs]];
+    teach(shortIs, keys.length, weatherNow
+      ? `${quote(tokens[shortIs])} (${weatherNow}) dice qué ${shortIs === 1 ? 'pasa' : 'no pasa'} ahora con el tiempo; va después de ${quote(phrase(0, shortIs))}.`
+      : `${quote(phrase(shortIs, keys.length))} dice qué ${shortIs === 1 ? 'es' : 'no es'}; va después de ${quote(phrase(0, shortIs))}.`);
     // A1+ Unit 6 (2026-11-20): It's on the corner. / It's opposite the park. / It's ten dollars.
     const placed = ['on', 'opposite', 'near', 'in', 'at'].includes(keys[shortIs]);
-    const supported = keys.length === shortIs + 1 && STATES.has(keys[shortIs]) ? true
+    const supported = keys.length === shortIs + 1 && (STATES.has(keys[shortIs]) || Boolean(weatherNow)) ? true
       : placed ? complement(shortIs, keys.length, tokens[shortIs - 1]) : nominal(shortIs, keys.length);
     return { explanations, relations, supported: supported && explanations.every(Boolean) };
   }
