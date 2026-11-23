@@ -1,0 +1,62 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "8680318d-9fd4-4ca7-8197-3a64f8f2ba9c",
+  "asset_id": "s03-ana-fever",
+  "pack_sha256": "f78a2333cd473789da3327b9539caf7cd6c6fb487ce15c74c0a1c53b672ab9ac",
+  "started_at": "2026-11-21T04:59:51.182642+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, menus, screens, cups, clothes or bags.\n\nKeep the people and the thing that carries the meaning inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nOnly this one person is in the photo; there is nobody else, even far in the background.\n\nIt is clearly daytime with soft natural light.\n\nNobody looks at the camera.\n\nImage 1 shows Ana. Keep her face, long dark wavy hair, light-olive skin and build exactly. Create a new photograph: Ana lies in bed under a thick blanket, her face flushed red and damp with sweat, eyes half closed, one hand on her hot forehead; she holds a white digital thermometer whose small screen faces AWAY from the camera, so no digits are visible. A glass of water is on the bedside table. It is obvious that she is sick with a fever.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1plus-unit-1-q02-c2b4398b65207eff.webp",
+    "sha256": "c2b4398b65207effa51e51260cc607c38ada48caea82f14eb872e4c9c8b5d0d5"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "RCUBa-i9IffQz7IPs7qvkQw",
+  "usage": {
+    "promptTokenCount": 573,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1863,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 315
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038872",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 573,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 8.12,
+  "output": "output/imagegen/a1plus-unit-7-lesson-v790/s03-ana-fever.png",
+  "sha256": "8f6b21b99f2e1abdcad72c56c797aff8499e348fd791b404d6ebec9baf48904b",
+  "byte_count": 1566788,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}

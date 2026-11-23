@@ -1,0 +1,109 @@
+{
+  "schema_version": 1,
+  "pack": "a1plus-unit-7-lesson-7-1-hurts-photos",
+  "revision": 1,
+  "output_namespace": "a1plus-unit-7-lesson-v710",
+  "authorization": "2026-11-20: the user asked to \"work on a1+ Unit 7 same all deal as before none stop all approved\" (the Unit 2-4 deal: the A1+ Unit 7 map approved up front, straight to Preview with media pre-approved and reviewed in Preview). Gemini is the approved image tool (2026-09-23), Flash only (2026-11-17; \"lets switch to flash for any other images\", 2026-11-19).",
+  "image_settings": {
+    "provider": "google-gemini",
+    "model": "gemini-2.5-flash-image",
+    "aspect_ratio": "3:2",
+    "image_size": "1K",
+    "runtime_size": "1536x1024",
+    "runtime_format": "webp",
+    "n": 1
+  },
+  "production": {
+    "price_per_image_usd": "0.0387",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing (checked 2026-11-16: Gemini 2.5 Flash Image, about $0.039 per image)",
+    "planned_images": 4,
+    "expected_cost_usd": "0.15",
+    "requested_ceiling_usd": "0.40",
+    "ceiling_note": "The renderer reserves US$0.20 before each request; each request is sent on its own, and the expected spend for the pack is about US$0.15.",
+    "no_automatic_retries": true,
+    "order": "Generate h01 first; check Sofia's face against the reference and that only her head reads as hurting; then h02-h04, each checked against its reference."
+  },
+  "shared_prompts": {
+    "photo": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, menus, screens, cups, clothes or bags.",
+    "safe_center": "Keep the people and the thing that carries the meaning inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.",
+    "solo": "Only this one person is in the photo; there is nobody else, even far in the background.",
+    "pair": "Only these two people are in the photo; there is nobody else, even far in the background.",
+    "daytime": "It is clearly daytime with soft natural light.",
+    "nolook": "Nobody looks at the camera.",
+    "fullbody": "The whole person is visible from head to shoes, standing, with a little space above the head and below the shoes."
+  },
+  "assets": [
+    {
+      "id": "h01-sofia-head",
+      "order": 1,
+      "item": "My head hurts. / Her head hurts.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "solo",
+        "daytime",
+        "nolook"
+      ],
+      "prompt": "Image 1 shows Sofia. Keep her face, long curly dark hair, warm brown skin and build exactly. She wears a plain light-grey sweater. Create a new photograph: Sofia sits at a wooden desk in her bright home study with a closed laptop in front of her; her eyes are shut tight, her face shows pain, and she presses the fingertips of both hands against the two sides of her forehead. It is obvious at a glance that her HEAD hurts. Nothing touches her eyes, ears or mouth.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-q03-7d520a07846a47b8.webp",
+        "sha256": "7d520a07846a47b8e8389c3226f3b3639d7eed0d257318b08e4f9b77c5b2258b",
+        "observed_description": "Sofia (long curly dark hair, warm brown skin, white blouse under a bright blue blazer) writes in a large notebook at a wooden desk by a bright window in her home study (A1+ 1.2)."
+      }
+    },
+    {
+      "id": "h02-luis-feet",
+      "order": 2,
+      "item": "My feet hurt. / His feet hurt.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "solo",
+        "daytime",
+        "nolook"
+      ],
+      "prompt": "Image 1 shows Luis. Keep his face, short dark curly hair, clean-shaven warm medium-brown skin and tall build exactly. He wears his navy crew-neck T-shirt and khaki trousers rolled up a little. Create a new photograph: Luis sits on a wooden park bench on a sunny afternoon; his sneakers and socks are off and lie on the ground next to the bench; he leans forward and holds and rubs his two BARE FEET with both hands, wincing in pain. Both bare feet are clearly visible in the middle of the photo. It is obvious at a glance that his FEET hurt.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-q01-135c3f8f772bcbe4.webp",
+        "sha256": "135c3f8f772bcbe472b8cec719eb02318a7d52ce1c7152a94c6952aeb78566c2",
+        "observed_description": "Luis (short dark curly hair, clean-shaven, warm medium-brown skin, navy crew-neck T-shirt) drinks coffee from a white mug at a wooden table in his bright kitchen (A1+ 1.2)."
+      }
+    },
+    {
+      "id": "h03-diego-legs",
+      "order": 3,
+      "item": "My legs hurt. / His legs hurt.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "solo",
+        "daytime",
+        "nolook"
+      ],
+      "prompt": "Image 1 shows Diego. Keep his face, dark curly hair with a little grey, short full beard and build exactly. He wears a grey running T-shirt, black running shorts and running shoes. Create a new photograph: after a run, Diego sits on the grass in a park in the morning with his legs stretched out in front of him and holds both of his LEGS above the knees with both hands, his face tight with pain. Both legs are clearly visible in the middle of the photo. It is obvious at a glance that his LEGS hurt; his head and feet are fine.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-q04-ded74a2cb6021167.webp",
+        "sha256": "ded74a2cb6021167d6af2351e9012476d36c1b0936ca9f4f4b6dee68783bb9e2",
+        "observed_description": "Diego (dark curly hair with a little grey, short full beard, burgundy button shirt) sits at a wooden kitchen table and bites a red apple (A1+ 1.2)."
+      }
+    },
+    {
+      "id": "h04-ana-eyes",
+      "order": 4,
+      "item": "My eyes hurt. / Her eyes hurt.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "solo",
+        "daytime",
+        "nolook"
+      ],
+      "prompt": "Image 1 shows Ana. Keep her face, long dark wavy hair, light-olive skin and build exactly. She wears her sage-green overshirt over a white top. Create a new photograph: Ana sits at a kitchen table in front of an open laptop with a too-bright screen (the screen faces away from the camera, so nothing on it is visible); she squints in pain and presses the fingertips of both hands gently on her closed EYES. It is obvious at a glance that her EYES hurt; her hands do not touch her forehead or ears.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-q02-c2b4398b65207eff.webp",
+        "sha256": "c2b4398b65207effa51e51260cc607c38ada48caea82f14eb872e4c9c8b5d0d5",
+        "observed_description": "Ana (long dark wavy hair, light-olive skin, sage-green overshirt over a white top, jeans) sits on a light-grey sofa and reads an open hardcover book (A1+ 1.2)."
+      }
+    }
+  ]
+}

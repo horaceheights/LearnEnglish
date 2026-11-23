@@ -1,0 +1,62 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "7f3e781e-0b56-4dfc-8eb6-4693305300c3",
+  "asset_id": "t01-three-heights",
+  "pack_sha256": "a3ef43e302d87651861735fe62b2de04d5f0bfe230d423e435a79e38910ec43d",
+  "started_at": "2026-11-21T05:01:16.098192+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, menus, screens, cups, clothes or bags.\n\nKeep the people and the thing that carries the meaning inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nIt is clearly daytime with soft natural light.\n\nImage 1 shows Sofia (left) and Luis (right). Keep both faces, hair, skin and builds exactly, and keep their clothes: Sofia in her bright blue blazer over a white blouse, Luis in his navy T-shirt. Create a new photograph of THREE people standing side by side against a plain light-grey wall, all smiling at the camera: on the LEFT Sofia, who is clearly the SHORTEST; in the MIDDLE a woman of medium height with long dark wavy hair and light-olive skin in a sage-green overshirt over a white top (Ana); on the RIGHT Luis, who is very tall and clearly the TALLEST, a full head taller than the woman in the middle. Their feet are on the same floor, so the three heights are easy to compare. Only these three people are in the photo.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1plus-unit-1-p02-094cffd8654fde7e.webp",
+    "sha256": "094cffd8654fde7eacbcf5b643e8c43eebb30aff39e32cde627ca9861bda7b3d"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "mSUBa8ezHfmtz7IPovnyqA0",
+  "usage": {
+    "promptTokenCount": 617,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1907,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 359
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038885",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 617,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 9.53,
+  "output": "output/imagegen/a1plus-unit-7-lesson-v7110/t01-three-heights.png",
+  "sha256": "e9cb6c3b91dc091497bb9a3d6f40ee82352978641866f9526d6f4236d08760ad",
+  "byte_count": 1196736,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}

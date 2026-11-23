@@ -1,0 +1,795 @@
+{
+  "brief_version": 1,
+  "follows": {
+    "course": "a1",
+    "lesson": "7.12",
+    "title": "Farm and Wild Animals"
+  },
+  "note": "A1+ Unit 7 Lesson 7.12, built on 2026-11-20 under the A1+ lesson standards approved 2026-10-27 and the user's 2026-11-09 rule that every A1+ lesson follows up the A1 lesson with the same number. On 2026-11-20 the user asked to \"work on a1+ Unit 7 same all deal as before none stop all approved\": the A1+ Unit 7 map (A1+ 7.Y follows A1 7.Y, one step each, fifteen lessons) approved up front, straight to Preview, Gemini 2.5 Flash photos and ElevenLabs audio pre-approved, no per-lesson gates, reviewed in Preview. No new photos of its own: A1 7.12's horse running, monkey in a tree and snake on sand, the two new tennis photos made for 7.13 (Sofia playing well, Luis on the court among missed balls), A1 7.13's singer and the cast's A1+ 1.3 photos of swimming and running. Each picture shows the ability or, for the snake and Luis, its absence.",
+  "target": "backend/lessons/a1_plus/unit_7/a1plus-unit-7-lesson-7-12.yaml",
+  "captions": false,
+  "narrators": [
+    "teacher",
+    "co-teacher"
+  ],
+  "answer_audio_policy": "authored-only",
+  "speak_delivery": "a1-pronunciation-v1",
+  "lesson": {
+    "id": "a1plus-unit-7-lesson-7-12",
+    "title": "7.12 A horse can run fast",
+    "level": "A1+",
+    "unit_id": "a1plus-unit-7",
+    "unit_title": "Everyday needs, plans and free time",
+    "unit_outcome": "Say what hurts and why someone feels a certain way, describe what people are wearing and the weather as it happens, tell someone to put on or take off clothes, talk about what people like doing, invite and answer, ask someone to repeat or explain, talk about being sick, the months and seasons, compare with the biggest and the tallest, and say what people and animals can do and are good at.",
+    "lesson_id": "a1plus-unit-7-lesson-7-12",
+    "lesson_title": "A horse can run fast",
+    "sub_lesson_id": "7.12",
+    "sub_lesson_title": "A horse can run fast",
+    "goal": "Say what people and animals can and can't do (A horse can run fast. / A snake can't walk.) and ask Can you …? with Yes, I can. / No, I can't.",
+    "vocabulary": [
+      "can",
+      "can't",
+      "climb"
+    ],
+    "review_vocabulary": [
+      "a",
+      "horse",
+      "snake",
+      "monkey",
+      "trees",
+      "run",
+      "fast",
+      "walk",
+      "swim",
+      "play",
+      "tennis",
+      "sing",
+      "can",
+      "you",
+      "it",
+      "Sofia",
+      "Luis",
+      "Diego",
+      "and"
+    ],
+    "grammar_function": "A follow-up of A1 7.12 Farm and Wild Animals: A1 names animals and what they are doing (The horse is running.); A1+ 7.12 says what they and the cast are able to do. The one new grammar relationship is can / can't + a verb for ability (A horse can run fast. / A snake can't walk. / Luis can't play tennis.), with Can you …? and the short answers Yes, I can. / No, I can't.; can't first came in A1+ 6.9 as not allowed (You can't park here.), and here it says not able. Can you pass …? (A1+ 5.14) asks someone to do something and is not used here. A1 7.12's horse, monkey and snake, 7.13's two new tennis photos and the cast's swimming and running photos show each answer.",
+    "prerequisite": "A1 7.12 animals; A1 7.8 fast; A1 7.13 tennis and sing; A1+ 1.3 swim and run; A1+ 6.9 can't (not allowed); A1+ 7.13's tennis photos.",
+    "speaking_outcome": "Say can as a weak kun before the verb (I kun SWIM) but full in the short answer (Yes, I CAN.); say can't with a long vowel and a clear t (KANT). Do not require native-like speed.",
+    "content_revision": 1,
+    "learn_context_groups": [
+      {
+        "kind": "sequence",
+        "targets": [
+          "can"
+        ],
+        "models": [
+          {
+            "slide_id": "L1",
+            "text": "A horse can run fast."
+          }
+        ]
+      },
+      {
+        "kind": "sequence",
+        "targets": [
+          "can't"
+        ],
+        "models": [
+          {
+            "slide_id": "L2",
+            "text": "A snake can't walk."
+          }
+        ]
+      },
+      {
+        "kind": "sequence",
+        "targets": [
+          "climb"
+        ],
+        "models": [
+          {
+            "slide_id": "L3",
+            "text": "A monkey can climb trees."
+          }
+        ]
+      },
+      {
+        "kind": "exchange",
+        "targets": [
+          "can"
+        ],
+        "models": [
+          {
+            "slide_id": "L4",
+            "text": "Can you swim? Yes, I can.",
+            "turns": [
+              "Can you swim?",
+              "Yes, I can."
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "exchange",
+        "targets": [
+          "can't"
+        ],
+        "models": [
+          {
+            "slide_id": "L5",
+            "text": "Can you play tennis? No, I can't.",
+            "turns": [
+              "Can you play tennis?",
+              "No, I can't."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "items": [
+    {
+      "id": "l-horse",
+      "text": "A horse can run fast.",
+      "es": "Un caballo puede correr rápido.",
+      "image": "/lesson-assets/a1_photo_u7_animals_horse_v1.webp",
+      "kind": "sequence",
+      "choices": false,
+      "use": false,
+      "speaker": "teacher"
+    },
+    {
+      "id": "l-snake",
+      "text": "A snake can't walk.",
+      "es": "Una serpiente no puede caminar.",
+      "image": "/lesson-assets/a1_photo_u7_animals_snake_v1.webp",
+      "kind": "sequence",
+      "choices": false,
+      "use": false,
+      "speaker": "co-teacher"
+    },
+    {
+      "id": "l-monkey",
+      "text": "A monkey can climb trees.",
+      "es": "Un mono puede trepar árboles.",
+      "image": "/lesson-assets/a1_photo_u7_animals_monkey_v1.webp",
+      "kind": "sequence",
+      "choices": false,
+      "use": false,
+      "speaker": "teacher"
+    },
+    {
+      "id": "l-ana",
+      "text": "Can you swim? Yes, I can.",
+      "es": "¿Sabes nadar? Sí.",
+      "image": "/lesson-assets/a1plus-unit-1-s02-6a10ecb13ff623c8.webp",
+      "kind": "exchange",
+      "choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "Can you swim?",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-1-s02-6a10ecb13ff623c8.webp"
+        },
+        {
+          "text": "Yes, I can.",
+          "speaker": "ana",
+          "image": "/lesson-assets/a1plus-unit-1-s02-6a10ecb13ff623c8.webp"
+        }
+      ]
+    },
+    {
+      "id": "l-luis",
+      "text": "Can you play tennis? No, I can't.",
+      "es": "¿Sabes jugar tenis? No.",
+      "image": "/lesson-assets/a1plus-unit-7-g02-55cff6eb319a6406.webp",
+      "kind": "exchange",
+      "choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "Can you play tennis?",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-7-g02-55cff6eb319a6406.webp"
+        },
+        {
+          "text": "No, I can't.",
+          "speaker": "luis",
+          "image": "/lesson-assets/a1plus-unit-7-g02-55cff6eb319a6406.webp"
+        }
+      ]
+    },
+    {
+      "id": "a-horse",
+      "text": "A horse can run fast.",
+      "es": "Un caballo puede correr rápido.",
+      "image": "/lesson-assets/a1_photo_u7_animals_horse_v1.webp",
+      "kind": "animal",
+      "accepts": {
+        "subject-variety": "The bank keeps the animal and changes only what it can or can't do; the picture shows it.",
+        "action-variety": "The bank keeps the animal and changes only what it can or can't do; the picture shows it.",
+        "conversational-response": "The bank keeps the animal and changes only what it can or can't do; the picture shows it.",
+        "reading-load": "The bank keeps the animal and changes only what it can or can't do; the picture shows it."
+      },
+      "prefer": [
+        "A horse can't run fast."
+      ],
+      "blanks": [
+        "can",
+        "run"
+      ],
+      "avoid": [
+        "A snake can't walk.",
+        "A monkey can climb trees."
+      ],
+      "learn": false
+    },
+    {
+      "id": "a-snake",
+      "text": "A snake can't walk.",
+      "es": "Una serpiente no puede caminar.",
+      "image": "/lesson-assets/a1_photo_u7_animals_snake_v1.webp",
+      "kind": "animal",
+      "accepts": {
+        "subject-variety": "The bank keeps the animal and changes only what it can or can't do; the picture shows it.",
+        "action-variety": "The bank keeps the animal and changes only what it can or can't do; the picture shows it.",
+        "conversational-response": "The bank keeps the animal and changes only what it can or can't do; the picture shows it.",
+        "reading-load": "The bank keeps the animal and changes only what it can or can't do; the picture shows it."
+      },
+      "prefer": [
+        "A snake can walk."
+      ],
+      "blanks": [
+        "can't",
+        "walk"
+      ],
+      "avoid": [
+        "A horse can run fast.",
+        "A monkey can climb trees."
+      ],
+      "learn": false
+    },
+    {
+      "id": "a-monkey",
+      "text": "A monkey can climb trees.",
+      "es": "Un mono puede trepar árboles.",
+      "image": "/lesson-assets/a1_photo_u7_animals_monkey_v1.webp",
+      "kind": "animal",
+      "accepts": {
+        "subject-variety": "The bank keeps the animal and changes only what it can or can't do; the picture shows it.",
+        "action-variety": "The bank keeps the animal and changes only what it can or can't do; the picture shows it.",
+        "conversational-response": "The bank keeps the animal and changes only what it can or can't do; the picture shows it.",
+        "reading-load": "The bank keeps the animal and changes only what it can or can't do; the picture shows it."
+      },
+      "prefer": [
+        "A monkey can't climb trees."
+      ],
+      "blanks": [
+        "can",
+        "climb"
+      ],
+      "avoid": [
+        "A horse can run fast.",
+        "A snake can't walk."
+      ],
+      "learn": false
+    },
+    {
+      "id": "p-swim",
+      "text": "Sofia and Luis can swim.",
+      "es": "Sofía y Luis saben nadar.",
+      "image": "/lesson-assets/a1plus-unit-1-s01-2ebd24dc956daca4.webp",
+      "kind": "people",
+      "accepts": {
+        "subject-variety": "The bank keeps the person and changes only can or can't; the picture shows what they do.",
+        "action-variety": "The bank keeps the person and changes only can or can't; the picture shows what they do.",
+        "conversational-response": "The bank keeps the person and changes only can or can't; the picture shows what they do.",
+        "reading-load": "The bank keeps the person and changes only can or can't; the picture shows what they do."
+      },
+      "prefer": [
+        "Sofia and Luis can't swim."
+      ],
+      "blanks": [
+        "can",
+        "swim"
+      ],
+      "learn": false
+    },
+    {
+      "id": "p-diego",
+      "text": "Diego can run fast.",
+      "es": "Diego puede correr rápido.",
+      "image": "/lesson-assets/a1plus-unit-1-s04-1055dd20fb2b0977.webp",
+      "kind": "people",
+      "accepts": {
+        "subject-variety": "The bank keeps the person and changes only can or can't; the picture shows what they do.",
+        "action-variety": "The bank keeps the person and changes only can or can't; the picture shows what they do.",
+        "conversational-response": "The bank keeps the person and changes only can or can't; the picture shows what they do.",
+        "reading-load": "The bank keeps the person and changes only can or can't; the picture shows what they do."
+      },
+      "prefer": [
+        "Diego can't run fast."
+      ],
+      "blanks": [
+        "can",
+        "run"
+      ],
+      "learn": false
+    },
+    {
+      "id": "p-sofia",
+      "text": "Sofia can play tennis.",
+      "es": "Sofía sabe jugar tenis.",
+      "image": "/lesson-assets/a1plus-unit-7-g01-1e49537028fd2d63.webp",
+      "kind": "people",
+      "accepts": {
+        "subject-variety": "The bank keeps the person and changes only can or can't; the picture shows what they do.",
+        "action-variety": "The bank keeps the person and changes only can or can't; the picture shows what they do.",
+        "conversational-response": "The bank keeps the person and changes only can or can't; the picture shows what they do.",
+        "reading-load": "The bank keeps the person and changes only can or can't; the picture shows what they do."
+      },
+      "prefer": [
+        "Sofia can't play tennis."
+      ],
+      "blanks": [
+        "can",
+        "play"
+      ],
+      "learn": false
+    },
+    {
+      "id": "p-luis",
+      "text": "Luis can't play tennis.",
+      "es": "Luis no sabe jugar tenis.",
+      "image": "/lesson-assets/a1plus-unit-7-g02-55cff6eb319a6406.webp",
+      "kind": "people",
+      "accepts": {
+        "subject-variety": "The bank keeps the person and changes only can or can't; the picture shows what they do.",
+        "action-variety": "The bank keeps the person and changes only can or can't; the picture shows what they do.",
+        "conversational-response": "The bank keeps the person and changes only can or can't; the picture shows what they do.",
+        "reading-load": "The bank keeps the person and changes only can or can't; the picture shows what they do."
+      },
+      "prefer": [
+        "Luis can play tennis."
+      ],
+      "blanks": [
+        "can't",
+        "play"
+      ],
+      "learn": false
+    },
+    {
+      "id": "p-sings",
+      "text": "She can sing.",
+      "es": "Sabe cantar.",
+      "image": "/lesson-assets/a1_photo_u7_sports_ana_sings_v1.webp",
+      "kind": "people",
+      "accepts": {
+        "subject-variety": "The bank keeps the person and changes only can or can't; the picture shows what they do.",
+        "action-variety": "The bank keeps the person and changes only can or can't; the picture shows what they do.",
+        "conversational-response": "The bank keeps the person and changes only can or can't; the picture shows what they do.",
+        "reading-load": "The bank keeps the person and changes only can or can't; the picture shows what they do."
+      },
+      "prefer": [
+        "She can't sing."
+      ],
+      "blanks": [
+        "can",
+        "sing"
+      ],
+      "learn": false
+    },
+    {
+      "id": "y-ana",
+      "text": "Yes, I can.",
+      "es": "Sí.",
+      "image": "/lesson-assets/a1plus-unit-1-s02-6a10ecb13ff623c8.webp",
+      "kind": "yn",
+      "question": "Can you swim?",
+      "question_es": "¿Sabes nadar?",
+      "question_speaker": "co-teacher",
+      "speaker": "ana",
+      "image_choices": false,
+      "use": false,
+      "accepts": {
+        "subject-variety": "The question stays the same and the reply changes only yes or no; the picture shows the answer.",
+        "action-variety": "The question stays the same and the reply changes only yes or no; the picture shows the answer.",
+        "conversational-response": "The question stays the same and the reply changes only yes or no; the picture shows the answer.",
+        "reading-load": "The question stays the same and the reply changes only yes or no; the picture shows the answer."
+      },
+      "prefer": [
+        "No, I can't."
+      ],
+      "listening_turns": [
+        {
+          "text": "Can you swim?",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-1-s02-6a10ecb13ff623c8.webp"
+        },
+        {
+          "text": "Yes, I can.",
+          "speaker": "ana",
+          "image": "/lesson-assets/a1plus-unit-1-s02-6a10ecb13ff623c8.webp"
+        }
+      ],
+      "learn": false
+    },
+    {
+      "id": "y-luis",
+      "text": "No, I can't.",
+      "es": "No.",
+      "image": "/lesson-assets/a1plus-unit-7-g02-55cff6eb319a6406.webp",
+      "kind": "yn",
+      "question": "Can you play tennis?",
+      "question_es": "¿Sabes jugar tenis?",
+      "question_speaker": "co-teacher",
+      "speaker": "luis",
+      "image_choices": false,
+      "use": false,
+      "accepts": {
+        "subject-variety": "The question stays the same and the reply changes only yes or no; the picture shows the answer.",
+        "action-variety": "The question stays the same and the reply changes only yes or no; the picture shows the answer.",
+        "conversational-response": "The question stays the same and the reply changes only yes or no; the picture shows the answer.",
+        "reading-load": "The question stays the same and the reply changes only yes or no; the picture shows the answer."
+      },
+      "prefer": [
+        "Yes, I can."
+      ],
+      "listening_turns": [
+        {
+          "text": "Can you play tennis?",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-7-g02-55cff6eb319a6406.webp"
+        },
+        {
+          "text": "No, I can't.",
+          "speaker": "luis",
+          "image": "/lesson-assets/a1plus-unit-7-g02-55cff6eb319a6406.webp"
+        }
+      ],
+      "learn": false
+    },
+    {
+      "id": "y-sofia",
+      "text": "Yes, I can.",
+      "es": "Sí.",
+      "image": "/lesson-assets/a1plus-unit-7-g01-1e49537028fd2d63.webp",
+      "kind": "yn",
+      "question": "Can you play tennis?",
+      "question_es": "¿Sabes jugar tenis?",
+      "question_speaker": "co-teacher",
+      "speaker": "sofia",
+      "image_choices": false,
+      "use": false,
+      "accepts": {
+        "subject-variety": "The question stays the same and the reply changes only yes or no; the picture shows the answer.",
+        "action-variety": "The question stays the same and the reply changes only yes or no; the picture shows the answer.",
+        "conversational-response": "The question stays the same and the reply changes only yes or no; the picture shows the answer.",
+        "reading-load": "The question stays the same and the reply changes only yes or no; the picture shows the answer."
+      },
+      "prefer": [
+        "No, I can't."
+      ],
+      "listening_turns": [
+        {
+          "text": "Can you play tennis?",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-7-g01-1e49537028fd2d63.webp"
+        },
+        {
+          "text": "Yes, I can.",
+          "speaker": "sofia",
+          "image": "/lesson-assets/a1plus-unit-7-g01-1e49537028fd2d63.webp"
+        }
+      ],
+      "learn": false
+    },
+    {
+      "id": "y-diego",
+      "text": "Yes, I can.",
+      "es": "Sí.",
+      "image": "/lesson-assets/a1plus-unit-1-s04-1055dd20fb2b0977.webp",
+      "kind": "yn",
+      "question": "Can you run fast?",
+      "question_es": "¿Puedes correr rápido?",
+      "question_speaker": "co-teacher",
+      "speaker": "diego",
+      "image_choices": false,
+      "use": false,
+      "accepts": {
+        "subject-variety": "The question stays the same and the reply changes only yes or no; the picture shows the answer.",
+        "action-variety": "The question stays the same and the reply changes only yes or no; the picture shows the answer.",
+        "conversational-response": "The question stays the same and the reply changes only yes or no; the picture shows the answer.",
+        "reading-load": "The question stays the same and the reply changes only yes or no; the picture shows the answer."
+      },
+      "prefer": [
+        "No, I can't."
+      ],
+      "listening_turns": [
+        {
+          "text": "Can you run fast?",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-1-s04-1055dd20fb2b0977.webp"
+        },
+        {
+          "text": "Yes, I can.",
+          "speaker": "diego",
+          "image": "/lesson-assets/a1plus-unit-1-s04-1055dd20fb2b0977.webp"
+        }
+      ],
+      "learn": false
+    },
+    {
+      "id": "i-snake",
+      "text": "No, it can't.",
+      "es": "No.",
+      "image": "/lesson-assets/a1_photo_u7_animals_snake_v1.webp",
+      "kind": "it",
+      "question": "Can a snake walk?",
+      "question_es": "¿Puede caminar una serpiente?",
+      "question_speaker": "co-teacher",
+      "speaker": "teacher",
+      "image_choices": false,
+      "use": false,
+      "accepts": {
+        "subject-variety": "The question stays the same and the reply changes only yes or no; the picture shows the animal.",
+        "action-variety": "The question stays the same and the reply changes only yes or no; the picture shows the animal.",
+        "conversational-response": "The question stays the same and the reply changes only yes or no; the picture shows the animal.",
+        "reading-load": "The question stays the same and the reply changes only yes or no; the picture shows the animal."
+      },
+      "prefer": [
+        "Yes, it can."
+      ],
+      "listening_turns": [
+        {
+          "text": "Can a snake walk?",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1_photo_u7_animals_snake_v1.webp"
+        },
+        {
+          "text": "No, it can't.",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1_photo_u7_animals_snake_v1.webp"
+        }
+      ],
+      "learn": false
+    },
+    {
+      "id": "i-horse",
+      "text": "Yes, it can.",
+      "es": "Sí.",
+      "image": "/lesson-assets/a1_photo_u7_animals_horse_v1.webp",
+      "kind": "it",
+      "question": "Can a horse run fast?",
+      "question_es": "¿Puede correr rápido un caballo?",
+      "question_speaker": "co-teacher",
+      "speaker": "teacher",
+      "image_choices": false,
+      "use": false,
+      "accepts": {
+        "subject-variety": "The question stays the same and the reply changes only yes or no; the picture shows the animal.",
+        "action-variety": "The question stays the same and the reply changes only yes or no; the picture shows the animal.",
+        "conversational-response": "The question stays the same and the reply changes only yes or no; the picture shows the animal.",
+        "reading-load": "The question stays the same and the reply changes only yes or no; the picture shows the animal."
+      },
+      "prefer": [
+        "No, it can't."
+      ],
+      "listening_turns": [
+        {
+          "text": "Can a horse run fast?",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1_photo_u7_animals_horse_v1.webp"
+        },
+        {
+          "text": "Yes, it can.",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1_photo_u7_animals_horse_v1.webp"
+        }
+      ],
+      "learn": false
+    },
+    {
+      "id": "i-monkey",
+      "text": "Yes, it can.",
+      "es": "Sí.",
+      "image": "/lesson-assets/a1_photo_u7_animals_monkey_v1.webp",
+      "kind": "it",
+      "question": "Can a monkey climb trees?",
+      "question_es": "¿Puede trepar árboles un mono?",
+      "question_speaker": "co-teacher",
+      "speaker": "teacher",
+      "image_choices": false,
+      "use": false,
+      "accepts": {
+        "subject-variety": "The question stays the same and the reply changes only yes or no; the picture shows the animal.",
+        "action-variety": "The question stays the same and the reply changes only yes or no; the picture shows the animal.",
+        "conversational-response": "The question stays the same and the reply changes only yes or no; the picture shows the animal.",
+        "reading-load": "The question stays the same and the reply changes only yes or no; the picture shows the animal."
+      },
+      "prefer": [
+        "No, it can't."
+      ],
+      "listening_turns": [
+        {
+          "text": "Can a monkey climb trees?",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1_photo_u7_animals_monkey_v1.webp"
+        },
+        {
+          "text": "Yes, it can.",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1_photo_u7_animals_monkey_v1.webp"
+        }
+      ],
+      "learn": false
+    },
+    {
+      "id": "q-swim",
+      "text": "Can you swim?",
+      "es": "¿Sabes nadar?",
+      "image": "/lesson-assets/a1plus-unit-1-s02-6a10ecb13ff623c8.webp",
+      "kind": "q-swim",
+      "speaker": "co-teacher",
+      "choices": false,
+      "use": false,
+      "learn": false
+    },
+    {
+      "id": "q-tennis",
+      "text": "Can you play tennis?",
+      "es": "¿Sabes jugar tenis?",
+      "image": "/lesson-assets/a1plus-unit-7-g01-1e49537028fd2d63.webp",
+      "kind": "q-tennis",
+      "speaker": "co-teacher",
+      "choices": false,
+      "use": false,
+      "learn": false
+    }
+  ],
+  "pool": [
+    {
+      "text": "A horse can't run fast.",
+      "es": "Un caballo no puede correr rápido.",
+      "image": "/lesson-assets/a1_photo_u7_animals_horse_v1.webp",
+      "kind": "animal",
+      "image_choices": false
+    },
+    {
+      "text": "A snake can walk.",
+      "es": "Una serpiente puede caminar.",
+      "image": "/lesson-assets/a1_photo_u7_animals_snake_v1.webp",
+      "kind": "animal",
+      "image_choices": false
+    },
+    {
+      "text": "A monkey can't climb trees.",
+      "es": "Un mono no puede trepar árboles.",
+      "image": "/lesson-assets/a1_photo_u7_animals_monkey_v1.webp",
+      "kind": "animal",
+      "image_choices": false
+    },
+    {
+      "text": "Sofia and Luis can't swim.",
+      "es": "Sofía y Luis no saben nadar.",
+      "image": "/lesson-assets/a1plus-unit-1-s01-2ebd24dc956daca4.webp",
+      "kind": "people",
+      "image_choices": false
+    },
+    {
+      "text": "Diego can't run fast.",
+      "es": "Diego no puede correr rápido.",
+      "image": "/lesson-assets/a1plus-unit-1-s04-1055dd20fb2b0977.webp",
+      "kind": "people",
+      "image_choices": false
+    },
+    {
+      "text": "Sofia can't play tennis.",
+      "es": "Sofía no sabe jugar tenis.",
+      "image": "/lesson-assets/a1plus-unit-7-g01-1e49537028fd2d63.webp",
+      "kind": "people",
+      "image_choices": false
+    },
+    {
+      "text": "Luis can play tennis.",
+      "es": "Luis sabe jugar tenis.",
+      "image": "/lesson-assets/a1plus-unit-7-g02-55cff6eb319a6406.webp",
+      "kind": "people",
+      "image_choices": false
+    },
+    {
+      "text": "She can't sing.",
+      "es": "No sabe cantar.",
+      "image": "/lesson-assets/a1_photo_u7_sports_ana_sings_v1.webp",
+      "kind": "people",
+      "image_choices": false
+    },
+    {
+      "text": "No, I can't.",
+      "es": "No.",
+      "image": "/lesson-assets/a1plus-unit-1-s02-6a10ecb13ff623c8.webp",
+      "kind": "yn",
+      "image_choices": false
+    },
+    {
+      "text": "Yes, I can.",
+      "es": "Sí.",
+      "image": "/lesson-assets/a1plus-unit-7-g02-55cff6eb319a6406.webp",
+      "kind": "yn",
+      "image_choices": false
+    },
+    {
+      "text": "Yes, it can.",
+      "es": "Sí.",
+      "image": "/lesson-assets/a1_photo_u7_animals_snake_v1.webp",
+      "kind": "it",
+      "image_choices": false
+    },
+    {
+      "text": "No, it can't.",
+      "es": "No.",
+      "image": "/lesson-assets/a1_photo_u7_animals_horse_v1.webp",
+      "kind": "it",
+      "image_choices": false
+    }
+  ],
+  "layout": {
+    "Recognize": 10,
+    "Listen": 10,
+    "Speak": 8,
+    "Use": 7
+  },
+  "stage_sequences": {
+    "Learn": [
+      "l-horse",
+      "l-snake",
+      "l-monkey",
+      "l-ana",
+      "l-luis"
+    ],
+    "Recognize": [
+      "a-horse",
+      "y-ana",
+      "a-snake",
+      "p-swim",
+      "y-luis",
+      "a-monkey",
+      "p-luis",
+      "i-snake",
+      "p-diego",
+      "i-monkey"
+    ],
+    "Listen": [
+      "a-snake",
+      "y-diego",
+      "p-sofia",
+      "i-horse",
+      "a-monkey",
+      "y-luis",
+      "p-sings",
+      "a-horse",
+      "i-monkey",
+      "p-luis"
+    ],
+    "Speak": [
+      "q-swim",
+      "y-ana",
+      "q-tennis",
+      "y-luis",
+      "a-horse",
+      "a-snake",
+      "a-monkey",
+      "p-luis"
+    ],
+    "Use": [
+      "a-horse",
+      "a-snake",
+      "a-monkey",
+      "p-swim",
+      "p-diego",
+      "p-luis",
+      "p-sings"
+    ]
+  }
+}

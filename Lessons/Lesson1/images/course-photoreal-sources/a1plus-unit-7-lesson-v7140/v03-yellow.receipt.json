@@ -1,0 +1,55 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "bb86f683-da2e-4ec2-8213-0ecef91f7c3d",
+  "asset_id": "v03-yellow",
+  "pack_sha256": "c4eb3a19ca7f9a409ee9eef689c51489d8c65d7c0b2fe2a9619a6e7e3c2904b2",
+  "started_at": "2026-11-21T06:11:54.477994+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, menus, screens, cups, clothes or bags.\n\nKeep the people and the thing that carries the meaning inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nIt is clearly daytime with soft natural light.\n\nThese are new people who have never appeared in the course; none of them looks like Ana, Luis, Sofia or Diego.\n\nOnly this one person is in the photo; there is nobody else, even far in the background.\n\nThe whole person is visible from head to shoes, standing, with a little space above the head and below the shoes.\n\nA real young man of about twenty-five with short blond hair stands on a city sidewalk and smiles, wearing a bright YELLOW jacket, black trousers and white sneakers. The yellow jacket is the most obvious thing he is wearing. No hat and no scarf.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "JzYBa-GzE4aHqtsP7pCNuAs",
+  "usage": {
+    "promptTokenCount": 311,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1601,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 311
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038793",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 311,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 5.95,
+  "output": "output/imagegen/a1plus-unit-7-lesson-v7140/v03-yellow.png",
+  "sha256": "3ac0b68d710b1288274bda728aeae06ea1f329c477e6c9891729d12976fb4f09",
+  "byte_count": 1354168,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}

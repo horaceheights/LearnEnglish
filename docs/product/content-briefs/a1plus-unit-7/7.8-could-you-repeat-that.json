@@ -1,0 +1,692 @@
+{
+  "brief_version": 1,
+  "follows": {
+    "course": "a1",
+    "lesson": "7.8",
+    "title": "Please Repeat"
+  },
+  "note": "A1+ Unit 7 Lesson 7.8, built on 2026-11-20 under the A1+ lesson standards approved 2026-10-27 and the user's 2026-11-09 rule that every A1+ lesson follows up the A1 lesson with the same number. On 2026-11-20 the user asked to \"work on a1+ Unit 7 same all deal as before none stop all approved\": the A1+ Unit 7 map (A1+ 7.Y follows A1 7.Y, one step each, fifteen lessons) approved up front, straight to Preview, Gemini 2.5 Flash photos and ElevenLabs audio pre-approved, no per-lesson gates, reviewed in Preview. No new photos: A1 7.8's photos of Ana puzzled at a ticket counter and on a street, where Ana asks her repair questions, and A1 7.2 and 7.4's hungry baby, thirsty man, tired grandfather and cold woman, which show each word whose meaning is asked. A wrong repair option never fits the situation (I understand. Could you speak slowly, please?).",
+  "target": "backend/lessons/a1_plus/unit_7/a1plus-unit-7-lesson-7-8.yaml",
+  "captions": false,
+  "narrators": [
+    "teacher",
+    "co-teacher"
+  ],
+  "answer_audio_policy": "authored-only",
+  "speak_delivery": "a1-pronunciation-v1",
+  "lesson": {
+    "id": "a1plus-unit-7-lesson-7-8",
+    "title": "7.8 Could you repeat that, please?",
+    "level": "A1+",
+    "unit_id": "a1plus-unit-7",
+    "unit_title": "Everyday needs, plans and free time",
+    "unit_outcome": "Say what hurts and why someone feels a certain way, describe what people are wearing and the weather as it happens, tell someone to put on or take off clothes, talk about what people like doing, invite and answer, ask someone to repeat or explain, talk about being sick, the months and seasons, compare with the biggest and the tallest, and say what people and animals can do and are good at.",
+    "lesson_id": "a1plus-unit-7-lesson-7-8",
+    "lesson_title": "Could you repeat that, please?",
+    "sub_lesson_id": "7.8",
+    "sub_lesson_title": "Could you repeat that, please?",
+    "goal": "Ask someone to repeat or to speak slowly (Could you repeat that, please?) and ask what a word means (What does hungry mean? It means you want to eat.).",
+    "vocabulary": [
+      "repeat that",
+      "speak slowly",
+      "What does",
+      "mean",
+      "It means"
+    ],
+    "review_vocabulary": [
+      "could you",
+      "please",
+      "I",
+      "don't",
+      "understand",
+      "fast",
+      "you",
+      "want",
+      "need",
+      "eat",
+      "drink",
+      "sleep",
+      "a coat",
+      "hungry",
+      "thirsty",
+      "tired",
+      "cold",
+      "the baby",
+      "the grandfather",
+      "she",
+      "he",
+      "is"
+    ],
+    "grammar_function": "A follow-up of A1 7.8 Please Repeat: A1 repairs with I do not understand. Please repeat. Please speak slowly.; A1+ 7.8 asks politely and asks what a word means. The new grammar relationships are Could you + a verb + please? for a polite request (Could you repeat that, please? / Could you speak slowly, please?), building on A1+ 6.10's Could you tell me where …?, and What does + a word + mean? answered with It means … (What does hungry mean? It means you want to eat.). A1 7.8's photos of Ana puzzled at a ticket counter and on a street come back, and A1 7.2's hungry baby, thirsty man and tired grandfather and A1 7.4's cold woman show the words whose meaning is asked.",
+    "prerequisite": "A1 7.8 I do not understand, please repeat, speak slowly, fast; A1 7.2 hungry, thirsty, tired; A1 7.4 cold; A1+ 1.8 don't; A1+ 6.10 Could you tell me …?.",
+    "speaking_outcome": "Join Could you (KUD-juh) and let the voice go up at please?; stress MEAN in What does hungry mean?. Do not require native-like speed.",
+    "content_revision": 1,
+    "learn_context_groups": [
+      {
+        "kind": "sequence",
+        "targets": [
+          "repeat that"
+        ],
+        "models": [
+          {
+            "slide_id": "L1",
+            "text": "Could you repeat that, please?"
+          }
+        ]
+      },
+      {
+        "kind": "sequence",
+        "targets": [
+          "speak slowly"
+        ],
+        "models": [
+          {
+            "slide_id": "L2",
+            "text": "Could you speak slowly, please?"
+          }
+        ]
+      },
+      {
+        "kind": "exchange",
+        "targets": [
+          "What does",
+          "mean",
+          "It means"
+        ],
+        "models": [
+          {
+            "slide_id": "L3",
+            "text": "What does hungry mean? It means you want to eat.",
+            "turns": [
+              "What does hungry mean?",
+              "It means you want to eat."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "items": [
+    {
+      "id": "l-repeat",
+      "text": "Could you repeat that, please?",
+      "es": "¿Podría repetir eso, por favor?",
+      "image": "/lesson-assets/a1_photo_u7_approved_repair_ana_station_question_v1.webp",
+      "kind": "sequence",
+      "choices": false,
+      "use": false,
+      "speaker": "ana"
+    },
+    {
+      "id": "l-slowly",
+      "text": "Could you speak slowly, please?",
+      "es": "¿Podría hablar despacio, por favor?",
+      "image": "/lesson-assets/a1_photo_u7_approved_repair_ana_route_question_v1.webp",
+      "kind": "sequence",
+      "choices": false,
+      "use": false,
+      "speaker": "ana"
+    },
+    {
+      "id": "l-mean",
+      "text": "What does hungry mean? It means you want to eat.",
+      "es": "¿Qué significa hungry? Significa que quieres comer.",
+      "image": "/lesson-assets/a1_photo_u7_baby_hungry_v1.webp",
+      "kind": "exchange",
+      "choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "What does hungry mean?",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1_photo_u7_baby_hungry_v1.webp"
+        },
+        {
+          "text": "It means you want to eat.",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1_photo_u7_baby_hungry_v1.webp"
+        }
+      ]
+    },
+    {
+      "id": "m-hungry",
+      "text": "It means you want to eat.",
+      "es": "Significa que quieres comer.",
+      "image": "/lesson-assets/a1_photo_u7_baby_hungry_v1.webp",
+      "kind": "means",
+      "question": "What does hungry mean?",
+      "question_es": "¿Qué significa hungry?",
+      "question_speaker": "co-teacher",
+      "speaker": "teacher",
+      "image_choices": false,
+      "accepts": {
+        "subject-variety": "The question stays the same and the reply changes only the meaning; the photo shows the word.",
+        "action-variety": "The question stays the same and the reply changes only the meaning; the photo shows the word.",
+        "conversational-response": "The question stays the same and the reply changes only the meaning; the photo shows the word.",
+        "reading-load": "The question stays the same and the reply changes only the meaning; the photo shows the word."
+      },
+      "prefer": [
+        "It means you want to drink."
+      ],
+      "blanks": [
+        "It",
+        "means"
+      ],
+      "listening_turns": [
+        {
+          "text": "What does hungry mean?",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1_photo_u7_baby_hungry_v1.webp"
+        },
+        {
+          "text": "It means you want to eat.",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1_photo_u7_baby_hungry_v1.webp"
+        }
+      ],
+      "learn": false
+    },
+    {
+      "id": "m-thirsty",
+      "text": "It means you want to drink.",
+      "es": "Significa que quieres beber.",
+      "image": "/lesson-assets/a1_photo_u7_approved_feel_thirsty_reply_v1.webp",
+      "kind": "means",
+      "question": "What does thirsty mean?",
+      "question_es": "¿Qué significa thirsty?",
+      "question_speaker": "co-teacher",
+      "speaker": "teacher",
+      "image_choices": false,
+      "accepts": {
+        "subject-variety": "The question stays the same and the reply changes only the meaning; the photo shows the word.",
+        "action-variety": "The question stays the same and the reply changes only the meaning; the photo shows the word.",
+        "conversational-response": "The question stays the same and the reply changes only the meaning; the photo shows the word.",
+        "reading-load": "The question stays the same and the reply changes only the meaning; the photo shows the word."
+      },
+      "prefer": [
+        "It means you want to eat."
+      ],
+      "blanks": [
+        "It",
+        "means"
+      ],
+      "listening_turns": [
+        {
+          "text": "What does thirsty mean?",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1_photo_u7_approved_feel_thirsty_reply_v1.webp"
+        },
+        {
+          "text": "It means you want to drink.",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1_photo_u7_approved_feel_thirsty_reply_v1.webp"
+        }
+      ],
+      "learn": false
+    },
+    {
+      "id": "m-tired",
+      "text": "It means you want to sleep.",
+      "es": "Significa que quieres dormir.",
+      "image": "/lesson-assets/a1_photo_u7_grandfather_tired_v2.webp",
+      "kind": "means",
+      "question": "What does tired mean?",
+      "question_es": "¿Qué significa tired?",
+      "question_speaker": "co-teacher",
+      "speaker": "teacher",
+      "image_choices": false,
+      "accepts": {
+        "subject-variety": "The question stays the same and the reply changes only the meaning; the photo shows the word.",
+        "action-variety": "The question stays the same and the reply changes only the meaning; the photo shows the word.",
+        "conversational-response": "The question stays the same and the reply changes only the meaning; the photo shows the word.",
+        "reading-load": "The question stays the same and the reply changes only the meaning; the photo shows the word."
+      },
+      "prefer": [
+        "It means you need a coat."
+      ],
+      "blanks": [
+        "It",
+        "means"
+      ],
+      "listening_turns": [
+        {
+          "text": "What does tired mean?",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1_photo_u7_grandfather_tired_v2.webp"
+        },
+        {
+          "text": "It means you want to sleep.",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1_photo_u7_grandfather_tired_v2.webp"
+        }
+      ],
+      "learn": false
+    },
+    {
+      "id": "m-cold",
+      "text": "It means you need a coat.",
+      "es": "Significa que necesitas un abrigo.",
+      "image": "/lesson-assets/a1_cold.webp",
+      "kind": "means",
+      "question": "What does cold mean?",
+      "question_es": "¿Qué significa cold?",
+      "question_speaker": "co-teacher",
+      "speaker": "teacher",
+      "image_choices": false,
+      "accepts": {
+        "subject-variety": "The question stays the same and the reply changes only the meaning; the photo shows the word.",
+        "action-variety": "The question stays the same and the reply changes only the meaning; the photo shows the word.",
+        "conversational-response": "The question stays the same and the reply changes only the meaning; the photo shows the word.",
+        "reading-load": "The question stays the same and the reply changes only the meaning; the photo shows the word."
+      },
+      "prefer": [
+        "It means you want to sleep."
+      ],
+      "blanks": [
+        "It",
+        "means"
+      ],
+      "listening_turns": [
+        {
+          "text": "What does cold mean?",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1_cold.webp"
+        },
+        {
+          "text": "It means you need a coat.",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1_cold.webp"
+        }
+      ],
+      "learn": false
+    },
+    {
+      "id": "q-hungry",
+      "text": "What does hungry mean?",
+      "es": "¿Qué significa hungry?",
+      "image": "/lesson-assets/a1_photo_u7_baby_hungry_v1.webp",
+      "kind": "ask",
+      "speaker": "co-teacher",
+      "image_choices": false,
+      "accepts": {
+        "subject-variety": "The bank keeps the question and changes only the word; the photo shows the word that is asked about.",
+        "action-variety": "The bank keeps the question and changes only the word; the photo shows the word that is asked about.",
+        "conversational-response": "The bank keeps the question and changes only the word; the photo shows the word that is asked about.",
+        "reading-load": "The bank keeps the question and changes only the word; the photo shows the word that is asked about."
+      },
+      "prefer": [
+        "What does thirsty mean?"
+      ],
+      "blanks": [
+        "does",
+        "hungry"
+      ],
+      "use": false,
+      "learn": false
+    },
+    {
+      "id": "q-thirsty",
+      "text": "What does thirsty mean?",
+      "es": "¿Qué significa thirsty?",
+      "image": "/lesson-assets/a1_photo_u7_approved_feel_thirsty_reply_v1.webp",
+      "kind": "ask",
+      "speaker": "co-teacher",
+      "image_choices": false,
+      "accepts": {
+        "subject-variety": "The bank keeps the question and changes only the word; the photo shows the word that is asked about.",
+        "action-variety": "The bank keeps the question and changes only the word; the photo shows the word that is asked about.",
+        "conversational-response": "The bank keeps the question and changes only the word; the photo shows the word that is asked about.",
+        "reading-load": "The bank keeps the question and changes only the word; the photo shows the word that is asked about."
+      },
+      "prefer": [
+        "What does hungry mean?"
+      ],
+      "blanks": [
+        "does",
+        "thirsty"
+      ],
+      "use": true,
+      "learn": false
+    },
+    {
+      "id": "q-tired",
+      "text": "What does tired mean?",
+      "es": "¿Qué significa tired?",
+      "image": "/lesson-assets/a1_photo_u7_grandfather_tired_v2.webp",
+      "kind": "ask",
+      "speaker": "co-teacher",
+      "image_choices": false,
+      "accepts": {
+        "subject-variety": "The bank keeps the question and changes only the word; the photo shows the word that is asked about.",
+        "action-variety": "The bank keeps the question and changes only the word; the photo shows the word that is asked about.",
+        "conversational-response": "The bank keeps the question and changes only the word; the photo shows the word that is asked about.",
+        "reading-load": "The bank keeps the question and changes only the word; the photo shows the word that is asked about."
+      },
+      "prefer": [
+        "What does cold mean?"
+      ],
+      "blanks": [
+        "does",
+        "tired"
+      ],
+      "use": true,
+      "learn": false
+    },
+    {
+      "id": "q-cold",
+      "text": "What does cold mean?",
+      "es": "¿Qué significa cold?",
+      "image": "/lesson-assets/a1_cold.webp",
+      "kind": "ask",
+      "speaker": "co-teacher",
+      "image_choices": false,
+      "accepts": {
+        "subject-variety": "The bank keeps the question and changes only the word; the photo shows the word that is asked about.",
+        "action-variety": "The bank keeps the question and changes only the word; the photo shows the word that is asked about.",
+        "conversational-response": "The bank keeps the question and changes only the word; the photo shows the word that is asked about.",
+        "reading-load": "The bank keeps the question and changes only the word; the photo shows the word that is asked about."
+      },
+      "prefer": [
+        "What does tired mean?"
+      ],
+      "blanks": [
+        "does",
+        "cold"
+      ],
+      "use": false,
+      "learn": false
+    },
+    {
+      "id": "r-slowly",
+      "text": "I don't understand. Could you speak slowly, please?",
+      "es": "No entiendo. ¿Podría hablar despacio, por favor?",
+      "image": "/lesson-assets/a1_photo_u7_approved_repair_ana_route_question_v1.webp",
+      "kind": "repair",
+      "speaker": "ana",
+      "image_choices": false,
+      "use": false,
+      "accepts": {
+        "subject-variety": "The bank keeps the request and changes only understand or don't understand; only one makes sense.",
+        "action-variety": "The bank keeps the request and changes only understand or don't understand; only one makes sense.",
+        "conversational-response": "The bank keeps the request and changes only understand or don't understand; only one makes sense.",
+        "reading-load": "The bank keeps the request and changes only understand or don't understand; only one makes sense."
+      },
+      "prefer": [
+        "I understand. Could you speak slowly, please?"
+      ],
+      "avoid": [
+        "I don't understand. Could you repeat that, please?"
+      ],
+      "learn": false
+    },
+    {
+      "id": "r-repeat",
+      "text": "I don't understand. Could you repeat that, please?",
+      "es": "No entiendo. ¿Podría repetir eso, por favor?",
+      "image": "/lesson-assets/a1_photo_u7_approved_repair_ana_station_question_v1.webp",
+      "kind": "repair",
+      "speaker": "ana",
+      "image_choices": false,
+      "use": false,
+      "accepts": {
+        "subject-variety": "The bank keeps the request and changes only understand or don't understand; only one makes sense.",
+        "action-variety": "The bank keeps the request and changes only understand or don't understand; only one makes sense.",
+        "conversational-response": "The bank keeps the request and changes only understand or don't understand; only one makes sense.",
+        "reading-load": "The bank keeps the request and changes only understand or don't understand; only one makes sense."
+      },
+      "prefer": [
+        "I understand. Could you repeat that, please?"
+      ],
+      "avoid": [
+        "I don't understand. Could you speak slowly, please?"
+      ],
+      "learn": false
+    },
+    {
+      "id": "f-slowly",
+      "text": "Could you speak slowly, please?",
+      "es": "¿Podría hablar despacio, por favor?",
+      "image": "/lesson-assets/a1_photo_u7_approved_repair_ana_route_question_v1.webp",
+      "kind": "fast",
+      "speaker": "ana",
+      "image_choices": false,
+      "accepts": {
+        "subject-variety": "The bank keeps the request and changes only slowly or fast; only slowly helps someone who does not understand.",
+        "action-variety": "The bank keeps the request and changes only slowly or fast; only slowly helps someone who does not understand.",
+        "conversational-response": "The bank keeps the request and changes only slowly or fast; only slowly helps someone who does not understand.",
+        "reading-load": "The bank keeps the request and changes only slowly or fast; only slowly helps someone who does not understand."
+      },
+      "prefer": [
+        "Could you speak fast, please?"
+      ],
+      "blanks": [
+        "speak",
+        "slowly"
+      ],
+      "learn": false
+    },
+    {
+      "id": "f-repeat",
+      "text": "Could you repeat that, please?",
+      "es": "¿Podría repetir eso, por favor?",
+      "image": "/lesson-assets/a1_photo_u7_approved_repair_ana_station_question_v1.webp",
+      "kind": "repeat",
+      "speaker": "ana",
+      "image_choices": false,
+      "accepts": {
+        "subject-variety": "The bank keeps the request and changes only slowly or fast; only slowly helps someone who does not understand.",
+        "action-variety": "The bank keeps the request and changes only slowly or fast; only slowly helps someone who does not understand.",
+        "conversational-response": "The bank keeps the request and changes only slowly or fast; only slowly helps someone who does not understand.",
+        "reading-load": "The bank keeps the request and changes only slowly or fast; only slowly helps someone who does not understand."
+      },
+      "prefer": [
+        "Could you speak fast, please?"
+      ],
+      "blanks": [
+        "repeat",
+        "that"
+      ],
+      "learn": false
+    },
+    {
+      "id": "p-hungry",
+      "text": "The baby is hungry.",
+      "es": "El bebé tiene hambre.",
+      "image": "/lesson-assets/a1_photo_u7_baby_hungry_v1.webp",
+      "kind": "pic",
+      "text_choices": false,
+      "use": false,
+      "accepts": {
+        "subject-variety": "A picture bank: each photo shows one person feeling one thing.",
+        "action-variety": "A picture bank: each photo shows one person feeling one thing."
+      },
+      "learn": false
+    },
+    {
+      "id": "p-tired",
+      "text": "The grandfather is tired.",
+      "es": "El abuelo está cansado.",
+      "image": "/lesson-assets/a1_photo_u7_grandfather_tired_v2.webp",
+      "kind": "pic",
+      "text_choices": false,
+      "use": false,
+      "accepts": {
+        "subject-variety": "A picture bank: each photo shows one person feeling one thing.",
+        "action-variety": "A picture bank: each photo shows one person feeling one thing."
+      },
+      "learn": false
+    },
+    {
+      "id": "p-cold",
+      "text": "She is cold.",
+      "es": "Tiene frío.",
+      "image": "/lesson-assets/a1_cold.webp",
+      "kind": "pic",
+      "text_choices": false,
+      "use": false,
+      "accepts": {
+        "subject-variety": "A picture bank: each photo shows one person feeling one thing.",
+        "action-variety": "A picture bank: each photo shows one person feeling one thing."
+      },
+      "learn": false
+    },
+    {
+      "id": "p-thirsty",
+      "text": "He is thirsty.",
+      "es": "Tiene sed.",
+      "image": "/lesson-assets/a1_photo_u7_approved_feel_thirsty_reply_v1.webp",
+      "kind": "pic",
+      "text_choices": false,
+      "use": false,
+      "accepts": {
+        "subject-variety": "A picture bank: each photo shows one person feeling one thing.",
+        "action-variety": "A picture bank: each photo shows one person feeling one thing."
+      },
+      "learn": false
+    }
+  ],
+  "pool": [
+    {
+      "text": "It means you want to drink.",
+      "es": "Significa que quieres beber.",
+      "image": "/lesson-assets/a1_photo_u7_baby_hungry_v1.webp",
+      "kind": "means",
+      "image_choices": false
+    },
+    {
+      "text": "It means you want to eat.",
+      "es": "Significa que quieres comer.",
+      "image": "/lesson-assets/a1_photo_u7_approved_feel_thirsty_reply_v1.webp",
+      "kind": "means",
+      "image_choices": false
+    },
+    {
+      "text": "It means you need a coat.",
+      "es": "Significa que necesitas un abrigo.",
+      "image": "/lesson-assets/a1_photo_u7_grandfather_tired_v2.webp",
+      "kind": "means",
+      "image_choices": false
+    },
+    {
+      "text": "It means you want to sleep.",
+      "es": "Significa que quieres dormir.",
+      "image": "/lesson-assets/a1_cold.webp",
+      "kind": "means",
+      "image_choices": false
+    },
+    {
+      "text": "What does thirsty mean?",
+      "es": "¿Qué significa thirsty?",
+      "image": "/lesson-assets/a1_photo_u7_baby_hungry_v1.webp",
+      "kind": "ask",
+      "image_choices": false
+    },
+    {
+      "text": "What does hungry mean?",
+      "es": "¿Qué significa hungry?",
+      "image": "/lesson-assets/a1_photo_u7_approved_feel_thirsty_reply_v1.webp",
+      "kind": "ask",
+      "image_choices": false
+    },
+    {
+      "text": "What does cold mean?",
+      "es": "¿Qué significa cold?",
+      "image": "/lesson-assets/a1_photo_u7_grandfather_tired_v2.webp",
+      "kind": "ask",
+      "image_choices": false
+    },
+    {
+      "text": "What does tired mean?",
+      "es": "¿Qué significa tired?",
+      "image": "/lesson-assets/a1_cold.webp",
+      "kind": "ask",
+      "image_choices": false
+    },
+    {
+      "text": "I understand. Could you speak slowly, please?",
+      "es": "Entiendo. ¿Podría hablar despacio, por favor?",
+      "image": "/lesson-assets/a1_photo_u7_approved_repair_ana_route_question_v1.webp",
+      "kind": "repair",
+      "image_choices": false
+    },
+    {
+      "text": "I understand. Could you repeat that, please?",
+      "es": "Entiendo. ¿Podría repetir eso, por favor?",
+      "image": "/lesson-assets/a1_photo_u7_approved_repair_ana_station_question_v1.webp",
+      "kind": "repair",
+      "image_choices": false
+    },
+    {
+      "text": "Could you speak fast, please?",
+      "es": "¿Podría hablar rápido, por favor?",
+      "image": "/lesson-assets/a1_photo_u7_approved_repair_ana_route_question_v1.webp",
+      "kind": "fast",
+      "image_choices": false
+    },
+    {
+      "text": "Could you speak fast, please?",
+      "es": "¿Podría hablar rápido, por favor?",
+      "image": "/lesson-assets/a1_photo_u7_approved_repair_ana_station_question_v1.webp",
+      "kind": "repeat",
+      "image_choices": false
+    }
+  ],
+  "layout": {
+    "Recognize": 12,
+    "Listen": 10,
+    "Speak": 8,
+    "Use": 7
+  },
+  "stage_sequences": {
+    "Learn": [
+      "l-repeat",
+      "l-slowly",
+      "l-mean"
+    ],
+    "Recognize": [
+      "m-hungry",
+      "r-slowly",
+      "p-hungry",
+      "q-thirsty",
+      "m-tired",
+      "f-repeat",
+      "p-cold",
+      "m-cold",
+      "r-repeat",
+      "p-tired",
+      "q-cold",
+      "m-thirsty"
+    ],
+    "Listen": [
+      "m-thirsty",
+      "f-slowly",
+      "p-thirsty",
+      "q-hungry",
+      "m-cold",
+      "r-repeat",
+      "p-tired",
+      "q-tired",
+      "r-slowly",
+      "p-cold"
+    ],
+    "Speak": [
+      "f-repeat",
+      "f-slowly",
+      "q-tired",
+      "m-tired",
+      "q-cold",
+      "m-cold",
+      "r-repeat",
+      "r-slowly"
+    ],
+    "Use": [
+      "f-repeat",
+      "f-slowly",
+      "m-hungry",
+      "m-thirsty",
+      "m-tired",
+      "q-thirsty",
+      "q-tired"
+    ]
+  }
+}

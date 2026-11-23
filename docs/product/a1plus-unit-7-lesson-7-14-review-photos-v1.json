@@ -1,0 +1,194 @@
+{
+  "schema_version": 1,
+  "pack": "a1plus-unit-7-lesson-7-14-review-photos",
+  "revision": 1,
+  "output_namespace": "a1plus-unit-7-lesson-v7140",
+  "authorization": "2026-11-20: the user asked to \"work on a1+ Unit 7 same all deal as before none stop all approved\" (the Unit 2-4 deal: the A1+ Unit 7 map approved up front, straight to Preview with media pre-approved and reviewed in Preview). Gemini is the approved image tool (2026-09-23), Flash only (2026-11-17; \"lets switch to flash for any other images\", 2026-11-19).",
+  "image_settings": {
+    "provider": "google-gemini",
+    "model": "gemini-2.5-flash-image",
+    "aspect_ratio": "3:2",
+    "image_size": "1K",
+    "runtime_size": "1536x1024",
+    "runtime_format": "webp",
+    "n": 1
+  },
+  "production": {
+    "price_per_image_usd": "0.0387",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing (checked 2026-11-16: Gemini 2.5 Flash Image, about $0.039 per image)",
+    "planned_images": 12,
+    "expected_cost_usd": "0.46",
+    "requested_ceiling_usd": "0.70",
+    "ceiling_note": "The renderer reserves US$0.20 before each request; each request is sent on its own, and the expected spend for the pack is about US$0.46.",
+    "no_automatic_retries": true,
+    "order": "Generate v01 first and check that only the arms read as hurting; then the others in order."
+  },
+  "shared_prompts": {
+    "photo": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, menus, screens, cups, clothes or bags.",
+    "safe_center": "Keep the people and the thing that carries the meaning inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.",
+    "solo": "Only this one person is in the photo; there is nobody else, even far in the background.",
+    "pair": "Only these two people are in the photo; there is nobody else, even far in the background.",
+    "daytime": "It is clearly daytime with soft natural light.",
+    "nolook": "Nobody looks at the camera.",
+    "fullbody": "The whole person is visible from head to shoes, standing, with a little space above the head and below the shoes.",
+    "offframe": "The person they are talking to is NOT in the photo: they stand just outside the edge of the photo that is named, so no part of that person (no hand, arm, shoulder or shadow) is visible.",
+    "fresh": "These are new people who have never appeared in the course; none of them looks like Ana, Luis, Sofia or Diego.",
+    "picnic": "The place is a big green city park on a sunny spring afternoon, with trees, grass and a few picnic blankets.",
+    "four": "Exactly four people are in the photo, standing or sitting apart from each other with clear space between them, each fully visible from head to feet, so each person can be tapped on a phone. Nobody else is in the photo, even far in the background."
+  },
+  "assets": [
+    {
+      "id": "v01-arms",
+      "order": 1,
+      "item": "His arms hurt. (7.1)",
+      "shared": [
+        "photo",
+        "safe_center",
+        "daytime",
+        "fresh",
+        "solo"
+      ],
+      "prompt": "A real man of about fifty with grey hair and a blue work shirt stands in a garage next to three big cardboard boxes he has just put down, and rubs both of his ARMS with his hands, his face tight with pain. It is obvious that his arms hurt."
+    },
+    {
+      "id": "v02-thirsty",
+      "order": 2,
+      "item": "Why is she thirsty? Because she's playing football. (7.2)",
+      "shared": [
+        "photo",
+        "safe_center",
+        "daytime",
+        "fresh",
+        "solo"
+      ],
+      "prompt": "A real teenage girl of about fifteen in a red football shirt and shorts stands on a green football field with a football at her feet, sweaty, drinking water from a bottle. It is obvious she is playing football and is thirsty."
+    },
+    {
+      "id": "v03-yellow",
+      "order": 3,
+      "item": "He's wearing a yellow jacket. (7.3)",
+      "shared": [
+        "photo",
+        "safe_center",
+        "daytime",
+        "fresh",
+        "solo",
+        "fullbody"
+      ],
+      "prompt": "A real young man of about twenty-five with short blond hair stands on a city sidewalk and smiles, wearing a bright YELLOW jacket, black trousers and white sneakers. The yellow jacket is the most obvious thing he is wearing. No hat and no scarf."
+    },
+    {
+      "id": "v04-rain-coat",
+      "order": 4,
+      "item": "It's raining. She's putting on her coat. (7.4-7.5)",
+      "shared": [
+        "photo",
+        "safe_center",
+        "daytime",
+        "fresh",
+        "solo"
+      ],
+      "prompt": "A real woman of about thirty-five with short red hair stands in the open doorway of a café; outside, heavy rain is falling on the street. She is PUTTING ON a green raincoat: one arm is already in its sleeve and she pulls it onto her other shoulder, looking out at the rain."
+    },
+    {
+      "id": "v05-paints",
+      "order": 5,
+      "item": "She likes painting. (7.6)",
+      "shared": [
+        "photo",
+        "safe_center",
+        "daytime",
+        "fresh",
+        "solo"
+      ],
+      "prompt": "A real older woman of about seventy with white hair in a bun sits at an easel in a sunny garden and paints flowers on a canvas with a brush, smiling happily. A palette of paint is in her other hand."
+    },
+    {
+      "id": "v06-invite",
+      "order": 6,
+      "item": "Would you like to play football? (7.7)",
+      "shared": [
+        "photo",
+        "safe_center",
+        "daytime",
+        "fresh",
+        "solo",
+        "offframe"
+      ],
+      "prompt": "A real boy of about twelve in a blue T-shirt stands in a park holding a football under one arm and holds out his other hand toward someone just outside the RIGHT edge of the photo, smiling, clearly inviting them to play."
+    },
+    {
+      "id": "v07-tourist",
+      "order": 7,
+      "item": "Could you speak slowly, please? (7.8)",
+      "shared": [
+        "photo",
+        "safe_center",
+        "daytime",
+        "fresh",
+        "pair"
+      ],
+      "prompt": "A real tourist, a young woman of about twenty-five with a backpack and a paper map, stands at the counter of a museum information desk and talks to a man behind the counter; she looks confused, with one hand raised a little as if to say 'slowly, please'. The man behind the counter talks to her."
+    },
+    {
+      "id": "v08-cough",
+      "order": 8,
+      "item": "He has a cough. (7.9)",
+      "shared": [
+        "photo",
+        "safe_center",
+        "daytime",
+        "fresh",
+        "solo"
+      ],
+      "prompt": "A real boy of about ten in pajamas sits on his bed under a blanket and coughs into his elbow, eyes shut; a glass of water is on the bedside table. It is obvious he has a cough."
+    },
+    {
+      "id": "v09-cats",
+      "order": 9,
+      "item": "The black cat is the biggest. The white cat is the smallest. (7.11)",
+      "shared": [
+        "photo",
+        "safe_center",
+        "daytime"
+      ],
+      "prompt": "Three real cats sit side by side in a row on a sunny wooden floor in front of a sofa, facing the camera: on the left a very BIG BLACK cat, in the middle a medium-sized ORANGE cat, and on the right a tiny WHITE kitten. The difference in size is obvious. There are exactly three cats and no people."
+    },
+    {
+      "id": "v10-dog-swims",
+      "order": 10,
+      "item": "A dog can swim. (7.12)",
+      "shared": [
+        "photo",
+        "safe_center",
+        "daytime"
+      ],
+      "prompt": "A real golden dog swims happily across a calm blue lake toward the camera, its head above the water, with green trees on the far shore. No people."
+    },
+    {
+      "id": "v11-cook",
+      "order": 11,
+      "item": "He's good at cooking. (7.13)",
+      "shared": [
+        "photo",
+        "safe_center",
+        "daytime",
+        "fresh",
+        "solo"
+      ],
+      "prompt": "A real chef of about forty in a white chef's jacket stands in a bright restaurant kitchen and flips vegetables in a pan with a confident, skillful move, flames rising, smiling proudly. It is obvious he is good at cooking."
+    },
+    {
+      "id": "v12-summer",
+      "order": 12,
+      "item": "It's hot in summer. They swim in summer. (7.10)",
+      "shared": [
+        "photo",
+        "safe_center",
+        "daytime",
+        "fresh"
+      ],
+      "prompt": "Two real children, a brother and a sister of about nine, splash and swim in a blue outdoor pool on a very hot, sunny summer day, laughing. Nobody else is in the photo."
+    }
+  ]
+}

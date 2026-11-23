@@ -28,6 +28,7 @@ NOT_YET_REBUILT: set[str] = set()
 # A1+ Unit 3 (user decision, 2026-11-20): 3.1-3.16 built (Batch C, 2026-11-20).
 # A1+ Unit 4 (user decision, 2026-11-20): 4.1-4.17 built on 2026-11-20 and 2026-11-21.
 # A1+ Unit 6 (user decision, 2026-11-20): 6.1-6.15 built on 2026-11-20 and 2026-11-21.
+# A1+ Unit 7 (user decision, 2026-11-20): 7.1-7.15 built (2026-11-21).
 NOT_YET_BUILT: set[str] = set()
 
 

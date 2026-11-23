@@ -1,0 +1,55 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "1f0a7e65-1529-4f67-9a6a-9c0e30038e1a",
+  "asset_id": "w04-rain",
+  "pack_sha256": "561d6ca0662f1c3067e83b01a66600a22f33c54e7da39fc163de17fcdb955712",
+  "started_at": "2026-11-21T06:13:59.817306+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, menus, screens, cups, clothes or bags.\n\nThe place is a big green city park on a sunny spring afternoon, with trees, grass and a few picnic blankets.\n\nExactly four people are in the photo, standing or sitting apart from each other with clear space between them, each fully visible from head to feet, so each person can be tapped on a phone. Nobody else is in the photo, even far in the background.\n\nIt is clearly daytime with soft natural light.\n\nThese are new people who have never appeared in the course; none of them looks like Ana, Luis, Sofia or Diego.\n\nIt has started RAINING in the park: rain is clearly falling. Four real adults react, apart from each other: on the far left a woman PUTTING ON a raincoat, one arm in the sleeve; next a man OPENING a big black umbrella over his head; next a woman wearing tall red BOOTS standing in a puddle; and on the far right a man RUNNING toward the trees with a newspaper over his head. Each action is obvious.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "pDYBa6T7JtvWz7IPx5a5yQw",
+  "usage": {
+    "promptTokenCount": 338,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1628,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 338
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038801",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 338,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 7.82,
+  "output": "output/imagegen/a1plus-unit-7-lesson-v7150/w04-rain.png",
+  "sha256": "dfd70f7457fffdc2ac8079f62468f4b42d6007509cff260131e0376f22bb453b",
+  "byte_count": 2426232,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}
