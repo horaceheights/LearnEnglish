@@ -7,13 +7,13 @@ SpanGlish tiene dos destinos de actualización:
 
 `origin/main` es la única fuente de verdad para código, backend y publicaciones móviles. Toda rama de trabajo abre un pull request hacia `main` y se elimina localmente y en GitHub después de integrarse. No se crean ni se conservan ramas compartidas de Preview o Production.
 
-Un push a una rama de trabajo no publica una actualización móvil. Preview y Production se publican únicamente mediante sus workflows protegidos de GitHub Actions, desde el head remoto exacto de `main`. Por ahora, ambas apps usan el mismo backend Render desplegado desde `main`.
+Un push a una rama de trabajo no publica una actualización móvil. Preview y Production se publican únicamente mediante sus workflows protegidos de GitHub Actions, desde el head remoto exacto de `main`. Por ahora, ambas apps usan el mismo backend Render, desplegado desde `render-deploy`: una copia de `main` que contiene solamente los archivos que lee el backend.
 
 Cloudflare R2 (`https://cdn.learnspanglish.app`) es el origen predeterminado para imágenes, videos, efectos y audio inmutable. Render conserva el API, sin disco de medios. Los workflows protegidos validan todos los bytes y recibos publicados contra los inventarios versionados antes de subir a Expo. Consulta [la publicación de medios](../docs/operations/cloudflare-course-media.md).
 
 ## Backend compartido actual
 
-No cambies la rama del servicio Render: debe seguir desplegando `main`. Cuando un cambio modifica lecciones, rutas o audio que dependen del backend, intégralo primero en `main` y espera el despliegue completo. Antes de subir a Expo, el publicador comprueba que el backend corresponda al mismo commit y que el catálogo de audio sea idéntico y esté listo.
+Render despliega la rama `render-deploy`, no `main`. Render clona la punta de su rama y, con todo el contenido multimedia, `main` (más de 8 GB) excedía su tiempo límite de clonado. En cada push a `main`, el workflow **Render deploy copy** (`scripts/render_deploy_copy.py`) copia solamente `backend/` y los demás archivos que lee el backend, y agrega `backend/deploy-source.json` con el commit exacto de `main`. El backend informa ese commit de `main` en `/api/release/status`, así que el gate sigue comparando contra `origin/main`. No cambies la rama del servicio Render ni edites, fusiones o borres `render-deploy` a mano. Si los archivos del backend no cambiaron, no se publica una copia nueva y el gate acepta el commit anterior de `main` con backend idéntico. Cuando un cambio modifica lecciones, rutas o audio que dependen del backend, intégralo primero en `main` y espera el despliegue completo. Antes de subir a Expo, el publicador comprueba que el backend corresponda al mismo commit y que el catálogo de audio sea idéntico y esté listo.
 
 Si más adelante se crea un backend exclusivo para Preview, debe tener servicio, disco, base de datos, credenciales y gate propios. Para poblar su disco se copian los MP3 y recibos inmutables ya validados; no se vuelve a generar un catálogo existente.
 
@@ -58,7 +58,7 @@ GitHub está configurado para eliminar automáticamente la rama origen de un pul
 
 ### 3. Esperar el backend de `main`
 
-Espera a que Render despliegue el head actual de `origin/main`. No basta un cambio equivalente: el backend, GitHub y el candidato móvil deben indicar el mismo commit exacto.
+Espera a que Render despliegue el head actual de `origin/main` (llega mediante la copia `render-deploy`). No basta un cambio equivalente: el backend, GitHub y el candidato móvil deben indicar el mismo commit exacto. La única excepción ya la aplica el gate: si el candidato no cambió `backend/` ni el inventario de audio, el backend puede seguir en un commit anterior de `main` con esos archivos idénticos.
 
 ### 4. Publicar en Preview desde `main`
 

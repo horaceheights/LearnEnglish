@@ -1,0 +1,44 @@
+name: Render deploy copy
+
+# Render deploys the shared backend from the slim render-deploy branch, because a
+# shallow clone of main (gigabytes of lesson media) times out on Render. This
+# workflow copies only the files the backend reads from each main commit; see
+# scripts/render_deploy_copy.py.
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+    inputs:
+      force:
+        description: Publish even when the deployed files are unchanged
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: render-deploy-copy
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    name: Publish render-deploy from main
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out the publisher only
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          sparse-checkout: scripts/render_deploy_copy.py
+          sparse-checkout-cone-mode: false
+          filter: blob:none
+
+      - name: Publish the copy of this main commit
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          FORCE: ${{ inputs.force && '--force' || '' }}
+        run: python3 scripts/render_deploy_copy.py --repository "$GITHUB_REPOSITORY" --source-commit "$GITHUB_SHA" $FORCE
