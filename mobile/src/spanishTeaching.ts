@@ -225,6 +225,38 @@ PRESENT_FORMS.push(
   ['almorz', 'eat lunch', ['almuerzo', 'almuerzas', 'almuerza', 'almorzamos', 'almuerzan']],
 );
 registerPresent();
+
+// Unit 6: places in town, travel, where places are, directions, poder and timetables.
+Object.assign(NOUN_KIND, {
+  banco: 'masculine singular', biblioteca: 'feminine singular', plaza: 'feminine singular', farmacia: 'feminine singular',
+  estación: 'feminine singular', supermercado: 'masculine singular', parada: 'feminine singular', hotel: 'masculine singular',
+  cine: 'masculine singular', museo: 'masculine singular', correo: 'masculine singular', aeropuerto: 'masculine singular',
+  esquina: 'feminine singular', edificio: 'masculine singular', ciudad: 'feminine singular', mapa: 'masculine singular',
+  mercado: 'masculine singular', carretera: 'feminine singular', pueblo: 'masculine singular', boleto: 'masculine singular',
+  taxi: 'masculine singular', tren: 'masculine singular', avión: 'masculine singular', barco: 'masculine singular',
+});
+PRESENT_FORMS.push(
+  ['camin', 'walk', ['camino', 'caminas', 'camina', 'caminamos', 'caminan']], ['sal', 'leave', ['salgo', 'sales', 'sale', 'salimos', 'salen']],
+  ['lleg', 'arrive', ['llego', 'llegas', 'llega', 'llegamos', 'llegan']], ['manej', 'drive', ['manejo', 'manejas', 'maneja', 'manejamos', 'manejan']],
+  ['visit', 'visit', ['visito', 'visitas', 'visita', 'visitamos', 'visitan']],
+);
+registerPresent();
+// subirse / bajarse: me subo al autobús, nos bajamos del barco, se suben al tren.
+const GET_ON_OFF: Record<string, [string, string, string]> = {
+  subo: ['me', 'get on', 'al'], subimos: ['nos', 'get on', 'al'], suben: ['se', 'get on', 'al'],
+  bajo: ['me', 'get off', 'del'], bajamos: ['nos', 'get off', 'del'], bajan: ['se', 'get off', 'del'],
+};
+// Directions with tú: the command form ends the way “tú” verbs end without the -s.
+const COMMANDS: Record<string, string> = { dobla: 'turn', sigue: 'keep going', cruza: 'cross', para: 'stop', pasa: 'go past', toma: 'take' };
+const VEHICLES = set('autobús taxi tren avión barco carro');
+const PODER: Record<string, string> = { puedo: 'I can', puedes: 'you can', pueden: 'they can' };
+const INFINITIVES: Record<string, string> = { cruzar: 'cross', ir: 'go', ayudar: 'help' };
+Object.assign(FIXED_QUESTIONS, {
+  disculpa: ['“Disculpa” (excuse me) is how you start talking to someone you do not know.'],
+  'me puedes ayudar': ['“Me” (me) comes before the verb.', '“puedes” (you can) comes right after “Me”.', '“ayudar” (help) ends it: “¿Me puedes ayudar?” is “Can you help me?”.'],
+  'lo siento': ['“Lo” starts “Lo siento” (I am sorry).', '“siento” ends “Lo siento”.'],
+  'sigue derecho': ['“Sigue” (keep going, tú) starts the direction.', '“derecho” (straight) comes right after “Sigue”.'],
+});
 // gustar: what is liked is the subject, so gusta goes with one thing and gustan with more than one.
 const GUSTAR_WHO: Record<string, string> = { me: 'I like', te: 'you like', le: 'he or she likes', les: 'they like' };
 // Courtesy phrases: each word in order, with what it does.
@@ -250,6 +282,16 @@ function teachClause(text: string): ClausePlan {
   const nounPhrase = () => {
     const article = tokens[index] || '';
     const noun = tokens[index + 1] || '';
+    if (key(noun) === 'siguiente' && ARTICLE_KIND[key(article)] === NOUN_KIND[key(tokens[index + 2] || '')]) {
+      // la siguiente parada: “siguiente” (next) goes before the noun.
+      explanations[index] = `${quote(article)} is the article for ${quote(tokens[index + 2] || '')}, so it comes first.`;
+      explanations[index + 1] = '“siguiente” (next) comes before the noun, right after the article.';
+      explanations[index + 2] = `${quote(tokens[index + 2] || '')} comes right after “siguiente”.`;
+      relations.push({ start: index, end: index + 3, explanation: `${quote(tokens.slice(index, index + 3).join(' '))}: Spanish puts “siguiente” before the noun.` });
+      const kind = NOUN_KIND[key(tokens[index + 2] || '')];
+      index += 3;
+      return { text: tokens.slice(index - 3, index).join(' '), plural: kind.endsWith('plural'), kind };
+    }
     if (!ARTICLE_KIND[key(article)] || ARTICLE_KIND[key(article)] !== NOUN_KIND[key(noun)]) return null;
     explanations[index] = `${quote(article)} is the ${ARTICLE_KIND[key(article)]} article for ${quote(noun)}, so it comes right before it.`;
     explanations[index + 1] = `${quote(noun)} comes right after its article ${quote(article)}.`;
@@ -268,6 +310,12 @@ function teachClause(text: string): ClausePlan {
       relations.push({ start: index - 1, end: index + 1, explanation: `The color or size comes after the noun: ${quote(`${noun} ${after}`)}.` });
       index += 1;
       text += ` ${after}`;
+    }
+    if (key(noun) === 'parada' && key(tokens[index] || '') === 'de' && key(tokens[index + 1] || '') === 'autobús') {
+      explanations[index] = '“de” follows “parada”: “parada de autobús” is one name, a bus stop.';
+      explanations[index + 1] = '“autobús” ends the name “parada de autobús”.';
+      index += 2;
+      text += ' de autobús';
     }
     if (key(noun) === 'salón' && key(tokens[index] || '') === 'de' && key(tokens[index + 1] || '') === 'clases') {
       explanations[index] = '“de clases” follows “salón”: “salón de clases” is one name, a classroom.';
@@ -335,6 +383,56 @@ function teachClause(text: string): ClausePlan {
     // en / sobre / debajo de / al lado de + the place.
     const start = index;
     const first = key(tokens[index] || '');
+    const side = key(tokens[index + 2] || '');
+    if (first === 'a' && key(tokens[index + 1] || '') === 'la' && (side === 'izquierda' || side === 'derecha')) {
+      explanations[index] = '“a” starts the side: “a la izquierda” / “a la derecha”.';
+      explanations[index + 1] = `“la” comes before ${quote(tokens[index + 2] || '')}.`;
+      explanations[index + 2] = `${quote(tokens[index + 2] || '')} (${side === 'izquierda' ? 'left' : 'right'}) ends it.`;
+      index += 3;
+      relations.push({ start, end: index, explanation: `Which side comes after the verb: ${quote(tokens.slice(start, index).join(' '))}.` });
+      return true;
+    }
+    if (first === 'cruzando' && key(tokens[index + 1] || '') === 'la' && key(tokens[index + 2] || '') === 'calle') {
+      explanations[index] = '“cruzando” (crossing) starts “cruzando la calle”: across the street.';
+      explanations[index + 1] = '“la” is the article for “calle”.';
+      explanations[index + 2] = '“calle” (street) ends it.';
+      index += 3;
+      return true;
+    }
+    if (first === 'entre') {
+      explanations[index] = '“entre” (between) comes before the two places.';
+      index += 1;
+      const one = nounPhrase();
+      if (!one || key(tokens[index] || '') !== 'y') return false;
+      explanations[index] = '“y” joins the two places after “entre”.';
+      index += 1;
+      if (!nounPhrase()) return false;
+      relations.push({ start, end: index, explanation: `${quote(tokens.slice(start, index).join(' '))}: “entre” + one place + “y” + the other.` });
+      return true;
+    }
+    if (['cerca', 'lejos', 'enfrente'].includes(first)) {
+      explanations[index] = `${quote(tokens[index] || '')} (${first === 'cerca' ? 'near' : first === 'lejos' ? 'far' : 'across'}) comes before “de” and the place.`;
+      index += 1;
+      const link = key(tokens[index] || '');
+      if (link === 'del') {
+        if (!contracted(tokens[index] || '', index)) return false;
+      } else if (link === 'de') {
+        explanations[index] = '“de” links it to the place.';
+        index += 1;
+        if (!nounPhrase()) return false;
+      } else {
+        return false;
+      }
+      relations.push({ start, end: index, explanation: `Where comes after the verb: ${quote(tokens.slice(start, index).join(' '))}.` });
+      return true;
+    }
+    if (first === 'en' && VEHICLES.has(key(tokens[index + 1] || ''))) {
+      explanations[index] = '“en” (by) comes before the vehicle: Spanish says “en tren”, “en autobús”.';
+      explanations[index + 1] = `${quote(tokens[index + 1] || '')} takes no article after “en” for how you travel.`;
+      index += 2;
+      relations.push({ start, end: index, explanation: `How you travel: ${quote(tokens.slice(start, index).join(' '))}.` });
+      return true;
+    }
     if (first === 'en' || first === 'sobre') {
       explanations[index] = first === 'en' ? '“en” (in, at) comes before the place.' : '“sobre” (on) comes before the thing underneath.';
       index += 1;
@@ -566,6 +664,113 @@ function teachClause(text: string): ClausePlan {
       relations.push({ start: negated, end: index, explanation: `${quote(`${tokens[negated]} ${tokens[negated + 1]}`)} means “${GUSTAR_WHO[who]}”, and the verb matches ${quote(liked)}.` });
       return doneHere();
     }
+  }
+  {
+    // me subo al autobús / nos bajamos del barco / se suben al autobús (+ en + place).
+    const at = lower[0] === 'no' ? 1 : 0;
+    const move = GET_ON_OFF[lower[at + 1] || ''];
+    if (move && lower[at] === move[0]) {
+      explanations[at] = `${quote(tokens[at] || '')} comes before ${quote(tokens[at + 1] || '')}: Spanish says “${move[0]} ${lower[at + 1]}” to ${move[1]}.`;
+      explanations[at + 1] = `${quote(tokens[at + 1] || '')} comes right after ${quote(tokens[at] || '')}.`;
+      index = at + 2;
+      const link = key(tokens[index] || '');
+      const wanted = move[2];
+      if (link === wanted) {
+        if (!contracted(tokens[index] || '', index)) return { explanations, relations, supported: false };
+      } else if (link === (wanted === 'al' ? 'a' : 'de')) {
+        explanations[index] = `${quote(tokens[index] || '')} comes before the vehicle.`;
+        index += 1;
+        if (!nounPhrase()) return { explanations, relations, supported: false };
+      } else {
+        return { explanations, relations, supported: false };
+      }
+      relations.push({ start: at, end: index, explanation: `${move[1] === 'get on' ? '“subirse a”' : '“bajarse de”'}: ${quote(tokens.slice(at, index).join(' '))}.` });
+      if (index < tokens.length && !locationPhrase()) return { explanations, relations, supported: false };
+      return doneHere();
+    }
+  }
+  if (COMMANDS[lower[0]] && !(lower[0] === 'sigue' && lower[1] === 'derecho' && tokens.length === 2)) {
+    // Dobla a la derecha en la esquina. Cruza la calle. Para en el cine. Pasa el banco. Toma el autobús azul.
+    explanations[0] = `${quote(tokens[0] || '')} (${COMMANDS[lower[0]]}) tells someone (tú) what to do, so it comes first.`;
+    index = 1;
+    if (lower[0] === 'dobla') {
+      if (!locationPhrase()) return { explanations, relations, supported: false };
+    } else if (lower[0] === 'para') {
+      if (!locationPhrase()) return { explanations, relations, supported: false };
+    } else if (!(possessivePhrase() || nounPhrase())) {
+      return { explanations, relations, supported: false };
+    }
+    if (index < tokens.length && !locationPhrase()) return { explanations, relations, supported: false };
+    return doneHere();
+  }
+  {
+    // (No) puedes cruzar aquí. Pueden ir en autobús. Sí, puedo.
+    const no = lower[0] === 'no' && PODER[lower[1] || ''] ? 1 : 0;
+    const can = lower[no] || '';
+    if (PODER[can]) {
+      if (no) explanations[0] = `“No” comes before ${quote(tokens[1] || '')}: Spanish says “no ${can}” for “cannot”.`;
+      explanations[no] = `${quote(tokens[no] || '')} (${PODER[can]}) ${no ? 'comes right after “No”' : 'starts the sentence'}; Spanish leaves out who.`;
+      index = no + 1;
+      const verb = lower[index] || '';
+      if (INFINITIVES[verb]) {
+        explanations[index] = `${quote(tokens[index] || '')} (${INFINITIVES[verb]}) comes right after ${quote(tokens[no] || '')}, in its -r form.`;
+        relations.push({ start: no, end: index + 1, explanation: `${quote(`${tokens[no]} ${tokens[index]}`)}: poder + the -r form.` });
+        index += 1;
+        if (verb === 'cruzar' && key(tokens[index] || '') === 'la') nounPhrase();
+        if (verb === 'ir' && key(tokens[index] || '') === 'en') {
+          if (!locationPhrase()) return { explanations, relations, supported: false };
+        }
+        if (['aquí', 'ahí'].includes(key(tokens[index] || ''))) {
+          explanations[index] = `${quote(tokens[index] || '')} (${key(tokens[index] || '') === 'aquí' ? 'here' : 'there'}) comes last.`;
+          index += 1;
+        }
+      }
+      return doneHere();
+    }
+  }
+  if (lower[0] === 'adónde' && ['vas', 'va', 'van'].includes(lower[1] || '')) {
+    // ¿Adónde vas? ¿Adónde va ella? ¿Adónde van ellos?
+    explanations[0] = '“Adónde” (where to) starts the question.';
+    explanations[1] = `${quote(tokens[1] || '')} (${lower[1] === 'vas' ? 'you go' : lower[1] === 'va' ? 'he or she goes' : 'they go'}) comes right after “Adónde”.`;
+    index = 2;
+    const who = lower[2] || '';
+    if (who) {
+      const fits = lower[1] === 'va' ? (who === 'él' || who === 'ella') : lower[1] === 'van' ? (who === 'ellos' || who === 'ellas') : false;
+      if (!fits) return { explanations, relations, supported: false };
+      explanations[2] = `${quote(tokens[2] || '')} comes last in the question.`;
+      index = 3;
+    }
+    relations.push({ start: 0, end: 2, explanation: `${quote(`Adónde ${tokens[1]}`)}: the question word, then ir.` });
+    return doneHere();
+  }
+  if (lower[0] === 'cómo' && lower[1] === 'llego') {
+    // ¿Cómo llego al museo?
+    explanations[0] = '“Cómo” (how) starts the question.';
+    explanations[1] = '“llego” (I get there, I arrive) comes right after “Cómo”.';
+    index = 2;
+    if (!objectPhrase()) return { explanations, relations, supported: false };
+    relations.push({ start: 0, end: index, explanation: `Spanish asks ${quote(tokens.join(' '))}: how do I arrive at the place.` });
+    return doneHere();
+  }
+  if (lower[0] === 'qué' && NOUN_KIND[lower[1] || ''] && lower[2] === 'va') {
+    // ¿Qué autobús va al museo?
+    explanations[0] = '“Qué” (which) starts the question.';
+    explanations[1] = `${quote(tokens[1] || '')} comes right after “Qué”, with no article.`;
+    explanations[2] = '“va” (goes) comes after the vehicle.';
+    index = 3;
+    if (!objectPhrase()) return { explanations, relations, supported: false };
+    return doneHere();
+  }
+  if (lower[0] === 'a' && lower[1] === 'qué' && lower[2] === 'hora' && ['sale', 'llega'].includes(lower[3] || '')) {
+    // ¿A qué hora sale el tren?
+    explanations[0] = '“A” (at) starts the question: Spanish asks “at what hour”.';
+    explanations[1] = '“qué” (what) comes after “A”.';
+    explanations[2] = '“hora” (hour, time) comes after “qué”.';
+    explanations[3] = `${quote(tokens[3] || '')} (${lower[3] === 'sale' ? 'leaves' : 'arrives'}) comes before the vehicle.`;
+    index = 4;
+    if (!nounPhrase()) return { explanations, relations, supported: false };
+    relations.push({ start: 0, end: 3, explanation: '“A qué hora” is “What time”.' });
+    return doneHere();
   }
   if (lower[0] === 'me' && lower[1] === 'da') {
     // ¿Me da café, por favor? Me + da + what you ask for.
@@ -879,7 +1084,7 @@ function teachClause(text: string): ClausePlan {
         relations.push({ start: verbIndex, end: index, explanation: `What comes right after the verb: ${quote(tokens.slice(start, index).join(' '))}.` });
       }
       if (index < tokens.length && !locationPhrase()) return { explanations, relations, supported: false };
-    } else if (ESTAR.has(verbKey) && ['en', 'sobre', 'debajo', 'al'].includes(key(word))) {
+    } else if (ESTAR.has(verbKey) && ['en', 'sobre', 'debajo', 'al', 'a', 'cerca', 'lejos', 'enfrente', 'entre', 'cruzando'].includes(key(word))) {
       if (!locationPhrase()) return { explanations, relations, supported: false };
     } else if (TENER.has(verbKey)) {
       let had = '';
