@@ -12,6 +12,7 @@ from fastapi.responses import HTMLResponse, JSONResponse, Response, RedirectResp
 from .api_auth import api_request_is_authorized
 from . import accounts, account_routes, clerk_webhooks, lesson_tutor, lesson_practice
 from .diagnostics import initialize_diagnostics
+from .deploy_source import deployed_identity
 from .course_audio import audio_debug, ready_cue_wav
 from . import cloudflare_media
 from .data import ALL_LESSONS as LESSONS
@@ -321,8 +322,13 @@ def audio_health():
 
 @app.get("/api/release/status")
 def release_status():
-    """Expose the deployed commit and immutable-audio readiness to CI."""
-    branch = os.getenv("RENDER_GIT_BRANCH", "").strip()
+    """Expose the deployed commit and immutable-audio readiness to CI.
+
+    git_branch/git_commit name the main commit the service was built from, even
+    though Render deploys the render-deploy copy; deploy_* are Render's own values.
+    """
+    identity = deployed_identity()
+    branch = identity["git_branch"] or ""
     configured_environment = os.getenv("APP_ENVIRONMENT", "").strip().lower()
     if configured_environment:
         environment = configured_environment
@@ -333,8 +339,10 @@ def release_status():
 
     return {
         "environment": environment,
-        "git_branch": branch or None,
-        "git_commit": os.getenv("RENDER_GIT_COMMIT", "").strip().lower() or None,
+        "git_branch": identity["git_branch"],
+        "git_commit": identity["git_commit"],
+        "deploy_branch": identity["deploy_branch"],
+        "deploy_commit": identity["deploy_commit"],
         "service_name": os.getenv("RENDER_SERVICE_NAME", "").strip() or None,
         "audio": cloudflare_media.release_status(),
     }

@@ -2,6 +2,8 @@
 
 `origin/main` is the sole integration and release source. Task branches merge only into `main`; shared release branches are not created or retained.
 
+`origin/render-deploy` is the one machine-written branch. It is not a task or release branch: the `Render deploy copy` workflow writes it from each `main` commit, with only the files the backend reads, so that Render's clone stays small (see [deploying](../operations/deploy.md#render-deploys-a-slim-copy-of-main)). It shares no history with `main` by design. Never merge, edit or delete it; the hygiene audit skips it.
+
 ## Start of work
 
 1. Fetch remote refs.

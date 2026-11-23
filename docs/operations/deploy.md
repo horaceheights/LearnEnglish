@@ -111,6 +111,17 @@ https://your-api-name.onrender.com/api/release/status
 
 The audio health endpoint reports Cloudflare's validated immutable inventory. Learner requests do not generate speech. Keep paid provider credentials in the bounded offline authoring environment.
 
+### Render deploys a slim copy of main
+
+Render shallow-clones the tip of the branch it deploys and gives up when GitHub sends less than 100 KB/s for three minutes (`Unable to clone`, after five attempts). The tip of `main` is about 8.6 GB, mostly lesson media the backend never reads, and on 2026-11-23 most Render builds began failing at that step. The service therefore deploys `render-deploy`, not `main`:
+
+- On every push to `main`, the **Render deploy copy** workflow (`.github/workflows/render-deploy-copy.yml`) runs `scripts/render_deploy_copy.py`. It copies only `DEPLOY_PATHS` (`backend/`, the course-audio upload manifest, and the legacy audio manifest and `frontend/public/audio-cache/`) from that exact commit through the GitHub Git Data API. Nothing is cloned or re-uploaded, because the copy reuses the objects `main` already stores.
+- The copy adds `backend/deploy-source.json` with the exact `main` commit. `/api/release/status` reports that commit and branch `main` as `git_commit`/`git_branch`, and Render's own values as `deploy_commit`/`deploy_branch`. Sentry releases use the `main` commit too.
+- If the deployed files did not change, no copy is published, and Render stays on the earlier `main` commit. The release guard already accepts that when `backend/` and the upload manifest are identical.
+- To redeploy the current `main` without a change, run the workflow manually with **force**.
+- If the backend starts reading another repository path, add it to `DEPLOY_PATHS`. `backend/tests/test_render_deploy_copy.py` fails until it is added.
+- Never merge, edit or delete `render-deploy`; it only moves forward from its previous tip.
+
 ## Shipping Pregenerated Course Audio
 
 Cloudflare R2 at `https://cdn.learnspanglish.app` is the default for images, videos, posters, SFX, static legacy audio and immutable course recordings. Render hosts API compute only, with no course-audio disk dependency. Follow [Cloudflare course media](cloudflare-course-media.md) for the complete upload and verification procedure.

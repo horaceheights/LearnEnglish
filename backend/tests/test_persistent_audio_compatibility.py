@@ -130,7 +130,7 @@ class PersistentAudioCompatibilityTests(unittest.TestCase):
     def test_render_blueprint_has_no_course_media_disk_dependency(self):
         blueprint = yaml.safe_load((ROOT / "render.yaml").read_text(encoding="utf-8"))
         service = blueprint["services"][0]
-        self.assertEqual("main", service["branch"])
+        self.assertEqual("render-deploy", service["branch"])
         self.assertNotIn("disk", service)
         env = {item["key"]: item.get("value") for item in service["envVars"]}
         self.assertEqual("production", env["APP_ENVIRONMENT"])
