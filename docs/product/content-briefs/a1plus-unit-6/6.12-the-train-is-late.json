@@ -445,6 +445,68 @@
       "choices": false,
       "use": true,
       "learn": false
+    },
+    {
+      "id": "u4-wakes",
+      "text": "Luis wakes up late. What does he do after that? He runs to the bus.",
+      "es": "Luis se despierta tarde. ¿Qué hace después? Corre al camión.",
+      "image": "/lesson-assets/a1plus-unit-6-y01-afcf32c082cc2aa0.webp",
+      "kind": "u4-wakes",
+      "image_choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "Luis wakes up late. What does he do after that?",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-6-y01-afcf32c082cc2aa0.webp"
+        },
+        {
+          "text": "He runs to the bus.",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-6-y01-afcf32c082cc2aa0.webp"
+        }
+      ],
+      "accepts": {
+        "subject-variety": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "action-variety": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "conversational-response": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "reading-load": "Listen keeps the question and changes only the answer; the answer is what was heard."
+      },
+      "prefer": [
+        "Luis wakes up late. What does he do after that? He takes a taxi."
+      ],
+      "learn": false
+    },
+    {
+      "id": "u4-start",
+      "text": "What time do you start work? I start work at half past eight.",
+      "es": "¿A qué hora empiezas a trabajar? Empiezo a trabajar a las ocho y media.",
+      "image": "/lesson-assets/a1plus-unit-6-y02-1c48856fd2e6b9cc.webp",
+      "kind": "u4-start",
+      "image_choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "What time do you start work?",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-6-y02-1c48856fd2e6b9cc.webp"
+        },
+        {
+          "text": "I start work at half past eight.",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-6-y02-1c48856fd2e6b9cc.webp"
+        }
+      ],
+      "accepts": {
+        "subject-variety": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "action-variety": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "conversational-response": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "reading-load": "Listen keeps the question and changes only the answer; the answer is what was heard."
+      },
+      "prefer": [
+        "What time do you start work? I start work at half past nine."
+      ],
+      "learn": false
     }
   ],
   "pool": [
@@ -566,6 +628,20 @@
       "image": "/lesson-assets/a1plus-unit-6-y04-9c0e4345e1a43e62.webp",
       "kind": "xd",
       "image_choices": false
+    },
+    {
+      "text": "Luis wakes up late. What does he do after that? He takes a taxi.",
+      "es": "Luis se despierta tarde. ¿Qué hace después? Toma un taxi.",
+      "image": "/lesson-assets/a1plus-unit-6-y01-afcf32c082cc2aa0.webp",
+      "kind": "u4-wakes",
+      "image_choices": false
+    },
+    {
+      "text": "What time do you start work? I start work at half past nine.",
+      "es": "¿A qué hora empiezas a trabajar? Empiezo a trabajar a las nueve y media.",
+      "image": "/lesson-assets/a1plus-unit-6-y02-1c48856fd2e6b9cc.webp",
+      "kind": "u4-start",
+      "image_choices": false
     }
   ],
   "layout": {
@@ -602,8 +678,8 @@
       "x-diego",
       "r-luis",
       "r-ana",
-      "r-train",
-      "r-diego"
+      "u4-wakes",
+      "u4-start"
     ],
     "Speak": [
       "u-late",

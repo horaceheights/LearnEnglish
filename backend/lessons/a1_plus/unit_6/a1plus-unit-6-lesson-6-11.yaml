@@ -830,36 +830,41 @@
     },
     {
       "slide_id": "A10",
-      "interaction_type": "a2t3",
+      "interaction_type": "a2t2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "a-round-trip-ticket-please-a10",
+      "correct_option_id": "do-you-want-one-way-or-round-trip-round-trip-please-i-go-there-once-a-week-a10",
       "options": [
         {
-          "id": "a-one-way-ticket-please-a10",
+          "id": "do-you-want-one-way-or-round-trip-one-way-please-i-go-there-once-a-week-a10",
           "image_url": "",
-          "label": "A one-way ticket, please.",
-          "spanish_translation": "Un boleto sencillo, por favor."
+          "label": "Do you want one-way or round-trip? One-way, please. I go there once a week.",
+          "spanish_translation": "¿Quiere sencillo o redondo? Sencillo, por favor. Voy allá una vez a la semana."
         },
         {
-          "id": "two-tickets-please-a10",
+          "id": "do-you-want-one-way-or-round-trip-round-trip-please-i-go-there-once-a-week-a10",
           "image_url": "",
-          "label": "Two tickets, please.",
-          "spanish_translation": "Dos boletos, por favor."
-        },
-        {
-          "id": "a-round-trip-ticket-please-a10",
-          "image_url": "",
-          "label": "A round-trip ticket, please.",
-          "spanish_translation": "Un boleto redondo, por favor."
+          "label": "Do you want one-way or round-trip? Round-trip, please. I go there once a week.",
+          "spanish_translation": "¿Quiere sencillo o redondo? Redondo, por favor. Voy allá una vez a la semana."
         }
       ],
-      "audio_text": "A round-trip ticket, please.",
+      "audio_text": "Do you want one-way or round-trip? Round-trip, please. I go there once a week.",
       "answer_audio_text": null,
       "prompt_image_url": "",
+      "audio_turns": [
+        {
+          "text": "Do you want one-way or round-trip?",
+          "speaker_role": "co-teacher",
+          "image_url": "/lesson-assets/a1plus-unit-6-x03-c1b43783df0d91a4.webp"
+        },
+        {
+          "text": "Round-trip, please. I go there once a week.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1plus-unit-6-x03-c1b43783df0d91a4.webp"
+        }
+      ],
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 10: A round-trip ticket, please.",
-      "audio_speaker": "co-teacher",
+      "pedagogy_note": "Story beat 10: Do you want one-way or round-trip? Round-trip, please. I go there once a week.",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -881,7 +886,7 @@
       "audio_turns": [
         {
           "text": "A one-way ticket, please.",
-          "speaker_role": "teacher",
+          "speaker_role": "co-teacher",
           "image_url": "/lesson-assets/a1plus-unit-6-x01-396a25f8e16de8e1.webp",
           "delivery": "a1-pronunciation-v1"
         }
@@ -909,7 +914,7 @@
       "audio_turns": [
         {
           "text": "Can I have a round-trip ticket, please?",
-          "speaker_role": "co-teacher",
+          "speaker_role": "teacher",
           "image_url": "/lesson-assets/a1plus-unit-6-x03-c1b43783df0d91a4.webp",
           "delivery": "a1-pronunciation-v1"
         }
@@ -937,7 +942,7 @@
       "audio_turns": [
         {
           "text": "How much is a one-way ticket?",
-          "speaker_role": "teacher",
+          "speaker_role": "co-teacher",
           "image_url": "/lesson-assets/a1plus-unit-6-x04-e3b8ba3fa1edcd4f.webp",
           "delivery": "a1-pronunciation-v1"
         }
@@ -965,7 +970,7 @@
       "audio_turns": [
         {
           "text": "Round-trip, please.",
-          "speaker_role": "co-teacher",
+          "speaker_role": "teacher",
           "image_url": "/lesson-assets/a1plus-unit-6-x02-3e2cc6b8357b00f5.webp",
           "delivery": "a1-pronunciation-v1"
         }
@@ -1021,7 +1026,7 @@
       "audio_turns": [
         {
           "text": "A round-trip ticket to the airport, please.",
-          "speaker_role": "teacher",
+          "speaker_role": "co-teacher",
           "image_url": "/lesson-assets/a1plus-unit-6-x02-3e2cc6b8357b00f5.webp",
           "delivery": "a1-pronunciation-v1"
         }
@@ -1049,7 +1054,7 @@
       "audio_turns": [
         {
           "text": "One-way, please.",
-          "speaker_role": "co-teacher",
+          "speaker_role": "teacher",
           "image_url": "/lesson-assets/a1plus-unit-6-x01-396a25f8e16de8e1.webp",
           "delivery": "a1-pronunciation-v1"
         }
@@ -1077,7 +1082,7 @@
       "audio_turns": [
         {
           "text": "A one-way ticket to the station, please.",
-          "speaker_role": "teacher",
+          "speaker_role": "co-teacher",
           "image_url": "/lesson-assets/a1plus-unit-6-x01-396a25f8e16de8e1.webp",
           "delivery": "a1-pronunciation-v1"
         }
@@ -1113,9 +1118,7 @@
         "ticket",
         "please"
       ],
-      "answer_audio_speaker": "co-teacher",
       "pedagogy_note": "Story beat 01: A one-way ticket, please.",
-      "audio_speaker": "co-teacher",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -1145,7 +1148,9 @@
         "can",
         "i"
       ],
+      "answer_audio_speaker": "co-teacher",
       "pedagogy_note": "Story beat 02: Can I have a round-trip ticket, please?",
+      "audio_speaker": "co-teacher",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -1207,9 +1212,7 @@
         "the",
         "airport"
       ],
-      "answer_audio_speaker": "co-teacher",
       "pedagogy_note": "Story beat 04: A round-trip ticket to the airport, please.",
-      "audio_speaker": "co-teacher",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -1245,7 +1248,9 @@
         "word-2",
         "word-3"
       ],
+      "answer_audio_speaker": "co-teacher",
       "pedagogy_note": "Story beat 05: It's ten dollars.",
+      "audio_speaker": "co-teacher",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -1299,9 +1304,7 @@
         "word-5",
         "word-6"
       ],
-      "answer_audio_speaker": "co-teacher",
       "pedagogy_note": "Story beat 06: Can I have a ticket, please?",
-      "audio_speaker": "co-teacher",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -1355,7 +1358,9 @@
         "word-5",
         "word-6"
       ],
+      "answer_audio_speaker": "co-teacher",
       "pedagogy_note": "Story beat 07: Two tickets to the airport, please.",
+      "audio_speaker": "co-teacher",
       "answer_audio_policy": "authored-only"
     },
     {

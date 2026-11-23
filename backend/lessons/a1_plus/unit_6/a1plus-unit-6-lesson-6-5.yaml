@@ -848,33 +848,41 @@
     },
     {
       "slide_id": "A10",
-      "interaction_type": "a2i3",
+      "interaction_type": "a2t2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "ana-has-a-suitcase-a10",
+      "correct_option_id": "is-your-suitcase-upstairs-no-it's-downstairs-a10",
       "options": [
         {
-          "id": "diego-has-a-backpack-a10",
-          "image_url": "/lesson-assets/a1plus-unit-6-d03-c38f57d7dfd479f0.webp",
-          "label": null
+          "id": "is-your-suitcase-upstairs-yes-it's-upstairs-a10",
+          "image_url": "",
+          "label": "Is your suitcase upstairs? Yes, it's upstairs.",
+          "spanish_translation": "¿Tu maleta está arriba? Sí, está arriba."
         },
         {
-          "id": "luis-has-a-backpack-a10",
-          "image_url": "/lesson-assets/a1plus-unit-6-g03-de90fc3156e87869.webp",
-          "label": null
-        },
-        {
-          "id": "ana-has-a-suitcase-a10",
-          "image_url": "/lesson-assets/a1plus-unit-6-g01-431d69f6535fe414.webp",
-          "label": null
+          "id": "is-your-suitcase-upstairs-no-it's-downstairs-a10",
+          "image_url": "",
+          "label": "Is your suitcase upstairs? No, it's downstairs.",
+          "spanish_translation": "¿Tu maleta está arriba? No, está abajo."
         }
       ],
-      "audio_text": "Ana has a suitcase.",
+      "audio_text": "Is your suitcase upstairs? No, it's downstairs.",
       "answer_audio_text": null,
       "prompt_image_url": "",
+      "audio_turns": [
+        {
+          "text": "Is your suitcase upstairs?",
+          "speaker_role": "co-teacher",
+          "image_url": "/lesson-assets/a1plus-unit-6-d02-17408abcff84a62c.webp"
+        },
+        {
+          "text": "No, it's downstairs.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1plus-unit-6-d02-17408abcff84a62c.webp"
+        }
+      ],
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 10: Ana has a suitcase.",
-      "audio_speaker": "co-teacher",
+      "pedagogy_note": "Story beat 10: Is your suitcase upstairs? No, it's downstairs.",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -924,7 +932,7 @@
       "audio_turns": [
         {
           "text": "This is a suitcase.",
-          "speaker_role": "teacher",
+          "speaker_role": "co-teacher",
           "image_url": "/lesson-assets/a1plus-unit-6-d02-17408abcff84a62c.webp",
           "delivery": "a1-pronunciation-v1"
         }
@@ -952,7 +960,7 @@
       "audio_turns": [
         {
           "text": "Here it is.",
-          "speaker_role": "co-teacher",
+          "speaker_role": "teacher",
           "image_url": "/lesson-assets/a1plus-unit-6-d01-07f1ca7cec27741c.webp",
           "delivery": "a1-pronunciation-v1"
         }
@@ -980,7 +988,7 @@
       "audio_turns": [
         {
           "text": "Diego has a backpack.",
-          "speaker_role": "teacher",
+          "speaker_role": "co-teacher",
           "image_url": "/lesson-assets/a1plus-unit-6-d03-c38f57d7dfd479f0.webp",
           "delivery": "a1-pronunciation-v1"
         }
@@ -1008,7 +1016,7 @@
       "audio_turns": [
         {
           "text": "Don't forget your ticket!",
-          "speaker_role": "co-teacher",
+          "speaker_role": "teacher",
           "image_url": "/lesson-assets/a1_photo_u6_story_ticket_v1.webp",
           "delivery": "a1-pronunciation-v1"
         }
@@ -1036,7 +1044,7 @@
       "audio_turns": [
         {
           "text": "This is a passport.",
-          "speaker_role": "teacher",
+          "speaker_role": "co-teacher",
           "image_url": "/lesson-assets/a1plus-unit-6-d01-07f1ca7cec27741c.webp",
           "delivery": "a1-pronunciation-v1"
         }
@@ -1092,7 +1100,7 @@
       "audio_turns": [
         {
           "text": "Don't forget your suitcase!",
-          "speaker_role": "co-teacher",
+          "speaker_role": "teacher",
           "image_url": "/lesson-assets/a1plus-unit-6-d02-17408abcff84a62c.webp",
           "delivery": "a1-pronunciation-v1"
         }
@@ -1128,7 +1136,9 @@
         "a",
         "passport"
       ],
+      "answer_audio_speaker": "co-teacher",
       "pedagogy_note": "Story beat 01: This is a passport.",
+      "audio_speaker": "co-teacher",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -1158,9 +1168,7 @@
         "a",
         "suitcase"
       ],
-      "answer_audio_speaker": "co-teacher",
       "pedagogy_note": "Story beat 02: This is a suitcase.",
-      "audio_speaker": "co-teacher",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -1190,7 +1198,9 @@
         "has",
         "a"
       ],
+      "answer_audio_speaker": "co-teacher",
       "pedagogy_note": "Story beat 03: Diego has a backpack.",
+      "audio_speaker": "co-teacher",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -1220,9 +1230,7 @@
         "has",
         "a"
       ],
-      "answer_audio_speaker": "co-teacher",
       "pedagogy_note": "Story beat 04: Ana has a suitcase.",
-      "audio_speaker": "co-teacher",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -1302,7 +1310,9 @@
         "word-2",
         "word-3"
       ],
+      "answer_audio_speaker": "co-teacher",
       "pedagogy_note": "Story beat 06: Here it is.",
+      "audio_speaker": "co-teacher",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -1344,9 +1354,7 @@
         "word-3",
         "word-4"
       ],
-      "answer_audio_speaker": "co-teacher",
       "pedagogy_note": "Story beat 07: Don't forget your ticket!",
-      "audio_speaker": "co-teacher",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -1388,7 +1396,9 @@
         "word-3",
         "word-4"
       ],
+      "answer_audio_speaker": "co-teacher",
       "pedagogy_note": "Story beat 08: Don't forget your suitcase!",
+      "audio_speaker": "co-teacher",
       "answer_audio_policy": "authored-only"
     }
   ]

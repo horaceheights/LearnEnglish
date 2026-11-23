@@ -481,6 +481,37 @@
         "platform"
       ],
       "learn": false
+    },
+    {
+      "id": "u4-when",
+      "text": "When is the train? It leaves at half past nine.",
+      "es": "¿Cuándo es el tren? Sale a las nueve y media.",
+      "image": "/lesson-assets/a1plus-unit-6-g01-431d69f6535fe414.webp",
+      "kind": "u4-when",
+      "image_choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "When is the train?",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-6-g01-431d69f6535fe414.webp"
+        },
+        {
+          "text": "It leaves at half past nine.",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-6-g01-431d69f6535fe414.webp"
+        }
+      ],
+      "accepts": {
+        "subject-variety": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "action-variety": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "conversational-response": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "reading-load": "Listen keeps the question and changes only the answer; the answer is what was heard."
+      },
+      "prefer": [
+        "When is the train? It leaves at half past ten."
+      ],
+      "learn": false
     }
   ],
   "pool": [
@@ -616,6 +647,13 @@
       "image": "/lesson-assets/a1plus-unit-6-g05-a99b44adde349524.webp",
       "kind": "xp",
       "image_choices": false
+    },
+    {
+      "text": "When is the train? It leaves at half past ten.",
+      "es": "¿Cuándo es el tren? Sale a las diez y media.",
+      "image": "/lesson-assets/a1plus-unit-6-g01-431d69f6535fe414.webp",
+      "kind": "u4-when",
+      "image_choices": false
     }
   ],
   "layout": {
@@ -653,7 +691,7 @@
       "f-p7",
       "r-g12",
       "f-g9",
-      "a-ana"
+      "u4-when"
     ],
     "Speak": [
       "q-plat",

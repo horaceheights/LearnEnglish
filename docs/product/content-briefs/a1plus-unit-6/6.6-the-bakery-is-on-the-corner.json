@@ -464,6 +464,37 @@
         "the"
       ],
       "learn": false
+    },
+    {
+      "id": "u4-front",
+      "text": "Where's the bank? It's in front of the park.",
+      "es": "¿Dónde está el banco? Está enfrente del parque.",
+      "image": "/lesson-assets/a1_photo_u6_bank_central_v1.webp",
+      "kind": "u4-front",
+      "image_choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "Where's the bank?",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1_photo_u6_bank_central_v1.webp"
+        },
+        {
+          "text": "It's in front of the park.",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1_photo_u6_bank_central_v1.webp"
+        }
+      ],
+      "accepts": {
+        "subject-variety": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "action-variety": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "conversational-response": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "reading-load": "Listen keeps the question and changes only the answer; the answer is what was heard."
+      },
+      "prefer": [
+        "Where's the bank? It's on the corner."
+      ],
+      "learn": false
     }
   ],
   "pool": [
@@ -529,6 +560,13 @@
       "image": "/lesson-assets/a1plus-unit-6-c04-a749eb532fa5d942.webp",
       "kind": "xg",
       "image_choices": false
+    },
+    {
+      "text": "Where's the bank? It's on the corner.",
+      "es": "¿Dónde está el banco? Está en la esquina.",
+      "image": "/lesson-assets/a1_photo_u6_bank_central_v1.webp",
+      "kind": "u4-front",
+      "image_choices": false
     }
   ],
   "layout": {
@@ -566,7 +604,7 @@
       "r-bakery",
       "r-gas",
       "r-police",
-      "r-books"
+      "u4-front"
     ],
     "Speak": [
       "u-corner",

@@ -491,6 +491,37 @@
       "choices": false,
       "blanks": null,
       "learn": false
+    },
+    {
+      "id": "u4-stairs",
+      "text": "Is your suitcase upstairs? No, it's downstairs.",
+      "es": "¿Tu maleta está arriba? No, está abajo.",
+      "image": "/lesson-assets/a1plus-unit-6-d02-17408abcff84a62c.webp",
+      "kind": "u4-stairs",
+      "image_choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "Is your suitcase upstairs?",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-6-d02-17408abcff84a62c.webp"
+        },
+        {
+          "text": "No, it's downstairs.",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-6-d02-17408abcff84a62c.webp"
+        }
+      ],
+      "accepts": {
+        "subject-variety": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "action-variety": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "conversational-response": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "reading-load": "Listen keeps the question and changes only the answer; the answer is what was heard."
+      },
+      "prefer": [
+        "Is your suitcase upstairs? Yes, it's upstairs."
+      ],
+      "learn": false
     }
   ],
   "pool": [
@@ -612,6 +643,13 @@
       "image": "/lesson-assets/a1plus-unit-6-g01-431d69f6535fe414.webp",
       "kind": "xh",
       "image_choices": false
+    },
+    {
+      "text": "Is your suitcase upstairs? Yes, it's upstairs.",
+      "es": "¿Tu maleta está arriba? Sí, está arriba.",
+      "image": "/lesson-assets/a1plus-unit-6-d02-17408abcff84a62c.webp",
+      "kind": "u4-stairs",
+      "image_choices": false
     }
   ],
   "layout": {
@@ -650,7 +688,7 @@
       "x-h",
       "r-backpack",
       "t-ticket",
-      "h-ana"
+      "u4-stairs"
     ],
     "Speak": [
       "r-passport",

@@ -611,6 +611,37 @@
       "blanks": null,
       "speaker": "teacher",
       "learn": false
+    },
+    {
+      "id": "u4-once",
+      "text": "Do you want one-way or round-trip? Round-trip, please. I go there once a week.",
+      "es": "¿Quiere sencillo o redondo? Redondo, por favor. Voy allá una vez a la semana.",
+      "image": "/lesson-assets/a1plus-unit-6-x03-c1b43783df0d91a4.webp",
+      "kind": "u4-once",
+      "image_choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "Do you want one-way or round-trip?",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-6-x03-c1b43783df0d91a4.webp"
+        },
+        {
+          "text": "Round-trip, please. I go there once a week.",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-6-x03-c1b43783df0d91a4.webp"
+        }
+      ],
+      "accepts": {
+        "subject-variety": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "action-variety": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "conversational-response": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "reading-load": "Listen keeps the question and changes only the answer; the answer is what was heard."
+      },
+      "prefer": [
+        "Do you want one-way or round-trip? One-way, please. I go there once a week."
+      ],
+      "learn": false
     }
   ],
   "pool": [
@@ -704,6 +735,13 @@
       "image": "/lesson-assets/a1plus-unit-6-x04-e3b8ba3fa1edcd4f.webp",
       "kind": "x-one",
       "image_choices": false
+    },
+    {
+      "text": "Do you want one-way or round-trip? One-way, please. I go there once a week.",
+      "es": "¿Quiere sencillo o redondo? Sencillo, por favor. Voy allá una vez a la semana.",
+      "image": "/lesson-assets/a1plus-unit-6-x03-c1b43783df0d91a4.webp",
+      "kind": "u4-once",
+      "image_choices": false
     }
   ],
   "layout": {
@@ -741,7 +779,7 @@
       "t-round",
       "r-round",
       "x-one",
-      "p-round"
+      "u4-once"
     ],
     "Speak": [
       "u-one",

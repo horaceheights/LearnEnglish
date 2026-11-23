@@ -39,7 +39,8 @@
     "Sofia",
     "Diego",
     "Ana",
-    "Luis"
+    "Luis",
+    "walked"
   ],
   "grammar_function": "A follow-up of A1 6.2 Ways to Travel: A1 names transport and says by bus; A1+ 6.2 says how a person gets to work. The new items are subway and motorcycle, and take + the vehicle in the he/she form (Sofia takes the subway to work.), beside A1's by (Diego goes to work by motorcycle.). 2.2's How does … go…? asks it. Each cast member has one way to work in every photo: Sofia the subway, Diego his motorcycle, Ana the bus (A1 6) and Luis his red car (A1+ 2.2).",
   "prerequisite": "A1 6.2 transport and by; A1 6.11 take; A1+ 2.2 How do/does … go…?; A1+ 3.9 work.",
@@ -533,32 +534,32 @@
       "interaction_type": "i2t3",
       "prompt": "",
       "stage": "Recognize",
-      "correct_option_id": "luis-drives-his-car-to-work-r10",
+      "correct_option_id": "i-walked-to-the-station-r10",
       "options": [
         {
-          "id": "luis-drives-his-car-to-work-r10",
+          "id": "i-walked-to-the-station-r10",
           "image_url": "",
-          "label": "Luis drives his car to work.",
-          "spanish_translation": "Luis maneja su carro para ir al trabajo."
+          "label": "I walked to the station.",
+          "spanish_translation": "Caminé a la estación."
         },
         {
-          "id": "luis-takes-the-subway-to-work-r10",
+          "id": "i-walked-to-the-bank-r10",
           "image_url": "",
-          "label": "Luis takes the subway to work.",
-          "spanish_translation": "Luis toma el metro para ir al trabajo."
+          "label": "I walked to the bank.",
+          "spanish_translation": "Caminé al banco."
         },
         {
-          "id": "luis-goes-to-work-by-motorcycle-r10",
+          "id": "i-walked-to-the-library-r10",
           "image_url": "",
-          "label": "Luis goes to work by motorcycle.",
-          "spanish_translation": "Luis va en moto para ir al trabajo."
+          "label": "I walked to the library.",
+          "spanish_translation": "Caminé a la biblioteca."
         }
       ],
       "audio_text": "",
-      "answer_audio_text": "Luis drives his car to work.",
-      "prompt_image_url": "/lesson-assets/a1plus-unit-2-r03-25906e003b1ad6b1.webp",
+      "answer_audio_text": "I walked to the station.",
+      "prompt_image_url": "/lesson-assets/a1_station.webp",
       "spanish_translation": "Elige la frase correcta.",
-      "pedagogy_note": "Story beat 10: Luis drives his car to work.",
+      "pedagogy_note": "Story beat 10: I walked to the station.",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -855,37 +856,41 @@
     },
     {
       "slide_id": "A10",
-      "interaction_type": "a2i4",
+      "interaction_type": "a2t2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "sofia-takes-the-subway-to-work-a10",
+      "correct_option_id": "did-she-take-the-subway-yesterday-yes-she-did-a10",
       "options": [
         {
-          "id": "diego-goes-to-work-by-motorcycle-a10",
-          "image_url": "/lesson-assets/a1plus-unit-6-t03-1194a71acc61480b.webp",
-          "label": null
+          "id": "did-she-take-the-subway-yesterday-no-she-didn't-a10",
+          "image_url": "",
+          "label": "Did she take the subway yesterday? No, she didn't.",
+          "spanish_translation": "¿Tomó el metro ayer? No."
         },
         {
-          "id": "ana-takes-the-bus-to-work-a10",
-          "image_url": "/lesson-assets/a1_photo_u6_story_ana_bus_on_v1.webp",
-          "label": null
-        },
-        {
-          "id": "luis-drives-his-car-to-work-a10",
-          "image_url": "/lesson-assets/a1plus-unit-2-r03-25906e003b1ad6b1.webp",
-          "label": null
-        },
-        {
-          "id": "sofia-takes-the-subway-to-work-a10",
-          "image_url": "/lesson-assets/a1plus-unit-6-t01-32f5dcfc47db5eec.webp",
-          "label": null
+          "id": "did-she-take-the-subway-yesterday-yes-she-did-a10",
+          "image_url": "",
+          "label": "Did she take the subway yesterday? Yes, she did.",
+          "spanish_translation": "¿Tomó el metro ayer? Sí."
         }
       ],
-      "audio_text": "Sofia takes the subway to work.",
+      "audio_text": "Did she take the subway yesterday? Yes, she did.",
       "answer_audio_text": null,
       "prompt_image_url": "",
+      "audio_turns": [
+        {
+          "text": "Did she take the subway yesterday?",
+          "speaker_role": "co-teacher",
+          "image_url": "/lesson-assets/a1plus-unit-6-t01-32f5dcfc47db5eec.webp"
+        },
+        {
+          "text": "Yes, she did.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1plus-unit-6-t01-32f5dcfc47db5eec.webp"
+        }
+      ],
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 10: Sofia takes the subway to work.",
+      "pedagogy_note": "Story beat 10: Did she take the subway yesterday? Yes, she did.",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -907,7 +912,7 @@
       "audio_turns": [
         {
           "text": "I take the subway to work.",
-          "speaker_role": "co-teacher",
+          "speaker_role": "teacher",
           "image_url": "/lesson-assets/a1plus-unit-6-t01-32f5dcfc47db5eec.webp",
           "delivery": "a1-pronunciation-v1"
         }
@@ -935,7 +940,7 @@
       "audio_turns": [
         {
           "text": "Diego goes to work by motorcycle.",
-          "speaker_role": "teacher",
+          "speaker_role": "co-teacher",
           "image_url": "/lesson-assets/a1plus-unit-6-t03-1194a71acc61480b.webp",
           "delivery": "a1-pronunciation-v1"
         }
@@ -991,7 +996,7 @@
       "audio_turns": [
         {
           "text": "She takes the subway.",
-          "speaker_role": "co-teacher",
+          "speaker_role": "teacher",
           "image_url": "/lesson-assets/a1plus-unit-6-t01-32f5dcfc47db5eec.webp",
           "delivery": "a1-pronunciation-v1"
         }
@@ -1019,7 +1024,7 @@
       "audio_turns": [
         {
           "text": "I go to work by motorcycle.",
-          "speaker_role": "teacher",
+          "speaker_role": "co-teacher",
           "image_url": "/lesson-assets/a1plus-unit-6-t03-1194a71acc61480b.webp",
           "delivery": "a1-pronunciation-v1"
         }
@@ -1047,7 +1052,7 @@
       "audio_turns": [
         {
           "text": "Ana takes the bus to work.",
-          "speaker_role": "co-teacher",
+          "speaker_role": "teacher",
           "image_url": "/lesson-assets/a1_photo_u6_story_ana_bus_on_v1.webp",
           "delivery": "a1-pronunciation-v1"
         }
@@ -1075,7 +1080,7 @@
       "audio_turns": [
         {
           "text": "He goes by motorcycle.",
-          "speaker_role": "teacher",
+          "speaker_role": "co-teacher",
           "image_url": "/lesson-assets/a1plus-unit-6-t03-1194a71acc61480b.webp",
           "delivery": "a1-pronunciation-v1"
         }
@@ -1103,7 +1108,7 @@
       "audio_turns": [
         {
           "text": "I take the bus to work.",
-          "speaker_role": "co-teacher",
+          "speaker_role": "teacher",
           "image_url": "/lesson-assets/a1_photo_u6_story_ana_bus_on_v1.webp",
           "delivery": "a1-pronunciation-v1"
         }
@@ -1139,7 +1144,9 @@
         "takes",
         "the"
       ],
+      "answer_audio_speaker": "co-teacher",
       "pedagogy_note": "Story beat 01: Sofia takes the subway to work.",
+      "audio_speaker": "co-teacher",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -1169,9 +1176,7 @@
         "goes",
         "to"
       ],
-      "answer_audio_speaker": "co-teacher",
       "pedagogy_note": "Story beat 02: Diego goes to work by motorcycle.",
-      "audio_speaker": "co-teacher",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -1201,7 +1206,9 @@
         "takes",
         "the"
       ],
+      "answer_audio_speaker": "co-teacher",
       "pedagogy_note": "Story beat 03: Ana takes the bus to work.",
+      "audio_speaker": "co-teacher",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -1231,9 +1238,7 @@
         "drives",
         "his"
       ],
-      "answer_audio_speaker": "co-teacher",
       "pedagogy_note": "Story beat 04: Luis drives his car to work.",
-      "audio_speaker": "co-teacher",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -1287,7 +1292,9 @@
         "word-5",
         "word-6"
       ],
+      "answer_audio_speaker": "co-teacher",
       "pedagogy_note": "Story beat 05: I take the subway to work.",
+      "audio_speaker": "co-teacher",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -1341,9 +1348,7 @@
         "word-5",
         "word-6"
       ],
-      "answer_audio_speaker": "co-teacher",
       "pedagogy_note": "Story beat 06: I go to work by motorcycle.",
-      "audio_speaker": "co-teacher",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -1397,7 +1402,9 @@
         "word-5",
         "word-6"
       ],
+      "answer_audio_speaker": "co-teacher",
       "pedagogy_note": "Story beat 07: I take the bus to work.",
+      "audio_speaker": "co-teacher",
       "answer_audio_policy": "authored-only"
     },
     {

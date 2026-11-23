@@ -592,6 +592,37 @@
         "one"
       ],
       "learn": false
+    },
+    {
+      "id": "u4-none",
+      "text": "Is there a bookstore near here? No, there isn't. There aren't any bookstores here.",
+      "es": "¿Hay una librería cerca de aquí? No, no hay. Aquí no hay librerías.",
+      "image": "/lesson-assets/a1_photo_u6_story_neighborhood_across_v1.webp",
+      "kind": "u4-none",
+      "image_choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "Is there a bookstore near here?",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1_photo_u6_story_neighborhood_across_v1.webp"
+        },
+        {
+          "text": "No, there isn't. There aren't any bookstores here.",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1_photo_u6_story_neighborhood_across_v1.webp"
+        }
+      ],
+      "accepts": {
+        "subject-variety": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "action-variety": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "conversational-response": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "reading-load": "Listen keeps the question and changes only the answer; the answer is what was heard."
+      },
+      "prefer": [
+        "Is there a bookstore near here? Yes, there is. There's one on Park Street."
+      ],
+      "learn": false
     }
   ],
   "pool": [
@@ -664,6 +695,13 @@
       "image": "/lesson-assets/a1_photo_u6_story_neighborhood_across_v1.webp",
       "kind": "xg",
       "image_choices": false
+    },
+    {
+      "text": "Is there a bookstore near here? Yes, there is. There's one on Park Street.",
+      "es": "¿Hay una librería cerca de aquí? Sí, hay. Hay una en Park Street.",
+      "image": "/lesson-assets/a1_photo_u6_story_neighborhood_across_v1.webp",
+      "kind": "u4-none",
+      "image_choices": false
     }
   ],
   "layout": {
@@ -703,7 +741,7 @@
       "x-no",
       "t-police",
       "r-police",
-      "t-bakery"
+      "u4-none"
     ],
     "Speak": [
       "q-bakery",

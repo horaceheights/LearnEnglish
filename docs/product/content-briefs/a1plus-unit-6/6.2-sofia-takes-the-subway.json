@@ -55,7 +55,8 @@
       "Sofia",
       "Diego",
       "Ana",
-      "Luis"
+      "Luis",
+      "walked"
     ],
     "grammar_function": "A follow-up of A1 6.2 Ways to Travel: A1 names transport and says by bus; A1+ 6.2 says how a person gets to work. The new items are subway and motorcycle, and take + the vehicle in the he/she form (Sofia takes the subway to work.), beside A1's by (Diego goes to work by motorcycle.). 2.2's How does … go…? asks it. Each cast member has one way to work in every photo: Sofia the subway, Diego his motorcycle, Ana the bus (A1 6) and Luis his red car (A1+ 2.2).",
     "prerequisite": "A1 6.2 transport and by; A1 6.11 take; A1+ 2.2 How do/does … go…?; A1+ 3.9 work.",
@@ -533,6 +534,57 @@
       "choices": false,
       "use": true,
       "learn": false
+    },
+    {
+      "id": "u4-walked",
+      "text": "I walked to the station.",
+      "es": "Caminé a la estación.",
+      "image": "/lesson-assets/a1_station.webp",
+      "kind": "u4-walked",
+      "image_choices": false,
+      "use": false,
+      "accepts": {
+        "subject-variety": "The sentence keeps the person and the place and changes only the reused detail; the photo fits each option and the words decide.",
+        "action-variety": "The sentence keeps the person and the place and changes only the reused detail; the photo fits each option and the words decide.",
+        "conversational-response": "The sentence keeps the person and the place and changes only the reused detail; the photo fits each option and the words decide.",
+        "reading-load": "The sentence keeps the person and the place and changes only the reused detail; the photo fits each option and the words decide."
+      },
+      "prefer": [
+        "I walked to the bank.",
+        "I walked to the library."
+      ],
+      "learn": false
+    },
+    {
+      "id": "u4-did-she",
+      "text": "Did she take the subway yesterday? Yes, she did.",
+      "es": "¿Tomó el metro ayer? Sí.",
+      "image": "/lesson-assets/a1plus-unit-6-t01-32f5dcfc47db5eec.webp",
+      "kind": "u4-did-she",
+      "image_choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "Did she take the subway yesterday?",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-6-t01-32f5dcfc47db5eec.webp"
+        },
+        {
+          "text": "Yes, she did.",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-6-t01-32f5dcfc47db5eec.webp"
+        }
+      ],
+      "accepts": {
+        "subject-variety": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "action-variety": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "conversational-response": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "reading-load": "Listen keeps the question and changes only the answer; the answer is what was heard."
+      },
+      "prefer": [
+        "Did she take the subway yesterday? No, she didn't."
+      ],
+      "learn": false
     }
   ],
   "pool": [
@@ -661,6 +713,27 @@
       "image": "/lesson-assets/a1plus-unit-6-t03-1194a71acc61480b.webp",
       "kind": "xd",
       "image_choices": false
+    },
+    {
+      "text": "I walked to the bank.",
+      "es": "Caminé al banco.",
+      "image": "/lesson-assets/a1_station.webp",
+      "kind": "u4-walked",
+      "image_choices": false
+    },
+    {
+      "text": "I walked to the library.",
+      "es": "Caminé a la biblioteca.",
+      "image": "/lesson-assets/a1_station.webp",
+      "kind": "u4-walked",
+      "image_choices": false
+    },
+    {
+      "text": "Did she take the subway yesterday? No, she didn't.",
+      "es": "¿Tomó el metro ayer? No.",
+      "image": "/lesson-assets/a1plus-unit-6-t01-32f5dcfc47db5eec.webp",
+      "kind": "u4-did-she",
+      "image_choices": false
     }
   ],
   "layout": {
@@ -686,7 +759,7 @@
       "f-diego",
       "p-taxi",
       "r-sofia",
-      "f-luis"
+      "u4-walked"
     ],
     "Listen": [
       "r-sofia",
@@ -698,7 +771,7 @@
       "x-d",
       "f-diego",
       "p-train",
-      "f-sofia"
+      "u4-did-she"
     ],
     "Speak": [
       "u-i-sub",

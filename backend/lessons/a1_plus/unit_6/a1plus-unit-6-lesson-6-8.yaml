@@ -482,41 +482,36 @@
     },
     {
       "slide_id": "R10",
-      "interaction_type": "i2t2",
+      "interaction_type": "i2t3",
       "prompt": "",
       "stage": "Recognize",
-      "correct_option_id": "how-do-i-get-to-the-park-cross-the-bridge-and-walk-along-the-river-r10",
+      "correct_option_id": "luis-walks-along-the-river-every-weekend-r10",
       "options": [
         {
-          "id": "how-do-i-get-to-the-park-cross-the-bridge-and-walk-along-the-river-r10",
+          "id": "luis-walks-along-the-river-every-weekend-r10",
           "image_url": "",
-          "label": "How do I get to the park? Cross the bridge and walk along the river.",
-          "spanish_translation": "¿Cómo llego al parque? Cruza el puente y camina por la orilla del río."
+          "label": "Luis walks along the river every weekend.",
+          "spanish_translation": "Luis camina junto al río cada fin de semana."
         },
         {
-          "id": "how-do-i-get-to-the-park-cross-the-street-and-turn-left-r10",
+          "id": "luis-walks-along-the-river-every-morning-r10",
           "image_url": "",
-          "label": "How do I get to the park? Cross the street and turn left.",
-          "spanish_translation": "¿Cómo llego al parque? Cruza la calle y da vuelta a la izquierda."
+          "label": "Luis walks along the river every morning.",
+          "spanish_translation": "Luis camina junto al río cada mañana."
+        },
+        {
+          "id": "luis-walks-along-the-river-every-evening-r10",
+          "image_url": "",
+          "label": "Luis walks along the river every evening.",
+          "spanish_translation": "Luis camina junto al río cada noche."
         }
       ],
       "audio_text": "",
-      "answer_audio_text": "How do I get to the park? Cross the bridge and walk along the river.",
-      "answer_audio_turns": [
-        {
-          "text": "How do I get to the park?",
-          "speaker_role": "co-teacher",
-          "image_url": "/lesson-assets/a1_photo_u6_story_help_second_question_v1.webp"
-        },
-        {
-          "text": "Cross the bridge and walk along the river.",
-          "speaker_role": "teacher",
-          "image_url": "/lesson-assets/a1plus-unit-6-w02-c1828502b663dfe7.webp"
-        }
-      ],
+      "answer_audio_text": "Luis walks along the river every weekend.",
       "prompt_image_url": "/lesson-assets/a1plus-unit-6-w02-c1828502b663dfe7.webp",
       "spanish_translation": "Elige la frase correcta.",
-      "pedagogy_note": "Story beat 10: How do I get to the park? Cross the bridge and walk along the river.",
+      "answer_audio_speaker": "co-teacher",
+      "pedagogy_note": "Story beat 10: Luis walks along the river every weekend.",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -542,7 +537,6 @@
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
       "pedagogy_note": "Story beat 01: Walk along the river.",
-      "audio_speaker": "co-teacher",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -568,6 +562,7 @@
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
       "pedagogy_note": "Story beat 02: This is a river.",
+      "audio_speaker": "co-teacher",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -632,7 +627,6 @@
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
       "pedagogy_note": "Story beat 04: Cross the bridge.",
-      "audio_speaker": "co-teacher",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -688,6 +682,7 @@
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
       "pedagogy_note": "Story beat 06: This is a bridge.",
+      "audio_speaker": "co-teacher",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -760,7 +755,6 @@
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
       "pedagogy_note": "Story beat 08: Luis is walking along the river.",
-      "audio_speaker": "co-teacher",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -793,35 +787,41 @@
     },
     {
       "slide_id": "A10",
-      "interaction_type": "a2t3",
+      "interaction_type": "a2t2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "ana-is-crossing-the-bridge-a10",
+      "correct_option_id": "did-you-walk-along-the-river-last-week-yes-i-did-a10",
       "options": [
         {
-          "id": "ana-is-walking-along-the-river-a10",
+          "id": "did-you-walk-along-the-river-last-week-no-i-didn't-a10",
           "image_url": "",
-          "label": "Ana is walking along the river.",
-          "spanish_translation": "Ana está caminando por la orilla del río."
+          "label": "Did you walk along the river last week? No, I didn't.",
+          "spanish_translation": "¿Caminaste junto al río la semana pasada? No."
         },
         {
-          "id": "luis-is-walking-along-the-river-a10",
+          "id": "did-you-walk-along-the-river-last-week-yes-i-did-a10",
           "image_url": "",
-          "label": "Luis is walking along the river.",
-          "spanish_translation": "Luis está caminando por la orilla del río."
-        },
-        {
-          "id": "ana-is-crossing-the-bridge-a10",
-          "image_url": "",
-          "label": "Ana is crossing the bridge.",
-          "spanish_translation": "Ana está cruzando el puente."
+          "label": "Did you walk along the river last week? Yes, I did.",
+          "spanish_translation": "¿Caminaste junto al río la semana pasada? Sí."
         }
       ],
-      "audio_text": "Ana is crossing the bridge.",
+      "audio_text": "Did you walk along the river last week? Yes, I did.",
       "answer_audio_text": null,
       "prompt_image_url": "",
+      "audio_turns": [
+        {
+          "text": "Did you walk along the river last week?",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1plus-unit-6-w02-c1828502b663dfe7.webp"
+        },
+        {
+          "text": "Yes, I did.",
+          "speaker_role": "co-teacher",
+          "image_url": "/lesson-assets/a1plus-unit-6-w02-c1828502b663dfe7.webp"
+        }
+      ],
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 10: Ana is crossing the bridge.",
+      "pedagogy_note": "Story beat 10: Did you walk along the river last week? Yes, I did.",
       "answer_audio_policy": "authored-only"
     },
     {

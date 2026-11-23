@@ -499,6 +499,87 @@
       "choices": false,
       "use": true,
       "learn": false
+    },
+    {
+      "id": "u4-opened",
+      "text": "Ana opened the door of her room.",
+      "es": "Ana abrió la puerta de su cuarto.",
+      "image": "/lesson-assets/a1plus-unit-6-z04-1fe6dacb083fec63.webp",
+      "kind": "u4-opened",
+      "image_choices": false,
+      "use": false,
+      "accepts": {
+        "subject-variety": "The sentence keeps the person and the place and changes only the reused detail; the photo fits each option and the words decide.",
+        "action-variety": "The sentence keeps the person and the place and changes only the reused detail; the photo fits each option and the words decide.",
+        "conversational-response": "The sentence keeps the person and the place and changes only the reused detail; the photo fits each option and the words decide.",
+        "reading-load": "The sentence keeps the person and the place and changes only the reused detail; the photo fits each option and the words decide."
+      },
+      "prefer": [
+        "Ana opened the door of the bank."
+      ],
+      "learn": false
+    },
+    {
+      "id": "u4-upstairs",
+      "text": "Where's my room? It's upstairs.",
+      "es": "¿Dónde está mi cuarto? Está arriba.",
+      "image": "/lesson-assets/a1plus-unit-6-z03-893afc20dc5b6173.webp",
+      "kind": "u4-upstairs",
+      "image_choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "Where's my room?",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-6-z03-893afc20dc5b6173.webp"
+        },
+        {
+          "text": "It's upstairs.",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-6-z03-893afc20dc5b6173.webp"
+        }
+      ],
+      "accepts": {
+        "subject-variety": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "action-variety": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "conversational-response": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "reading-load": "Listen keeps the question and changes only the answer; the answer is what was heard."
+      },
+      "prefer": [
+        "Where's my room? It's downstairs."
+      ],
+      "learn": false
+    },
+    {
+      "id": "u4-res-when",
+      "text": "When is your reservation? It's on Friday.",
+      "es": "¿Cuándo es tu reservación? Es el viernes.",
+      "image": "/lesson-assets/a1plus-unit-6-z01-129d6e79e344e481.webp",
+      "kind": "u4-res-when",
+      "image_choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "When is your reservation?",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-6-z01-129d6e79e344e481.webp"
+        },
+        {
+          "text": "It's on Friday.",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-6-z01-129d6e79e344e481.webp"
+        }
+      ],
+      "accepts": {
+        "subject-variety": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "action-variety": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "conversational-response": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "reading-load": "Listen keeps the question and changes only the answer; the answer is what was heard."
+      },
+      "prefer": [
+        "When is your reservation? It's on Monday."
+      ],
+      "learn": false
     }
   ],
   "pool": [
@@ -578,6 +659,27 @@
       "image": "/lesson-assets/a1plus-unit-6-z02-baacaee429ba8d9d.webp",
       "kind": "xk",
       "image_choices": false
+    },
+    {
+      "text": "Ana opened the door of the bank.",
+      "es": "Ana abrió la puerta del banco.",
+      "image": "/lesson-assets/a1plus-unit-6-z04-1fe6dacb083fec63.webp",
+      "kind": "u4-opened",
+      "image_choices": false
+    },
+    {
+      "text": "Where's my room? It's downstairs.",
+      "es": "¿Dónde está mi cuarto? Está abajo.",
+      "image": "/lesson-assets/a1plus-unit-6-z03-893afc20dc5b6173.webp",
+      "kind": "u4-upstairs",
+      "image_choices": false
+    },
+    {
+      "text": "When is your reservation? It's on Monday.",
+      "es": "¿Cuándo es tu reservación? Es el lunes.",
+      "image": "/lesson-assets/a1plus-unit-6-z01-129d6e79e344e481.webp",
+      "kind": "u4-res-when",
+      "image_choices": false
     }
   ],
   "layout": {
@@ -603,19 +705,19 @@
       "p-room",
       "f-elev",
       "x-floor",
-      "x-key"
+      "u4-opened"
     ],
     "Listen": [
       "p-key",
       "p-room",
       "x-floor",
       "p-res",
-      "x-res",
+      "u4-res-when",
       "f-key",
       "p-elev",
       "x-floor2",
       "x-key",
-      "f-room"
+      "u4-upstairs"
     ],
     "Speak": [
       "u-res",

@@ -440,6 +440,57 @@
       "choices": false,
       "use": true,
       "learn": false
+    },
+    {
+      "id": "u4-weekend",
+      "text": "Luis walks along the river every weekend.",
+      "es": "Luis camina junto al río cada fin de semana.",
+      "image": "/lesson-assets/a1plus-unit-6-w02-c1828502b663dfe7.webp",
+      "kind": "u4-weekend",
+      "image_choices": false,
+      "use": false,
+      "accepts": {
+        "subject-variety": "The sentence keeps the person and the place and changes only the reused detail; the photo fits each option and the words decide.",
+        "action-variety": "The sentence keeps the person and the place and changes only the reused detail; the photo fits each option and the words decide.",
+        "conversational-response": "The sentence keeps the person and the place and changes only the reused detail; the photo fits each option and the words decide.",
+        "reading-load": "The sentence keeps the person and the place and changes only the reused detail; the photo fits each option and the words decide."
+      },
+      "prefer": [
+        "Luis walks along the river every morning.",
+        "Luis walks along the river every evening."
+      ],
+      "learn": false
+    },
+    {
+      "id": "u4-did",
+      "text": "Did you walk along the river last week? Yes, I did.",
+      "es": "¿Caminaste junto al río la semana pasada? Sí.",
+      "image": "/lesson-assets/a1plus-unit-6-w02-c1828502b663dfe7.webp",
+      "kind": "u4-did",
+      "image_choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "Did you walk along the river last week?",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-6-w02-c1828502b663dfe7.webp"
+        },
+        {
+          "text": "Yes, I did.",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-6-w02-c1828502b663dfe7.webp"
+        }
+      ],
+      "accepts": {
+        "subject-variety": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "action-variety": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "conversational-response": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "reading-load": "Listen keeps the question and changes only the answer; the answer is what was heard."
+      },
+      "prefer": [
+        "Did you walk along the river last week? No, I didn't."
+      ],
+      "learn": false
     }
   ],
   "pool": [
@@ -526,6 +577,27 @@
       "image": "/lesson-assets/a1plus-unit-6-k01-1ce0d396b8be11de.webp",
       "kind": "xl",
       "image_choices": false
+    },
+    {
+      "text": "Luis walks along the river every morning.",
+      "es": "Luis camina junto al río cada mañana.",
+      "image": "/lesson-assets/a1plus-unit-6-w02-c1828502b663dfe7.webp",
+      "kind": "u4-weekend",
+      "image_choices": false
+    },
+    {
+      "text": "Luis walks along the river every evening.",
+      "es": "Luis camina junto al río cada noche.",
+      "image": "/lesson-assets/a1plus-unit-6-w02-c1828502b663dfe7.webp",
+      "kind": "u4-weekend",
+      "image_choices": false
+    },
+    {
+      "text": "Did you walk along the river last week? No, I didn't.",
+      "es": "¿Caminaste junto al río la semana pasada? No.",
+      "image": "/lesson-assets/a1plus-unit-6-w02-c1828502b663dfe7.webp",
+      "kind": "u4-did",
+      "image_choices": false
     }
   ],
   "layout": {
@@ -551,7 +623,7 @@
       "f-turn",
       "r-pool",
       "a-luis",
-      "x-park"
+      "u4-weekend"
     ],
     "Listen": [
       "f-along",
@@ -563,7 +635,7 @@
       "x-lib",
       "a-luis",
       "r-park",
-      "a-ana"
+      "u4-did"
     ],
     "Speak": [
       "u-cross",

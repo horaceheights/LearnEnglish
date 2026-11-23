@@ -896,37 +896,41 @@
     },
     {
       "slide_id": "A10",
-      "interaction_type": "a2i4",
+      "interaction_type": "a2t2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "this-is-a-bakery-a10",
+      "correct_option_id": "is-there-a-bookstore-near-here-no-there-isn't-there-aren't-any-bookstores-here-a10",
       "options": [
         {
-          "id": "this-is-a-bookstore-a10",
-          "image_url": "/lesson-assets/a1plus-unit-6-b02-eb4a7a3266cb508d.webp",
-          "label": null
+          "id": "is-there-a-bookstore-near-here-yes-there-is-there's-one-on-park-street-a10",
+          "image_url": "",
+          "label": "Is there a bookstore near here? Yes, there is. There's one on Park Street.",
+          "spanish_translation": "¿Hay una librería cerca de aquí? Sí, hay. Hay una en Park Street."
         },
         {
-          "id": "this-is-a-police-station-a10",
-          "image_url": "/lesson-assets/a1plus-unit-6-b03-2dfe578558c5e8d3.webp",
-          "label": null
-        },
-        {
-          "id": "this-is-a-gas-station-a10",
-          "image_url": "/lesson-assets/a1plus-unit-6-b04-d0d6c5e8b513c522.webp",
-          "label": null
-        },
-        {
-          "id": "this-is-a-bakery-a10",
-          "image_url": "/lesson-assets/a1plus-unit-6-b01-26fe3298c0cc0983.webp",
-          "label": null
+          "id": "is-there-a-bookstore-near-here-no-there-isn't-there-aren't-any-bookstores-here-a10",
+          "image_url": "",
+          "label": "Is there a bookstore near here? No, there isn't. There aren't any bookstores here.",
+          "spanish_translation": "¿Hay una librería cerca de aquí? No, no hay. Aquí no hay librerías."
         }
       ],
-      "audio_text": "This is a bakery.",
+      "audio_text": "Is there a bookstore near here? No, there isn't. There aren't any bookstores here.",
       "answer_audio_text": null,
       "prompt_image_url": "",
+      "audio_turns": [
+        {
+          "text": "Is there a bookstore near here?",
+          "speaker_role": "co-teacher",
+          "image_url": "/lesson-assets/a1_photo_u6_story_neighborhood_across_v1.webp"
+        },
+        {
+          "text": "No, there isn't. There aren't any bookstores here.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_photo_u6_story_neighborhood_across_v1.webp"
+        }
+      ],
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 10: This is a bakery.",
+      "pedagogy_note": "Story beat 10: Is there a bookstore near here? No, there isn't. There aren't any bookstores here.",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -976,7 +980,7 @@
       "audio_turns": [
         {
           "text": "This is a gas station.",
-          "speaker_role": "co-teacher",
+          "speaker_role": "teacher",
           "image_url": "/lesson-assets/a1plus-unit-6-b04-d0d6c5e8b513c522.webp",
           "delivery": "a1-pronunciation-v1"
         }
@@ -1004,7 +1008,7 @@
       "audio_turns": [
         {
           "text": "There's one on Park Street.",
-          "speaker_role": "teacher",
+          "speaker_role": "co-teacher",
           "image_url": "/lesson-assets/a1plus-unit-6-b02-eb4a7a3266cb508d.webp",
           "delivery": "a1-pronunciation-v1"
         }
@@ -1032,7 +1036,7 @@
       "audio_turns": [
         {
           "text": "Is there a bookstore near here?",
-          "speaker_role": "co-teacher",
+          "speaker_role": "teacher",
           "image_url": "/lesson-assets/a1_photo_u6_story_help_first_question_v1.webp",
           "delivery": "a1-pronunciation-v1"
         }
@@ -1060,7 +1064,7 @@
       "audio_turns": [
         {
           "text": "This is a police station.",
-          "speaker_role": "teacher",
+          "speaker_role": "co-teacher",
           "image_url": "/lesson-assets/a1plus-unit-6-b03-2dfe578558c5e8d3.webp",
           "delivery": "a1-pronunciation-v1"
         }
@@ -1088,7 +1092,7 @@
       "audio_turns": [
         {
           "text": "Is there a police station near here?",
-          "speaker_role": "co-teacher",
+          "speaker_role": "teacher",
           "image_url": "/lesson-assets/a1_photo_u6_story_help_first_question_v1.webp",
           "delivery": "a1-pronunciation-v1"
         }
@@ -1116,7 +1120,7 @@
       "audio_turns": [
         {
           "text": "This is a bakery.",
-          "speaker_role": "teacher",
+          "speaker_role": "co-teacher",
           "image_url": "/lesson-assets/a1plus-unit-6-b01-26fe3298c0cc0983.webp",
           "delivery": "a1-pronunciation-v1"
         }
@@ -1180,9 +1184,7 @@
         "a",
         "bakery"
       ],
-      "answer_audio_speaker": "co-teacher",
       "pedagogy_note": "Story beat 01: This is a bakery.",
-      "audio_speaker": "co-teacher",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -1212,7 +1214,9 @@
         "a",
         "bookstore"
       ],
+      "answer_audio_speaker": "co-teacher",
       "pedagogy_note": "Story beat 02: This is a bookstore.",
+      "audio_speaker": "co-teacher",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -1242,9 +1246,7 @@
         "police",
         "station"
       ],
-      "answer_audio_speaker": "co-teacher",
       "pedagogy_note": "Story beat 03: This is a police station.",
-      "audio_speaker": "co-teacher",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -1274,7 +1276,9 @@
         "gas",
         "station"
       ],
+      "answer_audio_speaker": "co-teacher",
       "pedagogy_note": "Story beat 04: This is a gas station.",
+      "audio_speaker": "co-teacher",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -1328,9 +1332,7 @@
         "word-5",
         "word-6"
       ],
-      "answer_audio_speaker": "co-teacher",
       "pedagogy_note": "Story beat 05: Luis is at the gas station.",
-      "audio_speaker": "co-teacher",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -1434,7 +1436,9 @@
         "word-4",
         "word-5"
       ],
+      "answer_audio_speaker": "co-teacher",
       "pedagogy_note": "Story beat 07: There's one on Park Street.",
+      "audio_speaker": "co-teacher",
       "answer_audio_policy": "authored-only"
     },
     {

@@ -457,6 +457,37 @@
       "choices": false,
       "use": true,
       "learn": false
+    },
+    {
+      "id": "u4-and-then",
+      "text": "How do I get to the bank? Turn right at the bakery and then turn left.",
+      "es": "¿Cómo llego al banco? Da vuelta a la derecha en la panadería y luego a la izquierda.",
+      "image": "/lesson-assets/a1_photo_u6_story_help_second_question_v1.webp",
+      "kind": "u4-and-then",
+      "image_choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "How do I get to the bank?",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1_photo_u6_story_help_second_question_v1.webp"
+        },
+        {
+          "text": "Turn right at the bakery and then turn left.",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1_photo_u6_story_help_second_question_v1.webp"
+        }
+      ],
+      "accepts": {
+        "subject-variety": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "action-variety": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "conversational-response": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "reading-load": "Listen keeps the question and changes only the answer; the answer is what was heard."
+      },
+      "prefer": [
+        "How do I get to the bank? Turn left at the bakery and then turn right."
+      ],
+      "learn": false
     }
   ],
   "pool": [
@@ -543,6 +574,13 @@
       "image": "/lesson-assets/a1plus-unit-6-k02-e5031661f1a1826d.webp",
       "kind": "xb",
       "image_choices": false
+    },
+    {
+      "text": "How do I get to the bank? Turn left at the bakery and then turn right.",
+      "es": "¿Cómo llego al banco? Da vuelta a la izquierda en la panadería y luego a la derecha.",
+      "image": "/lesson-assets/a1_photo_u6_story_help_second_question_v1.webp",
+      "kind": "u4-and-then",
+      "image_choices": false
     }
   ],
   "layout": {
@@ -580,7 +618,7 @@
       "r-park",
       "r-gas",
       "r-lib",
-      "r-bank"
+      "u4-and-then"
     ],
     "Speak": [
       "u-left",
