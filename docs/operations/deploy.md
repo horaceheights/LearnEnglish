@@ -122,6 +122,14 @@ Render shallow-clones the tip of the branch it deploys and gives up when GitHub 
 - If the backend starts reading another repository path, add it to `DEPLOY_PATHS`. `backend/tests/test_render_deploy_copy.py` fails until it is added.
 - Never merge, edit or delete `render-deploy`; it only moves forward from its previous tip.
 
+### Render memory budget
+
+Render kills the process when it goes over its instance's memory (`Out of memory (used over 512Mi)`, event `server_failed` with `oomKilled`). A deploy killed this way ends `update_failed`, and the earlier deploy stays in place. Startup memory grows with the course catalog, because the backend loads every lesson and, after startup, checks the course-audio upload manifest and the approved take registry. Each unit adds roughly 14 MiB to the startup peak.
+
+Until 2026-11-23 the service ran on the 512 MiB Starter instance. With A1+ Unit 7 and German Unit 4, the old check peaked at about 528 MiB: it parsed both files at once, and a learner request could parse the manifest a second time. Every deploy and the running instance were then OOM-killed, and the backend returned 502s. The owner moved the service to the Standard instance (1 CPU, 2 GB; the API reports plan `1c-2g`) that night. Separately, `cloudflare_media.inventory()` now parses one file at a time, under a lock, and keeps only the keys of `historical_objects`. Measured locally on that catalog, the peak is about 430 MiB.
+
+If OOM kills return, measure the startup stages under `psutil` from `backend/`. Then choose between trimming memory and a larger instance; the instance size is a billing change, so the owner decides.
+
 ## Shipping Pregenerated Course Audio
 
 Cloudflare R2 at `https://cdn.learnspanglish.app` is the default for images, videos, posters, SFX, static legacy audio and immutable course recordings. Render hosts API compute only, with no course-audio disk dependency. Follow [Cloudflare course media](cloudflare-course-media.md) for the complete upload and verification procedure.
