@@ -1,0 +1,62 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "91360eac-83e6-4b54-8341-6158abf6c9c3",
+  "asset_id": "t11-keys-floor",
+  "pack_sha256": "b91ba680a13437c4191477cae903eefc479628768ff61bb4cfdf6f88ba451997",
+  "started_at": "2026-11-24T02:19:56.289698+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Edit Image 1. Keep the place, the light, the colors and the camera position exactly the same; change only what is described below. There are no people and no animals in the photo.\n\nKeep the key that is there and add three more separate silver keys lying on the floor beside it, each about the same size, a little apart from each other, so four keys are large and clearly visible.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1_photo_u4_morehome_key_floor_v1.webp",
+    "sha256": "bd779726ee0be441480107afc1ccf46a8fb2e2b9b16b6257f6d80d0c240daf79"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "TPQEa7HtGOuEqtsP2NGW0Ag",
+  "usage": {
+    "promptTokenCount": 342,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1632,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 84
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038803",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 342,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 8.18,
+  "output": "output/imagegen/a1plus-unit-4-lesson-v4191/t11-keys-floor.png",
+  "sha256": "2104d7b009e84e06463c257d90b212745af54dc438cc3549897551b8aa21522c",
+  "byte_count": 1545457,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}

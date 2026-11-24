@@ -5,7 +5,7 @@
     "lesson": "4.15",
     "title": "More at Home"
   },
-  "note": "A1+ Unit 4 Lesson 4.15, built on 2026-11-21 under the A1+ lesson standards approved 2026-10-27 and the user's 2026-11-09 rule that every A1+ lesson follows up the A1 lesson with the same number. The user approved the A1+ Unit 4 map on 2026-11-20 (A1+ 4.Y follows A1 4.Y, one step each; seventeen lessons) and asked for the Unit 2 and Unit 3 deal (\"Start working on A1+ Unit 4, same deal. make sure images make sense all the time\"): straight to Preview in batches, Gemini 2.5 Flash photos and ElevenLabs audio pre-approved, no per-lesson gates, reviewed in Preview. Six new Flash photos: apples on a kitchen table, books on a sofa and shoes under a bed, each with an edit of the same place without them; A1 4.4's books on a table and bags under a table.",
+  "note": "A1+ Unit 4 Lesson 4.15, built on 2026-11-21 under the A1+ lesson standards approved 2026-10-27 and the user's 2026-11-09 rule that every A1+ lesson follows up the A1 lesson with the same number. The user approved the A1+ Unit 4 map on 2026-11-20 (A1+ 4.Y follows A1 4.Y, one step each; seventeen lessons) and asked for the Unit 2 and Unit 3 deal (\"Start working on A1+ Unit 4, same deal. make sure images make sense all the time\"): straight to Preview in batches, Gemini 2.5 Flash photos and ElevenLabs audio pre-approved, no per-lesson gates, reviewed in Preview. A1 4.15's photos of an empty floor, empty stairs and the garden, with three new Flash photos that add keys, shoes and chairs to them; apples on a kitchen table and books on a sofa, each with an edit of the same place without them.",
   "target": "backend/lessons/a1_plus/unit_4/a1plus-unit-4-lesson-4-15.yaml",
   "captions": false,
   "narrators": [
@@ -16,16 +16,16 @@
   "speak_delivery": "a1-pronunciation-v1",
   "lesson": {
     "id": "a1plus-unit-4-lesson-4-15",
-    "title": "4.15 Are there any books on the sofa?",
+    "title": "4.15 Are there any keys on the floor?",
     "level": "A1+",
     "unit_id": "a1plus-unit-4",
     "unit_title": "Life at home, every day and yesterday",
     "unit_outcome": "Say where people and things are at home, talk about the lights and machines, ask what there is, describe someone's morning in order, say what you did yesterday and on which day, ask and tell the time, say how often you do things and give dates.",
     "lesson_id": "a1plus-unit-4-lesson-4-15",
-    "lesson_title": "Are there any books on the sofa?",
+    "lesson_title": "Are there any keys on the floor?",
     "sub_lesson_id": "4.15",
-    "sub_lesson_title": "Are there any books on the sofa?",
-    "goal": "Say there are some things somewhere, ask Are there any…? and say there aren't any (Are there any books on the sofa? No, there aren't any.).",
+    "sub_lesson_title": "Are there any keys on the floor?",
+    "goal": "Say there are some things somewhere at home, ask Are there any…? and say there aren't any (Are there any keys on the floor? No, there aren't any.).",
     "vocabulary": [
       "There are some",
       "Are there any",
@@ -39,20 +39,24 @@
       "apples",
       "books",
       "shoes",
-      "bags",
+      "keys",
+      "chairs",
       "on",
-      "under",
+      "in",
       "table",
       "sofa",
-      "bed",
+      "floor",
+      "stairs",
+      "garden",
       "Yes",
       "No",
       "four",
-      "five"
+      "five",
+      "six"
     ],
-    "grammar_function": "A follow-up of A1 4.15 More at Home: A1 names more of the home; A1+ 4.15 adds some and any to 4.4's there is, there are and Are there…?: some in a positive sentence (There are some apples on the table.), any in a question and after aren't (Are there any books on the sofa? No, there aren't any.), with How many … are there? Six new Flash photos show three places with the things and the same places without them (each empty photo is an edit of its full one), and A1 4.4's books on a table and bags under a table come back. An any sentence is never set against a photo of another place, where it would also be true.",
-    "prerequisite": "A1 4.4 and 4.15 there is, there are, home; A1 5.4 some; A1+ 4.4 Is there…? / Are there…? and How many.",
-    "speaking_outcome": "Link there are (THEH-rar) and say some and any unstressed before the noun (sum APPLES, enee BOOKS). Do not require native-like speed.",
+    "grammar_function": "A follow-up of A1 4.15 More at Home: A1 names the floor, the stairs, the garden and a key; A1+ 4.15 says what there is in those places, adding some and any to 4.4's there is, there are and Are there…?: some in a positive sentence (There are some shoes on the stairs.), any in a question and after aren't (Are there any keys on the floor? No, there aren't any.), with How many … are there? A1 4.15's own photos of an empty floor, empty stairs and the garden are the places without the things; three new Flash photos add keys, shoes and chairs to them, and apples on a table and books on a sofa have an edit of the same place without them. An any sentence is never set against a photo of another place, where it would also be true.",
+    "prerequisite": "A1 4.4 and 4.15 there is, there are, floor, stairs, garden, key; A1 5.4 some; A1+ 4.4 Is there…? / Are there…? and How many.",
+    "speaking_outcome": "Link there are (THEH-rar) and say some and any unstressed before the noun (sum SHOES, enee KEYS). Do not require native-like speed.",
     "content_revision": 1,
     "learn_context_groups": [
       {
@@ -76,9 +80,9 @@
         "models": [
           {
             "slide_id": "L2",
-            "text": "Are there any books on the sofa? No, there aren't any.",
+            "text": "Are there any keys on the floor? No, there aren't any.",
             "turns": [
-              "Are there any books on the sofa?",
+              "Are there any keys on the floor?",
               "No, there aren't any."
             ]
           }
@@ -93,10 +97,10 @@
         "models": [
           {
             "slide_id": "L3",
-            "text": "There are some shoes under the bed. There aren't any shoes under the bed.",
+            "text": "There are some shoes on the stairs. There aren't any shoes on the stairs.",
             "turns": [
-              "There are some shoes under the bed.",
-              "There aren't any shoes under the bed."
+              "There are some shoes on the stairs.",
+              "There aren't any shoes on the stairs."
             ]
           }
         ]
@@ -110,9 +114,9 @@
         "models": [
           {
             "slide_id": "L4",
-            "text": "Are there any apples on the table? Yes, there are some.",
+            "text": "Are there any chairs in the garden? Yes, there are some.",
             "turns": [
-              "Are there any apples on the table?",
+              "Are there any chairs in the garden?",
               "Yes, there are some."
             ]
           }
@@ -133,64 +137,64 @@
     },
     {
       "id": "l-any",
-      "text": "Are there any books on the sofa? No, there aren't any.",
-      "es": "¿Hay libros en el sofá? No, no hay.",
-      "image": "/lesson-assets/a1plus-unit-4-s04-706d7cc8580e059b.webp",
+      "text": "Are there any keys on the floor? No, there aren't any.",
+      "es": "¿Hay llaves en el piso? No, no hay.",
+      "image": "/lesson-assets/a1_photo_u4_morehome_floor_v1.webp",
       "kind": "exchange",
       "choices": false,
       "use": false,
       "turns": [
         {
-          "text": "Are there any books on the sofa?",
+          "text": "Are there any keys on the floor?",
           "speaker": "co-teacher",
-          "image": "/lesson-assets/a1plus-unit-4-s04-706d7cc8580e059b.webp"
+          "image": "/lesson-assets/a1_photo_u4_morehome_floor_v1.webp"
         },
         {
           "text": "No, there aren't any.",
           "speaker": "teacher",
-          "image": "/lesson-assets/a1plus-unit-4-s04-706d7cc8580e059b.webp"
+          "image": "/lesson-assets/a1_photo_u4_morehome_floor_v1.webp"
         }
       ]
     },
     {
       "id": "l-shoes",
-      "text": "There are some shoes under the bed. There aren't any shoes under the bed.",
-      "es": "Hay unos zapatos debajo de la cama. No hay zapatos debajo de la cama.",
-      "image": "/lesson-assets/a1plus-unit-4-s05-2c7cb656dbe3db62.webp",
+      "text": "There are some shoes on the stairs. There aren't any shoes on the stairs.",
+      "es": "Hay unos zapatos en la escalera. No hay zapatos en la escalera.",
+      "image": "/lesson-assets/a1plus-unit-4-t02-dced8dcfe1bb59cd.webp",
       "kind": "contrast",
       "choices": false,
       "use": false,
       "turns": [
         {
-          "text": "There are some shoes under the bed.",
+          "text": "There are some shoes on the stairs.",
           "speaker": "teacher",
-          "image": "/lesson-assets/a1plus-unit-4-s05-2c7cb656dbe3db62.webp"
+          "image": "/lesson-assets/a1plus-unit-4-t02-dced8dcfe1bb59cd.webp"
         },
         {
-          "text": "There aren't any shoes under the bed.",
+          "text": "There aren't any shoes on the stairs.",
           "speaker": "co-teacher",
-          "image": "/lesson-assets/a1plus-unit-4-s06-45ad420a0e589806.webp"
+          "image": "/lesson-assets/a1_photo_u4_morehome_stairs_v1.webp"
         }
       ]
     },
     {
       "id": "l-yes",
-      "text": "Are there any apples on the table? Yes, there are some.",
-      "es": "¿Hay manzanas en la mesa? Sí, hay unas.",
-      "image": "/lesson-assets/a1plus-unit-4-s01-7a08602fc3720b24.webp",
+      "text": "Are there any chairs in the garden? Yes, there are some.",
+      "es": "¿Hay sillas en el jardín? Sí, hay unas.",
+      "image": "/lesson-assets/a1plus-unit-4-t03-a3cc49eaaba23e02.webp",
       "kind": "exchange",
       "choices": false,
       "use": false,
       "turns": [
         {
-          "text": "Are there any apples on the table?",
+          "text": "Are there any chairs in the garden?",
           "speaker": "co-teacher",
-          "image": "/lesson-assets/a1plus-unit-4-s01-7a08602fc3720b24.webp"
+          "image": "/lesson-assets/a1plus-unit-4-t03-a3cc49eaaba23e02.webp"
         },
         {
           "text": "Yes, there are some.",
           "speaker": "teacher",
-          "image": "/lesson-assets/a1plus-unit-4-s01-7a08602fc3720b24.webp"
+          "image": "/lesson-assets/a1plus-unit-4-t03-a3cc49eaaba23e02.webp"
         }
       ]
     },
@@ -216,13 +220,13 @@
       "learn": false
     },
     {
-      "id": "p-books",
-      "text": "There are some books on the sofa.",
-      "es": "Hay unos libros en el sofá.",
-      "image": "/lesson-assets/a1plus-unit-4-s03-4d7bf251c0fa9988.webp",
+      "id": "p-keys",
+      "text": "There are some keys on the floor.",
+      "es": "Hay unas llaves en el piso.",
+      "image": "/lesson-assets/a1plus-unit-4-t11-2910f902f7218279.webp",
       "kind": "some",
       "prefer": [
-        "There aren't any books on the sofa."
+        "There aren't any keys on the floor."
       ],
       "accepts": {
         "subject-variety": "The bank keeps the place and changes only some or any; the picture shows the things or none.",
@@ -235,12 +239,12 @@
     },
     {
       "id": "p-shoes",
-      "text": "There are some shoes under the bed.",
-      "es": "Hay unos zapatos debajo de la cama.",
-      "image": "/lesson-assets/a1plus-unit-4-s05-2c7cb656dbe3db62.webp",
+      "text": "There are some shoes on the stairs.",
+      "es": "Hay unos zapatos en la escalera.",
+      "image": "/lesson-assets/a1plus-unit-4-t02-dced8dcfe1bb59cd.webp",
       "kind": "some",
       "prefer": [
-        "There aren't any shoes under the bed."
+        "There aren't any shoes on the stairs."
       ],
       "accepts": {
         "subject-variety": "The bank keeps the place and changes only some or any; the picture shows the things or none.",
@@ -255,13 +259,13 @@
       "learn": false
     },
     {
-      "id": "p-bags",
-      "text": "There are some bags under the table.",
-      "es": "Hay unas mochilas debajo de la mesa.",
-      "image": "/lesson-assets/a1_photo_u4_two_bags_under_table_v1.webp",
+      "id": "p-chairs",
+      "text": "There are some chairs in the garden.",
+      "es": "Hay unas sillas en el jardín.",
+      "image": "/lesson-assets/a1plus-unit-4-t03-a3cc49eaaba23e02.webp",
       "kind": "some",
       "prefer": [
-        "There aren't any bags under the table."
+        "There aren't any chairs in the garden."
       ],
       "accepts": {
         "subject-variety": "The bank keeps the place and changes only some or any; the picture shows the things or none.",
@@ -273,13 +277,13 @@
       "learn": false
     },
     {
-      "id": "p-books2",
-      "text": "There are some books on the table.",
-      "es": "Hay unos libros en la mesa.",
-      "image": "/lesson-assets/a1_photo_u4_three_books_on_table_v1.webp",
+      "id": "p-books",
+      "text": "There are some books on the sofa.",
+      "es": "Hay unos libros en el sofá.",
+      "image": "/lesson-assets/a1plus-unit-4-s03-4d7bf251c0fa9988.webp",
       "kind": "some",
       "prefer": [
-        "There aren't any books on the table."
+        "There aren't any books on the sofa."
       ],
       "accepts": {
         "subject-variety": "The bank keeps the place and changes only some or any; the picture shows the things or none.",
@@ -313,13 +317,13 @@
       "learn": false
     },
     {
-      "id": "n-books",
-      "text": "There aren't any books on the sofa.",
-      "es": "No hay libros en el sofá.",
-      "image": "/lesson-assets/a1plus-unit-4-s04-706d7cc8580e059b.webp",
-      "kind": "none-n-books",
+      "id": "n-keys",
+      "text": "There aren't any keys on the floor.",
+      "es": "No hay llaves en el piso.",
+      "image": "/lesson-assets/a1_photo_u4_morehome_floor_v1.webp",
+      "kind": "none-n-keys",
       "prefer": [
-        "There are some books on the sofa."
+        "There are some keys on the floor."
       ],
       "accepts": {
         "subject-variety": "The bank keeps the place and changes only some or any; the picture shows the things or none.",
@@ -333,12 +337,12 @@
     },
     {
       "id": "n-shoes",
-      "text": "There aren't any shoes under the bed.",
-      "es": "No hay zapatos debajo de la cama.",
-      "image": "/lesson-assets/a1plus-unit-4-s06-45ad420a0e589806.webp",
+      "text": "There aren't any shoes on the stairs.",
+      "es": "No hay zapatos en la escalera.",
+      "image": "/lesson-assets/a1_photo_u4_morehome_stairs_v1.webp",
       "kind": "none-n-shoes",
       "prefer": [
-        "There are some shoes under the bed."
+        "There are some shoes on the stairs."
       ],
       "accepts": {
         "subject-variety": "The bank keeps the place and changes only some or any; the picture shows the things or none.",
@@ -374,13 +378,13 @@
       "learn": false
     },
     {
-      "id": "r-books",
+      "id": "r-keys",
       "text": "No, there aren't any.",
       "es": "No, no hay.",
-      "image": "/lesson-assets/a1plus-unit-4-s04-706d7cc8580e059b.webp",
-      "kind": "reply-r-books",
-      "question": "Are there any books on the sofa?",
-      "question_es": "¿Hay libros en el sofá?",
+      "image": "/lesson-assets/a1_photo_u4_morehome_floor_v1.webp",
+      "kind": "reply-r-keys",
+      "question": "Are there any keys on the floor?",
+      "question_es": "¿Hay llaves en el piso?",
       "question_speaker": "co-teacher",
       "speaker": "teacher",
       "use": false,
@@ -397,13 +401,13 @@
       "learn": false
     },
     {
-      "id": "r-shoes",
+      "id": "r-chairs",
       "text": "Yes, there are some.",
-      "es": "Sí, hay unos.",
-      "image": "/lesson-assets/a1plus-unit-4-s05-2c7cb656dbe3db62.webp",
-      "kind": "reply-r-shoes",
-      "question": "Are there any shoes under the bed?",
-      "question_es": "¿Hay zapatos debajo de la cama?",
+      "es": "Sí, hay unas.",
+      "image": "/lesson-assets/a1plus-unit-4-t03-a3cc49eaaba23e02.webp",
+      "kind": "reply-r-chairs",
+      "question": "Are there any chairs in the garden?",
+      "question_es": "¿Hay sillas en el jardín?",
       "question_speaker": "co-teacher",
       "speaker": "teacher",
       "use": false,
@@ -420,13 +424,36 @@
       "learn": false
     },
     {
+      "id": "r-shoes",
+      "text": "No, there aren't any.",
+      "es": "No, no hay.",
+      "image": "/lesson-assets/a1_photo_u4_morehome_stairs_v1.webp",
+      "kind": "reply-r-shoes",
+      "question": "Are there any shoes on the stairs?",
+      "question_es": "¿Hay zapatos en la escalera?",
+      "question_speaker": "co-teacher",
+      "speaker": "teacher",
+      "use": false,
+      "image_choices": false,
+      "prefer": [
+        "Yes, there are some."
+      ],
+      "accepts": {
+        "subject-variety": "A short answer keeps the question's place; the picture shows the things or none.",
+        "action-variety": "A short answer keeps the question's place; the picture shows the things or none.",
+        "conversational-response": "A short answer keeps the question's place; the picture shows the things or none.",
+        "reading-load": "A short answer keeps the question's place; the picture shows the things or none."
+      },
+      "learn": false
+    },
+    {
       "id": "r-many",
       "text": "There are five.",
       "es": "Hay cinco.",
-      "image": "/lesson-assets/a1plus-unit-4-s01-7a08602fc3720b24.webp",
+      "image": "/lesson-assets/a1plus-unit-4-t11-2910f902f7218279.webp",
       "kind": "reply-r-many",
-      "question": "How many apples are there?",
-      "question_es": "¿Cuántas manzanas hay?",
+      "question": "How many keys are there?",
+      "question_es": "¿Cuántas llaves hay?",
       "question_speaker": "co-teacher",
       "speaker": "teacher",
       "use": false,
@@ -444,37 +471,13 @@
       "learn": false
     },
     {
-      "id": "r-many2",
-      "text": "There are four.",
-      "es": "Hay cuatro.",
-      "image": "/lesson-assets/a1plus-unit-4-s03-4d7bf251c0fa9988.webp",
-      "kind": "reply-r-many2",
-      "question": "How many books are there?",
-      "question_es": "¿Cuántos libros hay?",
-      "question_speaker": "co-teacher",
-      "speaker": "teacher",
-      "use": false,
-      "image_choices": false,
-      "prefer": [
-        "There are three.",
-        "There are five."
-      ],
-      "accepts": {
-        "subject-variety": "A short answer keeps the question's place; the picture shows the things or none.",
-        "action-variety": "A short answer keeps the question's place; the picture shows the things or none.",
-        "conversational-response": "A short answer keeps the question's place; the picture shows the things or none.",
-        "reading-load": "A short answer keeps the question's place; the picture shows the things or none."
-      },
-      "learn": false
-    },
-    {
       "id": "lw-any",
-      "text": "There aren't any shoes under the bed.",
-      "es": "No hay zapatos debajo de la cama.",
-      "image": "/lesson-assets/a1plus-unit-4-s06-45ad420a0e589806.webp",
+      "text": "There aren't any shoes on the stairs.",
+      "es": "No hay zapatos en la escalera.",
+      "image": "/lesson-assets/a1_photo_u4_morehome_stairs_v1.webp",
       "kind": "heard-lw-any",
       "prefer": [
-        "There are some shoes under the bed."
+        "There are some shoes on the stairs."
       ],
       "accepts": {
         "subject-variety": "Listen sets one detail against another; the answer is what was heard.",
@@ -488,31 +491,12 @@
     },
     {
       "id": "lw-q",
-      "text": "Are there any books on the sofa?",
-      "es": "¿Hay libros en el sofá?",
-      "image": "/lesson-assets/a1plus-unit-4-s04-706d7cc8580e059b.webp",
+      "text": "Are there any keys on the floor?",
+      "es": "¿Hay llaves en el piso?",
+      "image": "/lesson-assets/a1_photo_u4_morehome_floor_v1.webp",
       "kind": "heard-lw-q",
       "prefer": [
-        "Is there a book on the sofa?"
-      ],
-      "accepts": {
-        "subject-variety": "Listen sets one detail against another; the answer is what was heard.",
-        "action-variety": "Listen sets one detail against another; the answer is what was heard.",
-        "conversational-response": "Listen sets one detail against another; the answer is what was heard.",
-        "reading-load": "Listen sets one detail against another; the answer is what was heard."
-      },
-      "image_choices": false,
-      "use": false,
-      "learn": false
-    },
-    {
-      "id": "lw-some",
-      "text": "There are some apples on the table.",
-      "es": "Hay unas manzanas en la mesa.",
-      "image": "/lesson-assets/a1plus-unit-4-s01-7a08602fc3720b24.webp",
-      "kind": "heard-lw-some",
-      "prefer": [
-        "There is an apple on the table."
+        "Is there a key on the floor?"
       ],
       "accepts": {
         "subject-variety": "Listen sets one detail against another; the answer is what was heard.",
@@ -526,12 +510,12 @@
     },
     {
       "id": "lw-q2",
-      "text": "Are there any shoes under the bed?",
-      "es": "¿Hay zapatos debajo de la cama?",
-      "image": "/lesson-assets/a1plus-unit-4-s05-2c7cb656dbe3db62.webp",
+      "text": "Are there any chairs in the garden?",
+      "es": "¿Hay sillas en el jardín?",
+      "image": "/lesson-assets/a1plus-unit-4-t03-a3cc49eaaba23e02.webp",
       "kind": "heard-lw-q2",
       "prefer": [
-        "Are there any bags under the bed?"
+        "Are there any chairs in the kitchen?"
       ],
       "accepts": {
         "subject-variety": "Listen sets one detail against another; the answer is what was heard.",
@@ -559,9 +543,9 @@
     },
     {
       "id": "u-any",
-      "text": "Are there any books on the sofa?",
-      "es": "¿Hay libros en el sofá?",
-      "image": "/lesson-assets/a1plus-unit-4-s04-706d7cc8580e059b.webp",
+      "text": "Are there any keys on the floor?",
+      "es": "¿Hay llaves en el piso?",
+      "image": "/lesson-assets/a1_photo_u4_morehome_floor_v1.webp",
       "kind": "use",
       "speaker": "co-teacher",
       "choices": false,
@@ -573,9 +557,9 @@
     },
     {
       "id": "u-not",
-      "text": "There aren't any shoes under the bed.",
-      "es": "No hay zapatos debajo de la cama.",
-      "image": "/lesson-assets/a1plus-unit-4-s06-45ad420a0e589806.webp",
+      "text": "There aren't any shoes on the stairs.",
+      "es": "No hay zapatos en la escalera.",
+      "image": "/lesson-assets/a1_photo_u4_morehome_stairs_v1.webp",
       "kind": "use",
       "speaker": "teacher",
       "choices": false,
@@ -606,30 +590,30 @@
       "image_choices": false
     },
     {
+      "text": "There aren't any keys on the floor.",
+      "es": "No hay llaves en el piso.",
+      "image": "/lesson-assets/a1plus-unit-4-t11-2910f902f7218279.webp",
+      "kind": "some",
+      "image_choices": false
+    },
+    {
+      "text": "There aren't any shoes on the stairs.",
+      "es": "No hay zapatos en la escalera.",
+      "image": "/lesson-assets/a1plus-unit-4-t02-dced8dcfe1bb59cd.webp",
+      "kind": "some",
+      "image_choices": false
+    },
+    {
+      "text": "There aren't any chairs in the garden.",
+      "es": "No hay sillas en el jardín.",
+      "image": "/lesson-assets/a1plus-unit-4-t03-a3cc49eaaba23e02.webp",
+      "kind": "some",
+      "image_choices": false
+    },
+    {
       "text": "There aren't any books on the sofa.",
       "es": "No hay libros en el sofá.",
       "image": "/lesson-assets/a1plus-unit-4-s03-4d7bf251c0fa9988.webp",
-      "kind": "some",
-      "image_choices": false
-    },
-    {
-      "text": "There aren't any shoes under the bed.",
-      "es": "No hay zapatos debajo de la cama.",
-      "image": "/lesson-assets/a1plus-unit-4-s05-2c7cb656dbe3db62.webp",
-      "kind": "some",
-      "image_choices": false
-    },
-    {
-      "text": "There aren't any bags under the table.",
-      "es": "No hay mochilas debajo de la mesa.",
-      "image": "/lesson-assets/a1_photo_u4_two_bags_under_table_v1.webp",
-      "kind": "some",
-      "image_choices": false
-    },
-    {
-      "text": "There aren't any books on the table.",
-      "es": "No hay libros en la mesa.",
-      "image": "/lesson-assets/a1_photo_u4_three_books_on_table_v1.webp",
       "kind": "some",
       "image_choices": false
     },
@@ -641,16 +625,16 @@
       "image_choices": false
     },
     {
-      "text": "There are some books on the sofa.",
-      "es": "Hay unos libros en el sofá.",
-      "image": "/lesson-assets/a1plus-unit-4-s04-706d7cc8580e059b.webp",
-      "kind": "none-n-books",
+      "text": "There are some keys on the floor.",
+      "es": "Hay unas llaves en el piso.",
+      "image": "/lesson-assets/a1_photo_u4_morehome_floor_v1.webp",
+      "kind": "none-n-keys",
       "image_choices": false
     },
     {
-      "text": "There are some shoes under the bed.",
-      "es": "Hay unos zapatos debajo de la cama.",
-      "image": "/lesson-assets/a1plus-unit-4-s06-45ad420a0e589806.webp",
+      "text": "There are some shoes on the stairs.",
+      "es": "Hay unos zapatos en la escalera.",
+      "image": "/lesson-assets/a1_photo_u4_morehome_stairs_v1.webp",
       "kind": "none-n-shoes",
       "image_choices": false
     },
@@ -663,71 +647,57 @@
     },
     {
       "text": "Yes, there are some.",
-      "es": "Sí, hay unos.",
-      "image": "/lesson-assets/a1plus-unit-4-s04-706d7cc8580e059b.webp",
-      "kind": "reply-r-books",
+      "es": "Sí, hay unas.",
+      "image": "/lesson-assets/a1_photo_u4_morehome_floor_v1.webp",
+      "kind": "reply-r-keys",
       "image_choices": false
     },
     {
       "text": "No, there aren't any.",
       "es": "No, no hay.",
-      "image": "/lesson-assets/a1plus-unit-4-s05-2c7cb656dbe3db62.webp",
+      "image": "/lesson-assets/a1plus-unit-4-t03-a3cc49eaaba23e02.webp",
+      "kind": "reply-r-chairs",
+      "image_choices": false
+    },
+    {
+      "text": "Yes, there are some.",
+      "es": "Sí, hay unos.",
+      "image": "/lesson-assets/a1_photo_u4_morehome_stairs_v1.webp",
       "kind": "reply-r-shoes",
       "image_choices": false
     },
     {
       "text": "There are four.",
       "es": "Hay cuatro.",
-      "image": "/lesson-assets/a1plus-unit-4-s01-7a08602fc3720b24.webp",
+      "image": "/lesson-assets/a1plus-unit-4-t11-2910f902f7218279.webp",
       "kind": "reply-r-many",
       "image_choices": false
     },
     {
       "text": "There are six.",
       "es": "Hay seis.",
-      "image": "/lesson-assets/a1plus-unit-4-s01-7a08602fc3720b24.webp",
+      "image": "/lesson-assets/a1plus-unit-4-t11-2910f902f7218279.webp",
       "kind": "reply-r-many",
       "image_choices": false
     },
     {
-      "text": "There are three.",
-      "es": "Hay tres.",
-      "image": "/lesson-assets/a1plus-unit-4-s03-4d7bf251c0fa9988.webp",
-      "kind": "reply-r-many2",
-      "image_choices": false
-    },
-    {
-      "text": "There are five.",
-      "es": "Hay cinco.",
-      "image": "/lesson-assets/a1plus-unit-4-s03-4d7bf251c0fa9988.webp",
-      "kind": "reply-r-many2",
-      "image_choices": false
-    },
-    {
-      "text": "There are some shoes under the bed.",
-      "es": "Hay unos zapatos debajo de la cama.",
-      "image": "/lesson-assets/a1plus-unit-4-s06-45ad420a0e589806.webp",
+      "text": "There are some shoes on the stairs.",
+      "es": "Hay unos zapatos en la escalera.",
+      "image": "/lesson-assets/a1_photo_u4_morehome_stairs_v1.webp",
       "kind": "heard-lw-any",
       "image_choices": false
     },
     {
-      "text": "Is there a book on the sofa?",
-      "es": "¿Hay un libro en el sofá?",
-      "image": "/lesson-assets/a1plus-unit-4-s04-706d7cc8580e059b.webp",
+      "text": "Is there a key on the floor?",
+      "es": "¿Hay una llave en el piso?",
+      "image": "/lesson-assets/a1_photo_u4_morehome_floor_v1.webp",
       "kind": "heard-lw-q",
       "image_choices": false
     },
     {
-      "text": "There is an apple on the table.",
-      "es": "Hay una manzana en la mesa.",
-      "image": "/lesson-assets/a1plus-unit-4-s01-7a08602fc3720b24.webp",
-      "kind": "heard-lw-some",
-      "image_choices": false
-    },
-    {
-      "text": "Are there any bags under the bed?",
-      "es": "¿Hay mochilas debajo de la cama?",
-      "image": "/lesson-assets/a1plus-unit-4-s05-2c7cb656dbe3db62.webp",
+      "text": "Are there any chairs in the kitchen?",
+      "es": "¿Hay sillas en la cocina?",
+      "image": "/lesson-assets/a1plus-unit-4-t03-a3cc49eaaba23e02.webp",
       "kind": "heard-lw-q2",
       "image_choices": false
     }
@@ -747,35 +717,35 @@
     ],
     "Recognize": [
       "p-apples",
-      "n-books",
+      "n-keys",
       "r-apples",
       "p-shoes",
       "n-apples",
-      "r-books",
-      "p-bags",
+      "r-keys",
+      "p-chairs",
       "r-many",
-      "p-books2",
+      "p-keys",
       "n-shoes"
     ],
     "Listen": [
       "p-books",
       "lw-any",
-      "r-shoes",
+      "r-chairs",
       "p-apples",
       "lw-q",
-      "p-bags",
+      "p-chairs",
       "lw-q2",
-      "p-books2",
+      "p-keys",
       "p-shoes",
-      "r-books"
+      "r-shoes"
     ],
     "Speak": [
       "p-apples",
       "u-any",
       "n-shoes",
-      "p-books",
+      "p-keys",
       "u-yes",
-      "p-bags",
+      "p-chairs",
       "u-not",
       "n-apples"
     ],
@@ -784,8 +754,8 @@
       "u-any",
       "u-not",
       "p-shoes",
-      "n-books",
-      "p-bags",
+      "n-keys",
+      "p-chairs",
       "u-yes",
       "n-apples"
     ]
