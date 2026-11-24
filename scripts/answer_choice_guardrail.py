@@ -30,7 +30,7 @@ VERBS = {
     "repeat": "repeats repeated", "speak": "speaks spoke",
     "stand": "stands stood", "use": "uses",
     # A1+ 4.5 (2026-11-20): the he/she form of the morning routine (Ana brushes her teeth.).
-    "brush": "brushes brushed",
+    "brush": "brushes brushed", "paint": "paints painted",
 }
 FINITE = {form: root for root, forms in VERBS.items() for form in [root, *forms.split()]}
 PROGRESSIVE = dict(zip(
