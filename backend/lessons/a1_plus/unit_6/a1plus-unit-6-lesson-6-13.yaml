@@ -43,12 +43,22 @@
     "your",
     "her",
     "has",
-    "She"
+    "She",
+    "map",
+    "city",
+    "of the",
+    "visit",
+    "market",
+    "I want to",
+    "Is it far",
+    "near here",
+    "Which",
+    "is it"
   ],
   "grammar_function": "A follow-up of A1 6.13 In the City: A1 names a city, a hotel and things to visit; A1+ 6.13 checks in at the hotel. The new items are reservation (I have a reservation.), the handing-over phrase Here's your … (Here's your key.), elevator, and the question What floor is my room on? answered with 2.6-2.7's ordinals (It's on the fifth floor.). Four photos follow Ana through one hotel: at the front desk with her passport, taking her key, stepping out of the elevator and smiling in her room. The floor is never shown in a photo, so which floor is only heard.",
   "prerequisite": "A1 6.13 hotel; A1+ 2.6-2.7 floors and ordinals; A1+ 6.2 takes; A1+ 6.5 passport.",
   "speaking_outcome": "Stress res-er-VA-tion and EL-e-va-tor; link Here's your (HEERZ-yer). Do not require native-like speed.",
-  "content_revision": 1,
+  "content_revision": 2,
   "learn_context_groups": [
     {
       "kind": "sequence",
@@ -352,26 +362,26 @@
       "interaction_type": "i2t2",
       "prompt": "",
       "stage": "Recognize",
-      "correct_option_id": "ana's-room-is-twenty-four-r5",
+      "correct_option_id": "here's-your-map-of-the-city-r5",
       "options": [
         {
-          "id": "ana's-room-is-ninety-nine-r5",
+          "id": "here's-your-key-r5",
           "image_url": "",
-          "label": "Ana's room is ninety-nine.",
-          "spanish_translation": "El cuarto de Ana es el noventa y nueve."
+          "label": "Here's your key.",
+          "spanish_translation": "Aquí tiene su llave."
         },
         {
-          "id": "ana's-room-is-twenty-four-r5",
+          "id": "here's-your-map-of-the-city-r5",
           "image_url": "",
-          "label": "Ana's room is twenty-four.",
-          "spanish_translation": "El cuarto de Ana es el veinticuatro."
+          "label": "Here's your map of the city.",
+          "spanish_translation": "Aquí tiene su mapa de la ciudad."
         }
       ],
       "audio_text": "",
-      "answer_audio_text": "Ana's room is twenty-four.",
-      "prompt_image_url": "/lesson-assets/a1plus-unit-6-z04-1fe6dacb083fec63.webp",
+      "answer_audio_text": "Here's your map of the city.",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-6-z05-4486c39f715205a8.webp",
       "spanish_translation": "Elige la frase correcta.",
-      "pedagogy_note": "Story beat 05: Ana's room is twenty-four.",
+      "pedagogy_note": "Story beat 05: Here's your map of the city.",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -479,41 +489,37 @@
     },
     {
       "slide_id": "R9",
-      "interaction_type": "i2t2",
-      "prompt": "",
+      "interaction_type": "t2i4",
+      "prompt": "Here's your key.",
       "stage": "Recognize",
-      "correct_option_id": "what-floor-is-my-room-on-it's-on-the-fifth-floor-r9",
+      "correct_option_id": "here's-your-key-r9",
       "options": [
         {
-          "id": "what-floor-is-my-room-on-it's-on-the-fifth-floor-r9",
-          "image_url": "",
-          "label": "What floor is my room on? It's on the fifth floor.",
-          "spanish_translation": "¿En qué piso está mi cuarto? Está en el quinto piso."
+          "id": "she-takes-the-elevator-r9",
+          "image_url": "/lesson-assets/a1plus-unit-6-z03-893afc20dc5b6173.webp",
+          "label": null
         },
         {
-          "id": "what-floor-is-my-room-on-it's-on-the-second-floor-r9",
-          "image_url": "",
-          "label": "What floor is my room on? It's on the second floor.",
-          "spanish_translation": "¿En qué piso está mi cuarto? Está en el segundo piso."
-        }
-      ],
-      "audio_text": "",
-      "answer_audio_text": "What floor is my room on? It's on the fifth floor.",
-      "answer_audio_turns": [
-        {
-          "text": "What floor is my room on?",
-          "speaker_role": "co-teacher",
-          "image_url": "/lesson-assets/a1plus-unit-6-z02-baacaee429ba8d9d.webp"
+          "id": "this-is-her-room-r9",
+          "image_url": "/lesson-assets/a1plus-unit-6-z04-1fe6dacb083fec63.webp",
+          "label": null
         },
         {
-          "text": "It's on the fifth floor.",
-          "speaker_role": "teacher",
-          "image_url": "/lesson-assets/a1plus-unit-6-z03-893afc20dc5b6173.webp"
+          "id": "here's-your-key-r9",
+          "image_url": "/lesson-assets/a1plus-unit-6-z02-baacaee429ba8d9d.webp",
+          "label": null
+        },
+        {
+          "id": "i-have-a-reservation-r9",
+          "image_url": "/lesson-assets/a1plus-unit-6-z01-129d6e79e344e481.webp",
+          "label": null
         }
       ],
-      "prompt_image_url": "/lesson-assets/a1plus-unit-6-z03-893afc20dc5b6173.webp",
-      "spanish_translation": "Elige la frase correcta.",
-      "pedagogy_note": "Story beat 09: What floor is my room on? It's on the fifth floor.",
+      "audio_text": "Here's your key.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Aquí está su llave.",
+      "pedagogy_note": "Story beat 09: Here's your key.",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -540,6 +546,7 @@
       "answer_audio_text": "Ana opened the door of her room.",
       "prompt_image_url": "/lesson-assets/a1plus-unit-6-z04-1fe6dacb083fec63.webp",
       "spanish_translation": "Elige la frase correcta.",
+      "answer_audio_speaker": "co-teacher",
       "pedagogy_note": "Story beat 10: Ana opened the door of her room.",
       "answer_audio_policy": "authored-only"
     },
@@ -566,32 +573,45 @@
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
       "pedagogy_note": "Story beat 01: Here's your key.",
-      "audio_speaker": "co-teacher",
       "answer_audio_policy": "authored-only"
     },
     {
       "slide_id": "A2",
-      "interaction_type": "a2i2",
+      "interaction_type": "a2t2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "this-is-her-room-a2",
+      "correct_option_id": "which-room-is-it-it's-room-twenty-four-a2",
       "options": [
         {
-          "id": "this-is-her-room-a2",
-          "image_url": "/lesson-assets/a1plus-unit-6-z04-1fe6dacb083fec63.webp",
-          "label": null
+          "id": "which-room-is-it-it's-room-twenty-four-a2",
+          "image_url": "",
+          "label": "Which room is it? It's room twenty-four.",
+          "spanish_translation": "¿Qué cuarto es? Es el cuarto veinticuatro."
         },
         {
-          "id": "she-takes-the-elevator-a2",
-          "image_url": "/lesson-assets/a1plus-unit-6-z03-893afc20dc5b6173.webp",
-          "label": null
+          "id": "which-room-is-it-it's-room-ninety-nine-a2",
+          "image_url": "",
+          "label": "Which room is it? It's room ninety-nine.",
+          "spanish_translation": "¿Qué cuarto es? Es el cuarto noventa y nueve."
         }
       ],
-      "audio_text": "This is her room.",
+      "audio_text": "Which room is it? It's room twenty-four.",
       "answer_audio_text": null,
       "prompt_image_url": "",
+      "audio_turns": [
+        {
+          "text": "Which room is it?",
+          "speaker_role": "co-teacher",
+          "image_url": "/lesson-assets/a1plus-unit-6-z04-1fe6dacb083fec63.webp"
+        },
+        {
+          "text": "It's room twenty-four.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1plus-unit-6-z04-1fe6dacb083fec63.webp"
+        }
+      ],
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 02: This is her room.",
+      "pedagogy_note": "Story beat 02: Which room is it? It's room twenty-four.",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -635,28 +655,41 @@
     },
     {
       "slide_id": "A4",
-      "interaction_type": "a2i2",
+      "interaction_type": "a2t2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "i-have-a-reservation-a4",
+      "correct_option_id": "i-want-to-visit-the-market-is-it-far-no-it's-near-here-a4",
       "options": [
         {
-          "id": "here's-your-key-a4",
-          "image_url": "/lesson-assets/a1plus-unit-6-z02-baacaee429ba8d9d.webp",
-          "label": null
+          "id": "i-want-to-visit-the-market-is-it-far-yes-it's-far-a4",
+          "image_url": "",
+          "label": "I want to visit the market. Is it far? Yes, it's far.",
+          "spanish_translation": "Quiero visitar el mercado. ¿Está lejos? Sí, está lejos."
         },
         {
-          "id": "i-have-a-reservation-a4",
-          "image_url": "/lesson-assets/a1plus-unit-6-z01-129d6e79e344e481.webp",
-          "label": null
+          "id": "i-want-to-visit-the-market-is-it-far-no-it's-near-here-a4",
+          "image_url": "",
+          "label": "I want to visit the market. Is it far? No, it's near here.",
+          "spanish_translation": "Quiero visitar el mercado. ¿Está lejos? No, está cerca de aquí."
         }
       ],
-      "audio_text": "I have a reservation.",
+      "audio_text": "I want to visit the market. Is it far? No, it's near here.",
       "answer_audio_text": null,
       "prompt_image_url": "",
+      "audio_turns": [
+        {
+          "text": "I want to visit the market. Is it far?",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1plus-unit-6-z05-4486c39f715205a8.webp"
+        },
+        {
+          "text": "No, it's near here.",
+          "speaker_role": "co-teacher",
+          "image_url": "/lesson-assets/a1plus-unit-6-z05-4486c39f715205a8.webp"
+        }
+      ],
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 04: I have a reservation.",
-      "audio_speaker": "co-teacher",
+      "pedagogy_note": "Story beat 04: I want to visit the market. Is it far? No, it's near here.",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -729,6 +762,7 @@
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
       "pedagogy_note": "Story beat 06: Here's your key.",
+      "audio_speaker": "co-teacher",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -764,7 +798,6 @@
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
       "pedagogy_note": "Story beat 07: She takes the elevator.",
-      "audio_speaker": "co-teacher",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -903,7 +936,7 @@
       "audio_turns": [
         {
           "text": "I have a reservation.",
-          "speaker_role": "teacher",
+          "speaker_role": "co-teacher",
           "image_url": "/lesson-assets/a1plus-unit-6-z01-129d6e79e344e481.webp",
           "delivery": "a1-pronunciation-v1"
         }
@@ -931,7 +964,7 @@
       "audio_turns": [
         {
           "text": "Here's your key.",
-          "speaker_role": "co-teacher",
+          "speaker_role": "teacher",
           "image_url": "/lesson-assets/a1plus-unit-6-z02-baacaee429ba8d9d.webp",
           "delivery": "a1-pronunciation-v1"
         }
@@ -987,7 +1020,7 @@
       "audio_turns": [
         {
           "text": "Ana takes the elevator.",
-          "speaker_role": "teacher",
+          "speaker_role": "co-teacher",
           "image_url": "/lesson-assets/a1plus-unit-6-z03-893afc20dc5b6173.webp",
           "delivery": "a1-pronunciation-v1"
         }
@@ -1015,7 +1048,7 @@
       "audio_turns": [
         {
           "text": "Do you have a reservation?",
-          "speaker_role": "co-teacher",
+          "speaker_role": "teacher",
           "image_url": "/lesson-assets/a1plus-unit-6-z01-129d6e79e344e481.webp",
           "delivery": "a1-pronunciation-v1"
         }
@@ -1043,7 +1076,7 @@
       "audio_turns": [
         {
           "text": "It's on the fifth floor.",
-          "speaker_role": "teacher",
+          "speaker_role": "co-teacher",
           "image_url": "/lesson-assets/a1plus-unit-6-z03-893afc20dc5b6173.webp",
           "delivery": "a1-pronunciation-v1"
         }
@@ -1071,7 +1104,7 @@
       "audio_turns": [
         {
           "text": "What floor is her room on?",
-          "speaker_role": "co-teacher",
+          "speaker_role": "teacher",
           "image_url": "/lesson-assets/a1plus-unit-6-z04-1fe6dacb083fec63.webp",
           "delivery": "a1-pronunciation-v1"
         }
@@ -1099,7 +1132,7 @@
       "audio_turns": [
         {
           "text": "Here's your key.",
-          "speaker_role": "teacher",
+          "speaker_role": "co-teacher",
           "image_url": "/lesson-assets/a1plus-unit-6-z02-baacaee429ba8d9d.webp",
           "delivery": "a1-pronunciation-v1"
         }
@@ -1135,9 +1168,7 @@
         "a",
         "reservation"
       ],
-      "answer_audio_speaker": "co-teacher",
       "pedagogy_note": "Story beat 01: I have a reservation.",
-      "audio_speaker": "co-teacher",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -1231,7 +1262,9 @@
         "fifth",
         "floor"
       ],
+      "answer_audio_speaker": "co-teacher",
       "pedagogy_note": "Story beat 04: It's on the fifth floor.",
+      "audio_speaker": "co-teacher",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -1267,9 +1300,7 @@
         "word-2",
         "word-3"
       ],
-      "answer_audio_speaker": "co-teacher",
       "pedagogy_note": "Story beat 05: Here's your key.",
-      "audio_speaker": "co-teacher",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -1311,51 +1342,65 @@
         "word-3",
         "word-4"
       ],
+      "answer_audio_speaker": "co-teacher",
       "pedagogy_note": "Story beat 06: Ana takes the elevator.",
+      "audio_speaker": "co-teacher",
       "answer_audio_policy": "authored-only"
     },
     {
       "slide_id": "U7",
       "interaction_type": "complete-sentence",
-      "prompt": "___ ___ ___ ___.",
+      "prompt": "___ ___ ___ ___ ___ ___?",
       "stage": "Use",
       "correct_option_id": "word-1",
       "options": [
         {
           "id": "word-2",
           "image_url": "",
-          "label": "is"
+          "label": "floor"
         },
         {
           "id": "word-4",
           "image_url": "",
-          "label": "room"
+          "label": "her"
+        },
+        {
+          "id": "word-6",
+          "image_url": "",
+          "label": "on"
         },
         {
           "id": "word-1",
           "image_url": "",
-          "label": "This"
+          "label": "What"
         },
         {
           "id": "word-3",
           "image_url": "",
-          "label": "her"
+          "label": "is"
+        },
+        {
+          "id": "word-5",
+          "image_url": "",
+          "label": "room"
         }
       ],
-      "audio_text": "This is her room.",
-      "answer_audio_text": "This is her room.",
+      "audio_text": "What floor is her room on?",
+      "answer_audio_text": "What floor is her room on?",
       "prompt_image_url": "/lesson-assets/a1plus-unit-6-z04-1fe6dacb083fec63.webp",
-      "spanish_translation": "Este es su cuarto.",
-      "translation": "Este es su cuarto.",
+      "spanish_translation": "¿En qué piso está su cuarto?",
+      "translation": "¿En qué piso está su cuarto?",
       "correct_option_ids": [
         "word-1",
         "word-2",
         "word-3",
-        "word-4"
+        "word-4",
+        "word-5",
+        "word-6"
       ],
-      "answer_audio_speaker": "co-teacher",
-      "pedagogy_note": "Story beat 07: This is her room.",
-      "audio_speaker": "co-teacher",
+      "answer_audio_speaker": "teacher",
+      "pedagogy_note": "Story beat 07: What floor is her room on?",
+      "audio_speaker": "teacher",
       "answer_audio_policy": "authored-only"
     },
     {

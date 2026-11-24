@@ -5,7 +5,7 @@
     "lesson": "6.13",
     "title": "In the City"
   },
-  "note": "A1+ Unit 6 Lesson 6.13, built on 2026-11-20 under the A1+ lesson standards approved 2026-10-27 and the user's 2026-11-09 rule that every A1+ lesson follows up the A1 lesson with the same number. The user asked on 2026-11-20 \"Lets work on a1+ Unit 6 same all deal as before none stop all approved\" (A1+ 6.Y follows A1 6.Y, one step each; fifteen lessons; the Units 2-4 deal: straight to Preview in batches, Gemini 2.5 Flash photos and ElevenLabs audio pre-approved, no per-lesson gates, reviewed in Preview). Four new photos (Gemini 2.5 Flash) of Ana's hotel check-in: at the front desk with her passport, taking a brass key from the receptionist, stepping out of the elevator with her suitcase, and in her room.",
+  "note": "A1+ Unit 6 Lesson 6.13, built on 2026-11-20 under the A1+ lesson standards approved 2026-10-27 and the user's 2026-11-09 rule that every A1+ lesson follows up the A1 lesson with the same number. The user asked on 2026-11-20 \"Lets work on a1+ Unit 6 same all deal as before none stop all approved\" (A1+ 6.Y follows A1 6.Y, one step each; fifteen lessons; the Units 2-4 deal: straight to Preview in batches, Gemini 2.5 Flash photos and ElevenLabs audio pre-approved, no per-lesson gates, reviewed in Preview). Four new photos (Gemini 2.5 Flash) of Ana's hotel check-in: at the front desk with her passport, taking a brass key from the receptionist, stepping out of the elevator with her suitcase, and in her room. Review fix 2026-11-23 (user: \"Fix both\"): the room number and the floor are only heard; new photo z05 (the clerk hands Ana a city map) brings back A1 6.13's map, city, visit and market.",
   "target": "backend/lessons/a1_plus/unit_6/a1plus-unit-6-lesson-6-13.yaml",
   "captions": false,
   "narrators": [
@@ -59,12 +59,22 @@
       "your",
       "her",
       "has",
-      "She"
+      "She",
+      "map",
+      "city",
+      "of the",
+      "visit",
+      "market",
+      "I want to",
+      "Is it far",
+      "near here",
+      "Which",
+      "is it"
     ],
     "grammar_function": "A follow-up of A1 6.13 In the City: A1 names a city, a hotel and things to visit; A1+ 6.13 checks in at the hotel. The new items are reservation (I have a reservation.), the handing-over phrase Here's your … (Here's your key.), elevator, and the question What floor is my room on? answered with 2.6-2.7's ordinals (It's on the fifth floor.). Four photos follow Ana through one hotel: at the front desk with her passport, taking her key, stepping out of the elevator and smiling in her room. The floor is never shown in a photo, so which floor is only heard.",
     "prerequisite": "A1 6.13 hotel; A1+ 2.6-2.7 floors and ordinals; A1+ 6.2 takes; A1+ 6.5 passport.",
     "speaking_outcome": "Stress res-er-VA-tion and EL-e-va-tor; link Here's your (HEERZ-yer). Do not require native-like speed.",
-    "content_revision": 1,
+    "content_revision": 2,
     "learn_context_groups": [
       {
         "kind": "sequence",
@@ -613,21 +623,84 @@
       "learn": false
     },
     {
+      "id": "a1-map",
+      "text": "Here's your map of the city.",
+      "es": "Aquí tiene su mapa de la ciudad.",
+      "image": "/lesson-assets/a1plus-unit-6-z05-4486c39f715205a8.webp",
+      "kind": "a1-map",
+      "image_choices": false,
+      "use": false,
+      "accepts": {
+        "subject-variety": "The sentence keeps the person or the thing and changes only one detail; the photo shows which is true.",
+        "action-variety": "The sentence keeps the person or the thing and changes only one detail; the photo shows which is true.",
+        "conversational-response": "The sentence keeps the person or the thing and changes only one detail; the photo shows which is true.",
+        "reading-load": "The sentence keeps the person or the thing and changes only one detail; the photo shows which is true."
+      },
+      "prefer": [
+        "Here's your key.",
+        "Here's your passport."
+      ],
+      "learn": false
+    },
+    {
       "id": "u5-room",
-      "text": "Ana's room is twenty-four.",
-      "es": "El cuarto de Ana es el veinticuatro.",
+      "text": "Which room is it? It's room twenty-four.",
+      "es": "¿Qué cuarto es? Es el cuarto veinticuatro.",
       "image": "/lesson-assets/a1plus-unit-6-z04-1fe6dacb083fec63.webp",
       "kind": "u5-room",
       "image_choices": false,
       "use": false,
+      "turns": [
+        {
+          "text": "Which room is it?",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-6-z04-1fe6dacb083fec63.webp"
+        },
+        {
+          "text": "It's room twenty-four.",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-6-z04-1fe6dacb083fec63.webp"
+        }
+      ],
       "accepts": {
-        "subject-variety": "The sentence keeps the person and the place and changes only the reused detail; the photo fits each option and the words decide.",
-        "action-variety": "The sentence keeps the person and the place and changes only the reused detail; the photo fits each option and the words decide.",
-        "conversational-response": "The sentence keeps the person and the place and changes only the reused detail; the photo fits each option and the words decide.",
-        "reading-load": "The sentence keeps the person and the place and changes only the reused detail; the photo fits each option and the words decide."
+        "subject-variety": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "action-variety": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "conversational-response": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "reading-load": "Listen keeps the question and changes only the answer; the answer is what was heard."
       },
       "prefer": [
-        "Ana's room is ninety-nine."
+        "Which room is it? It's room ninety-nine."
+      ],
+      "learn": false
+    },
+    {
+      "id": "a1-visit",
+      "text": "I want to visit the market. Is it far? No, it's near here.",
+      "es": "Quiero visitar el mercado. ¿Está lejos? No, está cerca de aquí.",
+      "image": "/lesson-assets/a1plus-unit-6-z05-4486c39f715205a8.webp",
+      "kind": "a1-visit",
+      "image_choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "I want to visit the market. Is it far?",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-6-z05-4486c39f715205a8.webp"
+        },
+        {
+          "text": "No, it's near here.",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-6-z05-4486c39f715205a8.webp"
+        }
+      ],
+      "accepts": {
+        "subject-variety": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "action-variety": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "conversational-response": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "reading-load": "Listen keeps the question and changes only the answer; the answer is what was heard."
+      },
+      "prefer": [
+        "I want to visit the market. Is it far? Yes, it's far."
       ],
       "learn": false
     }
@@ -739,10 +812,31 @@
       "image_choices": false
     },
     {
-      "text": "Ana's room is ninety-nine.",
-      "es": "El cuarto de Ana es el noventa y nueve.",
+      "text": "Here's your key.",
+      "es": "Aquí tiene su llave.",
+      "image": "/lesson-assets/a1plus-unit-6-z05-4486c39f715205a8.webp",
+      "kind": "a1-map",
+      "image_choices": false
+    },
+    {
+      "text": "Here's your passport.",
+      "es": "Aquí tiene su pasaporte.",
+      "image": "/lesson-assets/a1plus-unit-6-z05-4486c39f715205a8.webp",
+      "kind": "a1-map",
+      "image_choices": false
+    },
+    {
+      "text": "Which room is it? It's room ninety-nine.",
+      "es": "¿Qué cuarto es? Es el cuarto noventa y nueve.",
       "image": "/lesson-assets/a1plus-unit-6-z04-1fe6dacb083fec63.webp",
       "kind": "u5-room",
+      "image_choices": false
+    },
+    {
+      "text": "I want to visit the market. Is it far? Yes, it's far.",
+      "es": "Quiero visitar el mercado. ¿Está lejos? Sí, está lejos.",
+      "image": "/lesson-assets/a1plus-unit-6-z05-4486c39f715205a8.webp",
+      "kind": "a1-visit",
       "image_choices": false
     }
   ],
@@ -764,18 +858,18 @@
       "f-key",
       "p-elev",
       "f-room",
-      "u5-room",
+      "a1-map",
       "f-res",
       "p-room",
       "f-elev",
-      "x-floor",
+      "p-key",
       "u4-opened"
     ],
     "Listen": [
       "p-key",
-      "p-room",
+      "u5-room",
       "x-floor",
-      "p-res",
+      "a1-visit",
       "u4-res-when",
       "f-key",
       "p-elev",
@@ -800,7 +894,7 @@
       "u-fifth",
       "u-key",
       "f-elev",
-      "f-room",
+      "u-floor2",
       "u-elev"
     ]
   }

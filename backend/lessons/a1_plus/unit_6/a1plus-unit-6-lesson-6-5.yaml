@@ -28,12 +28,23 @@
     "It's",
     "Diego",
     "Ana",
-    "Luis"
+    "Luis",
+    "gets on",
+    "Get on",
+    "gets in",
+    "Get in",
+    "the train",
+    "the taxi",
+    "the bus",
+    "with",
+    "her",
+    "my",
+    "Where's"
   ],
   "grammar_function": "A follow-up of A1 6.5 A Trip to the Mall: A1 goes on a short trip by bus and taxi; A1+ 6.5 gets ready for a longer trip. The new items are passport, suitcase and backpack, the reminder Don't forget your … (2.12's Don't + a verb, now said to help someone) and the reply Here it is. to Where's your …?. The photos show each thing plainly: a passport on a table, a suitcase by the front door, Diego with a backpack, and Ana being handed her passport as she leaves with her suitcase. A1 6.11's ticket comes back.",
   "prerequisite": "A1 6.5 a trip; A1 6.11 ticket; A1+ 2.3 has; A1+ 2.12 Don't …; A1+ 4.1 Where's…?.",
   "speaking_outcome": "Stress PASS-port, SUIT-case, BACK-pack; link forget your (fer-GET-yer). Do not require native-like speed.",
-  "content_revision": 1,
+  "content_revision": 2,
   "learn_context_groups": [
     {
       "kind": "sequence",
@@ -435,32 +446,35 @@
     },
     {
       "slide_id": "R7",
-      "interaction_type": "t2i3",
-      "prompt": "This is a ticket.",
+      "interaction_type": "i2t3",
+      "prompt": "",
       "stage": "Recognize",
-      "correct_option_id": "this-is-a-ticket-r7",
+      "correct_option_id": "ana-gets-on-the-train-with-her-suitcase-r7",
       "options": [
         {
-          "id": "this-is-a-ticket-r7",
-          "image_url": "/lesson-assets/a1_photo_u6_story_ticket_v1.webp",
-          "label": null
+          "id": "ana-gets-on-the-train-with-her-suitcase-r7",
+          "image_url": "",
+          "label": "Ana gets on the train with her suitcase.",
+          "spanish_translation": "Ana se sube al tren con su maleta."
         },
         {
-          "id": "this-is-a-passport-r7",
-          "image_url": "/lesson-assets/a1plus-unit-6-d01-07f1ca7cec27741c.webp",
-          "label": null
+          "id": "ana-gets-in-the-taxi-with-her-suitcase-r7",
+          "image_url": "",
+          "label": "Ana gets in the taxi with her suitcase.",
+          "spanish_translation": "Ana se sube al taxi con su maleta."
         },
         {
-          "id": "this-is-a-suitcase-r7",
-          "image_url": "/lesson-assets/a1plus-unit-6-d02-17408abcff84a62c.webp",
-          "label": null
+          "id": "ana-gets-on-the-bus-with-her-suitcase-r7",
+          "image_url": "",
+          "label": "Ana gets on the bus with her suitcase.",
+          "spanish_translation": "Ana se sube al autobús con su maleta."
         }
       ],
-      "audio_text": "This is a ticket.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Este es un boleto.",
-      "pedagogy_note": "Story beat 07: This is a ticket.",
+      "audio_text": "",
+      "answer_audio_text": "Ana gets on the train with her suitcase.",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-6-d06-594cf68d0fceb6a4.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "pedagogy_note": "Story beat 07: Ana gets on the train with her suitcase.",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -505,7 +519,7 @@
         },
         {
           "id": "luis-has-a-backpack-r9",
-          "image_url": "/lesson-assets/a1plus-unit-6-g03-de90fc3156e87869.webp",
+          "image_url": "/lesson-assets/a1plus-unit-6-d05-3ea59cbc20795ee5.webp",
           "label": null
         },
         {
@@ -591,7 +605,7 @@
       "options": [
         {
           "id": "luis-has-a-backpack-a2",
-          "image_url": "/lesson-assets/a1plus-unit-6-g03-de90fc3156e87869.webp",
+          "image_url": "/lesson-assets/a1plus-unit-6-d05-3ea59cbc20795ee5.webp",
           "label": null
         },
         {
@@ -808,36 +822,41 @@
     },
     {
       "slide_id": "A9",
-      "interaction_type": "a2t3",
+      "interaction_type": "a2t2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "this-is-a-ticket-a9",
+      "correct_option_id": "get-on-the-train-ana-where's-my-suitcase-here-it-is-a9",
       "options": [
         {
-          "id": "this-is-a-passport-a9",
+          "id": "get-in-the-taxi-ana-where's-my-suitcase-here-it-is-a9",
           "image_url": "",
-          "label": "This is a passport.",
-          "spanish_translation": "Este es un pasaporte."
+          "label": "Get in the taxi, Ana! Where's my suitcase? Here it is!",
+          "spanish_translation": "¡Súbete al taxi, Ana! ¿Dónde está mi maleta? ¡Aquí está!"
         },
         {
-          "id": "this-is-a-suitcase-a9",
+          "id": "get-on-the-train-ana-where's-my-suitcase-here-it-is-a9",
           "image_url": "",
-          "label": "This is a suitcase.",
-          "spanish_translation": "Esta es una maleta."
-        },
-        {
-          "id": "this-is-a-ticket-a9",
-          "image_url": "",
-          "label": "This is a ticket.",
-          "spanish_translation": "Este es un boleto."
+          "label": "Get on the train, Ana! Where's my suitcase? Here it is!",
+          "spanish_translation": "¡Súbete al tren, Ana! ¿Dónde está mi maleta? ¡Aquí está!"
         }
       ],
-      "audio_text": "This is a ticket.",
+      "audio_text": "Get on the train, Ana! Where's my suitcase? Here it is!",
       "answer_audio_text": null,
       "prompt_image_url": "",
+      "audio_turns": [
+        {
+          "text": "Get on the train, Ana!",
+          "speaker_role": "co-teacher",
+          "image_url": "/lesson-assets/a1plus-unit-6-d06-594cf68d0fceb6a4.webp"
+        },
+        {
+          "text": "Where's my suitcase? Here it is!",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1plus-unit-6-d06-594cf68d0fceb6a4.webp"
+        }
+      ],
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 09: This is a ticket.",
-      "audio_speaker": "co-teacher",
+      "pedagogy_note": "Story beat 09: Get on the train, Ana! Where's my suitcase? Here it is!",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -926,7 +945,7 @@
       "audio_turns": [
         {
           "text": "This is a suitcase.",
-          "speaker_role": "teacher",
+          "speaker_role": "co-teacher",
           "image_url": "/lesson-assets/a1plus-unit-6-d02-17408abcff84a62c.webp",
           "delivery": "a1-pronunciation-v1"
         }
@@ -954,7 +973,7 @@
       "audio_turns": [
         {
           "text": "Here it is.",
-          "speaker_role": "co-teacher",
+          "speaker_role": "teacher",
           "image_url": "/lesson-assets/a1plus-unit-6-d01-07f1ca7cec27741c.webp",
           "delivery": "a1-pronunciation-v1"
         }
@@ -982,7 +1001,7 @@
       "audio_turns": [
         {
           "text": "Diego has a backpack.",
-          "speaker_role": "teacher",
+          "speaker_role": "co-teacher",
           "image_url": "/lesson-assets/a1plus-unit-6-d03-c38f57d7dfd479f0.webp",
           "delivery": "a1-pronunciation-v1"
         }
@@ -1010,7 +1029,7 @@
       "audio_turns": [
         {
           "text": "Don't forget your ticket!",
-          "speaker_role": "co-teacher",
+          "speaker_role": "teacher",
           "image_url": "/lesson-assets/a1_photo_u6_story_ticket_v1.webp",
           "delivery": "a1-pronunciation-v1"
         }
@@ -1038,7 +1057,7 @@
       "audio_turns": [
         {
           "text": "This is a passport.",
-          "speaker_role": "teacher",
+          "speaker_role": "co-teacher",
           "image_url": "/lesson-assets/a1plus-unit-6-d01-07f1ca7cec27741c.webp",
           "delivery": "a1-pronunciation-v1"
         }
@@ -1094,7 +1113,7 @@
       "audio_turns": [
         {
           "text": "Don't forget your suitcase!",
-          "speaker_role": "co-teacher",
+          "speaker_role": "teacher",
           "image_url": "/lesson-assets/a1plus-unit-6-d02-17408abcff84a62c.webp",
           "delivery": "a1-pronunciation-v1"
         }
@@ -1130,7 +1149,9 @@
         "a",
         "passport"
       ],
+      "answer_audio_speaker": "co-teacher",
       "pedagogy_note": "Story beat 01: This is a passport.",
+      "audio_speaker": "co-teacher",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -1160,9 +1181,7 @@
         "a",
         "suitcase"
       ],
-      "answer_audio_speaker": "co-teacher",
       "pedagogy_note": "Story beat 02: This is a suitcase.",
-      "audio_speaker": "co-teacher",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -1192,7 +1211,9 @@
         "has",
         "a"
       ],
+      "answer_audio_speaker": "co-teacher",
       "pedagogy_note": "Story beat 03: Diego has a backpack.",
+      "audio_speaker": "co-teacher",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -1222,9 +1243,7 @@
         "has",
         "a"
       ],
-      "answer_audio_speaker": "co-teacher",
       "pedagogy_note": "Story beat 04: Ana has a suitcase.",
-      "audio_speaker": "co-teacher",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -1304,7 +1323,9 @@
         "word-2",
         "word-3"
       ],
+      "answer_audio_speaker": "co-teacher",
       "pedagogy_note": "Story beat 06: Here it is.",
+      "audio_speaker": "co-teacher",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -1346,9 +1367,7 @@
         "word-3",
         "word-4"
       ],
-      "answer_audio_speaker": "co-teacher",
       "pedagogy_note": "Story beat 07: Don't forget your ticket!",
-      "audio_speaker": "co-teacher",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -1390,7 +1409,9 @@
         "word-3",
         "word-4"
       ],
+      "answer_audio_speaker": "co-teacher",
       "pedagogy_note": "Story beat 08: Don't forget your suitcase!",
+      "audio_speaker": "co-teacher",
       "answer_audio_policy": "authored-only"
     }
   ]

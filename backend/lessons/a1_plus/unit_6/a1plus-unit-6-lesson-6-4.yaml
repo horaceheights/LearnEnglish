@@ -30,12 +30,16 @@
     "Ana",
     "Luis",
     "is on",
-    "is at"
+    "is at",
+    "airport",
+    "bus stop",
+    "hotel",
+    "he's"
   ],
   "grammar_function": "A follow-up of A1 6.4 More Places to Visit: A1 adds the airport and travel points; A1+ 6.4 finds the platform or gate. The new items are platform and gate with a number (platform four, gate twelve), leaves from after A1 6.12's leaves (The train leaves from platform four.) and the question Which platform is it? / Which gate is it?. Every photo has one big sign with one number and no other digit; platform seven and gate twelve keep their sign outside the centered 4:5 crop, so they are never in a four-picture card.",
   "prerequisite": "A1 6.2 train and airplane; A1 6.4 airport; A1 6.12 leaves; A1 numbers to twenty.",
   "speaking_outcome": "Stress PLAT-form; link leaves from (LEEVZ-from). Do not require native-like speed.",
-  "content_revision": 1,
+  "content_revision": 2,
   "learn_context_groups": [
     {
       "kind": "sequence",
@@ -515,36 +519,35 @@
     {
       "slide_id": "R10",
       "interaction_type": "i2t3",
-      "prompt": "Which gate is it?",
+      "prompt": "",
       "stage": "Recognize",
-      "correct_option_id": "it's-gate-nine-r10",
+      "correct_option_id": "luis-is-at-the-airport-r10",
       "options": [
         {
-          "id": "it's-gate-nine-r10",
+          "id": "luis-is-at-the-airport-r10",
           "image_url": "",
-          "label": "It's gate nine.",
-          "spanish_translation": "Es la puerta nueve."
+          "label": "Luis is at the airport.",
+          "spanish_translation": "Luis está en el aeropuerto."
         },
         {
-          "id": "it's-gate-twelve-r10",
+          "id": "luis-is-at-the-bus-stop-r10",
           "image_url": "",
-          "label": "It's gate twelve.",
-          "spanish_translation": "Es la puerta doce."
+          "label": "Luis is at the bus stop.",
+          "spanish_translation": "Luis está en la parada de autobús."
         },
         {
-          "id": "it's-platform-nine-r10",
+          "id": "luis-is-at-the-hotel-r10",
           "image_url": "",
-          "label": "It's platform nine.",
-          "spanish_translation": "Es el andén nueve."
+          "label": "Luis is at the hotel.",
+          "spanish_translation": "Luis está en el hotel."
         }
       ],
-      "audio_text": "Which gate is it?",
-      "answer_audio_text": "It's gate nine.",
-      "prompt_image_url": "/lesson-assets/a1plus-unit-6-g04-8408d13ede260994.webp",
-      "spanish_translation": "¿Qué puerta es?",
-      "answer_audio_speaker": "teacher",
-      "pedagogy_note": "Story beat 10: It's gate nine.",
-      "audio_speaker": "co-teacher",
+      "audio_text": "",
+      "answer_audio_text": "Luis is at the airport.",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-6-g03-de90fc3156e87869.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "answer_audio_speaker": "co-teacher",
+      "pedagogy_note": "Story beat 10: Luis is at the airport.",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -570,7 +573,6 @@
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
       "pedagogy_note": "Story beat 01: The airplane leaves from gate twelve.",
-      "audio_speaker": "co-teacher",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -663,6 +665,7 @@
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
       "pedagogy_note": "Story beat 04: The train leaves from platform four.",
+      "audio_speaker": "co-teacher",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -755,7 +758,6 @@
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
       "pedagogy_note": "Story beat 07: The train leaves from platform seven.",
-      "audio_speaker": "co-teacher",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -794,35 +796,41 @@
     },
     {
       "slide_id": "A9",
-      "interaction_type": "a2t3",
+      "interaction_type": "a2t2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "the-airplane-leaves-from-gate-nine-a9",
+      "correct_option_id": "is-luis-at-the-bus-stop-no-he's-at-the-airport-at-gate-twelve-a9",
       "options": [
         {
-          "id": "the-airplane-leaves-from-gate-twelve-a9",
+          "id": "is-luis-at-the-bus-stop-yes-he's-at-the-bus-stop-a9",
           "image_url": "",
-          "label": "The airplane leaves from gate twelve.",
-          "spanish_translation": "El avión sale de la puerta doce."
+          "label": "Is Luis at the bus stop? Yes, he's at the bus stop.",
+          "spanish_translation": "¿Luis está en la parada de autobús? Sí, está en la parada de autobús."
         },
         {
-          "id": "the-airplane-leaves-from-gate-four-a9",
+          "id": "is-luis-at-the-bus-stop-no-he's-at-the-airport-at-gate-twelve-a9",
           "image_url": "",
-          "label": "The airplane leaves from gate four.",
-          "spanish_translation": "El avión sale de la puerta cuatro."
-        },
-        {
-          "id": "the-airplane-leaves-from-gate-nine-a9",
-          "image_url": "",
-          "label": "The airplane leaves from gate nine.",
-          "spanish_translation": "El avión sale de la puerta nueve."
+          "label": "Is Luis at the bus stop? No, he's at the airport, at gate twelve.",
+          "spanish_translation": "¿Luis está en la parada de autobús? No, está en el aeropuerto, en la puerta doce."
         }
       ],
-      "audio_text": "The airplane leaves from gate nine.",
+      "audio_text": "Is Luis at the bus stop? No, he's at the airport, at gate twelve.",
       "answer_audio_text": null,
       "prompt_image_url": "",
+      "audio_turns": [
+        {
+          "text": "Is Luis at the bus stop?",
+          "speaker_role": "co-teacher",
+          "image_url": "/lesson-assets/a1plus-unit-6-g03-de90fc3156e87869.webp"
+        },
+        {
+          "text": "No, he's at the airport, at gate twelve.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1plus-unit-6-g03-de90fc3156e87869.webp"
+        }
+      ],
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 09: The airplane leaves from gate nine.",
+      "pedagogy_note": "Story beat 09: Is Luis at the bus stop? No, he's at the airport, at gate twelve.",
       "answer_audio_policy": "authored-only"
     },
     {

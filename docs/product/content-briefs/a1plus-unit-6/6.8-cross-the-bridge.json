@@ -5,7 +5,7 @@
     "lesson": "6.8",
     "title": "Following Directions"
   },
-  "note": "A1+ Unit 6 Lesson 6.8, built on 2026-11-20 under the A1+ lesson standards approved 2026-10-27 and the user's 2026-11-09 rule that every A1+ lesson follows up the A1 lesson with the same number. The user asked on 2026-11-20 \"Lets work on a1+ Unit 6 same all deal as before none stop all approved\" (A1+ 6.Y follows A1 6.Y, one step each; fifteen lessons; the Units 2-4 deal: straight to Preview in batches, Gemini 2.5 Flash photos and ElevenLabs audio pre-approved, no per-lesson gates, reviewed in Preview). Four new photos (Gemini 2.5 Flash) and one remake: a stone footbridge, a river, Ana crossing a wooden footbridge and Luis walking along a river path. The first crossing photo (Ana a speck on a far bridge) and a first set of block-count route maps were rejected. 6.7's turn photo and A1 6's Ana asking for directions are reused.",
+  "note": "A1+ Unit 6 Lesson 6.8, built on 2026-11-20 under the A1+ lesson standards approved 2026-10-27 and the user's 2026-11-09 rule that every A1+ lesson follows up the A1 lesson with the same number. The user asked on 2026-11-20 \"Lets work on a1+ Unit 6 same all deal as before none stop all approved\" (A1+ 6.Y follows A1 6.Y, one step each; fifteen lessons; the Units 2-4 deal: straight to Preview in batches, Gemini 2.5 Flash photos and ElevenLabs audio pre-approved, no per-lesson gates, reviewed in Preview). Four new photos (Gemini 2.5 Flash) and one remake: a stone footbridge, a river, Ana crossing a wooden footbridge and Luis walking along a river path. The first crossing photo (Ana a speck on a far bridge) and a first set of block-count route maps were rejected. 6.7's turn photo and A1 6's Ana asking for directions are reused. Review fix 2026-11-23 (user: \"Fix both\"): every weekend is a heard Listen line; new photo w06 (a bridge over a dry valley) replaces the bridge photo that was half river; 6.7's traffic light and crosswalk return.",
   "target": "backend/lessons/a1_plus/unit_6/a1plus-unit-6-lesson-6-8.yaml",
   "captions": false,
   "narrators": [
@@ -51,12 +51,18 @@
       "the library",
       "and",
       "turn left",
-      "turn right"
+      "turn right",
+      "traffic light",
+      "crosswalk",
+      "When does",
+      "walks",
+      "every weekend",
+      "every morning"
     ],
     "grammar_function": "A follow-up of A1 6.8 Following Directions: A1 follows go straight, turn, cross the street and go past; A1+ 6.8 takes the route over water. The new items are bridge and river, A1's cross with the bridge (Cross the bridge.) and along (Walk along the river.), joined with and to 6.7's Turn left at the bakery. Ana crosses a wooden footbridge, large in the photo; Luis walks on a path right beside a river with no bridge in sight.",
     "prerequisite": "A1 6.8 cross the street, go straight, turn; A1+ 6.7 turn at a place; A1+ 1 walk.",
     "speaking_outcome": "Stress BRIDGE and RIV-er; link walk along (wah-ka-LONG). Do not require native-like speed.",
-    "content_revision": 1,
+    "content_revision": 2,
     "learn_context_groups": [
       {
         "kind": "sequence",
@@ -114,7 +120,7 @@
       "id": "l-bridge",
       "text": "This is a bridge.",
       "es": "Este es un puente.",
-      "image": "/lesson-assets/a1plus-unit-6-w03-556efb5cba906b72.webp",
+      "image": "/lesson-assets/a1plus-unit-6-w06-6b041fb363ce35a4.webp",
       "kind": "sequence",
       "choices": false,
       "use": false,
@@ -154,7 +160,7 @@
       "id": "t-bridge",
       "text": "This is a bridge.",
       "es": "Este es un puente.",
-      "image": "/lesson-assets/a1plus-unit-6-w03-556efb5cba906b72.webp",
+      "image": "/lesson-assets/a1plus-unit-6-w06-6b041fb363ce35a4.webp",
       "kind": "thing",
       "prefer": [
         "This is a river."
@@ -442,26 +448,6 @@
       "learn": false
     },
     {
-      "id": "u4-weekend",
-      "text": "Luis walks along the river every weekend.",
-      "es": "Luis camina junto al río cada fin de semana.",
-      "image": "/lesson-assets/a1plus-unit-6-w02-c1828502b663dfe7.webp",
-      "kind": "u4-weekend",
-      "image_choices": false,
-      "use": false,
-      "accepts": {
-        "subject-variety": "The sentence keeps the person and the place and changes only the reused detail; the photo fits each option and the words decide.",
-        "action-variety": "The sentence keeps the person and the place and changes only the reused detail; the photo fits each option and the words decide.",
-        "conversational-response": "The sentence keeps the person and the place and changes only the reused detail; the photo fits each option and the words decide.",
-        "reading-load": "The sentence keeps the person and the place and changes only the reused detail; the photo fits each option and the words decide."
-      },
-      "prefer": [
-        "Luis walks along the river every morning.",
-        "Luis walks along the river every evening."
-      ],
-      "learn": false
-    },
-    {
       "id": "u4-did",
       "text": "Did you walk along the river last week? Yes, I did.",
       "es": "¿Caminaste junto al río la semana pasada? Sí.",
@@ -491,13 +477,106 @@
         "Did you walk along the river last week? No, I didn't."
       ],
       "learn": false
+    },
+    {
+      "id": "u4-weekend",
+      "text": "When does Luis walk along the river? He walks along the river every weekend.",
+      "es": "¿Cuándo camina Luis junto al río? Camina junto al río cada fin de semana.",
+      "image": "/lesson-assets/a1plus-unit-6-w02-c1828502b663dfe7.webp",
+      "kind": "u4-weekend",
+      "image_choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "When does Luis walk along the river?",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-6-w02-c1828502b663dfe7.webp"
+        },
+        {
+          "text": "He walks along the river every weekend.",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-6-w02-c1828502b663dfe7.webp"
+        }
+      ],
+      "accepts": {
+        "subject-variety": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "action-variety": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "conversational-response": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "reading-load": "Listen keeps the question and changes only the answer; the answer is what was heard."
+      },
+      "prefer": [
+        "When does Luis walk along the river? He walks along the river every morning."
+      ],
+      "learn": false
+    },
+    {
+      "id": "a1-tl",
+      "text": "How do I get to the library? Cross the bridge and turn left at the traffic light.",
+      "es": "¿Cómo llego a la biblioteca? Cruza el puente y da vuelta a la izquierda en el semáforo.",
+      "image": "/lesson-assets/a1plus-unit-6-k05-d1bb05c23de8fa3a.webp",
+      "kind": "a1-tl",
+      "image_choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "How do I get to the library?",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-6-k05-d1bb05c23de8fa3a.webp"
+        },
+        {
+          "text": "Cross the bridge and turn left at the traffic light.",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-6-k05-d1bb05c23de8fa3a.webp"
+        }
+      ],
+      "accepts": {
+        "subject-variety": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "action-variety": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "conversational-response": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "reading-load": "Listen keeps the question and changes only the answer; the answer is what was heard."
+      },
+      "prefer": [
+        "How do I get to the library? Cross the bridge and turn right at the traffic light."
+      ],
+      "learn": false
+    },
+    {
+      "id": "a1-cw",
+      "text": "How do I get to the pool? Turn right at the crosswalk and walk along the river.",
+      "es": "¿Cómo llego a la alberca? Da vuelta a la derecha en el cruce peatonal y camina junto al río.",
+      "image": "/lesson-assets/a1plus-unit-6-k06-6efb26135abad54a.webp",
+      "kind": "a1-cw",
+      "image_choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "How do I get to the pool?",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-6-k06-6efb26135abad54a.webp"
+        },
+        {
+          "text": "Turn right at the crosswalk and walk along the river.",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-6-k06-6efb26135abad54a.webp"
+        }
+      ],
+      "accepts": {
+        "subject-variety": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "action-variety": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "conversational-response": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "reading-load": "Listen keeps the question and changes only the answer; the answer is what was heard."
+      },
+      "prefer": [
+        "How do I get to the pool? Turn left at the crosswalk and walk along the river."
+      ],
+      "learn": false
     }
   ],
   "pool": [
     {
       "text": "This is a river.",
       "es": "Este es un río.",
-      "image": "/lesson-assets/a1plus-unit-6-w03-556efb5cba906b72.webp",
+      "image": "/lesson-assets/a1plus-unit-6-w06-6b041fb363ce35a4.webp",
       "kind": "thing",
       "image_choices": false
     },
@@ -579,24 +658,31 @@
       "image_choices": false
     },
     {
-      "text": "Luis walks along the river every morning.",
-      "es": "Luis camina junto al río cada mañana.",
-      "image": "/lesson-assets/a1plus-unit-6-w02-c1828502b663dfe7.webp",
-      "kind": "u4-weekend",
-      "image_choices": false
-    },
-    {
-      "text": "Luis walks along the river every evening.",
-      "es": "Luis camina junto al río cada noche.",
-      "image": "/lesson-assets/a1plus-unit-6-w02-c1828502b663dfe7.webp",
-      "kind": "u4-weekend",
-      "image_choices": false
-    },
-    {
       "text": "Did you walk along the river last week? No, I didn't.",
       "es": "¿Caminaste junto al río la semana pasada? No.",
       "image": "/lesson-assets/a1plus-unit-6-w02-c1828502b663dfe7.webp",
       "kind": "u4-did",
+      "image_choices": false
+    },
+    {
+      "text": "When does Luis walk along the river? He walks along the river every morning.",
+      "es": "¿Cuándo camina Luis junto al río? Camina junto al río cada mañana.",
+      "image": "/lesson-assets/a1plus-unit-6-w02-c1828502b663dfe7.webp",
+      "kind": "u4-weekend",
+      "image_choices": false
+    },
+    {
+      "text": "How do I get to the library? Cross the bridge and turn right at the traffic light.",
+      "es": "¿Cómo llego a la biblioteca? Cruza el puente y da vuelta a la derecha en el semáforo.",
+      "image": "/lesson-assets/a1plus-unit-6-k05-d1bb05c23de8fa3a.webp",
+      "kind": "a1-tl",
+      "image_choices": false
+    },
+    {
+      "text": "How do I get to the pool? Turn left at the crosswalk and walk along the river.",
+      "es": "¿Cómo llego a la alberca? Da vuelta a la izquierda en el cruce peatonal y camina junto al río.",
+      "image": "/lesson-assets/a1plus-unit-6-k06-6efb26135abad54a.webp",
+      "kind": "a1-cw",
       "image_choices": false
     }
   ],
@@ -623,17 +709,17 @@
       "f-turn",
       "r-pool",
       "a-luis",
-      "u4-weekend"
+      "x-park"
     ],
     "Listen": [
       "f-along",
       "t-river",
       "x-park",
       "f-cross",
-      "r-pool",
+      "a1-cw",
       "t-bridge",
-      "x-lib",
-      "a-luis",
+      "a1-tl",
+      "u4-weekend",
       "r-park",
       "u4-did"
     ],
