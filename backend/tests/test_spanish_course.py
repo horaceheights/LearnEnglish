@@ -22,6 +22,14 @@ class CourseLanguageTests(unittest.TestCase):
         field = LessonCard.model_fields["target_language"]
         self.assertIn("es", str(field.annotation))
 
+    def test_spanish_voices_are_the_auditioned_mexican_voices(self):
+        from backend.app.course_audio_profile import NARRATION_SPEAKER_ROLES, NARRATOR_VOICE_IDS, narrator_for_speaker
+        voices = {role: NARRATOR_VOICE_IDS[narrator_for_speaker(role)] for role in ("es-teacher", "es-co-teacher", "es-character")}
+        self.assertEqual(voices, {"es-teacher": "pmruOMcxgUotq2bYO5Ne", "es-co-teacher": "iDEmt5MnqUotdwCIVplo",
+                                  "es-character": "m7yTemJqdIqrcNleANfX"})
+        # Ana María (2026-11-23) voices a pictured woman talking with another woman; she never narrates.
+        self.assertNotIn("es-character", NARRATION_SPEAKER_ROLES)
+
     def test_only_courses_for_english_speakers_run_in_english(self):
         courses = json.loads((ROOT / "backend/courses.json").read_text(encoding="utf-8"))
         self.assertEqual({c["id"]: c.get("uiLanguage") for c in courses if c.get("uiLanguage")}, {"de-a1": "en", "es-a1": "en"})
