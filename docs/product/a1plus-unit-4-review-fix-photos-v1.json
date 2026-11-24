@@ -1,0 +1,113 @@
+{
+  "schema_version": 1,
+  "pack": "a1plus-unit-4-review-fix-photos",
+  "revision": 1,
+  "output_namespace": "a1plus-unit-4-lesson-v4190",
+  "authorization": "2026-11-20: the user asked to \"Start working on A1+ Unit 4, same deal. make sure images make sense all the time\" (the Unit 2 and Unit 3 deal: an approved map, then straight to Preview in batches with media pre-approved and reviewed in Preview), approved the A1+ Unit 4 map (\"Approve this map\") and then said \"keep going until preview, I approve ALL, NO NEED to stop\". Gemini is the approved image tool (2026-09-23), Flash only (2026-11-17; \"lets switch to flash for any other images\", 2026-11-19).",
+  "image_settings": {
+    "provider": "google-gemini",
+    "model": "gemini-2.5-flash-image",
+    "aspect_ratio": "3:2",
+    "image_size": "1K",
+    "runtime_size": "1536x1024",
+    "runtime_format": "webp",
+    "n": 1
+  },
+  "production": {
+    "price_per_image_usd": "0.0387",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing (checked 2026-11-16: Gemini 2.5 Flash Image, about $0.039 per image)",
+    "planned_images": 5,
+    "expected_cost_usd": "0.19",
+    "requested_ceiling_usd": "0.40",
+    "ceiling_note": "The renderer reserves US$0.20 before each request; each request is sent on its own, and the expected spend for the pack is about US$0.19.",
+    "no_automatic_retries": true,
+    "order": "The review of 2026-11-23 found that 4.11's shoe photo showed one shoe in Sofia's hand and its egg photo showed scrambled eggs, so it was as true as them; and that 4.15 used none of A1 4.15's home places. x01 and x02 show clearly several things; t01-t03 add things to A1 4.15's own floor, stairs and garden photos, which stay as the photos without them."
+  },
+  "shared_prompts": {
+    "photo": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, menus, screens, cups, clothes or bags.",
+    "safe_center": "Keep the people and the thing that carries the meaning inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.",
+    "solo": "Only this one person is in the photo; there is nobody else, even far in the background.",
+    "daytime": "It is clearly daytime with soft natural light.",
+    "edit": "Edit Image 1. Keep the place, the furniture, the light, the colors and the camera position exactly the same; change only what is described below.",
+    "nobody": "There are no people and no animals anywhere in the photo.",
+    "edit_place": "Edit Image 1. Keep the place, the light, the colors and the camera position exactly the same; change only what is described below. There are no people and no animals in the photo."
+  },
+  "assets": [
+    {
+      "id": "x01-sofia-shoes",
+      "order": 1,
+      "item": "She wants the shoes. / She wants them.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "solo",
+        "daytime"
+      ],
+      "prompt": "Image 1 shows Sofia. Keep her face, long curly dark hair, warm brown skin, bright blue blazer and white blouse exactly. Create a new photograph in a bright shoe store: Sofia stands smiling and holds up a PAIR of red shoes, one red shoe in each hand, both shoes side by side at chest height and clearly visible. No other shoes are near her hands; the shelves behind her are softly blurred.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-q03-7d520a07846a47b8.webp",
+        "sha256": "7d520a07846a47b8e8389c3226f3b3639d7eed0d257318b08e4f9b77c5b2258b",
+        "observed_description": "Sofia (long curly dark hair, warm brown skin, bright blue blazer over a white blouse) in A1+ 1.2."
+      }
+    },
+    {
+      "id": "x02-ana-eggs",
+      "order": 2,
+      "item": "Ana makes eggs. / Ana makes them.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "solo",
+        "daytime"
+      ],
+      "prompt": "Image 1 shows Ana. Keep her face, long dark wavy hair, light-olive skin and sage-green overshirt over a white top exactly. Create a new photograph in her bright kitchen, seen from slightly above: Ana stands at the stove and fries THREE separate sunny-side-up eggs in one large pan, each egg with its own round yellow yolk, clearly three; she holds a spatula. No other food is cooking and no plate of food is visible.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-q02-c2b4398b65207eff.webp",
+        "sha256": "c2b4398b65207effa51e51260cc607c38ada48caea82f14eb872e4c9c8b5d0d5",
+        "observed_description": "Ana (long dark wavy hair, light-olive skin, sage-green overshirt over a white top, jeans) sits on a light-grey sofa and reads an open hardcover book (A1+ 1.2)."
+      }
+    },
+    {
+      "id": "t01-keys-floor",
+      "order": 3,
+      "item": "There are some keys on the floor.",
+      "shared": [
+        "edit_place"
+      ],
+      "prompt": "Add four separate silver house keys lying on the floor in the middle of the photo, a little apart from each other, large and clearly visible, with no key ring.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1_photo_u4_morehome_floor_v1.webp",
+        "sha256": "cd425d1a7024fa3f443f965ee268b7b15b52e7e3296180397ae782e03daf97e5",
+        "observed_description": "An empty light wooden floor in an empty room (A1 4.15)."
+      }
+    },
+    {
+      "id": "t02-shoes-stairs",
+      "order": 4,
+      "item": "There are some shoes on the stairs.",
+      "shared": [
+        "edit_place"
+      ],
+      "prompt": "Add two pairs of shoes standing on the lowest two steps of the staircase: a pair of white sneakers on the first step and a pair of brown shoes on the second step, large and clearly visible.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1_photo_u4_morehome_stairs_v1.webp",
+        "sha256": "fa0e5aaeecd1a35d0a8380dc946c14a79fdc39f91bbf5c0713bf6acf50f73038",
+        "observed_description": "A straight wooden staircase between white walls, with nothing on it (A1 4.15)."
+      }
+    },
+    {
+      "id": "t03-chairs-garden",
+      "order": 5,
+      "item": "There are some chairs in the garden.",
+      "shared": [
+        "edit_place"
+      ],
+      "prompt": "Add three simple white garden chairs standing on the lawn in the middle of the garden, clearly separate from each other and clearly visible. There is no table.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1_photo_u4_morehome_garden_v1.webp",
+        "sha256": "ede43d6b11964d6a39b43dfb02634b8d4e2d98abe2aac6edd97238d8831de094",
+        "observed_description": "A small back garden with a lawn, flower beds along a wooden fence and a stone path; no furniture (A1 4.15)."
+      }
+    }
+  ]
+}

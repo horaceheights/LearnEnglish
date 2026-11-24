@@ -1,0 +1,62 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "f46284a1-b7f2-454f-84ee-ca8bbe5cd805",
+  "asset_id": "t02-shoes-stairs",
+  "pack_sha256": "5ee5e9bb18ce73642b403fe9fb37431e108e97207dc796ab2f685cf9adf00d0c",
+  "started_at": "2026-11-24T02:18:17.629725+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Edit Image 1. Keep the place, the light, the colors and the camera position exactly the same; change only what is described below. There are no people and no animals in the photo.\n\nAdd two pairs of shoes standing on the lowest two steps of the staircase: a pair of white sneakers on the first step and a pair of brown shoes on the second step, large and clearly visible.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1_photo_u4_morehome_stairs_v1.webp",
+    "sha256": "fa0e5aaeecd1a35d0a8380dc946c14a79fdc39f91bbf5c0713bf6acf50f73038"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "6vMEa9KZH-6JqtsPg8av8A0",
+  "usage": {
+    "promptTokenCount": 340,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1630,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 82
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038802",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 340,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 8.51,
+  "output": "output/imagegen/a1plus-unit-4-lesson-v4190/t02-shoes-stairs.png",
+  "sha256": "907f042d6538d6db9f537890ad3c13801050861d1619f156c8d89e765e39d03a",
+  "byte_count": 1135230,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}

@@ -1,0 +1,62 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "e3cf98ab-1a03-4e36-9e2a-2c271b066923",
+  "asset_id": "t03-chairs-garden",
+  "pack_sha256": "5ee5e9bb18ce73642b403fe9fb37431e108e97207dc796ab2f685cf9adf00d0c",
+  "started_at": "2026-11-24T02:18:32.423754+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Edit Image 1. Keep the place, the light, the colors and the camera position exactly the same; change only what is described below. There are no people and no animals in the photo.\n\nAdd three simple white garden chairs standing on the lawn in the middle of the garden, clearly separate from each other and clearly visible. There is no table.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1_photo_u4_morehome_garden_v1.webp",
+    "sha256": "ede43d6b11964d6a39b43dfb02634b8d4e2d98abe2aac6edd97238d8831de094"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "-vMEa8GhNuP_qtsPqYfD-Ac",
+  "usage": {
+    "promptTokenCount": 331,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1621,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 73
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038799",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 331,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 10.66,
+  "output": "output/imagegen/a1plus-unit-4-lesson-v4190/t03-chairs-garden.png",
+  "sha256": "665e8e7a1fc6d0fab44a25a57ebb94cee2e5bc8f5029dcaf9831befedc894b16",
+  "byte_count": 2039050,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}
