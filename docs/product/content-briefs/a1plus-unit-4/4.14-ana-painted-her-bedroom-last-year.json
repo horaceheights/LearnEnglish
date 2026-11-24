@@ -32,6 +32,10 @@
       "last year"
     ],
     "review_vocabulary": [
+      "August",
+      "October",
+      "November",
+      "December",
       "painted",
       "washed",
       "cleaned",
@@ -50,7 +54,7 @@
       "TV",
       "every weekend"
     ],
-    "grammar_function": "A follow-up of A1 4.14 Months: July to December: A1 finishes the months and the year; A1+ 4.14 uses last with them for the past (last week, last month, last year), after 4.7's -ed and yesterday, 4.8's Did…? and 4.9's didn't. A time cannot be photographed: each photo shows what its person did (two new Flash photos of Ana painting her bedroom and Luis washing his car, A1 4.7's kitchen and clothes, Luis's TV and Diego's painting), a picture bank changes only the activity, and Listen sets last week, last month, last year and yesterday against each other and the past against 4.12's every weekend.",
+    "grammar_function": "A follow-up of A1 4.14 Months: July to December: A1 finishes the months and the year; A1+ 4.14 uses last with them for the past (last week, last month, last year), after 4.7's -ed and yesterday, 4.8's Did…? and 4.9's didn't. A time cannot be photographed: each photo shows what its person did (two new Flash photos of Ana painting her bedroom and Luis washing his car, A1 4.7's kitchen and clothes, Luis's TV and Diego's painting), a picture bank changes only the activity, and Listen sets last week, last month, last year and yesterday against each other. A1 4.14's own months come back after last (Diego painted last August. / They cleaned the living room last December.), set against other months in Listen.",
     "prerequisite": "A1 4.12-4.14 week, month, year; A1+ 4.7 -ed and yesterday; A1+ 4.8 Did…?; A1+ 4.9 didn't; A1+ 4.11 it.",
     "speaking_outcome": "Say last with a clear st (LAST WEEK); painted has two syllables (PAIN-tid) and washed ends in t (WOSHT). Do not require native-like speed.",
     "content_revision": 1,
@@ -229,12 +233,34 @@
     },
     {
       "id": "p-diego",
-      "text": "Diego painted last week.",
-      "es": "Diego pintó la semana pasada.",
+      "text": "Diego painted last August.",
+      "es": "Diego pintó en agosto pasado.",
       "image": "/lesson-assets/a1plus-unit-3-c07-5a554636e3669bf8.webp",
       "kind": "last",
       "prefer": [
-        "Diego watched TV last week."
+        "Diego watched TV last August."
+      ],
+      "accepts": {
+        "subject-variety": "The bank keeps when and changes only what the picture shows them doing.",
+        "action-variety": "The bank keeps when and changes only what the picture shows them doing.",
+        "conversational-response": "The bank keeps when and changes only what the picture shows them doing.",
+        "reading-load": "The bank keeps when and changes only what the picture shows them doing."
+      },
+      "blanks": [
+        "last",
+        "August"
+      ],
+      "learn": false
+    },
+    {
+      "id": "p-living",
+      "text": "They cleaned the living room last December.",
+      "es": "Limpiaron la sala en diciembre pasado.",
+      "image": "/lesson-assets/a1_u4_review_repair_clean_living_v1.webp",
+      "kind": "last",
+      "prefer": [
+        "They painted the living room last December.",
+        "They cleaned the bedroom last December."
       ],
       "accepts": {
         "subject-variety": "The bank keeps when and changes only what the picture shows them doing.",
@@ -329,6 +355,44 @@
       "kind": "heard-lw-yesterday",
       "prefer": [
         "Luis watched TV last week."
+      ],
+      "accepts": {
+        "subject-variety": "Listen sets one detail against another; the answer is what was heard.",
+        "action-variety": "Listen sets one detail against another; the answer is what was heard.",
+        "conversational-response": "Listen sets one detail against another; the answer is what was heard.",
+        "reading-load": "Listen sets one detail against another; the answer is what was heard."
+      },
+      "image_choices": false,
+      "use": false,
+      "learn": false
+    },
+    {
+      "id": "lw-aug",
+      "text": "Diego painted last August.",
+      "es": "Diego pintó en agosto pasado.",
+      "image": "/lesson-assets/a1plus-unit-3-c07-5a554636e3669bf8.webp",
+      "kind": "heard-lw-aug",
+      "prefer": [
+        "Diego painted last October."
+      ],
+      "accepts": {
+        "subject-variety": "Listen sets one detail against another; the answer is what was heard.",
+        "action-variety": "Listen sets one detail against another; the answer is what was heard.",
+        "conversational-response": "Listen sets one detail against another; the answer is what was heard.",
+        "reading-load": "Listen sets one detail against another; the answer is what was heard."
+      },
+      "image_choices": false,
+      "use": false,
+      "learn": false
+    },
+    {
+      "id": "lw-dec",
+      "text": "They cleaned the living room last December.",
+      "es": "Limpiaron la sala en diciembre pasado.",
+      "image": "/lesson-assets/a1_u4_review_repair_clean_living_v1.webp",
+      "kind": "heard-lw-dec",
+      "prefer": [
+        "They cleaned the living room last November."
       ],
       "accepts": {
         "subject-variety": "Listen sets one detail against another; the answer is what was heard.",
@@ -519,9 +583,23 @@
       "image_choices": false
     },
     {
-      "text": "Diego watched TV last week.",
-      "es": "Diego vio la tele la semana pasada.",
+      "text": "Diego watched TV last August.",
+      "es": "Diego vio la tele en agosto pasado.",
       "image": "/lesson-assets/a1plus-unit-3-c07-5a554636e3669bf8.webp",
+      "kind": "last",
+      "image_choices": false
+    },
+    {
+      "text": "They painted the living room last December.",
+      "es": "Pintaron la sala en diciembre pasado.",
+      "image": "/lesson-assets/a1_u4_review_repair_clean_living_v1.webp",
+      "kind": "last",
+      "image_choices": false
+    },
+    {
+      "text": "They cleaned the bedroom last December.",
+      "es": "Limpiaron la recámara en diciembre pasado.",
+      "image": "/lesson-assets/a1_u4_review_repair_clean_living_v1.webp",
       "kind": "last",
       "image_choices": false
     },
@@ -575,6 +653,20 @@
       "image_choices": false
     },
     {
+      "text": "Diego painted last October.",
+      "es": "Diego pintó en octubre pasado.",
+      "image": "/lesson-assets/a1plus-unit-3-c07-5a554636e3669bf8.webp",
+      "kind": "heard-lw-aug",
+      "image_choices": false
+    },
+    {
+      "text": "They cleaned the living room last November.",
+      "es": "Limpiaron la sala en noviembre pasado.",
+      "image": "/lesson-assets/a1_u4_review_repair_clean_living_v1.webp",
+      "kind": "heard-lw-dec",
+      "image_choices": false
+    },
+    {
       "text": "Luis washes his car every weekend.",
       "es": "Luis lava su coche todos los fines de semana.",
       "image": "/lesson-assets/a1plus-unit-4-z02-b34442dde20c8843.webp",
@@ -616,7 +708,7 @@
       "p-diego",
       "p-mother",
       "p-luis-tv",
-      "p-ana-paint",
+      "p-living",
       "p-luis-car",
       "p-kitchen",
       "p-mother"
@@ -625,13 +717,13 @@
       "p-luis-car",
       "lw-week",
       "x-did",
-      "p-ana-paint",
+      "lw-aug",
       "lw-year",
-      "lw-yesterday",
+      "p-living",
       "p-kitchen",
       "x-didnt",
-      "lw-present",
-      "p-luis-tv"
+      "lw-dec",
+      "p-diego"
     ],
     "Speak": [
       "p-ana-paint",
@@ -651,7 +743,7 @@
       "u-month",
       "u-week",
       "u-it",
-      "p-mother"
+      "p-diego"
     ]
   }
 }
