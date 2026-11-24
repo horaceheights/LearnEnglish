@@ -252,7 +252,7 @@ const MEANINGS: Record<string, string> = {
   // A1+ 4.10 (2026-11-20): What time do you start work? / I finish work at six o'clock.
   'start work': 'empezar a trabajar', 'finish work': 'terminar de trabajar',
   // A1+ 4.12 (2026-11-21): how often, at the end of the sentence (Diego runs once a week.).
-  once: 'una vez', twice: 'dos veces',
+  once: 'una vez', twice: 'dos veces', paints: 'pinta',
   // A1+ 7.1-7.5 (2026-11-20): what hurts, why and because, what people are wearing, the weather happening
   // now, and putting clothes on and taking them off.
   hurts: 'duele', hurt: 'duelen', because: 'porque', wearing: 'llevando puesto', raining: 'lloviendo',

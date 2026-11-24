@@ -79,7 +79,7 @@ test('Spanish course cards explain Spanish order, agreement, es/está and one-or
     assert.equal(constructionTeachingPlan(card(supported)).supported, true, supported);
   }
   // Agreement errors and unknown words never get an invented rule.
-  for (const unsupported of ['La niño está comiendo.', 'Ellos está comiendo.', 'El hombre está sentados.', 'El caballo está corriendo.']) {
+  for (const unsupported of ['La niño está comiendo.', 'Ellos está comiendo.', 'El hombre está sentados.', 'El dragón está corriendo.']) {
     assert.equal(constructionTeachingPlan(card(unsupported)).supported, false, unsupported);
   }
   const choice = (correct, wrong, english) => ({ stage: 'Listen', target_language: 'es', audio_text: correct, spanish_translation: english,
@@ -185,6 +185,20 @@ test('Spanish course cards explain Spanish order, agreement, es/está and one-or
   }
   for (const unsupported of ['¿Adónde va ellos?', 'Me bajo al autobús.', 'Nos subo al barco.', 'El banco está a la izquierdo.',
     'La biblioteca está entre el banco.', 'Voy en el tren azul rojo.', 'El tren llega a las una.']) {
+    assert.equal(constructionTeachingPlan(card(unsupported)).supported, false, unsupported);
+  }
+  // Spanish Unit 7: the body, feelings, clothes, weather, gustar/querer/vamos a + activity, repair phrases, seasons, nature.
+  for (const supported of ['Tengo diez dedos de los pies.', 'Esta es mi nariz.', '¿Cómo está el abuelo?', 'El abuelo está cansado.',
+    'Estoy muy bien.', 'El bebé tiene hambre.', 'Tengo hambre y sed.', 'Mis calcetines son blancos.', 'Estos son mis pantalones azules.',
+    '¿Qué tiempo hace hoy?', 'Hoy está nublado.', 'Hace frío y viento.', 'Hace frío y está nublado.', 'Hace calor en la tarde.',
+    'El sábado hace sol.', 'Tengo los dedos de los pies fríos.', 'Tengo un suéter y una bufanda.', 'Me gusta andar en bicicleta.',
+    '¿Te gusta jugar fútbol?', 'Sí, me gusta.', 'No, no me gusta.', '¿Quieres ver la tele?', 'Vamos a leer el sábado.',
+    'Está bien.', 'No entiendo.', 'Habla despacio, por favor.', 'Necesito ayuda.', 'Es un buen día.', 'Ella tiene miedo.',
+    'Es primavera.', 'La flor es amarilla.', 'El elefante está bebiendo.', 'Ellos juegan tenis.', 'Canto una canción.']) {
+    assert.equal(constructionTeachingPlan(card(supported)).supported, true, supported);
+  }
+  for (const unsupported of ['El abuelo está cansada.', 'Ella está enojado.', 'Mi camisa es rojo.', 'Mis calcetines es blancos.',
+    'Hace nublado.', 'Está sol.', 'Me gustan bailar.', 'Tengo la hambre.', 'Es un día buen.', 'Vamos a ver tele.', '¿Cómo están ella?']) {
     assert.equal(constructionTeachingPlan(card(unsupported)).supported, false, unsupported);
   }
   const notDoing = choice('Ella no está leyendo.', 'Ella está leyendo.', 'She is not reading.');

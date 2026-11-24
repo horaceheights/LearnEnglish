@@ -271,6 +271,63 @@ Object.assign(FIXED_QUESTIONS, {
   'en qué le puedo ayudar': ['“En” starts the question.', '“qué” (what) comes right after “En”.', '“le” (you, with usted) comes before the verb.', '“puedo” (I can) comes after “le”.', '“ayudar” (help) ends it: “¿En qué le puedo ayudar?” is “How can I help you?”.'],
 });
 
+// Unit 7: the body, feelings, clothes, weather, free time, invitations, repair phrases,
+// seasons, outdoors, animals, sports and music.
+Object.assign(NOUN_KIND, {
+  cabeza: 'feminine singular', ojos: 'masculine plural', orejas: 'feminine plural', nariz: 'feminine singular',
+  boca: 'feminine singular', brazos: 'masculine plural', manos: 'feminine plural', dedos: 'masculine plural',
+  piernas: 'feminine plural', pies: 'masculine plural',
+  camisa: 'feminine singular', pantalones: 'masculine plural', vestido: 'masculine singular', falda: 'feminine singular',
+  chamarra: 'feminine singular', sombrero: 'masculine singular', calcetines: 'masculine plural', zapatos: 'masculine plural',
+  abrigo: 'masculine singular', suéter: 'masculine singular', bufanda: 'feminine singular', guantes: 'masculine plural',
+  paraguas: 'masculine singular', botas: 'feminine plural', shorts: 'masculine plural',
+  día: 'masculine singular', sol: 'masculine singular', lluvia: 'feminine singular', nieve: 'feminine singular',
+  árbol: 'masculine singular', flor: 'feminine singular', río: 'masculine singular', montaña: 'feminine singular',
+  lago: 'masculine singular', playa: 'feminine singular', mar: 'masculine singular', cielo: 'masculine singular',
+  vaca: 'feminine singular', caballo: 'masculine singular', oveja: 'feminine singular', cerdo: 'masculine singular',
+  león: 'masculine singular', elefante: 'masculine singular', serpiente: 'feminine singular', mono: 'masculine singular',
+  deporte: 'masculine singular', pelota: 'feminine singular', equipo: 'masculine singular', partido: 'masculine singular',
+  canción: 'feminine singular', guitarra: 'feminine singular', tenis: 'masculine singular', tele: 'feminine singular',
+  ayuda: 'feminine singular', fotos: 'feminine plural',
+});
+Object.assign(ADJECTIVE_KIND, { frío: 'masculine singular', fría: 'feminine singular', fríos: 'masculine plural', frías: 'feminine plural' });
+PRESENT_FORMS.push(
+  ['cant', 'sing', ['canto', 'cantas', 'canta', 'cantamos', 'cantan']], ['habl', 'speak', ['hablo', 'hablas', 'habla', 'hablamos', 'hablan']],
+  ['entend', 'understand', ['entiendo', 'entiendes', 'entiende', 'entendemos', 'entienden']],
+);
+registerPresent();
+// How someone feels uses estar; -o/-a feelings match the person, the others never change.
+const FEELINGS: Record<string, [string, string]> = {
+  feliz: ['happy', 'any'], triste: ['sad', 'any'], bien: ['fine', 'any'],
+  cansado: ['tired', 'masculine singular'], cansada: ['tired', 'feminine singular'],
+  enfermo: ['sick', 'masculine singular'], enferma: ['sick', 'feminine singular'],
+  enojado: ['angry', 'masculine singular'], enojada: ['angry', 'feminine singular'],
+};
+// Hunger, thirst and fear use tener + a noun: tengo hambre, “I have hunger”.
+const TENER_FEELINGS: Record<string, string> = { hambre: 'hungry', sed: 'thirsty', miedo: 'afraid' };
+// Weather: hace + sol/viento/frío/calor; está + nublado/lloviendo/templado.
+const HACE_WEATHER: Record<string, string> = { sol: 'sunny', viento: 'windy', frío: 'cold', calor: 'hot' };
+const HACE_LITERAL: Record<string, string> = { sol: 'sun', viento: 'wind', frío: 'cold', calor: 'heat' };
+const ESTA_WEATHER: Record<string, string> = { nublado: 'cloudy', lloviendo: 'raining', templado: 'warm' };
+const SEASONS = set('primavera verano otoño invierno');
+const SPORTS = set('fútbol tenis');
+// Activities in their -r form, with the words that complete them.
+const ACTIVITIES: Record<string, [string[], string][]> = {
+  ver: [[['la', 'tele'], 'watch TV']], escuchar: [[['música'], 'listen to music']], bailar: [[[], 'dance']],
+  dibujar: [[[], 'draw']], pintar: [[[], 'paint']], andar: [[['en', 'bicicleta'], 'ride a bike']],
+  tomar: [[['fotos'], 'take photos']], jugar: [[['fútbol'], 'play football'], [['tenis'], 'play tennis']],
+  leer: [[[], 'read']], cantar: [[[], 'sing']],
+};
+const QUERER = set('quiero quieres quiere queremos quieren');
+Object.assign(FIXED_QUESTIONS, {
+  'qué tiempo hace hoy': ['“Qué” (what) starts the question.', '“tiempo” (weather) comes right after “Qué”.', '“hace” comes after “Qué tiempo”: Spanish asks what weather it makes.', '“hoy” (today) ends the question.'],
+  'está bien': ['“Está” starts “Está bien” (OK).', '“bien” (well, fine) ends it: “Está bien” is “OK”.'],
+  'no entiendo': ['“No” goes right before the verb.', '“entiendo” (I understand) comes right after “No”: “No entiendo” is “I do not understand”.'],
+  repite: ['“Repite” (repeat, tú) asks someone to say it again.'],
+  'hablas rápido': ['“Hablas” (you speak) starts the sentence; Spanish leaves out “tú”.', '“rápido” (fast) comes after the verb.'],
+  'habla despacio': ['“Habla” (speak, tú) tells someone what to do, so it comes first.', '“despacio” (slowly) comes right after “Habla”.'],
+});
+
 type Relation = { start: number; end: number; explanation: string };
 type ClausePlan = { explanations: string[]; relations: Relation[]; supported: boolean };
 
@@ -279,9 +336,48 @@ function teachClause(text: string): ClausePlan {
   const explanations: string[] = tokens.map(() => '');
   const relations: Relation[] = [];
   let index = 0;
+  const toes = () => {
+    // dedos de los pies: toes are “fingers of the feet”.
+    if (key(tokens[index - 1] || '') !== 'dedos' || key(tokens[index] || '') !== 'de' || key(tokens[index + 1] || '') !== 'los' || key(tokens[index + 2] || '') !== 'pies') return false;
+    explanations[index] = '“de” follows “dedos”: “dedos de los pies” (toes) is “fingers of the feet”.';
+    explanations[index + 1] = '“los” is the article for “pies”.';
+    explanations[index + 2] = '“pies” (feet) ends “dedos de los pies”.';
+    index += 3;
+    return true;
+  };
+  const dayPhrase = () => {
+    // el sábado: “el” before a day means “on”.
+    if (key(tokens[index] || '') !== 'el' || !DAYS.has(key(tokens[index + 1] || ''))) return false;
+    explanations[index] = '“el” before a day means “on”: “el sábado” is “on Saturday”.';
+    explanations[index + 1] = `${quote(tokens[index + 1] || '')} is the day; Spanish days have no capital letter.`;
+    index += 2;
+    return true;
+  };
+  const activity = () => {
+    // ver la tele, jugar fútbol, bailar: the -r form names the activity.
+    const at = index;
+    const choices = ACTIVITIES[key(tokens[at] || '')];
+    const found = choices?.find(([tail]) => tail.every((word, i) => key(tokens[at + 1 + i] || '') === word));
+    if (!found) return '';
+    const [tail, english] = found;
+    explanations[at] = `${quote(tokens[at] || '')} is the -r form, the way Spanish names an activity.`;
+    tail.forEach((_, i) => { explanations[at + 1 + i] = `${quote(tokens[at + 1 + i] || '')} completes ${quote(tokens.slice(at, at + 1 + tail.length).join(' '))} (${english}).`; });
+    index = at + 1 + tail.length;
+    relations.push({ start: at, end: index, explanation: `${quote(tokens.slice(at, index).join(' '))} is “${english}”.` });
+    return tokens.slice(at, index).join(' ');
+  };
   const nounPhrase = () => {
     const article = tokens[index] || '';
     const noun = tokens[index + 1] || '';
+    if (['buen', 'mal'].includes(key(noun)) && ARTICLE_KIND[key(article)] === 'masculine singular' && NOUN_KIND[key(tokens[index + 2] || '')] === 'masculine singular') {
+      // un buen día, un mal día: buen and mal go before the noun.
+      explanations[index] = `${quote(article)} is the article for ${quote(tokens[index + 2] || '')}, so it comes first.`;
+      explanations[index + 1] = `${quote(noun)} (${key(noun) === 'buen' ? 'good' : 'bad'}) comes before the noun: Spanish says ${quote(`${key(noun)} día`)}.`;
+      explanations[index + 2] = `${quote(tokens[index + 2] || '')} comes right after ${quote(noun)}.`;
+      relations.push({ start: index, end: index + 3, explanation: `${quote(tokens.slice(index, index + 3).join(' '))}: “buen” and “mal” go before the noun.` });
+      index += 3;
+      return { text: tokens.slice(index - 3, index).join(' '), plural: false, kind: 'masculine singular' };
+    }
     if (key(noun) === 'siguiente' && ARTICLE_KIND[key(article)] === NOUN_KIND[key(tokens[index + 2] || '')]) {
       // la siguiente parada: “siguiente” (next) goes before the noun.
       explanations[index] = `${quote(article)} is the article for ${quote(tokens[index + 2] || '')}, so it comes first.`;
@@ -298,6 +394,7 @@ function teachClause(text: string): ClausePlan {
     relations.push({ start: index, end: index + 2, explanation: `In ${quote(`${article} ${noun}`)} the article comes first and matches the noun.` });
     index += 2;
     let text = `${article} ${noun}`;
+    if (toes()) text += ' de los pies';
     if (key(noun) === 'fin' && key(tokens[index] || '') === 'de' && key(tokens[index + 1] || '') === 'semana') {
       explanations[index] = '“de” follows “fin”: “fin de semana” is one name, the weekend.';
       explanations[index + 1] = '“semana” ends the name “fin de semana”.';
@@ -495,6 +592,7 @@ function teachClause(text: string): ClausePlan {
       explanations[at] = `${quote(tokens[at] || '')} counts the things, so it comes first.`;
       explanations[at + 1] = `${quote(tokens[at + 1] || '')} is plural and comes right after the number.`;
       index += 2;
+      toes();
       return tokens.slice(at, index).join(' ');
     }
     if (POSSESSIVE_KIND[first]?.endsWith('plural') && NUMBER_WORDS.has(key(tokens[index + 1] || '')) && NOUN_KIND[key(tokens[index + 2] || '')]?.endsWith('plural')) {
@@ -503,6 +601,16 @@ function teachClause(text: string): ClausePlan {
       explanations[at + 2] = `${quote(tokens[at + 2] || '')} is plural and comes after the number.`;
       index += 3;
       return tokens.slice(at, index).join(' ');
+    }
+    if (SPORTS.has(first)) {
+      explanations[at] = `${quote(tokens[at] || '')} is a sport: after “jugar” Spanish names it with no article.`;
+      index += 1;
+      return tokens[at] || '';
+    }
+    if (first === 'ayuda') {
+      explanations[at] = '“ayuda” (help) takes no article after the verb.';
+      index += 1;
+      return tokens[at] || '';
     }
     if (MASS.has(first)) {
       explanations[at] = `${quote(tokens[at] || '')} is a food or drink you do not count, so it needs no article here.`;
@@ -556,6 +664,67 @@ function teachClause(text: string): ClausePlan {
       explanations[0] = `${quote(tokens[0] || '')} (${SEQUENCE[lower[0]]}) starts the sentence; a comma follows it.`;
     }
     index = tokens.length;
+    return doneHere();
+  }
+  {
+    // Hace sol. Hace frío y viento. Hace frío y está nublado. Está lloviendo. Hoy hace viento. El sábado hace sol.
+    const lead = lower[0] === 'hoy' ? 1 : lower[0] === 'el' && DAYS.has(lower[1] || '') ? 2 : 0;
+    const weatherAt = (at: number) => (lower[at] === 'hace' && HACE_WEATHER[lower[at + 1] || '']) || (lower[at] === 'está' && ESTA_WEATHER[lower[at + 1] || '']);
+    if (weatherAt(lead)) {
+      if (lead === 1) explanations[0] = '“Hoy” (today) can come first; the weather follows.';
+      index = lead === 2 ? 0 : lead;
+      if (lead === 2) dayPhrase();
+      const one = () => {
+        const verb = lower[index] || '';
+        const word = lower[index + 1] || '';
+        const english = verb === 'hace' ? HACE_WEATHER[word] : ESTA_WEATHER[word];
+        explanations[index] = verb === 'hace'
+          ? `${quote(tokens[index] || '')} starts the weather: Spanish says “hace ${word}” (it makes ${HACE_LITERAL[word]}) for “it is ${english}”.`
+          : `${quote(tokens[index] || '')} starts the weather: “está ${word}” is “it is ${english}”.`;
+        explanations[index + 1] = `${quote(tokens[index + 1] || '')} (${english}) comes right after ${quote(tokens[index] || '')}.`;
+        relations.push({ start: index, end: index + 2, explanation: `Weather: ${quote(tokens.slice(index, index + 2).join(' '))}, with no word for “it”.` });
+        index += 2;
+        return verb;
+      };
+      const firstVerb = one();
+      if (lower[index] === 'y') {
+        const andAt = index;
+        index += 1;
+        if (firstVerb === 'hace' && HACE_WEATHER[lower[index] || '']) {
+          explanations[index] = `${quote(tokens[index] || '')} (${HACE_WEATHER[lower[index] || '']}) shares “hace” with the first weather word.`;
+          index += 1;
+        } else if (weatherAt(index)) {
+          one();
+        } else {
+          return { explanations, relations, supported: false };
+        }
+        explanations[andAt] = '“y” (and) joins the two kinds of weather.';
+      }
+      if (index < tokens.length) {
+        if (lower[index] !== 'en' || lower[index + 1] !== 'la' || !['mañana', 'tarde', 'noche'].includes(lower[index + 2] || '')) return { explanations, relations, supported: false };
+        explanations[index] = '“en” comes before the part of the day.';
+        explanations[index + 1] = `“la” is the article for ${quote(tokens[index + 2] || '')}.`;
+        explanations[index + 2] = `${quote(tokens[index + 2] || '')} says which part of the day, so it comes last.`;
+        index += 3;
+      }
+      return doneHere();
+    }
+  }
+  if (lower[0] === 'cómo' && (lower[1] === 'estás' || lower[1] === 'está')) {
+    // ¿Cómo estás? ¿Cómo está ella? ¿Cómo está el abuelo?
+    explanations[0] = '“Cómo” (how) starts the question.';
+    explanations[1] = `${quote(tokens[1] || '')} comes right after “Cómo”: how someone feels uses estar.`;
+    index = 2;
+    if (lower[1] === 'está') {
+      if (PRONOUNS.has(lower[2] || '') && !PLURAL_PRONOUNS.has(lower[2] || '')) {
+        explanations[2] = `${quote(tokens[2] || '')} comes last in the question.`;
+        index = 3;
+      } else {
+        const who = nounPhrase();
+        if (!who || who.plural) return { explanations, relations, supported: false };
+      }
+    }
+    relations.push({ start: 0, end: 2, explanation: `${quote(`Cómo ${tokens[1]}`)}: “how are you”, with estar.` });
     return doneHere();
   }
   if (lower[0] === 'hay') {
@@ -646,6 +815,20 @@ function teachClause(text: string): ClausePlan {
       if (negated) explanations[0] = `“No” comes first, before ${quote(tokens[1] || '')}: Spanish says “no me gusta” for “I do not like”.`;
       explanations[negated] = `${quote(tokens[negated] || '')} (to ${who === 'me' ? 'me' : who === 'te' ? 'you' : who === 'le' ? 'him or her' : 'them'}) comes before the verb: Spanish says the food pleases ${who === 'me' ? 'me' : 'them'}.`;
       index = negated + 2;
+      const toWhom = who === 'me' ? 'me' : who === 'te' ? 'you' : who === 'le' ? 'him or her' : 'them';
+      if (index === tokens.length && verb === 'gusta') {
+        explanations[negated] = `${quote(tokens[negated] || '')} (to ${toWhom}) comes before the verb.`;
+        explanations[negated + 1] = '“gusta” ends the answer: the activity is already known, so Spanish does not repeat it.';
+        relations.push({ start: negated, end: index, explanation: `${quote(tokens.slice(0, index).join(' '))} answers with gustar and nothing after it.` });
+        return doneHere();
+      }
+      if (ACTIVITIES[lower[index] || '']) {
+        if (verb !== 'gusta' || !activity()) return { explanations, relations, supported: false };
+        explanations[negated] = `${quote(tokens[negated] || '')} (to ${toWhom}) comes before the verb: Spanish says the activity pleases ${toWhom}.`;
+        explanations[negated + 1] = '“gusta” goes with an activity in its -r form: one activity takes “gusta”.';
+        relations.push({ start: negated, end: index, explanation: `${quote(`${tokens[negated]} ${tokens[negated + 1]}`)} + the -r form means “${GUSTAR_WHO[who]} to …”.` });
+        return doneHere();
+      }
       const first = nounPhrase();
       if (!first) return { explanations, relations, supported: false };
       let many = first.plural;
@@ -834,6 +1017,18 @@ function teachClause(text: string): ClausePlan {
       explanations[index + 1] = '“en” (in) comes before the month.';
       explanations[index + 2] = `${quote(tokens[index + 2] || '')} is the month; Spanish months have no capital letter.`;
       index += 3;
+      return done();
+    }
+    if (owned && SER.has(key(tokens[index] || '')) && agrees(tokens[index + 1] || '', owned.kind)) {
+      // Mi camisa es roja. Mis calcetines son blancos.
+      const verb = tokens[index] || '';
+      const adjective = tokens[index + 1] || '';
+      const many = owned.kind.endsWith('plural');
+      if ((key(verb) === 'son') !== many) return { explanations, relations, supported: false };
+      explanations[index] = `${quote(verb)} comes right after ${quote(owned.text)}: ${many ? 'more than one thing' : 'one thing'}.`;
+      explanations[index + 1] = `${quote(adjective)} comes after ${quote(verb)}. ${agreementNote(adjective, owned.text, owned.kind)}`;
+      relations.push({ start: index, end: index + 2, explanation: `After ${quote(verb)} comes the color, matching ${quote(owned.text)}: ${quote(adjective)}.` });
+      index += 2;
       return done();
     }
     if (!owned || key(tokens[index] || '') !== 'es' || !NAMES.has(key(tokens[index + 1] || ''))) return { explanations, relations, supported: false };
@@ -1025,6 +1220,11 @@ function teachClause(text: string): ClausePlan {
         index += 1;
       }
       const gender = subjectKinds.length === 1 && !subjectKinds[0].startsWith('any') ? subjectKinds[0].split(' ')[0] : '';
+      if (!complement && !subject && SEASONS.has(key(word))) {
+        explanations[index] = `${quote(word)} is the season: after “Es” it takes no article.`;
+        complement = word;
+        index += 1;
+      }
       if (!complement && !subject && MASS.has(key(word))) {
         explanations[index] = `${quote(word)} is a food you do not count, so after “Es” it takes no article.`;
         complement = word;
@@ -1078,6 +1278,21 @@ function teachClause(text: string): ClausePlan {
     } else if (PRESENT.has(verbKey)) {
       // limpio la mesa, veo al gato sobre el sofá, vengo a casa, juego en el parque, trabajo.
       const start = index;
+      if (verbKey === 'vamos' && key(tokens[index] || '') === 'a' && ACTIVITIES[key(tokens[index + 1] || '')]) {
+        // Vamos a + the -r form: “Let's …”.
+        explanations[verbIndex] = `${quote(verb)} (we go) starts “Vamos a …”, Spanish for “Let’s …”.`;
+        explanations[index] = '“a” comes between “Vamos” and the activity.';
+        index += 1;
+        if (!activity()) return { explanations, relations, supported: false };
+        dayPhrase();
+        return done();
+      }
+      if (QUERER.has(verbKey) && ACTIVITIES[key(tokens[index] || '')]) {
+        // ¿Quieres ver la tele? querer + the -r form.
+        if (!activity()) return { explanations, relations, supported: false };
+        dayPhrase();
+        return done();
+      }
       if (index < tokens.length && !['en', 'sobre', 'debajo', 'al'].includes(key(tokens[index] || '')) || key(tokens[index] || '') === 'al' && key(tokens[index + 1] || '') !== 'lado') {
         const object = timePhrase() || (['a', 'al'].includes(key(tokens[index] || '')) ? objectPhrase() : Boolean(items()));
         if (!object) return { explanations, relations, supported: false };
@@ -1095,7 +1310,19 @@ function teachClause(text: string): ClausePlan {
         had = `${word} años`;
         index += 2;
       }
-      if (!had) had = possessivePhrase()?.text || nounPhrase()?.text || '';
+      if (!had && TENER_FEELINGS[key(word)]) {
+        // Tengo hambre. Tengo hambre y sed. Ella tiene miedo.
+        explanations[index] = `${quote(word)} comes right after ${quote(verb)} with no article: Spanish says ${quote(`${key(verb)} ${key(word)}`)} for “${TENER_FEELINGS[key(word)]}”.`;
+        had = word;
+        index += 1;
+        if (key(tokens[index] || '') === 'y' && TENER_FEELINGS[key(tokens[index + 1] || '')]) {
+          explanations[index] = `“y” joins ${quote(word)} and ${quote(tokens[index + 1] || '')}; both share ${quote(verb)}.`;
+          explanations[index + 1] = `${quote(tokens[index + 1] || '')} (${TENER_FEELINGS[key(tokens[index + 1] || '')]}) also takes no article.`;
+          had = `${word} y ${tokens[index + 1]}`;
+          index += 2;
+        }
+      }
+      if (!had) had = items();
       if (!had && NOUN_KIND[key(word)]?.endsWith('plural')) {
         explanations[index] = `${quote(word)} is a plural, so after ${quote(verb)} it needs no article.`;
         had = word;
@@ -1103,6 +1330,19 @@ function teachClause(text: string): ClausePlan {
       }
       if (!had) return { explanations, relations, supported: false };
       if (!AGES.has(key(word))) relations.push({ start: verbIndex, end: index, explanation: `After ${quote(verb)} comes what someone has: ${quote(had)}.` });
+    } else if (ESTAR.has(verbKey) && (FEELINGS[key(word)] || (key(word) === 'muy' && key(tokens[index + 1] || '') === 'bien'))) {
+      // Estoy feliz. Ella está cansada. Estoy muy bien.
+      const very = key(word) === 'muy' ? 1 : 0;
+      const feeling = tokens[index + very] || '';
+      const [english, kind] = FEELINGS[key(feeling)];
+      const gender = subjectKinds.length === 1 && !subjectKinds[0].startsWith('any') ? subjectKinds[0].split(' ')[0] : '';
+      if (kind !== 'any' && (verbPlural || (gender && !kind.startsWith(gender)))) return { explanations, relations, supported: false };
+      if (very) explanations[index] = '“muy” (very) goes right before “bien”: “muy bien” is “great”.';
+      explanations[index + very] = kind === 'any'
+        ? `${quote(feeling)} (${very ? 'great' : english}) comes after ${quote(verb)}; it is the same for a man or a woman.`
+        : `${quote(feeling)} (${english}) comes after ${quote(verb)}, and its ending matches ${gender ? quote(subject) : 'the speaker'} (${kind.split(' ')[0]}).`;
+      relations.push({ start: verbIndex, end: index + very + 1, explanation: `How someone feels uses estar: ${quote(tokens.slice(verbIndex, index + very + 1).join(' '))}.` });
+      index += very + 1;
     } else if (ACTIONS.has(key(word))) {
       explanations[index] = `${quote(word)} is the action, so it comes right after ${quote(verb)}.`;
       relations.push({ start: verbIndex, end: index + 1, explanation: `${quote(verb)} + the action: ${quote(`${verb} ${word}`)}.` });

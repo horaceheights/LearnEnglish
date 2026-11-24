@@ -1,0 +1,62 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "456f91d9-9912-4f03-aa03-c5612c432757",
+  "asset_id": "w11-sofia-red-shoes",
+  "pack_sha256": "50ff3e97ef487b1d26ac7d2b65097486f6daf97f781201f7d59b0ad42d4e175a",
+  "started_at": "2026-11-24T16:55:07.630865+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Edit Image 1. Keep Sofia, her face, hair and clothes, the shoe store, the light and the camera position exactly the same; change only what is described below. No letters, words, numbers or logos anywhere.\n\nSofia now holds a PAIR of red shoes: one red shoe in her left hand and one red shoe in her right hand, the two red shoes side by side in front of her, both whole and clearly visible, so it is obvious at a glance that she holds two shoes. The pair of black shoes stays on the wooden shelf beside her, exactly where it is. No other red shoe is anywhere in the photo.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1plus-unit-2-w01-b2c2e50e21089f18.webp",
+    "sha256": "b2c2e50e21089f1863dd9c83bd459f7cf4f472f192d077fd89bf3ee1ff6f4f9d"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "bMEFa8jsKP7Bz7IPtrzVuA0",
+  "usage": {
+    "promptTokenCount": 391,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1681,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 133
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038817",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 391,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 9.23,
+  "output": "output/imagegen/a1plus-unit-2-lesson-v2101/w11-sofia-red-shoes.png",
+  "sha256": "97df9be425e410671cfb56d1cc604fb3aa4d235345e62a2cfb52f1527f7d0e39",
+  "byte_count": 1240979,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}
