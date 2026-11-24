@@ -5,7 +5,7 @@
     "lesson": "5.9",
     "title": "Ordering Politely 1: At a Café"
   },
-  "note": "A1+ Unit 5 Lesson 5.9, built on 2026-11-20 under the A1+ lesson standards approved 2026-10-27 and the user's 2026-11-09 rule that every A1+ lesson follows up the A1 lesson with the same number. The user asked on 2026-11-20 to \"work on a1+ Unit 5 same all deal as before none stop all approved\": A1+ 5.Y follows A1 5.Y with one step each, straight to Preview in batches, Gemini 2.5 Flash photos and ElevenLabs audio pre-approved, no per-lesson gates, reviewed in Preview. Four café counter photos: Luis with a sandwich, Ana with a cup of tea, Sofia with an orange juice, Diego with a slice of chocolate cake; the waiter is never pictured.",
+  "note": "A1+ Unit 5 Lesson 5.9, built on 2026-11-20 under the A1+ lesson standards approved 2026-10-27 and the user's 2026-11-09 rule that every A1+ lesson follows up the A1 lesson with the same number. The user asked on 2026-11-20 to \"work on a1+ Unit 5 same all deal as before none stop all approved\": A1+ 5.Y follows A1 5.Y with one step each, straight to Preview in batches, Gemini 2.5 Flash photos and ElevenLabs audio pre-approved, no per-lesson gates, reviewed in Preview. Café photos: Luis with a sandwich and with a lemonade, Ana with a cup of tea, Diego with a slice of chocolate cake, Diego calling for the menu at an empty table and Sofia asking for the bill after her meal; the waiter is never pictured.",
   "target": "backend/lessons/a1_plus/unit_5/a1plus-unit-5-lesson-5-9.yaml",
   "captions": false,
   "narrators": [
@@ -28,18 +28,20 @@
     "goal": "Order politely at a café with I'd like …, please. and understand the question What would you like?",
     "vocabulary": [
       "I'd like",
-      "What would you like?"
+      "What would you like?",
+      "menu",
+      "bill"
     ],
     "review_vocabulary": [
       "please",
       "a sandwich",
       "a cup of tea",
-      "an orange juice",
+      "a lemonade",
       "some cake",
       "Can I have …?",
       "Would you like …?"
     ],
-    "grammar_function": "A follow-up of A1 5.9 Ordering Politely 1: At a Café: A1 orders with Can I have …, please? and hands things over with Here is your …; A1+ 5.9 orders with I'd like …, please. and understands the waiter's What would you like?, after 5.3's Would you like …? offer. I'd like is learnt as a whole (the short form of would is not taken apart). Each cast member stands at the café counter with what they ordered; the waiter is never pictured, so a narrator in a voice other than the customer's asks. Listen sets I'd like against A1's Can I have …?",
+    "grammar_function": "A follow-up of A1 5.9 Ordering Politely 1: At a Café: A1 orders with Can I have …, please? and hands things over with Here is your …; A1+ 5.9 orders with I'd like …, please. and understands the waiter's What would you like?, after 5.3's Would you like …? offer. I'd like is learnt as a whole (the short form of would is not taken apart). Each cast member stands at the café counter with what they ordered; the waiter is never pictured, so a narrator in a voice other than the customer's asks. Listen sets I'd like against A1's Can I have …? On 2026-11-23 the menu and the bill were added: a customer asks for the menu before ordering and for the bill after the meal.",
     "prerequisite": "A1 5.9 Can I have …, please?; A1+ 5.3 Would you like …?; A1 5.13 sandwich; A1 5.14 cup, of, cake; A1+ 4.15 some.",
     "speaking_outcome": "Say I'd like as one word-group (IDE-like), with the d short; do not require native-like speed.",
     "content_revision": 1,
@@ -91,6 +93,30 @@
             "text": "I'd like some cake, please."
           }
         ]
+      },
+      {
+        "kind": "sequence",
+        "targets": [
+          "menu"
+        ],
+        "models": [
+          {
+            "slide_id": "L5",
+            "text": "It's the menu."
+          }
+        ]
+      },
+      {
+        "kind": "sequence",
+        "targets": [
+          "bill"
+        ],
+        "models": [
+          {
+            "slide_id": "L6",
+            "text": "It's the bill."
+          }
+        ]
       }
     ]
   },
@@ -140,6 +166,28 @@
       "speaker": "diego"
     },
     {
+      "id": "l-menu",
+      "text": "It's the menu.",
+      "es": "Es el menú.",
+      "image": "/lesson-assets/a1plus-unit-5-q05-432a2dfee1ac2728.webp",
+      "kind": "sequence",
+      "choices": false,
+      "use": false,
+      "learn": true,
+      "speaker": "teacher"
+    },
+    {
+      "id": "l-bill",
+      "text": "It's the bill.",
+      "es": "Es la cuenta.",
+      "image": "/lesson-assets/a1plus-unit-5-q06-de9534e77c43430b.webp",
+      "kind": "sequence",
+      "choices": false,
+      "use": false,
+      "learn": true,
+      "speaker": "co-teacher"
+    },
+    {
       "id": "o-sandwich",
       "text": "I'd like a sandwich, please.",
       "es": "Quisiera un sándwich, por favor.",
@@ -151,7 +199,7 @@
       "question_speaker": "teacher",
       "prefer": [
         "I'd like a cup of tea, please.",
-        "I'd like an orange juice, please."
+        "I'd like a lemonade, please."
       ],
       "accepts": {
         "subject-variety": "Listen: the answer is what was heard; I'd like and Can I have … are told apart by ear.",
@@ -199,7 +247,7 @@
       "question_speaker": "co-teacher",
       "prefer": [
         "I'd like a sandwich, please.",
-        "I'd like an orange juice, please."
+        "I'd like a lemonade, please."
       ],
       "accepts": {
         "subject-variety": "Listen: the answer is what was heard; I'd like and Can I have … are told apart by ear.",
@@ -236,12 +284,12 @@
       "learn": false
     },
     {
-      "id": "o-juice",
-      "text": "I'd like an orange juice, please.",
-      "es": "Quisiera un jugo de naranja, por favor.",
-      "image": "/lesson-assets/a1plus-unit-5-q03-70d3cb6c41177ac3.webp",
+      "id": "o-lemonade",
+      "text": "I'd like a lemonade, please.",
+      "es": "Quisiera una limonada, por favor.",
+      "image": "/lesson-assets/a1plus-unit-5-q19-e360934d65c6f16b.webp",
       "kind": "order",
-      "speaker": "sofia",
+      "speaker": "luis",
       "question": "What would you like?",
       "question_es": "¿Qué le gustaría?",
       "question_speaker": "co-teacher",
@@ -262,21 +310,21 @@
       "learn": false
     },
     {
-      "id": "x-juice",
-      "text": "What would you like? I'd like an orange juice, please.",
-      "es": "¿Qué le gustaría? Quisiera un jugo de naranja, por favor.",
-      "image": "/lesson-assets/a1plus-unit-5-q03-70d3cb6c41177ac3.webp",
+      "id": "x-lemonade",
+      "text": "What would you like? I'd like a lemonade, please.",
+      "es": "¿Qué le gustaría? Quisiera una limonada, por favor.",
+      "image": "/lesson-assets/a1plus-unit-5-q19-e360934d65c6f16b.webp",
       "kind": "exchange",
       "turns": [
         {
           "text": "What would you like?",
           "speaker": "co-teacher",
-          "image": "/lesson-assets/a1plus-unit-5-q03-70d3cb6c41177ac3.webp"
+          "image": "/lesson-assets/a1plus-unit-5-q19-e360934d65c6f16b.webp"
         },
         {
-          "text": "I'd like an orange juice, please.",
-          "speaker": "sofia",
-          "image": "/lesson-assets/a1plus-unit-5-q03-70d3cb6c41177ac3.webp"
+          "text": "I'd like a lemonade, please.",
+          "speaker": "luis",
+          "image": "/lesson-assets/a1plus-unit-5-q19-e360934d65c6f16b.webp"
         }
       ],
       "choices": false,
@@ -332,6 +380,102 @@
       "learn": false
     },
     {
+      "id": "o-menu",
+      "text": "I'd like the menu, please.",
+      "es": "Quisiera el menú, por favor.",
+      "image": "/lesson-assets/a1plus-unit-5-q17-43e2bd22cabc337f.webp",
+      "kind": "order",
+      "speaker": "diego",
+      "question": "What would you like?",
+      "question_es": "¿Qué le gustaría?",
+      "question_speaker": "teacher",
+      "prefer": [
+        "I'd like a sandwich, please.",
+        "I'd like a cup of tea, please."
+      ],
+      "accepts": {
+        "subject-variety": "Listen: the answer is what was heard; I'd like and Can I have … are told apart by ear.",
+        "action-variety": "Listen: the answer is what was heard; I'd like and Can I have … are told apart by ear.",
+        "conversational-response": "Listen: the answer is what was heard; I'd like and Can I have … are told apart by ear.",
+        "reading-load": "Listen: the answer is what was heard; I'd like and Can I have … are told apart by ear."
+      },
+      "blanks": [
+        "menu",
+        "please"
+      ],
+      "learn": false
+    },
+    {
+      "id": "x-menu",
+      "text": "What would you like? I'd like the menu, please.",
+      "es": "¿Qué le gustaría? Quisiera el menú, por favor.",
+      "image": "/lesson-assets/a1plus-unit-5-q17-43e2bd22cabc337f.webp",
+      "kind": "exchange",
+      "turns": [
+        {
+          "text": "What would you like?",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-5-q17-43e2bd22cabc337f.webp"
+        },
+        {
+          "text": "I'd like the menu, please.",
+          "speaker": "diego",
+          "image": "/lesson-assets/a1plus-unit-5-q17-43e2bd22cabc337f.webp"
+        }
+      ],
+      "choices": false,
+      "use": false,
+      "learn": false
+    },
+    {
+      "id": "o-bill",
+      "text": "I'd like the bill, please.",
+      "es": "Quisiera la cuenta, por favor.",
+      "image": "/lesson-assets/a1plus-unit-5-q18-4d1fb881613a1ec9.webp",
+      "kind": "order",
+      "speaker": "sofia",
+      "question": "What would you like?",
+      "question_es": "¿Qué le gustaría?",
+      "question_speaker": "co-teacher",
+      "prefer": [
+        "I'd like a sandwich, please.",
+        "I'd like a cup of tea, please."
+      ],
+      "accepts": {
+        "subject-variety": "Listen: the answer is what was heard; I'd like and Can I have … are told apart by ear.",
+        "action-variety": "Listen: the answer is what was heard; I'd like and Can I have … are told apart by ear.",
+        "conversational-response": "Listen: the answer is what was heard; I'd like and Can I have … are told apart by ear.",
+        "reading-load": "Listen: the answer is what was heard; I'd like and Can I have … are told apart by ear."
+      },
+      "blanks": [
+        "bill",
+        "please"
+      ],
+      "learn": false
+    },
+    {
+      "id": "x-bill",
+      "text": "What would you like? I'd like the bill, please.",
+      "es": "¿Qué le gustaría? Quisiera la cuenta, por favor.",
+      "image": "/lesson-assets/a1plus-unit-5-q18-4d1fb881613a1ec9.webp",
+      "kind": "exchange",
+      "turns": [
+        {
+          "text": "What would you like?",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-5-q18-4d1fb881613a1ec9.webp"
+        },
+        {
+          "text": "I'd like the bill, please.",
+          "speaker": "sofia",
+          "image": "/lesson-assets/a1plus-unit-5-q18-4d1fb881613a1ec9.webp"
+        }
+      ],
+      "choices": false,
+      "use": false,
+      "learn": false
+    },
+    {
       "id": "h-can",
       "text": "Can I have a sandwich, please?",
       "es": "¿Me da un sándwich, por favor?",
@@ -355,7 +499,7 @@
       "id": "h-would",
       "text": "Would you like some tea?",
       "es": "¿Quieres un poco de té?",
-      "image": "/lesson-assets/a1plus-unit-5-o01-2b72061f1a90e239.webp",
+      "image": "/lesson-assets/a1plus-unit-5-o21-40bf6d4ce15f5a44.webp",
       "kind": "offer",
       "speaker": "ana",
       "choices": false,
@@ -366,7 +510,7 @@
       "id": "w-what",
       "text": "What would you like?",
       "es": "¿Qué le gustaría?",
-      "image": "/lesson-assets/a1plus-unit-5-q03-70d3cb6c41177ac3.webp",
+      "image": "/lesson-assets/a1plus-unit-5-q02-6e5d6f9c4b6cf6f6.webp",
       "kind": "ask-q",
       "speaker": "co-teacher",
       "image_choices": false,
@@ -390,23 +534,9 @@
       "id": "u-tea-luis",
       "text": "I'd like some tea, please.",
       "es": "Quisiera un poco de té, por favor.",
-      "image": "/lesson-assets/a1plus-unit-5-o01-2b72061f1a90e239.webp",
+      "image": "/lesson-assets/a1plus-unit-5-o21-40bf6d4ce15f5a44.webp",
       "kind": "say",
       "speaker": "luis",
-      "choices": false,
-      "blanks": [
-        "I'd",
-        "like"
-      ],
-      "learn": false
-    },
-    {
-      "id": "u-juice-sofia",
-      "text": "I'd like some juice, please.",
-      "es": "Quisiera un poco de jugo, por favor.",
-      "image": "/lesson-assets/a1plus-unit-5-o06-ea3556af242f7321.webp",
-      "kind": "say",
-      "speaker": "sofia",
       "choices": false,
       "blanks": [
         "I'd",
@@ -445,9 +575,9 @@
       "image_choices": false
     },
     {
-      "text": "Can I have an orange juice, please?",
-      "es": "¿Me da un jugo de naranja, por favor?",
-      "image": "/lesson-assets/a1plus-unit-5-q03-70d3cb6c41177ac3.webp",
+      "text": "Can I have a lemonade, please?",
+      "es": "¿Me da una limonada, por favor?",
+      "image": "/lesson-assets/a1plus-unit-5-q19-e360934d65c6f16b.webp",
       "kind": "order",
       "image_choices": false
     },
@@ -459,9 +589,23 @@
       "image_choices": false
     },
     {
+      "text": "Can I have the menu, please?",
+      "es": "¿Me da el menú, por favor?",
+      "image": "/lesson-assets/a1plus-unit-5-q17-43e2bd22cabc337f.webp",
+      "kind": "order",
+      "image_choices": false
+    },
+    {
+      "text": "Can I have the bill, please?",
+      "es": "¿Me da la cuenta, por favor?",
+      "image": "/lesson-assets/a1plus-unit-5-q18-4d1fb881613a1ec9.webp",
+      "kind": "order",
+      "image_choices": false
+    },
+    {
       "text": "Would you like some tea?",
       "es": "¿Quieres un poco de té?",
-      "image": "/lesson-assets/a1plus-unit-5-o01-2b72061f1a90e239.webp",
+      "image": "/lesson-assets/a1plus-unit-5-o21-40bf6d4ce15f5a44.webp",
       "kind": "ask-q",
       "image_choices": false
     },
@@ -491,50 +635,52 @@
       "l-what",
       "l-id-like",
       "l-tea",
-      "l-cake"
+      "l-cake",
+      "l-menu",
+      "l-bill"
     ],
     "Recognize": [
       "o-sandwich",
-      "o-juice",
+      "o-menu",
       "o-tea",
+      "o-bill",
+      "o-lemonade",
       "o-cake",
-      "o-juice",
+      "o-menu",
+      "o-bill",
       "o-sandwich",
-      "o-cake",
-      "o-tea",
-      "o-juice",
-      "o-sandwich"
+      "o-lemonade"
     ],
     "Listen": [
       "o-tea",
       "h-can",
-      "o-cake",
+      "o-menu",
       "w-what",
-      "o-juice",
-      "o-tea",
+      "o-bill",
+      "o-lemonade",
       "o-sandwich",
       "w-what",
-      "o-juice",
-      "o-tea"
+      "o-menu",
+      "o-bill"
     ],
     "Speak": [
       "x-sandwich",
-      "o-tea",
-      "o-juice",
+      "o-menu",
+      "o-bill",
       "o-cake",
       "w-what",
       "h-would",
       "u-hot",
-      "u-tea-luis"
+      "o-lemonade"
     ],
     "Use": [
       "o-sandwich",
-      "o-tea",
-      "o-juice",
+      "o-menu",
+      "o-bill",
       "o-cake",
       "w-what",
       "u-tea-luis",
-      "u-juice-sofia",
+      "o-lemonade",
       "u-hot"
     ]
   }

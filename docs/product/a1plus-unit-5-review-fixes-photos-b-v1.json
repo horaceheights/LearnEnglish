@@ -1,0 +1,471 @@
+{
+  "schema_version": 1,
+  "pack": "a1plus-unit-5-review-fixes-photos-b",
+  "revision": 1,
+  "output_namespace": "a1plus-unit-5-lesson-v592",
+  "authorization": "2026-11-23: after reviewing A1+ Unit 5 the user asked to \"review unit A1+ 5 make sure the images make sense to the ask ... introducing new vocabulary and expanding\", said \"image redo and audio approved\" and chose \"Photos and new words\". Gemini is the approved image tool (2026-09-23), Flash only (2026-11-17).",
+  "image_settings": {
+    "provider": "google-gemini",
+    "model": "gemini-2.5-flash-image",
+    "aspect_ratio": "3:2",
+    "image_size": "1K",
+    "runtime_size": "1536x1024",
+    "runtime_format": "webp",
+    "n": 1
+  },
+  "production": {
+    "price_per_image_usd": "0.0387",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing (checked 2026-11-16: Gemini 2.5 Flash Image, about $0.039 per image)",
+    "planned_images": 27,
+    "expected_cost_usd": "1.04",
+    "requested_ceiling_usd": "1.25",
+    "ceiling_note": "The renderer reserves US$0.20 before each request; each request is sent on its own, and the expected spend for the pack is about US$1.04.",
+    "no_automatic_retries": true,
+    "order": [
+      "q05-menu",
+      "q06-bill",
+      "q07-diego-menu",
+      "q08-sofia-bill",
+      "q09-luis-lemonade",
+      "r22-luis-bananas",
+      "r23-diego-apples",
+      "r24-luis-oranges-too",
+      "r25-ana-lemons",
+      "n23-bike-99",
+      "n25-cake-24",
+      "f09-onion",
+      "f10-carrot",
+      "f11-mushroom",
+      "f06-soup-onion-carrot",
+      "f07-sandwich-mushroom-cheese",
+      "f08-salad-carrot-egg",
+      "t21-ana-salt-luis",
+      "t22-sofia-sugar-diego",
+      "t27-luis-bread-sofia",
+      "t29-diego-butter-ana",
+      "u01-fork",
+      "u02-knife",
+      "u03-spoon",
+      "u05-luis-fork-ana",
+      "u06-sofia-spoon-diego",
+      "u07-ana-knife-luis"
+    ]
+  },
+  "shared_prompts": {
+    "photo": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, menus, screens, cups, clothes or bags.",
+    "safe_center": "Keep the people and the thing that carries the meaning inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.",
+    "solo": "Only this one person is in the photo; there is nobody else, even far in the background.",
+    "pair": "Only these two people are in the photo; there is nobody else, even far in the background.",
+    "daytime": "It is clearly daytime with soft natural light.",
+    "kitchen": "The place is a bright, tidy home kitchen with a light wooden table, white walls and a big window; nothing else is on the table.",
+    "still": "No people, hands or animals are in the photo. The food sits in the middle of the table and fills the central part of the photo, sharp and easy to count or judge on a small phone screen.",
+    "few": "Exactly three pieces are visible, clearly separate, not touching, with plenty of empty space around them so the small amount is obvious at once.",
+    "lots": "There are so many that they cannot be counted at a glance: a big generous heap.",
+    "keep": "Keep each pictured person's face, hair, skin, build and clothes exactly as in the reference image; they look natural and relaxed, not posing for the camera.",
+    "numeral": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. No letters, words, logos or brand marks anywhere. The only writing in the photo is each price card described: a small white card on a little stand with a dollar sign and a number in big, thick black print, upright, facing the camera, sharp and easy to read on a small phone screen. No other signs, labels, screens or clothes show any digit or letter.",
+    "phototext": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No logos or brand marks anywhere.",
+    "big": "The thing that carries the meaning is BIG in the photo: it fills at least a third of the photo height and is sharp, so it is recognized at once in a thumbnail 180 pixels wide.",
+    "stall": "The place is an outdoor fruit market by day, at a wooden stall; the background is softly blurred. No seller is in the photo.",
+    "cafe": "The place is a bright, simple neighborhood café with light wooden tables, a few plants and big windows; the tables behind are empty.",
+    "card": "The price is printed in very big black digits on a big white card that stands right in front of the thing; the card is about a quarter of the photo height, and its digits are easy to read in a small thumbnail. No other text is in the photo.",
+    "stranger": "The people are ordinary adults who appear nowhere else; nobody resembles a celebrity."
+  },
+  "assets": [
+    {
+      "id": "q05-menu",
+      "order": 1,
+      "item": "It's the menu.",
+      "shared": [
+        "phototext",
+        "still",
+        "daytime",
+        "big",
+        "cafe"
+      ],
+      "prompt": "On a light wooden café table lies one big closed menu: a tall card with the single word MENU printed in large capital letters on its cover. Nothing else is on the table. The word MENU is the only text in the photo."
+    },
+    {
+      "id": "q06-bill",
+      "order": 2,
+      "item": "It's the bill.",
+      "shared": [
+        "photo",
+        "still",
+        "daytime",
+        "big",
+        "cafe"
+      ],
+      "prompt": "On a light wooden café table stands a small black tray with a long white paper bill, a printed receipt with a few lines of tiny unreadable print, and a few coins on top of it. Beside it are an empty coffee cup and an empty plate with crumbs: the meal is over."
+    },
+    {
+      "id": "q07-diego-menu",
+      "order": 3,
+      "item": "Can I have the menu, please?",
+      "shared": [
+        "photo",
+        "safe_center",
+        "solo",
+        "daytime",
+        "keep",
+        "big",
+        "cafe"
+      ],
+      "prompt": "Image 1 shows Diego. Diego sits at a café table with nothing on it, looks up toward someone outside the photo and raises one hand a little to call them, with a friendly smile. No menu, food or drink is on his table yet."
+    },
+    {
+      "id": "q08-sofia-bill",
+      "order": 4,
+      "item": "I'd like the bill, please.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "solo",
+        "daytime",
+        "keep",
+        "big",
+        "cafe"
+      ],
+      "prompt": "Image 1 shows Sofia. Sofia sits at a café table after her meal: an empty plate and an empty cup are in front of her. She holds her wallet open in one hand and looks up toward someone outside the photo, raising her other hand a little to call them."
+    },
+    {
+      "id": "q09-luis-lemonade",
+      "order": 5,
+      "item": "I'd like a lemonade, please.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "solo",
+        "daytime",
+        "keep",
+        "big",
+        "cafe"
+      ],
+      "prompt": "Image 1 shows Luis. Luis stands at the café counter and smiles; on the counter in front of him stands one tall clear glass of pale yellow lemonade with ice and round lemon slices."
+    },
+    {
+      "id": "r22-luis-bananas",
+      "order": 6,
+      "item": "Yes, I'd like some bananas, please.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "solo",
+        "daytime",
+        "keep",
+        "big",
+        "stall"
+      ],
+      "prompt": "Image 1 shows Luis. Luis stands at the stall with empty hands and no bag, and points with one finger at a big bunch of yellow bananas that lies alone on the wooden counter in front of him. He looks up as if speaking to the seller."
+    },
+    {
+      "id": "r23-diego-apples",
+      "order": 7,
+      "item": "Yes, I'd like some apples, please.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "solo",
+        "daytime",
+        "keep",
+        "big",
+        "stall"
+      ],
+      "prompt": "Image 1 shows Diego. Diego stands at the stall with empty hands and no bag, and points with one finger at a wooden box full of red apples that stands alone on the counter in front of him. He looks up as if speaking to the seller."
+    },
+    {
+      "id": "r24-luis-oranges-too",
+      "order": 8,
+      "item": "I'd like some oranges, too.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "solo",
+        "daytime",
+        "keep",
+        "big",
+        "stall"
+      ],
+      "prompt": "Image 1 shows Luis. Luis stands at the stall and holds a big bunch of yellow bananas in one hand; with the other hand he points at a basket of bright oranges on the counter in front of him. He looks up as if speaking to the seller."
+    },
+    {
+      "id": "r25-ana-lemons",
+      "order": 9,
+      "item": "Yes, I'd like some lemons, please.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "solo",
+        "daytime",
+        "keep",
+        "big",
+        "stall"
+      ],
+      "prompt": "Image 1 shows Ana. Ana stands at the stall with empty hands and no bag, and points with one finger at a basket full of bright yellow lemons that stands alone on the counter in front of her. She looks up as if speaking to the seller."
+    },
+    {
+      "id": "n23-bike-99",
+      "order": 10,
+      "item": "The bike is ninety-nine dollars.",
+      "shared": [
+        "numeral",
+        "card",
+        "daytime"
+      ],
+      "prompt": "One red city bike stands in a plain bright shop against a white wall. A big white price card that reads $99 stands on the floor right in front of the bike. No people."
+    },
+    {
+      "id": "n25-cake-24",
+      "order": 11,
+      "item": "The cake is twenty-four dollars.",
+      "shared": [
+        "numeral",
+        "card",
+        "daytime"
+      ],
+      "prompt": "One whole white cake with strawberries on top stands on a cake stand on a light wooden counter, close to the camera. A big white price card that reads $24 stands on the counter right in front of the cake. No people."
+    },
+    {
+      "id": "f09-onion",
+      "order": 12,
+      "item": "It's an onion.",
+      "shared": [
+        "photo",
+        "kitchen",
+        "still",
+        "daytime",
+        "big"
+      ],
+      "prompt": "One whole brown onion and beside it one onion cut in half showing its white rings, on a light wooden kitchen table."
+    },
+    {
+      "id": "f10-carrot",
+      "order": 13,
+      "item": "It's a carrot.",
+      "shared": [
+        "photo",
+        "kitchen",
+        "still",
+        "daytime",
+        "big"
+      ],
+      "prompt": "One big bright orange carrot with its green leaves lying on a light wooden kitchen table."
+    },
+    {
+      "id": "f11-mushroom",
+      "order": 14,
+      "item": "It's a mushroom.",
+      "shared": [
+        "photo",
+        "kitchen",
+        "still",
+        "daytime",
+        "big"
+      ],
+      "prompt": "One big white button mushroom standing on a light wooden kitchen table, and beside it one mushroom cut in half."
+    },
+    {
+      "id": "f06-soup-onion-carrot",
+      "order": 15,
+      "item": "There's onion and carrot in it.",
+      "shared": [
+        "photo",
+        "kitchen",
+        "still",
+        "daytime",
+        "big"
+      ],
+      "prompt": "Seen from above: one white bowl of clear golden soup with only two things in it, both easy to see: many round slices of bright orange carrot and many white rings of onion. Nothing else is in the soup: no meat, no potato, no herbs."
+    },
+    {
+      "id": "f07-sandwich-mushroom-cheese",
+      "order": 16,
+      "item": "There's mushroom and cheese in it.",
+      "shared": [
+        "photo",
+        "kitchen",
+        "still",
+        "daytime",
+        "big"
+      ],
+      "prompt": "One toasted sandwich cut in two and opened toward the camera on a white plate, so its filling is easy to see: thick slices of white mushroom and melted yellow cheese, and nothing else."
+    },
+    {
+      "id": "f08-salad-carrot-egg",
+      "order": 17,
+      "item": "There's carrot and egg in it.",
+      "shared": [
+        "photo",
+        "kitchen",
+        "still",
+        "daytime",
+        "big"
+      ],
+      "prompt": "Seen from above: one white bowl with only two things in it, both easy to see: a lot of grated bright orange carrot and four halves of boiled egg with yellow yolks. No leaves, no tomato, nothing else."
+    },
+    {
+      "id": "t21-ana-salt-luis",
+      "order": 18,
+      "item": "Can you pass the salt, please? Here you are.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "pair",
+        "daytime",
+        "keep"
+      ],
+      "prompt": "Image 1 shows Luis alone; copy his face, hair, skin and build exactly. Ana: long dark wavy hair, light-olive skin, sage-green overshirt over a white top, jeans. Luis: a very tall man with short dark curly hair, clean-shaven, warm medium-brown skin, navy crew-neck T-shirt. Ana (left) hands Luis (right) a big clear glass salt shaker full of white salt with a shiny metal top with holes; Luis reaches out to take it. They sit facing each other across a light wooden dining table in a bright dining room by day. The camera is close: both are seen from the waist up, and the thing that is passed is held up in the exact middle of the photo, between them, big and sharp, well above the plates.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-q01-135c3f8f772bcbe4.webp",
+        "sha256": "135c3f8f772bcbe472b8cec719eb02318a7d52ce1c7152a94c6952aeb78566c2",
+        "observed_description": "Luis (short dark curly hair, clean-shaven, warm medium-brown skin, navy crew-neck T-shirt) drinks coffee from a white mug at a wooden table in his bright kitchen (A1+ 1.2)."
+      }
+    },
+    {
+      "id": "t22-sofia-sugar-diego",
+      "order": 19,
+      "item": "Can you pass the sugar, please? Here you are.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "pair",
+        "daytime",
+        "keep"
+      ],
+      "prompt": "Image 1 shows Diego alone; copy his face, hair, beard and build exactly. Sofia: long dark curly hair (often in a high bun), warm brown skin, bright blue blazer over a white blouse. Diego: dark curly hair with a little grey, short full beard, burgundy button shirt. Sofia (left) hands Diego (right) a wide open glass bowl full of white sugar cubes with a small spoon in it; Diego reaches out to take it. Two coffee cups are on the table. They sit facing each other across a light wooden dining table in a bright dining room by day. The camera is close: both are seen from the waist up, and the thing that is passed is held up in the exact middle of the photo, between them, big and sharp, well above the plates.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-q04-ded74a2cb6021167.webp",
+        "sha256": "ded74a2cb6021167d6af2351e9012476d36c1b0936ca9f4f4b6dee68783bb9e2",
+        "observed_description": "Diego (dark curly hair with a little grey, short full beard, burgundy button shirt) sits at a wooden kitchen table and bites a red apple (A1+ 1.2)."
+      }
+    },
+    {
+      "id": "t27-luis-bread-sofia",
+      "order": 20,
+      "item": "Can you pass the bread, please? Here you are.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "pair",
+        "daytime",
+        "keep"
+      ],
+      "prompt": "Image 1 shows Luis alone; copy his face, hair, skin and build exactly. Luis: a very tall man with short dark curly hair, clean-shaven, warm medium-brown skin, navy crew-neck T-shirt. Sofia: long dark curly hair (often in a high bun), warm brown skin, bright blue blazer over a white blouse. Luis (left) hands Sofia (right) a woven basket full of bread rolls and slices of bread; Sofia reaches out to take it. They sit facing each other across a light wooden dining table in a bright dining room by day. The camera is close: both are seen from the waist up, and the thing that is passed is held up in the exact middle of the photo, between them, big and sharp, well above the plates.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-q01-135c3f8f772bcbe4.webp",
+        "sha256": "135c3f8f772bcbe472b8cec719eb02318a7d52ce1c7152a94c6952aeb78566c2",
+        "observed_description": "Luis (short dark curly hair, clean-shaven, warm medium-brown skin, navy crew-neck T-shirt) drinks coffee from a white mug at a wooden table in his bright kitchen (A1+ 1.2)."
+      }
+    },
+    {
+      "id": "t29-diego-butter-ana",
+      "order": 21,
+      "item": "Can you pass the butter, please? Here you are.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "pair",
+        "daytime",
+        "keep"
+      ],
+      "prompt": "Image 1 shows Diego alone; copy his face, hair, beard and build exactly. Diego: dark curly hair with a little grey, short full beard, burgundy button shirt. Ana: long dark wavy hair, light-olive skin, sage-green overshirt over a white top, jeans. Diego (left) hands Ana (right) a white butter dish with one big block of pale yellow butter on it and no lid; Ana reaches out to take it. Slices of bread are on their plates. They sit facing each other across a light wooden dining table in a bright dining room by day. The camera is close: both are seen from the waist up, and the thing that is passed is held up in the exact middle of the photo, between them, big and sharp, well above the plates.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-q04-ded74a2cb6021167.webp",
+        "sha256": "ded74a2cb6021167d6af2351e9012476d36c1b0936ca9f4f4b6dee68783bb9e2",
+        "observed_description": "Diego (dark curly hair with a little grey, short full beard, burgundy button shirt) sits at a wooden kitchen table and bites a red apple (A1+ 1.2)."
+      }
+    },
+    {
+      "id": "u01-fork",
+      "order": 22,
+      "item": "It's a fork.",
+      "shared": [
+        "photo",
+        "kitchen",
+        "still",
+        "daytime",
+        "big"
+      ],
+      "prompt": "One big shiny metal fork lying alone, diagonally, on a light wooden kitchen table, seen from above; it reaches almost from one side of the photo to the other."
+    },
+    {
+      "id": "u02-knife",
+      "order": 23,
+      "item": "It's a knife.",
+      "shared": [
+        "photo",
+        "kitchen",
+        "still",
+        "daytime",
+        "big"
+      ],
+      "prompt": "One big shiny metal table knife lying alone, diagonally, on a light wooden kitchen table, seen from above; it reaches almost from one side of the photo to the other."
+    },
+    {
+      "id": "u03-spoon",
+      "order": 24,
+      "item": "It's a spoon.",
+      "shared": [
+        "photo",
+        "kitchen",
+        "still",
+        "daytime",
+        "big"
+      ],
+      "prompt": "One big shiny metal soup spoon lying alone, diagonally, on a light wooden kitchen table, seen from above; it reaches almost from one side of the photo to the other."
+    },
+    {
+      "id": "u05-luis-fork-ana",
+      "order": 25,
+      "item": "Can you pass a fork, please? Here you are.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "pair",
+        "daytime",
+        "keep"
+      ],
+      "prompt": "Image 1 shows Luis alone; copy his face, hair, skin and build exactly. Luis: a very tall man with short dark curly hair, clean-shaven, warm medium-brown skin, navy crew-neck T-shirt. Ana: long dark wavy hair, light-olive skin, sage-green overshirt over a white top, jeans. Luis (left) hands Ana (right) one big shiny metal fork, held upright so its four points are easy to see; Ana reaches out to take it. They sit facing each other across a light wooden dining table in a bright dining room by day. The camera is close: both are seen from the waist up, and the thing that is passed is held up in the exact middle of the photo, between them, big and sharp, well above the plates.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-q01-135c3f8f772bcbe4.webp",
+        "sha256": "135c3f8f772bcbe472b8cec719eb02318a7d52ce1c7152a94c6952aeb78566c2",
+        "observed_description": "Luis (short dark curly hair, clean-shaven, warm medium-brown skin, navy crew-neck T-shirt) drinks coffee from a white mug at a wooden table in his bright kitchen (A1+ 1.2)."
+      }
+    },
+    {
+      "id": "u06-sofia-spoon-diego",
+      "order": 26,
+      "item": "Can you pass a spoon, please? Here you are.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "pair",
+        "daytime",
+        "keep"
+      ],
+      "prompt": "Image 1 shows Diego alone; copy his face, hair, beard and build exactly. Sofia: long dark curly hair (often in a high bun), warm brown skin, bright blue blazer over a white blouse. Diego: dark curly hair with a little grey, short full beard, burgundy button shirt. Sofia (left) hands Diego (right) one big shiny metal soup spoon, held upright so its round bowl is easy to see; Diego reaches out to take it. A bowl of soup is in front of Diego. They sit facing each other across a light wooden dining table in a bright dining room by day. The camera is close: both are seen from the waist up, and the thing that is passed is held up in the exact middle of the photo, between them, big and sharp, well above the plates.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-q04-ded74a2cb6021167.webp",
+        "sha256": "ded74a2cb6021167d6af2351e9012476d36c1b0936ca9f4f4b6dee68783bb9e2",
+        "observed_description": "Diego (dark curly hair with a little grey, short full beard, burgundy button shirt) sits at a wooden kitchen table and bites a red apple (A1+ 1.2)."
+      }
+    },
+    {
+      "id": "u07-ana-knife-luis",
+      "order": 27,
+      "item": "Can you pass a knife, please? Here you are.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "pair",
+        "daytime",
+        "keep"
+      ],
+      "prompt": "Image 1 shows Luis alone; copy his face, hair, skin and build exactly. Ana: long dark wavy hair, light-olive skin, sage-green overshirt over a white top, jeans. Luis: a very tall man with short dark curly hair, clean-shaven, warm medium-brown skin, navy crew-neck T-shirt. Ana (left) hands Luis (right) one shiny metal table knife with a round tip, handle first; Luis reaches out to take it. A plate with bread and butter is in front of Luis. They sit facing each other across a light wooden dining table in a bright dining room by day. The camera is close: both are seen from the waist up, and the thing that is passed is held up in the exact middle of the photo, between them, big and sharp, well above the plates.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-q01-135c3f8f772bcbe4.webp",
+        "sha256": "135c3f8f772bcbe472b8cec719eb02318a7d52ce1c7152a94c6952aeb78566c2",
+        "observed_description": "Luis (short dark curly hair, clean-shaven, warm medium-brown skin, navy crew-neck T-shirt) drinks coffee from a white mug at a wooden table in his bright kitchen (A1+ 1.2)."
+      }
+    }
+  ]
+}

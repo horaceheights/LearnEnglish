@@ -77,6 +77,10 @@ for (const noun of words('bakery bookstore subway motorcycle platform gate passp
 for (const noun of words('cup cups')) NOUNS.add(noun);
 // A1+ Unit 5 (2026-11-20): food and things its constructions name.
 for (const noun of words('pasta potatoes tomatoes plates cups chocolate')) NOUNS.add(noun);
+// A1+ Unit 5 (2026-11-23): the new foods, drinks and table things added after the user's review.
+for (const noun of words('lemon lemons pineapple pineapples butter lemonade menu bill onion carrot mushroom fork knife spoon')) {
+  NOUNS.add(noun);
+}
 // A1+ 5.1-5.2, 5.9 and 5.14 (2026-11-20): an amount before a noun (a lot of apples, a few eggs, a little rice,
 // a cup of tea, a piece of cake).
 const QUANTIFIERS: [string[], string][] = [
@@ -1533,8 +1537,8 @@ function teachClause(text: string): ClausePlan {
     if (inside[2]) teach(end, keys.length, `${quote(tokens[end])}, el nombre de la persona, va al final, después de una coma.`);
     return { explanations, relations, supported: true };
   }
-  // 5.14: Can you pass the salt, please? / Can you pass the salt, Ana?
-  const pass = /^can you pass (the [a-z]+)(?: (please|ana|luis|sofia|diego))?$/.exec(joined);
+  // 5.14: Can you pass the salt, please? / Can you pass the salt, Ana? / Can you pass a fork, please? (2026-11-23)
+  const pass = /^can you pass ((?:the|a) [a-z]+)(?: (please|ana|luis|sofia|diego))?$/.exec(joined);
   if (pass && asks) {
     teach(0, 3, '“Can you pass” pide algo en la mesa: “Can” va primero, después “you” y luego “pass” (pasar).');
     if (!nominal(3, 5)) return { explanations, relations, supported: false };
