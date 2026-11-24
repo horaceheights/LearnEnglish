@@ -75,6 +75,9 @@ NARRATOR_VOICE_IDS = {
     # Pamela reads odd cards, Enrique Mondragón even cards.
     "spanish-teacher": "pmruOMcxgUotq2bYO5Ne",  # Pamela
     "spanish-co-teacher": "iDEmt5MnqUotdwCIVplo",  # Enrique Mondragón
+    # A second Mexican female voice for a pictured woman who talks with another woman
+    # (user decision 2026-11-23): Ana María, the runner-up of the 2026-11-19 audition.
+    "spanish-character": "m7yTemJqdIqrcNleANfX",  # Ana María
 }
 
 # Lesson content names the semantic speaker, never a provider voice ID. Named
@@ -99,6 +102,7 @@ SPEAKER_NARRATORS = {
     # The Spanish course is read by native Mexican Spanish narrators.
     "es-teacher": "spanish-teacher",
     "es-co-teacher": "spanish-co-teacher",
+    "es-character": "spanish-character",
 }
 
 # Roles that may still fall back to the reviewed legacy (voice-unknown) cache.
