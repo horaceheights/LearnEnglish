@@ -75,6 +75,8 @@ NOUNS.add('neighbor');
 for (const noun of words('bakery bookstore subway motorcycle platform gate passport suitcase backpack reservation elevator tickets')) NOUNS.add(noun);
 // A1+ 4.15-4.16 (2026-11-21): cups on a table (There are some cups on the table.).
 for (const noun of words('cup cups')) NOUNS.add(noun);
+// A1+ 4.15 (2026-11-23): several keys (There are some keys on the floor.).
+NOUNS.add('keys');
 // A1+ Unit 5 (2026-11-20): food and things its constructions name.
 for (const noun of words('pasta potatoes tomatoes plates cups chocolate')) NOUNS.add(noun);
 // A1+ 5.1-5.2, 5.9 and 5.14 (2026-11-20): an amount before a noun (a lot of apples, a few eggs, a little rice,
@@ -353,6 +355,12 @@ function teachClause(text: string): ClausePlan {
         teach(at, end, `${quote(phrase(at, end))} (${meaning}) va al final, después de ${quote(at > start ? phrase(start, at) : anchor)}, y dice ${time.startsWith('last') ? 'cuándo pasó' : 'con qué frecuencia pasa'}.`);
         return at === start || complement(start, at, anchor);
       }
+    }
+    // A1+ 4.14 (2026-11-23): last + a month closes the sentence (Diego painted last August.).
+    if (end - start >= 2 && keys[end - 2] === 'last' && MONTHS.has(keys[end - 1])) {
+      const at = end - 2;
+      teach(at, end, `${quote(phrase(at, end))} va al final, después de ${quote(at > start ? phrase(start, at) : anchor)}, y dice cuándo pasó: “last” va antes del mes.`);
+      return at === start || complement(start, at, anchor);
     }
     // A1+ 4.13 (2026-11-21): My birthday is on March fifth.
     if (end - start === 3 && keys[start] === 'on' && MONTHS.has(keys[start + 1]) && DATE_ORDINALS.has(keys[start + 2])) {

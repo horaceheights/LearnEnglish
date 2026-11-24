@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "pack": "a1plus-unit-4-review-fix-photos",
+  "revision": 2,
+  "output_namespace": "a1plus-unit-4-lesson-v4191",
+  "authorization": "2026-11-20: the user asked to \"Start working on A1+ Unit 4, same deal. make sure images make sense all the time\" (the Unit 2 and Unit 3 deal: an approved map, then straight to Preview in batches with media pre-approved and reviewed in Preview), approved the A1+ Unit 4 map (\"Approve this map\") and then said \"keep going until preview, I approve ALL, NO NEED to stop\". Gemini is the approved image tool (2026-09-23), Flash only (2026-11-17; \"lets switch to flash for any other images\", 2026-11-19).",
+  "image_settings": {
+    "provider": "google-gemini",
+    "model": "gemini-2.5-flash-image",
+    "aspect_ratio": "3:2",
+    "image_size": "1K",
+    "runtime_size": "1536x1024",
+    "runtime_format": "webp",
+    "n": 1
+  },
+  "production": {
+    "price_per_image_usd": "0.0387",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing (checked 2026-11-16: Gemini 2.5 Flash Image, about $0.039 per image)",
+    "planned_images": 1,
+    "expected_cost_usd": "0.04",
+    "requested_ceiling_usd": "0.25",
+    "ceiling_note": "The renderer reserves US$0.20 before each request; each request is sent on its own, and the expected spend for the pack is about US$0.04.",
+    "no_automatic_retries": true,
+    "order": "Revision 2: v1's t01 keys were too small on the wide empty floor; t11 adds keys to A1 4.15's close photo of a key on the floor."
+  },
+  "shared_prompts": {
+    "photo": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, menus, screens, cups, clothes or bags.",
+    "safe_center": "Keep the people and the thing that carries the meaning inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.",
+    "solo": "Only this one person is in the photo; there is nobody else, even far in the background.",
+    "daytime": "It is clearly daytime with soft natural light.",
+    "edit": "Edit Image 1. Keep the place, the furniture, the light, the colors and the camera position exactly the same; change only what is described below.",
+    "nobody": "There are no people and no animals anywhere in the photo.",
+    "edit_place": "Edit Image 1. Keep the place, the light, the colors and the camera position exactly the same; change only what is described below. There are no people and no animals in the photo."
+  },
+  "assets": [
+    {
+      "id": "t11-keys-floor",
+      "order": 1,
+      "item": "There are some keys on the floor.",
+      "shared": [
+        "edit_place"
+      ],
+      "prompt": "Keep the key that is there and add three more separate silver keys lying on the floor beside it, each about the same size, a little apart from each other, so four keys are large and clearly visible.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1_photo_u4_morehome_key_floor_v1.webp",
+        "sha256": "bd779726ee0be441480107afc1ccf46a8fb2e2b9b16b6257f6d80d0c240daf79",
+        "observed_description": "One silver key on a ring lies on a wooden floor, seen close from a low angle (A1 4.15)."
+      }
+    }
+  ]
+}
