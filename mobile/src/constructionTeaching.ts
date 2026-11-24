@@ -73,6 +73,8 @@ for (const noun of words('classroom desk')) NOUNS.add(noun);
 NOUNS.add('neighbor');
 // A1+ Unit 6 (2026-11-20): places, transport, travel things and the hotel (Sofia takes the subway to work.).
 for (const noun of words('bakery bookstore subway motorcycle platform gate passport suitcase backpack reservation elevator tickets')) NOUNS.add(noun);
+// A1+ 6.7 review fix (2026-11-23): Turn right at the crosswalk.
+NOUNS.add('crosswalk');
 // A1+ 4.15-4.16 (2026-11-21): cups on a table (There are some cups on the table.).
 for (const noun of words('cup cups')) NOUNS.add(noun);
 // A1+ Unit 5 (2026-11-20): food and things its constructions name.

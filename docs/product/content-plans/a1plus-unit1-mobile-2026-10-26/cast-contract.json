@@ -14679,11 +14679,11 @@
         "audio_turns": [
           {
             "speaker_role": "co-teacher",
-            "text": "Is there a bookstore near here?"
+            "text": "Is there a gas station near here?"
           },
           {
             "speaker_role": "teacher",
-            "text": "No, there isn't. There aren't any bookstores here."
+            "text": "No, there isn't. There aren't any gas stations here."
           }
         ]
       },
@@ -14853,15 +14853,21 @@
       "R9": {
         "audio_speaker": "co-teacher"
       },
-      "R10": {
-        "answer_audio_speaker": "teacher",
-        "audio_speaker": "co-teacher"
-      },
+      "R10": {},
       "A1": {
         "audio_speaker": "co-teacher"
       },
       "A2": {
-        "audio_speaker": "co-teacher"
+        "audio_turns": [
+          {
+            "speaker_role": "co-teacher",
+            "text": "Excuse me. Could you tell me where the bank is?"
+          },
+          {
+            "speaker_role": "teacher",
+            "text": "Yes. It's on the corner."
+          }
+        ]
       },
       "A3": {
         "audio_turns": [
@@ -14885,11 +14891,11 @@
         "audio_turns": [
           {
             "speaker_role": "co-teacher",
-            "text": "Could you tell me where the bank is?"
+            "text": "Can you help me? How do I get to the gas station?"
           },
           {
             "speaker_role": "teacher",
-            "text": "Yes. It's on the corner."
+            "text": "It's near here. It's opposite the park."
           }
         ]
       },
@@ -14902,17 +14908,26 @@
       "A9": {
         "audio_turns": [
           {
-            "speaker_role": "co-teacher",
+            "speaker_role": "teacher",
             "text": "Is it far?"
           },
           {
-            "speaker_role": "teacher",
-            "text": "Yes, it's far."
+            "speaker_role": "co-teacher",
+            "text": "No, it's near here. Turn left at the bakery."
           }
         ]
       },
       "A10": {
-        "audio_speaker": "teacher"
+        "audio_turns": [
+          {
+            "speaker_role": "co-teacher",
+            "text": "Could you tell me where the bookstore is?"
+          },
+          {
+            "speaker_role": "teacher",
+            "text": "Yes. Turn right at the crosswalk."
+          }
+        ]
       },
       "S1": {
         "audio_turns": [
@@ -14925,7 +14940,7 @@
       "S2": {
         "audio_turns": [
           {
-            "speaker_role": "teacher",
+            "speaker_role": "co-teacher",
             "text": "Is it far?"
           }
         ]
@@ -14998,12 +15013,15 @@
         "answer_audio_speaker": "co-teacher",
         "audio_speaker": "co-teacher"
       },
-      "U6": {},
-      "U7": {
+      "U6": {
         "answer_audio_speaker": "co-teacher",
         "audio_speaker": "co-teacher"
       },
-      "U8": {}
+      "U7": {},
+      "U8": {
+        "answer_audio_speaker": "co-teacher",
+        "audio_speaker": "co-teacher"
+      }
     },
     "a1plus-unit-6-lesson-6-11": {
       "L1": {
@@ -15103,7 +15121,18 @@
           }
         ]
       },
-      "A7": {},
+      "A7": {
+        "audio_turns": [
+          {
+            "speaker_role": "co-teacher",
+            "text": "Which ticket is more expensive?"
+          },
+          {
+            "speaker_role": "teacher",
+            "text": "The round-trip ticket is more expensive."
+          }
+        ]
+      },
       "A8": {
         "audio_speaker": "teacher"
       },
@@ -15134,7 +15163,7 @@
       "S1": {
         "audio_turns": [
           {
-            "speaker_role": "co-teacher",
+            "speaker_role": "teacher",
             "text": "A one-way ticket, please."
           }
         ]
@@ -15142,7 +15171,7 @@
       "S2": {
         "audio_turns": [
           {
-            "speaker_role": "teacher",
+            "speaker_role": "co-teacher",
             "text": "Can I have a round-trip ticket, please?"
           }
         ]
@@ -15150,7 +15179,7 @@
       "S3": {
         "audio_turns": [
           {
-            "speaker_role": "co-teacher",
+            "speaker_role": "teacher",
             "text": "How much is a one-way ticket?"
           }
         ]
@@ -15158,7 +15187,7 @@
       "S4": {
         "audio_turns": [
           {
-            "speaker_role": "teacher",
+            "speaker_role": "co-teacher",
             "text": "Round-trip, please."
           }
         ]
@@ -15174,7 +15203,7 @@
       "S6": {
         "audio_turns": [
           {
-            "speaker_role": "co-teacher",
+            "speaker_role": "teacher",
             "text": "A round-trip ticket to the airport, please."
           }
         ]
@@ -15182,7 +15211,7 @@
       "S7": {
         "audio_turns": [
           {
-            "speaker_role": "teacher",
+            "speaker_role": "co-teacher",
             "text": "One-way, please."
           }
         ]
@@ -15190,30 +15219,30 @@
       "S8": {
         "audio_turns": [
           {
-            "speaker_role": "co-teacher",
+            "speaker_role": "teacher",
             "text": "A one-way ticket to the station, please."
           }
         ]
       },
-      "U1": {},
-      "U2": {
+      "U1": {
         "answer_audio_speaker": "co-teacher",
         "audio_speaker": "co-teacher"
       },
+      "U2": {},
       "U3": {
         "answer_audio_speaker": "teacher",
         "audio_speaker": "teacher"
       },
-      "U4": {},
-      "U5": {
+      "U4": {
         "answer_audio_speaker": "co-teacher",
         "audio_speaker": "co-teacher"
       },
-      "U6": {},
-      "U7": {
+      "U5": {},
+      "U6": {
         "answer_audio_speaker": "co-teacher",
         "audio_speaker": "co-teacher"
       },
+      "U7": {},
       "U8": {
         "answer_audio_speaker": "teacher",
         "audio_speaker": "teacher"
@@ -15295,9 +15324,20 @@
         ]
       },
       "A4": {
+        "audio_turns": [
+          {
+            "speaker_role": "co-teacher",
+            "text": "Does the bus leave on time?"
+          },
+          {
+            "speaker_role": "teacher",
+            "text": "Yes, it leaves on time. Luis is late."
+          }
+        ]
+      },
+      "A5": {
         "audio_speaker": "co-teacher"
       },
-      "A5": {},
       "A6": {
         "audio_turns": [
           {
@@ -15343,7 +15383,7 @@
       "S1": {
         "audio_turns": [
           {
-            "speaker_role": "co-teacher",
+            "speaker_role": "teacher",
             "text": "I'm late!"
           }
         ]
@@ -15351,7 +15391,7 @@
       "S2": {
         "audio_turns": [
           {
-            "speaker_role": "teacher",
+            "speaker_role": "co-teacher",
             "text": "Ana is on time."
           }
         ]
@@ -15367,7 +15407,7 @@
       "S4": {
         "audio_turns": [
           {
-            "speaker_role": "co-teacher",
+            "speaker_role": "teacher",
             "text": "No, it's late."
           }
         ]
@@ -15375,15 +15415,15 @@
       "S5": {
         "audio_turns": [
           {
-            "speaker_role": "teacher",
-            "text": "We're on time."
+            "speaker_role": "co-teacher",
+            "text": "I'm on time."
           }
         ]
       },
       "S6": {
         "audio_turns": [
           {
-            "speaker_role": "co-teacher",
+            "speaker_role": "teacher",
             "text": "Diego is early."
           }
         ]
@@ -15391,7 +15431,7 @@
       "S7": {
         "audio_turns": [
           {
-            "speaker_role": "teacher",
+            "speaker_role": "co-teacher",
             "text": "No, he's late."
           }
         ]
@@ -15399,31 +15439,34 @@
       "S8": {
         "audio_turns": [
           {
-            "speaker_role": "co-teacher",
-            "text": "She's early."
+            "speaker_role": "teacher",
+            "text": "He's early."
           }
         ]
       },
-      "U1": {},
-      "U2": {
+      "U1": {
         "answer_audio_speaker": "co-teacher",
         "audio_speaker": "co-teacher"
       },
-      "U3": {},
-      "U4": {
+      "U2": {},
+      "U3": {
         "answer_audio_speaker": "co-teacher",
         "audio_speaker": "co-teacher"
       },
-      "U5": {},
-      "U6": {
+      "U4": {},
+      "U5": {
         "answer_audio_speaker": "co-teacher",
         "audio_speaker": "co-teacher"
       },
+      "U6": {},
       "U7": {
         "answer_audio_speaker": "co-teacher",
         "audio_speaker": "co-teacher"
       },
-      "U8": {}
+      "U8": {
+        "answer_audio_speaker": "co-teacher",
+        "audio_speaker": "co-teacher"
+      }
     },
     "a1plus-unit-6-lesson-6-13": {
       "L1": {
@@ -15464,37 +15507,38 @@
         "answer_audio_speaker": "co-teacher"
       },
       "R9": {
-        "answer_audio_turns": [
-          {
-            "speaker_role": "co-teacher",
-            "text": "What floor is my room on?"
-          },
-          {
-            "speaker_role": "teacher",
-            "text": "It's on the fifth floor."
-          }
-        ]
+        "answer_audio_speaker": "teacher",
+        "audio_speaker": "co-teacher"
       },
       "R10": {},
       "A1": {
         "audio_speaker": "co-teacher"
       },
-      "A2": {},
-      "A3": {
+      "A2": {
         "audio_turns": [
           {
             "speaker_role": "co-teacher",
-            "text": "What floor is my room on?"
+            "text": "Which room is it?"
           },
           {
             "speaker_role": "teacher",
-            "text": "It's on the fifth floor."
+            "text": "It's room twenty-four."
           }
         ]
       },
-      "A4": {
-        "audio_speaker": "co-teacher"
+      "A3": {
+        "audio_turns": [
+          {
+            "speaker_role": "teacher",
+            "text": "I want to visit the market. Is it far?"
+          },
+          {
+            "speaker_role": "co-teacher",
+            "text": "No, it's near here."
+          }
+        ]
       },
+      "A4": {},
       "A5": {
         "audio_turns": [
           {
@@ -15507,10 +15551,10 @@
           }
         ]
       },
-      "A6": {},
-      "A7": {
+      "A6": {
         "audio_speaker": "co-teacher"
       },
+      "A7": {},
       "A8": {
         "audio_turns": [
           {
@@ -15550,7 +15594,7 @@
       "S1": {
         "audio_turns": [
           {
-            "speaker_role": "teacher",
+            "speaker_role": "co-teacher",
             "text": "I have a reservation."
           }
         ]
@@ -15558,7 +15602,7 @@
       "S2": {
         "audio_turns": [
           {
-            "speaker_role": "co-teacher",
+            "speaker_role": "teacher",
             "text": "Here's your key."
           }
         ]
@@ -15574,7 +15618,7 @@
       "S4": {
         "audio_turns": [
           {
-            "speaker_role": "teacher",
+            "speaker_role": "co-teacher",
             "text": "Ana takes the elevator."
           }
         ]
@@ -15582,7 +15626,7 @@
       "S5": {
         "audio_turns": [
           {
-            "speaker_role": "co-teacher",
+            "speaker_role": "teacher",
             "text": "Do you have a reservation?"
           }
         ]
@@ -15590,7 +15634,7 @@
       "S6": {
         "audio_turns": [
           {
-            "speaker_role": "teacher",
+            "speaker_role": "co-teacher",
             "text": "It's on the fifth floor."
           }
         ]
@@ -15598,7 +15642,7 @@
       "S7": {
         "audio_turns": [
           {
-            "speaker_role": "co-teacher",
+            "speaker_role": "teacher",
             "text": "What floor is her room on?"
           }
         ]
@@ -15606,15 +15650,12 @@
       "S8": {
         "audio_turns": [
           {
-            "speaker_role": "teacher",
+            "speaker_role": "co-teacher",
             "text": "Here's your key."
           }
         ]
       },
-      "U1": {
-        "answer_audio_speaker": "co-teacher",
-        "audio_speaker": "co-teacher"
-      },
+      "U1": {},
       "U2": {
         "answer_audio_speaker": "teacher",
         "audio_speaker": "teacher"
@@ -15623,15 +15664,18 @@
         "answer_audio_speaker": "co-teacher",
         "audio_speaker": "co-teacher"
       },
-      "U4": {},
-      "U5": {
+      "U4": {
         "answer_audio_speaker": "co-teacher",
         "audio_speaker": "co-teacher"
       },
-      "U6": {},
-      "U7": {
+      "U5": {},
+      "U6": {
         "answer_audio_speaker": "co-teacher",
         "audio_speaker": "co-teacher"
+      },
+      "U7": {
+        "answer_audio_speaker": "teacher",
+        "audio_speaker": "teacher"
       },
       "U8": {}
     },
@@ -15872,11 +15916,11 @@
         "audio_turns": [
           {
             "speaker_role": "co-teacher",
-            "text": "She's going to the bakery to buy bread."
+            "text": "I'm going to the bakery to buy bread."
           },
           {
             "speaker_role": "co-teacher",
-            "text": "He's going to the bookstore to buy books."
+            "text": "I'm going to the bookstore to buy books."
           },
           {
             "speaker_role": "co-teacher",
@@ -16408,12 +16452,9 @@
         "answer_audio_speaker": "teacher"
       },
       "R10": {
-        "answer_audio_speaker": "teacher",
-        "audio_speaker": "co-teacher"
+        "answer_audio_speaker": "co-teacher"
       },
-      "A1": {
-        "audio_speaker": "co-teacher"
-      },
+      "A1": {},
       "A2": {
         "audio_speaker": "teacher"
       },
@@ -16429,20 +16470,31 @@
           }
         ]
       },
-      "A4": {},
+      "A4": {
+        "audio_speaker": "co-teacher"
+      },
       "A5": {
         "audio_speaker": "teacher"
       },
       "A6": {
         "audio_speaker": "teacher"
       },
-      "A7": {
-        "audio_speaker": "co-teacher"
-      },
+      "A7": {},
       "A8": {
         "audio_speaker": "teacher"
       },
-      "A9": {},
+      "A9": {
+        "audio_turns": [
+          {
+            "speaker_role": "co-teacher",
+            "text": "Is Luis at the bus stop?"
+          },
+          {
+            "speaker_role": "teacher",
+            "text": "No, he's at the airport, at gate twelve."
+          }
+        ]
+      },
       "A10": {
         "audio_turns": [
           {
@@ -16631,7 +16683,16 @@
         "audio_speaker": "co-teacher"
       },
       "A9": {
-        "audio_speaker": "co-teacher"
+        "audio_turns": [
+          {
+            "speaker_role": "co-teacher",
+            "text": "Get on the train, Ana!"
+          },
+          {
+            "speaker_role": "teacher",
+            "text": "Where's my suitcase? Here it is!"
+          }
+        ]
       },
       "A10": {
         "audio_turns": [
@@ -16656,7 +16717,7 @@
       "S2": {
         "audio_turns": [
           {
-            "speaker_role": "teacher",
+            "speaker_role": "co-teacher",
             "text": "This is a suitcase."
           }
         ]
@@ -16664,7 +16725,7 @@
       "S3": {
         "audio_turns": [
           {
-            "speaker_role": "co-teacher",
+            "speaker_role": "teacher",
             "text": "Here it is."
           }
         ]
@@ -16672,7 +16733,7 @@
       "S4": {
         "audio_turns": [
           {
-            "speaker_role": "teacher",
+            "speaker_role": "co-teacher",
             "text": "Diego has a backpack."
           }
         ]
@@ -16680,7 +16741,7 @@
       "S5": {
         "audio_turns": [
           {
-            "speaker_role": "co-teacher",
+            "speaker_role": "teacher",
             "text": "Don't forget your ticket!"
           }
         ]
@@ -16688,7 +16749,7 @@
       "S6": {
         "audio_turns": [
           {
-            "speaker_role": "teacher",
+            "speaker_role": "co-teacher",
             "text": "This is a passport."
           }
         ]
@@ -16704,31 +16765,34 @@
       "S8": {
         "audio_turns": [
           {
-            "speaker_role": "co-teacher",
+            "speaker_role": "teacher",
             "text": "Don't forget your suitcase!"
           }
         ]
       },
-      "U1": {},
-      "U2": {
+      "U1": {
         "answer_audio_speaker": "co-teacher",
         "audio_speaker": "co-teacher"
       },
-      "U3": {},
-      "U4": {
+      "U2": {},
+      "U3": {
         "answer_audio_speaker": "co-teacher",
         "audio_speaker": "co-teacher"
       },
+      "U4": {},
       "U5": {
         "answer_audio_speaker": "co-teacher",
         "audio_speaker": "co-teacher"
       },
-      "U6": {},
-      "U7": {
+      "U6": {
         "answer_audio_speaker": "co-teacher",
         "audio_speaker": "co-teacher"
       },
-      "U8": {}
+      "U7": {},
+      "U8": {
+        "answer_audio_speaker": "co-teacher",
+        "audio_speaker": "co-teacher"
+      }
     },
     "a1plus-unit-6-lesson-6-6": {
       "L1": {
@@ -16837,17 +16901,26 @@
         "audio_speaker": "teacher"
       },
       "A9": {
-        "audio_speaker": "teacher"
+        "audio_turns": [
+          {
+            "speaker_role": "co-teacher",
+            "text": "Is the gas station far from the park?"
+          },
+          {
+            "speaker_role": "teacher",
+            "text": "No, it's near the park."
+          }
+        ]
       },
       "A10": {
         "audio_turns": [
           {
             "speaker_role": "co-teacher",
-            "text": "Where's the bank?"
+            "text": "Where's the police car?"
           },
           {
             "speaker_role": "teacher",
-            "text": "It's in front of the park."
+            "text": "It's in front of the police station."
           }
         ]
       },
@@ -16947,6 +17020,12 @@
         "audio_speaker": "co-teacher"
       },
       "L3": {
+        "audio_speaker": "teacher"
+      },
+      "L4": {
+        "audio_speaker": "co-teacher"
+      },
+      "L5": {
         "audio_turns": [
           {
             "speaker_role": "co-teacher",
@@ -16958,7 +17037,7 @@
           }
         ]
       },
-      "L4": {
+      "L6": {
         "audio_turns": [
           {
             "speaker_role": "teacher",
@@ -16988,29 +17067,24 @@
         "audio_speaker": "co-teacher"
       },
       "R7": {
-        "audio_speaker": "co-teacher"
+        "answer_audio_speaker": "co-teacher"
       },
       "R8": {
         "answer_audio_speaker": "teacher",
         "audio_speaker": "co-teacher"
       },
       "R9": {
-        "answer_audio_turns": [
-          {
-            "speaker_role": "co-teacher",
-            "text": "How do I get to the library?"
-          },
-          {
-            "speaker_role": "teacher",
-            "text": "Turn left at the bookstore."
-          }
-        ]
-      },
-      "R10": {},
-      "A1": {
+        "answer_audio_speaker": "teacher",
         "audio_speaker": "co-teacher"
       },
-      "A2": {},
+      "R10": {
+        "answer_audio_speaker": "teacher",
+        "audio_speaker": "co-teacher"
+      },
+      "A1": {},
+      "A2": {
+        "audio_speaker": "co-teacher"
+      },
       "A3": {
         "audio_turns": [
           {
@@ -17023,24 +17097,22 @@
           }
         ]
       },
-      "A4": {
+      "A4": {},
+      "A5": {
         "audio_speaker": "co-teacher"
       },
-      "A5": {},
-      "A6": {
+      "A6": {},
+      "A7": {
         "audio_turns": [
           {
             "speaker_role": "teacher",
-            "text": "How do I get to the bank?"
+            "text": "How do I get to the supermarket?"
           },
           {
             "speaker_role": "co-teacher",
-            "text": "Turn right at the bakery."
+            "text": "Turn right at the crosswalk."
           }
         ]
-      },
-      "A7": {
-        "audio_speaker": "teacher"
       },
       "A8": {
         "audio_speaker": "teacher"
@@ -17072,7 +17144,7 @@
         "audio_turns": [
           {
             "speaker_role": "teacher",
-            "text": "Turn right at the bakery."
+            "text": "Turn left at the traffic light."
           }
         ]
       },
@@ -17104,7 +17176,7 @@
         "audio_turns": [
           {
             "speaker_role": "co-teacher",
-            "text": "Turn left at the bookstore."
+            "text": "Turn right at the crosswalk."
           }
         ]
       },
@@ -17112,7 +17184,7 @@
         "audio_turns": [
           {
             "speaker_role": "teacher",
-            "text": "Turn right at the police station."
+            "text": "Turn left at the traffic light."
           }
         ]
       },
@@ -17180,12 +17252,21 @@
       },
       "R9": {},
       "R10": {
-        "answer_audio_speaker": "co-teacher"
+        "answer_audio_turns": [
+          {
+            "speaker_role": "co-teacher",
+            "text": "How do I get to the park?"
+          },
+          {
+            "speaker_role": "teacher",
+            "text": "Cross the bridge and walk along the river."
+          }
+        ]
       },
-      "A1": {},
-      "A2": {
+      "A1": {
         "audio_speaker": "co-teacher"
       },
+      "A2": {},
       "A3": {
         "audio_turns": [
           {
@@ -17198,26 +17279,46 @@
           }
         ]
       },
-      "A4": {},
-      "A5": {
-        "audio_speaker": "teacher"
-      },
-      "A6": {
+      "A4": {
         "audio_speaker": "co-teacher"
       },
-      "A7": {
+      "A5": {
         "audio_turns": [
           {
-            "speaker_role": "teacher",
-            "text": "How do I get to the library?"
+            "speaker_role": "co-teacher",
+            "text": "How do I get to the pool?"
           },
           {
-            "speaker_role": "co-teacher",
-            "text": "Walk along the river and turn left at the bakery."
+            "speaker_role": "teacher",
+            "text": "Turn right at the crosswalk and walk along the river."
           }
         ]
       },
-      "A8": {},
+      "A6": {},
+      "A7": {
+        "audio_turns": [
+          {
+            "speaker_role": "co-teacher",
+            "text": "How do I get to the library?"
+          },
+          {
+            "speaker_role": "teacher",
+            "text": "Cross the bridge and turn left at the traffic light."
+          }
+        ]
+      },
+      "A8": {
+        "audio_turns": [
+          {
+            "speaker_role": "co-teacher",
+            "text": "When does Luis walk along the river?"
+          },
+          {
+            "speaker_role": "teacher",
+            "text": "He walks along the river every weekend."
+          }
+        ]
+      },
       "A9": {
         "audio_speaker": "teacher"
       },

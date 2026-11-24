@@ -662,7 +662,8 @@
       "choices": false,
       "use": true,
       "blanks": null,
-      "learn": false
+      "learn": false,
+      "speaker": "co-teacher"
     },
     {
       "id": "u-taxi",
@@ -784,7 +785,39 @@
         "reading-load": "Listen keeps the question and changes only the answer; the answer is what was heard."
       },
       "prefer": [
-        "Could you tell me where the bookstore is? Yes. Turn left at the traffic light."
+        "Could you tell me where the bookstore is? Yes. Turn left at the traffic light.",
+        "Could you tell me where the bookstore is? Yes. Turn left at the crosswalk."
+      ],
+      "learn": false
+    },
+    {
+      "id": "a1-bak",
+      "text": "Is it far? No, it's near here. Turn left at the bakery.",
+      "es": "¿Está lejos? No, está cerca de aquí. Da vuelta a la izquierda en la panadería.",
+      "image": "/lesson-assets/a1plus-unit-6-k01-1ce0d396b8be11de.webp",
+      "kind": "a1-bak",
+      "image_choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "Is it far?",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-6-k01-1ce0d396b8be11de.webp"
+        },
+        {
+          "text": "No, it's near here. Turn left at the bakery.",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-6-k01-1ce0d396b8be11de.webp"
+        }
+      ],
+      "accepts": {
+        "subject-variety": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "action-variety": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "conversational-response": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "reading-load": "Listen keeps the question and changes only the answer; the answer is what was heard."
+      },
+      "prefer": [
+        "Is it far? No, it's near here. Turn right at the bakery."
       ],
       "learn": false
     }
@@ -922,6 +955,20 @@
       "image": "/lesson-assets/a1plus-unit-6-k06-6efb26135abad54a.webp",
       "kind": "a1-cw",
       "image_choices": false
+    },
+    {
+      "text": "Is it far? No, it's near here. Turn right at the bakery.",
+      "es": "¿Está lejos? No, está cerca de aquí. Da vuelta a la derecha en la panadería.",
+      "image": "/lesson-assets/a1plus-unit-6-k01-1ce0d396b8be11de.webp",
+      "kind": "a1-bak",
+      "image_choices": false
+    },
+    {
+      "text": "Could you tell me where the bookstore is? Yes. Turn left at the crosswalk.",
+      "es": "¿Me podría decir dónde está la librería? Sí. Da vuelta a la izquierda en el cruce peatonal.",
+      "image": "/lesson-assets/a1plus-unit-6-k06-6efb26135abad54a.webp",
+      "kind": "a1-cw",
+      "image_choices": false
     }
   ],
   "layout": {
@@ -954,11 +1001,11 @@
       "a1-excuse",
       "x-far",
       "q-police",
+      "q-gas",
       "a1-help",
-      "x-could",
       "r-far",
       "r-walk1",
-      "x-far2",
+      "a1-bak",
       "a1-cw"
     ],
     "Speak": [

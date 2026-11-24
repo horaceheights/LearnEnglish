@@ -703,6 +703,30 @@
         "I want to visit the market. Is it far? Yes, it's far."
       ],
       "learn": false
+    },
+    {
+      "id": "r-floor",
+      "text": "It's on the fifth floor.",
+      "es": "Está en el quinto piso.",
+      "image": "/lesson-assets/a1plus-unit-6-z02-baacaee429ba8d9d.webp",
+      "kind": "r-floor",
+      "question": "What floor is my room on?",
+      "question_es": "¿En qué piso está mi cuarto?",
+      "question_speaker": "co-teacher",
+      "speaker": "teacher",
+      "use": false,
+      "image_choices": false,
+      "four_card": false,
+      "prefer": [
+        "It's on Friday."
+      ],
+      "learn": false,
+      "accepts": {
+        "subject-variety": "The question decides the reply: a floor answers What floor, a day does not.",
+        "action-variety": "The question decides the reply: a floor answers What floor, a day does not.",
+        "conversational-response": "The question decides the reply: a floor answers What floor, a day does not.",
+        "reading-load": "The question decides the reply: a floor answers What floor, a day does not."
+      }
     }
   ],
   "pool": [
@@ -838,6 +862,13 @@
       "image": "/lesson-assets/a1plus-unit-6-z05-4486c39f715205a8.webp",
       "kind": "a1-visit",
       "image_choices": false
+    },
+    {
+      "text": "It's on Friday.",
+      "es": "Es el viernes.",
+      "image": "/lesson-assets/a1plus-unit-6-z02-baacaee429ba8d9d.webp",
+      "kind": "r-floor",
+      "image_choices": false
     }
   ],
   "layout": {
@@ -862,14 +893,14 @@
       "f-res",
       "p-room",
       "f-elev",
-      "p-key",
+      "r-floor",
       "u4-opened"
     ],
     "Listen": [
       "p-key",
       "u5-room",
-      "x-floor",
       "a1-visit",
+      "p-res",
       "u4-res-when",
       "f-key",
       "p-elev",

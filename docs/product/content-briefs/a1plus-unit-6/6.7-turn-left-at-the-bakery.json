@@ -631,6 +631,37 @@
       },
       "learn": false,
       "four_card": false
+    },
+    {
+      "id": "x-cw",
+      "text": "How do I get to the supermarket? Turn right at the crosswalk.",
+      "es": "¿Cómo llego al supermercado? Da vuelta a la derecha en el cruce peatonal.",
+      "image": "/lesson-assets/a1plus-unit-6-k06-6efb26135abad54a.webp",
+      "kind": "x-cw",
+      "image_choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "How do I get to the supermarket?",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-6-k06-6efb26135abad54a.webp"
+        },
+        {
+          "text": "Turn right at the crosswalk.",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-6-k06-6efb26135abad54a.webp"
+        }
+      ],
+      "accepts": {
+        "subject-variety": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "action-variety": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "conversational-response": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "reading-load": "Listen keeps the question and changes only the answer; the answer is what was heard."
+      },
+      "prefer": [
+        "How do I get to the supermarket? Turn left at the crosswalk."
+      ],
+      "learn": false
     }
   ],
   "pool": [
@@ -766,6 +797,13 @@
       "image": "/lesson-assets/a1plus-unit-6-k06-6efb26135abad54a.webp",
       "kind": "how",
       "image_choices": false
+    },
+    {
+      "text": "How do I get to the supermarket? Turn left at the crosswalk.",
+      "es": "¿Cómo llego al supermercado? Da vuelta a la izquierda en el cruce peatonal.",
+      "image": "/lesson-assets/a1plus-unit-6-k06-6efb26135abad54a.webp",
+      "kind": "x-cw",
+      "image_choices": false
     }
   ],
   "layout": {
@@ -786,14 +824,14 @@
     "Recognize": [
       "f-l-bak",
       "r-lib",
-      "r-cw",
+      "f-l-tl",
       "r-bank",
       "f-l-book",
       "r-park",
       "f-r-cw",
       "r-gas",
       "r-tl",
-      "f-l-tl"
+      "r-cw"
     ],
     "Listen": [
       "f-r-bak",
@@ -802,7 +840,7 @@
       "f-r-pol",
       "f-l-tl",
       "f-r-cw",
-      "r-cw",
+      "x-cw",
       "r-gas",
       "r-lib",
       "u4-and-then"

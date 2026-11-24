@@ -280,6 +280,8 @@ const MEANINGS: Record<string, string> = {
   suitcase: 'maleta', backpack: 'mochila', opposite: 'enfrente de', along: 'por la orilla de',
   'one-way': 'sencillo, solo de ida', 'round-trip': 'redondo, de ida y vuelta', late: 'tarde', early: 'temprano',
   'on time': 'a tiempo', reservation: 'reservación', elevator: 'elevador',
+  // A1+ 6.7 review fix (2026-11-23): two turning points with no shop.
+  'traffic light': 'semáforo', crosswalk: 'cruce peatonal',
   '1': 'uno', '2': 'dos', '3': 'tres', '4': 'cuatro', '5': 'cinco',
   '6': 'seis', '7': 'siete', '8': 'ocho', '9': 'nueve', '10': 'diez', '11': 'once', '12': 'doce',
   mon: 'lunes', tue: 'martes', wed: 'miércoles', thu: 'jueves',

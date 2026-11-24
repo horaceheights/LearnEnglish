@@ -35,7 +35,13 @@
     "the library",
     "and",
     "turn left",
-    "turn right"
+    "turn right",
+    "traffic light",
+    "crosswalk",
+    "When does",
+    "walks",
+    "every weekend",
+    "every morning"
   ],
   "grammar_function": "A follow-up of A1 6.8 Following Directions: A1 follows go straight, turn, cross the street and go past; A1+ 6.8 takes the route over water. The new items are bridge and river, A1's cross with the bridge (Cross the bridge.) and along (Walk along the river.), joined with and to 6.7's Turn left at the bakery. Ana crosses a wooden footbridge, large in the photo; Luis walks on a path right beside a river with no bridge in sight.",
   "prerequisite": "A1 6.8 cross the street, go straight, turn; A1+ 6.7 turn at a place; A1+ 1 walk.",
@@ -82,7 +88,7 @@
     "U7",
     "U8"
   ],
-  "content_revision": 1,
+  "content_revision": 2,
   "cards": [
     {
       "slide_id": "L1",
@@ -93,7 +99,7 @@
       "options": [
         {
           "id": "this-is-a-bridge-learn",
-          "image_url": "/lesson-assets/a1plus-unit-6-w03-556efb5cba906b72.webp",
+          "image_url": "/lesson-assets/a1plus-unit-6-w06-6b041fb363ce35a4.webp",
           "label": "This is a bridge."
         }
       ],
@@ -109,12 +115,12 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "a1plus-unit-6-lesson-6-8-c001-prompt-b794ddb70ffb34a911e0",
+          "id": "a1plus-unit-6-lesson-6-8-c001-prompt-9af13f339aced43dfdd6",
           "purpose": "prompt",
           "text": "This is a bridge.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1plus-unit-6-w03-556efb5cba906b72.webp",
+          "image_ref": "/lesson-assets/a1plus-unit-6-w06-6b041fb363ce35a4.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -250,7 +256,7 @@
         },
         {
           "id": "this-is-a-bridge-r1",
-          "image_url": "/lesson-assets/a1plus-unit-6-w03-556efb5cba906b72.webp",
+          "image_url": "/lesson-assets/a1plus-unit-6-w06-6b041fb363ce35a4.webp",
           "label": null
         }
       ],
@@ -266,12 +272,12 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "a1plus-unit-6-lesson-6-8-c005-prompt-811a59fa922040d13592",
+          "id": "a1plus-unit-6-lesson-6-8-c005-prompt-87c45b71ccf1c4eb7f8f",
           "purpose": "prompt",
           "text": "This is a bridge.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1plus-unit-6-w03-556efb5cba906b72.webp",
+          "image_ref": "/lesson-assets/a1plus-unit-6-w06-6b041fb363ce35a4.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -678,50 +684,68 @@
     },
     {
       "slide_id": "R10",
-      "interaction_type": "i2t3",
+      "interaction_type": "i2t2",
       "prompt": "",
       "stage": "Recognize",
-      "correct_option_id": "luis-walks-along-the-river-every-weekend-r10",
+      "correct_option_id": "how-do-i-get-to-the-park-cross-the-bridge-and-walk-along-the-river-r10",
       "options": [
         {
-          "id": "luis-walks-along-the-river-every-weekend-r10",
+          "id": "how-do-i-get-to-the-park-cross-the-bridge-and-walk-along-the-river-r10",
           "image_url": "",
-          "label": "Luis walks along the river every weekend.",
-          "spanish_translation": "Luis camina junto al r\u00edo cada fin de semana."
+          "label": "How do I get to the park? Cross the bridge and walk along the river.",
+          "spanish_translation": "\u00bfC\u00f3mo llego al parque? Cruza el puente y camina por la orilla del r\u00edo."
         },
         {
-          "id": "luis-walks-along-the-river-every-morning-r10",
+          "id": "how-do-i-get-to-the-park-cross-the-street-and-turn-left-r10",
           "image_url": "",
-          "label": "Luis walks along the river every morning.",
-          "spanish_translation": "Luis camina junto al r\u00edo cada ma\u00f1ana."
-        },
-        {
-          "id": "luis-walks-along-the-river-every-evening-r10",
-          "image_url": "",
-          "label": "Luis walks along the river every evening.",
-          "spanish_translation": "Luis camina junto al r\u00edo cada noche."
+          "label": "How do I get to the park? Cross the street and turn left.",
+          "spanish_translation": "\u00bfC\u00f3mo llego al parque? Cruza la calle y da vuelta a la izquierda."
         }
       ],
       "audio_text": "",
-      "answer_audio_text": "Luis walks along the river every weekend.",
+      "answer_audio_text": "How do I get to the park? Cross the bridge and walk along the river.",
       "prompt_image_url": "/lesson-assets/a1plus-unit-6-w02-c1828502b663dfe7.webp",
       "spanish_translation": "Elige la frase correcta.",
-      "pedagogy_note": "Story beat 10: Luis walks along the river every weekend.",
+      "pedagogy_note": "Story beat 10: How do I get to the park? Cross the bridge and walk along the river.",
       "audio_speaker": null,
-      "answer_audio_speaker": "co-teacher",
+      "answer_audio_speaker": null,
+      "answer_audio_turns": [
+        {
+          "text": "How do I get to the park?",
+          "speaker_role": "co-teacher",
+          "image_url": "/lesson-assets/a1_photo_u6_story_help_second_question_v1.webp"
+        },
+        {
+          "text": "Cross the bridge and walk along the river.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1plus-unit-6-w02-c1828502b663dfe7.webp"
+        }
+      ],
       "answer_audio_policy": "authored-only",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "a1plus-unit-6-lesson-6-8-c014-answer-d25f2561e7f9daff6c29",
-          "purpose": "answer",
-          "text": "Luis walks along the river every weekend.",
+          "id": "a1plus-unit-6-lesson-6-8-c014-answer-turn-1-ca7b5fc45e8fba259c2d",
+          "purpose": "answer-turn-1",
+          "text": "How do I get to the park?",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_help_second_question_v1.webp",
+          "semantic_role": "answer",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "a1plus-unit-6-lesson-6-8-c014-answer-turn-2-535298614022a9be8ddf",
+          "purpose": "answer-turn-2",
+          "text": "Cross the bridge and walk along the river.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1plus-unit-6-w02-c1828502b663dfe7.webp",
           "semantic_role": "answer",
-          "speaker_role": "co-teacher",
+          "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -750,21 +774,21 @@
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
       "pedagogy_note": "Story beat 01: Walk along the river.",
-      "audio_speaker": null,
+      "audio_speaker": "co-teacher",
       "answer_audio_speaker": null,
       "answer_audio_policy": "authored-only",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "a1plus-unit-6-lesson-6-8-c015-prompt-fd6be353fd8760eafe35",
+          "id": "a1plus-unit-6-lesson-6-8-c015-prompt-a0885f6791074c240759",
           "purpose": "prompt",
           "text": "Walk along the river.",
           "mode": "prompt",
           "variant": "prompt",
           "image_ref": "/lesson-assets/a1plus-unit-6-w02-c1828502b663dfe7.webp",
           "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -784,7 +808,7 @@
         },
         {
           "id": "this-is-a-bridge-a2",
-          "image_url": "/lesson-assets/a1plus-unit-6-w03-556efb5cba906b72.webp",
+          "image_url": "/lesson-assets/a1plus-unit-6-w06-6b041fb363ce35a4.webp",
           "label": null
         }
       ],
@@ -793,21 +817,21 @@
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
       "pedagogy_note": "Story beat 02: This is a river.",
-      "audio_speaker": "co-teacher",
+      "audio_speaker": null,
       "answer_audio_speaker": null,
       "answer_audio_policy": "authored-only",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "a1plus-unit-6-lesson-6-8-c016-prompt-366f0847e9a2efc423fb",
+          "id": "a1plus-unit-6-lesson-6-8-c016-prompt-0f2745018a4bb203b65c",
           "purpose": "prompt",
           "text": "This is a river.",
           "mode": "prompt",
           "variant": "prompt",
           "image_ref": "/lesson-assets/a1plus-unit-6-w04-46c60d1ebe47065f.webp",
           "semantic_role": "teacher",
-          "speaker_role": "co-teacher",
+          "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -905,21 +929,21 @@
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
       "pedagogy_note": "Story beat 04: Cross the bridge.",
-      "audio_speaker": null,
+      "audio_speaker": "co-teacher",
       "answer_audio_speaker": null,
       "answer_audio_policy": "authored-only",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "a1plus-unit-6-lesson-6-8-c018-prompt-e1fffcee8ed03ddaa55c",
+          "id": "a1plus-unit-6-lesson-6-8-c018-prompt-bf7e1425d1c70175227f",
           "purpose": "prompt",
           "text": "Cross the bridge.",
           "mode": "prompt",
           "variant": "prompt",
           "image_ref": "/lesson-assets/a1plus-unit-6-w05-a25830a18548816a.webp",
           "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -930,39 +954,63 @@
       "interaction_type": "a2t2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "walk-along-the-river-a5",
+      "correct_option_id": "how-do-i-get-to-the-pool-turn-right-at-the-crosswalk-and-walk-along-the-river-a5",
       "options": [
         {
-          "id": "walk-along-the-river-a5",
+          "id": "how-do-i-get-to-the-pool-turn-right-at-the-crosswalk-and-walk-along-the-river-a5",
           "image_url": "",
-          "label": "Walk along the river.",
-          "spanish_translation": "Camina por la orilla del r\u00edo."
+          "label": "How do I get to the pool? Turn right at the crosswalk and walk along the river.",
+          "spanish_translation": "\u00bfC\u00f3mo llego a la alberca? Da vuelta a la derecha en el cruce peatonal y camina junto al r\u00edo."
         },
         {
-          "id": "cross-the-bridge-a5",
+          "id": "how-do-i-get-to-the-pool-turn-left-at-the-crosswalk-and-walk-along-the-river-a5",
           "image_url": "",
-          "label": "Cross the bridge.",
-          "spanish_translation": "Cruza el puente."
+          "label": "How do I get to the pool? Turn left at the crosswalk and walk along the river.",
+          "spanish_translation": "\u00bfC\u00f3mo llego a la alberca? Da vuelta a la izquierda en el cruce peatonal y camina junto al r\u00edo."
         }
       ],
-      "audio_text": "Walk along the river.",
+      "audio_text": "How do I get to the pool? Turn right at the crosswalk and walk along the river.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 05: Walk along the river.",
-      "audio_speaker": "teacher",
+      "pedagogy_note": "Story beat 05: How do I get to the pool? Turn right at the crosswalk and walk along the river.",
+      "audio_speaker": null,
       "answer_audio_speaker": null,
+      "audio_turns": [
+        {
+          "text": "How do I get to the pool?",
+          "speaker_role": "co-teacher",
+          "image_url": "/lesson-assets/a1plus-unit-6-k06-6efb26135abad54a.webp"
+        },
+        {
+          "text": "Turn right at the crosswalk and walk along the river.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1plus-unit-6-k06-6efb26135abad54a.webp"
+        }
+      ],
       "answer_audio_policy": "authored-only",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "a1plus-unit-6-lesson-6-8-c019-prompt-ddf456d95e0331eb38cc",
-          "purpose": "prompt",
-          "text": "Walk along the river.",
+          "id": "a1plus-unit-6-lesson-6-8-c019-prompt-turn-1-895de7a596bd14b4e2f5",
+          "purpose": "prompt-turn-1",
+          "text": "How do I get to the pool?",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "text-only:2d2d71d9d05595b13189",
+          "image_ref": "/lesson-assets/a1plus-unit-6-k06-6efb26135abad54a.webp",
+          "semantic_role": "question",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "a1plus-unit-6-lesson-6-8-c019-prompt-turn-2-d24bfff096985a634a8b",
+          "purpose": "prompt-turn-2",
+          "text": "Turn right at the crosswalk and walk along the river.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1plus-unit-6-k06-6efb26135abad54a.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -995,21 +1043,21 @@
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
       "pedagogy_note": "Story beat 06: This is a bridge.",
-      "audio_speaker": "co-teacher",
+      "audio_speaker": null,
       "answer_audio_speaker": null,
       "answer_audio_policy": "authored-only",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "a1plus-unit-6-lesson-6-8-c020-prompt-a5a303b1f2837cdb994c",
+          "id": "a1plus-unit-6-lesson-6-8-c020-prompt-0812d8f57d34c45873b3",
           "purpose": "prompt",
           "text": "This is a bridge.",
           "mode": "prompt",
           "variant": "prompt",
           "image_ref": "text-only:108e0add91b7e4d50c90",
           "semantic_role": "teacher",
-          "speaker_role": "co-teacher",
+          "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1017,41 +1065,47 @@
     },
     {
       "slide_id": "A7",
-      "interaction_type": "a2t2",
+      "interaction_type": "a2t3",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "how-do-i-get-to-the-library-walk-along-the-river-and-turn-left-at-the-bakery-a7",
+      "correct_option_id": "how-do-i-get-to-the-library-cross-the-bridge-and-turn-left-at-the-traffic-light-a7",
       "options": [
         {
-          "id": "how-do-i-get-to-the-library-cross-the-bridge-and-turn-right-at-the-bakery-a7",
+          "id": "how-do-i-get-to-the-library-cross-the-bridge-and-turn-left-at-the-traffic-light-a7",
           "image_url": "",
-          "label": "How do I get to the library? Cross the bridge and turn right at the bakery.",
-          "spanish_translation": "\u00bfC\u00f3mo llego a la biblioteca? Cruza el puente y da vuelta a la derecha en la panader\u00eda."
+          "label": "How do I get to the library? Cross the bridge and turn left at the traffic light.",
+          "spanish_translation": "\u00bfC\u00f3mo llego a la biblioteca? Cruza el puente y da vuelta a la izquierda en el sem\u00e1foro."
         },
         {
-          "id": "how-do-i-get-to-the-library-walk-along-the-river-and-turn-left-at-the-bakery-a7",
+          "id": "how-do-i-get-to-the-library-cross-the-bridge-and-turn-right-at-the-traffic-light-a7",
           "image_url": "",
-          "label": "How do I get to the library? Walk along the river and turn left at the bakery.",
-          "spanish_translation": "\u00bfC\u00f3mo llego a la biblioteca? Camina por la orilla del r\u00edo y da vuelta a la izquierda en la panader\u00eda."
+          "label": "How do I get to the library? Cross the bridge and turn right at the traffic light.",
+          "spanish_translation": "\u00bfC\u00f3mo llego a la biblioteca? Cruza el puente y da vuelta a la derecha en el sem\u00e1foro."
+        },
+        {
+          "id": "how-do-i-get-to-the-library-cross-the-bridge-and-turn-left-at-the-crosswalk-a7",
+          "image_url": "",
+          "label": "How do I get to the library? Cross the bridge and turn left at the crosswalk.",
+          "spanish_translation": "\u00bfC\u00f3mo llego a la biblioteca? Cruza el puente y da vuelta a la izquierda en el cruce peatonal."
         }
       ],
-      "audio_text": "How do I get to the library? Walk along the river and turn left at the bakery.",
+      "audio_text": "How do I get to the library? Cross the bridge and turn left at the traffic light.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 07: How do I get to the library? Walk along the river and turn left at the bakery.",
+      "pedagogy_note": "Story beat 07: How do I get to the library? Cross the bridge and turn left at the traffic light.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_turns": [
         {
           "text": "How do I get to the library?",
-          "speaker_role": "teacher",
-          "image_url": "/lesson-assets/a1_photo_u6_story_help_second_question_v1.webp"
+          "speaker_role": "co-teacher",
+          "image_url": "/lesson-assets/a1plus-unit-6-k05-d1bb05c23de8fa3a.webp"
         },
         {
-          "text": "Walk along the river and turn left at the bakery.",
-          "speaker_role": "co-teacher",
-          "image_url": "/lesson-assets/a1plus-unit-6-k01-1ce0d396b8be11de.webp"
+          "text": "Cross the bridge and turn left at the traffic light.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1plus-unit-6-k05-d1bb05c23de8fa3a.webp"
         }
       ],
       "answer_audio_policy": "authored-only",
@@ -1059,26 +1113,26 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "a1plus-unit-6-lesson-6-8-c021-prompt-turn-1-d7e2f0d9a38d31e6c9c0",
+          "id": "a1plus-unit-6-lesson-6-8-c021-prompt-turn-1-a65b59e7743dab40424e",
           "purpose": "prompt-turn-1",
           "text": "How do I get to the library?",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_photo_u6_story_help_second_question_v1.webp",
+          "image_ref": "/lesson-assets/a1plus-unit-6-k05-d1bb05c23de8fa3a.webp",
           "semantic_role": "question",
-          "speaker_role": "teacher",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "a1plus-unit-6-lesson-6-8-c021-prompt-turn-2-b46e988fe291a10eca10",
+          "id": "a1plus-unit-6-lesson-6-8-c021-prompt-turn-2-5fddce7111f84e109df4",
           "purpose": "prompt-turn-2",
-          "text": "Walk along the river and turn left at the bakery.",
+          "text": "Cross the bridge and turn left at the traffic light.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1plus-unit-6-k01-1ce0d396b8be11de.webp",
+          "image_ref": "/lesson-assets/a1plus-unit-6-k05-d1bb05c23de8fa3a.webp",
           "semantic_role": "teacher",
-          "speaker_role": "co-teacher",
+          "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1089,45 +1143,69 @@
       "interaction_type": "a2t3",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "luis-is-walking-along-the-river-a8",
+      "correct_option_id": "when-does-luis-walk-along-the-river-he-walks-along-the-river-every-weekend-a8",
       "options": [
         {
-          "id": "luis-is-walking-along-the-river-a8",
+          "id": "when-does-luis-walk-along-the-river-he-walks-along-the-river-every-weekend-a8",
           "image_url": "",
-          "label": "Luis is walking along the river.",
-          "spanish_translation": "Luis est\u00e1 caminando por la orilla del r\u00edo."
+          "label": "When does Luis walk along the river? He walks along the river every weekend.",
+          "spanish_translation": "\u00bfCu\u00e1ndo camina Luis junto al r\u00edo? Camina junto al r\u00edo cada fin de semana."
         },
         {
-          "id": "luis-is-crossing-the-bridge-a8",
+          "id": "when-does-luis-walk-along-the-river-he-walks-along-the-river-every-morning-a8",
           "image_url": "",
-          "label": "Luis is crossing the bridge.",
-          "spanish_translation": "Luis est\u00e1 cruzando el puente."
+          "label": "When does Luis walk along the river? He walks along the river every morning.",
+          "spanish_translation": "\u00bfCu\u00e1ndo camina Luis junto al r\u00edo? Camina junto al r\u00edo cada ma\u00f1ana."
         },
         {
-          "id": "ana-is-crossing-the-bridge-a8",
+          "id": "when-does-luis-walk-along-the-river-he-walks-along-the-river-every-evening-a8",
           "image_url": "",
-          "label": "Ana is crossing the bridge.",
-          "spanish_translation": "Ana est\u00e1 cruzando el puente."
+          "label": "When does Luis walk along the river? He walks along the river every evening.",
+          "spanish_translation": "\u00bfCu\u00e1ndo camina Luis por la orilla del r\u00edo? Camina por la orilla del r\u00edo todas las noches."
         }
       ],
-      "audio_text": "Luis is walking along the river.",
+      "audio_text": "When does Luis walk along the river? He walks along the river every weekend.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 08: Luis is walking along the river.",
+      "pedagogy_note": "Story beat 08: When does Luis walk along the river? He walks along the river every weekend.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
+      "audio_turns": [
+        {
+          "text": "When does Luis walk along the river?",
+          "speaker_role": "co-teacher",
+          "image_url": "/lesson-assets/a1plus-unit-6-w02-c1828502b663dfe7.webp"
+        },
+        {
+          "text": "He walks along the river every weekend.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1plus-unit-6-w02-c1828502b663dfe7.webp"
+        }
+      ],
       "answer_audio_policy": "authored-only",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "a1plus-unit-6-lesson-6-8-c022-prompt-3499d0863bd17d962ec4",
-          "purpose": "prompt",
-          "text": "Luis is walking along the river.",
+          "id": "a1plus-unit-6-lesson-6-8-c022-prompt-turn-1-cab695058289160de32c",
+          "purpose": "prompt-turn-1",
+          "text": "When does Luis walk along the river?",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "text-only:101425e99a381d2c3f83",
+          "image_ref": "/lesson-assets/a1plus-unit-6-w02-c1828502b663dfe7.webp",
+          "semantic_role": "question",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "a1plus-unit-6-lesson-6-8-c022-prompt-turn-2-d8be5c0a792059baac67",
+          "purpose": "prompt-turn-2",
+          "text": "He walks along the river every weekend.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1plus-unit-6-w02-c1828502b663dfe7.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1305,7 +1383,7 @@
       "options": [
         {
           "id": "this-is-a-bridge-speak",
-          "image_url": "/lesson-assets/a1plus-unit-6-w03-556efb5cba906b72.webp",
+          "image_url": "/lesson-assets/a1plus-unit-6-w06-6b041fb363ce35a4.webp",
           "label": "This is a bridge."
         }
       ],
@@ -1320,7 +1398,7 @@
         {
           "text": "This is a bridge.",
           "speaker_role": "teacher",
-          "image_url": "/lesson-assets/a1plus-unit-6-w03-556efb5cba906b72.webp",
+          "image_url": "/lesson-assets/a1plus-unit-6-w06-6b041fb363ce35a4.webp",
           "delivery": "a1-pronunciation-v1"
         }
       ],
@@ -1329,12 +1407,12 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "a1plus-unit-6-lesson-6-8-c026-prompt-turn-1-0fca8d757f213ef89dfb",
+          "id": "a1plus-unit-6-lesson-6-8-c026-prompt-turn-1-d06f1ea57b852373021a",
           "purpose": "prompt-turn-1",
           "text": "This is a bridge.",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1plus-unit-6-w03-556efb5cba906b72.webp",
+          "image_ref": "/lesson-assets/a1plus-unit-6-w06-6b041fb363ce35a4.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1767,7 +1845,7 @@
       ],
       "audio_text": "This is a bridge.",
       "answer_audio_text": "This is a bridge.",
-      "prompt_image_url": "/lesson-assets/a1plus-unit-6-w03-556efb5cba906b72.webp",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-6-w06-6b041fb363ce35a4.webp",
       "spanish_translation": "Este es un puente.",
       "pedagogy_note": "Story beat 03: This is a bridge.",
       "audio_speaker": null,
@@ -1777,24 +1855,24 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "a1plus-unit-6-lesson-6-8-c035-prompt-eba5999ad84340e0379b",
+          "id": "a1plus-unit-6-lesson-6-8-c035-prompt-37fdabe5354d9cbab36f",
           "purpose": "prompt",
           "text": "This is a bridge.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1plus-unit-6-w03-556efb5cba906b72.webp",
+          "image_ref": "/lesson-assets/a1plus-unit-6-w06-6b041fb363ce35a4.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "a1plus-unit-6-lesson-6-8-c035-answer-b1d3afd95dbf83929e85",
+          "id": "a1plus-unit-6-lesson-6-8-c035-answer-198ce1d81eace54637ff",
           "purpose": "answer",
           "text": "This is a bridge.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1plus-unit-6-w03-556efb5cba906b72.webp",
+          "image_ref": "/lesson-assets/a1plus-unit-6-w06-6b041fb363ce35a4.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
