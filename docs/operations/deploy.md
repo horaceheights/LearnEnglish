@@ -124,7 +124,11 @@ Render shallow-clones the tip of the branch it deploys and gives up when GitHub 
 
 ### Render memory budget
 
-The service runs on a 512 MiB instance. Render kills the process above that (`Out of memory (used over 512Mi)`, event `server_failed` with `oomKilled`), and a deploy that is killed this way ends `update_failed`, leaving the earlier deploy in place. Startup memory grows with the course catalog, because the backend loads every lesson and, after startup, checks the course-audio upload manifest and the approved take registry. On 2026-11-23, with A1+ Unit 7, the old check peaked at about 512 MiB: it parsed both files at once, and a learner request could parse the manifest a second time. Since then `cloudflare_media.inventory()` parses one file at a time, under a lock, and keeps only the keys of `historical_objects`. Measured locally on that catalog, the peak is about 415 MiB. If OOM kills return as content grows, measure again: run the startup stages under `psutil` from `backend/`. Then either trim memory again or move the service to a larger instance (that is a billing change, so the owner decides).
+Render kills the process when it goes over its instance's memory (`Out of memory (used over 512Mi)`, event `server_failed` with `oomKilled`). A deploy killed this way ends `update_failed`, and the earlier deploy stays in place. Startup memory grows with the course catalog, because the backend loads every lesson and, after startup, checks the course-audio upload manifest and the approved take registry. Each unit adds roughly 14 MiB to the startup peak.
+
+Until 2026-11-23 the service ran on the 512 MiB Starter instance. With A1+ Unit 7 and German Unit 4, the old check peaked at about 528 MiB: it parsed both files at once, and a learner request could parse the manifest a second time. Every deploy and the running instance were then OOM-killed, and the backend returned 502s. The owner moved the service to the Standard instance (1 CPU, 2 GB; the API reports plan `1c-2g`) that night. Separately, `cloudflare_media.inventory()` now parses one file at a time, under a lock, and keeps only the keys of `historical_objects`. Measured locally on that catalog, the peak is about 430 MiB.
+
+If OOM kills return, measure the startup stages under `psutil` from `backend/`. Then choose between trimming memory and a larger instance; the instance size is a billing change, so the owner decides.
 
 ## Shipping Pregenerated Course Audio
 
