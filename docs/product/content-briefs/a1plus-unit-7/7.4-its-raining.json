@@ -460,7 +460,30 @@
       ],
       "avoid": [
         "It's sunny.",
-        "It isn't raining. It's sunny."
+        "It isn't raining. It's sunny.",
+        "It isn't raining. The sun is shining."
+      ]
+    },
+    {
+      "id": "x-shine",
+      "text": "It isn't raining. The sun is shining.",
+      "es": "No está lloviendo. El sol está brillando.",
+      "image": "/lesson-assets/a1_sunny.webp",
+      "kind": "now",
+      "accepts": {
+        "subject-variety": "The bank keeps It's and changes only the weather the picture shows happening now.",
+        "action-variety": "The bank keeps It's and changes only the weather the picture shows happening now.",
+        "conversational-response": "The bank keeps It's and changes only the weather the picture shows happening now.",
+        "reading-load": "The bank keeps It's and changes only the weather the picture shows happening now."
+      },
+      "prefer": [
+        "It isn't sunny. It's raining."
+      ],
+      "use": false,
+      "learn": false,
+      "avoid": [
+        "It isn't raining. It's sunny.",
+        "It's sunny."
       ]
     },
     {
@@ -507,41 +530,6 @@
       "image_choices": false
     },
     {
-      "id": "y-wet",
-      "text": "Yes, it is.",
-      "es": "Sí.",
-      "image": "/lesson-assets/a1plus-unit-7-r06-3398f2aa8b862feb.webp",
-      "kind": "yn",
-      "question": "Is it raining?",
-      "question_es": "¿Está lloviendo?",
-      "question_speaker": "co-teacher",
-      "speaker": "diego",
-      "image_choices": false,
-      "use": false,
-      "accepts": {
-        "subject-variety": "The question stays the same and the reply changes only yes or no; the picture shows the weather.",
-        "action-variety": "The question stays the same and the reply changes only yes or no; the picture shows the weather.",
-        "conversational-response": "The question stays the same and the reply changes only yes or no; the picture shows the weather.",
-        "reading-load": "The question stays the same and the reply changes only yes or no; the picture shows the weather."
-      },
-      "prefer": [
-        "No, it isn't."
-      ],
-      "listening_turns": [
-        {
-          "text": "Is it raining?",
-          "speaker": "co-teacher",
-          "image": "/lesson-assets/a1plus-unit-7-r06-3398f2aa8b862feb.webp"
-        },
-        {
-          "text": "Yes, it is.",
-          "speaker": "diego",
-          "image": "/lesson-assets/a1plus-unit-7-r06-3398f2aa8b862feb.webp"
-        }
-      ],
-      "learn": false
-    },
-    {
       "id": "w-cloudy",
       "text": "It isn't raining. It's cloudy.",
       "es": "No está lloviendo. Está nublado.",
@@ -559,7 +547,8 @@
       "use": false,
       "learn": false,
       "avoid": [
-        "The sun is shining."
+        "The sun is shining.",
+        "It isn't raining. The sun is shining."
       ]
     }
   ],
@@ -730,7 +719,7 @@
       "y-sunny",
       "b-wet",
       "w-cloudy",
-      "w-shine",
+      "x-shine",
       "b-luis"
     ],
     "Listen": [
@@ -743,7 +732,7 @@
       "t-wet",
       "b-ana",
       "w-cloudy",
-      "y-wet"
+      "x-shine"
     ],
     "Speak": [
       "q-rain",
@@ -753,7 +742,7 @@
       "w-shine",
       "t-wet",
       "b-wet",
-      "b-luis"
+      "x-shine"
     ],
     "Use": [
       "w-rain",

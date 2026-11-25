@@ -214727,32 +214727,32 @@
         "interaction_type": "i2t3",
         "prompt": "",
         "stage": "Recognize",
-        "correct_option_id": "the-sun-is-shining-r10",
+        "correct_option_id": "it-isn't-raining-the-sun-is-shining-r10",
         "options": [
           {
-            "id": "the-sun-is-shining-r10",
+            "id": "it-isn't-raining-the-sun-is-shining-r10",
             "image_url": "",
-            "label": "The sun is shining.",
-            "spanish_translation": "El sol est\u00e1 brillando."
+            "label": "It isn't raining. The sun is shining.",
+            "spanish_translation": "No est\u00e1 lloviendo. El sol est\u00e1 brillando."
           },
           {
-            "id": "it's-raining-r10",
+            "id": "it-isn't-sunny-it's-raining-r10",
             "image_url": "",
-            "label": "It's raining.",
-            "spanish_translation": "Est\u00e1 lloviendo."
+            "label": "It isn't sunny. It's raining.",
+            "spanish_translation": "No hace sol. Est\u00e1 lloviendo."
           },
           {
-            "id": "it's-snowing-r10",
+            "id": "it-isn't-raining-it's-cloudy-r10",
             "image_url": "",
-            "label": "It's snowing.",
-            "spanish_translation": "Est\u00e1 nevando."
+            "label": "It isn't raining. It's cloudy.",
+            "spanish_translation": "No est\u00e1 lloviendo. Est\u00e1 nublado."
           }
         ],
         "audio_text": "",
-        "answer_audio_text": "The sun is shining.",
+        "answer_audio_text": "It isn't raining. The sun is shining.",
         "prompt_image_url": "/lesson-assets/a1_sunny.webp",
         "spanish_translation": "Elige la frase correcta.",
-        "pedagogy_note": "Story beat 10: The sun is shining.",
+        "pedagogy_note": "Story beat 10: It isn't raining. The sun is shining.",
         "audio_speaker": null,
         "answer_audio_speaker": "co-teacher",
         "answer_audio_policy": "authored-only",
@@ -214760,9 +214760,9 @@
         "answer_audio_revision": 1,
         "audio_assets": [
           {
-            "id": "a1plus-unit-7-lesson-7-4-c016-answer-06caaee4bbbbd2458220",
+            "id": "a1plus-unit-7-lesson-7-4-c016-answer-677243608a014776e81f",
             "purpose": "answer",
-            "text": "The sun is shining.",
+            "text": "It isn't raining. The sun is shining.",
             "mode": "prompt",
             "variant": "answer",
             "image_ref": "/lesson-assets/a1_sunny.webp",
@@ -215327,68 +215327,52 @@
       },
       {
         "slide_id": "A10",
-        "interaction_type": "a2t2",
+        "interaction_type": "a2i4",
         "prompt": "Listen and choose.",
         "stage": "Listen",
-        "correct_option_id": "yes-it-is-a10",
+        "correct_option_id": "it-isn't-raining-the-sun-is-shining-a10",
         "options": [
           {
-            "id": "no-it-isn't-a10",
-            "image_url": "",
-            "label": "No, it isn't.",
-            "spanish_translation": "No."
+            "id": "it-isn't-raining-it's-cloudy-a10",
+            "image_url": "/lesson-assets/a1_cloudy.webp",
+            "label": null
           },
           {
-            "id": "yes-it-is-a10",
-            "image_url": "",
-            "label": "Yes, it is.",
-            "spanish_translation": "S\u00ed."
+            "id": "it's-snowing-a10",
+            "image_url": "/lesson-assets/a1_rainy.webp",
+            "label": null
+          },
+          {
+            "id": "it's-raining-a10",
+            "image_url": "/lesson-assets/a1_photo_u7_seasons_snow_v1.webp",
+            "label": null
+          },
+          {
+            "id": "it-isn't-raining-the-sun-is-shining-a10",
+            "image_url": "/lesson-assets/a1_sunny.webp",
+            "label": null
           }
         ],
-        "audio_text": "Is it raining? Yes, it is.",
+        "audio_text": "It isn't raining. The sun is shining.",
         "answer_audio_text": null,
         "prompt_image_url": "",
         "spanish_translation": "Escucha y elige.",
-        "pedagogy_note": "Story beat 10: Yes, it is.",
-        "audio_speaker": null,
+        "pedagogy_note": "Story beat 10: It isn't raining. The sun is shining.",
+        "audio_speaker": "co-teacher",
         "answer_audio_speaker": null,
-        "audio_turns": [
-          {
-            "text": "Is it raining?",
-            "speaker_role": "co-teacher",
-            "image_url": "/lesson-assets/a1plus-unit-7-r06-3398f2aa8b862feb.webp"
-          },
-          {
-            "text": "Yes, it is.",
-            "speaker_role": "diego",
-            "image_url": "/lesson-assets/a1plus-unit-7-r06-3398f2aa8b862feb.webp"
-          }
-        ],
         "answer_audio_policy": "authored-only",
         "audio_revision": 1,
         "answer_audio_revision": 1,
         "audio_assets": [
           {
-            "id": "a1plus-unit-7-lesson-7-4-c027-prompt-turn-1-132241a9d8637f058f2d",
-            "purpose": "prompt-turn-1",
-            "text": "Is it raining?",
+            "id": "a1plus-unit-7-lesson-7-4-c027-prompt-1cc9be4398a39e3cd25a",
+            "purpose": "prompt",
+            "text": "It isn't raining. The sun is shining.",
             "mode": "prompt",
             "variant": "prompt",
-            "image_ref": "/lesson-assets/a1plus-unit-7-r06-3398f2aa8b862feb.webp",
-            "semantic_role": "question",
-            "speaker_role": "co-teacher",
-            "profile_id": "a1-elevenlabs-character-cast-v1",
-            "revision": 1
-          },
-          {
-            "id": "a1plus-unit-7-lesson-7-4-c027-prompt-turn-2-f782a652d33b5becf62f",
-            "purpose": "prompt-turn-2",
-            "text": "Yes, it is.",
-            "mode": "prompt",
-            "variant": "prompt",
-            "image_ref": "/lesson-assets/a1plus-unit-7-r06-3398f2aa8b862feb.webp",
+            "image_ref": "/lesson-assets/a1_sunny.webp",
             "semantic_role": "teacher",
-            "speaker_role": "diego",
+            "speaker_role": "co-teacher",
             "profile_id": "a1-elevenlabs-character-cast-v1",
             "revision": 1
           }
@@ -215464,7 +215448,7 @@
         "audio_turns": [
           {
             "text": "It's raining.",
-            "speaker_role": "co-teacher",
+            "speaker_role": "teacher",
             "image_url": "/lesson-assets/a1_rainy.webp",
             "delivery": "a1-pronunciation-v1"
           }
@@ -215474,14 +215458,14 @@
         "answer_audio_revision": 1,
         "audio_assets": [
           {
-            "id": "a1plus-unit-7-lesson-7-4-c029-prompt-turn-1-6584feb9cebcb663bb4f",
+            "id": "a1plus-unit-7-lesson-7-4-c029-prompt-turn-1-41fef06423356914c69e",
             "purpose": "prompt-turn-1",
             "text": "It's raining.",
             "mode": "pronunciation_slow",
             "variant": "split-ing",
             "image_ref": "/lesson-assets/a1_rainy.webp",
             "semantic_role": "teacher",
-            "speaker_role": "co-teacher",
+            "speaker_role": "teacher",
             "profile_id": "a1-elevenlabs-character-cast-v1",
             "revision": 1,
             "delivery": "a1-pronunciation-v1"
@@ -215558,7 +215542,7 @@
         "audio_turns": [
           {
             "text": "It's snowing.",
-            "speaker_role": "teacher",
+            "speaker_role": "co-teacher",
             "image_url": "/lesson-assets/a1_photo_u7_seasons_snow_v1.webp",
             "delivery": "a1-pronunciation-v1"
           }
@@ -215568,14 +215552,14 @@
         "answer_audio_revision": 1,
         "audio_assets": [
           {
-            "id": "a1plus-unit-7-lesson-7-4-c031-prompt-turn-1-ee80b6988ddf84011ba6",
+            "id": "a1plus-unit-7-lesson-7-4-c031-prompt-turn-1-b70ed129f270b307580a",
             "purpose": "prompt-turn-1",
             "text": "It's snowing.",
             "mode": "pronunciation_slow",
             "variant": "split-ing",
             "image_ref": "/lesson-assets/a1_photo_u7_seasons_snow_v1.webp",
             "semantic_role": "teacher",
-            "speaker_role": "teacher",
+            "speaker_role": "co-teacher",
             "profile_id": "a1-elevenlabs-character-cast-v1",
             "revision": 1,
             "delivery": "a1-pronunciation-v1"
@@ -215605,7 +215589,7 @@
         "audio_turns": [
           {
             "text": "The sun is shining.",
-            "speaker_role": "co-teacher",
+            "speaker_role": "teacher",
             "image_url": "/lesson-assets/a1_sunny.webp",
             "delivery": "a1-pronunciation-v1"
           }
@@ -215615,14 +215599,14 @@
         "answer_audio_revision": 1,
         "audio_assets": [
           {
-            "id": "a1plus-unit-7-lesson-7-4-c032-prompt-turn-1-b63d4b201078f7df0a59",
+            "id": "a1plus-unit-7-lesson-7-4-c032-prompt-turn-1-c0e658b567f4bc391781",
             "purpose": "prompt-turn-1",
             "text": "The sun is shining.",
             "mode": "pronunciation_slow",
             "variant": "split-ing",
             "image_ref": "/lesson-assets/a1_sunny.webp",
             "semantic_role": "teacher",
-            "speaker_role": "co-teacher",
+            "speaker_role": "teacher",
             "profile_id": "a1-elevenlabs-character-cast-v1",
             "revision": 1,
             "delivery": "a1-pronunciation-v1"
@@ -215652,7 +215636,7 @@
         "audio_turns": [
           {
             "text": "Diego is wet.",
-            "speaker_role": "teacher",
+            "speaker_role": "co-teacher",
             "image_url": "/lesson-assets/a1plus-unit-7-r06-3398f2aa8b862feb.webp",
             "delivery": "a1-pronunciation-v1"
           }
@@ -215662,14 +215646,14 @@
         "answer_audio_revision": 1,
         "audio_assets": [
           {
-            "id": "a1plus-unit-7-lesson-7-4-c033-prompt-turn-1-f04835d0a2b534c5638d",
+            "id": "a1plus-unit-7-lesson-7-4-c033-prompt-turn-1-821e3f9f47aac774e58b",
             "purpose": "prompt-turn-1",
             "text": "Diego is wet.",
             "mode": "pronunciation_slow",
             "variant": "split-ing",
             "image_ref": "/lesson-assets/a1plus-unit-7-r06-3398f2aa8b862feb.webp",
             "semantic_role": "teacher",
-            "speaker_role": "teacher",
+            "speaker_role": "co-teacher",
             "profile_id": "a1-elevenlabs-character-cast-v1",
             "revision": 1,
             "delivery": "a1-pronunciation-v1"
@@ -215699,7 +215683,7 @@
         "audio_turns": [
           {
             "text": "Diego is wet because it's raining.",
-            "speaker_role": "co-teacher",
+            "speaker_role": "teacher",
             "image_url": "/lesson-assets/a1plus-unit-7-r06-3398f2aa8b862feb.webp",
             "delivery": "a1-pronunciation-v1"
           }
@@ -215709,14 +215693,14 @@
         "answer_audio_revision": 1,
         "audio_assets": [
           {
-            "id": "a1plus-unit-7-lesson-7-4-c034-prompt-turn-1-c55ed9819146257437d2",
+            "id": "a1plus-unit-7-lesson-7-4-c034-prompt-turn-1-078b39bdaa6cc5e68ef7",
             "purpose": "prompt-turn-1",
             "text": "Diego is wet because it's raining.",
             "mode": "pronunciation_slow",
             "variant": "split-ing",
             "image_ref": "/lesson-assets/a1plus-unit-7-r06-3398f2aa8b862feb.webp",
             "semantic_role": "teacher",
-            "speaker_role": "co-teacher",
+            "speaker_role": "teacher",
             "profile_id": "a1-elevenlabs-character-cast-v1",
             "revision": 1,
             "delivery": "a1-pronunciation-v1"
@@ -215726,28 +215710,28 @@
       {
         "slide_id": "S8",
         "interaction_type": "speak",
-        "prompt": "Luis is at home because it's raining.",
+        "prompt": "It isn't raining. The sun is shining.",
         "stage": "Speak",
-        "correct_option_id": "luis-is-at-home-because-it's-raining-speak",
+        "correct_option_id": "it-isn't-raining-the-sun-is-shining-speak",
         "options": [
           {
-            "id": "luis-is-at-home-because-it's-raining-speak",
-            "image_url": "/lesson-assets/a1plus-unit-7-r01-c937f04f42b77927.webp",
-            "label": "Luis is at home because it's raining."
+            "id": "it-isn't-raining-the-sun-is-shining-speak",
+            "image_url": "/lesson-assets/a1_sunny.webp",
+            "label": "It isn't raining. The sun is shining."
           }
         ],
-        "audio_text": "Luis is at home because it's raining.",
+        "audio_text": "It isn't raining. The sun is shining.",
         "answer_audio_text": null,
         "prompt_image_url": "",
-        "spanish_translation": "Luis est\u00e1 en casa porque est\u00e1 lloviendo.",
-        "pedagogy_note": "Story beat 08: Luis is at home because it's raining.",
+        "spanish_translation": "No est\u00e1 lloviendo. El sol est\u00e1 brillando.",
+        "pedagogy_note": "Story beat 08: It isn't raining. The sun is shining.",
         "audio_speaker": null,
         "answer_audio_speaker": null,
         "audio_turns": [
           {
-            "text": "Luis is at home because it's raining.",
-            "speaker_role": "teacher",
-            "image_url": "/lesson-assets/a1plus-unit-7-r01-c937f04f42b77927.webp",
+            "text": "It isn't raining. The sun is shining.",
+            "speaker_role": "co-teacher",
+            "image_url": "/lesson-assets/a1_sunny.webp",
             "delivery": "a1-pronunciation-v1"
           }
         ],
@@ -215756,14 +215740,14 @@
         "answer_audio_revision": 1,
         "audio_assets": [
           {
-            "id": "a1plus-unit-7-lesson-7-4-c035-prompt-turn-1-acab42df0037a80028b4",
+            "id": "a1plus-unit-7-lesson-7-4-c035-prompt-turn-1-cbd59053b2cc80af9d80",
             "purpose": "prompt-turn-1",
-            "text": "Luis is at home because it's raining.",
+            "text": "It isn't raining. The sun is shining.",
             "mode": "pronunciation_slow",
             "variant": "split-ing",
-            "image_ref": "/lesson-assets/a1plus-unit-7-r01-c937f04f42b77927.webp",
+            "image_ref": "/lesson-assets/a1_sunny.webp",
             "semantic_role": "teacher",
-            "speaker_role": "teacher",
+            "speaker_role": "co-teacher",
             "profile_id": "a1-elevenlabs-character-cast-v1",
             "revision": 1,
             "delivery": "a1-pronunciation-v1"
@@ -215797,33 +215781,33 @@
         "prompt_image_url": "/lesson-assets/a1_rainy.webp",
         "spanish_translation": "Est\u00e1 lloviendo.",
         "pedagogy_note": "Story beat 01: It's raining.",
-        "audio_speaker": "co-teacher",
-        "answer_audio_speaker": "co-teacher",
+        "audio_speaker": null,
+        "answer_audio_speaker": null,
         "answer_audio_policy": "authored-only",
         "audio_revision": 1,
         "answer_audio_revision": 1,
         "audio_assets": [
           {
-            "id": "a1plus-unit-7-lesson-7-4-c036-prompt-e8e8f6240a2145a843f6",
+            "id": "a1plus-unit-7-lesson-7-4-c036-prompt-09d73ed3f900c42da8d2",
             "purpose": "prompt",
             "text": "It's raining.",
             "mode": "prompt",
             "variant": "prompt",
             "image_ref": "/lesson-assets/a1_rainy.webp",
             "semantic_role": "teacher",
-            "speaker_role": "co-teacher",
+            "speaker_role": "teacher",
             "profile_id": "a1-elevenlabs-character-cast-v1",
             "revision": 1
           },
           {
-            "id": "a1plus-unit-7-lesson-7-4-c036-answer-4a5d485f71da592f0d13",
+            "id": "a1plus-unit-7-lesson-7-4-c036-answer-2c0f0a1f42ea76dd4d0f",
             "purpose": "answer",
             "text": "It's raining.",
             "mode": "prompt",
             "variant": "answer",
             "image_ref": "/lesson-assets/a1_rainy.webp",
             "semantic_role": "answer",
-            "speaker_role": "co-teacher",
+            "speaker_role": "answer",
             "profile_id": "a1-elevenlabs-character-cast-v1",
             "revision": 1
           }
@@ -215856,33 +215840,33 @@
         "prompt_image_url": "/lesson-assets/a1_photo_u7_seasons_snow_v1.webp",
         "spanish_translation": "Est\u00e1 nevando.",
         "pedagogy_note": "Story beat 02: It's snowing.",
-        "audio_speaker": null,
-        "answer_audio_speaker": null,
+        "audio_speaker": "co-teacher",
+        "answer_audio_speaker": "co-teacher",
         "answer_audio_policy": "authored-only",
         "audio_revision": 1,
         "answer_audio_revision": 1,
         "audio_assets": [
           {
-            "id": "a1plus-unit-7-lesson-7-4-c037-prompt-713fd28dbd0118f36a3a",
+            "id": "a1plus-unit-7-lesson-7-4-c037-prompt-4e4e715f70ce0ca15bbf",
             "purpose": "prompt",
             "text": "It's snowing.",
             "mode": "prompt",
             "variant": "prompt",
             "image_ref": "/lesson-assets/a1_photo_u7_seasons_snow_v1.webp",
             "semantic_role": "teacher",
-            "speaker_role": "teacher",
+            "speaker_role": "co-teacher",
             "profile_id": "a1-elevenlabs-character-cast-v1",
             "revision": 1
           },
           {
-            "id": "a1plus-unit-7-lesson-7-4-c037-answer-e537d66216914725014a",
+            "id": "a1plus-unit-7-lesson-7-4-c037-answer-364a3838e7523a61e8d1",
             "purpose": "answer",
             "text": "It's snowing.",
             "mode": "prompt",
             "variant": "answer",
             "image_ref": "/lesson-assets/a1_photo_u7_seasons_snow_v1.webp",
             "semantic_role": "answer",
-            "speaker_role": "answer",
+            "speaker_role": "co-teacher",
             "profile_id": "a1-elevenlabs-character-cast-v1",
             "revision": 1
           }
@@ -215915,33 +215899,33 @@
         "prompt_image_url": "/lesson-assets/a1_sunny.webp",
         "spanish_translation": "El sol est\u00e1 brillando.",
         "pedagogy_note": "Story beat 03: The sun is shining.",
-        "audio_speaker": "co-teacher",
-        "answer_audio_speaker": "co-teacher",
+        "audio_speaker": null,
+        "answer_audio_speaker": null,
         "answer_audio_policy": "authored-only",
         "audio_revision": 1,
         "answer_audio_revision": 1,
         "audio_assets": [
           {
-            "id": "a1plus-unit-7-lesson-7-4-c038-prompt-f6892637471a8cca55f3",
+            "id": "a1plus-unit-7-lesson-7-4-c038-prompt-69d8ae410f7c8be9d27d",
             "purpose": "prompt",
             "text": "The sun is shining.",
             "mode": "prompt",
             "variant": "prompt",
             "image_ref": "/lesson-assets/a1_sunny.webp",
             "semantic_role": "teacher",
-            "speaker_role": "co-teacher",
+            "speaker_role": "teacher",
             "profile_id": "a1-elevenlabs-character-cast-v1",
             "revision": 1
           },
           {
-            "id": "a1plus-unit-7-lesson-7-4-c038-answer-b7a4a21ad4ff0f34524b",
+            "id": "a1plus-unit-7-lesson-7-4-c038-answer-dfe76018638909ae54a4",
             "purpose": "answer",
             "text": "The sun is shining.",
             "mode": "prompt",
             "variant": "answer",
             "image_ref": "/lesson-assets/a1_sunny.webp",
             "semantic_role": "answer",
-            "speaker_role": "co-teacher",
+            "speaker_role": "answer",
             "profile_id": "a1-elevenlabs-character-cast-v1",
             "revision": 1
           }
@@ -215980,33 +215964,33 @@
         "prompt_image_url": "/lesson-assets/a1plus-unit-7-r06-3398f2aa8b862feb.webp",
         "spanish_translation": "Diego est\u00e1 mojado.",
         "pedagogy_note": "Story beat 04: Diego is wet.",
-        "audio_speaker": null,
-        "answer_audio_speaker": null,
+        "audio_speaker": "co-teacher",
+        "answer_audio_speaker": "co-teacher",
         "answer_audio_policy": "authored-only",
         "audio_revision": 1,
         "answer_audio_revision": 1,
         "audio_assets": [
           {
-            "id": "a1plus-unit-7-lesson-7-4-c039-prompt-f8bdbac0bd24a236fd9c",
+            "id": "a1plus-unit-7-lesson-7-4-c039-prompt-692f42409e1c23ca39cb",
             "purpose": "prompt",
             "text": "Diego is wet.",
             "mode": "prompt",
             "variant": "prompt",
             "image_ref": "/lesson-assets/a1plus-unit-7-r06-3398f2aa8b862feb.webp",
             "semantic_role": "teacher",
-            "speaker_role": "teacher",
+            "speaker_role": "co-teacher",
             "profile_id": "a1-elevenlabs-character-cast-v1",
             "revision": 1
           },
           {
-            "id": "a1plus-unit-7-lesson-7-4-c039-answer-7d18eae6b89b800419b7",
+            "id": "a1plus-unit-7-lesson-7-4-c039-answer-366676eba2474fdc26b7",
             "purpose": "answer",
             "text": "Diego is wet.",
             "mode": "prompt",
             "variant": "answer",
             "image_ref": "/lesson-assets/a1plus-unit-7-r06-3398f2aa8b862feb.webp",
             "semantic_role": "answer",
-            "speaker_role": "answer",
+            "speaker_role": "co-teacher",
             "profile_id": "a1-elevenlabs-character-cast-v1",
             "revision": 1
           }
@@ -216063,33 +216047,33 @@
         "prompt_image_url": "/lesson-assets/a1plus-unit-7-r06-3398f2aa8b862feb.webp",
         "spanish_translation": "Diego est\u00e1 mojado porque est\u00e1 lloviendo.",
         "pedagogy_note": "Story beat 05: Diego is wet because it's raining.",
-        "audio_speaker": "co-teacher",
-        "answer_audio_speaker": "co-teacher",
+        "audio_speaker": null,
+        "answer_audio_speaker": null,
         "answer_audio_policy": "authored-only",
         "audio_revision": 1,
         "answer_audio_revision": 1,
         "audio_assets": [
           {
-            "id": "a1plus-unit-7-lesson-7-4-c040-prompt-f1fd0576a7de397c7eaa",
+            "id": "a1plus-unit-7-lesson-7-4-c040-prompt-41e87a35d68d05a791cb",
             "purpose": "prompt",
             "text": "Diego is wet because it's raining.",
             "mode": "prompt",
             "variant": "prompt",
             "image_ref": "/lesson-assets/a1plus-unit-7-r06-3398f2aa8b862feb.webp",
             "semantic_role": "teacher",
-            "speaker_role": "co-teacher",
+            "speaker_role": "teacher",
             "profile_id": "a1-elevenlabs-character-cast-v1",
             "revision": 1
           },
           {
-            "id": "a1plus-unit-7-lesson-7-4-c040-answer-c060838b7570764416c0",
+            "id": "a1plus-unit-7-lesson-7-4-c040-answer-e5fa745b866edcec7b5a",
             "purpose": "answer",
             "text": "Diego is wet because it's raining.",
             "mode": "prompt",
             "variant": "answer",
             "image_ref": "/lesson-assets/a1plus-unit-7-r06-3398f2aa8b862feb.webp",
             "semantic_role": "answer",
-            "speaker_role": "co-teacher",
+            "speaker_role": "answer",
             "profile_id": "a1-elevenlabs-character-cast-v1",
             "revision": 1
           }
@@ -216128,33 +216112,33 @@
         "prompt_image_url": "/lesson-assets/a1_sunny.webp",
         "spanish_translation": "No est\u00e1 lloviendo.",
         "pedagogy_note": "Story beat 06: It isn't raining.",
-        "audio_speaker": null,
-        "answer_audio_speaker": null,
+        "audio_speaker": "co-teacher",
+        "answer_audio_speaker": "co-teacher",
         "answer_audio_policy": "authored-only",
         "audio_revision": 1,
         "answer_audio_revision": 1,
         "audio_assets": [
           {
-            "id": "a1plus-unit-7-lesson-7-4-c041-prompt-c933143f4e8dd7c219bd",
+            "id": "a1plus-unit-7-lesson-7-4-c041-prompt-e0d20adae8aa5dc384b9",
             "purpose": "prompt",
             "text": "It isn't raining.",
             "mode": "prompt",
             "variant": "prompt",
             "image_ref": "/lesson-assets/a1_sunny.webp",
             "semantic_role": "teacher",
-            "speaker_role": "teacher",
+            "speaker_role": "co-teacher",
             "profile_id": "a1-elevenlabs-character-cast-v1",
             "revision": 1
           },
           {
-            "id": "a1plus-unit-7-lesson-7-4-c041-answer-e8798ea6d10eaedc3715",
+            "id": "a1plus-unit-7-lesson-7-4-c041-answer-4780404558d3da4b3760",
             "purpose": "answer",
             "text": "It isn't raining.",
             "mode": "prompt",
             "variant": "answer",
             "image_ref": "/lesson-assets/a1_sunny.webp",
             "semantic_role": "answer",
-            "speaker_role": "answer",
+            "speaker_role": "co-teacher",
             "profile_id": "a1-elevenlabs-character-cast-v1",
             "revision": 1
           }
@@ -216199,33 +216183,33 @@
         "prompt_image_url": "/lesson-assets/a1_sunny.webp",
         "spanish_translation": "El sol est\u00e1 brillando.",
         "pedagogy_note": "Story beat 07: The sun is shining.",
-        "audio_speaker": "co-teacher",
-        "answer_audio_speaker": "co-teacher",
+        "audio_speaker": null,
+        "answer_audio_speaker": null,
         "answer_audio_policy": "authored-only",
         "audio_revision": 1,
         "answer_audio_revision": 1,
         "audio_assets": [
           {
-            "id": "a1plus-unit-7-lesson-7-4-c042-prompt-f7ff64f4127c39ee9b2f",
+            "id": "a1plus-unit-7-lesson-7-4-c042-prompt-46cdd3585500d4f8956d",
             "purpose": "prompt",
             "text": "The sun is shining.",
             "mode": "prompt",
             "variant": "prompt",
             "image_ref": "/lesson-assets/a1_sunny.webp",
             "semantic_role": "teacher",
-            "speaker_role": "co-teacher",
+            "speaker_role": "teacher",
             "profile_id": "a1-elevenlabs-character-cast-v1",
             "revision": 1
           },
           {
-            "id": "a1plus-unit-7-lesson-7-4-c042-answer-b6476d2e5c2238891024",
+            "id": "a1plus-unit-7-lesson-7-4-c042-answer-0f3ce94a6679e99fa25d",
             "purpose": "answer",
             "text": "The sun is shining.",
             "mode": "prompt",
             "variant": "answer",
             "image_ref": "/lesson-assets/a1_sunny.webp",
             "semantic_role": "answer",
-            "speaker_role": "co-teacher",
+            "speaker_role": "answer",
             "profile_id": "a1-elevenlabs-character-cast-v1",
             "revision": 1
           }

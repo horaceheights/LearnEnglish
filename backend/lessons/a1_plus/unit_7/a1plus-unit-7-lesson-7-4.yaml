@@ -586,33 +586,33 @@
       "interaction_type": "i2t3",
       "prompt": "",
       "stage": "Recognize",
-      "correct_option_id": "the-sun-is-shining-r10",
+      "correct_option_id": "it-isn't-raining-the-sun-is-shining-r10",
       "options": [
         {
-          "id": "the-sun-is-shining-r10",
+          "id": "it-isn't-raining-the-sun-is-shining-r10",
           "image_url": "",
-          "label": "The sun is shining.",
-          "spanish_translation": "El sol está brillando."
+          "label": "It isn't raining. The sun is shining.",
+          "spanish_translation": "No está lloviendo. El sol está brillando."
         },
         {
-          "id": "it's-raining-r10",
+          "id": "it-isn't-sunny-it's-raining-r10",
           "image_url": "",
-          "label": "It's raining.",
-          "spanish_translation": "Está lloviendo."
+          "label": "It isn't sunny. It's raining.",
+          "spanish_translation": "No hace sol. Está lloviendo."
         },
         {
-          "id": "it's-snowing-r10",
+          "id": "it-isn't-raining-it's-cloudy-r10",
           "image_url": "",
-          "label": "It's snowing.",
-          "spanish_translation": "Está nevando."
+          "label": "It isn't raining. It's cloudy.",
+          "spanish_translation": "No está lloviendo. Está nublado."
         }
       ],
       "audio_text": "",
-      "answer_audio_text": "The sun is shining.",
+      "answer_audio_text": "It isn't raining. The sun is shining.",
       "prompt_image_url": "/lesson-assets/a1_sunny.webp",
       "spanish_translation": "Elige la frase correcta.",
       "answer_audio_speaker": "co-teacher",
-      "pedagogy_note": "Story beat 10: The sun is shining.",
+      "pedagogy_note": "Story beat 10: It isn't raining. The sun is shining.",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -956,41 +956,38 @@
     },
     {
       "slide_id": "A10",
-      "interaction_type": "a2t2",
+      "interaction_type": "a2i4",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "yes-it-is-a10",
+      "correct_option_id": "it-isn't-raining-the-sun-is-shining-a10",
       "options": [
         {
-          "id": "no-it-isn't-a10",
-          "image_url": "",
-          "label": "No, it isn't.",
-          "spanish_translation": "No."
+          "id": "it-isn't-raining-it's-cloudy-a10",
+          "image_url": "/lesson-assets/a1_cloudy.webp",
+          "label": null
         },
         {
-          "id": "yes-it-is-a10",
-          "image_url": "",
-          "label": "Yes, it is.",
-          "spanish_translation": "Sí."
+          "id": "it's-snowing-a10",
+          "image_url": "/lesson-assets/a1_rainy.webp",
+          "label": null
+        },
+        {
+          "id": "it's-raining-a10",
+          "image_url": "/lesson-assets/a1_photo_u7_seasons_snow_v1.webp",
+          "label": null
+        },
+        {
+          "id": "it-isn't-raining-the-sun-is-shining-a10",
+          "image_url": "/lesson-assets/a1_sunny.webp",
+          "label": null
         }
       ],
-      "audio_text": "Is it raining? Yes, it is.",
+      "audio_text": "It isn't raining. The sun is shining.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "audio_turns": [
-        {
-          "text": "Is it raining?",
-          "speaker_role": "co-teacher",
-          "image_url": "/lesson-assets/a1plus-unit-7-r06-3398f2aa8b862feb.webp"
-        },
-        {
-          "text": "Yes, it is.",
-          "speaker_role": "diego",
-          "image_url": "/lesson-assets/a1plus-unit-7-r06-3398f2aa8b862feb.webp"
-        }
-      ],
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 10: Yes, it is.",
+      "pedagogy_note": "Story beat 10: It isn't raining. The sun is shining.",
+      "audio_speaker": "co-teacher",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -1040,7 +1037,7 @@
       "audio_turns": [
         {
           "text": "It's raining.",
-          "speaker_role": "co-teacher",
+          "speaker_role": "teacher",
           "image_url": "/lesson-assets/a1_rainy.webp",
           "delivery": "a1-pronunciation-v1"
         }
@@ -1096,7 +1093,7 @@
       "audio_turns": [
         {
           "text": "It's snowing.",
-          "speaker_role": "teacher",
+          "speaker_role": "co-teacher",
           "image_url": "/lesson-assets/a1_photo_u7_seasons_snow_v1.webp",
           "delivery": "a1-pronunciation-v1"
         }
@@ -1124,7 +1121,7 @@
       "audio_turns": [
         {
           "text": "The sun is shining.",
-          "speaker_role": "co-teacher",
+          "speaker_role": "teacher",
           "image_url": "/lesson-assets/a1_sunny.webp",
           "delivery": "a1-pronunciation-v1"
         }
@@ -1152,7 +1149,7 @@
       "audio_turns": [
         {
           "text": "Diego is wet.",
-          "speaker_role": "teacher",
+          "speaker_role": "co-teacher",
           "image_url": "/lesson-assets/a1plus-unit-7-r06-3398f2aa8b862feb.webp",
           "delivery": "a1-pronunciation-v1"
         }
@@ -1180,7 +1177,7 @@
       "audio_turns": [
         {
           "text": "Diego is wet because it's raining.",
-          "speaker_role": "co-teacher",
+          "speaker_role": "teacher",
           "image_url": "/lesson-assets/a1plus-unit-7-r06-3398f2aa8b862feb.webp",
           "delivery": "a1-pronunciation-v1"
         }
@@ -1192,29 +1189,29 @@
     {
       "slide_id": "S8",
       "interaction_type": "speak",
-      "prompt": "Luis is at home because it's raining.",
+      "prompt": "It isn't raining. The sun is shining.",
       "stage": "Speak",
-      "correct_option_id": "luis-is-at-home-because-it's-raining-speak",
+      "correct_option_id": "it-isn't-raining-the-sun-is-shining-speak",
       "options": [
         {
-          "id": "luis-is-at-home-because-it's-raining-speak",
-          "image_url": "/lesson-assets/a1plus-unit-7-r01-c937f04f42b77927.webp",
-          "label": "Luis is at home because it's raining."
+          "id": "it-isn't-raining-the-sun-is-shining-speak",
+          "image_url": "/lesson-assets/a1_sunny.webp",
+          "label": "It isn't raining. The sun is shining."
         }
       ],
-      "audio_text": "Luis is at home because it's raining.",
+      "audio_text": "It isn't raining. The sun is shining.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "audio_turns": [
         {
-          "text": "Luis is at home because it's raining.",
-          "speaker_role": "teacher",
-          "image_url": "/lesson-assets/a1plus-unit-7-r01-c937f04f42b77927.webp",
+          "text": "It isn't raining. The sun is shining.",
+          "speaker_role": "co-teacher",
+          "image_url": "/lesson-assets/a1_sunny.webp",
           "delivery": "a1-pronunciation-v1"
         }
       ],
-      "spanish_translation": "Luis está en casa porque está lloviendo.",
-      "pedagogy_note": "Story beat 08: Luis is at home because it's raining.",
+      "spanish_translation": "No está lloviendo. El sol está brillando.",
+      "pedagogy_note": "Story beat 08: It isn't raining. The sun is shining.",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -1244,9 +1241,7 @@
         "it's",
         "raining"
       ],
-      "answer_audio_speaker": "co-teacher",
       "pedagogy_note": "Story beat 01: It's raining.",
-      "audio_speaker": "co-teacher",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -1276,7 +1271,9 @@
         "it's",
         "snowing"
       ],
+      "answer_audio_speaker": "co-teacher",
       "pedagogy_note": "Story beat 02: It's snowing.",
+      "audio_speaker": "co-teacher",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -1306,9 +1303,7 @@
         "is",
         "shining"
       ],
-      "answer_audio_speaker": "co-teacher",
       "pedagogy_note": "Story beat 03: The sun is shining.",
-      "audio_speaker": "co-teacher",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -1344,7 +1339,9 @@
         "word-2",
         "word-3"
       ],
+      "answer_audio_speaker": "co-teacher",
       "pedagogy_note": "Story beat 04: Diego is wet.",
+      "audio_speaker": "co-teacher",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -1398,9 +1395,7 @@
         "word-5",
         "word-6"
       ],
-      "answer_audio_speaker": "co-teacher",
       "pedagogy_note": "Story beat 05: Diego is wet because it's raining.",
-      "audio_speaker": "co-teacher",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -1436,7 +1431,9 @@
         "word-2",
         "word-3"
       ],
+      "answer_audio_speaker": "co-teacher",
       "pedagogy_note": "Story beat 06: It isn't raining.",
+      "audio_speaker": "co-teacher",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -1478,9 +1475,7 @@
         "word-3",
         "word-4"
       ],
-      "answer_audio_speaker": "co-teacher",
       "pedagogy_note": "Story beat 07: The sun is shining.",
-      "audio_speaker": "co-teacher",
       "answer_audio_policy": "authored-only"
     }
   ]

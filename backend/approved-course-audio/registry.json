@@ -732347,7 +732347,8 @@
         "prompt"
       ],
       "compatible_variants": [
-        "answer"
+        "answer",
+        "prompt"
       ],
       "provenance": {
         "source": "elevenlabs-offline-render",
@@ -732410,6 +732411,7 @@
         "prompt"
       ],
       "compatible_variants": [
+        "answer",
         "prompt"
       ],
       "provenance": {
@@ -732721,6 +732723,7 @@
       "bytes": 40585,
       "text": "Diego is wet because it's raining.",
       "compatible_speaker_roles": [
+        "answer",
         "teacher"
       ],
       "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -732728,6 +732731,7 @@
         "prompt"
       ],
       "compatible_variants": [
+        "answer",
         "prompt"
       ],
       "provenance": {
@@ -733040,6 +733044,7 @@
       "bytes": 25538,
       "text": "The sun is shining.",
       "compatible_speaker_roles": [
+        "answer",
         "teacher"
       ],
       "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -733047,6 +733052,7 @@
         "prompt"
       ],
       "compatible_variants": [
+        "answer",
         "prompt"
       ],
       "provenance": {
@@ -734180,6 +734186,582 @@
         "review": {
           "status": "operator-listening-approved",
           "audio_sha256": "d844e19e8053a9f73653b2977f2bc4774804377ffbcb0132c0efbb4524155789",
+          "basis": "Operator explicitly confirmed this recording's natural pronunciation with --reviewed-take."
+        }
+      }
+    },
+    "2d95e62f96acc2547a828d879eb1b4e004e44b9f6586db7498bf10e4563b95e4": {
+      "file": "takes/2d95e62f96acc2547a828d879eb1b4e004e44b9f6586db7498bf10e4563b95e4.mp3",
+      "audio_sha256": "2d95e62f96acc2547a828d879eb1b4e004e44b9f6586db7498bf10e4563b95e4",
+      "bytes": 57303,
+      "text": "Diego is wet because it's raining.",
+      "compatible_speaker_roles": [
+        "teacher"
+      ],
+      "profile_id": "a1-elevenlabs-character-cast-v1",
+      "compatible_modes": [
+        "pronunciation_slow"
+      ],
+      "compatible_variants": [
+        "split-ing"
+      ],
+      "provenance": {
+        "source": "elevenlabs-offline-render",
+        "provider": "elevenlabs-premium",
+        "model_id": "eleven_v4",
+        "narrator": "female-teacher",
+        "voice_id": "XfNU2rGpBa01ckF309OY",
+        "provider_output_format": "mp3_44100_128",
+        "seed": 1101,
+        "settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.8
+        },
+        "stored_media": {
+          "container": "mp3",
+          "codec": "mp3float",
+          "sample_rate_hz": 44100,
+          "channels": 1,
+          "bit_rate_bps": 128000
+        },
+        "processing": [
+          "Original ElevenLabs v4 provider bytes; no post-processing."
+        ],
+        "generated_at": "2026-11-25T03:26:04.200792+00:00",
+        "approved_at": "2026-11-25T03:29:24.878512+00:00",
+        "request_id": "jXOfDwk8W50mXoeUas2T",
+        "trace_id": "7a65f24083221df943f80c54c4b6f610",
+        "character_cost": 30,
+        "incremental_character_cost": 30,
+        "provider_requests": [
+          {
+            "model_id": "eleven_v4",
+            "text": "[speaking very slowly and clearly] Diego is wet because it's raining.",
+            "character_cost": 30,
+            "incremental_character_cost": 30,
+            "character_cost_source": "provider-header",
+            "character_cost_header": "30",
+            "staged_reuse": false,
+            "request_id": "jXOfDwk8W50mXoeUas2T",
+            "trace_id": "7a65f24083221df943f80c54c4b6f610"
+          }
+        ],
+        "review": {
+          "status": "operator-listening-approved",
+          "audio_sha256": "2d95e62f96acc2547a828d879eb1b4e004e44b9f6586db7498bf10e4563b95e4",
+          "basis": "Operator explicitly confirmed this recording's natural pronunciation with --reviewed-take."
+        },
+        "generation_delivery": "a1-pronunciation-v1"
+      }
+    },
+    "8ff63e5ac47b5d7698fed021050793f89609f975ea1ef35876328b9f70bed293": {
+      "file": "takes/8ff63e5ac47b5d7698fed021050793f89609f975ea1ef35876328b9f70bed293.mp3",
+      "audio_sha256": "8ff63e5ac47b5d7698fed021050793f89609f975ea1ef35876328b9f70bed293",
+      "bytes": 33061,
+      "text": "It's raining.",
+      "compatible_speaker_roles": [
+        "teacher"
+      ],
+      "profile_id": "a1-elevenlabs-character-cast-v1",
+      "compatible_modes": [
+        "pronunciation_slow"
+      ],
+      "compatible_variants": [
+        "split-ing"
+      ],
+      "provenance": {
+        "source": "elevenlabs-offline-render",
+        "provider": "elevenlabs-premium",
+        "model_id": "eleven_v4",
+        "narrator": "female-teacher",
+        "voice_id": "XfNU2rGpBa01ckF309OY",
+        "provider_output_format": "mp3_44100_128",
+        "seed": 1101,
+        "settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.8
+        },
+        "stored_media": {
+          "container": "mp3",
+          "codec": "mp3float",
+          "sample_rate_hz": 44100,
+          "channels": 1,
+          "bit_rate_bps": 128000
+        },
+        "processing": [
+          "Original ElevenLabs v4 provider bytes; no post-processing."
+        ],
+        "generated_at": "2026-11-25T03:26:07.023115+00:00",
+        "approved_at": "2026-11-25T03:29:25.387026+00:00",
+        "request_id": "PTfu3JGtbci27O2gLLbA",
+        "trace_id": "235262655ee8a2fcff605099312e050a",
+        "character_cost": 21,
+        "incremental_character_cost": 21,
+        "provider_requests": [
+          {
+            "model_id": "eleven_v4",
+            "text": "[speaking very slowly and clearly] It's raining.",
+            "character_cost": 21,
+            "incremental_character_cost": 21,
+            "character_cost_source": "provider-header",
+            "character_cost_header": "21",
+            "staged_reuse": false,
+            "request_id": "PTfu3JGtbci27O2gLLbA",
+            "trace_id": "235262655ee8a2fcff605099312e050a"
+          }
+        ],
+        "review": {
+          "status": "operator-listening-approved",
+          "audio_sha256": "8ff63e5ac47b5d7698fed021050793f89609f975ea1ef35876328b9f70bed293",
+          "basis": "Operator explicitly confirmed this recording's natural pronunciation with --reviewed-take."
+        },
+        "generation_delivery": "a1-pronunciation-v1"
+      }
+    },
+    "5b14eeac5ed6f219f3364d3eaf2a4d298e7c95d0238186039d5f53cd04e9dc99": {
+      "file": "takes/5b14eeac5ed6f219f3364d3eaf2a4d298e7c95d0238186039d5f53cd04e9dc99.mp3",
+      "audio_sha256": "5b14eeac5ed6f219f3364d3eaf2a4d298e7c95d0238186039d5f53cd04e9dc99",
+      "bytes": 43510,
+      "text": "The sun is shining.",
+      "compatible_speaker_roles": [
+        "teacher"
+      ],
+      "profile_id": "a1-elevenlabs-character-cast-v1",
+      "compatible_modes": [
+        "pronunciation_slow"
+      ],
+      "compatible_variants": [
+        "split-ing"
+      ],
+      "provenance": {
+        "source": "elevenlabs-offline-render",
+        "provider": "elevenlabs-premium",
+        "model_id": "eleven_v4",
+        "narrator": "female-teacher",
+        "voice_id": "XfNU2rGpBa01ckF309OY",
+        "provider_output_format": "mp3_44100_128",
+        "seed": 1101,
+        "settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.8
+        },
+        "stored_media": {
+          "container": "mp3",
+          "codec": "mp3float",
+          "sample_rate_hz": 44100,
+          "channels": 1,
+          "bit_rate_bps": 128000
+        },
+        "processing": [
+          "Original ElevenLabs v4 provider bytes; no post-processing."
+        ],
+        "generated_at": "2026-11-25T03:26:10.217563+00:00",
+        "approved_at": "2026-11-25T03:29:25.831223+00:00",
+        "request_id": "tAgDonrxVRfzmApePuHu",
+        "trace_id": "e1308863639571dfff605099312e09aa",
+        "character_cost": 24,
+        "incremental_character_cost": 24,
+        "provider_requests": [
+          {
+            "model_id": "eleven_v4",
+            "text": "[speaking very slowly and clearly] The sun is shining.",
+            "character_cost": 24,
+            "incremental_character_cost": 24,
+            "character_cost_source": "provider-header",
+            "character_cost_header": "24",
+            "staged_reuse": false,
+            "request_id": "tAgDonrxVRfzmApePuHu",
+            "trace_id": "e1308863639571dfff605099312e09aa"
+          }
+        ],
+        "review": {
+          "status": "operator-listening-approved",
+          "audio_sha256": "5b14eeac5ed6f219f3364d3eaf2a4d298e7c95d0238186039d5f53cd04e9dc99",
+          "basis": "Operator explicitly confirmed this recording's natural pronunciation with --reviewed-take."
+        },
+        "generation_delivery": "a1-pronunciation-v1"
+      }
+    },
+    "c6fd07050346b9a4e6f04df8488cda18703fa4da4c8eb08fa49828fe891e8c6e": {
+      "file": "takes/c6fd07050346b9a4e6f04df8488cda18703fa4da4c8eb08fa49828fe891e8c6e.mp3",
+      "audio_sha256": "c6fd07050346b9a4e6f04df8488cda18703fa4da4c8eb08fa49828fe891e8c6e",
+      "bytes": 40585,
+      "text": "Diego is wet.",
+      "compatible_speaker_roles": [
+        "co-teacher"
+      ],
+      "profile_id": "a1-elevenlabs-character-cast-v1",
+      "compatible_modes": [
+        "pronunciation_slow"
+      ],
+      "compatible_variants": [
+        "split-ing"
+      ],
+      "provenance": {
+        "source": "elevenlabs-offline-render",
+        "provider": "elevenlabs-premium",
+        "model_id": "eleven_v4",
+        "narrator": "male-teacher",
+        "voice_id": "cjVigY5qzO86Huf0OWal",
+        "provider_output_format": "mp3_44100_128",
+        "seed": 1101,
+        "settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.8
+        },
+        "stored_media": {
+          "container": "mp3",
+          "codec": "mp3float",
+          "sample_rate_hz": 44100,
+          "channels": 1,
+          "bit_rate_bps": 128000
+        },
+        "processing": [
+          "Original ElevenLabs v4 provider bytes; no post-processing."
+        ],
+        "generated_at": "2026-11-25T03:26:13.399702+00:00",
+        "approved_at": "2026-11-25T03:29:26.334646+00:00",
+        "request_id": "tGiRClYkAGa36VSufMHE",
+        "trace_id": "47e32c4e8899d7b0336b95170ab5824c",
+        "character_cost": 21,
+        "incremental_character_cost": 21,
+        "provider_requests": [
+          {
+            "model_id": "eleven_v4",
+            "text": "[speaking very slowly and clearly] Diego is wet.",
+            "character_cost": 21,
+            "incremental_character_cost": 21,
+            "character_cost_source": "provider-header",
+            "character_cost_header": "21",
+            "staged_reuse": false,
+            "request_id": "tGiRClYkAGa36VSufMHE",
+            "trace_id": "47e32c4e8899d7b0336b95170ab5824c"
+          }
+        ],
+        "review": {
+          "status": "operator-listening-approved",
+          "audio_sha256": "c6fd07050346b9a4e6f04df8488cda18703fa4da4c8eb08fa49828fe891e8c6e",
+          "basis": "Operator explicitly confirmed this recording's natural pronunciation with --reviewed-take."
+        },
+        "generation_delivery": "a1-pronunciation-v1"
+      }
+    },
+    "18e0636c77ea1efb206b81fa4aef82bf6ec0d14df3f96870a57cc1ab4db648a3": {
+      "file": "takes/18e0636c77ea1efb206b81fa4aef82bf6ec0d14df3f96870a57cc1ab4db648a3.mp3",
+      "audio_sha256": "18e0636c77ea1efb206b81fa4aef82bf6ec0d14df3f96870a57cc1ab4db648a3",
+      "bytes": 43510,
+      "text": "It isn't raining. The sun is shining.",
+      "compatible_speaker_roles": [
+        "co-teacher"
+      ],
+      "profile_id": "a1-elevenlabs-character-cast-v1",
+      "compatible_modes": [
+        "prompt"
+      ],
+      "compatible_variants": [
+        "answer",
+        "prompt"
+      ],
+      "provenance": {
+        "source": "elevenlabs-offline-render",
+        "provider": "elevenlabs-premium",
+        "model_id": "eleven_v4",
+        "narrator": "male-teacher",
+        "voice_id": "cjVigY5qzO86Huf0OWal",
+        "provider_output_format": "mp3_44100_128",
+        "seed": 1101,
+        "settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.8
+        },
+        "stored_media": {
+          "container": "mp3",
+          "codec": "mp3float",
+          "sample_rate_hz": 44100,
+          "channels": 1,
+          "bit_rate_bps": 128000
+        },
+        "processing": [
+          "Original ElevenLabs v4 provider bytes; no post-processing."
+        ],
+        "generated_at": "2026-11-25T03:26:16.382259+00:00",
+        "approved_at": "2026-11-25T03:29:26.830150+00:00",
+        "request_id": "7mPcrasmU4bvdbTc3K6S",
+        "trace_id": "9addfb121f36f992278694789ed2c74e",
+        "character_cost": 16,
+        "incremental_character_cost": 16,
+        "provider_requests": [
+          {
+            "model_id": "eleven_v4",
+            "text": "It isn't raining. The sun is shining.",
+            "character_cost": 16,
+            "incremental_character_cost": 16,
+            "character_cost_source": "provider-header",
+            "character_cost_header": "16",
+            "staged_reuse": false,
+            "request_id": "7mPcrasmU4bvdbTc3K6S",
+            "trace_id": "9addfb121f36f992278694789ed2c74e"
+          }
+        ],
+        "review": {
+          "status": "operator-listening-approved",
+          "audio_sha256": "18e0636c77ea1efb206b81fa4aef82bf6ec0d14df3f96870a57cc1ab4db648a3",
+          "basis": "Operator explicitly confirmed this recording's natural pronunciation with --reviewed-take."
+        }
+      }
+    },
+    "58802f36947e890959719db82d371b5578133309b1cbe13044dc0cbb654cb1c5": {
+      "file": "takes/58802f36947e890959719db82d371b5578133309b1cbe13044dc0cbb654cb1c5.mp3",
+      "audio_sha256": "58802f36947e890959719db82d371b5578133309b1cbe13044dc0cbb654cb1c5",
+      "bytes": 65244,
+      "text": "It isn't raining. The sun is shining.",
+      "compatible_speaker_roles": [
+        "co-teacher"
+      ],
+      "profile_id": "a1-elevenlabs-character-cast-v1",
+      "compatible_modes": [
+        "pronunciation_slow"
+      ],
+      "compatible_variants": [
+        "split-ing"
+      ],
+      "provenance": {
+        "source": "elevenlabs-offline-render",
+        "provider": "elevenlabs-premium",
+        "model_id": "eleven_v4",
+        "narrator": "male-teacher",
+        "voice_id": "cjVigY5qzO86Huf0OWal",
+        "provider_output_format": "mp3_44100_128",
+        "seed": 1101,
+        "settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.8
+        },
+        "stored_media": {
+          "container": "mp3",
+          "codec": "mp3float",
+          "sample_rate_hz": 44100,
+          "channels": 1,
+          "bit_rate_bps": 128000
+        },
+        "processing": [
+          "Original ElevenLabs v4 provider bytes; no post-processing."
+        ],
+        "generated_at": "2026-11-25T03:26:19.836065+00:00",
+        "approved_at": "2026-11-25T03:29:27.546569+00:00",
+        "request_id": "ESFkkxvuGoVAa8m7bw2t",
+        "trace_id": "d592d4aced344bb2278694789ed2c313",
+        "character_cost": 32,
+        "incremental_character_cost": 32,
+        "provider_requests": [
+          {
+            "model_id": "eleven_v4",
+            "text": "[speaking very slowly and clearly] It isn't raining. The sun is shining.",
+            "character_cost": 32,
+            "incremental_character_cost": 32,
+            "character_cost_source": "provider-header",
+            "character_cost_header": "32",
+            "staged_reuse": false,
+            "request_id": "ESFkkxvuGoVAa8m7bw2t",
+            "trace_id": "d592d4aced344bb2278694789ed2c313"
+          }
+        ],
+        "review": {
+          "status": "operator-listening-approved",
+          "audio_sha256": "58802f36947e890959719db82d371b5578133309b1cbe13044dc0cbb654cb1c5",
+          "basis": "Operator explicitly confirmed this recording's natural pronunciation with --reviewed-take."
+        },
+        "generation_delivery": "a1-pronunciation-v1"
+      }
+    },
+    "563c62426cbad4f23791d97e8a2c1a6051a564f878681fbff04923e10c674ff3": {
+      "file": "takes/563c62426cbad4f23791d97e8a2c1a6051a564f878681fbff04923e10c674ff3.mp3",
+      "audio_sha256": "563c62426cbad4f23791d97e8a2c1a6051a564f878681fbff04923e10c674ff3",
+      "bytes": 30554,
+      "text": "It's snowing.",
+      "compatible_speaker_roles": [
+        "co-teacher"
+      ],
+      "profile_id": "a1-elevenlabs-character-cast-v1",
+      "compatible_modes": [
+        "pronunciation_slow"
+      ],
+      "compatible_variants": [
+        "split-ing"
+      ],
+      "provenance": {
+        "source": "elevenlabs-offline-render",
+        "provider": "elevenlabs-premium",
+        "model_id": "eleven_v4",
+        "narrator": "male-teacher",
+        "voice_id": "cjVigY5qzO86Huf0OWal",
+        "provider_output_format": "mp3_44100_128",
+        "seed": 1101,
+        "settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.8
+        },
+        "stored_media": {
+          "container": "mp3",
+          "codec": "mp3float",
+          "sample_rate_hz": 44100,
+          "channels": 1,
+          "bit_rate_bps": 128000
+        },
+        "processing": [
+          "Original ElevenLabs v4 provider bytes; no post-processing."
+        ],
+        "generated_at": "2026-11-25T03:26:22.813118+00:00",
+        "approved_at": "2026-11-25T03:29:28.087979+00:00",
+        "request_id": "pPTfmB4omNrIWIW44Rlx",
+        "trace_id": "2eddd765e402b7e17db2745e2611cc37",
+        "character_cost": 21,
+        "incremental_character_cost": 21,
+        "provider_requests": [
+          {
+            "model_id": "eleven_v4",
+            "text": "[speaking very slowly and clearly] It's snowing.",
+            "character_cost": 21,
+            "incremental_character_cost": 21,
+            "character_cost_source": "provider-header",
+            "character_cost_header": "21",
+            "staged_reuse": false,
+            "request_id": "pPTfmB4omNrIWIW44Rlx",
+            "trace_id": "2eddd765e402b7e17db2745e2611cc37"
+          }
+        ],
+        "review": {
+          "status": "operator-listening-approved",
+          "audio_sha256": "563c62426cbad4f23791d97e8a2c1a6051a564f878681fbff04923e10c674ff3",
+          "basis": "Operator explicitly confirmed this recording's natural pronunciation with --reviewed-take."
+        },
+        "generation_delivery": "a1-pronunciation-v1"
+      }
+    },
+    "f9a03367156b09e4f500f865de0c579af4a3af98c0598649d27ff1678fcff556": {
+      "file": "takes/f9a03367156b09e4f500f865de0c579af4a3af98c0598649d27ff1678fcff556.mp3",
+      "audio_sha256": "f9a03367156b09e4f500f865de0c579af4a3af98c0598649d27ff1678fcff556",
+      "bytes": 25538,
+      "text": "Diego is wet.",
+      "compatible_speaker_roles": [
+        "co-teacher"
+      ],
+      "profile_id": "a1-elevenlabs-character-cast-v1",
+      "compatible_modes": [
+        "prompt"
+      ],
+      "compatible_variants": [
+        "answer",
+        "prompt"
+      ],
+      "provenance": {
+        "source": "elevenlabs-offline-render",
+        "provider": "elevenlabs-premium",
+        "model_id": "eleven_v4",
+        "narrator": "male-teacher",
+        "voice_id": "cjVigY5qzO86Huf0OWal",
+        "provider_output_format": "mp3_44100_128",
+        "seed": 1101,
+        "settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.8
+        },
+        "stored_media": {
+          "container": "mp3",
+          "codec": "mp3float",
+          "sample_rate_hz": 44100,
+          "channels": 1,
+          "bit_rate_bps": 128000
+        },
+        "processing": [
+          "Original ElevenLabs v4 provider bytes; no post-processing."
+        ],
+        "generated_at": "2026-11-25T04:00:12.700880+00:00",
+        "approved_at": "2026-11-25T04:01:48.442530+00:00",
+        "request_id": "xCzo2KE5Ef57OCKE1Cql",
+        "trace_id": "35afacfb3f7b9ac9af3af48ca2db7885",
+        "character_cost": 6,
+        "incremental_character_cost": 6,
+        "provider_requests": [
+          {
+            "model_id": "eleven_v4",
+            "text": "Diego is wet.",
+            "character_cost": 6,
+            "incremental_character_cost": 6,
+            "character_cost_source": "provider-header",
+            "character_cost_header": "6",
+            "staged_reuse": false,
+            "request_id": "xCzo2KE5Ef57OCKE1Cql",
+            "trace_id": "35afacfb3f7b9ac9af3af48ca2db7885"
+          }
+        ],
+        "review": {
+          "status": "operator-listening-approved",
+          "audio_sha256": "f9a03367156b09e4f500f865de0c579af4a3af98c0598649d27ff1678fcff556",
+          "basis": "Operator explicitly confirmed this recording's natural pronunciation with --reviewed-take."
+        }
+      }
+    },
+    "1a9e9121859ed14ba68bce7e7547b2937db669cd8335e0fad74bcb46f9151b89": {
+      "file": "takes/1a9e9121859ed14ba68bce7e7547b2937db669cd8335e0fad74bcb46f9151b89.mp3",
+      "audio_sha256": "1a9e9121859ed14ba68bce7e7547b2937db669cd8335e0fad74bcb46f9151b89",
+      "bytes": 24284,
+      "text": "It isn't raining.",
+      "compatible_speaker_roles": [
+        "co-teacher"
+      ],
+      "profile_id": "a1-elevenlabs-character-cast-v1",
+      "compatible_modes": [
+        "prompt"
+      ],
+      "compatible_variants": [
+        "answer",
+        "prompt"
+      ],
+      "provenance": {
+        "source": "elevenlabs-offline-render",
+        "provider": "elevenlabs-premium",
+        "model_id": "eleven_v4",
+        "narrator": "male-teacher",
+        "voice_id": "cjVigY5qzO86Huf0OWal",
+        "provider_output_format": "mp3_44100_128",
+        "seed": 1101,
+        "settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.8
+        },
+        "stored_media": {
+          "container": "mp3",
+          "codec": "mp3float",
+          "sample_rate_hz": 44100,
+          "channels": 1,
+          "bit_rate_bps": 128000
+        },
+        "processing": [
+          "Original ElevenLabs v4 provider bytes; no post-processing."
+        ],
+        "generated_at": "2026-11-25T04:00:15.265304+00:00",
+        "approved_at": "2026-11-25T04:01:48.975186+00:00",
+        "request_id": "ZISy8WN0exxSfMN38nFF",
+        "trace_id": "39548f2e11a3323daf3af48ca2db7be9",
+        "character_cost": 7,
+        "incremental_character_cost": 7,
+        "provider_requests": [
+          {
+            "model_id": "eleven_v4",
+            "text": "It isn't raining.",
+            "character_cost": 7,
+            "incremental_character_cost": 7,
+            "character_cost_source": "provider-header",
+            "character_cost_header": "7",
+            "staged_reuse": false,
+            "request_id": "ZISy8WN0exxSfMN38nFF",
+            "trace_id": "39548f2e11a3323daf3af48ca2db7be9"
+          }
+        ],
+        "review": {
+          "status": "operator-listening-approved",
+          "audio_sha256": "1a9e9121859ed14ba68bce7e7547b2937db669cd8335e0fad74bcb46f9151b89",
           "basis": "Operator explicitly confirmed this recording's natural pronunciation with --reviewed-take."
         }
       }
@@ -768019,10 +768601,20 @@
       "approved_at": "2026-11-21T07:40:27.916527+00:00",
       "approval_note": "Installed after explicit listening review of these exact bytes."
     },
+    "a1plus-unit-7-lesson-7-13-c039-answer-ee90ca5e88f0c96303ad": {
+      "take_id": "41946f513bfb436dbb7e4d44bfde18b90ec94b2dbf3a52da90df430f2c7a9606",
+      "approved_at": "2026-11-21T07:40:06.722881+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
     "a1plus-unit-7-lesson-7-13-c039-prompt-2bdee7aaaf1b8c7af994": {
       "take_id": "d844e19e8053a9f73653b2977f2bc4774804377ffbcb0132c0efbb4524155789",
       "approved_at": "2026-11-25T03:02:49.335154+00:00",
       "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
+    "a1plus-unit-7-lesson-7-13-c039-prompt-96bf5ffb1fd1fd9975f5": {
+      "take_id": "41946f513bfb436dbb7e4d44bfde18b90ec94b2dbf3a52da90df430f2c7a9606",
+      "approved_at": "2026-11-21T07:40:06.722881+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
     "a1plus-unit-7-lesson-7-13-c039-prompt-a158e3817fc94eb5a468": {
       "take_id": "aa2e4ea38799462ed206aea4d2312726a8e80e21fabc23f8d779499225206b3f",
@@ -768034,10 +768626,20 @@
       "approved_at": "2026-11-21T07:40:29.744682+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
+    "a1plus-unit-7-lesson-7-13-c040-answer-5020fc124cbaef0d0f2b": {
+      "take_id": "c179acbaa45752d1cdfe562226a6dacf4a03bb3d65234dfe7baa9423dacc9a76",
+      "approved_at": "2026-11-21T07:40:17.709076+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
     "a1plus-unit-7-lesson-7-13-c040-answer-6b6cd87927325128fc49": {
       "take_id": "15e4e5637d113005e09d3b49e100bc26b9702175856e313a24951f33a045d7db",
       "approved_at": "2026-11-21T07:40:14.068158+00:00",
       "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
+    "a1plus-unit-7-lesson-7-13-c040-prompt-1adc198c48f220bc64f4": {
+      "take_id": "c179acbaa45752d1cdfe562226a6dacf4a03bb3d65234dfe7baa9423dacc9a76",
+      "approved_at": "2026-11-21T07:40:17.709076+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
     "a1plus-unit-7-lesson-7-13-c040-prompt-8f47684472078a487e6f": {
       "take_id": "15e4e5637d113005e09d3b49e100bc26b9702175856e313a24951f33a045d7db",
@@ -768054,9 +768656,24 @@
       "approved_at": "2026-11-21T07:40:06.722881+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
+    "a1plus-unit-7-lesson-7-13-c041-answer-6b0d0c81780b4a22bdad": {
+      "take_id": "395328e06c066d8833ba25ad27106bd7fc19f3bfcb5ef2d34b50d7067bbc19e8",
+      "approved_at": "2026-11-21T07:40:20.695241+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
     "a1plus-unit-7-lesson-7-13-c041-prompt-384763334247d6baba35": {
       "take_id": "41946f513bfb436dbb7e4d44bfde18b90ec94b2dbf3a52da90df430f2c7a9606",
       "approved_at": "2026-11-21T07:40:06.722881+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "a1plus-unit-7-lesson-7-13-c041-prompt-d9b80d3b7151835149c6": {
+      "take_id": "395328e06c066d8833ba25ad27106bd7fc19f3bfcb5ef2d34b50d7067bbc19e8",
+      "approved_at": "2026-11-21T07:40:20.695241+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "a1plus-unit-7-lesson-7-13-c042-answer-2f986cbac922be49e79a": {
+      "take_id": "15e4e5637d113005e09d3b49e100bc26b9702175856e313a24951f33a045d7db",
+      "approved_at": "2026-11-21T07:40:14.068158+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
     "a1plus-unit-7-lesson-7-13-c042-answer-ad4cfdbe4a15dbd64a7a": {
@@ -768067,6 +768684,11 @@
     "a1plus-unit-7-lesson-7-13-c042-prompt-0003a346c84e5ca77d10": {
       "take_id": "c179acbaa45752d1cdfe562226a6dacf4a03bb3d65234dfe7baa9423dacc9a76",
       "approved_at": "2026-11-21T07:40:17.709076+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "a1plus-unit-7-lesson-7-13-c042-prompt-6749890a98cef8cfd4ab": {
+      "take_id": "15e4e5637d113005e09d3b49e100bc26b9702175856e313a24951f33a045d7db",
+      "approved_at": "2026-11-21T07:40:14.068158+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
     "a1plus-unit-7-lesson-7-14-c001-prompt-0dcb46ed9179706a8939": {
@@ -769819,6 +770441,11 @@
       "approved_at": "2026-11-21T05:18:59.370138+00:00",
       "approval_note": "Installed after explicit listening review of these exact bytes."
     },
+    "a1plus-unit-7-lesson-7-3-c035-answer-8e73d8afe57a7bee85b5": {
+      "take_id": "7fb30c9b46783e323195807789e6c86f38a2d7021399c3442a78d98bbe563163",
+      "approved_at": "2026-11-25T03:00:33.042768+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
     "a1plus-unit-7-lesson-7-3-c035-answer-e2c343068d0daec389b4": {
       "take_id": "3efa9c32bb68a0ffb26305644e7fb74a53d848c377cc72781c47275bd2adecc2",
       "approved_at": "2026-11-25T03:00:34.445143+00:00",
@@ -769828,6 +770455,11 @@
       "take_id": "3efa9c32bb68a0ffb26305644e7fb74a53d848c377cc72781c47275bd2adecc2",
       "approved_at": "2026-11-25T03:00:34.445143+00:00",
       "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
+    "a1plus-unit-7-lesson-7-3-c035-prompt-ad2210ea86a64f9ffff7": {
+      "take_id": "7fb30c9b46783e323195807789e6c86f38a2d7021399c3442a78d98bbe563163",
+      "approved_at": "2026-11-25T03:00:33.042768+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
     "a1plus-unit-7-lesson-7-3-c035-prompt-cdc2fc00b47b8e9f87b4": {
       "take_id": "2027866d146da8b029c1f6bc2306e745c9da8848a93a6bb2a6919e6152ac97ab",
@@ -769839,10 +770471,20 @@
       "approved_at": "2026-11-21T05:19:01.510032+00:00",
       "approval_note": "Installed after explicit listening review of these exact bytes."
     },
+    "a1plus-unit-7-lesson-7-3-c036-answer-4bd23e889fbf3ff4a2f5": {
+      "take_id": "9de3c0b38ae785bc929a6e84dc5dbcc31530bc7d27f2e6c814009b4afc4def78",
+      "approved_at": "2026-11-25T03:00:29.282072+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
     "a1plus-unit-7-lesson-7-3-c036-answer-af61ae13dd77bcef7c2d": {
       "take_id": "8f1f37fa6fc35709877c3966af0bb16a9f8a9a4afd1a5c4e7e6168fad77f5512",
       "approved_at": "2026-11-25T03:00:26.552215+00:00",
       "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
+    "a1plus-unit-7-lesson-7-3-c036-prompt-b5dffc57c884c758328f": {
+      "take_id": "9de3c0b38ae785bc929a6e84dc5dbcc31530bc7d27f2e6c814009b4afc4def78",
+      "approved_at": "2026-11-25T03:00:29.282072+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
     "a1plus-unit-7-lesson-7-3-c036-prompt-c0e207889062d8bd8039": {
       "take_id": "3ae34f47b09a437eb825b80ae98c0dcd2d8581a66e64d4c0d20a7ba8488e7647",
@@ -769864,6 +770506,11 @@
       "approved_at": "2026-11-25T03:00:30.585092+00:00",
       "approval_note": "Installed after explicit listening review of these exact bytes."
     },
+    "a1plus-unit-7-lesson-7-3-c037-answer-b36483c58c22531e1584": {
+      "take_id": "2027866d146da8b029c1f6bc2306e745c9da8848a93a6bb2a6919e6152ac97ab",
+      "approved_at": "2026-11-21T05:18:59.370138+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
     "a1plus-unit-7-lesson-7-3-c037-prompt-54adfbcec610fea57f31": {
       "take_id": "10c04905c7a5182c40de43026078f22876326eed379f6411d630f4029e2fcd6e",
       "approved_at": "2026-11-25T03:00:30.585092+00:00",
@@ -769873,6 +770520,16 @@
       "take_id": "c70ab8c1fefb13f15bc8bd5dd5ebb2d434e87f0e3aa37095be5e1a70bc3c630d",
       "approved_at": "2026-11-21T05:19:07.977991+00:00",
       "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
+    "a1plus-unit-7-lesson-7-3-c037-prompt-d55f588d4094988b3a33": {
+      "take_id": "2027866d146da8b029c1f6bc2306e745c9da8848a93a6bb2a6919e6152ac97ab",
+      "approved_at": "2026-11-21T05:18:59.370138+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "a1plus-unit-7-lesson-7-3-c038-answer-08c1398daf6e12802398": {
+      "take_id": "569f35454f6653d6c7ff9be7ed04adf467316aea957ba8f999e59d8af254186a",
+      "approved_at": "2026-11-21T05:19:03.721385+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
     "a1plus-unit-7-lesson-7-3-c038-answer-47a15e0e127d804ac766": {
       "take_id": "9aff7c45d90e191e7d7abbe24b14a8e3d5fbd300abe6a3bbec43f330b0cb1bab",
@@ -769899,6 +770556,11 @@
       "approved_at": "2026-11-25T03:00:29.282072+00:00",
       "approval_note": "Installed after explicit listening review of these exact bytes."
     },
+    "a1plus-unit-7-lesson-7-3-c038-prompt-5b57cd46d664d1333e37": {
+      "take_id": "569f35454f6653d6c7ff9be7ed04adf467316aea957ba8f999e59d8af254186a",
+      "approved_at": "2026-11-21T05:19:03.721385+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
     "a1plus-unit-7-lesson-7-3-c038-prompt-7023bedd15767a6284d7": {
       "take_id": "9aff7c45d90e191e7d7abbe24b14a8e3d5fbd300abe6a3bbec43f330b0cb1bab",
       "approved_at": "2026-11-21T05:19:10.366593+00:00",
@@ -769914,10 +770576,20 @@
       "approved_at": "2026-11-21T07:17:17.027515+00:00",
       "approval_note": "Installed after explicit listening review of these exact bytes."
     },
+    "a1plus-unit-7-lesson-7-3-c039-answer-c9d84e2d954de3b1bee2": {
+      "take_id": "179090fae55fc7ffb9f512741e69fc2d3dbd5e2626d5c25306dc54ba67fb63ef",
+      "approved_at": "2026-11-25T03:00:32.215938+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
     "a1plus-unit-7-lesson-7-3-c039-answer-e88109ddcd2696449362": {
       "take_id": "2258784efc012f7997c1cee24c7ce01185cf4a741ed918a17b43d8abeb99503a",
       "approved_at": "2026-11-21T05:19:09.584434+00:00",
       "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
+    "a1plus-unit-7-lesson-7-3-c039-prompt-24ecb30bccc22b1bd353": {
+      "take_id": "179090fae55fc7ffb9f512741e69fc2d3dbd5e2626d5c25306dc54ba67fb63ef",
+      "approved_at": "2026-11-25T03:00:32.215938+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
     "a1plus-unit-7-lesson-7-3-c039-prompt-3417f319193299d8da7a": {
       "take_id": "bfbebd1c648bb007d309d40f494913b402d9523f2b678d2c6586c344a8e822c7",
@@ -770179,6 +770851,11 @@
       "approved_at": "2026-11-25T03:01:42.773607+00:00",
       "approval_note": "Installed after explicit listening review of these exact bytes."
     },
+    "a1plus-unit-7-lesson-7-4-c016-answer-677243608a014776e81f": {
+      "take_id": "18e0636c77ea1efb206b81fa4aef82bf6ec0d14df3f96870a57cc1ab4db648a3",
+      "approved_at": "2026-11-25T03:29:26.830150+00:00",
+      "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
     "a1plus-unit-7-lesson-7-4-c016-prompt-turn-1-69bc9896af9a24f83478": {
       "take_id": "39bfcef8ff9872958d4b102921b43b81a765ecea296287f7a5858243f41e70a4",
       "approved_at": "2026-11-21T05:21:25.858096+00:00",
@@ -770324,6 +771001,11 @@
       "approved_at": "2026-11-21T05:21:26.694523+00:00",
       "approval_note": "Installed after explicit listening review of these exact bytes."
     },
+    "a1plus-unit-7-lesson-7-4-c027-prompt-1cc9be4398a39e3cd25a": {
+      "take_id": "18e0636c77ea1efb206b81fa4aef82bf6ec0d14df3f96870a57cc1ab4db648a3",
+      "approved_at": "2026-11-25T03:29:26.830150+00:00",
+      "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
     "a1plus-unit-7-lesson-7-4-c027-prompt-turn-1-132241a9d8637f058f2d": {
       "take_id": "39bfcef8ff9872958d4b102921b43b81a765ecea296287f7a5858243f41e70a4",
       "approved_at": "2026-11-21T05:21:25.858096+00:00",
@@ -770354,6 +771036,11 @@
       "approved_at": "2026-11-21T05:21:19.629880+00:00",
       "approval_note": "Installed after explicit listening review of these exact bytes."
     },
+    "a1plus-unit-7-lesson-7-4-c029-prompt-turn-1-41fef06423356914c69e": {
+      "take_id": "8ff63e5ac47b5d7698fed021050793f89609f975ea1ef35876328b9f70bed293",
+      "approved_at": "2026-11-25T03:29:25.387026+00:00",
+      "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
     "a1plus-unit-7-lesson-7-4-c029-prompt-turn-1-6584feb9cebcb663bb4f": {
       "take_id": "f56fc729279de9c5f0b2c2926fcb6174e8867073f6a51d325abf0556d7b76344",
       "approved_at": "2026-11-21T05:21:31.933927+00:00",
@@ -770374,6 +771061,11 @@
       "approved_at": "2026-11-21T05:21:30.292008+00:00",
       "approval_note": "Installed after explicit listening review of these exact bytes."
     },
+    "a1plus-unit-7-lesson-7-4-c031-prompt-turn-1-b70ed129f270b307580a": {
+      "take_id": "563c62426cbad4f23791d97e8a2c1a6051a564f878681fbff04923e10c674ff3",
+      "approved_at": "2026-11-25T03:29:28.087979+00:00",
+      "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
     "a1plus-unit-7-lesson-7-4-c031-prompt-turn-1-ee80b6988ddf84011ba6": {
       "take_id": "cbd7eb24c125ab328b76fc9226a10c35ff60a3412db04a109ff6f9f7d3245175",
       "approved_at": "2026-11-21T05:21:19.629880+00:00",
@@ -770384,6 +771076,11 @@
       "approved_at": "2026-11-25T03:01:43.548431+00:00",
       "approval_note": "Installed after explicit listening review of these exact bytes."
     },
+    "a1plus-unit-7-lesson-7-4-c032-prompt-turn-1-c0e658b567f4bc391781": {
+      "take_id": "5b14eeac5ed6f219f3364d3eaf2a4d298e7c95d0238186039d5f53cd04e9dc99",
+      "approved_at": "2026-11-25T03:29:25.831223+00:00",
+      "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
     "a1plus-unit-7-lesson-7-4-c032-prompt-turn-1-f705ac6bdd14f79830e8": {
       "take_id": "b8a9460ac4ef8a7d8e03474f4db1c28479fc15d9f413b72d04b0df7995adc8ac",
       "approved_at": "2026-11-21T05:21:12.578944+00:00",
@@ -770392,6 +771089,11 @@
     "a1plus-unit-7-lesson-7-4-c033-prompt-turn-1-51a3f9774b62bf711ae0": {
       "take_id": "5866e3ccb79451446eda1c4104a3fc016b0fd34182d48d425a39fdb182eaca9d",
       "approved_at": "2026-11-21T05:21:33.625886+00:00",
+      "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
+    "a1plus-unit-7-lesson-7-4-c033-prompt-turn-1-821e3f9f47aac774e58b": {
+      "take_id": "c6fd07050346b9a4e6f04df8488cda18703fa4da4c8eb08fa49828fe891e8c6e",
+      "approved_at": "2026-11-25T03:29:26.334646+00:00",
       "approval_note": "Installed after explicit listening review of these exact bytes."
     },
     "a1plus-unit-7-lesson-7-4-c033-prompt-turn-1-f04835d0a2b534c5638d": {
@@ -770407,6 +771109,11 @@
     "a1plus-unit-7-lesson-7-4-c034-prompt-121ebb46448a6d0ff1a7": {
       "take_id": "05219db8ffbe827ca7be74ba0964e195b02d8dc163d9303f7d0f2f53a15c1995",
       "approved_at": "2026-11-21T05:21:17.822088+00:00",
+      "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
+    "a1plus-unit-7-lesson-7-4-c034-prompt-turn-1-078b39bdaa6cc5e68ef7": {
+      "take_id": "2d95e62f96acc2547a828d879eb1b4e004e44b9f6586db7498bf10e4563b95e4",
+      "approved_at": "2026-11-25T03:29:24.878512+00:00",
       "approval_note": "Installed after explicit listening review of these exact bytes."
     },
     "a1plus-unit-7-lesson-7-4-c034-prompt-turn-1-c55ed9819146257437d2": {
@@ -770429,6 +771136,16 @@
       "approved_at": "2026-11-25T03:01:40.137951+00:00",
       "approval_note": "Installed after explicit listening review of these exact bytes."
     },
+    "a1plus-unit-7-lesson-7-4-c035-prompt-turn-1-cbd59053b2cc80af9d80": {
+      "take_id": "58802f36947e890959719db82d371b5578133309b1cbe13044dc0cbb654cb1c5",
+      "approved_at": "2026-11-25T03:29:27.546569+00:00",
+      "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
+    "a1plus-unit-7-lesson-7-4-c036-answer-2c0f0a1f42ea76dd4d0f": {
+      "take_id": "05219db8ffbe827ca7be74ba0964e195b02d8dc163d9303f7d0f2f53a15c1995",
+      "approved_at": "2026-11-21T05:21:17.822088+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
     "a1plus-unit-7-lesson-7-4-c036-answer-4a5d485f71da592f0d13": {
       "take_id": "cb2a3c23ae60e62d37a4e8a82fa8669038a4b079b92b527e880034b63d477f71",
       "approved_at": "2026-11-21T05:21:31.196618+00:00",
@@ -770438,6 +771155,11 @@
       "take_id": "8e39fc19b36e57f7a158ad84c46b953ce9d6298ef1c4cb9e2bccb2216afa18b9",
       "approved_at": "2026-11-21T05:21:15.500918+00:00",
       "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
+    "a1plus-unit-7-lesson-7-4-c036-prompt-09d73ed3f900c42da8d2": {
+      "take_id": "05219db8ffbe827ca7be74ba0964e195b02d8dc163d9303f7d0f2f53a15c1995",
+      "approved_at": "2026-11-21T05:21:17.822088+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
     "a1plus-unit-7-lesson-7-4-c036-prompt-93a23477c2870e492f14": {
       "take_id": "8e39fc19b36e57f7a158ad84c46b953ce9d6298ef1c4cb9e2bccb2216afa18b9",
@@ -770449,6 +771171,11 @@
       "approved_at": "2026-11-21T05:21:31.196618+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
+    "a1plus-unit-7-lesson-7-4-c037-answer-364a3838e7523a61e8d1": {
+      "take_id": "85c637029c41d64daa1cd0b8cad4211bce164aa89138e9258f8119a4855240fa",
+      "approved_at": "2026-11-21T05:21:32.814516+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
     "a1plus-unit-7-lesson-7-4-c037-answer-4533c94bc90a8a7770c9": {
       "take_id": "d1dddcd1ee5d6b3379206be1e85cb39ce0e2524251fc4270c52ec45cc84e18a5",
       "approved_at": "2026-11-21T05:21:24.011655+00:00",
@@ -770457,6 +771184,11 @@
     "a1plus-unit-7-lesson-7-4-c037-answer-e537d66216914725014a": {
       "take_id": "8f31090157777c74b982ca27689fc11a3a8d143db23f89cc35470048f00a3dd4",
       "approved_at": "2026-11-21T05:21:18.745319+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "a1plus-unit-7-lesson-7-4-c037-prompt-4e4e715f70ce0ca15bbf": {
+      "take_id": "85c637029c41d64daa1cd0b8cad4211bce164aa89138e9258f8119a4855240fa",
+      "approved_at": "2026-11-21T05:21:32.814516+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
     "a1plus-unit-7-lesson-7-4-c037-prompt-713fd28dbd0118f36a3a": {
@@ -770474,19 +771206,44 @@
       "approved_at": "2026-11-21T05:21:20.507272+00:00",
       "approval_note": "Installed after explicit listening review of these exact bytes."
     },
+    "a1plus-unit-7-lesson-7-4-c038-answer-adb738574219974e3599": {
+      "take_id": "6d22bcbf3e48842a60d0224e0f8dba5f64fb542647c4d57cc1f04744178c321f",
+      "approved_at": "2026-11-25T03:01:38.088350+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
     "a1plus-unit-7-lesson-7-4-c038-answer-b7a4a21ad4ff0f34524b": {
       "take_id": "aacc682137bd9cd5d2228c8b2dbce9577de18f7d19d06b65a25c62ffd633dc87",
       "approved_at": "2026-11-25T03:01:42.773607+00:00",
       "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
+    "a1plus-unit-7-lesson-7-4-c038-answer-dfe76018638909ae54a4": {
+      "take_id": "4f4c3eb749f4f0a9b2e46def1e3e14910d7812f4d48d003c3686b70d03397519",
+      "approved_at": "2026-11-25T03:01:40.874668+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
     "a1plus-unit-7-lesson-7-4-c038-prompt-1547114df9bc2a01330f": {
       "take_id": "e8accc342978d7545e2081056b3da4d331ba4b857d3d7b8f23e1248752261fae",
       "approved_at": "2026-11-21T05:21:20.507272+00:00",
       "approval_note": "Installed after explicit listening review of these exact bytes."
     },
+    "a1plus-unit-7-lesson-7-4-c038-prompt-5d30f351233ebccbc37b": {
+      "take_id": "6d22bcbf3e48842a60d0224e0f8dba5f64fb542647c4d57cc1f04744178c321f",
+      "approved_at": "2026-11-25T03:01:38.088350+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "a1plus-unit-7-lesson-7-4-c038-prompt-69d8ae410f7c8be9d27d": {
+      "take_id": "4f4c3eb749f4f0a9b2e46def1e3e14910d7812f4d48d003c3686b70d03397519",
+      "approved_at": "2026-11-25T03:01:40.874668+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
     "a1plus-unit-7-lesson-7-4-c038-prompt-f6892637471a8cca55f3": {
       "take_id": "aacc682137bd9cd5d2228c8b2dbce9577de18f7d19d06b65a25c62ffd633dc87",
       "approved_at": "2026-11-25T03:01:42.773607+00:00",
+      "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
+    "a1plus-unit-7-lesson-7-4-c039-answer-366676eba2474fdc26b7": {
+      "take_id": "f9a03367156b09e4f500f865de0c579af4a3af98c0598649d27ff1678fcff556",
+      "approved_at": "2026-11-25T04:01:48.442530+00:00",
       "approval_note": "Installed after explicit listening review of these exact bytes."
     },
     "a1plus-unit-7-lesson-7-4-c039-answer-7d18eae6b89b800419b7": {
@@ -770499,15 +771256,35 @@
       "approved_at": "2026-11-21T05:21:24.979942+00:00",
       "approval_note": "Installed after explicit listening review of these exact bytes."
     },
+    "a1plus-unit-7-lesson-7-4-c039-answer-d492246632cceafd39d2": {
+      "take_id": "bc33d9c04db746eed5f6e54a1b6618d142e6c69da8a476025bbc917213bd19b6",
+      "approved_at": "2026-11-25T03:01:41.409990+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "a1plus-unit-7-lesson-7-4-c039-prompt-26f53105fe4b51096353": {
+      "take_id": "bc33d9c04db746eed5f6e54a1b6618d142e6c69da8a476025bbc917213bd19b6",
+      "approved_at": "2026-11-25T03:01:41.409990+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
     "a1plus-unit-7-lesson-7-4-c039-prompt-553920e59fc4f9394636": {
       "take_id": "a6d11bbc5bd00c8500f633422b749dbd41e1924c8d7f4346d1bc4168310fe90b",
       "approved_at": "2026-11-21T05:21:24.979942+00:00",
+      "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
+    "a1plus-unit-7-lesson-7-4-c039-prompt-692f42409e1c23ca39cb": {
+      "take_id": "f9a03367156b09e4f500f865de0c579af4a3af98c0598649d27ff1678fcff556",
+      "approved_at": "2026-11-25T04:01:48.442530+00:00",
       "approval_note": "Installed after explicit listening review of these exact bytes."
     },
     "a1plus-unit-7-lesson-7-4-c039-prompt-f8bdbac0bd24a236fd9c": {
       "take_id": "6d22bcbf3e48842a60d0224e0f8dba5f64fb542647c4d57cc1f04744178c321f",
       "approved_at": "2026-11-25T03:01:38.088350+00:00",
       "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
+    "a1plus-unit-7-lesson-7-4-c040-answer-04b9d0193e6e5b37bc1e": {
+      "take_id": "8e39fc19b36e57f7a158ad84c46b953ce9d6298ef1c4cb9e2bccb2216afa18b9",
+      "approved_at": "2026-11-21T05:21:15.500918+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
     "a1plus-unit-7-lesson-7-4-c040-answer-4366cb4b2fab8f71cd69": {
       "take_id": "47e9f5063fd408d4f1d8a3a1b6b7f8d5181b17c2687487e79a84c407c9bf4a4f",
@@ -770519,6 +771296,21 @@
       "approved_at": "2026-11-25T03:01:41.409990+00:00",
       "approval_note": "Installed after explicit listening review of these exact bytes."
     },
+    "a1plus-unit-7-lesson-7-4-c040-answer-e5fa745b866edcec7b5a": {
+      "take_id": "61a5df5d334efc5dd47bec0dd6bbe7be89addf8a3cccbe9cf721007cf5003b2c",
+      "approved_at": "2026-11-25T03:01:37.438099+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "a1plus-unit-7-lesson-7-4-c040-prompt-41e87a35d68d05a791cb": {
+      "take_id": "61a5df5d334efc5dd47bec0dd6bbe7be89addf8a3cccbe9cf721007cf5003b2c",
+      "approved_at": "2026-11-25T03:01:37.438099+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "a1plus-unit-7-lesson-7-4-c040-prompt-58174f17e4b4d2eb4fc4": {
+      "take_id": "8e39fc19b36e57f7a158ad84c46b953ce9d6298ef1c4cb9e2bccb2216afa18b9",
+      "approved_at": "2026-11-21T05:21:15.500918+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
     "a1plus-unit-7-lesson-7-4-c040-prompt-ef0f611fe675d6c2d87b": {
       "take_id": "47e9f5063fd408d4f1d8a3a1b6b7f8d5181b17c2687487e79a84c407c9bf4a4f",
       "approved_at": "2026-11-21T05:21:16.751088+00:00",
@@ -770529,9 +771321,24 @@
       "approved_at": "2026-11-25T03:01:41.409990+00:00",
       "approval_note": "Installed after explicit listening review of these exact bytes."
     },
+    "a1plus-unit-7-lesson-7-4-c041-answer-4780404558d3da4b3760": {
+      "take_id": "1a9e9121859ed14ba68bce7e7547b2937db669cd8335e0fad74bcb46f9151b89",
+      "approved_at": "2026-11-25T04:01:48.975186+00:00",
+      "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
+    "a1plus-unit-7-lesson-7-4-c041-answer-4834921002e42ded89ba": {
+      "take_id": "d1dddcd1ee5d6b3379206be1e85cb39ce0e2524251fc4270c52ec45cc84e18a5",
+      "approved_at": "2026-11-21T05:21:24.011655+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
     "a1plus-unit-7-lesson-7-4-c041-answer-e8798ea6d10eaedc3715": {
       "take_id": "8e39fc19b36e57f7a158ad84c46b953ce9d6298ef1c4cb9e2bccb2216afa18b9",
       "approved_at": "2026-11-21T05:21:15.500918+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "a1plus-unit-7-lesson-7-4-c041-prompt-6e7396df6ac5cc62bd3b": {
+      "take_id": "d1dddcd1ee5d6b3379206be1e85cb39ce0e2524251fc4270c52ec45cc84e18a5",
+      "approved_at": "2026-11-21T05:21:24.011655+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
     "a1plus-unit-7-lesson-7-4-c041-prompt-c933143f4e8dd7c219bd": {
@@ -770539,10 +771346,35 @@
       "approved_at": "2026-11-21T05:21:15.500918+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
+    "a1plus-unit-7-lesson-7-4-c041-prompt-e0d20adae8aa5dc384b9": {
+      "take_id": "1a9e9121859ed14ba68bce7e7547b2937db669cd8335e0fad74bcb46f9151b89",
+      "approved_at": "2026-11-25T04:01:48.975186+00:00",
+      "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
+    "a1plus-unit-7-lesson-7-4-c042-answer-0f3ce94a6679e99fa25d": {
+      "take_id": "4f4c3eb749f4f0a9b2e46def1e3e14910d7812f4d48d003c3686b70d03397519",
+      "approved_at": "2026-11-25T03:01:40.874668+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
     "a1plus-unit-7-lesson-7-4-c042-answer-b6476d2e5c2238891024": {
       "take_id": "aacc682137bd9cd5d2228c8b2dbce9577de18f7d19d06b65a25c62ffd633dc87",
       "approved_at": "2026-11-25T03:01:42.773607+00:00",
       "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
+    "a1plus-unit-7-lesson-7-4-c042-answer-d5a48a5ed4fc905441bf": {
+      "take_id": "e8accc342978d7545e2081056b3da4d331ba4b857d3d7b8f23e1248752261fae",
+      "approved_at": "2026-11-21T05:21:20.507272+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "a1plus-unit-7-lesson-7-4-c042-prompt-46cdd3585500d4f8956d": {
+      "take_id": "4f4c3eb749f4f0a9b2e46def1e3e14910d7812f4d48d003c3686b70d03397519",
+      "approved_at": "2026-11-25T03:01:40.874668+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "a1plus-unit-7-lesson-7-4-c042-prompt-64215befa1605e445f08": {
+      "take_id": "e8accc342978d7545e2081056b3da4d331ba4b857d3d7b8f23e1248752261fae",
+      "approved_at": "2026-11-21T05:21:20.507272+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
     "a1plus-unit-7-lesson-7-4-c042-prompt-f7ff64f4127c39ee9b2f": {
       "take_id": "aacc682137bd9cd5d2228c8b2dbce9577de18f7d19d06b65a25c62ffd633dc87",
