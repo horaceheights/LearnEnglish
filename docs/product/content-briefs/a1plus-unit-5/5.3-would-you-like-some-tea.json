@@ -5,7 +5,7 @@
     "lesson": "5.3",
     "title": "Drinks"
   },
-  "note": "A1+ Unit 5 Lesson 5.3, built on 2026-11-20 under the A1+ lesson standards approved 2026-10-27 and the user's 2026-11-09 rule that every A1+ lesson follows up the A1 lesson with the same number. The user asked on 2026-11-20 to \"work on a1+ Unit 5 same all deal as before none stop all approved\": A1+ 5.Y follows A1 5.Y with one step each, straight to Preview in batches, Gemini 2.5 Flash photos and ElevenLabs audio pre-approved, no per-lesson gates, reviewed in Preview. Five offer photos in Ana's living room: Ana offers Luis tea (yes) and Diego coffee (no), Diego offers Sofia juice (yes), Luis offers Sofia hot chocolate (no) and Ana water (no). Photo pack revision 2 replaced o03 (Sofia offering Ana juice), because Sofia and Ana share one voice. Reply cards play the offer and the learner picks the reply that the photo shows.",
+  "note": "A1+ Unit 5 Lesson 5.3, built on 2026-11-20 under the A1+ lesson standards approved 2026-10-27 and the user's 2026-11-09 rule that every A1+ lesson follows up the A1 lesson with the same number. The user asked on 2026-11-20 to \"work on a1+ Unit 5 same all deal as before none stop all approved\": A1+ 5.Y follows A1 5.Y with one step each, straight to Preview in batches, Gemini 2.5 Flash photos and ElevenLabs audio pre-approved, no per-lesson gates, reviewed in Preview. Five offer photos in Ana's living room: Ana offers Luis tea (yes) and Diego coffee (no), Sofia offers Luis lemonade (yes), Luis offers Sofia hot chocolate (no) and Ana water (no). Photo pack revision 2 replaced o03 (Sofia offering Ana juice), because Sofia and Ana share one voice. Reply cards play the offer and the learner picks the reply that the photo shows. Revised 2026-11-23: every drink is in a clear glass so it can be told apart, and Luis matches his reference photo.",
   "target": "backend/lessons/a1_plus/unit_5/a1plus-unit-5-lesson-5-3.yaml",
   "captions": false,
   "narrators": [
@@ -28,13 +28,13 @@
     "goal": "Offer a drink with Would you like some …? and accept or refuse it (Yes, please. / No, thank you.).",
     "vocabulary": [
       "Would you like",
-      "hot chocolate"
+      "hot chocolate",
+      "lemonade"
     ],
     "review_vocabulary": [
       "some",
       "tea",
       "coffee",
-      "juice",
       "water",
       "Yes, please.",
       "No, thank you.",
@@ -42,8 +42,8 @@
       "I like",
       "drinks"
     ],
-    "grammar_function": "A follow-up of A1 5.3 Drinks: A1 names drinks and says who drinks them, and A1 5.10 answers an offer with Yes, please. / No, thank you.; A1+ 5.3 makes the offer: Would you like some + a drink? It is one new frame, learnt as a whole (would is not taken apart), with A1+ 4.15's some; hot chocolate is the one new drink. In each photo a host holds out a drink and the guest takes it or holds up a hand, so the photo shows the reply. The asker's voice always differs from the answerer's (Ana and Sofia share one voice, as do Luis and Diego). I'd like waits for 5.9.",
-    "prerequisite": "A1 5.3 tea, coffee, juice, water; A1 5.10 Yes, please. / No, thank you.; A1+ 4.15 some; A1 5.5 I like.",
+    "grammar_function": "A follow-up of A1 5.3 Drinks: A1 names drinks and says who drinks them, and A1 5.10 answers an offer with Yes, please. / No, thank you.; A1+ 5.3 makes the offer: Would you like some + a drink? It is one new frame, learnt as a whole (would is not taken apart), with A1+ 4.15's some; hot chocolate and lemonade are the new drinks (lemonade added 2026-11-23). In each photo a host holds out a drink and the guest takes it or holds up a hand, so the photo shows the reply. The asker's voice always differs from the answerer's (Ana and Sofia share one voice, as do Luis and Diego). I'd like waits for 5.9.",
+    "prerequisite": "A1 5.3 tea, coffee, water; A1 5.10 Yes, please. / No, thank you.; A1+ 4.15 some; A1 5.5 I like.",
     "speaking_outcome": "Say Would you like as one phrase (WOOD-ja-LIKE is fine) with rising intonation at the end of the offer; do not require native-like speed.",
     "content_revision": 1,
     "learn_context_groups": [
@@ -90,6 +90,18 @@
             "text": "It's hot chocolate."
           }
         ]
+      },
+      {
+        "kind": "sequence",
+        "targets": [
+          "lemonade"
+        ],
+        "models": [
+          {
+            "slide_id": "L4",
+            "text": "It's lemonade."
+          }
+        ]
       }
     ]
   },
@@ -98,7 +110,7 @@
       "id": "l-tea",
       "text": "Would you like some tea? Yes, please.",
       "es": "¿Quieres un poco de té? Sí, por favor.",
-      "image": "/lesson-assets/a1plus-unit-5-o01-2b72061f1a90e239.webp",
+      "image": "/lesson-assets/a1plus-unit-5-o21-40bf6d4ce15f5a44.webp",
       "kind": "exchange",
       "choices": false,
       "use": false,
@@ -107,12 +119,12 @@
         {
           "text": "Would you like some tea?",
           "speaker": "ana",
-          "image": "/lesson-assets/a1plus-unit-5-o01-2b72061f1a90e239.webp"
+          "image": "/lesson-assets/a1plus-unit-5-o21-40bf6d4ce15f5a44.webp"
         },
         {
           "text": "Yes, please.",
           "speaker": "luis",
-          "image": "/lesson-assets/a1plus-unit-5-o01-2b72061f1a90e239.webp"
+          "image": "/lesson-assets/a1plus-unit-5-o21-40bf6d4ce15f5a44.webp"
         }
       ]
     },
@@ -120,7 +132,7 @@
       "id": "l-coffee",
       "text": "Would you like some coffee? No, thank you.",
       "es": "¿Quieres un poco de café? No, gracias.",
-      "image": "/lesson-assets/a1plus-unit-5-o02-c48db8fc1066e53b.webp",
+      "image": "/lesson-assets/a1plus-unit-5-o22-69a1dcab08db6a7a.webp",
       "kind": "exchange",
       "choices": false,
       "use": false,
@@ -129,12 +141,12 @@
         {
           "text": "Would you like some coffee?",
           "speaker": "ana",
-          "image": "/lesson-assets/a1plus-unit-5-o02-c48db8fc1066e53b.webp"
+          "image": "/lesson-assets/a1plus-unit-5-o22-69a1dcab08db6a7a.webp"
         },
         {
           "text": "No, thank you.",
           "speaker": "diego",
-          "image": "/lesson-assets/a1plus-unit-5-o02-c48db8fc1066e53b.webp"
+          "image": "/lesson-assets/a1plus-unit-5-o22-69a1dcab08db6a7a.webp"
         }
       ]
     },
@@ -150,15 +162,27 @@
       "speaker": "teacher"
     },
     {
+      "id": "l-lemonade",
+      "text": "It's lemonade.",
+      "es": "Es limonada.",
+      "image": "/lesson-assets/a1plus-unit-5-o25-8de4522b3084b76f.webp",
+      "kind": "sequence",
+      "choices": false,
+      "use": false,
+      "learn": true,
+      "speaker": "co-teacher"
+    },
+    {
       "id": "q-tea",
       "text": "Would you like some tea?",
       "es": "¿Quieres un poco de té?",
-      "image": "/lesson-assets/a1plus-unit-5-o01-2b72061f1a90e239.webp",
+      "image": "/lesson-assets/a1plus-unit-5-o21-40bf6d4ce15f5a44.webp",
       "kind": "offer",
       "speaker": "ana",
+      "four_card": false,
       "prefer": [
         "Would you like some coffee?",
-        "Would you like some juice?"
+        "Would you like some lemonade?"
       ],
       "accepts": {
         "subject-variety": "Listen: the answer is what was heard; the other offers change only the drink.",
@@ -176,7 +200,7 @@
       "id": "r-tea",
       "text": "Yes, please.",
       "es": "Sí, por favor.",
-      "image": "/lesson-assets/a1plus-unit-5-o01-2b72061f1a90e239.webp",
+      "image": "/lesson-assets/a1plus-unit-5-o21-40bf6d4ce15f5a44.webp",
       "kind": "reply",
       "speaker": "luis",
       "question": "Would you like some tea?",
@@ -200,18 +224,18 @@
       "id": "x-tea",
       "text": "Would you like some tea? Yes, please.",
       "es": "¿Quieres un poco de té? Sí, por favor.",
-      "image": "/lesson-assets/a1plus-unit-5-o01-2b72061f1a90e239.webp",
+      "image": "/lesson-assets/a1plus-unit-5-o21-40bf6d4ce15f5a44.webp",
       "kind": "exchange",
       "turns": [
         {
           "text": "Would you like some tea?",
           "speaker": "ana",
-          "image": "/lesson-assets/a1plus-unit-5-o01-2b72061f1a90e239.webp"
+          "image": "/lesson-assets/a1plus-unit-5-o21-40bf6d4ce15f5a44.webp"
         },
         {
           "text": "Yes, please.",
           "speaker": "luis",
-          "image": "/lesson-assets/a1plus-unit-5-o01-2b72061f1a90e239.webp"
+          "image": "/lesson-assets/a1plus-unit-5-o21-40bf6d4ce15f5a44.webp"
         }
       ],
       "choices": false,
@@ -222,12 +246,13 @@
       "id": "q-coffee",
       "text": "Would you like some coffee?",
       "es": "¿Quieres un poco de café?",
-      "image": "/lesson-assets/a1plus-unit-5-o02-c48db8fc1066e53b.webp",
+      "image": "/lesson-assets/a1plus-unit-5-o22-69a1dcab08db6a7a.webp",
       "kind": "offer",
       "speaker": "ana",
+      "four_card": false,
       "prefer": [
         "Would you like some tea?",
-        "Would you like some juice?"
+        "Would you like some lemonade?"
       ],
       "accepts": {
         "subject-variety": "Listen: the answer is what was heard; the other offers change only the drink.",
@@ -245,7 +270,7 @@
       "id": "r-coffee",
       "text": "No, thank you.",
       "es": "No, gracias.",
-      "image": "/lesson-assets/a1plus-unit-5-o02-c48db8fc1066e53b.webp",
+      "image": "/lesson-assets/a1plus-unit-5-o22-69a1dcab08db6a7a.webp",
       "kind": "reply",
       "speaker": "diego",
       "question": "Would you like some coffee?",
@@ -269,18 +294,18 @@
       "id": "x-coffee",
       "text": "Would you like some coffee? No, thank you.",
       "es": "¿Quieres un poco de café? No, gracias.",
-      "image": "/lesson-assets/a1plus-unit-5-o02-c48db8fc1066e53b.webp",
+      "image": "/lesson-assets/a1plus-unit-5-o22-69a1dcab08db6a7a.webp",
       "kind": "exchange",
       "turns": [
         {
           "text": "Would you like some coffee?",
           "speaker": "ana",
-          "image": "/lesson-assets/a1plus-unit-5-o02-c48db8fc1066e53b.webp"
+          "image": "/lesson-assets/a1plus-unit-5-o22-69a1dcab08db6a7a.webp"
         },
         {
           "text": "No, thank you.",
           "speaker": "diego",
-          "image": "/lesson-assets/a1plus-unit-5-o02-c48db8fc1066e53b.webp"
+          "image": "/lesson-assets/a1plus-unit-5-o22-69a1dcab08db6a7a.webp"
         }
       ],
       "choices": false,
@@ -288,12 +313,13 @@
       "learn": false
     },
     {
-      "id": "q-juice",
-      "text": "Would you like some juice?",
-      "es": "¿Quieres un poco de jugo?",
-      "image": "/lesson-assets/a1plus-unit-5-o06-ea3556af242f7321.webp",
+      "id": "q-lemonade",
+      "text": "Would you like some lemonade?",
+      "es": "¿Quieres un poco de limonada?",
+      "image": "/lesson-assets/a1plus-unit-5-o23-eeaf0874ac0d1b94.webp",
       "kind": "offer",
-      "speaker": "diego",
+      "speaker": "sofia",
+      "four_card": false,
       "prefer": [
         "Would you like some tea?",
         "Would you like some coffee?"
@@ -311,15 +337,15 @@
       "learn": false
     },
     {
-      "id": "r-juice",
+      "id": "r-lemonade",
       "text": "Yes, please.",
       "es": "Sí, por favor.",
-      "image": "/lesson-assets/a1plus-unit-5-o06-ea3556af242f7321.webp",
+      "image": "/lesson-assets/a1plus-unit-5-o23-eeaf0874ac0d1b94.webp",
       "kind": "reply",
-      "speaker": "sofia",
-      "question": "Would you like some juice?",
-      "question_es": "¿Quieres un poco de jugo?",
-      "question_speaker": "diego",
+      "speaker": "luis",
+      "question": "Would you like some lemonade?",
+      "question_es": "¿Quieres un poco de limonada?",
+      "question_speaker": "sofia",
       "accepts": {
         "conversational-response": "Yes, please. and No, thank you. both answer an offer; the photo shows the guest taking the drink or holding up a hand, so only one fits.",
         "reading-load": "Yes, please. and No, thank you. both answer an offer; the photo shows the guest taking the drink or holding up a hand, so only one fits.",
@@ -335,21 +361,21 @@
       "learn": false
     },
     {
-      "id": "x-juice",
-      "text": "Would you like some juice? Yes, please.",
-      "es": "¿Quieres un poco de jugo? Sí, por favor.",
-      "image": "/lesson-assets/a1plus-unit-5-o06-ea3556af242f7321.webp",
+      "id": "x-lemonade",
+      "text": "Would you like some lemonade? Yes, please.",
+      "es": "¿Quieres un poco de limonada? Sí, por favor.",
+      "image": "/lesson-assets/a1plus-unit-5-o23-eeaf0874ac0d1b94.webp",
       "kind": "exchange",
       "turns": [
         {
-          "text": "Would you like some juice?",
-          "speaker": "diego",
-          "image": "/lesson-assets/a1plus-unit-5-o06-ea3556af242f7321.webp"
+          "text": "Would you like some lemonade?",
+          "speaker": "sofia",
+          "image": "/lesson-assets/a1plus-unit-5-o23-eeaf0874ac0d1b94.webp"
         },
         {
           "text": "Yes, please.",
-          "speaker": "sofia",
-          "image": "/lesson-assets/a1plus-unit-5-o06-ea3556af242f7321.webp"
+          "speaker": "luis",
+          "image": "/lesson-assets/a1plus-unit-5-o23-eeaf0874ac0d1b94.webp"
         }
       ],
       "choices": false,
@@ -360,9 +386,10 @@
       "id": "q-chocolate",
       "text": "Would you like some hot chocolate?",
       "es": "¿Quieres un poco de chocolate caliente?",
-      "image": "/lesson-assets/a1plus-unit-5-o04-46fa0f12814eaee3.webp",
+      "image": "/lesson-assets/a1plus-unit-5-o34-663ce81372f000b7.webp",
       "kind": "offer",
       "speaker": "luis",
+      "four_card": false,
       "prefer": [
         "Would you like some tea?",
         "Would you like some coffee?"
@@ -383,7 +410,7 @@
       "id": "r-chocolate",
       "text": "No, thank you.",
       "es": "No, gracias.",
-      "image": "/lesson-assets/a1plus-unit-5-o04-46fa0f12814eaee3.webp",
+      "image": "/lesson-assets/a1plus-unit-5-o34-663ce81372f000b7.webp",
       "kind": "reply",
       "speaker": "sofia",
       "question": "Would you like some hot chocolate?",
@@ -407,18 +434,18 @@
       "id": "x-chocolate",
       "text": "Would you like some hot chocolate? No, thank you.",
       "es": "¿Quieres un poco de chocolate caliente? No, gracias.",
-      "image": "/lesson-assets/a1plus-unit-5-o04-46fa0f12814eaee3.webp",
+      "image": "/lesson-assets/a1plus-unit-5-o34-663ce81372f000b7.webp",
       "kind": "exchange",
       "turns": [
         {
           "text": "Would you like some hot chocolate?",
           "speaker": "luis",
-          "image": "/lesson-assets/a1plus-unit-5-o04-46fa0f12814eaee3.webp"
+          "image": "/lesson-assets/a1plus-unit-5-o34-663ce81372f000b7.webp"
         },
         {
           "text": "No, thank you.",
           "speaker": "sofia",
-          "image": "/lesson-assets/a1plus-unit-5-o04-46fa0f12814eaee3.webp"
+          "image": "/lesson-assets/a1plus-unit-5-o34-663ce81372f000b7.webp"
         }
       ],
       "choices": false,
@@ -429,9 +456,10 @@
       "id": "q-water",
       "text": "Would you like some water?",
       "es": "¿Quieres un poco de agua?",
-      "image": "/lesson-assets/a1plus-unit-5-o07-06ab329abf678aae.webp",
+      "image": "/lesson-assets/a1plus-unit-5-o27-365ede13505961cc.webp",
       "kind": "offer",
       "speaker": "luis",
+      "four_card": false,
       "prefer": [
         "Would you like some tea?",
         "Would you like some coffee?"
@@ -452,7 +480,7 @@
       "id": "r-water",
       "text": "No, thank you.",
       "es": "No, gracias.",
-      "image": "/lesson-assets/a1plus-unit-5-o07-06ab329abf678aae.webp",
+      "image": "/lesson-assets/a1plus-unit-5-o27-365ede13505961cc.webp",
       "kind": "reply",
       "speaker": "ana",
       "question": "Would you like some water?",
@@ -476,18 +504,18 @@
       "id": "x-water",
       "text": "Would you like some water? No, thank you.",
       "es": "¿Quieres un poco de agua? No, gracias.",
-      "image": "/lesson-assets/a1plus-unit-5-o07-06ab329abf678aae.webp",
+      "image": "/lesson-assets/a1plus-unit-5-o27-365ede13505961cc.webp",
       "kind": "exchange",
       "turns": [
         {
           "text": "Would you like some water?",
           "speaker": "luis",
-          "image": "/lesson-assets/a1plus-unit-5-o07-06ab329abf678aae.webp"
+          "image": "/lesson-assets/a1plus-unit-5-o27-365ede13505961cc.webp"
         },
         {
           "text": "No, thank you.",
           "speaker": "ana",
-          "image": "/lesson-assets/a1plus-unit-5-o07-06ab329abf678aae.webp"
+          "image": "/lesson-assets/a1plus-unit-5-o27-365ede13505961cc.webp"
         }
       ],
       "choices": false,
@@ -519,10 +547,24 @@
       "learn": false
     },
     {
+      "id": "d-lemonade",
+      "text": "I like lemonade.",
+      "es": "Me gusta la limonada.",
+      "image": "/lesson-assets/a1plus-unit-5-o25-8de4522b3084b76f.webp",
+      "kind": "like",
+      "speaker": "luis",
+      "choices": false,
+      "blanks": [
+        "like",
+        "lemonade"
+      ],
+      "learn": false
+    },
+    {
       "id": "u-thank",
       "text": "No, thank you.",
       "es": "No, gracias.",
-      "image": "/lesson-assets/a1plus-unit-5-o02-c48db8fc1066e53b.webp",
+      "image": "/lesson-assets/a1plus-unit-5-o22-69a1dcab08db6a7a.webp",
       "kind": "say",
       "speaker": "diego",
       "choices": false,
@@ -536,7 +578,7 @@
       "id": "u-please",
       "text": "Yes, please.",
       "es": "Sí, por favor.",
-      "image": "/lesson-assets/a1plus-unit-5-o01-2b72061f1a90e239.webp",
+      "image": "/lesson-assets/a1plus-unit-5-o21-40bf6d4ce15f5a44.webp",
       "kind": "say",
       "speaker": "luis",
       "choices": false,
@@ -548,7 +590,7 @@
     {
       "text": "Here you are.",
       "es": "Aquí tienes.",
-      "image": "/lesson-assets/a1plus-unit-5-o01-2b72061f1a90e239.webp",
+      "image": "/lesson-assets/a1plus-unit-5-o21-40bf6d4ce15f5a44.webp",
       "kind": "reply",
       "image_choices": false
     }
@@ -563,17 +605,18 @@
     "Learn": [
       "l-tea",
       "l-coffee",
-      "l-chocolate"
+      "l-chocolate",
+      "l-lemonade"
     ],
     "Recognize": [
       "q-tea",
       "r-coffee",
-      "q-juice",
+      "q-lemonade",
       "r-tea",
       "q-chocolate",
       "r-water",
       "q-coffee",
-      "r-juice",
+      "r-lemonade",
       "q-water",
       "r-chocolate",
       "q-chocolate"
@@ -584,10 +627,10 @@
       "q-water",
       "r-chocolate",
       "q-tea",
-      "r-juice",
+      "r-lemonade",
       "q-chocolate",
       "r-coffee",
-      "q-juice",
+      "q-lemonade",
       "r-water"
     ],
     "Speak": [
@@ -596,17 +639,17 @@
       "u-please",
       "u-thank",
       "d-chocolate",
-      "q-juice",
+      "q-lemonade",
       "q-chocolate",
-      "q-water"
+      "d-lemonade"
     ],
     "Use": [
       "q-tea",
       "u-thank",
       "q-coffee",
       "d-chocolate",
-      "q-juice",
-      "d-chocolate-luis",
+      "q-lemonade",
+      "d-lemonade",
       "q-chocolate",
       "q-water"
     ]

@@ -1,0 +1,214 @@
+{
+  "schema_version": 1,
+  "pack": "a1plus-unit-5-review-fixes-photos-b",
+  "revision": 2,
+  "output_namespace": "a1plus-unit-5-lesson-v597",
+  "authorization": "2026-11-23: after reviewing A1+ Unit 5 the user asked to \"review unit A1+ 5 make sure the images make sense to the ask ... introducing new vocabulary and expanding\", said \"image redo and audio approved\" and chose \"Photos and new words\". Gemini is the approved image tool (2026-09-23), Flash only (2026-11-17).",
+  "image_settings": {
+    "provider": "google-gemini",
+    "model": "gemini-2.5-flash-image",
+    "aspect_ratio": "3:2",
+    "image_size": "1K",
+    "runtime_size": "1536x1024",
+    "runtime_format": "webp",
+    "n": 1
+  },
+  "production": {
+    "price_per_image_usd": "0.0387",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing (checked 2026-11-16: Gemini 2.5 Flash Image, about $0.039 per image)",
+    "planned_images": 8,
+    "expected_cost_usd": "0.31",
+    "requested_ceiling_usd": "0.55",
+    "ceiling_note": "The renderer reserves US$0.20 before each request; each request is sent on its own, and the expected spend for the pack is about US$0.31.",
+    "no_automatic_retries": true,
+    "order": [
+      "q17-diego-menu",
+      "q18-sofia-bill",
+      "q19-luis-lemonade",
+      "r32-luis-bananas",
+      "r33-diego-apples",
+      "r34-luis-oranges-too",
+      "r35-ana-lemons",
+      "o34-chocolate-no"
+    ]
+  },
+  "shared_prompts": {
+    "photo": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, menus, screens, cups, clothes or bags.",
+    "safe_center": "Keep the people and the thing that carries the meaning inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.",
+    "solo": "Only this one person is in the photo; there is nobody else, even far in the background.",
+    "pair": "Only these two people are in the photo; there is nobody else, even far in the background.",
+    "daytime": "It is clearly daytime with soft natural light.",
+    "kitchen": "The place is a bright, tidy home kitchen with a light wooden table, white walls and a big window; nothing else is on the table.",
+    "still": "No people, hands or animals are in the photo. The food sits in the middle of the table and fills the central part of the photo, sharp and easy to count or judge on a small phone screen.",
+    "few": "Exactly three pieces are visible, clearly separate, not touching, with plenty of empty space around them so the small amount is obvious at once.",
+    "lots": "There are so many that they cannot be counted at a glance: a big generous heap.",
+    "keep": "Keep each pictured person's face, hair, skin, build and clothes exactly as in the reference image; they look natural and relaxed, not posing for the camera.",
+    "numeral": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. No letters, words, logos or brand marks anywhere. The only writing in the photo is each price card described: a small white card on a little stand with a dollar sign and a number in big, thick black print, upright, facing the camera, sharp and easy to read on a small phone screen. No other signs, labels, screens or clothes show any digit or letter.",
+    "phototext": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No logos or brand marks anywhere.",
+    "big": "The thing that carries the meaning is BIG in the photo: it fills at least a third of the photo height and is sharp, so it is recognized at once in a thumbnail 180 pixels wide.",
+    "stall": "The place is an outdoor fruit market by day, at a wooden stall; the background is softly blurred. No seller is in the photo.",
+    "cafe": "The place is a bright, simple neighborhood café with light wooden tables, a few plants and big windows; the tables behind are empty.",
+    "card": "The price is printed in very big black digits on a big white card that stands right in front of the thing; the card is about a quarter of the photo height, and its digits are easy to read in a small thumbnail. No other text is in the photo.",
+    "stranger": "The people are ordinary adults who appear nowhere else; nobody resembles a celebrity."
+  },
+  "assets": [
+    {
+      "id": "q17-diego-menu",
+      "order": 1,
+      "item": "Can I have the menu, please?",
+      "shared": [
+        "photo",
+        "safe_center",
+        "solo",
+        "daytime",
+        "keep",
+        "big",
+        "cafe"
+      ],
+      "prompt": "Image 1 shows Diego. Diego sits at a café table with nothing on it, looks up toward someone outside the photo and raises one hand a little to call them, with a friendly smile. No menu, food or drink is on his table yet.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-q04-ded74a2cb6021167.webp",
+        "sha256": "ded74a2cb6021167d6af2351e9012476d36c1b0936ca9f4f4b6dee68783bb9e2",
+        "observed_description": "Diego (dark curly hair with a little grey, short full beard, burgundy button shirt) sits at a wooden kitchen table and bites a red apple (A1+ 1.2)."
+      }
+    },
+    {
+      "id": "q18-sofia-bill",
+      "order": 2,
+      "item": "I'd like the bill, please.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "solo",
+        "daytime",
+        "keep",
+        "big",
+        "cafe"
+      ],
+      "prompt": "Image 1 shows Sofia. Sofia sits at a café table after her meal: an empty plate and an empty cup are in front of her. She holds her wallet open in one hand and looks up toward someone outside the photo, raising her other hand a little to call them.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-q03-7d520a07846a47b8.webp",
+        "sha256": "7d520a07846a47b8e8389c3226f3b3639d7eed0d257318b08e4f9b77c5b2258b",
+        "observed_description": "Sofia (long curly dark hair, warm brown skin, white blouse under a bright blue blazer) writes in a large notebook at a wooden desk by a bright window in her home study (A1+ 1.2)."
+      }
+    },
+    {
+      "id": "q19-luis-lemonade",
+      "order": 3,
+      "item": "I'd like a lemonade, please.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "solo",
+        "daytime",
+        "keep",
+        "big",
+        "cafe"
+      ],
+      "prompt": "Image 1 shows Luis. Luis stands at the café counter and smiles; on the counter in front of him stands one tall clear glass of pale yellow lemonade with ice and round lemon slices.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-q01-135c3f8f772bcbe4.webp",
+        "sha256": "135c3f8f772bcbe472b8cec719eb02318a7d52ce1c7152a94c6952aeb78566c2",
+        "observed_description": "Luis (short dark curly hair, clean-shaven, warm medium-brown skin, navy crew-neck T-shirt) drinks coffee from a white mug at a wooden table in his bright kitchen (A1+ 1.2)."
+      }
+    },
+    {
+      "id": "r32-luis-bananas",
+      "order": 4,
+      "item": "Yes, I'd like some bananas, please.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "solo",
+        "daytime",
+        "keep",
+        "big",
+        "stall"
+      ],
+      "prompt": "Image 1 shows Luis. Luis stands at the stall with empty hands and no bag, and points with one finger at a big bunch of yellow bananas that lies alone on the wooden counter in front of him. He looks up as if speaking to the seller.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-q01-135c3f8f772bcbe4.webp",
+        "sha256": "135c3f8f772bcbe472b8cec719eb02318a7d52ce1c7152a94c6952aeb78566c2",
+        "observed_description": "Luis (short dark curly hair, clean-shaven, warm medium-brown skin, navy crew-neck T-shirt) drinks coffee from a white mug at a wooden table in his bright kitchen (A1+ 1.2)."
+      }
+    },
+    {
+      "id": "r33-diego-apples",
+      "order": 5,
+      "item": "Yes, I'd like some apples, please.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "solo",
+        "daytime",
+        "keep",
+        "big",
+        "stall"
+      ],
+      "prompt": "Image 1 shows Diego. Diego stands at the stall with empty hands and no bag, and points with one finger at a wooden box full of red apples that stands alone on the counter in front of him. He looks up as if speaking to the seller.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-q04-ded74a2cb6021167.webp",
+        "sha256": "ded74a2cb6021167d6af2351e9012476d36c1b0936ca9f4f4b6dee68783bb9e2",
+        "observed_description": "Diego (dark curly hair with a little grey, short full beard, burgundy button shirt) sits at a wooden kitchen table and bites a red apple (A1+ 1.2)."
+      }
+    },
+    {
+      "id": "r34-luis-oranges-too",
+      "order": 6,
+      "item": "I'd like some oranges, too.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "solo",
+        "daytime",
+        "keep",
+        "big",
+        "stall"
+      ],
+      "prompt": "Image 1 shows Luis. Luis stands at the stall and holds a big bunch of yellow bananas in one hand; with the other hand he points at a basket of bright oranges on the counter in front of him. He looks up as if speaking to the seller.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-q01-135c3f8f772bcbe4.webp",
+        "sha256": "135c3f8f772bcbe472b8cec719eb02318a7d52ce1c7152a94c6952aeb78566c2",
+        "observed_description": "Luis (short dark curly hair, clean-shaven, warm medium-brown skin, navy crew-neck T-shirt) drinks coffee from a white mug at a wooden table in his bright kitchen (A1+ 1.2)."
+      }
+    },
+    {
+      "id": "r35-ana-lemons",
+      "order": 7,
+      "item": "Yes, I'd like some lemons, please.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "solo",
+        "daytime",
+        "keep",
+        "big",
+        "stall"
+      ],
+      "prompt": "Image 1 shows Ana. Ana stands at the stall with empty hands and no bag, and points with one finger at a basket full of bright yellow lemons that stands alone on the counter in front of her. She looks up as if speaking to the seller.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-q02-c2b4398b65207eff.webp",
+        "sha256": "c2b4398b65207effa51e51260cc607c38ada48caea82f14eb872e4c9c8b5d0d5",
+        "observed_description": "Ana (long dark wavy hair, light-olive skin, sage-green overshirt over a white top, jeans) sits on a light-grey sofa and reads an open hardcover book (A1+ 1.2)."
+      }
+    },
+    {
+      "id": "o34-chocolate-no",
+      "order": 8,
+      "item": "Would you like some hot chocolate? No, thank you.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "pair",
+        "daytime",
+        "keep"
+      ],
+      "prompt": "Image 1 shows Luis alone. The man in this photo is exactly the man in Image 1: the same face, the same light tan skin and the same short thick straight black hair, in his navy crew-neck T-shirt. Sofia: long dark curly hair (often in a high bun), warm brown skin, bright blue blazer over a white blouse. Luis (left) holds out a big clear glass mug of dark brown hot chocolate topped with white whipped cream and small marshmallows. Sofia (right) sits on the sofa, smiles politely and holds up one open hand, palm toward the mug: a friendly no, thank you; she does not take it. They are in Ana's bright living room by day: a light-grey sofa, a low wooden coffee table and plants. The camera is close: the two people are seen from the waist up and the drink is in the exact middle of the photo, between them, big and sharp.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-q01-135c3f8f772bcbe4.webp",
+        "sha256": "135c3f8f772bcbe472b8cec719eb02318a7d52ce1c7152a94c6952aeb78566c2",
+        "observed_description": "Luis (short dark curly hair, clean-shaven, warm medium-brown skin, navy crew-neck T-shirt) drinks coffee from a white mug at a wooden table in his bright kitchen (A1+ 1.2)."
+      }
+    }
+  ]
+}

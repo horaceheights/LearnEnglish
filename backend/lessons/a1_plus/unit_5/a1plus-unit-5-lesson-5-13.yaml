@@ -12,7 +12,10 @@
   "goal": "Ask what is in a dish (What's in it? / What's in the soup?) and say what it holds (There's cheese and tomato in it.).",
   "vocabulary": [
     "What's in it?",
-    "in it"
+    "in it",
+    "onion",
+    "carrot",
+    "mushroom"
   ],
   "review_vocabulary": [
     "What's",
@@ -30,7 +33,7 @@
     "and",
     "I like"
   ],
-  "grammar_function": "A follow-up of A1 5.13 More Food: A1 names more foods (meat, cheese, vegetables, potato, tomato, salad, soup, sandwich) and says what you like and want; A1+ 5.13 asks what is inside a dish with What's in it? / What's in the …? and answers with A1+ 4.4's There's … in it, it standing for the dish (A1+ 4.11's it). Each photo shows one dish opened or from above so everything in it can be seen; every answer names all of it, so it fits one photo only. A1+ 4.15's any comes back in There isn't any chicken in it., told apart by ear.",
+  "grammar_function": "A follow-up of A1 5.13 More Food: A1 names more foods (meat, cheese, vegetables, potato, tomato, salad, soup, sandwich) and says what you like and want; A1+ 5.13 asks what is inside a dish with What's in it? / What's in the …? and answers with A1+ 4.4's There's … in it, it standing for the dish (A1+ 4.11's it). Each photo shows one dish opened or from above so everything in it can be seen; every answer names all of it, so it fits one photo only. A1+ 4.15's any comes back in There isn't any chicken in it., told apart by ear. On 2026-11-23 three new foods were added, onion, carrot and mushroom, each named on its own photo and then found inside a dish.",
   "prerequisite": "A1 5.13 sandwich, salad, soup, cheese, tomato, meat, potato; A1 5.2 chicken, egg; A1+ 4.4 There's; A1+ 4.11 it; A1+ 4.15 any.",
   "speaking_outcome": "Join What's in it as one group (WHAT-sin-it) and keep in it short and joined (IN-it); do not require native-like speed.",
   "content_revision": 1,
@@ -74,6 +77,42 @@
           "text": "There's meat and potato in it."
         }
       ]
+    },
+    {
+      "kind": "sequence",
+      "targets": [
+        "onion"
+      ],
+      "models": [
+        {
+          "slide_id": "L4",
+          "text": "It's an onion."
+        }
+      ]
+    },
+    {
+      "kind": "sequence",
+      "targets": [
+        "carrot"
+      ],
+      "models": [
+        {
+          "slide_id": "L5",
+          "text": "It's a carrot."
+        }
+      ]
+    },
+    {
+      "kind": "sequence",
+      "targets": [
+        "mushroom"
+      ],
+      "models": [
+        {
+          "slide_id": "L6",
+          "text": "It's a mushroom."
+        }
+      ]
     }
   ],
   "purposeful_review_slides": [
@@ -89,7 +128,6 @@
     "R8",
     "R9",
     "R10",
-    "R11",
     "A1",
     "A2",
     "A3",
@@ -193,29 +231,92 @@
       "answer_audio_policy": "authored-only"
     },
     {
-      "slide_id": "R1",
-      "interaction_type": "t2i2",
-      "prompt": "There's cheese and tomato in it.",
-      "stage": "Recognize",
-      "correct_option_id": "there's-cheese-and-tomato-in-it-r1",
+      "slide_id": "L4",
+      "interaction_type": "teach",
+      "prompt": "It's an onion.",
+      "stage": "Learn",
+      "correct_option_id": "it's-an-onion-learn",
       "options": [
         {
-          "id": "there's-chicken-in-it-r1",
-          "image_url": "/lesson-assets/a1plus-unit-5-f02-c4a197197647c0ac.webp",
-          "label": null
-        },
+          "id": "it's-an-onion-learn",
+          "image_url": "/lesson-assets/a1plus-unit-5-f09-8246931376486986.webp",
+          "label": "It's an onion."
+        }
+      ],
+      "audio_text": "It's an onion.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Es una cebolla.",
+      "pedagogy_note": "Story beat 04: It's an onion.",
+      "audio_speaker": "co-teacher",
+      "answer_audio_policy": "authored-only"
+    },
+    {
+      "slide_id": "L5",
+      "interaction_type": "teach",
+      "prompt": "It's a carrot.",
+      "stage": "Learn",
+      "correct_option_id": "it's-a-carrot-learn",
+      "options": [
+        {
+          "id": "it's-a-carrot-learn",
+          "image_url": "/lesson-assets/a1plus-unit-5-f10-f6d8606863d3dd51.webp",
+          "label": "It's a carrot."
+        }
+      ],
+      "audio_text": "It's a carrot.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Es una zanahoria.",
+      "pedagogy_note": "Story beat 05: It's a carrot.",
+      "audio_speaker": "teacher",
+      "answer_audio_policy": "authored-only"
+    },
+    {
+      "slide_id": "L6",
+      "interaction_type": "teach",
+      "prompt": "It's a mushroom.",
+      "stage": "Learn",
+      "correct_option_id": "it's-a-mushroom-learn",
+      "options": [
+        {
+          "id": "it's-a-mushroom-learn",
+          "image_url": "/lesson-assets/a1plus-unit-5-f11-3971cfb05797c561.webp",
+          "label": "It's a mushroom."
+        }
+      ],
+      "audio_text": "It's a mushroom.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Es un champiñón.",
+      "pedagogy_note": "Story beat 06: It's a mushroom.",
+      "audio_speaker": "co-teacher",
+      "answer_audio_policy": "authored-only"
+    },
+    {
+      "slide_id": "R1",
+      "interaction_type": "t2i2",
+      "prompt": "There's onion and carrot in it.",
+      "stage": "Recognize",
+      "correct_option_id": "there's-onion-and-carrot-in-it-r1",
+      "options": [
         {
           "id": "there's-cheese-and-tomato-in-it-r1",
           "image_url": "/lesson-assets/a1plus-unit-5-f01-2ad88c7025eceec8.webp",
           "label": null
+        },
+        {
+          "id": "there's-onion-and-carrot-in-it-r1",
+          "image_url": "/lesson-assets/a1plus-unit-5-f06-2758a47a736edff1.webp",
+          "label": null
         }
       ],
-      "audio_text": "There's cheese and tomato in it.",
+      "audio_text": "There's onion and carrot in it.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Tiene queso y tomate.",
-      "pedagogy_note": "Story beat 01: There's cheese and tomato in it.",
-      "audio_speaker": "co-teacher",
+      "spanish_translation": "Tiene cebolla y zanahoria.",
+      "pedagogy_note": "Story beat 01: There's onion and carrot in it.",
+      "audio_speaker": "teacher",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -223,7 +324,7 @@
       "interaction_type": "i2t2",
       "prompt": "What's in it?",
       "stage": "Recognize",
-      "correct_option_id": "there's-meat-and-potato-in-it-r2",
+      "correct_option_id": "there's-mushroom-and-cheese-in-it-r2",
       "options": [
         {
           "id": "there's-cheese-and-tomato-in-it-r2",
@@ -232,31 +333,31 @@
           "spanish_translation": "Tiene queso y tomate."
         },
         {
-          "id": "there's-meat-and-potato-in-it-r2",
+          "id": "there's-mushroom-and-cheese-in-it-r2",
           "image_url": "",
-          "label": "There's meat and potato in it.",
-          "spanish_translation": "Tiene carne y papa."
+          "label": "There's mushroom and cheese in it.",
+          "spanish_translation": "Tiene champiñón y queso."
         }
       ],
       "audio_text": "What's in it?",
-      "answer_audio_text": "There's meat and potato in it.",
-      "prompt_image_url": "/lesson-assets/a1plus-unit-5-f04-1b046a823426ef6f.webp",
+      "answer_audio_text": "There's mushroom and cheese in it.",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-5-f07-d6f14ab07421310b.webp",
       "spanish_translation": "¿Qué tiene?",
-      "answer_audio_speaker": "teacher",
-      "pedagogy_note": "Story beat 02: There's meat and potato in it.",
-      "audio_speaker": "co-teacher",
+      "answer_audio_speaker": "co-teacher",
+      "pedagogy_note": "Story beat 02: There's mushroom and cheese in it.",
+      "audio_speaker": "teacher",
       "answer_audio_policy": "authored-only"
     },
     {
       "slide_id": "R3",
       "interaction_type": "t2i2",
-      "prompt": "There's chicken in it.",
+      "prompt": "There's carrot and egg in it.",
       "stage": "Recognize",
-      "correct_option_id": "there's-chicken-in-it-r3",
+      "correct_option_id": "there's-carrot-and-egg-in-it-r3",
       "options": [
         {
-          "id": "there's-chicken-in-it-r3",
-          "image_url": "/lesson-assets/a1plus-unit-5-f02-c4a197197647c0ac.webp",
+          "id": "there's-carrot-and-egg-in-it-r3",
+          "image_url": "/lesson-assets/a1plus-unit-5-f08-e62fcb4b91c97ae7.webp",
           "label": null
         },
         {
@@ -265,11 +366,11 @@
           "label": null
         }
       ],
-      "audio_text": "There's chicken in it.",
+      "audio_text": "There's carrot and egg in it.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Tiene pollo.",
-      "pedagogy_note": "Story beat 03: There's chicken in it.",
+      "spanish_translation": "Tiene zanahoria y huevo.",
+      "pedagogy_note": "Story beat 03: There's carrot and egg in it.",
       "audio_speaker": "teacher",
       "answer_audio_policy": "authored-only"
     },
@@ -278,27 +379,27 @@
       "interaction_type": "i2t2",
       "prompt": "What's in it?",
       "stage": "Recognize",
-      "correct_option_id": "there's-egg-and-tomato-in-it-r4",
+      "correct_option_id": "there's-cheese-and-tomato-in-it-r4",
       "options": [
+        {
+          "id": "there's-onion-and-carrot-in-it-r4",
+          "image_url": "",
+          "label": "There's onion and carrot in it.",
+          "spanish_translation": "Tiene cebolla y zanahoria."
+        },
         {
           "id": "there's-cheese-and-tomato-in-it-r4",
           "image_url": "",
           "label": "There's cheese and tomato in it.",
           "spanish_translation": "Tiene queso y tomate."
-        },
-        {
-          "id": "there's-egg-and-tomato-in-it-r4",
-          "image_url": "",
-          "label": "There's egg and tomato in it.",
-          "spanish_translation": "Tiene huevo y tomate."
         }
       ],
       "audio_text": "What's in it?",
-      "answer_audio_text": "There's egg and tomato in it.",
-      "prompt_image_url": "/lesson-assets/a1plus-unit-5-f03-5db91a8223869cd1.webp",
+      "answer_audio_text": "There's cheese and tomato in it.",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-5-f01-2ad88c7025eceec8.webp",
       "spanish_translation": "¿Qué tiene?",
       "answer_audio_speaker": "co-teacher",
-      "pedagogy_note": "Story beat 04: There's egg and tomato in it.",
+      "pedagogy_note": "Story beat 04: There's cheese and tomato in it.",
       "audio_speaker": "teacher",
       "answer_audio_policy": "authored-only"
     },
@@ -325,7 +426,7 @@
       "prompt_image_url": "",
       "spanish_translation": "Tiene carne y papa.",
       "pedagogy_note": "Story beat 05: There's meat and potato in it.",
-      "audio_speaker": "teacher",
+      "audio_speaker": "co-teacher",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -333,56 +434,56 @@
       "interaction_type": "i2t3",
       "prompt": "What's in it?",
       "stage": "Recognize",
-      "correct_option_id": "there's-cheese-and-tomato-in-it-r6",
+      "correct_option_id": "there's-onion-and-carrot-in-it-r6",
       "options": [
         {
-          "id": "there's-egg-and-tomato-in-it-r6",
+          "id": "there's-mushroom-and-cheese-in-it-r6",
           "image_url": "",
-          "label": "There's egg and tomato in it.",
-          "spanish_translation": "Tiene huevo y tomate."
+          "label": "There's mushroom and cheese in it.",
+          "spanish_translation": "Tiene champiñón y queso."
+        },
+        {
+          "id": "there's-onion-and-carrot-in-it-r6",
+          "image_url": "",
+          "label": "There's onion and carrot in it.",
+          "spanish_translation": "Tiene cebolla y zanahoria."
         },
         {
           "id": "there's-cheese-and-tomato-in-it-r6",
           "image_url": "",
           "label": "There's cheese and tomato in it.",
           "spanish_translation": "Tiene queso y tomate."
-        },
-        {
-          "id": "there's-chicken-in-it-r6",
-          "image_url": "",
-          "label": "There's chicken in it.",
-          "spanish_translation": "Tiene pollo."
         }
       ],
       "audio_text": "What's in it?",
-      "answer_audio_text": "There's cheese and tomato in it.",
-      "prompt_image_url": "/lesson-assets/a1plus-unit-5-f01-2ad88c7025eceec8.webp",
+      "answer_audio_text": "There's onion and carrot in it.",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-5-f06-2758a47a736edff1.webp",
       "spanish_translation": "¿Qué tiene?",
-      "answer_audio_speaker": "co-teacher",
-      "pedagogy_note": "Story beat 06: There's cheese and tomato in it.",
-      "audio_speaker": "teacher",
+      "answer_audio_speaker": "teacher",
+      "pedagogy_note": "Story beat 06: There's onion and carrot in it.",
+      "audio_speaker": "co-teacher",
       "answer_audio_policy": "authored-only"
     },
     {
       "slide_id": "R7",
       "interaction_type": "t2i4",
-      "prompt": "There's egg and tomato in it.",
+      "prompt": "There's mushroom and cheese in it.",
       "stage": "Recognize",
-      "correct_option_id": "there's-egg-and-tomato-in-it-r7",
+      "correct_option_id": "there's-mushroom-and-cheese-in-it-r7",
       "options": [
         {
-          "id": "there's-chicken-in-it-r7",
-          "image_url": "/lesson-assets/a1plus-unit-5-f02-c4a197197647c0ac.webp",
+          "id": "there's-onion-and-carrot-in-it-r7",
+          "image_url": "/lesson-assets/a1plus-unit-5-f06-2758a47a736edff1.webp",
           "label": null
         },
         {
-          "id": "there's-meat-and-potato-in-it-r7",
-          "image_url": "/lesson-assets/a1plus-unit-5-f04-1b046a823426ef6f.webp",
+          "id": "there's-carrot-and-egg-in-it-r7",
+          "image_url": "/lesson-assets/a1plus-unit-5-f08-e62fcb4b91c97ae7.webp",
           "label": null
         },
         {
-          "id": "there's-egg-and-tomato-in-it-r7",
-          "image_url": "/lesson-assets/a1plus-unit-5-f03-5db91a8223869cd1.webp",
+          "id": "there's-mushroom-and-cheese-in-it-r7",
+          "image_url": "/lesson-assets/a1plus-unit-5-f07-d6f14ab07421310b.webp",
           "label": null
         },
         {
@@ -391,11 +492,11 @@
           "label": null
         }
       ],
-      "audio_text": "There's egg and tomato in it.",
+      "audio_text": "There's mushroom and cheese in it.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Tiene huevo y tomate.",
-      "pedagogy_note": "Story beat 07: There's egg and tomato in it.",
+      "spanish_translation": "Tiene champiñón y queso.",
+      "pedagogy_note": "Story beat 07: There's mushroom and cheese in it.",
       "audio_speaker": "co-teacher",
       "answer_audio_policy": "authored-only"
     },
@@ -404,19 +505,19 @@
       "interaction_type": "i2t3",
       "prompt": "What's in it?",
       "stage": "Recognize",
-      "correct_option_id": "there's-chicken-in-it-r8",
+      "correct_option_id": "there's-carrot-and-egg-in-it-r8",
       "options": [
         {
-          "id": "there's-egg-and-tomato-in-it-r8",
+          "id": "there's-onion-and-carrot-in-it-r8",
           "image_url": "",
-          "label": "There's egg and tomato in it.",
-          "spanish_translation": "Tiene huevo y tomate."
+          "label": "There's onion and carrot in it.",
+          "spanish_translation": "Tiene cebolla y zanahoria."
         },
         {
-          "id": "there's-chicken-in-it-r8",
+          "id": "there's-carrot-and-egg-in-it-r8",
           "image_url": "",
-          "label": "There's chicken in it.",
-          "spanish_translation": "Tiene pollo."
+          "label": "There's carrot and egg in it.",
+          "spanish_translation": "Tiene zanahoria y huevo."
         },
         {
           "id": "there's-cheese-and-tomato-in-it-r8",
@@ -426,11 +527,11 @@
         }
       ],
       "audio_text": "What's in it?",
-      "answer_audio_text": "There's chicken in it.",
-      "prompt_image_url": "/lesson-assets/a1plus-unit-5-f02-c4a197197647c0ac.webp",
+      "answer_audio_text": "There's carrot and egg in it.",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-5-f08-e62fcb4b91c97ae7.webp",
       "spanish_translation": "¿Qué tiene?",
       "answer_audio_speaker": "teacher",
-      "pedagogy_note": "Story beat 08: There's chicken in it.",
+      "pedagogy_note": "Story beat 08: There's carrot and egg in it.",
       "audio_speaker": "co-teacher",
       "answer_audio_policy": "authored-only"
     },
@@ -442,13 +543,13 @@
       "correct_option_id": "there's-cheese-and-tomato-in-it-r9",
       "options": [
         {
-          "id": "there's-egg-and-tomato-in-it-r9",
-          "image_url": "/lesson-assets/a1plus-unit-5-f03-5db91a8223869cd1.webp",
+          "id": "there's-mushroom-and-cheese-in-it-r9",
+          "image_url": "/lesson-assets/a1plus-unit-5-f07-d6f14ab07421310b.webp",
           "label": null
         },
         {
-          "id": "there's-meat-and-potato-in-it-r9",
-          "image_url": "/lesson-assets/a1plus-unit-5-f04-1b046a823426ef6f.webp",
+          "id": "there's-carrot-and-egg-in-it-r9",
+          "image_url": "/lesson-assets/a1plus-unit-5-f08-e62fcb4b91c97ae7.webp",
           "label": null
         },
         {
@@ -457,8 +558,8 @@
           "label": null
         },
         {
-          "id": "there's-chicken-in-it-r9",
-          "image_url": "/lesson-assets/a1plus-unit-5-f02-c4a197197647c0ac.webp",
+          "id": "there's-onion-and-carrot-in-it-r9",
+          "image_url": "/lesson-assets/a1plus-unit-5-f06-2758a47a736edff1.webp",
           "label": null
         }
       ],
@@ -475,13 +576,13 @@
       "interaction_type": "i2t3",
       "prompt": "What's in it?",
       "stage": "Recognize",
-      "correct_option_id": "there's-meat-and-potato-in-it-r10",
+      "correct_option_id": "there's-onion-and-carrot-in-it-r10",
       "options": [
         {
-          "id": "there's-meat-and-potato-in-it-r10",
+          "id": "there's-onion-and-carrot-in-it-r10",
           "image_url": "",
-          "label": "There's meat and potato in it.",
-          "spanish_translation": "Tiene carne y papa."
+          "label": "There's onion and carrot in it.",
+          "spanish_translation": "Tiene cebolla y zanahoria."
         },
         {
           "id": "there's-cheese-and-tomato-in-it-r10",
@@ -490,54 +591,18 @@
           "spanish_translation": "Tiene queso y tomate."
         },
         {
-          "id": "there's-chicken-in-it-r10",
+          "id": "there's-mushroom-and-cheese-in-it-r10",
           "image_url": "",
-          "label": "There's chicken in it.",
-          "spanish_translation": "Tiene pollo."
+          "label": "There's mushroom and cheese in it.",
+          "spanish_translation": "Tiene champiñón y queso."
         }
       ],
       "audio_text": "What's in it?",
-      "answer_audio_text": "There's meat and potato in it.",
-      "prompt_image_url": "/lesson-assets/a1plus-unit-5-f04-1b046a823426ef6f.webp",
+      "answer_audio_text": "There's onion and carrot in it.",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-5-f06-2758a47a736edff1.webp",
       "spanish_translation": "¿Qué tiene?",
       "answer_audio_speaker": "teacher",
-      "pedagogy_note": "Story beat 10: There's meat and potato in it.",
-      "audio_speaker": "co-teacher",
-      "answer_audio_policy": "authored-only"
-    },
-    {
-      "slide_id": "R11",
-      "interaction_type": "t2i4",
-      "prompt": "There's egg and tomato in it.",
-      "stage": "Recognize",
-      "correct_option_id": "there's-egg-and-tomato-in-it-r11",
-      "options": [
-        {
-          "id": "there's-cheese-and-tomato-in-it-r11",
-          "image_url": "/lesson-assets/a1plus-unit-5-f01-2ad88c7025eceec8.webp",
-          "label": null
-        },
-        {
-          "id": "there's-chicken-in-it-r11",
-          "image_url": "/lesson-assets/a1plus-unit-5-f02-c4a197197647c0ac.webp",
-          "label": null
-        },
-        {
-          "id": "there's-meat-and-potato-in-it-r11",
-          "image_url": "/lesson-assets/a1plus-unit-5-f04-1b046a823426ef6f.webp",
-          "label": null
-        },
-        {
-          "id": "there's-egg-and-tomato-in-it-r11",
-          "image_url": "/lesson-assets/a1plus-unit-5-f03-5db91a8223869cd1.webp",
-          "label": null
-        }
-      ],
-      "audio_text": "There's egg and tomato in it.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Tiene huevo y tomate.",
-      "pedagogy_note": "Story beat 11: There's egg and tomato in it.",
+      "pedagogy_note": "Story beat 10: There's onion and carrot in it.",
       "audio_speaker": "co-teacher",
       "answer_audio_policy": "authored-only"
     },
@@ -546,11 +611,11 @@
       "interaction_type": "a2i2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "there's-chicken-in-it-a1",
+      "correct_option_id": "there's-mushroom-and-cheese-in-it-a1",
       "options": [
         {
-          "id": "there's-chicken-in-it-a1",
-          "image_url": "/lesson-assets/a1plus-unit-5-f02-c4a197197647c0ac.webp",
+          "id": "there's-mushroom-and-cheese-in-it-a1",
+          "image_url": "/lesson-assets/a1plus-unit-5-f07-d6f14ab07421310b.webp",
           "label": null
         },
         {
@@ -559,12 +624,12 @@
           "label": null
         }
       ],
-      "audio_text": "There's chicken in it.",
+      "audio_text": "There's mushroom and cheese in it.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 01: There's chicken in it.",
-      "audio_speaker": "teacher",
+      "pedagogy_note": "Story beat 01: There's mushroom and cheese in it.",
+      "audio_speaker": "co-teacher",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -572,11 +637,11 @@
       "interaction_type": "a2i2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "there's-egg-and-tomato-in-it-a2",
+      "correct_option_id": "there's-carrot-and-egg-in-it-a2",
       "options": [
         {
-          "id": "there's-egg-and-tomato-in-it-a2",
-          "image_url": "/lesson-assets/a1plus-unit-5-f03-5db91a8223869cd1.webp",
+          "id": "there's-carrot-and-egg-in-it-a2",
+          "image_url": "/lesson-assets/a1plus-unit-5-f08-e62fcb4b91c97ae7.webp",
           "label": null
         },
         {
@@ -585,12 +650,12 @@
           "label": null
         }
       ],
-      "audio_text": "There's egg and tomato in it.",
+      "audio_text": "There's carrot and egg in it.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 02: There's egg and tomato in it.",
-      "audio_speaker": "co-teacher",
+      "pedagogy_note": "Story beat 02: There's carrot and egg in it.",
+      "audio_speaker": "teacher",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -626,25 +691,25 @@
       "interaction_type": "a2i2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "there's-cheese-and-tomato-in-it-a4",
+      "correct_option_id": "there's-onion-and-carrot-in-it-a4",
       "options": [
-        {
-          "id": "there's-chicken-in-it-a4",
-          "image_url": "/lesson-assets/a1plus-unit-5-f02-c4a197197647c0ac.webp",
-          "label": null
-        },
         {
           "id": "there's-cheese-and-tomato-in-it-a4",
           "image_url": "/lesson-assets/a1plus-unit-5-f01-2ad88c7025eceec8.webp",
           "label": null
+        },
+        {
+          "id": "there's-onion-and-carrot-in-it-a4",
+          "image_url": "/lesson-assets/a1plus-unit-5-f06-2758a47a736edff1.webp",
+          "label": null
         }
       ],
-      "audio_text": "There's cheese and tomato in it.",
+      "audio_text": "There's onion and carrot in it.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 04: There's cheese and tomato in it.",
-      "audio_speaker": "co-teacher",
+      "pedagogy_note": "Story beat 04: There's onion and carrot in it.",
+      "audio_speaker": "teacher",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -670,7 +735,7 @@
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
       "pedagogy_note": "Story beat 05: There's meat and potato in it.",
-      "audio_speaker": "teacher",
+      "audio_speaker": "co-teacher",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -712,16 +777,16 @@
       "interaction_type": "a2i4",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "there's-chicken-in-it-a7",
+      "correct_option_id": "there's-mushroom-and-cheese-in-it-a7",
       "options": [
         {
-          "id": "there's-meat-and-potato-in-it-a7",
-          "image_url": "/lesson-assets/a1plus-unit-5-f04-1b046a823426ef6f.webp",
+          "id": "there's-carrot-and-egg-in-it-a7",
+          "image_url": "/lesson-assets/a1plus-unit-5-f08-e62fcb4b91c97ae7.webp",
           "label": null
         },
         {
-          "id": "there's-chicken-in-it-a7",
-          "image_url": "/lesson-assets/a1plus-unit-5-f02-c4a197197647c0ac.webp",
+          "id": "there's-mushroom-and-cheese-in-it-a7",
+          "image_url": "/lesson-assets/a1plus-unit-5-f07-d6f14ab07421310b.webp",
           "label": null
         },
         {
@@ -730,17 +795,17 @@
           "label": null
         },
         {
-          "id": "there's-egg-and-tomato-in-it-a7",
-          "image_url": "/lesson-assets/a1plus-unit-5-f03-5db91a8223869cd1.webp",
+          "id": "there's-onion-and-carrot-in-it-a7",
+          "image_url": "/lesson-assets/a1plus-unit-5-f06-2758a47a736edff1.webp",
           "label": null
         }
       ],
-      "audio_text": "There's chicken in it.",
+      "audio_text": "There's mushroom and cheese in it.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 07: There's chicken in it.",
-      "audio_speaker": "teacher",
+      "pedagogy_note": "Story beat 07: There's mushroom and cheese in it.",
+      "audio_speaker": "co-teacher",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -751,8 +816,8 @@
       "correct_option_id": "there's-cheese-and-tomato-in-it-a8",
       "options": [
         {
-          "id": "there's-meat-and-potato-in-it-a8",
-          "image_url": "/lesson-assets/a1plus-unit-5-f04-1b046a823426ef6f.webp",
+          "id": "there's-carrot-and-egg-in-it-a8",
+          "image_url": "/lesson-assets/a1plus-unit-5-f08-e62fcb4b91c97ae7.webp",
           "label": null
         },
         {
@@ -761,13 +826,13 @@
           "label": null
         },
         {
-          "id": "there's-chicken-in-it-a8",
-          "image_url": "/lesson-assets/a1plus-unit-5-f02-c4a197197647c0ac.webp",
+          "id": "there's-onion-and-carrot-in-it-a8",
+          "image_url": "/lesson-assets/a1plus-unit-5-f06-2758a47a736edff1.webp",
           "label": null
         },
         {
-          "id": "there's-egg-and-tomato-in-it-a8",
-          "image_url": "/lesson-assets/a1plus-unit-5-f03-5db91a8223869cd1.webp",
+          "id": "there's-mushroom-and-cheese-in-it-a8",
+          "image_url": "/lesson-assets/a1plus-unit-5-f07-d6f14ab07421310b.webp",
           "label": null
         }
       ],
@@ -784,7 +849,7 @@
       "interaction_type": "a2t3",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "there's-meat-and-potato-in-it-a9",
+      "correct_option_id": "there's-onion-and-carrot-in-it-a9",
       "options": [
         {
           "id": "there's-cheese-and-tomato-in-it-a9",
@@ -793,23 +858,23 @@
           "spanish_translation": "Tiene queso y tomate."
         },
         {
-          "id": "there's-chicken-in-it-a9",
+          "id": "there's-mushroom-and-cheese-in-it-a9",
           "image_url": "",
-          "label": "There's chicken in it.",
-          "spanish_translation": "Tiene pollo."
+          "label": "There's mushroom and cheese in it.",
+          "spanish_translation": "Tiene champiñón y queso."
         },
         {
-          "id": "there's-meat-and-potato-in-it-a9",
+          "id": "there's-onion-and-carrot-in-it-a9",
           "image_url": "",
-          "label": "There's meat and potato in it.",
-          "spanish_translation": "Tiene carne y papa."
+          "label": "There's onion and carrot in it.",
+          "spanish_translation": "Tiene cebolla y zanahoria."
         }
       ],
-      "audio_text": "There's meat and potato in it.",
+      "audio_text": "There's onion and carrot in it.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 09: There's meat and potato in it.",
+      "pedagogy_note": "Story beat 09: There's onion and carrot in it.",
       "audio_speaker": "teacher",
       "answer_audio_policy": "authored-only"
     },
@@ -818,7 +883,7 @@
       "interaction_type": "a2i4",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "there's-chicken-in-it-a10",
+      "correct_option_id": "there's-carrot-and-egg-in-it-a10",
       "options": [
         {
           "id": "there's-cheese-and-tomato-in-it-a10",
@@ -826,26 +891,26 @@
           "label": null
         },
         {
-          "id": "there's-egg-and-tomato-in-it-a10",
-          "image_url": "/lesson-assets/a1plus-unit-5-f03-5db91a8223869cd1.webp",
+          "id": "there's-onion-and-carrot-in-it-a10",
+          "image_url": "/lesson-assets/a1plus-unit-5-f06-2758a47a736edff1.webp",
           "label": null
         },
         {
-          "id": "there's-meat-and-potato-in-it-a10",
-          "image_url": "/lesson-assets/a1plus-unit-5-f04-1b046a823426ef6f.webp",
+          "id": "there's-mushroom-and-cheese-in-it-a10",
+          "image_url": "/lesson-assets/a1plus-unit-5-f07-d6f14ab07421310b.webp",
           "label": null
         },
         {
-          "id": "there's-chicken-in-it-a10",
-          "image_url": "/lesson-assets/a1plus-unit-5-f02-c4a197197647c0ac.webp",
+          "id": "there's-carrot-and-egg-in-it-a10",
+          "image_url": "/lesson-assets/a1plus-unit-5-f08-e62fcb4b91c97ae7.webp",
           "label": null
         }
       ],
-      "audio_text": "There's chicken in it.",
+      "audio_text": "There's carrot and egg in it.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 10: There's chicken in it.",
+      "pedagogy_note": "Story beat 10: There's carrot and egg in it.",
       "audio_speaker": "teacher",
       "answer_audio_policy": "authored-only"
     },
@@ -914,57 +979,57 @@
     {
       "slide_id": "S3",
       "interaction_type": "speak",
-      "prompt": "There's egg and tomato in it.",
+      "prompt": "There's onion and carrot in it.",
       "stage": "Speak",
-      "correct_option_id": "there's-egg-and-tomato-in-it-speak",
+      "correct_option_id": "there's-onion-and-carrot-in-it-speak",
       "options": [
         {
-          "id": "there's-egg-and-tomato-in-it-speak",
-          "image_url": "/lesson-assets/a1plus-unit-5-f03-5db91a8223869cd1.webp",
-          "label": "There's egg and tomato in it."
+          "id": "there's-onion-and-carrot-in-it-speak",
+          "image_url": "/lesson-assets/a1plus-unit-5-f06-2758a47a736edff1.webp",
+          "label": "There's onion and carrot in it."
         }
       ],
-      "audio_text": "There's egg and tomato in it.",
+      "audio_text": "There's onion and carrot in it.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "audio_turns": [
         {
-          "text": "There's egg and tomato in it.",
-          "speaker_role": "co-teacher",
-          "image_url": "/lesson-assets/a1plus-unit-5-f03-5db91a8223869cd1.webp",
+          "text": "There's onion and carrot in it.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1plus-unit-5-f06-2758a47a736edff1.webp",
           "delivery": "a1-pronunciation-v1"
         }
       ],
-      "spanish_translation": "Tiene huevo y tomate.",
-      "pedagogy_note": "Story beat 03: There's egg and tomato in it.",
+      "spanish_translation": "Tiene cebolla y zanahoria.",
+      "pedagogy_note": "Story beat 03: There's onion and carrot in it.",
       "answer_audio_policy": "authored-only"
     },
     {
       "slide_id": "S4",
       "interaction_type": "speak",
-      "prompt": "There's chicken in it.",
+      "prompt": "There's mushroom and cheese in it.",
       "stage": "Speak",
-      "correct_option_id": "there's-chicken-in-it-speak",
+      "correct_option_id": "there's-mushroom-and-cheese-in-it-speak",
       "options": [
         {
-          "id": "there's-chicken-in-it-speak",
-          "image_url": "/lesson-assets/a1plus-unit-5-f02-c4a197197647c0ac.webp",
-          "label": "There's chicken in it."
+          "id": "there's-mushroom-and-cheese-in-it-speak",
+          "image_url": "/lesson-assets/a1plus-unit-5-f07-d6f14ab07421310b.webp",
+          "label": "There's mushroom and cheese in it."
         }
       ],
-      "audio_text": "There's chicken in it.",
+      "audio_text": "There's mushroom and cheese in it.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "audio_turns": [
         {
-          "text": "There's chicken in it.",
-          "speaker_role": "teacher",
-          "image_url": "/lesson-assets/a1plus-unit-5-f02-c4a197197647c0ac.webp",
+          "text": "There's mushroom and cheese in it.",
+          "speaker_role": "co-teacher",
+          "image_url": "/lesson-assets/a1plus-unit-5-f07-d6f14ab07421310b.webp",
           "delivery": "a1-pronunciation-v1"
         }
       ],
-      "spanish_translation": "Tiene pollo.",
-      "pedagogy_note": "Story beat 04: There's chicken in it.",
+      "spanish_translation": "Tiene champiñón y queso.",
+      "pedagogy_note": "Story beat 04: There's mushroom and cheese in it.",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -998,29 +1063,29 @@
     {
       "slide_id": "S6",
       "interaction_type": "speak",
-      "prompt": "I like the soup. There's meat in it.",
+      "prompt": "There's carrot and egg in it.",
       "stage": "Speak",
-      "correct_option_id": "i-like-the-soup-there's-meat-in-it-speak",
+      "correct_option_id": "there's-carrot-and-egg-in-it-speak",
       "options": [
         {
-          "id": "i-like-the-soup-there's-meat-in-it-speak",
-          "image_url": "/lesson-assets/a1plus-unit-5-f04-1b046a823426ef6f.webp",
-          "label": "I like the soup. There's meat in it."
+          "id": "there's-carrot-and-egg-in-it-speak",
+          "image_url": "/lesson-assets/a1plus-unit-5-f08-e62fcb4b91c97ae7.webp",
+          "label": "There's carrot and egg in it."
         }
       ],
-      "audio_text": "I like the soup. There's meat in it.",
+      "audio_text": "There's carrot and egg in it.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "audio_turns": [
         {
-          "text": "I like the soup. There's meat in it.",
-          "speaker_role": "sofia",
-          "image_url": "/lesson-assets/a1plus-unit-5-f04-1b046a823426ef6f.webp",
+          "text": "There's carrot and egg in it.",
+          "speaker_role": "co-teacher",
+          "image_url": "/lesson-assets/a1plus-unit-5-f08-e62fcb4b91c97ae7.webp",
           "delivery": "a1-pronunciation-v1"
         }
       ],
-      "spanish_translation": "Me gusta la sopa. Tiene carne.",
-      "pedagogy_note": "Story beat 06: I like the soup. There's meat in it.",
+      "spanish_translation": "Tiene zanahoria y huevo.",
+      "pedagogy_note": "Story beat 06: There's carrot and egg in it.",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -1060,7 +1125,7 @@
       "options": [
         {
           "id": "what's-in-the-sandwich-speak",
-          "image_url": "/lesson-assets/a1plus-unit-5-f02-c4a197197647c0ac.webp",
+          "image_url": "/lesson-assets/a1plus-unit-5-f07-d6f14ab07421310b.webp",
           "label": "What's in the sandwich?"
         }
       ],
@@ -1071,7 +1136,7 @@
         {
           "text": "What's in the sandwich?",
           "speaker_role": "ana",
-          "image_url": "/lesson-assets/a1plus-unit-5-f02-c4a197197647c0ac.webp",
+          "image_url": "/lesson-assets/a1plus-unit-5-f07-d6f14ab07421310b.webp",
           "delivery": "a1-pronunciation-v1"
         }
       ],
@@ -1146,7 +1211,7 @@
     {
       "slide_id": "U3",
       "interaction_type": "complete2",
-      "prompt": "___ ___ and tomato in it.",
+      "prompt": "___ ___ and carrot in it.",
       "stage": "Use",
       "correct_option_id": "there's",
       "options": [
@@ -1156,23 +1221,23 @@
           "label": "There's"
         },
         {
-          "id": "egg",
+          "id": "onion",
           "image_url": "",
-          "label": "egg"
+          "label": "onion"
         }
       ],
-      "audio_text": "There's egg and tomato in it.",
-      "answer_audio_text": "There's egg and tomato in it.",
-      "prompt_image_url": "/lesson-assets/a1plus-unit-5-f03-5db91a8223869cd1.webp",
-      "spanish_translation": "Tiene huevo y tomate.",
-      "translation": "Tiene huevo y tomate.",
+      "audio_text": "There's onion and carrot in it.",
+      "answer_audio_text": "There's onion and carrot in it.",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-5-f06-2758a47a736edff1.webp",
+      "spanish_translation": "Tiene cebolla y zanahoria.",
+      "translation": "Tiene cebolla y zanahoria.",
       "correct_option_ids": [
         "there's",
-        "egg"
+        "onion"
       ],
-      "answer_audio_speaker": "co-teacher",
-      "pedagogy_note": "Story beat 03: There's egg and tomato in it.",
-      "audio_speaker": "co-teacher",
+      "answer_audio_speaker": "teacher",
+      "pedagogy_note": "Story beat 03: There's onion and carrot in it.",
+      "audio_speaker": "teacher",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -1210,17 +1275,22 @@
     {
       "slide_id": "U5",
       "interaction_type": "complete-sentence",
-      "prompt": "___ ___ ___ ___.",
+      "prompt": "___ ___ ___ ___ ___ ___.",
       "stage": "Use",
       "correct_option_id": "word-1",
       "options": [
         {
           "id": "word-2",
           "image_url": "",
-          "label": "chicken"
+          "label": "mushroom"
         },
         {
           "id": "word-4",
+          "image_url": "",
+          "label": "cheese"
+        },
+        {
+          "id": "word-6",
           "image_url": "",
           "label": "it"
         },
@@ -1232,23 +1302,30 @@
         {
           "id": "word-3",
           "image_url": "",
+          "label": "and"
+        },
+        {
+          "id": "word-5",
+          "image_url": "",
           "label": "in"
         }
       ],
-      "audio_text": "There's chicken in it.",
-      "answer_audio_text": "There's chicken in it.",
-      "prompt_image_url": "/lesson-assets/a1plus-unit-5-f02-c4a197197647c0ac.webp",
-      "spanish_translation": "Tiene pollo.",
-      "translation": "Tiene pollo.",
+      "audio_text": "There's mushroom and cheese in it.",
+      "answer_audio_text": "There's mushroom and cheese in it.",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-5-f07-d6f14ab07421310b.webp",
+      "spanish_translation": "Tiene champiñón y queso.",
+      "translation": "Tiene champiñón y queso.",
       "correct_option_ids": [
         "word-1",
         "word-2",
         "word-3",
-        "word-4"
+        "word-4",
+        "word-5",
+        "word-6"
       ],
-      "answer_audio_speaker": "teacher",
-      "pedagogy_note": "Story beat 05: There's chicken in it.",
-      "audio_speaker": "teacher",
+      "answer_audio_speaker": "co-teacher",
+      "pedagogy_note": "Story beat 05: There's mushroom and cheese in it.",
+      "audio_speaker": "co-teacher",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -1302,53 +1379,65 @@
         "word-5",
         "word-6"
       ],
-      "answer_audio_speaker": "teacher",
+      "answer_audio_speaker": "co-teacher",
       "pedagogy_note": "Story beat 06: There's meat and potato in it.",
-      "audio_speaker": "teacher",
+      "audio_speaker": "co-teacher",
       "answer_audio_policy": "authored-only"
     },
     {
       "slide_id": "U7",
       "interaction_type": "complete-sentence",
-      "prompt": "___ ___ ___ ___?",
+      "prompt": "___ ___ ___ ___ ___ ___.",
       "stage": "Use",
       "correct_option_id": "word-1",
       "options": [
         {
           "id": "word-2",
           "image_url": "",
-          "label": "in"
+          "label": "carrot"
         },
         {
           "id": "word-4",
           "image_url": "",
-          "label": "sandwich"
+          "label": "egg"
+        },
+        {
+          "id": "word-6",
+          "image_url": "",
+          "label": "it"
         },
         {
           "id": "word-1",
           "image_url": "",
-          "label": "What's"
+          "label": "There's"
         },
         {
           "id": "word-3",
           "image_url": "",
-          "label": "the"
+          "label": "and"
+        },
+        {
+          "id": "word-5",
+          "image_url": "",
+          "label": "in"
         }
       ],
-      "audio_text": "What's in the sandwich?",
-      "answer_audio_text": "What's in the sandwich?",
-      "prompt_image_url": "/lesson-assets/a1plus-unit-5-f02-c4a197197647c0ac.webp",
-      "spanish_translation": "¿Qué tiene el sándwich?",
-      "translation": "¿Qué tiene el sándwich?",
+      "audio_text": "There's carrot and egg in it.",
+      "answer_audio_text": "There's carrot and egg in it.",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-5-f08-e62fcb4b91c97ae7.webp",
+      "spanish_translation": "Tiene zanahoria y huevo.",
+      "translation": "Tiene zanahoria y huevo.",
       "correct_option_ids": [
         "word-1",
         "word-2",
         "word-3",
-        "word-4"
+        "word-4",
+        "word-5",
+        "word-6"
       ],
-      "answer_audio_speaker": "ana",
-      "pedagogy_note": "Story beat 07: What's in the sandwich?",
-      "audio_speaker": "ana",
+      "answer_audio_speaker": "teacher",
+      "pedagogy_note": "Story beat 07: There's carrot and egg in it.",
+      "audio_speaker": "teacher",
       "answer_audio_policy": "authored-only"
     },
     {

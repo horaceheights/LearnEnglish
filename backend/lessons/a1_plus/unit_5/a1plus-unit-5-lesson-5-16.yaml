@@ -51,12 +51,11 @@
       }
     ]
   },
-  "goal": "Spend Saturday with Ana and Luis at the market, a shop and a café: find shoppers by how much fruit they have, things by their price, the cheaper and the more expensive bag and watch, what café customers want, how much food is on each plate and what is in each dish, and answer aloud for Ana: agree, refuse an offer, finish shopping and say a price.",
+  "goal": "Spend Saturday with Ana and Luis at the market, a shop and a café: find shoppers by how much fruit they have, things by their price, the cheaper and the more expensive bag and watch, what café customers want, the things on the lunch table and what is in each dish, and answer aloud for Ana: agree, refuse an offer, finish shopping and say a price.",
   "vocabulary": [],
   "review_vocabulary": [
     "a lot of",
     "a few",
-    "a little",
     "apples",
     "oranges",
     "strawberries",
@@ -75,14 +74,16 @@
     "water",
     "cake",
     "hot chocolate",
-    "rice",
-    "pasta",
+    "fork",
+    "knife",
+    "spoon",
+    "butter",
     "in it",
     "cheese",
     "tomato",
-    "meat",
-    "potato",
-    "chicken",
+    "onion",
+    "carrot",
+    "mushroom",
     "egg",
     "So do I.",
     "Would you like",
@@ -92,7 +93,7 @@
     "How much are",
     "They're"
   ],
-  "grammar_function": "A follow-up of A1 5.16 Un día en el mercado y el café: A1 closes Unit 5 with market purchases and a café order; A1+ 5.16 closes A1+ Unit 5 with Ana and Luis's Saturday at the market, a shop and a café, with no new language. The learner finds shoppers by a lot of / a few (5.1), things by their price (5.12), the cheaper and the more expensive bag and watch (5.11), what café customers want to do (5.6), how much rice or pasta is on each plate (5.1-5.2) and what is in each dish (5.13), then answers aloud for Ana with So do I. (5.5), No, thank you. to an offer (5.3), That's all (5.10) and They're three dollars. (5.8). Every mission photo is new and used only here.",
+  "grammar_function": "A follow-up of A1 5.16 Un día en el mercado y el café: A1 closes Unit 5 with market purchases and a café order; A1+ 5.16 closes A1+ Unit 5 with Ana and Luis's Saturday at the market, a shop and a café, with no new language. The learner finds shoppers by a lot of / a few (5.1), things by their price (5.12), the cheaper and the more expensive bag and watch (5.11), what café customers want to do (5.6), the fork, the knife, the spoon and the butter on the table (5.14, 5.2) and what is in each dish (5.13), then answers aloud for Ana with So do I. (5.5), No, thank you. to an offer (5.3), That's all (5.10) and They're three dollars. (5.8). Every mission photo is new and used only here.",
   "prerequisite": "A1+ 5.1-5.15.",
   "speaking_outcome": "Answer four times aloud for Ana: agree with Luis, refuse his offer politely, finish shopping and tell Diego the price of the apples.",
   "cards": [
@@ -655,7 +656,7 @@
       ],
       "audio_text": "He wants to eat a sandwich. She wants to drink water. He wants to eat cake. She wants to drink hot chocolate.",
       "answer_audio_text": null,
-      "prompt_image_url": "/lesson-assets/a1plus-unit-5-mission-w03-9c7922dbfc3e2f55.webp",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-5-mission-w13-a6b2015b1661afa5.webp",
       "correct_option_ids": [
         "sandwich",
         "water",
@@ -666,22 +667,22 @@
         {
           "text": "He wants to eat a sandwich.",
           "speaker_role": "co-teacher",
-          "image_url": "/lesson-assets/a1plus-unit-5-mission-w03-9c7922dbfc3e2f55.webp"
+          "image_url": "/lesson-assets/a1plus-unit-5-mission-w13-a6b2015b1661afa5.webp"
         },
         {
           "text": "She wants to drink water.",
           "speaker_role": "co-teacher",
-          "image_url": "/lesson-assets/a1plus-unit-5-mission-w03-9c7922dbfc3e2f55.webp"
+          "image_url": "/lesson-assets/a1plus-unit-5-mission-w13-a6b2015b1661afa5.webp"
         },
         {
           "text": "He wants to eat cake.",
           "speaker_role": "co-teacher",
-          "image_url": "/lesson-assets/a1plus-unit-5-mission-w03-9c7922dbfc3e2f55.webp"
+          "image_url": "/lesson-assets/a1plus-unit-5-mission-w13-a6b2015b1661afa5.webp"
         },
         {
           "text": "She wants to drink hot chocolate.",
           "speaker_role": "co-teacher",
-          "image_url": "/lesson-assets/a1plus-unit-5-mission-w03-9c7922dbfc3e2f55.webp"
+          "image_url": "/lesson-assets/a1plus-unit-5-mission-w13-a6b2015b1661afa5.webp"
         }
       ],
       "mission_game": {
@@ -694,17 +695,17 @@
             "label_es": "Persona",
             "rect": {
               "x": 0.0,
-              "y": 0.05,
+              "y": 0.17,
               "width": 0.22,
-              "height": 0.8
+              "height": 0.7
             },
             "accepted_option_ids": [
               "sandwich"
             ],
             "head_anchors": [
               {
-                "x": 0.16,
-                "y": 0.07
+                "x": 0.11,
+                "y": 0.19
               }
             ]
           },
@@ -712,17 +713,17 @@
             "id": "water",
             "label_es": "Persona",
             "rect": {
-              "x": 0.7,
-              "y": 0.27,
-              "width": 0.21,
-              "height": 0.73
+              "x": 0.36,
+              "y": 0.26,
+              "width": 0.15,
+              "height": 0.6
             },
             "accepted_option_ids": [
               "water"
             ],
             "head_anchors": [
               {
-                "x": 0.84,
+                "x": 0.41,
                 "y": 0.28
               }
             ]
@@ -731,18 +732,18 @@
             "id": "cake",
             "label_es": "Persona",
             "rect": {
-              "x": 0.56,
-              "y": 0.47,
-              "width": 0.14,
-              "height": 0.53
+              "x": 0.52,
+              "y": 0.21,
+              "width": 0.24,
+              "height": 0.66
             },
             "accepted_option_ids": [
               "cake"
             ],
             "head_anchors": [
               {
-                "x": 0.63,
-                "y": 0.49
+                "x": 0.64,
+                "y": 0.24
               }
             ]
           },
@@ -750,18 +751,18 @@
             "id": "chocolate",
             "label_es": "Persona",
             "rect": {
-              "x": 0.27,
-              "y": 0.27,
-              "width": 0.17,
-              "height": 0.25
+              "x": 0.76,
+              "y": 0.26,
+              "width": 0.24,
+              "height": 0.62
             },
             "accepted_option_ids": [
               "chocolate"
             ],
             "head_anchors": [
               {
-                "x": 0.33,
-                "y": 0.28
+                "x": 0.86,
+                "y": 0.29
               }
             ]
           }
@@ -799,65 +800,65 @@
       },
       "mission_chapter_id": "cafe",
       "spanish_translation": "Quiere comer un sándwich.",
-      "pedagogy_note": "Mission beat 04/10: at the café four customers each look at, point at or hold one thing (5.6: wants to + a verb; 5.3: hot chocolate)."
+      "pedagogy_note": "Mission beat 04/10: at the café four customers each point at or look at one thing they have not got yet (5.6: wants to + a verb; 5.3: hot chocolate)."
     },
     {
       "slide_id": "M05",
       "interaction_type": "mission-game",
       "prompt": "",
       "stage": "Listen",
-      "correct_option_id": "lots-rice",
+      "correct_option_id": "fork",
       "options": [
         {
-          "id": "lots-rice",
+          "id": "fork",
           "image_url": "",
-          "label": "There's a lot of rice."
+          "label": "It's the fork."
         },
         {
-          "id": "little-pasta",
+          "id": "butter",
           "image_url": "",
-          "label": "There's a little pasta."
+          "label": "It's the butter."
         },
         {
-          "id": "lots-pasta",
+          "id": "spoon",
           "image_url": "",
-          "label": "There's a lot of pasta."
+          "label": "It's the spoon."
         },
         {
-          "id": "little-rice",
+          "id": "knife",
           "image_url": "",
-          "label": "There's a little rice."
+          "label": "It's the knife."
         }
       ],
-      "audio_text": "There's a lot of rice. There's a little pasta. There's a lot of pasta. There's a little rice.",
+      "audio_text": "It's the fork. It's the butter. It's the spoon. It's the knife.",
       "answer_audio_text": null,
-      "prompt_image_url": "/lesson-assets/a1plus-unit-5-mission-w05-cee208141b575062.webp",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-5-mission-w38-f81f6c073fe77528.webp",
       "correct_option_ids": [
-        "lots-rice",
-        "little-pasta",
-        "lots-pasta",
-        "little-rice"
+        "fork",
+        "butter",
+        "spoon",
+        "knife"
       ],
       "audio_turns": [
         {
-          "text": "There's a lot of rice.",
+          "text": "It's the fork.",
           "speaker_role": "teacher",
-          "image_url": "/lesson-assets/a1plus-unit-5-mission-w05-cee208141b575062.webp"
+          "image_url": "/lesson-assets/a1plus-unit-5-mission-w38-f81f6c073fe77528.webp"
         },
         {
-          "text": "There's a little pasta.",
+          "text": "It's the butter.",
           "speaker_role": "teacher",
-          "image_url": "/lesson-assets/a1plus-unit-5-mission-w05-cee208141b575062.webp"
+          "image_url": "/lesson-assets/a1plus-unit-5-mission-w38-f81f6c073fe77528.webp"
         },
         {
-          "text": "There's a lot of pasta.",
+          "text": "It's the spoon.",
           "speaker_role": "teacher",
-          "image_url": "/lesson-assets/a1plus-unit-5-mission-w05-cee208141b575062.webp"
+          "image_url": "/lesson-assets/a1plus-unit-5-mission-w38-f81f6c073fe77528.webp"
         },
         {
-          "text": "There's a little rice.",
+          "text": "It's the knife.",
           "speaker_role": "teacher",
-          "image_url": "/lesson-assets/a1plus-unit-5-mission-w05-cee208141b575062.webp"
+          "image_url": "/lesson-assets/a1plus-unit-5-mission-w38-f81f6c073fe77528.webp"
         }
       ],
       "mission_game": {
@@ -866,116 +867,116 @@
         "validation": "ordered",
         "targets": [
           {
-            "id": "lots-rice",
-            "label_es": "Plato",
+            "id": "fork",
+            "label_es": "Cosa",
             "rect": {
-              "x": 0.0,
-              "y": 0.33,
-              "width": 0.26,
-              "height": 0.24
+              "x": 0.09,
+              "y": 0.12,
+              "width": 0.125,
+              "height": 0.76
             },
             "accepted_option_ids": [
-              "lots-rice"
+              "fork"
             ],
             "head_anchors": [
               {
-                "x": 0.12,
-                "y": 0.45
+                "x": 0.15,
+                "y": 0.2
               }
             ]
           },
           {
-            "id": "little-pasta",
-            "label_es": "Plato",
+            "id": "butter",
+            "label_es": "Cosa",
             "rect": {
-              "x": 0.78,
-              "y": 0.33,
-              "width": 0.22,
-              "height": 0.23
+              "x": 0.49,
+              "y": 0.14,
+              "width": 0.46,
+              "height": 0.72
             },
             "accepted_option_ids": [
-              "little-pasta"
+              "butter"
             ],
             "head_anchors": [
               {
-                "x": 0.88,
-                "y": 0.45
+                "x": 0.72,
+                "y": 0.35
               }
             ]
           },
           {
-            "id": "lots-pasta",
-            "label_es": "Plato",
+            "id": "spoon",
+            "label_es": "Cosa",
             "rect": {
-              "x": 0.52,
-              "y": 0.33,
-              "width": 0.26,
-              "height": 0.24
+              "x": 0.345,
+              "y": 0.12,
+              "width": 0.13,
+              "height": 0.76
             },
             "accepted_option_ids": [
-              "lots-pasta"
+              "spoon"
             ],
             "head_anchors": [
               {
-                "x": 0.65,
-                "y": 0.45
+                "x": 0.41,
+                "y": 0.2
               }
             ]
           },
           {
-            "id": "little-rice",
-            "label_es": "Plato",
+            "id": "knife",
+            "label_es": "Cosa",
             "rect": {
-              "x": 0.26,
-              "y": 0.33,
-              "width": 0.25,
-              "height": 0.24
+              "x": 0.215,
+              "y": 0.12,
+              "width": 0.13,
+              "height": 0.76
             },
             "accepted_option_ids": [
-              "little-rice"
+              "knife"
             ],
             "head_anchors": [
               {
-                "x": 0.38,
-                "y": 0.45
+                "x": 0.27,
+                "y": 0.15
               }
             ]
           }
         ],
         "cues": [
           {
-            "id": "lots-rice",
-            "text": "There's a lot of rice.",
-            "answer_text": "There's a lot of rice.",
-            "target_id": "lots-rice",
-            "option_id": "lots-rice"
+            "id": "fork",
+            "text": "It's the fork.",
+            "answer_text": "It's the fork.",
+            "target_id": "fork",
+            "option_id": "fork"
           },
           {
-            "id": "practice-little-pasta",
-            "text": "There's a little pasta.",
-            "answer_text": "There's a little pasta.",
-            "target_id": "little-pasta",
-            "option_id": "little-pasta"
+            "id": "practice-butter",
+            "text": "It's the butter.",
+            "answer_text": "It's the butter.",
+            "target_id": "butter",
+            "option_id": "butter"
           },
           {
-            "id": "practice-lots-pasta",
-            "text": "There's a lot of pasta.",
-            "answer_text": "There's a lot of pasta.",
-            "target_id": "lots-pasta",
-            "option_id": "lots-pasta"
+            "id": "practice-spoon",
+            "text": "It's the spoon.",
+            "answer_text": "It's the spoon.",
+            "target_id": "spoon",
+            "option_id": "spoon"
           },
           {
-            "id": "practice-little-rice",
-            "text": "There's a little rice.",
-            "answer_text": "There's a little rice.",
-            "target_id": "little-rice",
-            "option_id": "little-rice"
+            "id": "practice-knife",
+            "text": "It's the knife.",
+            "answer_text": "It's the knife.",
+            "target_id": "knife",
+            "option_id": "knife"
           }
         ]
       },
       "mission_chapter_id": "almuerzo",
-      "spanish_translation": "Hay mucho arroz.",
-      "pedagogy_note": "Mission beat 05/10: lunch is served on four plates: a lot of or a little rice or pasta (5.1-5.2)."
+      "spanish_translation": "Es el tenedor.",
+      "pedagogy_note": "Mission beat 05/10: the lunch table is laid with a fork, a knife, a spoon and the butter (5.14's new table words and 5.2's butter)."
     },
     {
       "slide_id": "M06",
@@ -990,50 +991,50 @@
           "label": "There's cheese and tomato in it."
         },
         {
-          "id": "soup",
+          "id": "mushroom",
           "image_url": "",
-          "label": "There's meat and potato in it."
-        },
-        {
-          "id": "chicken",
-          "image_url": "",
-          "label": "There's chicken in it."
+          "label": "There's mushroom in it."
         },
         {
           "id": "egg",
           "image_url": "",
           "label": "There's egg in it."
+        },
+        {
+          "id": "soup",
+          "image_url": "",
+          "label": "There's onion and carrot in it."
         }
       ],
-      "audio_text": "There's cheese and tomato in it. There's meat and potato in it. There's chicken in it. There's egg in it.",
+      "audio_text": "There's cheese and tomato in it. There's mushroom in it. There's egg in it. There's onion and carrot in it.",
       "answer_audio_text": null,
-      "prompt_image_url": "/lesson-assets/a1plus-unit-5-mission-w07-a5d5734283f17def.webp",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-5-mission-w27-423ae1c6cbd8f20b.webp",
       "correct_option_ids": [
         "sandwich",
-        "soup",
-        "chicken",
-        "egg"
+        "mushroom",
+        "egg",
+        "soup"
       ],
       "audio_turns": [
         {
           "text": "There's cheese and tomato in it.",
           "speaker_role": "co-teacher",
-          "image_url": "/lesson-assets/a1plus-unit-5-mission-w07-a5d5734283f17def.webp"
+          "image_url": "/lesson-assets/a1plus-unit-5-mission-w27-423ae1c6cbd8f20b.webp"
         },
         {
-          "text": "There's meat and potato in it.",
+          "text": "There's mushroom in it.",
           "speaker_role": "co-teacher",
-          "image_url": "/lesson-assets/a1plus-unit-5-mission-w07-a5d5734283f17def.webp"
-        },
-        {
-          "text": "There's chicken in it.",
-          "speaker_role": "co-teacher",
-          "image_url": "/lesson-assets/a1plus-unit-5-mission-w07-a5d5734283f17def.webp"
+          "image_url": "/lesson-assets/a1plus-unit-5-mission-w27-423ae1c6cbd8f20b.webp"
         },
         {
           "text": "There's egg in it.",
           "speaker_role": "co-teacher",
-          "image_url": "/lesson-assets/a1plus-unit-5-mission-w07-a5d5734283f17def.webp"
+          "image_url": "/lesson-assets/a1plus-unit-5-mission-w27-423ae1c6cbd8f20b.webp"
+        },
+        {
+          "text": "There's onion and carrot in it.",
+          "speaker_role": "co-teacher",
+          "image_url": "/lesson-assets/a1plus-unit-5-mission-w27-423ae1c6cbd8f20b.webp"
         }
       ],
       "mission_game": {
@@ -1045,56 +1046,37 @@
             "id": "sandwich",
             "label_es": "Plato",
             "rect": {
-              "x": 0.02,
-              "y": 0.27,
-              "width": 0.26,
-              "height": 0.21
+              "x": 0.01,
+              "y": 0.24,
+              "width": 0.25,
+              "height": 0.46
             },
             "accepted_option_ids": [
               "sandwich"
             ],
             "head_anchors": [
               {
-                "x": 0.15,
-                "y": 0.37
+                "x": 0.13,
+                "y": 0.4
               }
             ]
           },
           {
-            "id": "soup",
+            "id": "mushroom",
             "label_es": "Plato",
             "rect": {
-              "x": 0.49,
-              "y": 0.42,
-              "width": 0.23,
-              "height": 0.23
-            },
-            "accepted_option_ids": [
-              "soup"
-            ],
-            "head_anchors": [
-              {
-                "x": 0.6,
-                "y": 0.53
-              }
-            ]
-          },
-          {
-            "id": "chicken",
-            "label_es": "Plato",
-            "rect": {
-              "x": 0.7,
-              "y": 0.5,
+              "x": 0.47,
+              "y": 0.22,
               "width": 0.28,
-              "height": 0.26
+              "height": 0.5
             },
             "accepted_option_ids": [
-              "chicken"
+              "mushroom"
             ],
             "head_anchors": [
               {
-                "x": 0.84,
-                "y": 0.62
+                "x": 0.61,
+                "y": 0.4
               }
             ]
           },
@@ -1102,18 +1084,37 @@
             "id": "egg",
             "label_es": "Plato",
             "rect": {
-              "x": 0.26,
-              "y": 0.34,
-              "width": 0.25,
-              "height": 0.21
+              "x": 0.76,
+              "y": 0.24,
+              "width": 0.23,
+              "height": 0.46
             },
             "accepted_option_ids": [
               "egg"
             ],
             "head_anchors": [
               {
-                "x": 0.38,
-                "y": 0.44
+                "x": 0.87,
+                "y": 0.4
+              }
+            ]
+          },
+          {
+            "id": "soup",
+            "label_es": "Plato",
+            "rect": {
+              "x": 0.27,
+              "y": 0.26,
+              "width": 0.19,
+              "height": 0.42
+            },
+            "accepted_option_ids": [
+              "soup"
+            ],
+            "head_anchors": [
+              {
+                "x": 0.36,
+                "y": 0.4
               }
             ]
           }
@@ -1127,18 +1128,11 @@
             "option_id": "sandwich"
           },
           {
-            "id": "practice-soup",
-            "text": "There's meat and potato in it.",
-            "answer_text": "There's meat and potato in it.",
-            "target_id": "soup",
-            "option_id": "soup"
-          },
-          {
-            "id": "practice-chicken",
-            "text": "There's chicken in it.",
-            "answer_text": "There's chicken in it.",
-            "target_id": "chicken",
-            "option_id": "chicken"
+            "id": "practice-mushroom",
+            "text": "There's mushroom in it.",
+            "answer_text": "There's mushroom in it.",
+            "target_id": "mushroom",
+            "option_id": "mushroom"
           },
           {
             "id": "practice-egg",
@@ -1146,12 +1140,19 @@
             "answer_text": "There's egg in it.",
             "target_id": "egg",
             "option_id": "egg"
+          },
+          {
+            "id": "practice-soup",
+            "text": "There's onion and carrot in it.",
+            "answer_text": "There's onion and carrot in it.",
+            "target_id": "soup",
+            "option_id": "soup"
           }
         ]
       },
       "mission_chapter_id": "almuerzo",
       "spanish_translation": "Tiene queso y tomate.",
-      "pedagogy_note": "Mission beat 06/10: four dishes stand on the lunch table; what is in each one finds it (5.13: There's … in it)."
+      "pedagogy_note": "Mission beat 06/10: four dishes stand on the lunch table; what is in each one finds it (5.13: There's … in it, with onion, carrot and mushroom)."
     },
     {
       "slide_id": "M07",
