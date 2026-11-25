@@ -5,7 +5,7 @@
     "lesson": "6.6",
     "title": "Finding Places in the Neighborhood"
   },
-  "note": "A1+ Unit 6 Lesson 6.6, built on 2026-11-20 under the A1+ lesson standards approved 2026-10-27 and the user's 2026-11-09 rule that every A1+ lesson follows up the A1 lesson with the same number. The user asked on 2026-11-20 \"Lets work on a1+ Unit 6 same all deal as before none stop all approved\" (A1+ 6.Y follows A1 6.Y, one step each; fifteen lessons; the Units 2-4 deal: straight to Preview in batches, Gemini 2.5 Flash photos and ElevenLabs audio pre-approved, no per-lesson gates, reviewed in Preview). Four new photos (Gemini 2.5 Flash): a bakery and a bookstore each in a corner building at a crossroads, and a police station and a gas station each across a street from a small park.",
+  "note": "A1+ Unit 6 Lesson 6.6, built on 2026-11-20 under the A1+ lesson standards approved 2026-10-27 and the user's 2026-11-09 rule that every A1+ lesson follows up the A1 lesson with the same number. The user asked on 2026-11-20 \"Lets work on a1+ Unit 6 same all deal as before none stop all approved\" (A1+ 6.Y follows A1 6.Y, one step each; fifteen lessons; the Units 2-4 deal: straight to Preview in batches, Gemini 2.5 Flash photos and ElevenLabs audio pre-approved, no per-lesson gates, reviewed in Preview). Four new photos (Gemini 2.5 Flash): a bakery and a bookstore each in a corner building at a crossroads, and a police station and a gas station each across a street from a small park. Review fix 2026-11-23 (user: \"Fix both\"): A1 6.6's across from, far from and near return beside opposite; the in-front-of line moved to the police car parked in front of the police station.",
   "target": "backend/lessons/a1_plus/unit_6/a1plus-unit-6-lesson-6-6.yaml",
   "captions": false,
   "narrators": [
@@ -39,12 +39,20 @@
       "bookstore",
       "police station",
       "gas station",
-      "the park"
+      "the park",
+      "across from",
+      "far from",
+      "near",
+      "in front of",
+      "police car",
+      "Is",
+      "No",
+      "Yes"
     ],
     "grammar_function": "A follow-up of A1 6.6 Finding Places in the Neighborhood: A1 locates places with near, far from, between and across from; A1+ 6.6 adds on the corner and opposite. Each photo shows one place from 6.1 either in a corner building where two streets meet, with a crosswalk on each side, or across one street from a small park, seen from the park, so the photo tells on the corner from opposite the park.",
     "prerequisite": "A1 6.6 across from; A1+ 6.1 bakery, bookstore, police station, gas station; A1+ 4.1 Where's…?.",
     "speaking_outcome": "Stress the CORN-er and OP-po-site. Do not require native-like speed.",
-    "content_revision": 1,
+    "content_revision": 2,
     "learn_context_groups": [
       {
         "kind": "sequence",
@@ -467,22 +475,22 @@
     },
     {
       "id": "u4-front",
-      "text": "Where's the bank? It's in front of the park.",
-      "es": "¿Dónde está el banco? Está enfrente del parque.",
-      "image": "/lesson-assets/a1_photo_u6_bank_central_v1.webp",
+      "text": "Where's the police car? It's in front of the police station.",
+      "es": "¿Dónde está la patrulla? Está delante de la estación de policía.",
+      "image": "/lesson-assets/a1plus-unit-6-c03-3a1ffd359f9e0b2d.webp",
       "kind": "u4-front",
       "image_choices": false,
       "use": false,
       "turns": [
         {
-          "text": "Where's the bank?",
+          "text": "Where's the police car?",
           "speaker": "co-teacher",
-          "image": "/lesson-assets/a1_photo_u6_bank_central_v1.webp"
+          "image": "/lesson-assets/a1plus-unit-6-c03-3a1ffd359f9e0b2d.webp"
         },
         {
-          "text": "It's in front of the park.",
+          "text": "It's in front of the police station.",
           "speaker": "teacher",
-          "image": "/lesson-assets/a1_photo_u6_bank_central_v1.webp"
+          "image": "/lesson-assets/a1plus-unit-6-c03-3a1ffd359f9e0b2d.webp"
         }
       ],
       "accepts": {
@@ -492,7 +500,58 @@
         "reading-load": "Listen keeps the question and changes only the answer; the answer is what was heard."
       },
       "prefer": [
-        "Where's the bank? It's on the corner."
+        "Where's the police car? It's in front of the bakery."
+      ],
+      "learn": false
+    },
+    {
+      "id": "a1-across",
+      "text": "The police station is across from the park.",
+      "es": "La estación de policía está enfrente del parque.",
+      "image": "/lesson-assets/a1plus-unit-6-c03-3a1ffd359f9e0b2d.webp",
+      "kind": "a1-across",
+      "image_choices": false,
+      "use": false,
+      "accepts": {
+        "subject-variety": "The sentence keeps the person or the thing and changes only one detail; the photo shows which is true.",
+        "action-variety": "The sentence keeps the person or the thing and changes only one detail; the photo shows which is true.",
+        "conversational-response": "The sentence keeps the person or the thing and changes only one detail; the photo shows which is true.",
+        "reading-load": "The sentence keeps the person or the thing and changes only one detail; the photo shows which is true."
+      },
+      "prefer": [
+        "The police station is far from the park.",
+        "The police station is on the corner."
+      ],
+      "learn": false
+    },
+    {
+      "id": "a1-near",
+      "text": "Is the gas station far from the park? No, it's near the park.",
+      "es": "¿La gasolinera está lejos del parque? No, está cerca del parque.",
+      "image": "/lesson-assets/a1plus-unit-6-c04-a749eb532fa5d942.webp",
+      "kind": "a1-near",
+      "image_choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "Is the gas station far from the park?",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-6-c04-a749eb532fa5d942.webp"
+        },
+        {
+          "text": "No, it's near the park.",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-6-c04-a749eb532fa5d942.webp"
+        }
+      ],
+      "accepts": {
+        "subject-variety": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "action-variety": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "conversational-response": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "reading-load": "Listen keeps the question and changes only the answer; the answer is what was heard."
+      },
+      "prefer": [
+        "Is the gas station far from the park? Yes, it's far from the park."
       ],
       "learn": false
     }
@@ -562,10 +621,31 @@
       "image_choices": false
     },
     {
-      "text": "Where's the bank? It's on the corner.",
-      "es": "¿Dónde está el banco? Está en la esquina.",
-      "image": "/lesson-assets/a1_photo_u6_bank_central_v1.webp",
+      "text": "Where's the police car? It's in front of the bakery.",
+      "es": "¿Dónde está la patrulla? Está delante de la panadería.",
+      "image": "/lesson-assets/a1plus-unit-6-c03-3a1ffd359f9e0b2d.webp",
       "kind": "u4-front",
+      "image_choices": false
+    },
+    {
+      "text": "The police station is far from the park.",
+      "es": "La estación de policía está lejos del parque.",
+      "image": "/lesson-assets/a1plus-unit-6-c03-3a1ffd359f9e0b2d.webp",
+      "kind": "a1-across",
+      "image_choices": false
+    },
+    {
+      "text": "The police station is on the corner.",
+      "es": "La estación de policía está en la esquina.",
+      "image": "/lesson-assets/a1plus-unit-6-c03-3a1ffd359f9e0b2d.webp",
+      "kind": "a1-across",
+      "image_choices": false
+    },
+    {
+      "text": "Is the gas station far from the park? Yes, it's far from the park.",
+      "es": "¿La gasolinera está lejos del parque? Sí, está lejos del parque.",
+      "image": "/lesson-assets/a1plus-unit-6-c04-a749eb532fa5d942.webp",
+      "kind": "a1-near",
       "image_choices": false
     }
   ],
@@ -592,7 +672,7 @@
       "f-books",
       "r-gas",
       "x-b",
-      "f-bakery"
+      "a1-across"
     ],
     "Listen": [
       "f-police",
@@ -603,7 +683,7 @@
       "x-b",
       "r-bakery",
       "r-gas",
-      "r-police",
+      "a1-near",
       "u4-front"
     ],
     "Speak": [

@@ -1,0 +1,55 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "957c1106-5bce-432d-b74e-304ed6eeff4a",
+  "asset_id": "k05-left-light",
+  "pack_sha256": "f52ae5e32c2fef77dc6c1b7adc87caa81ac08197db93051151111c47965c5263",
+  "started_at": "2026-11-24T03:06:23.601610+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, menus, screens, cups, clothes or bags.\n\nKeep the people and the thing that carries the meaning inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nIt is clearly daytime with soft natural light.\n\nThe camera stands on the sidewalk a few steps behind one person and looks the way they look: straight ahead is a crossroads where a side street goes off to the left and another to the right. The person is seen from behind (back of the head and back only, no face) and stretches one whole arm straight out sideways, pointing along one side street. The pointing arm is long, level and unmistakable.\n\nNo shop, car, sign, screen, map, bag or building shows any letters, words, numbers, logos or clocks.\n\nThe person is a man in a navy T-shirt with short dark curly hair. On the LEFT corner of the crossroads stands one tall traffic light on a pole, big and close, with its three round lamps (red, yellow, green) clearly visible and the red lamp lit. It is the only traffic light in the photo. Both corners are plain grey office buildings with no shops. There are NO painted crosswalk stripes on the road anywhere. The man points his LEFT arm straight out to the left, along the side street that goes past the traffic light. Nobody else is in the photo.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "Lv8Ea5bEMe2JqtsPha2vsAc",
+  "usage": {
+    "promptTokenCount": 418,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1708,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 418
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038825",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 418,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 8.01,
+  "output": "output/imagegen/a1plus-unit-6-lesson-v6160/k05-left-light.png",
+  "sha256": "5610c70c052b7a5852ebd418bdfe5c8183f3b91173fbd68489365c9983e333d3",
+  "byte_count": 1211058,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}

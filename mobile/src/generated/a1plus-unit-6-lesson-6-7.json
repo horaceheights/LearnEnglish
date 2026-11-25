@@ -9,11 +9,13 @@
   "lesson_title": "Turn left at the bakery",
   "sub_lesson_id": "6.7",
   "sub_lesson_title": "Turn left at the bakery",
-  "goal": "Give a direction with a place to turn at (Turn left at the bakery. Turn right at the police station.).",
+  "goal": "Turn at a landmark: a place from 6.1, a traffic light or a crosswalk (Turn left at the bakery. / Turn left at the traffic light. / Turn right at the crosswalk.).",
   "vocabulary": [
     "at the bakery",
     "at the bookstore",
-    "at the police station"
+    "at the police station",
+    "traffic light",
+    "crosswalk"
   ],
   "review_vocabulary": [
     "Turn left",
@@ -28,16 +30,20 @@
     "the park",
     "the gas station",
     "Go straight",
-    "and"
+    "and",
+    "the station",
+    "the supermarket"
   ],
-  "grammar_function": "A follow-up of A1 6.7 Which Side of the Street?: A1 finds a place on the left or on the right; A1+ 6.7 turns at a place. The new grammar relationship is at + a landmark after A1 6.8's turn left / turn right (Turn left at the bakery.), with 6.1's new places as landmarks and A1 6.10's How do I get to \u2026?. Every photo is seen from behind one walker at a crossroads who points one whole arm along the side street that goes past the named place, which stands on that corner; the other corner is a plain office building.",
+  "grammar_function": "A follow-up of A1 6.7 Which Side of the Street?: A1 finds a place on the left or on the right; A1+ 6.7 turns at a place. The new grammar relationship is at + a landmark after A1 6.8's turn left / turn right (Turn left at the bakery.), with 6.1's new places as landmarks and A1 6.10's How do I get to \u2026?. Every photo is seen from behind one walker at a crossroads who points one whole arm along the side street that goes past the named place, which stands on that corner; the other corner is a plain office building. Two new words name where to turn when there is no shop: traffic light and crosswalk (Turn left at the traffic light. / Turn right at the crosswalk.); each is one photo with that landmark on the pointed side and no shop, and the crosswalk photo is never a picture choice, because other crossroads show road lines.",
   "prerequisite": "A1 6.7 left and right; A1 6.8 turn left/right, go straight; A1 6.10 How do I get to\u2026?; A1+ 6.1 places.",
-  "speaking_outcome": "Link turn left at (turn-LEFT-at). Do not require native-like speed.",
+  "speaking_outcome": "Link turn left at (turn-LEFT-at). Do not require native-like speed. Stress TRAF-fic light and CROSS-walk.",
   "purposeful_review_slides": [
     "L1",
     "L2",
     "L3",
     "L4",
+    "L5",
+    "L6",
     "R1",
     "R2",
     "R3",
@@ -75,7 +81,7 @@
     "U7",
     "U8"
   ],
-  "content_revision": 1,
+  "content_revision": 2,
   "cards": [
     {
       "slide_id": "L1",
@@ -156,6 +162,82 @@
     {
       "slide_id": "L3",
       "interaction_type": "teach",
+      "prompt": "Turn left at the traffic light.",
+      "stage": "Learn",
+      "correct_option_id": "turn-left-at-the-traffic-light-learn",
+      "options": [
+        {
+          "id": "turn-left-at-the-traffic-light-learn",
+          "image_url": "/lesson-assets/a1plus-unit-6-k05-d1bb05c23de8fa3a.webp",
+          "label": "Turn left at the traffic light."
+        }
+      ],
+      "audio_text": "Turn left at the traffic light.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Da vuelta a la izquierda en el sem\u00e1foro.",
+      "pedagogy_note": "Story beat 03: Turn left at the traffic light.",
+      "audio_speaker": "teacher",
+      "answer_audio_speaker": null,
+      "answer_audio_policy": "authored-only",
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "a1plus-unit-6-lesson-6-7-c003-prompt-20357e97fadf9c37a76c",
+          "purpose": "prompt",
+          "text": "Turn left at the traffic light.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1plus-unit-6-k05-d1bb05c23de8fa3a.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "L4",
+      "interaction_type": "teach",
+      "prompt": "Turn right at the crosswalk.",
+      "stage": "Learn",
+      "correct_option_id": "turn-right-at-the-crosswalk-learn",
+      "options": [
+        {
+          "id": "turn-right-at-the-crosswalk-learn",
+          "image_url": "/lesson-assets/a1plus-unit-6-k06-6efb26135abad54a.webp",
+          "label": "Turn right at the crosswalk."
+        }
+      ],
+      "audio_text": "Turn right at the crosswalk.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Da vuelta a la derecha en el cruce peatonal.",
+      "pedagogy_note": "Story beat 04: Turn right at the crosswalk.",
+      "audio_speaker": "co-teacher",
+      "answer_audio_speaker": null,
+      "answer_audio_policy": "authored-only",
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "a1plus-unit-6-lesson-6-7-c004-prompt-a2ee09b68a1cacb328a9",
+          "purpose": "prompt",
+          "text": "Turn right at the crosswalk.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1plus-unit-6-k06-6efb26135abad54a.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "L5",
+      "interaction_type": "teach",
       "prompt": "How do I get to the library? Turn left at the bookstore.",
       "stage": "Learn",
       "correct_option_id": "how-do-i-get-to-the-library-turn-left-at-the-bookstore-learn",
@@ -170,7 +252,7 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "\u00bfC\u00f3mo llego a la biblioteca? Da vuelta a la izquierda en la librer\u00eda.",
-      "pedagogy_note": "Story beat 03: How do I get to the library? Turn left at the bookstore.",
+      "pedagogy_note": "Story beat 05: How do I get to the library? Turn left at the bookstore.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_turns": [
@@ -190,7 +272,7 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "a1plus-unit-6-lesson-6-7-c003-prompt-turn-1-5b26a45080e50a88f4d2",
+          "id": "a1plus-unit-6-lesson-6-7-c005-prompt-turn-1-593bebb8b31c31b45d62",
           "purpose": "prompt-turn-1",
           "text": "How do I get to the library?",
           "mode": "prompt",
@@ -202,7 +284,7 @@
           "revision": 1
         },
         {
-          "id": "a1plus-unit-6-lesson-6-7-c003-prompt-turn-2-65a511c77292bc2c5d5b",
+          "id": "a1plus-unit-6-lesson-6-7-c005-prompt-turn-2-82aae858995560464be2",
           "purpose": "prompt-turn-2",
           "text": "Turn left at the bookstore.",
           "mode": "prompt",
@@ -216,7 +298,7 @@
       ]
     },
     {
-      "slide_id": "L4",
+      "slide_id": "L6",
       "interaction_type": "teach",
       "prompt": "How do I get to the bank? Turn right at the bakery.",
       "stage": "Learn",
@@ -232,7 +314,7 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "\u00bfC\u00f3mo llego al banco? Da vuelta a la derecha en la panader\u00eda.",
-      "pedagogy_note": "Story beat 04: How do I get to the bank? Turn right at the bakery.",
+      "pedagogy_note": "Story beat 06: How do I get to the bank? Turn right at the bakery.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_turns": [
@@ -252,7 +334,7 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "a1plus-unit-6-lesson-6-7-c004-prompt-turn-1-c1985249e1ae2e996b5a",
+          "id": "a1plus-unit-6-lesson-6-7-c006-prompt-turn-1-1ac8360f1ab3cbdde949",
           "purpose": "prompt-turn-1",
           "text": "How do I get to the bank?",
           "mode": "prompt",
@@ -264,7 +346,7 @@
           "revision": 1
         },
         {
-          "id": "a1plus-unit-6-lesson-6-7-c004-prompt-turn-2-474db717d2a00c06c215",
+          "id": "a1plus-unit-6-lesson-6-7-c006-prompt-turn-2-8bf06f8b35a4208d2da1",
           "purpose": "prompt-turn-2",
           "text": "Turn right at the bakery.",
           "mode": "prompt",
@@ -307,7 +389,7 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "a1plus-unit-6-lesson-6-7-c005-prompt-3e6a695cdf7d2cd1b517",
+          "id": "a1plus-unit-6-lesson-6-7-c007-prompt-aefac907a2ae015e1d84",
           "purpose": "prompt",
           "text": "Turn left at the bakery.",
           "mode": "prompt",
@@ -352,7 +434,7 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "a1plus-unit-6-lesson-6-7-c006-prompt-97287d3001cde3beb41c",
+          "id": "a1plus-unit-6-lesson-6-7-c008-prompt-7e6ab58e30491dddc2b9",
           "purpose": "prompt",
           "text": "How do I get to the library?",
           "mode": "prompt",
@@ -364,7 +446,7 @@
           "revision": 1
         },
         {
-          "id": "a1plus-unit-6-lesson-6-7-c006-answer-d3c844e90c634484c43f",
+          "id": "a1plus-unit-6-lesson-6-7-c008-answer-da6e3691e70aebb7bf4c",
           "purpose": "answer",
           "text": "Turn left at the bookstore.",
           "mode": "prompt",
@@ -380,26 +462,26 @@
     {
       "slide_id": "R3",
       "interaction_type": "t2i2",
-      "prompt": "Turn right at the police station.",
+      "prompt": "Turn left at the traffic light.",
       "stage": "Recognize",
-      "correct_option_id": "turn-right-at-the-police-station-r3",
+      "correct_option_id": "turn-left-at-the-traffic-light-r3",
       "options": [
         {
-          "id": "turn-right-at-the-police-station-r3",
-          "image_url": "/lesson-assets/a1plus-unit-6-k04-2259e454cd3ade3d.webp",
+          "id": "turn-left-at-the-traffic-light-r3",
+          "image_url": "/lesson-assets/a1plus-unit-6-k05-d1bb05c23de8fa3a.webp",
           "label": null
         },
         {
-          "id": "turn-right-at-the-bakery-r3",
-          "image_url": "/lesson-assets/a1plus-unit-6-k02-e5031661f1a1826d.webp",
+          "id": "turn-right-at-the-traffic-light-r3",
+          "image_url": "/lesson-assets/a1plus-unit-6-k06-6efb26135abad54a.webp",
           "label": null
         }
       ],
-      "audio_text": "Turn right at the police station.",
+      "audio_text": "Turn left at the traffic light.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Da vuelta a la derecha en la estaci\u00f3n de polic\u00eda.",
-      "pedagogy_note": "Story beat 03: Turn right at the police station.",
+      "spanish_translation": "Da vuelta a la izquierda en el sem\u00e1foro.",
+      "pedagogy_note": "Story beat 03: Turn left at the traffic light.",
       "audio_speaker": "co-teacher",
       "answer_audio_speaker": null,
       "answer_audio_policy": "authored-only",
@@ -407,12 +489,12 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "a1plus-unit-6-lesson-6-7-c007-prompt-3b987fcc9e69167d6856",
+          "id": "a1plus-unit-6-lesson-6-7-c009-prompt-3085dc1c148d411a6c74",
           "purpose": "prompt",
-          "text": "Turn right at the police station.",
+          "text": "Turn left at the traffic light.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1plus-unit-6-k04-2259e454cd3ade3d.webp",
+          "image_ref": "/lesson-assets/a1plus-unit-6-k05-d1bb05c23de8fa3a.webp",
           "semantic_role": "teacher",
           "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -452,7 +534,7 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "a1plus-unit-6-lesson-6-7-c008-prompt-5de438180e61cde0c46c",
+          "id": "a1plus-unit-6-lesson-6-7-c010-prompt-78f694cd28a4da2ce52f",
           "purpose": "prompt",
           "text": "How do I get to the bank?",
           "mode": "prompt",
@@ -464,7 +546,7 @@
           "revision": 1
         },
         {
-          "id": "a1plus-unit-6-lesson-6-7-c008-answer-47ffb97cc199b0da2994",
+          "id": "a1plus-unit-6-lesson-6-7-c010-answer-ff59a854847a509811a1",
           "purpose": "answer",
           "text": "Turn right at the bakery.",
           "mode": "prompt",
@@ -507,7 +589,7 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "a1plus-unit-6-lesson-6-7-c009-prompt-5e9c7b33315462cccf5e",
+          "id": "a1plus-unit-6-lesson-6-7-c011-prompt-8313bbbf0f46d06cb88a",
           "purpose": "prompt",
           "text": "Turn left at the bookstore.",
           "mode": "prompt",
@@ -558,7 +640,7 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "a1plus-unit-6-lesson-6-7-c010-prompt-4d6dcb875544563944bf",
+          "id": "a1plus-unit-6-lesson-6-7-c012-prompt-cf084c60788605f8be9b",
           "purpose": "prompt",
           "text": "How do I get to the park?",
           "mode": "prompt",
@@ -570,7 +652,7 @@
           "revision": 1
         },
         {
-          "id": "a1plus-unit-6-lesson-6-7-c010-answer-9715a426e203352504b8",
+          "id": "a1plus-unit-6-lesson-6-7-c012-answer-b675fa0b9d59877655b1",
           "purpose": "answer",
           "text": "Turn left at the bakery.",
           "mode": "prompt",
@@ -585,51 +667,49 @@
     },
     {
       "slide_id": "R7",
-      "interaction_type": "t2i4",
-      "prompt": "Turn right at the bakery.",
+      "interaction_type": "i2t3",
+      "prompt": "",
       "stage": "Recognize",
-      "correct_option_id": "turn-right-at-the-bakery-r7",
+      "correct_option_id": "turn-right-at-the-crosswalk-r7",
       "options": [
         {
-          "id": "turn-right-at-the-police-station-r7",
-          "image_url": "/lesson-assets/a1plus-unit-6-k04-2259e454cd3ade3d.webp",
-          "label": null
+          "id": "turn-right-at-the-crosswalk-r7",
+          "image_url": "",
+          "label": "Turn right at the crosswalk.",
+          "spanish_translation": "Da vuelta a la derecha en el cruce peatonal."
         },
         {
-          "id": "turn-left-at-the-bookstore-r7",
-          "image_url": "/lesson-assets/a1plus-unit-6-k03-844188833b672f19.webp",
-          "label": null
+          "id": "turn-left-at-the-crosswalk-r7",
+          "image_url": "",
+          "label": "Turn left at the crosswalk.",
+          "spanish_translation": "Da vuelta a la izquierda en el cruce peatonal."
         },
         {
-          "id": "turn-right-at-the-bakery-r7",
-          "image_url": "/lesson-assets/a1plus-unit-6-k02-e5031661f1a1826d.webp",
-          "label": null
-        },
-        {
-          "id": "turn-left-at-the-bakery-r7",
-          "image_url": "/lesson-assets/a1plus-unit-6-k01-1ce0d396b8be11de.webp",
-          "label": null
+          "id": "turn-right-at-the-traffic-light-r7",
+          "image_url": "",
+          "label": "Turn right at the traffic light.",
+          "spanish_translation": "Da vuelta a la derecha en el sem\u00e1foro."
         }
       ],
-      "audio_text": "Turn right at the bakery.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Da vuelta a la derecha en la panader\u00eda.",
-      "pedagogy_note": "Story beat 07: Turn right at the bakery.",
-      "audio_speaker": "co-teacher",
-      "answer_audio_speaker": null,
+      "audio_text": "",
+      "answer_audio_text": "Turn right at the crosswalk.",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-6-k06-6efb26135abad54a.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "pedagogy_note": "Story beat 07: Turn right at the crosswalk.",
+      "audio_speaker": null,
+      "answer_audio_speaker": "co-teacher",
       "answer_audio_policy": "authored-only",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "a1plus-unit-6-lesson-6-7-c011-prompt-0d6d35dcb9db4248092d",
-          "purpose": "prompt",
-          "text": "Turn right at the bakery.",
+          "id": "a1plus-unit-6-lesson-6-7-c013-answer-c846929e5a51c7993429",
+          "purpose": "answer",
+          "text": "Turn right at the crosswalk.",
           "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1plus-unit-6-k02-e5031661f1a1826d.webp",
-          "semantic_role": "teacher",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1plus-unit-6-k06-6efb26135abad54a.webp",
+          "semantic_role": "answer",
           "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
@@ -674,7 +754,7 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "a1plus-unit-6-lesson-6-7-c012-prompt-f158bc733571acc75fa7",
+          "id": "a1plus-unit-6-lesson-6-7-c014-prompt-bed55aadc9c7a01435a9",
           "purpose": "prompt",
           "text": "How do I get to the gas station?",
           "mode": "prompt",
@@ -686,7 +766,7 @@
           "revision": 1
         },
         {
-          "id": "a1plus-unit-6-lesson-6-7-c012-answer-8c5012fec99a7cfeddaa",
+          "id": "a1plus-unit-6-lesson-6-7-c014-answer-1f42fa263c14390f1364",
           "purpose": "answer",
           "text": "Turn right at the police station.",
           "mode": "prompt",
@@ -701,66 +781,60 @@
     },
     {
       "slide_id": "R9",
-      "interaction_type": "i2t2",
-      "prompt": "",
+      "interaction_type": "i2t3",
+      "prompt": "How do I get to the station?",
       "stage": "Recognize",
-      "correct_option_id": "how-do-i-get-to-the-library-turn-left-at-the-bookstore-r9",
+      "correct_option_id": "turn-left-at-the-traffic-light-r9",
       "options": [
         {
-          "id": "how-do-i-get-to-the-library-turn-left-at-the-bookstore-r9",
+          "id": "turn-right-at-the-crosswalk-r9",
           "image_url": "",
-          "label": "How do I get to the library? Turn left at the bookstore.",
-          "spanish_translation": "\u00bfC\u00f3mo llego a la biblioteca? Da vuelta a la izquierda en la librer\u00eda."
+          "label": "Turn right at the crosswalk.",
+          "spanish_translation": "Da vuelta a la derecha en el cruce peatonal."
         },
         {
-          "id": "how-do-i-get-to-the-library-turn-right-at-the-bookstore-r9",
+          "id": "turn-left-at-the-traffic-light-r9",
           "image_url": "",
-          "label": "How do I get to the library? Turn right at the bookstore.",
-          "spanish_translation": "\u00bfC\u00f3mo llego a la biblioteca? Da vuelta a la derecha en la librer\u00eda."
-        }
-      ],
-      "audio_text": "",
-      "answer_audio_text": "How do I get to the library? Turn left at the bookstore.",
-      "prompt_image_url": "/lesson-assets/a1plus-unit-6-k03-844188833b672f19.webp",
-      "spanish_translation": "Elige la frase correcta.",
-      "pedagogy_note": "Story beat 09: How do I get to the library? Turn left at the bookstore.",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "answer_audio_turns": [
-        {
-          "text": "How do I get to the library?",
-          "speaker_role": "co-teacher",
-          "image_url": "/lesson-assets/a1_photo_u6_story_help_second_question_v1.webp"
+          "label": "Turn left at the traffic light.",
+          "spanish_translation": "Da vuelta a la izquierda en el sem\u00e1foro."
         },
         {
-          "text": "Turn left at the bookstore.",
-          "speaker_role": "teacher",
-          "image_url": "/lesson-assets/a1plus-unit-6-k03-844188833b672f19.webp"
+          "id": "turn-right-at-the-traffic-light-r9",
+          "image_url": "",
+          "label": "Turn right at the traffic light.",
+          "spanish_translation": "Da vuelta a la derecha en el sem\u00e1foro."
         }
       ],
+      "audio_text": "How do I get to the station?",
+      "answer_audio_text": "Turn left at the traffic light.",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-6-k05-d1bb05c23de8fa3a.webp",
+      "spanish_translation": "\u00bfC\u00f3mo llego a la estaci\u00f3n?",
+      "pedagogy_note": "Story beat 09: Turn left at the traffic light.",
+      "audio_speaker": "co-teacher",
+      "answer_audio_speaker": "teacher",
       "answer_audio_policy": "authored-only",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "a1plus-unit-6-lesson-6-7-c013-answer-turn-1-c20a65a0e86cc74a1ee6",
-          "purpose": "answer-turn-1",
-          "text": "How do I get to the library?",
+          "id": "a1plus-unit-6-lesson-6-7-c015-prompt-42063b4e78a889f6644a",
+          "purpose": "prompt",
+          "text": "How do I get to the station?",
           "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u6_story_help_second_question_v1.webp",
-          "semantic_role": "answer",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1plus-unit-6-k05-d1bb05c23de8fa3a.webp",
+          "semantic_role": "question",
           "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "a1plus-unit-6-lesson-6-7-c013-answer-turn-2-f78a6c6bb23162df595f",
-          "purpose": "answer-turn-2",
-          "text": "Turn left at the bookstore.",
+          "id": "a1plus-unit-6-lesson-6-7-c015-answer-c35fb83af716e87743c4",
+          "purpose": "answer",
+          "text": "Turn left at the traffic light.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1plus-unit-6-k03-844188833b672f19.webp",
+          "image_ref": "/lesson-assets/a1plus-unit-6-k05-d1bb05c23de8fa3a.webp",
           "semantic_role": "answer",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -771,49 +845,61 @@
     {
       "slide_id": "R10",
       "interaction_type": "i2t3",
-      "prompt": "",
+      "prompt": "How do I get to the supermarket?",
       "stage": "Recognize",
-      "correct_option_id": "turn-left-at-the-bakery-r10",
+      "correct_option_id": "turn-right-at-the-crosswalk-r10",
       "options": [
         {
-          "id": "turn-left-at-the-bakery-r10",
+          "id": "turn-right-at-the-crosswalk-r10",
           "image_url": "",
-          "label": "Turn left at the bakery.",
-          "spanish_translation": "Da vuelta a la izquierda en la panader\u00eda."
+          "label": "Turn right at the crosswalk.",
+          "spanish_translation": "Da vuelta a la derecha en el cruce peatonal."
         },
         {
-          "id": "turn-right-at-the-bakery-r10",
+          "id": "turn-left-at-the-crosswalk-r10",
           "image_url": "",
-          "label": "Turn right at the bakery.",
-          "spanish_translation": "Da vuelta a la derecha en la panader\u00eda."
+          "label": "Turn left at the crosswalk.",
+          "spanish_translation": "Da vuelta a la izquierda en el cruce peatonal."
         },
         {
-          "id": "turn-left-at-the-bookstore-r10",
+          "id": "turn-left-at-the-traffic-light-r10",
           "image_url": "",
-          "label": "Turn left at the bookstore.",
-          "spanish_translation": "Da vuelta a la izquierda en la librer\u00eda."
+          "label": "Turn left at the traffic light.",
+          "spanish_translation": "Da vuelta a la izquierda en el sem\u00e1foro."
         }
       ],
-      "audio_text": "",
-      "answer_audio_text": "Turn left at the bakery.",
-      "prompt_image_url": "/lesson-assets/a1plus-unit-6-k01-1ce0d396b8be11de.webp",
-      "spanish_translation": "Elige la frase correcta.",
-      "pedagogy_note": "Story beat 10: Turn left at the bakery.",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
+      "audio_text": "How do I get to the supermarket?",
+      "answer_audio_text": "Turn right at the crosswalk.",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-6-k06-6efb26135abad54a.webp",
+      "spanish_translation": "\u00bfC\u00f3mo llego al supermercado?",
+      "pedagogy_note": "Story beat 10: Turn right at the crosswalk.",
+      "audio_speaker": "co-teacher",
+      "answer_audio_speaker": "teacher",
       "answer_audio_policy": "authored-only",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "a1plus-unit-6-lesson-6-7-c014-answer-f055bb74ee22b8d54ec3",
+          "id": "a1plus-unit-6-lesson-6-7-c016-prompt-efbd7581535d0b2b2861",
+          "purpose": "prompt",
+          "text": "How do I get to the supermarket?",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1plus-unit-6-k06-6efb26135abad54a.webp",
+          "semantic_role": "question",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "a1plus-unit-6-lesson-6-7-c016-answer-37d86fb64ff96e063e42",
           "purpose": "answer",
-          "text": "Turn left at the bakery.",
+          "text": "Turn right at the crosswalk.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1plus-unit-6-k01-1ce0d396b8be11de.webp",
+          "image_ref": "/lesson-assets/a1plus-unit-6-k06-6efb26135abad54a.webp",
           "semantic_role": "answer",
-          "speaker_role": "answer",
+          "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -842,21 +928,21 @@
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
       "pedagogy_note": "Story beat 01: Turn right at the bakery.",
-      "audio_speaker": "co-teacher",
+      "audio_speaker": null,
       "answer_audio_speaker": null,
       "answer_audio_policy": "authored-only",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "a1plus-unit-6-lesson-6-7-c015-prompt-cbbafb51c1ce8a7bb6be",
+          "id": "a1plus-unit-6-lesson-6-7-c017-prompt-f86bd6eedf134db3f417",
           "purpose": "prompt",
           "text": "Turn right at the bakery.",
           "mode": "prompt",
           "variant": "prompt",
           "image_ref": "/lesson-assets/a1plus-unit-6-k02-e5031661f1a1826d.webp",
           "semantic_role": "teacher",
-          "speaker_role": "co-teacher",
+          "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -885,21 +971,21 @@
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
       "pedagogy_note": "Story beat 02: Turn left at the bookstore.",
-      "audio_speaker": null,
+      "audio_speaker": "co-teacher",
       "answer_audio_speaker": null,
       "answer_audio_policy": "authored-only",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "a1plus-unit-6-lesson-6-7-c016-prompt-8e745e17fe036797e13c",
+          "id": "a1plus-unit-6-lesson-6-7-c018-prompt-83b7b16b497dfc4e3e5c",
           "purpose": "prompt",
           "text": "Turn left at the bookstore.",
           "mode": "prompt",
           "variant": "prompt",
           "image_ref": "/lesson-assets/a1plus-unit-6-k03-844188833b672f19.webp",
           "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -949,7 +1035,7 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "a1plus-unit-6-lesson-6-7-c017-prompt-turn-1-d2bf90e42db1186c4280",
+          "id": "a1plus-unit-6-lesson-6-7-c019-prompt-turn-1-f0ab1799a8354c270633",
           "purpose": "prompt-turn-1",
           "text": "How do I get to the library?",
           "mode": "prompt",
@@ -961,7 +1047,7 @@
           "revision": 1
         },
         {
-          "id": "a1plus-unit-6-lesson-6-7-c017-prompt-turn-2-4d21633b72d825571beb",
+          "id": "a1plus-unit-6-lesson-6-7-c019-prompt-turn-2-eb8b4f6a4553ee4882d6",
           "purpose": "prompt-turn-2",
           "text": "Turn left at the bookstore.",
           "mode": "prompt",
@@ -997,21 +1083,21 @@
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
       "pedagogy_note": "Story beat 04: Turn right at the police station.",
-      "audio_speaker": "co-teacher",
+      "audio_speaker": null,
       "answer_audio_speaker": null,
       "answer_audio_policy": "authored-only",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "a1plus-unit-6-lesson-6-7-c018-prompt-ce07dd43e5fb69b0da0b",
+          "id": "a1plus-unit-6-lesson-6-7-c020-prompt-fa0de29f892166c00375",
           "purpose": "prompt",
           "text": "Turn right at the police station.",
           "mode": "prompt",
           "variant": "prompt",
           "image_ref": "/lesson-assets/a1plus-unit-6-k04-2259e454cd3ade3d.webp",
           "semantic_role": "teacher",
-          "speaker_role": "co-teacher",
+          "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1022,39 +1108,39 @@
       "interaction_type": "a2i2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "turn-left-at-the-bakery-a5",
+      "correct_option_id": "turn-left-at-the-traffic-light-a5",
       "options": [
         {
-          "id": "turn-left-at-the-bakery-a5",
-          "image_url": "/lesson-assets/a1plus-unit-6-k01-1ce0d396b8be11de.webp",
+          "id": "turn-left-at-the-traffic-light-a5",
+          "image_url": "/lesson-assets/a1plus-unit-6-k05-d1bb05c23de8fa3a.webp",
           "label": null
         },
         {
-          "id": "turn-right-at-the-bakery-a5",
-          "image_url": "/lesson-assets/a1plus-unit-6-k02-e5031661f1a1826d.webp",
+          "id": "turn-right-at-the-traffic-light-a5",
+          "image_url": "/lesson-assets/a1plus-unit-6-k06-6efb26135abad54a.webp",
           "label": null
         }
       ],
-      "audio_text": "Turn left at the bakery.",
+      "audio_text": "Turn left at the traffic light.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 05: Turn left at the bakery.",
-      "audio_speaker": null,
+      "pedagogy_note": "Story beat 05: Turn left at the traffic light.",
+      "audio_speaker": "co-teacher",
       "answer_audio_speaker": null,
       "answer_audio_policy": "authored-only",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "a1plus-unit-6-lesson-6-7-c019-prompt-d7024b697e8b2b4aad6c",
+          "id": "a1plus-unit-6-lesson-6-7-c021-prompt-3fc6b14400782e3de77b",
           "purpose": "prompt",
-          "text": "Turn left at the bakery.",
+          "text": "Turn left at the traffic light.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1plus-unit-6-k01-1ce0d396b8be11de.webp",
+          "image_ref": "/lesson-assets/a1plus-unit-6-k05-d1bb05c23de8fa3a.webp",
           "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1062,68 +1148,50 @@
     },
     {
       "slide_id": "A6",
-      "interaction_type": "a2t2",
+      "interaction_type": "a2t3",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "how-do-i-get-to-the-bank-turn-right-at-the-bakery-a6",
+      "correct_option_id": "turn-right-at-the-crosswalk-a6",
       "options": [
         {
-          "id": "how-do-i-get-to-the-bank-turn-left-at-the-bakery-a6",
+          "id": "turn-right-at-the-crosswalk-a6",
           "image_url": "",
-          "label": "How do I get to the bank? Turn left at the bakery.",
-          "spanish_translation": "\u00bfC\u00f3mo llego al banco? Da vuelta a la izquierda en la panader\u00eda."
+          "label": "Turn right at the crosswalk.",
+          "spanish_translation": "Da vuelta a la derecha en el cruce peatonal."
         },
         {
-          "id": "how-do-i-get-to-the-bank-turn-right-at-the-bakery-a6",
+          "id": "turn-left-at-the-crosswalk-a6",
           "image_url": "",
-          "label": "How do I get to the bank? Turn right at the bakery.",
-          "spanish_translation": "\u00bfC\u00f3mo llego al banco? Da vuelta a la derecha en la panader\u00eda."
+          "label": "Turn left at the crosswalk.",
+          "spanish_translation": "Da vuelta a la izquierda en el cruce peatonal."
+        },
+        {
+          "id": "turn-right-at-the-traffic-light-a6",
+          "image_url": "",
+          "label": "Turn right at the traffic light.",
+          "spanish_translation": "Da vuelta a la derecha en el sem\u00e1foro."
         }
       ],
-      "audio_text": "How do I get to the bank? Turn right at the bakery.",
+      "audio_text": "Turn right at the crosswalk.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 06: How do I get to the bank? Turn right at the bakery.",
+      "pedagogy_note": "Story beat 06: Turn right at the crosswalk.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
-      "audio_turns": [
-        {
-          "text": "How do I get to the bank?",
-          "speaker_role": "teacher",
-          "image_url": "/lesson-assets/a1_photo_u6_story_help_second_question_v1.webp"
-        },
-        {
-          "text": "Turn right at the bakery.",
-          "speaker_role": "co-teacher",
-          "image_url": "/lesson-assets/a1plus-unit-6-k02-e5031661f1a1826d.webp"
-        }
-      ],
       "answer_audio_policy": "authored-only",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "a1plus-unit-6-lesson-6-7-c020-prompt-turn-1-3f2440adadd5b3b569fe",
-          "purpose": "prompt-turn-1",
-          "text": "How do I get to the bank?",
+          "id": "a1plus-unit-6-lesson-6-7-c022-prompt-ed21c5e860d345640347",
+          "purpose": "prompt",
+          "text": "Turn right at the crosswalk.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_photo_u6_story_help_second_question_v1.webp",
-          "semantic_role": "question",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "a1plus-unit-6-lesson-6-7-c020-prompt-turn-2-e4872f4fd6239bb296f1",
-          "purpose": "prompt-turn-2",
-          "text": "Turn right at the bakery.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1plus-unit-6-k02-e5031661f1a1826d.webp",
+          "image_ref": "text-only:0441198cc301c153c20f",
           "semantic_role": "teacher",
-          "speaker_role": "co-teacher",
+          "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1131,50 +1199,68 @@
     },
     {
       "slide_id": "A7",
-      "interaction_type": "a2t3",
+      "interaction_type": "a2t2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "turn-left-at-the-bakery-a7",
+      "correct_option_id": "how-do-i-get-to-the-supermarket-turn-right-at-the-crosswalk-a7",
       "options": [
         {
-          "id": "turn-left-at-the-bakery-a7",
+          "id": "how-do-i-get-to-the-supermarket-turn-left-at-the-crosswalk-a7",
           "image_url": "",
-          "label": "Turn left at the bakery.",
-          "spanish_translation": "Da vuelta a la izquierda en la panader\u00eda."
+          "label": "How do I get to the supermarket? Turn left at the crosswalk.",
+          "spanish_translation": "\u00bfC\u00f3mo llego al supermercado? Da vuelta a la izquierda en el cruce peatonal."
         },
         {
-          "id": "turn-right-at-the-bakery-a7",
+          "id": "how-do-i-get-to-the-supermarket-turn-right-at-the-crosswalk-a7",
           "image_url": "",
-          "label": "Turn right at the bakery.",
-          "spanish_translation": "Da vuelta a la derecha en la panader\u00eda."
-        },
-        {
-          "id": "turn-right-at-the-police-station-a7",
-          "image_url": "",
-          "label": "Turn right at the police station.",
-          "spanish_translation": "Da vuelta a la derecha en la estaci\u00f3n de polic\u00eda."
+          "label": "How do I get to the supermarket? Turn right at the crosswalk.",
+          "spanish_translation": "\u00bfC\u00f3mo llego al supermercado? Da vuelta a la derecha en el cruce peatonal."
         }
       ],
-      "audio_text": "Turn left at the bakery.",
+      "audio_text": "How do I get to the supermarket? Turn right at the crosswalk.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 07: Turn left at the bakery.",
-      "audio_speaker": "teacher",
+      "pedagogy_note": "Story beat 07: How do I get to the supermarket? Turn right at the crosswalk.",
+      "audio_speaker": null,
       "answer_audio_speaker": null,
+      "audio_turns": [
+        {
+          "text": "How do I get to the supermarket?",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1plus-unit-6-k06-6efb26135abad54a.webp"
+        },
+        {
+          "text": "Turn right at the crosswalk.",
+          "speaker_role": "co-teacher",
+          "image_url": "/lesson-assets/a1plus-unit-6-k06-6efb26135abad54a.webp"
+        }
+      ],
       "answer_audio_policy": "authored-only",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "a1plus-unit-6-lesson-6-7-c021-prompt-9edd1ed8ca602caa21b1",
-          "purpose": "prompt",
-          "text": "Turn left at the bakery.",
+          "id": "a1plus-unit-6-lesson-6-7-c023-prompt-turn-1-18e686f43f28adc33e65",
+          "purpose": "prompt-turn-1",
+          "text": "How do I get to the supermarket?",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "text-only:eaf395356517b426d19d",
-          "semantic_role": "teacher",
+          "image_ref": "/lesson-assets/a1plus-unit-6-k06-6efb26135abad54a.webp",
+          "semantic_role": "question",
           "speaker_role": "teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "a1plus-unit-6-lesson-6-7-c023-prompt-turn-2-50de6a9636ee115ae292",
+          "purpose": "prompt-turn-2",
+          "text": "Turn right at the crosswalk.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1plus-unit-6-k06-6efb26135abad54a.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1218,7 +1304,7 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "a1plus-unit-6-lesson-6-7-c022-prompt-70d3f2d4f39a1ea911be",
+          "id": "a1plus-unit-6-lesson-6-7-c024-prompt-22cb2349f76a0fd86a95",
           "purpose": "prompt",
           "text": "Turn right at the police station.",
           "mode": "prompt",
@@ -1269,7 +1355,7 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "a1plus-unit-6-lesson-6-7-c023-prompt-cd7269be251cea77cb0a",
+          "id": "a1plus-unit-6-lesson-6-7-c025-prompt-e431eb563f81043e5f44",
           "purpose": "prompt",
           "text": "Turn left at the bookstore.",
           "mode": "prompt",
@@ -1326,7 +1412,7 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "a1plus-unit-6-lesson-6-7-c024-prompt-turn-1-e4683e43616849d9c9ed",
+          "id": "a1plus-unit-6-lesson-6-7-c026-prompt-turn-1-cce316c3e65fae409df5",
           "purpose": "prompt-turn-1",
           "text": "How do I get to the bank?",
           "mode": "prompt",
@@ -1338,7 +1424,7 @@
           "revision": 1
         },
         {
-          "id": "a1plus-unit-6-lesson-6-7-c024-prompt-turn-2-c226b0641f1ebd6ac4aa",
+          "id": "a1plus-unit-6-lesson-6-7-c026-prompt-turn-2-f59a7f482ba250778f46",
           "purpose": "prompt-turn-2",
           "text": "Turn right at the bakery and then turn left.",
           "mode": "prompt",
@@ -1384,7 +1470,7 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "a1plus-unit-6-lesson-6-7-c025-prompt-turn-1-c2f4ad75cf415bceeadd",
+          "id": "a1plus-unit-6-lesson-6-7-c027-prompt-turn-1-6a4726b56736c7698d9d",
           "purpose": "prompt-turn-1",
           "text": "Turn left at the bakery.",
           "mode": "pronunciation_slow",
@@ -1401,28 +1487,28 @@
     {
       "slide_id": "S2",
       "interaction_type": "speak",
-      "prompt": "Turn right at the bakery.",
+      "prompt": "Turn left at the traffic light.",
       "stage": "Speak",
-      "correct_option_id": "turn-right-at-the-bakery-speak",
+      "correct_option_id": "turn-left-at-the-traffic-light-speak",
       "options": [
         {
-          "id": "turn-right-at-the-bakery-speak",
-          "image_url": "/lesson-assets/a1plus-unit-6-k02-e5031661f1a1826d.webp",
-          "label": "Turn right at the bakery."
+          "id": "turn-left-at-the-traffic-light-speak",
+          "image_url": "/lesson-assets/a1plus-unit-6-k05-d1bb05c23de8fa3a.webp",
+          "label": "Turn left at the traffic light."
         }
       ],
-      "audio_text": "Turn right at the bakery.",
+      "audio_text": "Turn left at the traffic light.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Da vuelta a la derecha en la panader\u00eda.",
-      "pedagogy_note": "Story beat 02: Turn right at the bakery.",
+      "spanish_translation": "Da vuelta a la izquierda en el sem\u00e1foro.",
+      "pedagogy_note": "Story beat 02: Turn left at the traffic light.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_turns": [
         {
-          "text": "Turn right at the bakery.",
+          "text": "Turn left at the traffic light.",
           "speaker_role": "teacher",
-          "image_url": "/lesson-assets/a1plus-unit-6-k02-e5031661f1a1826d.webp",
+          "image_url": "/lesson-assets/a1plus-unit-6-k05-d1bb05c23de8fa3a.webp",
           "delivery": "a1-pronunciation-v1"
         }
       ],
@@ -1431,12 +1517,12 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "a1plus-unit-6-lesson-6-7-c026-prompt-turn-1-564a51dd17c621c0a7a3",
+          "id": "a1plus-unit-6-lesson-6-7-c028-prompt-turn-1-0e9b8a4f45f3daff5576",
           "purpose": "prompt-turn-1",
-          "text": "Turn right at the bakery.",
+          "text": "Turn left at the traffic light.",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1plus-unit-6-k02-e5031661f1a1826d.webp",
+          "image_ref": "/lesson-assets/a1plus-unit-6-k05-d1bb05c23de8fa3a.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1478,7 +1564,7 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "a1plus-unit-6-lesson-6-7-c027-prompt-turn-1-f4cf6c16f88daba31341",
+          "id": "a1plus-unit-6-lesson-6-7-c029-prompt-turn-1-2f5f2d1100fd59754469",
           "purpose": "prompt-turn-1",
           "text": "How do I get to the library?",
           "mode": "pronunciation_slow",
@@ -1525,7 +1611,7 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "a1plus-unit-6-lesson-6-7-c028-prompt-turn-1-09a8032e2034829de75d",
+          "id": "a1plus-unit-6-lesson-6-7-c030-prompt-turn-1-22adc10567f2083202a9",
           "purpose": "prompt-turn-1",
           "text": "Turn left at the bookstore.",
           "mode": "pronunciation_slow",
@@ -1572,7 +1658,7 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "a1plus-unit-6-lesson-6-7-c029-prompt-turn-1-d3ae69e7f50ec66b57af",
+          "id": "a1plus-unit-6-lesson-6-7-c031-prompt-turn-1-06c6fd7e2a21d37ce64d",
           "purpose": "prompt-turn-1",
           "text": "Turn right at the police station.",
           "mode": "pronunciation_slow",
@@ -1589,28 +1675,28 @@
     {
       "slide_id": "S6",
       "interaction_type": "speak",
-      "prompt": "Turn left at the bookstore.",
+      "prompt": "Turn right at the crosswalk.",
       "stage": "Speak",
-      "correct_option_id": "turn-left-at-the-bookstore-speak",
+      "correct_option_id": "turn-right-at-the-crosswalk-speak",
       "options": [
         {
-          "id": "turn-left-at-the-bookstore-speak",
-          "image_url": "/lesson-assets/a1plus-unit-6-k03-844188833b672f19.webp",
-          "label": "Turn left at the bookstore."
+          "id": "turn-right-at-the-crosswalk-speak",
+          "image_url": "/lesson-assets/a1plus-unit-6-k06-6efb26135abad54a.webp",
+          "label": "Turn right at the crosswalk."
         }
       ],
-      "audio_text": "Turn left at the bookstore.",
+      "audio_text": "Turn right at the crosswalk.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Da vuelta a la izquierda en la librer\u00eda.",
-      "pedagogy_note": "Story beat 06: Turn left at the bookstore.",
+      "spanish_translation": "Da vuelta a la derecha en el cruce peatonal.",
+      "pedagogy_note": "Story beat 06: Turn right at the crosswalk.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_turns": [
         {
-          "text": "Turn left at the bookstore.",
+          "text": "Turn right at the crosswalk.",
           "speaker_role": "co-teacher",
-          "image_url": "/lesson-assets/a1plus-unit-6-k03-844188833b672f19.webp",
+          "image_url": "/lesson-assets/a1plus-unit-6-k06-6efb26135abad54a.webp",
           "delivery": "a1-pronunciation-v1"
         }
       ],
@@ -1619,12 +1705,12 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "a1plus-unit-6-lesson-6-7-c030-prompt-turn-1-22adc10567f2083202a9",
+          "id": "a1plus-unit-6-lesson-6-7-c032-prompt-turn-1-450ccc1ca15fae7b7506",
           "purpose": "prompt-turn-1",
-          "text": "Turn left at the bookstore.",
+          "text": "Turn right at the crosswalk.",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1plus-unit-6-k03-844188833b672f19.webp",
+          "image_ref": "/lesson-assets/a1plus-unit-6-k06-6efb26135abad54a.webp",
           "semantic_role": "teacher",
           "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1636,28 +1722,28 @@
     {
       "slide_id": "S7",
       "interaction_type": "speak",
-      "prompt": "Turn right at the police station.",
+      "prompt": "Turn left at the traffic light.",
       "stage": "Speak",
-      "correct_option_id": "turn-right-at-the-police-station-speak",
+      "correct_option_id": "turn-left-at-the-traffic-light-speak",
       "options": [
         {
-          "id": "turn-right-at-the-police-station-speak",
-          "image_url": "/lesson-assets/a1plus-unit-6-k04-2259e454cd3ade3d.webp",
-          "label": "Turn right at the police station."
+          "id": "turn-left-at-the-traffic-light-speak",
+          "image_url": "/lesson-assets/a1plus-unit-6-k05-d1bb05c23de8fa3a.webp",
+          "label": "Turn left at the traffic light."
         }
       ],
-      "audio_text": "Turn right at the police station.",
+      "audio_text": "Turn left at the traffic light.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Da vuelta a la derecha en la estaci\u00f3n de polic\u00eda.",
-      "pedagogy_note": "Story beat 07: Turn right at the police station.",
+      "spanish_translation": "Da vuelta a la izquierda en el sem\u00e1foro.",
+      "pedagogy_note": "Story beat 07: Turn left at the traffic light.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_turns": [
         {
-          "text": "Turn right at the police station.",
+          "text": "Turn left at the traffic light.",
           "speaker_role": "teacher",
-          "image_url": "/lesson-assets/a1plus-unit-6-k04-2259e454cd3ade3d.webp",
+          "image_url": "/lesson-assets/a1plus-unit-6-k05-d1bb05c23de8fa3a.webp",
           "delivery": "a1-pronunciation-v1"
         }
       ],
@@ -1666,12 +1752,12 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "a1plus-unit-6-lesson-6-7-c031-prompt-turn-1-06c6fd7e2a21d37ce64d",
+          "id": "a1plus-unit-6-lesson-6-7-c033-prompt-turn-1-d88fa644b75a342b6ea2",
           "purpose": "prompt-turn-1",
-          "text": "Turn right at the police station.",
+          "text": "Turn left at the traffic light.",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1plus-unit-6-k04-2259e454cd3ade3d.webp",
+          "image_ref": "/lesson-assets/a1plus-unit-6-k05-d1bb05c23de8fa3a.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1713,7 +1799,7 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "a1plus-unit-6-lesson-6-7-c032-prompt-turn-1-e16d56b434902191bb88",
+          "id": "a1plus-unit-6-lesson-6-7-c034-prompt-turn-1-d15119d7b9f6e37374d3",
           "purpose": "prompt-turn-1",
           "text": "Go straight and turn left at the bookstore.",
           "mode": "pronunciation_slow",
@@ -1730,30 +1816,30 @@
     {
       "slide_id": "U1",
       "interaction_type": "complete2",
-      "prompt": "Turn ___ ___ the bakery.",
+      "prompt": "Turn left at the ___ ___.",
       "stage": "Use",
-      "correct_option_id": "left",
+      "correct_option_id": "traffic",
       "correct_option_ids": [
-        "left",
-        "at"
+        "traffic",
+        "light"
       ],
       "options": [
         {
-          "id": "left",
+          "id": "traffic",
           "image_url": "",
-          "label": "left"
+          "label": "traffic"
         },
         {
-          "id": "at",
+          "id": "light",
           "image_url": "",
-          "label": "at"
+          "label": "light"
         }
       ],
-      "audio_text": "Turn left at the bakery.",
-      "answer_audio_text": "Turn left at the bakery.",
-      "prompt_image_url": "/lesson-assets/a1plus-unit-6-k01-1ce0d396b8be11de.webp",
-      "spanish_translation": "Da vuelta a la izquierda en la panader\u00eda.",
-      "pedagogy_note": "Story beat 01: Turn left at the bakery.",
+      "audio_text": "Turn left at the traffic light.",
+      "answer_audio_text": "Turn left at the traffic light.",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-6-k05-d1bb05c23de8fa3a.webp",
+      "spanish_translation": "Da vuelta a la izquierda en el sem\u00e1foro.",
+      "pedagogy_note": "Story beat 01: Turn left at the traffic light.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "answer_audio_policy": "authored-only",
@@ -1761,24 +1847,24 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "a1plus-unit-6-lesson-6-7-c033-prompt-678e3df56164b1f05e5f",
+          "id": "a1plus-unit-6-lesson-6-7-c035-prompt-94ae3ee5374a8462caae",
           "purpose": "prompt",
-          "text": "Turn left at the bakery.",
+          "text": "Turn left at the traffic light.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1plus-unit-6-k01-1ce0d396b8be11de.webp",
+          "image_ref": "/lesson-assets/a1plus-unit-6-k05-d1bb05c23de8fa3a.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "a1plus-unit-6-lesson-6-7-c033-answer-c7f9120e5a59fdf2df4a",
+          "id": "a1plus-unit-6-lesson-6-7-c035-answer-18d1de0d1c07a31639b5",
           "purpose": "answer",
-          "text": "Turn left at the bakery.",
+          "text": "Turn left at the traffic light.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1plus-unit-6-k01-1ce0d396b8be11de.webp",
+          "image_ref": "/lesson-assets/a1plus-unit-6-k05-d1bb05c23de8fa3a.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1789,30 +1875,30 @@
     {
       "slide_id": "U2",
       "interaction_type": "complete2",
-      "prompt": "Turn ___ ___ the bakery.",
+      "prompt": "Turn right at ___ ___.",
       "stage": "Use",
-      "correct_option_id": "right",
+      "correct_option_id": "the",
       "correct_option_ids": [
-        "right",
-        "at"
+        "the",
+        "crosswalk"
       ],
       "options": [
         {
-          "id": "right",
+          "id": "the",
           "image_url": "",
-          "label": "right"
+          "label": "the"
         },
         {
-          "id": "at",
+          "id": "crosswalk",
           "image_url": "",
-          "label": "at"
+          "label": "crosswalk"
         }
       ],
-      "audio_text": "Turn right at the bakery.",
-      "answer_audio_text": "Turn right at the bakery.",
-      "prompt_image_url": "/lesson-assets/a1plus-unit-6-k02-e5031661f1a1826d.webp",
-      "spanish_translation": "Da vuelta a la derecha en la panader\u00eda.",
-      "pedagogy_note": "Story beat 02: Turn right at the bakery.",
+      "audio_text": "Turn right at the crosswalk.",
+      "answer_audio_text": "Turn right at the crosswalk.",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-6-k06-6efb26135abad54a.webp",
+      "spanish_translation": "Da vuelta a la derecha en el cruce peatonal.",
+      "pedagogy_note": "Story beat 02: Turn right at the crosswalk.",
       "audio_speaker": "co-teacher",
       "answer_audio_speaker": "co-teacher",
       "answer_audio_policy": "authored-only",
@@ -1820,24 +1906,24 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "a1plus-unit-6-lesson-6-7-c034-prompt-02967cb8bb8892aef27a",
+          "id": "a1plus-unit-6-lesson-6-7-c036-prompt-75c3a6a52cc0442875a0",
           "purpose": "prompt",
-          "text": "Turn right at the bakery.",
+          "text": "Turn right at the crosswalk.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1plus-unit-6-k02-e5031661f1a1826d.webp",
+          "image_ref": "/lesson-assets/a1plus-unit-6-k06-6efb26135abad54a.webp",
           "semantic_role": "teacher",
           "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "a1plus-unit-6-lesson-6-7-c034-answer-49ae24a469f4ce4fee41",
+          "id": "a1plus-unit-6-lesson-6-7-c036-answer-849b72b0341bec004d28",
           "purpose": "answer",
-          "text": "Turn right at the bakery.",
+          "text": "Turn right at the crosswalk.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1plus-unit-6-k02-e5031661f1a1826d.webp",
+          "image_ref": "/lesson-assets/a1plus-unit-6-k06-6efb26135abad54a.webp",
           "semantic_role": "answer",
           "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1879,7 +1965,7 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "a1plus-unit-6-lesson-6-7-c035-prompt-1073d845a14d482c2d81",
+          "id": "a1plus-unit-6-lesson-6-7-c037-prompt-4a7e3c7b060d42ea3bdc",
           "purpose": "prompt",
           "text": "Turn left at the bookstore.",
           "mode": "prompt",
@@ -1891,7 +1977,7 @@
           "revision": 1
         },
         {
-          "id": "a1plus-unit-6-lesson-6-7-c035-answer-c7645cac06c8b4167aed",
+          "id": "a1plus-unit-6-lesson-6-7-c037-answer-9d7b791d84e4a7706d8a",
           "purpose": "answer",
           "text": "Turn left at the bookstore.",
           "mode": "prompt",
@@ -1938,7 +2024,7 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "a1plus-unit-6-lesson-6-7-c036-prompt-17ca111c254a703df768",
+          "id": "a1plus-unit-6-lesson-6-7-c038-prompt-e5f2abde12779e9513cb",
           "purpose": "prompt",
           "text": "Turn right at the police station.",
           "mode": "prompt",
@@ -1950,7 +2036,7 @@
           "revision": 1
         },
         {
-          "id": "a1plus-unit-6-lesson-6-7-c036-answer-e91ddd0034a428542ffc",
+          "id": "a1plus-unit-6-lesson-6-7-c038-answer-72eb4b6417425cfaa84f",
           "purpose": "answer",
           "text": "Turn right at the police station.",
           "mode": "prompt",
@@ -2015,7 +2101,7 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "a1plus-unit-6-lesson-6-7-c037-prompt-31e4760f863e8d19d0e7",
+          "id": "a1plus-unit-6-lesson-6-7-c039-prompt-4438f9ba90b67bdab4f0",
           "purpose": "prompt",
           "text": "Turn left at the bakery.",
           "mode": "prompt",
@@ -2027,7 +2113,7 @@
           "revision": 1
         },
         {
-          "id": "a1plus-unit-6-lesson-6-7-c037-answer-1d76d1a21b414ed045fa",
+          "id": "a1plus-unit-6-lesson-6-7-c039-answer-57b84bb3a2e913b7862e",
           "purpose": "answer",
           "text": "Turn left at the bakery.",
           "mode": "prompt",
@@ -2098,7 +2184,7 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "a1plus-unit-6-lesson-6-7-c038-prompt-e5f2abde12779e9513cb",
+          "id": "a1plus-unit-6-lesson-6-7-c040-prompt-f8f9db5255f976d42a88",
           "purpose": "prompt",
           "text": "Turn right at the police station.",
           "mode": "prompt",
@@ -2110,7 +2196,7 @@
           "revision": 1
         },
         {
-          "id": "a1plus-unit-6-lesson-6-7-c038-answer-72eb4b6417425cfaa84f",
+          "id": "a1plus-unit-6-lesson-6-7-c040-answer-e24d43d0902a2a586901",
           "purpose": "answer",
           "text": "Turn right at the police station.",
           "mode": "prompt",
@@ -2193,7 +2279,7 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "a1plus-unit-6-lesson-6-7-c039-prompt-3c85fea336cd13f12e51",
+          "id": "a1plus-unit-6-lesson-6-7-c041-prompt-c7ef61c081cd21542949",
           "purpose": "prompt",
           "text": "Go straight and turn left at the bookstore.",
           "mode": "prompt",
@@ -2205,7 +2291,7 @@
           "revision": 1
         },
         {
-          "id": "a1plus-unit-6-lesson-6-7-c039-answer-a4cd25a0d511ec671352",
+          "id": "a1plus-unit-6-lesson-6-7-c041-answer-a0596c56da147026d4c7",
           "purpose": "answer",
           "text": "Go straight and turn left at the bookstore.",
           "mode": "prompt",
@@ -2282,7 +2368,7 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "a1plus-unit-6-lesson-6-7-c040-prompt-a9bebf93d67a9f63b56f",
+          "id": "a1plus-unit-6-lesson-6-7-c042-prompt-35990598c83de749f8db",
           "purpose": "prompt",
           "text": "How do I get to the library?",
           "mode": "prompt",
@@ -2294,7 +2380,7 @@
           "revision": 1
         },
         {
-          "id": "a1plus-unit-6-lesson-6-7-c040-answer-a23a127996a69d95bd03",
+          "id": "a1plus-unit-6-lesson-6-7-c042-answer-c9ea59cc465591107f27",
           "purpose": "answer",
           "text": "How do I get to the library?",
           "mode": "prompt",

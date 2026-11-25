@@ -29,7 +29,12 @@
     "the bus",
     "Luis",
     "Ana",
-    "Diego"
+    "Diego",
+    "arrives",
+    "leaves",
+    "leave",
+    "Does",
+    "He's"
   ],
   "grammar_function": "A follow-up of A1 6.12 What Time Does It Leave?: A1 reads departure and arrival times; A1+ 6.12 says how a trip went against the time, without clocks. The new items are late, on time and early after be (Luis is late.), with 3.4's short answers (Is Ana late? No, she's on time.). Each photo shows it in the action, not on a clock: Luis runs after a bus that is leaving, Ana walks to a train waiting with its door open, Diego reads alone at an empty gate with no airplane yet, and travelers wait by empty tracks.",
   "prerequisite": "A1 6.12 leaves and arrives; A1+ 3.4 short answers; A1+ 6.4 gate and platform.",
@@ -76,7 +81,7 @@
     "U7",
     "U8"
   ],
-  "content_revision": 1,
+  "content_revision": 2,
   "cards": [
     {
       "slide_id": "L1",
@@ -678,37 +683,29 @@
     },
     {
       "slide_id": "R9",
-      "interaction_type": "t2i4",
-      "prompt": "Luis is late.",
+      "interaction_type": "i2t2",
+      "prompt": "",
       "stage": "Recognize",
-      "correct_option_id": "luis-is-late-r9",
+      "correct_option_id": "the-train-arrives-late-r9",
       "options": [
         {
-          "id": "diego-is-early-r9",
-          "image_url": "/lesson-assets/a1plus-unit-6-y04-9c0e4345e1a43e62.webp",
-          "label": null
+          "id": "the-train-arrives-late-r9",
+          "image_url": "",
+          "label": "The train arrives late.",
+          "spanish_translation": "El tren llega tarde."
         },
         {
-          "id": "the-train-is-late-r9",
-          "image_url": "/lesson-assets/a1plus-unit-6-y05-ade8e2b6e40b0c7b.webp",
-          "label": null
-        },
-        {
-          "id": "luis-is-late-r9",
-          "image_url": "/lesson-assets/a1plus-unit-6-y01-afcf32c082cc2aa0.webp",
-          "label": null
-        },
-        {
-          "id": "ana-is-on-time-r9",
-          "image_url": "/lesson-assets/a1plus-unit-6-y02-1c48856fd2e6b9cc.webp",
-          "label": null
+          "id": "the-train-arrives-early-r9",
+          "image_url": "",
+          "label": "The train arrives early.",
+          "spanish_translation": "El tren llega temprano."
         }
       ],
-      "audio_text": "Luis is late.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Luis llega tarde.",
-      "pedagogy_note": "Story beat 09: Luis is late.",
+      "audio_text": "",
+      "answer_audio_text": "The train arrives late.",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-6-y05-ade8e2b6e40b0c7b.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "pedagogy_note": "Story beat 09: The train arrives late.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "answer_audio_policy": "authored-only",
@@ -716,14 +713,14 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "a1plus-unit-6-lesson-6-12-c013-prompt-fec959ff79662d7e0356",
-          "purpose": "prompt",
-          "text": "Luis is late.",
+          "id": "a1plus-unit-6-lesson-6-12-c013-answer-c485c9e4c255cf0abdd9",
+          "purpose": "answer",
+          "text": "The train arrives late.",
           "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1plus-unit-6-y01-afcf32c082cc2aa0.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1plus-unit-6-y05-ade8e2b6e40b0c7b.webp",
+          "semantic_role": "answer",
+          "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -955,42 +952,68 @@
     },
     {
       "slide_id": "A4",
-      "interaction_type": "a2i2",
+      "interaction_type": "a2t2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "luis-is-late-a4",
+      "correct_option_id": "does-the-bus-leave-on-time-yes-it-leaves-on-time-luis-is-late-a4",
       "options": [
         {
-          "id": "ana-is-on-time-a4",
-          "image_url": "/lesson-assets/a1plus-unit-6-y02-1c48856fd2e6b9cc.webp",
-          "label": null
+          "id": "does-the-bus-leave-on-time-no-it-leaves-late-luis-is-on-time-a4",
+          "image_url": "",
+          "label": "Does the bus leave on time? No, it leaves late. Luis is on time.",
+          "spanish_translation": "\u00bfEl cami\u00f3n sale a tiempo? No, sale tarde. Luis llega a tiempo."
         },
         {
-          "id": "luis-is-late-a4",
-          "image_url": "/lesson-assets/a1plus-unit-6-y01-afcf32c082cc2aa0.webp",
-          "label": null
+          "id": "does-the-bus-leave-on-time-yes-it-leaves-on-time-luis-is-late-a4",
+          "image_url": "",
+          "label": "Does the bus leave on time? Yes, it leaves on time. Luis is late.",
+          "spanish_translation": "\u00bfEl cami\u00f3n sale a tiempo? S\u00ed, sale a tiempo. Luis llega tarde."
         }
       ],
-      "audio_text": "Luis is late.",
+      "audio_text": "Does the bus leave on time? Yes, it leaves on time. Luis is late.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 04: Luis is late.",
-      "audio_speaker": "co-teacher",
+      "pedagogy_note": "Story beat 04: Does the bus leave on time? Yes, it leaves on time. Luis is late.",
+      "audio_speaker": null,
       "answer_audio_speaker": null,
+      "audio_turns": [
+        {
+          "text": "Does the bus leave on time?",
+          "speaker_role": "co-teacher",
+          "image_url": "/lesson-assets/a1plus-unit-6-y01-afcf32c082cc2aa0.webp"
+        },
+        {
+          "text": "Yes, it leaves on time. Luis is late.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1plus-unit-6-y01-afcf32c082cc2aa0.webp"
+        }
+      ],
       "answer_audio_policy": "authored-only",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "a1plus-unit-6-lesson-6-12-c018-prompt-e6acbc93bb2d94cc59fb",
-          "purpose": "prompt",
-          "text": "Luis is late.",
+          "id": "a1plus-unit-6-lesson-6-12-c018-prompt-turn-1-3b567b04664b0a8f1d02",
+          "purpose": "prompt-turn-1",
+          "text": "Does the bus leave on time?",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1plus-unit-6-y01-afcf32c082cc2aa0.webp",
+          "semantic_role": "question",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "a1plus-unit-6-lesson-6-12-c018-prompt-turn-2-04174b9470b777cb73f3",
+          "purpose": "prompt-turn-2",
+          "text": "Yes, it leaves on time. Luis is late.",
           "mode": "prompt",
           "variant": "prompt",
           "image_ref": "/lesson-assets/a1plus-unit-6-y01-afcf32c082cc2aa0.webp",
           "semantic_role": "teacher",
-          "speaker_role": "co-teacher",
+          "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1019,21 +1042,21 @@
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
       "pedagogy_note": "Story beat 05: Diego is early.",
-      "audio_speaker": null,
+      "audio_speaker": "co-teacher",
       "answer_audio_speaker": null,
       "answer_audio_policy": "authored-only",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "a1plus-unit-6-lesson-6-12-c019-prompt-da5f39a2f206ece49d2f",
+          "id": "a1plus-unit-6-lesson-6-12-c019-prompt-df9521e0ed08cc71dbde",
           "purpose": "prompt",
           "text": "Diego is early.",
           "mode": "prompt",
           "variant": "prompt",
           "image_ref": "/lesson-assets/a1plus-unit-6-y04-9c0e4345e1a43e62.webp",
           "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1371,7 +1394,7 @@
       "audio_turns": [
         {
           "text": "I'm late!",
-          "speaker_role": "co-teacher",
+          "speaker_role": "teacher",
           "image_url": "/lesson-assets/a1plus-unit-6-y01-afcf32c082cc2aa0.webp",
           "delivery": "a1-pronunciation-v1"
         }
@@ -1381,14 +1404,14 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "a1plus-unit-6-lesson-6-12-c025-prompt-turn-1-4e7d076abbabb0d60536",
+          "id": "a1plus-unit-6-lesson-6-12-c025-prompt-turn-1-7e95a00dcf75380669c1",
           "purpose": "prompt-turn-1",
           "text": "I'm late!",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
           "image_ref": "/lesson-assets/a1plus-unit-6-y01-afcf32c082cc2aa0.webp",
           "semantic_role": "teacher",
-          "speaker_role": "co-teacher",
+          "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1,
           "delivery": "a1-pronunciation-v1"
@@ -1418,7 +1441,7 @@
       "audio_turns": [
         {
           "text": "Ana is on time.",
-          "speaker_role": "teacher",
+          "speaker_role": "co-teacher",
           "image_url": "/lesson-assets/a1plus-unit-6-y02-1c48856fd2e6b9cc.webp",
           "delivery": "a1-pronunciation-v1"
         }
@@ -1428,14 +1451,14 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "a1plus-unit-6-lesson-6-12-c026-prompt-turn-1-db70ae4ef223df3fe149",
+          "id": "a1plus-unit-6-lesson-6-12-c026-prompt-turn-1-b5b66155858657468aab",
           "purpose": "prompt-turn-1",
           "text": "Ana is on time.",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
           "image_ref": "/lesson-assets/a1plus-unit-6-y02-1c48856fd2e6b9cc.webp",
           "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1,
           "delivery": "a1-pronunciation-v1"
@@ -1512,7 +1535,7 @@
       "audio_turns": [
         {
           "text": "No, it's late.",
-          "speaker_role": "co-teacher",
+          "speaker_role": "teacher",
           "image_url": "/lesson-assets/a1plus-unit-6-y05-ade8e2b6e40b0c7b.webp",
           "delivery": "a1-pronunciation-v1"
         }
@@ -1522,14 +1545,14 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "a1plus-unit-6-lesson-6-12-c028-prompt-turn-1-a7cf5385f8e62653a4fd",
+          "id": "a1plus-unit-6-lesson-6-12-c028-prompt-turn-1-0b72249ce0b04ce16664",
           "purpose": "prompt-turn-1",
           "text": "No, it's late.",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
           "image_ref": "/lesson-assets/a1plus-unit-6-y05-ade8e2b6e40b0c7b.webp",
           "semantic_role": "teacher",
-          "speaker_role": "co-teacher",
+          "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1,
           "delivery": "a1-pronunciation-v1"
@@ -1539,27 +1562,27 @@
     {
       "slide_id": "S5",
       "interaction_type": "speak",
-      "prompt": "We're on time.",
+      "prompt": "I'm on time.",
       "stage": "Speak",
-      "correct_option_id": "we're-on-time-speak",
+      "correct_option_id": "i'm-on-time-speak",
       "options": [
         {
-          "id": "we're-on-time-speak",
+          "id": "i'm-on-time-speak",
           "image_url": "/lesson-assets/a1plus-unit-6-y02-1c48856fd2e6b9cc.webp",
-          "label": "We're on time."
+          "label": "I'm on time."
         }
       ],
-      "audio_text": "We're on time.",
+      "audio_text": "I'm on time.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Llegamos a tiempo.",
-      "pedagogy_note": "Story beat 05: We're on time.",
+      "spanish_translation": "Llego a tiempo.",
+      "pedagogy_note": "Story beat 05: I'm on time.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_turns": [
         {
-          "text": "We're on time.",
-          "speaker_role": "teacher",
+          "text": "I'm on time.",
+          "speaker_role": "co-teacher",
           "image_url": "/lesson-assets/a1plus-unit-6-y02-1c48856fd2e6b9cc.webp",
           "delivery": "a1-pronunciation-v1"
         }
@@ -1569,14 +1592,14 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "a1plus-unit-6-lesson-6-12-c029-prompt-turn-1-7cdbdd90473bed619b8b",
+          "id": "a1plus-unit-6-lesson-6-12-c029-prompt-turn-1-14955e15da269eeb9a70",
           "purpose": "prompt-turn-1",
-          "text": "We're on time.",
+          "text": "I'm on time.",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
           "image_ref": "/lesson-assets/a1plus-unit-6-y02-1c48856fd2e6b9cc.webp",
           "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1,
           "delivery": "a1-pronunciation-v1"
@@ -1606,7 +1629,7 @@
       "audio_turns": [
         {
           "text": "Diego is early.",
-          "speaker_role": "co-teacher",
+          "speaker_role": "teacher",
           "image_url": "/lesson-assets/a1plus-unit-6-y04-9c0e4345e1a43e62.webp",
           "delivery": "a1-pronunciation-v1"
         }
@@ -1616,14 +1639,14 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "a1plus-unit-6-lesson-6-12-c030-prompt-turn-1-3267c70a7fbfe64114a1",
+          "id": "a1plus-unit-6-lesson-6-12-c030-prompt-turn-1-cdd86772863a48868e5f",
           "purpose": "prompt-turn-1",
           "text": "Diego is early.",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
           "image_ref": "/lesson-assets/a1plus-unit-6-y04-9c0e4345e1a43e62.webp",
           "semantic_role": "teacher",
-          "speaker_role": "co-teacher",
+          "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1,
           "delivery": "a1-pronunciation-v1"
@@ -1653,7 +1676,7 @@
       "audio_turns": [
         {
           "text": "No, he's late.",
-          "speaker_role": "teacher",
+          "speaker_role": "co-teacher",
           "image_url": "/lesson-assets/a1plus-unit-6-y01-afcf32c082cc2aa0.webp",
           "delivery": "a1-pronunciation-v1"
         }
@@ -1663,14 +1686,14 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "a1plus-unit-6-lesson-6-12-c031-prompt-turn-1-b740497052d780b6ec47",
+          "id": "a1plus-unit-6-lesson-6-12-c031-prompt-turn-1-c05eddb93f7ac286d8c6",
           "purpose": "prompt-turn-1",
           "text": "No, he's late.",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
           "image_ref": "/lesson-assets/a1plus-unit-6-y01-afcf32c082cc2aa0.webp",
           "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1,
           "delivery": "a1-pronunciation-v1"
@@ -1680,28 +1703,28 @@
     {
       "slide_id": "S8",
       "interaction_type": "speak",
-      "prompt": "She's early.",
+      "prompt": "He's early.",
       "stage": "Speak",
-      "correct_option_id": "she's-early-speak",
+      "correct_option_id": "he's-early-speak",
       "options": [
         {
-          "id": "she's-early-speak",
-          "image_url": "/lesson-assets/a1plus-unit-6-y02-1c48856fd2e6b9cc.webp",
-          "label": "She's early."
+          "id": "he's-early-speak",
+          "image_url": "/lesson-assets/a1plus-unit-6-y04-9c0e4345e1a43e62.webp",
+          "label": "He's early."
         }
       ],
-      "audio_text": "She's early.",
+      "audio_text": "He's early.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Llega temprano.",
-      "pedagogy_note": "Story beat 08: She's early.",
+      "pedagogy_note": "Story beat 08: He's early.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_turns": [
         {
-          "text": "She's early.",
-          "speaker_role": "co-teacher",
-          "image_url": "/lesson-assets/a1plus-unit-6-y02-1c48856fd2e6b9cc.webp",
+          "text": "He's early.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1plus-unit-6-y04-9c0e4345e1a43e62.webp",
           "delivery": "a1-pronunciation-v1"
         }
       ],
@@ -1710,14 +1733,14 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "a1plus-unit-6-lesson-6-12-c032-prompt-turn-1-e0bfb289fdfbb7f4cbf3",
+          "id": "a1plus-unit-6-lesson-6-12-c032-prompt-turn-1-b88f421b4fafedf0d46c",
           "purpose": "prompt-turn-1",
-          "text": "She's early.",
+          "text": "He's early.",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1plus-unit-6-y02-1c48856fd2e6b9cc.webp",
+          "image_ref": "/lesson-assets/a1plus-unit-6-y04-9c0e4345e1a43e62.webp",
           "semantic_role": "teacher",
-          "speaker_role": "co-teacher",
+          "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1,
           "delivery": "a1-pronunciation-v1"
@@ -1751,33 +1774,33 @@
       "prompt_image_url": "/lesson-assets/a1plus-unit-6-y01-afcf32c082cc2aa0.webp",
       "spanish_translation": "Luis llega tarde.",
       "pedagogy_note": "Story beat 01: Luis is late.",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
+      "audio_speaker": "co-teacher",
+      "answer_audio_speaker": "co-teacher",
       "answer_audio_policy": "authored-only",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "a1plus-unit-6-lesson-6-12-c033-prompt-1ebca43bfd99ac080ca3",
+          "id": "a1plus-unit-6-lesson-6-12-c033-prompt-b080300e7c76b5e326ea",
           "purpose": "prompt",
           "text": "Luis is late.",
           "mode": "prompt",
           "variant": "prompt",
           "image_ref": "/lesson-assets/a1plus-unit-6-y01-afcf32c082cc2aa0.webp",
           "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "a1plus-unit-6-lesson-6-12-c033-answer-46e27424c1d73ca477ee",
+          "id": "a1plus-unit-6-lesson-6-12-c033-answer-ac1d2e70ba52c6937ea8",
           "purpose": "answer",
           "text": "Luis is late.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1plus-unit-6-y01-afcf32c082cc2aa0.webp",
           "semantic_role": "answer",
-          "speaker_role": "answer",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1810,33 +1833,33 @@
       "prompt_image_url": "/lesson-assets/a1plus-unit-6-y02-1c48856fd2e6b9cc.webp",
       "spanish_translation": "Ana llega a tiempo.",
       "pedagogy_note": "Story beat 02: Ana is on time.",
-      "audio_speaker": "co-teacher",
-      "answer_audio_speaker": "co-teacher",
+      "audio_speaker": null,
+      "answer_audio_speaker": null,
       "answer_audio_policy": "authored-only",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "a1plus-unit-6-lesson-6-12-c034-prompt-0481b0d328a88e7f1b56",
+          "id": "a1plus-unit-6-lesson-6-12-c034-prompt-22fc2412e056c74558c4",
           "purpose": "prompt",
           "text": "Ana is on time.",
           "mode": "prompt",
           "variant": "prompt",
           "image_ref": "/lesson-assets/a1plus-unit-6-y02-1c48856fd2e6b9cc.webp",
           "semantic_role": "teacher",
-          "speaker_role": "co-teacher",
+          "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "a1plus-unit-6-lesson-6-12-c034-answer-98620425eee722011a9f",
+          "id": "a1plus-unit-6-lesson-6-12-c034-answer-9aaac572b5c12391a11d",
           "purpose": "answer",
           "text": "Ana is on time.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1plus-unit-6-y02-1c48856fd2e6b9cc.webp",
           "semantic_role": "answer",
-          "speaker_role": "co-teacher",
+          "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1869,33 +1892,33 @@
       "prompt_image_url": "/lesson-assets/a1plus-unit-6-y04-9c0e4345e1a43e62.webp",
       "spanish_translation": "Diego llega temprano.",
       "pedagogy_note": "Story beat 03: Diego is early.",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
+      "audio_speaker": "co-teacher",
+      "answer_audio_speaker": "co-teacher",
       "answer_audio_policy": "authored-only",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "a1plus-unit-6-lesson-6-12-c035-prompt-fbfd97b5e633d8d1fa93",
+          "id": "a1plus-unit-6-lesson-6-12-c035-prompt-fa25d92a5a19f18e2e03",
           "purpose": "prompt",
           "text": "Diego is early.",
           "mode": "prompt",
           "variant": "prompt",
           "image_ref": "/lesson-assets/a1plus-unit-6-y04-9c0e4345e1a43e62.webp",
           "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "a1plus-unit-6-lesson-6-12-c035-answer-1f20ae9b15d22c663266",
+          "id": "a1plus-unit-6-lesson-6-12-c035-answer-371dc64b76d375d63d0c",
           "purpose": "answer",
           "text": "Diego is early.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1plus-unit-6-y04-9c0e4345e1a43e62.webp",
           "semantic_role": "answer",
-          "speaker_role": "answer",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1928,33 +1951,33 @@
       "prompt_image_url": "/lesson-assets/a1plus-unit-6-y05-ade8e2b6e40b0c7b.webp",
       "spanish_translation": "El tren llega tarde.",
       "pedagogy_note": "Story beat 04: The train is late.",
-      "audio_speaker": "co-teacher",
-      "answer_audio_speaker": "co-teacher",
+      "audio_speaker": null,
+      "answer_audio_speaker": null,
       "answer_audio_policy": "authored-only",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "a1plus-unit-6-lesson-6-12-c036-prompt-83d3e2c3e714ba1d9ca2",
+          "id": "a1plus-unit-6-lesson-6-12-c036-prompt-5f31a6cd78cb7577c573",
           "purpose": "prompt",
           "text": "The train is late.",
           "mode": "prompt",
           "variant": "prompt",
           "image_ref": "/lesson-assets/a1plus-unit-6-y05-ade8e2b6e40b0c7b.webp",
           "semantic_role": "teacher",
-          "speaker_role": "co-teacher",
+          "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "a1plus-unit-6-lesson-6-12-c036-answer-591b9a250421b798bc3b",
+          "id": "a1plus-unit-6-lesson-6-12-c036-answer-10b076b631ceaffb3adc",
           "purpose": "answer",
           "text": "The train is late.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1plus-unit-6-y05-ade8e2b6e40b0c7b.webp",
           "semantic_role": "answer",
-          "speaker_role": "co-teacher",
+          "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1987,33 +2010,33 @@
       "prompt_image_url": "/lesson-assets/a1plus-unit-6-y01-afcf32c082cc2aa0.webp",
       "spanish_translation": "\u00a1Llego tarde!",
       "pedagogy_note": "Story beat 05: I'm late!",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
+      "audio_speaker": "co-teacher",
+      "answer_audio_speaker": "co-teacher",
       "answer_audio_policy": "authored-only",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "a1plus-unit-6-lesson-6-12-c037-prompt-62a3c2df0d6de7a4d2e8",
+          "id": "a1plus-unit-6-lesson-6-12-c037-prompt-4578102bb0750cf7e524",
           "purpose": "prompt",
           "text": "I'm late!",
           "mode": "prompt",
           "variant": "prompt",
           "image_ref": "/lesson-assets/a1plus-unit-6-y01-afcf32c082cc2aa0.webp",
           "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "a1plus-unit-6-lesson-6-12-c037-answer-74836843c82499050403",
+          "id": "a1plus-unit-6-lesson-6-12-c037-answer-b9f47b9df0b56e96e9b2",
           "purpose": "answer",
           "text": "I'm late!",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1plus-unit-6-y01-afcf32c082cc2aa0.webp",
           "semantic_role": "answer",
-          "speaker_role": "answer",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -2039,7 +2062,7 @@
         {
           "id": "word-1",
           "image_url": "",
-          "label": "We're"
+          "label": "I'm"
         },
         {
           "id": "word-3",
@@ -2047,38 +2070,38 @@
           "label": "time"
         }
       ],
-      "audio_text": "We're on time.",
-      "answer_audio_text": "We're on time.",
+      "audio_text": "I'm on time.",
+      "answer_audio_text": "I'm on time.",
       "prompt_image_url": "/lesson-assets/a1plus-unit-6-y02-1c48856fd2e6b9cc.webp",
-      "spanish_translation": "Llegamos a tiempo.",
-      "pedagogy_note": "Story beat 06: We're on time.",
-      "audio_speaker": "co-teacher",
-      "answer_audio_speaker": "co-teacher",
+      "spanish_translation": "Llego a tiempo.",
+      "pedagogy_note": "Story beat 06: I'm on time.",
+      "audio_speaker": null,
+      "answer_audio_speaker": null,
       "answer_audio_policy": "authored-only",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "a1plus-unit-6-lesson-6-12-c038-prompt-9cef8770145f584bf825",
+          "id": "a1plus-unit-6-lesson-6-12-c038-prompt-c60e36eacdbc63af7c38",
           "purpose": "prompt",
-          "text": "We're on time.",
+          "text": "I'm on time.",
           "mode": "prompt",
           "variant": "prompt",
           "image_ref": "/lesson-assets/a1plus-unit-6-y02-1c48856fd2e6b9cc.webp",
           "semantic_role": "teacher",
-          "speaker_role": "co-teacher",
+          "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "a1plus-unit-6-lesson-6-12-c038-answer-1ac7a42356e388923508",
+          "id": "a1plus-unit-6-lesson-6-12-c038-answer-1e2886890102ed2e4c8b",
           "purpose": "answer",
-          "text": "We're on time.",
+          "text": "I'm on time.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1plus-unit-6-y02-1c48856fd2e6b9cc.webp",
           "semantic_role": "answer",
-          "speaker_role": "co-teacher",
+          "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -2180,41 +2203,41 @@
         {
           "id": "word-1",
           "image_url": "",
-          "label": "She's"
+          "label": "He's"
         }
       ],
-      "audio_text": "She's early.",
-      "answer_audio_text": "She's early.",
-      "prompt_image_url": "/lesson-assets/a1plus-unit-6-y02-1c48856fd2e6b9cc.webp",
+      "audio_text": "He's early.",
+      "answer_audio_text": "He's early.",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-6-y04-9c0e4345e1a43e62.webp",
       "spanish_translation": "Llega temprano.",
-      "pedagogy_note": "Story beat 08: She's early.",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
+      "pedagogy_note": "Story beat 08: He's early.",
+      "audio_speaker": "co-teacher",
+      "answer_audio_speaker": "co-teacher",
       "answer_audio_policy": "authored-only",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "a1plus-unit-6-lesson-6-12-c040-prompt-c176ee09abad985e7165",
+          "id": "a1plus-unit-6-lesson-6-12-c040-prompt-af783d4254da165aec58",
           "purpose": "prompt",
-          "text": "She's early.",
+          "text": "He's early.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1plus-unit-6-y02-1c48856fd2e6b9cc.webp",
+          "image_ref": "/lesson-assets/a1plus-unit-6-y04-9c0e4345e1a43e62.webp",
           "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "a1plus-unit-6-lesson-6-12-c040-answer-5731d8e2338a15c9382c",
+          "id": "a1plus-unit-6-lesson-6-12-c040-answer-e8c1360dabc39db941eb",
           "purpose": "answer",
-          "text": "She's early.",
+          "text": "He's early.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1plus-unit-6-y02-1c48856fd2e6b9cc.webp",
+          "image_ref": "/lesson-assets/a1plus-unit-6-y04-9c0e4345e1a43e62.webp",
           "semantic_role": "answer",
-          "speaker_role": "answer",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }

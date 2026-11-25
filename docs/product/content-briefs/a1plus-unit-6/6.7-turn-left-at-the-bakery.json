@@ -5,7 +5,7 @@
     "lesson": "6.7",
     "title": "Which Side of the Street?"
   },
-  "note": "A1+ Unit 6 Lesson 6.7, built on 2026-11-20 under the A1+ lesson standards approved 2026-10-27 and the user's 2026-11-09 rule that every A1+ lesson follows up the A1 lesson with the same number. The user asked on 2026-11-20 \"Lets work on a1+ Unit 6 same all deal as before none stop all approved\" (A1+ 6.Y follows A1 6.Y, one step each; fifteen lessons; the Units 2-4 deal: straight to Preview in batches, Gemini 2.5 Flash photos and ElevenLabs audio pre-approved, no per-lesson gates, reviewed in Preview). Four new photos (Gemini 2.5 Flash), each seen from behind a walker at a crossroads who points along a side street past a bakery, a bookstore or a police station on that corner. A first set of four Flash route maps (second street on the left/right) was rejected: the blue lines ran past the turn. A1 6's Ana asking a man for directions is reused.",
+  "note": "A1+ Unit 6 Lesson 6.7, built on 2026-11-20 under the A1+ lesson standards approved 2026-10-27 and the user's 2026-11-09 rule that every A1+ lesson follows up the A1 lesson with the same number. The user asked on 2026-11-20 \"Lets work on a1+ Unit 6 same all deal as before none stop all approved\" (A1+ 6.Y follows A1 6.Y, one step each; fifteen lessons; the Units 2-4 deal: straight to Preview in batches, Gemini 2.5 Flash photos and ElevenLabs audio pre-approved, no per-lesson gates, reviewed in Preview). Four new photos (Gemini 2.5 Flash), each seen from behind a walker at a crossroads who points along a side street past a bakery, a bookstore or a police station on that corner. A first set of four Flash route maps (second street on the left/right) was rejected: the blue lines ran past the turn. A1 6's Ana asking a man for directions is reused. Review fix 2026-11-23 (user: \"Fix both\"): the lesson added no new words, so it now teaches traffic light and crosswalk on two new photos (k05, k06), 42 cards.",
   "target": "backend/lessons/a1_plus/unit_6/a1plus-unit-6-lesson-6-7.yaml",
   "captions": false,
   "narrators": [
@@ -25,11 +25,13 @@
     "lesson_title": "Turn left at the bakery",
     "sub_lesson_id": "6.7",
     "sub_lesson_title": "Turn left at the bakery",
-    "goal": "Give a direction with a place to turn at (Turn left at the bakery. Turn right at the police station.).",
+    "goal": "Turn at a landmark: a place from 6.1, a traffic light or a crosswalk (Turn left at the bakery. / Turn left at the traffic light. / Turn right at the crosswalk.).",
     "vocabulary": [
       "at the bakery",
       "at the bookstore",
-      "at the police station"
+      "at the police station",
+      "traffic light",
+      "crosswalk"
     ],
     "review_vocabulary": [
       "Turn left",
@@ -44,12 +46,14 @@
       "the park",
       "the gas station",
       "Go straight",
-      "and"
+      "and",
+      "the station",
+      "the supermarket"
     ],
-    "grammar_function": "A follow-up of A1 6.7 Which Side of the Street?: A1 finds a place on the left or on the right; A1+ 6.7 turns at a place. The new grammar relationship is at + a landmark after A1 6.8's turn left / turn right (Turn left at the bakery.), with 6.1's new places as landmarks and A1 6.10's How do I get to …?. Every photo is seen from behind one walker at a crossroads who points one whole arm along the side street that goes past the named place, which stands on that corner; the other corner is a plain office building.",
+    "grammar_function": "A follow-up of A1 6.7 Which Side of the Street?: A1 finds a place on the left or on the right; A1+ 6.7 turns at a place. The new grammar relationship is at + a landmark after A1 6.8's turn left / turn right (Turn left at the bakery.), with 6.1's new places as landmarks and A1 6.10's How do I get to …?. Every photo is seen from behind one walker at a crossroads who points one whole arm along the side street that goes past the named place, which stands on that corner; the other corner is a plain office building. Two new words name where to turn when there is no shop: traffic light and crosswalk (Turn left at the traffic light. / Turn right at the crosswalk.); each is one photo with that landmark on the pointed side and no shop, and the crosswalk photo is never a picture choice, because other crossroads show road lines.",
     "prerequisite": "A1 6.7 left and right; A1 6.8 turn left/right, go straight; A1 6.10 How do I get to…?; A1+ 6.1 places.",
-    "speaking_outcome": "Link turn left at (turn-LEFT-at). Do not require native-like speed.",
-    "content_revision": 1,
+    "speaking_outcome": "Link turn left at (turn-LEFT-at). Do not require native-like speed. Stress TRAF-fic light and CROSS-walk.",
+    "content_revision": 2,
     "learn_context_groups": [
       {
         "kind": "sequence",
@@ -76,13 +80,37 @@
         ]
       },
       {
+        "kind": "sequence",
+        "targets": [
+          "traffic light"
+        ],
+        "models": [
+          {
+            "slide_id": "L3",
+            "text": "Turn left at the traffic light."
+          }
+        ]
+      },
+      {
+        "kind": "sequence",
+        "targets": [
+          "crosswalk"
+        ],
+        "models": [
+          {
+            "slide_id": "L4",
+            "text": "Turn right at the crosswalk."
+          }
+        ]
+      },
+      {
         "kind": "exchange",
         "targets": [
           "at the bookstore"
         ],
         "models": [
           {
-            "slide_id": "L3",
+            "slide_id": "L5",
             "text": "How do I get to the library? Turn left at the bookstore.",
             "turns": [
               "How do I get to the library?",
@@ -98,7 +126,7 @@
         ],
         "models": [
           {
-            "slide_id": "L4",
+            "slide_id": "L6",
             "text": "How do I get to the bank? Turn right at the bakery.",
             "turns": [
               "How do I get to the bank?",
@@ -488,6 +516,152 @@
         "How do I get to the bank? Turn left at the bakery and then turn right."
       ],
       "learn": false
+    },
+    {
+      "id": "l-tl",
+      "text": "Turn left at the traffic light.",
+      "es": "Da vuelta a la izquierda en el semáforo.",
+      "image": "/lesson-assets/a1plus-unit-6-k05-d1bb05c23de8fa3a.webp",
+      "kind": "sequence",
+      "choices": false,
+      "use": false,
+      "speaker": "teacher"
+    },
+    {
+      "id": "l-cw",
+      "text": "Turn right at the crosswalk.",
+      "es": "Da vuelta a la derecha en el cruce peatonal.",
+      "image": "/lesson-assets/a1plus-unit-6-k06-6efb26135abad54a.webp",
+      "kind": "sequence",
+      "choices": false,
+      "use": false,
+      "speaker": "co-teacher"
+    },
+    {
+      "id": "f-l-tl",
+      "text": "Turn left at the traffic light.",
+      "es": "Da vuelta a la izquierda en el semáforo.",
+      "image": "/lesson-assets/a1plus-unit-6-k05-d1bb05c23de8fa3a.webp",
+      "kind": "turn",
+      "prefer": [
+        "Turn right at the traffic light.",
+        "Turn left at the crosswalk."
+      ],
+      "accepts": {
+        "subject-variety": "The bank keeps Turn … at the … and changes only left or right, or only the place; the person points along the side street past that place.",
+        "action-variety": "The bank keeps Turn … at the … and changes only left or right, or only the place; the person points along the side street past that place.",
+        "conversational-response": "The bank keeps Turn … at the … and changes only left or right, or only the place; the person points along the side street past that place.",
+        "reading-load": "The bank keeps Turn … at the … and changes only left or right, or only the place; the person points along the side street past that place."
+      },
+      "blanks": [
+        "traffic",
+        "light"
+      ],
+      "learn": false,
+      "four_card": false
+    },
+    {
+      "id": "f-r-cw",
+      "text": "Turn right at the crosswalk.",
+      "es": "Da vuelta a la derecha en el cruce peatonal.",
+      "image": "/lesson-assets/a1plus-unit-6-k06-6efb26135abad54a.webp",
+      "kind": "turn",
+      "prefer": [
+        "Turn left at the crosswalk.",
+        "Turn right at the traffic light."
+      ],
+      "accepts": {
+        "subject-variety": "The bank keeps Turn … at the … and changes only left or right, or only the place; the person points along the side street past that place.",
+        "action-variety": "The bank keeps Turn … at the … and changes only left or right, or only the place; the person points along the side street past that place.",
+        "conversational-response": "The bank keeps Turn … at the … and changes only left or right, or only the place; the person points along the side street past that place.",
+        "reading-load": "The bank keeps Turn … at the … and changes only left or right, or only the place; the person points along the side street past that place."
+      },
+      "blanks": [
+        "the",
+        "crosswalk"
+      ],
+      "learn": false,
+      "four_card": false,
+      "image_choices": false
+    },
+    {
+      "id": "r-tl",
+      "text": "Turn left at the traffic light.",
+      "es": "Da vuelta a la izquierda en el semáforo.",
+      "image": "/lesson-assets/a1plus-unit-6-k05-d1bb05c23de8fa3a.webp",
+      "kind": "how",
+      "question": "How do I get to the station?",
+      "question_es": "¿Cómo llego a la estación?",
+      "question_speaker": "co-teacher",
+      "speaker": "teacher",
+      "use": false,
+      "image_choices": false,
+      "prefer": [
+        "Turn right at the traffic light."
+      ],
+      "accepts": {
+        "subject-variety": "The answer keeps Turn … at the … and changes only left or right; the photo shows the person pointing past the place.",
+        "action-variety": "The answer keeps Turn … at the … and changes only left or right; the photo shows the person pointing past the place.",
+        "conversational-response": "The answer keeps Turn … at the … and changes only left or right; the photo shows the person pointing past the place.",
+        "reading-load": "The answer keeps Turn … at the … and changes only left or right; the photo shows the person pointing past the place."
+      },
+      "learn": false,
+      "four_card": false
+    },
+    {
+      "id": "r-cw",
+      "text": "Turn right at the crosswalk.",
+      "es": "Da vuelta a la derecha en el cruce peatonal.",
+      "image": "/lesson-assets/a1plus-unit-6-k06-6efb26135abad54a.webp",
+      "kind": "how",
+      "question": "How do I get to the supermarket?",
+      "question_es": "¿Cómo llego al supermercado?",
+      "question_speaker": "co-teacher",
+      "speaker": "teacher",
+      "use": false,
+      "image_choices": false,
+      "prefer": [
+        "Turn left at the crosswalk."
+      ],
+      "accepts": {
+        "subject-variety": "The answer keeps Turn … at the … and changes only left or right; the photo shows the person pointing past the place.",
+        "action-variety": "The answer keeps Turn … at the … and changes only left or right; the photo shows the person pointing past the place.",
+        "conversational-response": "The answer keeps Turn … at the … and changes only left or right; the photo shows the person pointing past the place.",
+        "reading-load": "The answer keeps Turn … at the … and changes only left or right; the photo shows the person pointing past the place."
+      },
+      "learn": false,
+      "four_card": false
+    },
+    {
+      "id": "x-cw",
+      "text": "How do I get to the supermarket? Turn right at the crosswalk.",
+      "es": "¿Cómo llego al supermercado? Da vuelta a la derecha en el cruce peatonal.",
+      "image": "/lesson-assets/a1plus-unit-6-k06-6efb26135abad54a.webp",
+      "kind": "x-cw",
+      "image_choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "How do I get to the supermarket?",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-6-k06-6efb26135abad54a.webp"
+        },
+        {
+          "text": "Turn right at the crosswalk.",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-6-k06-6efb26135abad54a.webp"
+        }
+      ],
+      "accepts": {
+        "subject-variety": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "action-variety": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "conversational-response": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "reading-load": "Listen keeps the question and changes only the answer; the answer is what was heard."
+      },
+      "prefer": [
+        "How do I get to the supermarket? Turn left at the crosswalk."
+      ],
+      "learn": false
     }
   ],
   "pool": [
@@ -581,6 +755,55 @@
       "image": "/lesson-assets/a1_photo_u6_story_help_second_question_v1.webp",
       "kind": "u4-and-then",
       "image_choices": false
+    },
+    {
+      "text": "Turn right at the traffic light.",
+      "es": "Da vuelta a la derecha en el semáforo.",
+      "image": "/lesson-assets/a1plus-unit-6-k05-d1bb05c23de8fa3a.webp",
+      "kind": "turn",
+      "image_choices": false
+    },
+    {
+      "text": "Turn left at the crosswalk.",
+      "es": "Da vuelta a la izquierda en el cruce peatonal.",
+      "image": "/lesson-assets/a1plus-unit-6-k05-d1bb05c23de8fa3a.webp",
+      "kind": "turn",
+      "image_choices": false
+    },
+    {
+      "text": "Turn left at the crosswalk.",
+      "es": "Da vuelta a la izquierda en el cruce peatonal.",
+      "image": "/lesson-assets/a1plus-unit-6-k06-6efb26135abad54a.webp",
+      "kind": "turn",
+      "image_choices": false
+    },
+    {
+      "text": "Turn right at the traffic light.",
+      "es": "Da vuelta a la derecha en el semáforo.",
+      "image": "/lesson-assets/a1plus-unit-6-k06-6efb26135abad54a.webp",
+      "kind": "turn",
+      "image_choices": false
+    },
+    {
+      "text": "Turn right at the traffic light.",
+      "es": "Da vuelta a la derecha en el semáforo.",
+      "image": "/lesson-assets/a1plus-unit-6-k05-d1bb05c23de8fa3a.webp",
+      "kind": "how",
+      "image_choices": false
+    },
+    {
+      "text": "Turn left at the crosswalk.",
+      "es": "Da vuelta a la izquierda en el cruce peatonal.",
+      "image": "/lesson-assets/a1plus-unit-6-k06-6efb26135abad54a.webp",
+      "kind": "how",
+      "image_choices": false
+    },
+    {
+      "text": "How do I get to the supermarket? Turn left at the crosswalk.",
+      "es": "¿Cómo llego al supermercado? Da vuelta a la izquierda en el cruce peatonal.",
+      "image": "/lesson-assets/a1plus-unit-6-k06-6efb26135abad54a.webp",
+      "kind": "x-cw",
+      "image_choices": false
     }
   ],
   "layout": {
@@ -593,46 +816,48 @@
     "Learn": [
       "l-left",
       "l-right",
+      "l-tl",
+      "l-cw",
       "l-how",
       "l-how2"
     ],
     "Recognize": [
       "f-l-bak",
       "r-lib",
-      "f-r-pol",
+      "f-l-tl",
       "r-bank",
       "f-l-book",
       "r-park",
-      "f-r-bak",
+      "f-r-cw",
       "r-gas",
-      "x-lib",
-      "f-l-bak"
+      "r-tl",
+      "r-cw"
     ],
     "Listen": [
       "f-r-bak",
       "f-l-book",
       "x-lib",
       "f-r-pol",
-      "f-l-bak",
-      "x-bank",
-      "r-park",
+      "f-l-tl",
+      "f-r-cw",
+      "x-cw",
       "r-gas",
       "r-lib",
       "u4-and-then"
     ],
     "Speak": [
       "u-left",
-      "f-r-bak",
+      "f-l-tl",
       "q-how",
       "r-lib",
       "u-right",
-      "f-l-book",
-      "r-gas",
+      "f-r-cw",
+      "r-tl",
       "u-go"
     ],
     "Use": [
-      "f-l-bak",
-      "f-r-bak",
+      "f-l-tl",
+      "f-r-cw",
       "f-l-book",
       "f-r-pol",
       "u-left",

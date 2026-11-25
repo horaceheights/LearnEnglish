@@ -5,7 +5,7 @@
     "lesson": "6.12",
     "title": "What Time Does It Leave?"
   },
-  "note": "A1+ Unit 6 Lesson 6.12, built on 2026-11-20 under the A1+ lesson standards approved 2026-10-27 and the user's 2026-11-09 rule that every A1+ lesson follows up the A1 lesson with the same number. The user asked on 2026-11-20 \"Lets work on a1+ Unit 6 same all deal as before none stop all approved\" (A1+ 6.Y follows A1 6.Y, one step each; fifteen lessons; the Units 2-4 deal: straight to Preview in batches, Gemini 2.5 Flash photos and ElevenLabs audio pre-approved, no per-lesson gates, reviewed in Preview). Four new photos (Gemini 2.5 Flash) and one remake: Luis running after a leaving bus, Ana walking to a waiting train, Diego alone at an empty airport gate and travelers waiting by empty tracks. The first empty-tracks photo was rejected because people stood on the tracks.",
+  "note": "A1+ Unit 6 Lesson 6.12, built on 2026-11-20 under the A1+ lesson standards approved 2026-10-27 and the user's 2026-11-09 rule that every A1+ lesson follows up the A1 lesson with the same number. The user asked on 2026-11-20 \"Lets work on a1+ Unit 6 same all deal as before none stop all approved\" (A1+ 6.Y follows A1 6.Y, one step each; fifteen lessons; the Units 2-4 deal: straight to Preview in batches, Gemini 2.5 Flash photos and ElevenLabs audio pre-approved, no per-lesson gates, reviewed in Preview). Four new photos (Gemini 2.5 Flash) and one remake: Luis running after a leaving bus, Ana walking to a waiting train, Diego alone at an empty airport gate and travelers waiting by empty tracks. The first empty-tracks photo was rejected because people stood on the tracks. Review fix 2026-11-23 (user: \"Fix both\"): She's early. sat on Ana's on-time photo and is now He's early. on Diego's; A1 6.12's leave and arrive return.",
   "target": "backend/lessons/a1_plus/unit_6/a1plus-unit-6-lesson-6-12.yaml",
   "captions": false,
   "narrators": [
@@ -45,12 +45,17 @@
       "the bus",
       "Luis",
       "Ana",
-      "Diego"
+      "Diego",
+      "arrives",
+      "leaves",
+      "leave",
+      "Does",
+      "He's"
     ],
     "grammar_function": "A follow-up of A1 6.12 What Time Does It Leave?: A1 reads departure and arrival times; A1+ 6.12 says how a trip went against the time, without clocks. The new items are late, on time and early after be (Luis is late.), with 3.4's short answers (Is Ana late? No, she's on time.). Each photo shows it in the action, not on a clock: Luis runs after a bus that is leaving, Ana walks to a train waiting with its door open, Diego reads alone at an empty gate with no airplane yet, and travelers wait by empty tracks.",
     "prerequisite": "A1 6.12 leaves and arrives; A1+ 3.4 short answers; A1+ 6.4 gate and platform.",
     "speaking_outcome": "Say on TIME as two words with the stress on time; EAR-ly. Do not require native-like speed.",
-    "content_revision": 1,
+    "content_revision": 2,
     "learn_context_groups": [
       {
         "kind": "sequence",
@@ -417,8 +422,8 @@
     },
     {
       "id": "u-on",
-      "text": "We're on time.",
-      "es": "Llegamos a tiempo.",
+      "text": "I'm on time.",
+      "es": "Llego a tiempo.",
       "image": "/lesson-assets/a1plus-unit-6-y02-1c48856fd2e6b9cc.webp",
       "kind": "use",
       "choices": false,
@@ -438,9 +443,9 @@
     },
     {
       "id": "u-early",
-      "text": "She's early.",
+      "text": "He's early.",
       "es": "Llega temprano.",
-      "image": "/lesson-assets/a1plus-unit-6-y02-1c48856fd2e6b9cc.webp",
+      "image": "/lesson-assets/a1plus-unit-6-y04-9c0e4345e1a43e62.webp",
       "kind": "use",
       "choices": false,
       "use": true,
@@ -505,6 +510,56 @@
       },
       "prefer": [
         "What time do you start work? I start work at half past nine."
+      ],
+      "learn": false
+    },
+    {
+      "id": "a1-arrives",
+      "text": "The train arrives late.",
+      "es": "El tren llega tarde.",
+      "image": "/lesson-assets/a1plus-unit-6-y05-ade8e2b6e40b0c7b.webp",
+      "kind": "a1-arrives",
+      "image_choices": false,
+      "use": false,
+      "accepts": {
+        "subject-variety": "The sentence keeps the person or the thing and changes only one detail; the photo shows which is true.",
+        "action-variety": "The sentence keeps the person or the thing and changes only one detail; the photo shows which is true.",
+        "conversational-response": "The sentence keeps the person or the thing and changes only one detail; the photo shows which is true.",
+        "reading-load": "The sentence keeps the person or the thing and changes only one detail; the photo shows which is true."
+      },
+      "prefer": [
+        "The train arrives early."
+      ],
+      "learn": false
+    },
+    {
+      "id": "a1-leaves",
+      "text": "Does the bus leave on time? Yes, it leaves on time. Luis is late.",
+      "es": "¿El camión sale a tiempo? Sí, sale a tiempo. Luis llega tarde.",
+      "image": "/lesson-assets/a1plus-unit-6-y01-afcf32c082cc2aa0.webp",
+      "kind": "a1-leaves",
+      "image_choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "Does the bus leave on time?",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-6-y01-afcf32c082cc2aa0.webp"
+        },
+        {
+          "text": "Yes, it leaves on time. Luis is late.",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-6-y01-afcf32c082cc2aa0.webp"
+        }
+      ],
+      "accepts": {
+        "subject-variety": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "action-variety": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "conversational-response": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "reading-load": "Listen keeps the question and changes only the answer; the answer is what was heard."
+      },
+      "prefer": [
+        "Does the bus leave on time? No, it leaves late. Luis is on time."
       ],
       "learn": false
     }
@@ -642,6 +697,20 @@
       "image": "/lesson-assets/a1plus-unit-6-y02-1c48856fd2e6b9cc.webp",
       "kind": "u4-start",
       "image_choices": false
+    },
+    {
+      "text": "The train arrives early.",
+      "es": "El tren llega temprano.",
+      "image": "/lesson-assets/a1plus-unit-6-y05-ade8e2b6e40b0c7b.webp",
+      "kind": "a1-arrives",
+      "image_choices": false
+    },
+    {
+      "text": "Does the bus leave on time? No, it leaves late. Luis is on time.",
+      "es": "¿El camión sale a tiempo? No, sale tarde. Luis llega a tiempo.",
+      "image": "/lesson-assets/a1plus-unit-6-y01-afcf32c082cc2aa0.webp",
+      "kind": "a1-leaves",
+      "image_choices": false
     }
   ],
   "layout": {
@@ -666,14 +735,14 @@
       "r-luis",
       "f-train",
       "r-diego",
-      "f-luis",
+      "a1-arrives",
       "x-train"
     ],
     "Listen": [
       "f-ana",
       "f-train",
       "x-train",
-      "f-luis",
+      "a1-leaves",
       "f-diego",
       "x-diego",
       "r-luis",

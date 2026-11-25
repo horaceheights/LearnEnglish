@@ -1,0 +1,154 @@
+{
+  "schema_version": 1,
+  "pack": "a1plus-unit-6-review-fix-photos",
+  "revision": 1,
+  "output_namespace": "a1plus-unit-6-lesson-v6160",
+  "authorization": "2026-11-23: after asking for a review of A1+ Unit 6 (\"make sure the images make sense to the ask\"), the user wrote \"image redo and audio approved\" and then \"Fix both\". Gemini 2.5 Flash is the approved image tool (2026-09-23; Flash only, 2026-11-17).",
+  "image_settings": {
+    "provider": "google-gemini",
+    "model": "gemini-2.5-flash-image",
+    "aspect_ratio": "3:2",
+    "image_size": "1K",
+    "runtime_size": "1536x1024",
+    "runtime_format": "webp",
+    "n": 1
+  },
+  "production": {
+    "price_per_image_usd": "0.0387",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing (checked 2026-11-16: Gemini 2.5 Flash Image, about $0.039 per image)",
+    "planned_images": 7,
+    "expected_cost_usd": "0.27",
+    "requested_ceiling_usd": "0.50",
+    "ceiling_note": "The renderer reserves US$0.20 before each request; each request is sent on its own, and the expected spend for the pack is about US$0.27.",
+    "no_automatic_retries": true,
+    "order": "Generate one at a time; check each against its sentence and against the wrong options it sits beside."
+  },
+  "shared_prompts": {
+    "photo": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, menus, screens, cups, clothes or bags.",
+    "safe_center": "Keep the people and the thing that carries the meaning inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.",
+    "solo": "Only this one person is in the photo; there is nobody else, even far in the background.",
+    "pair": "Only these two people are in the photo; there is nobody else, even far in the background.",
+    "daytime": "It is clearly daytime with soft natural light.",
+    "store": "The camera stands on the sidewalk across from the shop and looks straight at its whole front: the door and the big shop window are clearly visible. The shop has NO sign, no name and no writing anywhere; what it is must be obvious only from what fills the window.",
+    "nobody": "There are no people anywhere in the photo.",
+    "n4": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, logos or brand marks anywhere, and no number anywhere except the one sign number described (4): no other signs, screens, clocks, tickets, trains, planes or clothes show any digit.",
+    "n7": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, logos or brand marks anywhere, and no number anywhere except the one sign number described (7): no other signs, screens, clocks, tickets, trains, planes or clothes show any digit.",
+    "n12": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, logos or brand marks anywhere, and no number anywhere except the one sign number described (12): no other signs, screens, clocks, tickets, trains, planes or clothes show any digit.",
+    "n9": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, logos or brand marks anywhere, and no number anywhere except the one sign number described (9): no other signs, screens, clocks, tickets, trains, planes or clothes show any digit.",
+    "turn": "The camera stands on the sidewalk a few steps behind one person and looks the way they look: straight ahead is a crossroads where a side street goes off to the left and another to the right. The person is seen from behind (back of the head and back only, no face) and stretches one whole arm straight out sideways, pointing along one side street. The pointing arm is long, level and unmistakable.",
+    "noword": "No shop, car, sign, screen, map, bag or building shows any letters, words, numbers, logos or clocks."
+  },
+  "assets": [
+    {
+      "id": "p06-run",
+      "order": 1,
+      "item": "Sofia and Luis are going to the park to run.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "daytime",
+        "pair",
+        "noword"
+      ],
+      "prompt": "Image 1 shows Luis. Keep the face, hair, skin and build exactly; dress him in his navy crew-neck T-shirt and dark-grey running shorts. Create a new photograph of Luis running side by side with Sofia along a wide path in a green city park with trees. Sofia is a woman with warm brown skin and long curly dark hair tied up in a high bun, in a bright blue T-shirt and black running leggings. Both run toward the camera, smiling, full bodies visible, large in the photo. Nobody else is in the photo.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-q01-135c3f8f772bcbe4.webp",
+        "sha256": "135c3f8f772bcbe472b8cec719eb02318a7d52ce1c7152a94c6952aeb78566c2",
+        "observed_description": "Luis (short dark curly hair, clean-shaven, warm medium-brown skin, navy crew-neck T-shirt) drinks coffee from a white mug at a wooden table in his bright kitchen (A1+ 1.2)."
+      }
+    },
+    {
+      "id": "d05-luis-backpack",
+      "order": 2,
+      "item": "Luis has a backpack.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "daytime",
+        "solo",
+        "noword"
+      ],
+      "prompt": "Image 1 shows Luis. Keep the face, hair, skin and build exactly; keep his navy crew-neck T-shirt. Create a new photograph of Luis in a bright airport hall, seen from the side and slightly from behind as he walks: a large grey backpack is on his back and is completely visible, filling the middle of the photo. He turns his head and smiles toward the camera so his face is clear. He carries NO suitcase and no other bag. Rows of empty seats and big windows are softly blurred behind him. Nobody else is in the photo.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-q01-135c3f8f772bcbe4.webp",
+        "sha256": "135c3f8f772bcbe472b8cec719eb02318a7d52ce1c7152a94c6952aeb78566c2",
+        "observed_description": "Luis (short dark curly hair, clean-shaven, warm medium-brown skin, navy crew-neck T-shirt) drinks coffee from a white mug at a wooden table in his bright kitchen (A1+ 1.2)."
+      }
+    },
+    {
+      "id": "d06-ana-train",
+      "order": 3,
+      "item": "Ana gets on the train with her suitcase.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "daytime",
+        "solo",
+        "noword"
+      ],
+      "prompt": "Image 1 shows Ana. Keep the face, hair, skin and build exactly; keep her sage-green overshirt over a white top and her jeans. Create a new photograph taken from a station platform: a silver passenger train stands at the platform with one door wide open, and Ana is stepping up into that open door, one foot already inside the train and one still on the platform, lifting her dark-blue rolling suitcase up with one hand. She is seen from the side, large in the middle of the photo, clearly going INTO the train. No taxi, bus or car anywhere. Nobody else is in the photo.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-q02-c2b4398b65207eff.webp",
+        "sha256": "c2b4398b65207effa51e51260cc607c38ada48caea82f14eb872e4c9c8b5d0d5",
+        "observed_description": "Ana (long dark wavy hair, light-olive skin, sage-green overshirt over a white top, jeans) sits on a light-grey sofa and reads an open hardcover book (A1+ 1.2)."
+      }
+    },
+    {
+      "id": "k05-left-light",
+      "order": 4,
+      "item": "Turn left at the traffic light.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "daytime",
+        "turn",
+        "noword"
+      ],
+      "prompt": "The person is a man in a navy T-shirt with short dark curly hair. On the LEFT corner of the crossroads stands one tall traffic light on a pole, big and close, with its three round lamps (red, yellow, green) clearly visible and the red lamp lit. It is the only traffic light in the photo. Both corners are plain grey office buildings with no shops. There are NO painted crosswalk stripes on the road anywhere. The man points his LEFT arm straight out to the left, along the side street that goes past the traffic light. Nobody else is in the photo."
+    },
+    {
+      "id": "k06-right-crosswalk",
+      "order": 5,
+      "item": "Turn right at the crosswalk.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "daytime",
+        "turn",
+        "noword"
+      ],
+      "prompt": "The person is a woman with long dark wavy hair in a sage-green overshirt. Across the side street on the RIGHT, right at the corner, is a wide crosswalk of thick white painted stripes (a zebra crossing), big and unmistakable; it is the only crosswalk in the photo. There is NO traffic light anywhere. Both corners are plain grey office buildings with no shops. The woman points her RIGHT arm straight out to the right, along the side street with the crosswalk. Nobody else is in the photo."
+    },
+    {
+      "id": "w06-bridge",
+      "order": 6,
+      "item": "This is a bridge.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "daytime",
+        "nobody",
+        "noword"
+      ],
+      "prompt": "Create a photograph of one long old stone bridge with several tall arches that crosses a dry green valley of grass and bushes, seen from the side so the whole bridge fills the photo from left to right. There is NO river, stream, lake, pond or water of any kind anywhere in the photo: under the arches there is only grass. Blue sky above."
+    },
+    {
+      "id": "z05-map",
+      "order": 7,
+      "item": "Here's your map of the city.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "daytime",
+        "pair",
+        "noword"
+      ],
+      "prompt": "Image 1 shows Ana. Keep the face, hair, skin and build exactly; keep her sage-green overshirt over a white top. Create a new photograph at a hotel's wooden front desk: a smiling young male receptionist in a white shirt and dark vest stands behind the desk and holds out a large unfolded paper city map toward Ana, who stands in front of the desk and reaches for it with one hand. The map is big and clearly a street map: thin grey street lines, green park shapes and a blue river line, with NO letters, words or numbers on it. There is NO key anywhere. Both people are seen from the side, the map between them in the middle of the photo.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-q02-c2b4398b65207eff.webp",
+        "sha256": "c2b4398b65207effa51e51260cc607c38ada48caea82f14eb872e4c9c8b5d0d5",
+        "observed_description": "Ana (long dark wavy hair, light-olive skin, sage-green overshirt over a white top, jeans) sits on a light-grey sofa and reads an open hardcover book (A1+ 1.2)."
+      }
+    }
+  ]
+}
