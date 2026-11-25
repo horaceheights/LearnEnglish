@@ -23,12 +23,20 @@
     "bookstore",
     "police station",
     "gas station",
-    "the park"
+    "the park",
+    "across from",
+    "far from",
+    "near",
+    "in front of",
+    "police car",
+    "Is",
+    "No",
+    "Yes"
   ],
   "grammar_function": "A follow-up of A1 6.6 Finding Places in the Neighborhood: A1 locates places with near, far from, between and across from; A1+ 6.6 adds on the corner and opposite. Each photo shows one place from 6.1 either in a corner building where two streets meet, with a crosswalk on each side, or across one street from a small park, seen from the park, so the photo tells on the corner from opposite the park.",
   "prerequisite": "A1 6.6 across from; A1+ 6.1 bakery, bookstore, police station, gas station; A1+ 4.1 Where's…?.",
   "speaking_outcome": "Stress the CORN-er and OP-po-site. Do not require native-like speed.",
-  "content_revision": 1,
+  "content_revision": 2,
   "learn_context_groups": [
     {
       "kind": "sequence",
@@ -520,19 +528,19 @@
       "interaction_type": "i2t3",
       "prompt": "",
       "stage": "Recognize",
-      "correct_option_id": "the-bakery-is-on-the-corner-r10",
+      "correct_option_id": "the-police-station-is-across-from-the-park-r10",
       "options": [
         {
-          "id": "the-bakery-is-on-the-corner-r10",
+          "id": "the-police-station-is-across-from-the-park-r10",
           "image_url": "",
-          "label": "The bakery is on the corner.",
-          "spanish_translation": "La panadería está en la esquina."
+          "label": "The police station is across from the park.",
+          "spanish_translation": "La estación de policía está enfrente del parque."
         },
         {
-          "id": "the-bakery-is-opposite-the-park-r10",
+          "id": "the-police-station-is-far-from-the-park-r10",
           "image_url": "",
-          "label": "The bakery is opposite the park.",
-          "spanish_translation": "La panadería está enfrente del parque."
+          "label": "The police station is far from the park.",
+          "spanish_translation": "La estación de policía está lejos del parque."
         },
         {
           "id": "the-police-station-is-on-the-corner-r10",
@@ -542,10 +550,10 @@
         }
       ],
       "audio_text": "",
-      "answer_audio_text": "The bakery is on the corner.",
-      "prompt_image_url": "/lesson-assets/a1plus-unit-6-c01-bed86d009f018e78.webp",
+      "answer_audio_text": "The police station is across from the park.",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-6-c03-3a1ffd359f9e0b2d.webp",
       "spanish_translation": "Elige la frase correcta.",
-      "pedagogy_note": "Story beat 10: The bakery is on the corner.",
+      "pedagogy_note": "Story beat 10: The police station is across from the park.",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -798,36 +806,41 @@
     },
     {
       "slide_id": "A9",
-      "interaction_type": "a2t3",
+      "interaction_type": "a2t2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "it's-opposite-the-park-a9",
+      "correct_option_id": "is-the-gas-station-far-from-the-park-no-it's-near-the-park-a9",
       "options": [
         {
-          "id": "it's-on-the-corner-a9",
+          "id": "is-the-gas-station-far-from-the-park-yes-it's-far-from-the-park-a9",
           "image_url": "",
-          "label": "It's on the corner.",
-          "spanish_translation": "Está en la esquina."
+          "label": "Is the gas station far from the park? Yes, it's far from the park.",
+          "spanish_translation": "¿La gasolinera está lejos del parque? Sí, está lejos del parque."
         },
         {
-          "id": "it's-next-to-the-park-a9",
+          "id": "is-the-gas-station-far-from-the-park-no-it's-near-the-park-a9",
           "image_url": "",
-          "label": "It's next to the park.",
-          "spanish_translation": "Está junto al parque."
-        },
-        {
-          "id": "it's-opposite-the-park-a9",
-          "image_url": "",
-          "label": "It's opposite the park.",
-          "spanish_translation": "Está enfrente del parque."
+          "label": "Is the gas station far from the park? No, it's near the park.",
+          "spanish_translation": "¿La gasolinera está lejos del parque? No, está cerca del parque."
         }
       ],
-      "audio_text": "It's opposite the park.",
+      "audio_text": "Is the gas station far from the park? No, it's near the park.",
       "answer_audio_text": null,
       "prompt_image_url": "",
+      "audio_turns": [
+        {
+          "text": "Is the gas station far from the park?",
+          "speaker_role": "co-teacher",
+          "image_url": "/lesson-assets/a1plus-unit-6-c04-a749eb532fa5d942.webp"
+        },
+        {
+          "text": "No, it's near the park.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1plus-unit-6-c04-a749eb532fa5d942.webp"
+        }
+      ],
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 09: It's opposite the park.",
-      "audio_speaker": "teacher",
+      "pedagogy_note": "Story beat 09: Is the gas station far from the park? No, it's near the park.",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -835,38 +848,38 @@
       "interaction_type": "a2t2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "where's-the-bank-it's-in-front-of-the-park-a10",
+      "correct_option_id": "where's-the-police-car-it's-in-front-of-the-police-station-a10",
       "options": [
         {
-          "id": "where's-the-bank-it's-on-the-corner-a10",
+          "id": "where's-the-police-car-it's-in-front-of-the-bakery-a10",
           "image_url": "",
-          "label": "Where's the bank? It's on the corner.",
-          "spanish_translation": "¿Dónde está el banco? Está en la esquina."
+          "label": "Where's the police car? It's in front of the bakery.",
+          "spanish_translation": "¿Dónde está la patrulla? Está delante de la panadería."
         },
         {
-          "id": "where's-the-bank-it's-in-front-of-the-park-a10",
+          "id": "where's-the-police-car-it's-in-front-of-the-police-station-a10",
           "image_url": "",
-          "label": "Where's the bank? It's in front of the park.",
-          "spanish_translation": "¿Dónde está el banco? Está enfrente del parque."
+          "label": "Where's the police car? It's in front of the police station.",
+          "spanish_translation": "¿Dónde está la patrulla? Está delante de la estación de policía."
         }
       ],
-      "audio_text": "Where's the bank? It's in front of the park.",
+      "audio_text": "Where's the police car? It's in front of the police station.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "audio_turns": [
         {
-          "text": "Where's the bank?",
+          "text": "Where's the police car?",
           "speaker_role": "co-teacher",
-          "image_url": "/lesson-assets/a1_photo_u6_bank_central_v1.webp"
+          "image_url": "/lesson-assets/a1plus-unit-6-c03-3a1ffd359f9e0b2d.webp"
         },
         {
-          "text": "It's in front of the park.",
+          "text": "It's in front of the police station.",
           "speaker_role": "teacher",
-          "image_url": "/lesson-assets/a1_photo_u6_bank_central_v1.webp"
+          "image_url": "/lesson-assets/a1plus-unit-6-c03-3a1ffd359f9e0b2d.webp"
         }
       ],
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 10: Where's the bank? It's in front of the park.",
+      "pedagogy_note": "Story beat 10: Where's the police car? It's in front of the police station.",
       "answer_audio_policy": "authored-only"
     },
     {
