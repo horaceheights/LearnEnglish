@@ -73,3 +73,39 @@ class SpanishA1PlusTests(unittest.TestCase):
     def test_two_people_never_share_one_voice_in_a_dialogue(self):
         # 1.2 L4: Diego speaks, then the narrator; the narrator line moves to the other narrator.
         self.assertEqual([t.speaker_role for t in self.card(2, "L4").audio_turns], ["es-co-teacher", "es-teacher"])
+
+    def card2(self, number, slide_id):
+        lesson = self.lessons[f"es-a1-plus-unit-2-lesson-2-{number}"]
+        return next(card for card in lesson.cards if card.slide_id == slide_id)
+
+    def test_unit_2_has_the_fifteen_a1_plus_lessons(self):
+        ids = sorted(lesson.id for lesson in self.lessons.values() if lesson.unit_id == "es-a1-plus-unit-2")
+        self.assertEqual(ids, sorted(f"es-a1-plus-unit-2-lesson-2-{n}" for n in range(1, 16)))
+        self.assertEqual(getattr(self.lessons["es-a1-plus-unit-2-lesson-2-15"], "experience_type", None), "mission")
+
+    def test_mission_voice_gates_ask_for_the_answer_not_the_question(self):
+        # The app scores audio_text: the learner says the answer; the friend's question stays in the turn.
+        for lesson_id in ("es-a1-plus-unit-1-lesson-1-13", "es-a1-plus-unit-2-lesson-2-15"):
+            gates = [c for c in self.lessons[lesson_id].cards if c.mission_game and c.mission_game.kind == "voice-gate"]
+            self.assertTrue(gates, lesson_id)
+            for card in gates:
+                cue = card.mission_game.cues[0]
+                self.assertEqual((card.audio_text, card.prompt, card.options[0].label), (cue.answer_text,) * 3, (lesson_id, card.slide_id))
+                self.assertEqual([t.text for t in card.audio_turns], [cue.text], (lesson_id, card.slide_id))
+        self.assertEqual(self.card2(15, "M07").audio_text, "Voy en bicicleta.")
+
+    def test_unit_2_spanish_keeps_lines_spanish_can_tell_apart(self):
+        # "It is a watch. It's a watch." would be the same Spanish twice; "¿Es un teléfono?" has the statement's words.
+        self.assertEqual(self.card2(4, "L1").audio_text, "¿Qué es esto? Es un reloj.")
+        self.assertEqual(sorted(o.label for o in self.card2(4, "A6").options), ["Es un teléfono.", "No es un teléfono.", "No es una cámara."])
+        self.assertNotIn("está yendo", " ".join(o.label for o in self.card2(1, "A2").options))
+        # Short answers repeat the verb of the question, and "Yes, I do. I have headphones." says it once.
+        self.assertEqual(self.card2(3, "A2").audio_text, "¿Tienes audífonos? Sí, tengo audífonos.")
+        self.assertEqual(self.card2(3, "A6").audio_text, "Sí, él tiene un reloj.")
+
+    def test_unit_2_uses_the_es_a1_mexican_words(self):
+        text = " ".join(c.audio_text or "" for l in self.lessons.values() if l.unit_id == "es-a1-plus-unit-2" for c in l.cards)
+        for word in ("alberca", "pluma", "salón", "audífonos", "carro"):
+            self.assertIn(word, text)
+        for word in ("piscina", "bolígrafo", "salón de clases"):
+            self.assertNotIn(word, text)

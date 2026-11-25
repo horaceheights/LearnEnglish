@@ -367,6 +367,50 @@ Object.assign(FIXED_QUESTIONS, {
   'cómo se llama él': ['“Cómo” (how) starts the question.', '“se” comes before the verb: Spanish asks how he is called.', '“llama” comes after “se”.', '“él” comes last in the question.'],
 });
 
+// Spanish A1+ Unit 2: places and things, floors, favorite colors, plurals, “the red ones”, comparisons,
+// classroom commands, light and dark colors.
+Object.assign(UNIT2_NOUNS, {
+  gimnasio: 'masculine singular', alberca: 'feminine singular', oficina: 'feminine singular', trabajo: 'masculine singular',
+  reloj: 'masculine singular', relojes: 'masculine plural', cámara: 'feminine singular', cartera: 'feminine singular',
+  audífonos: 'masculine plural', autobuses: 'masculine plural', pupitre: 'masculine singular', color: 'masculine singular',
+});
+Object.assign(NOUN_KIND, UNIT2_NOUNS, { hombres: 'masculine plural', mujeres: 'feminine plural' });
+VEHICLES.add('bicicleta');
+// Ordinals go before the noun and match it; before a masculine singular noun
+// primero and tercero drop their -o (el primer piso, el tercer piso).
+const ORDINAL_KIND: Record<string, [string, string]> = { primer: ['first', 'masculine singular'], tercer: ['third', 'masculine singular'] };
+for (const [stem, english] of [['primer', 'first'], ['segund', 'second'], ['tercer', 'third'], ['cuart', 'fourth'], ['quint', 'fifth'],
+  ['sext', 'sixth'], ['séptim', 'seventh'], ['octav', 'eighth'], ['noven', 'ninth'], ['décim', 'tenth']]) {
+  if (!ORDINAL_KIND[`${stem}o`]) ORDINAL_KIND[`${stem}o`] = [english, ['primer', 'tercer'].includes(stem) ? '' : 'masculine singular'];
+  ORDINAL_KIND[`${stem}a`] = [english, 'feminine singular'];
+}
+Object.assign(ADJECTIVE_KIND, {
+  favorito: 'masculine singular', favorita: 'feminine singular', favoritos: 'masculine plural', favoritas: 'feminine plural',
+});
+// Colors; claro (light) and oscuro (dark) follow the color, which then keeps its el form: una bolsa azul claro.
+const COLORS = new Set<string>(['azul', 'azules', 'verde', 'verdes', 'gris', 'grises', 'café', 'cafés', 'rosa', 'rosas']);
+for (const stem of ['roj', 'amarill', 'negr', 'blanc', 'morad']) for (const end of ['o', 'a', 'os', 'as']) COLORS.add(`${stem}${end}`);
+const SHADES: Record<string, string> = { claro: 'light', oscuro: 'dark' };
+const COLOR_ENGLISH: [string, string][] = [['roj', 'red'], ['amarill', 'yellow'], ['negr', 'black'], ['blanc', 'white'], ['morad', 'purple'],
+  ['azul', 'blue'], ['verde', 'green'], ['gris', 'gray'], ['café', 'brown'], ['rosa', 'pink']];
+const colorEnglish = (word: string) => COLOR_ENGLISH.find(([stem]) => key(word).startsWith(stem))?.[1] || '';
+// Plurals: a word ending in a vowel adds -s, one ending in a consonant adds -es.
+const SINGULAR_OF: Record<string, string> = { autobuses: 'autobús', relojes: 'reloj', mujeres: 'mujer', hombres: 'hombre' };
+const pluralNote = (word: string) => {
+  const one = SINGULAR_OF[key(word)];
+  if (!one) return '';
+  return /[aeiouáéíóú]$/.test(one) ? ` It is ${quote(one)} + -s.` : ` ${quote(one)} ends in a consonant, so it adds -es${one === 'autobús' ? ' and drops the accent' : ''}.`;
+};
+// “Don’t” commands with tú use a different form from the plain command (come → no comas).
+const NEGATIVE_COMMANDS: Record<string, [string, string]> = { comas: ['eat', 'come'], uses: ['use', 'usa'], escribas: ['write', 'escribe'] };
+Object.assign(FIXED_QUESTIONS, {
+  'cuál es tu color favorito': ['“Cuál” (which, what) starts the question.', '“es” comes right after “Cuál”.', '“tu” (your) goes right before “color”.',
+    '“color” comes right after “tu”.', '“favorito” (favorite) comes after “color”: Spanish puts it after the noun.'],
+  'cuáles quieres': ['“Cuáles” (which ones) starts the question; it is plural, for more than one thing.', '“quieres” (you want) comes right after “Cuáles”.'],
+  siéntate: ['“Siéntate” (sit down) is one word: “te” (yourself) is joined to the end of the command.'],
+  levántate: ['“Levántate” (stand up) is one word: “te” (yourself) is joined to the end of the command.'],
+});
+
 type Relation = { start: number; end: number; explanation: string };
 type ClausePlan = { explanations: string[]; relations: Relation[]; supported: boolean };
 
@@ -405,6 +449,30 @@ function teachClause(text: string): ClausePlan {
     relations.push({ start: at, end: index, explanation: `${quote(tokens.slice(at, index).join(' '))} is “${english}”.` });
     return tokens.slice(at, index).join(' ');
   };
+  const shadeOf = (colorAt: number, kind: string) => {
+    // azul claro, verde oscuro: 0 = no shade, 1 = a shade that fits, -1 = a shade on the wrong form.
+    const shade = key(tokens[colorAt + 1] || '');
+    if (!SHADES[shade] || !COLORS.has(key(tokens[colorAt] || ''))) return 0;
+    const form = ADJECTIVE_KIND[key(tokens[colorAt] || '')];
+    if ((form !== 'singular' && form !== 'masculine singular') || !kind.endsWith('singular')) return -1;
+    explanations[colorAt + 1] = `${quote(tokens[colorAt + 1] || '')} (${SHADES[shade]}) comes right after ${quote(tokens[colorAt] || '')} and never changes its ending.`;
+    return 1;
+  };
+  const shadedNote = (color: string) => ADJECTIVE_KIND[key(color)] === 'singular'
+    ? `${quote(color)} stays as it is: with “claro” or “oscuro” after it, the color never changes.`
+    : `${quote(color)} keeps its el form: with “claro” or “oscuro” after it, the color does not change, even for a la word.`;
+  const colorName = () => {
+    // el morado, el verde oscuro: a color named on its own is an el word.
+    const color = tokens[index + 1] || '';
+    const form = ADJECTIVE_KIND[key(color)];
+    if (key(tokens[index] || '') !== 'el' || !COLORS.has(key(color)) || (form !== 'singular' && form !== 'masculine singular')) return '';
+    explanations[index] = `“el” comes before ${quote(color)}: a color named on its own is an el word.`;
+    explanations[index + 1] = `${quote(color)} (${colorEnglish(color)}) is the color, named right after “el”.`;
+    const shaded = shadeOf(index + 1, 'masculine singular');
+    if (shaded < 0) return '';
+    index += 2 + shaded;
+    return tokens.slice(index - 2 - shaded, index).join(' ');
+  };
   const nounPhrase = () => {
     const article = tokens[index] || '';
     const noun = tokens[index + 1] || '';
@@ -427,6 +495,21 @@ function teachClause(text: string): ClausePlan {
       index += 3;
       return { text: tokens.slice(index - 3, index).join(' '), plural: kind.endsWith('plural'), kind };
     }
+    if (ORDINAL_KIND[key(noun)]) {
+      // el segundo piso, la quinta casa: the ordinal goes between the article and the noun and matches them.
+      const [english, ordinalKind] = ORDINAL_KIND[key(noun)];
+      const thing = tokens[index + 2] || '';
+      const kind = NOUN_KIND[key(thing)] || '';
+      if (!ordinalKind || ARTICLE_KIND[key(article)] !== kind || ordinalKind !== kind) return null;
+      explanations[index] = `${quote(article)} is the article for ${quote(thing)}, so it comes first.`;
+      explanations[index + 1] = ['primer', 'tercer'].includes(key(noun))
+        ? `${quote(noun)} (${english}) goes before ${quote(thing)}; before an el word Spanish drops the -o of “${key(noun)}o”.`
+        : `${quote(noun)} (${english}) goes before ${quote(thing)}, right after the article, and matches it.`;
+      explanations[index + 2] = `${quote(thing)} comes right after ${quote(noun)}.`;
+      relations.push({ start: index, end: index + 3, explanation: `${quote(tokens.slice(index, index + 3).join(' '))}: the number word comes before the noun.` });
+      index += 3;
+      return { text: tokens.slice(index - 3, index).join(' '), plural: false, kind };
+    }
     if (!ARTICLE_KIND[key(article)] || ARTICLE_KIND[key(article)] !== NOUN_KIND[key(noun)]) return null;
     explanations[index] = `${quote(article)} is the ${ARTICLE_KIND[key(article)]} article for ${quote(noun)}, so it comes right before it.`;
     explanations[index + 1] = `${quote(noun)} comes right after its article ${quote(article)}.`;
@@ -441,11 +524,13 @@ function teachClause(text: string): ClausePlan {
       text += ' de semana';
     }
     const after = tokens[index] || '';
-    if (ADJECTIVE_KIND[key(after)] && agrees(after, NOUN_KIND[key(noun)] || '') && !SER.has(key(tokens[index - 1] || ''))) {
-      explanations[index] = `${quote(after)} comes after ${quote(noun)} in Spanish and matches it.`;
+    const shaded = shadeOf(index, NOUN_KIND[key(noun)] || '');
+    if (shaded < 0) return null;
+    if (ADJECTIVE_KIND[key(after)] && (shaded || agrees(after, NOUN_KIND[key(noun)] || '')) && !SER.has(key(tokens[index - 1] || ''))) {
+      explanations[index] = shaded ? `${quote(after)} comes after ${quote(noun)}. ${shadedNote(after)}` : `${quote(after)} comes after ${quote(noun)} in Spanish and matches it.`;
       relations.push({ start: index - 1, end: index + 1, explanation: `The color or size comes after the noun: ${quote(`${noun} ${after}`)}.` });
-      index += 1;
-      text += ` ${after}`;
+      index += 1 + shaded;
+      text += ` ${tokens.slice(index - 1 - shaded, index).join(' ')}`;
     }
     if (key(noun) === 'parada' && key(tokens[index] || '') === 'de' && key(tokens[index + 1] || '') === 'autobús') {
       explanations[index] = '“de” follows “parada”: “parada de autobús” is one name, a bus stop.';
@@ -671,12 +756,23 @@ function teachClause(text: string): ClausePlan {
       return tokens[at] || '';
     }
     if (NOUN_KIND[first]?.endsWith('plural')) {
-      explanations[at] = `${quote(tokens[at] || '')} is plural and means some in general, so it needs no article.`;
+      explanations[at] = `${quote(tokens[at] || '')} is plural and means some in general, so it needs no article.${pluralNote(tokens[at] || '')}`;
       index += 1;
       return tokens[at] || '';
     }
     const phrase = possessivePhrase() || nounPhrase();
-    return phrase ? phrase.text : '';
+    if (phrase) return phrase.text;
+    const color = tokens[at + 1] || '';
+    if (['el', 'la', 'los', 'las'].includes(first) && COLORS.has(key(color)) && agrees(color, ARTICLE_KIND[first])) {
+      // Quiero los rojos: with the noun left out, article + color is “the red ones”.
+      const kind = ARTICLE_KIND[first];
+      const ones = kind.endsWith('plural') ? 'ones' : 'one';
+      explanations[at] = `${quote(tokens[at] || '')} matches the ${kind} ${ones === 'ones' ? 'things' : 'thing'} you mean, with no noun: ${quote(`${first} ${key(color)}`)} is “the ${colorEnglish(color)} ${ones}”.`;
+      explanations[at + 1] = `${quote(color)} comes right after ${quote(tokens[at] || '')} and matches it, as if the noun were there.`;
+      index = at + 2;
+      return tokens.slice(at, index).join(' ');
+    }
+    return '';
   };
   const items = () => {
     // One thing, or two joined by y: café y huevos, una papa y un tomate.
@@ -896,7 +992,10 @@ function teachClause(text: string): ClausePlan {
     explanations[0] = '“Dónde” (where) starts the question.';
     explanations[1] = `${quote(tokens[1] || '')} comes right after “Dónde”: in the question the verb comes before who it is about.`;
     index = 2;
-    if (!(possessivePhrase() || nounPhrase())) return { explanations, relations, supported: false };
+    if (NAME_KIND[lower[2] || '']) {
+      explanations[2] = `${quote(tokens[2] || '')} comes last: it is who you ask about.`;
+      index = 3;
+    } else if (!(possessivePhrase() || nounPhrase())) return { explanations, relations, supported: false };
     relations.push({ start: 0, end: index, explanation: `Spanish asks ${quote(tokens.join(' '))}: where, the verb, then who.` });
     return doneHere();
   }
@@ -1035,6 +1134,21 @@ function teachClause(text: string): ClausePlan {
       return doneHere();
     }
   }
+  if (lower[0] === 'no' && NEGATIVE_COMMANDS[lower[1] || '']) {
+    // No comas en el salón. No uses tu teléfono.
+    const [english, plain] = NEGATIVE_COMMANDS[lower[1] || ''];
+    explanations[0] = '“No” comes first: a “don’t” command starts with “no”.';
+    explanations[1] = `${quote(tokens[1] || '')} (${english}) comes right after “No”: a “don’t” command uses this form, not “${plain}”.`;
+    relations.push({ start: 0, end: 2, explanation: `${quote(`No ${tokens[1]}`)} is “Don’t ${english}”.` });
+    index = 2;
+    const start = index;
+    if (index < tokens.length && !['en', 'con', 'sobre', 'debajo', 'al'].includes(lower[index] || '')) {
+      if (!(possessivePhrase() || nounPhrase())) return { explanations, relations, supported: false };
+      relations.push({ start, end: index, explanation: `What comes right after the verb: ${quote(tokens.slice(start, index).join(' '))}.` });
+    }
+    if (!adjuncts()) return { explanations, relations, supported: false };
+    return doneHere();
+  }
   if (COMMANDS[lower[0]] && !(lower[0] === 'sigue' && lower[1] === 'derecho' && tokens.length === 2)) {
     // Dobla a la derecha en la esquina. Cruza la calle. Para en el cine. Pasa el banco. Toma el autobús azul.
     explanations[0] = `${quote(tokens[0] || '')} (${COMMANDS[lower[0]]}) tells someone (tú) what to do, so it comes first.`;
@@ -1081,12 +1195,37 @@ function teachClause(text: string): ClausePlan {
     index = 2;
     const who = lower[2] || '';
     if (who) {
-      const fits = lower[1] === 'va' ? (who === 'él' || who === 'ella') : lower[1] === 'van' ? (who === 'ellos' || who === 'ellas') : false;
+      const fits = lower[1] === 'va' ? (who === 'él' || who === 'ella' || Boolean(NAME_KIND[who])) : lower[1] === 'van' ? (who === 'ellos' || who === 'ellas') : false;
       if (!fits) return { explanations, relations, supported: false };
       explanations[2] = `${quote(tokens[2] || '')} comes last in the question.`;
       index = 3;
     }
     relations.push({ start: 0, end: 2, explanation: `${quote(`Adónde ${tokens[1]}`)}: the question word, then ir.` });
+    return doneHere();
+  }
+  if (lower[0] === 'pero' && DEMONSTRATIVE_KIND[lower[1] || ''] && lower[2] === 'no' && tokens.length === 3) {
+    // …, pero esa no: “but that one isn’t”; Spanish does not repeat the verb.
+    explanations[0] = '“pero” (but) starts the second part, after the comma.';
+    explanations[1] = `${quote(tokens[1] || '')} (${lower[1].startsWith('est') ? 'this one' : 'that one'}) comes right after “pero”.`;
+    explanations[2] = `“no” ends it: ${quote(`pero ${tokens[1]} no`)} is “but ${lower[1].startsWith('est') ? 'this one' : 'that one'} isn’t”, with no verb.`;
+    relations.push({ start: 0, end: 3, explanation: `${quote(`pero ${tokens[1]} no`)}: Spanish leaves out the verb it already said.` });
+    return { explanations, relations, supported: true };
+  }
+  if (lower[0] === 'cómo' && (lower[1] === 'vas' || lower[1] === 'va')) {
+    // ¿Cómo vas a la alberca? ¿Cómo va Diego a la oficina? How, the verb, who, then where to.
+    explanations[0] = '“Cómo” (how) starts the question.';
+    explanations[1] = `${quote(tokens[1] || '')} (${lower[1] === 'vas' ? 'you go' : 'he or she goes'}) comes right after “Cómo”.`;
+    index = 2;
+    if (lower[1] === 'va') {
+      const who = lower[2] || '';
+      if (!(PRONOUNS.has(who) && !PLURAL_PRONOUNS.has(who)) && !NAME_KIND[who]) return { explanations, relations, supported: false };
+      explanations[2] = `${quote(tokens[2] || '')} comes right after ${quote(tokens[1] || '')}: in the question the verb comes before who it is about.`;
+      index = 3;
+    }
+    const start = index;
+    if (!['a', 'al'].includes(lower[index] || '') || !objectPhrase()) return { explanations, relations, supported: false };
+    relations.push({ start: 0, end: start, explanation: `${quote(tokens.slice(0, start).join(' '))}: how, then the verb, then who.` });
+    relations.push({ start, end: index, explanation: `Where to comes last: ${quote(tokens.slice(start, index).join(' '))}.` });
     return doneHere();
   }
   if (lower[0] === 'cómo' && lower[1] === 'llego') {
@@ -1183,16 +1322,28 @@ function teachClause(text: string): ClausePlan {
       index += 3;
       return done();
     }
-    if (owned && SER.has(key(tokens[index] || '')) && agrees(tokens[index + 1] || '', owned.kind)) {
-      // Mi camisa es roja. Mis calcetines son blancos.
+    if (owned && /\bcolor\b/i.test(owned.text) && key(tokens[index] || '') === 'es') {
+      // Mi color favorito es el morado.
+      explanations[index] = `“es” comes right after ${quote(owned.text)}.`;
+      const at = index;
+      index += 1;
+      const color = colorName();
+      if (!color) return { explanations, relations, supported: false };
+      relations.push({ start: at, end: index, explanation: `After “es” comes the color, named with “el”: ${quote(color)}.` });
+      return done();
+    }
+    const shaded = owned && SER.has(key(tokens[index] || '')) ? shadeOf(index + 1, owned.kind) : 0;
+    if (shaded < 0) return { explanations, relations, supported: false };
+    if (owned && SER.has(key(tokens[index] || '')) && (shaded || agrees(tokens[index + 1] || '', owned.kind))) {
+      // Mi camisa es roja. Mis calcetines son blancos. Mi bolsa es azul claro.
       const verb = tokens[index] || '';
       const adjective = tokens[index + 1] || '';
       const many = owned.kind.endsWith('plural');
       if ((key(verb) === 'son') !== many) return { explanations, relations, supported: false };
       explanations[index] = `${quote(verb)} comes right after ${quote(owned.text)}: ${many ? 'more than one thing' : 'one thing'}.`;
-      explanations[index + 1] = `${quote(adjective)} comes after ${quote(verb)}. ${agreementNote(adjective, owned.text, owned.kind)}`;
-      relations.push({ start: index, end: index + 2, explanation: `After ${quote(verb)} comes the color, matching ${quote(owned.text)}: ${quote(adjective)}.` });
-      index += 2;
+      explanations[index + 1] = `${quote(adjective)} comes after ${quote(verb)}. ${shaded ? shadedNote(adjective) : agreementNote(adjective, owned.text, owned.kind)}`;
+      relations.push({ start: index, end: index + 2 + shaded, explanation: `After ${quote(verb)} comes the color, matching ${quote(owned.text)}: ${quote(tokens.slice(index + 1, index + 2 + shaded).join(' '))}.` });
+      index += 2 + shaded;
       return done();
     }
     if (owned && key(tokens[index] || '') === 'es' && NAMES.has(key(tokens[index + 1] || ''))) {
@@ -1243,6 +1394,15 @@ function teachClause(text: string): ClausePlan {
     explanations[1] = `${quote(verb)} comes right after ${quote(pointer)}: ${many ? 'more than one thing' : 'one thing'}.`;
     index = 2;
     let named = '';
+    if (tokens.length === 3 && agrees(tokens[2] || '', kind)) {
+      // Esta es roja: with no noun, esta/esa stands for the thing (this one, that one).
+      const color = tokens[2] || '';
+      explanations[0] = `${quote(pointer)} (${lower[0].startsWith('est') ? 'this one' : 'that one'}) stands for a ${kind} thing, so it comes first.`;
+      explanations[2] = `${quote(color)} comes after ${quote(verb)}. ${agreementNote(color, pointer, kind)}`;
+      relations.push({ start: 0, end: 3, explanation: `${quote(pointer)} + ${quote(verb)} + the color that matches it: ${quote(tokens.join(' '))}.` });
+      index = 3;
+      return done();
+    }
     if (many && NOUN_KIND[lower[2] || ''] === kind) {
       named = tokens[2] || '';
       explanations[2] = `${quote(named)} is a plural, so after “son” it needs no article.`;
@@ -1255,7 +1415,7 @@ function teachClause(text: string): ClausePlan {
     relations.push({ start: 0, end: index, explanation: `${quote(pointer)} matches ${quote(named)}: ${kind}.` });
     return done();
   }
-  if (NUMBER_WORDS.has(lower[0])) {
+  if (NUMBER_WORDS.has(lower[0]) && !(SER.has(lower[2] || '') || ESTAR.has(lower[2] || '') || TENER.has(lower[2] || '') || PRESENT.has(lower[2] || ''))) {
     // Tres libros verdes: the number, the plural noun, then the color that matches it.
     const noun = tokens[1] || '';
     const kind = NOUN_KIND[key(noun)] || '';
@@ -1319,10 +1479,27 @@ function teachClause(text: string): ClausePlan {
     subjectKinds.push(key(subject).startsWith('ella') ? 'feminine' : PRONOUNS.has(key(subject)) ? 'masculine' : 'any');
     explanations[index] = `${quote(subject)} is who the sentence is about, so it comes first.`;
     index += 1;
+  } else if (NUMBER_WORDS.has(key(tokens[index] || '')) && NOUN_KIND[key(tokens[index + 1] || '')]?.endsWith('plural')) {
+    // Tres relojes están en la mesa: the number, then the plural noun, is who the sentence is about.
+    explanations[index] = `${quote(tokens[index] || '')} counts the things, so it comes first.`;
+    explanations[index + 1] = `${quote(tokens[index + 1] || '')} is plural and comes right after the number.${pluralNote(tokens[index + 1] || '')}`;
+    subject = tokens.slice(index, index + 2).join(' ');
+    plural = true;
+    person = '3p';
+    subjectKinds.push(NOUN_KIND[key(tokens[index + 1] || '')]);
+    index += 2;
   } else if (ARTICLE_KIND[key(tokens[index])]) {
     const first = nounPhrase();
     if (!first) return { explanations, relations, supported: false };
     subject = first.text;
+    if (key(tokens[index] || '') === 'de' && (key(tokens[index + 1] || '') === 'él' || key(tokens[index + 1] || '') === 'ella')) {
+      // El color favorito de él: whose comes after the thing, with “de”.
+      const owner = tokens[index + 1] || '';
+      explanations[index] = `“de” (of) comes right after ${quote(first.text)}: Spanish says whose it is after the thing.`;
+      explanations[index + 1] = `${quote(owner)} after “de” means “${key(owner) === 'él' ? 'his' : 'her'}”: ${quote(`${first.text} de ${owner}`)}.`;
+      subject = `${first.text} de ${owner}`;
+      index += 2;
+    }
     plural = first.plural;
     person = plural ? '3p' : '3s';
     subjectKinds.push(first.kind);
@@ -1361,8 +1538,9 @@ function teachClause(text: string): ClausePlan {
     if (subject && verbPerson !== person) return { explanations, relations, supported: false };
     if (!subject) person = verbPerson;
     // Things (Unit 2) are described, people are identified.
-    const thing = !subject || Boolean(UNIT2_NOUNS[key(subject.split(' ').pop() || '')]);
-    const meaning = PRESENT.has(verbKey) ? 'what someone does' : TENER.has(verbKey) ? 'what someone has' : SER.has(verbKey) ? (thing ? 'what something is' : 'who someone is') : 'what someone is doing';
+    const thing = !subject || subject.split(' ').some(part => Boolean(UNIT2_NOUNS[key(part)]));
+    const locating = ESTAR.has(verbKey) && ['en', 'sobre', 'debajo', 'al', 'a', 'cerca', 'lejos', 'enfrente', 'entre', 'cruzando'].includes(key(tokens[index + 1] || ''));
+    const meaning = locating ? (thing ? 'where something is' : 'where someone is') : PRESENT.has(verbKey) ? 'what someone does' : TENER.has(verbKey) ? 'what someone has' : SER.has(verbKey) ? (thing ? 'what something is' : 'who someone is') : 'what someone is doing';
     const notEnglish = NOT_ENGLISH[verbKey] || (PRESENT.has(verbKey) ? (verbPerson === '3s' ? 'does not' : 'do not') : verbPlural ? 'are not' : 'is not');
     if (negation >= 0) {
       explanations[negation] = `“no” goes right before ${quote(verb)}: Spanish says ${quote(`no ${verb}`)} where English says “${notEnglish}”.`;
@@ -1388,8 +1566,34 @@ function teachClause(text: string): ClausePlan {
     index += 1;
     const word = tokens[index] || '';
     if (SER.has(verbKey)) {
-      const named = nounPhrase();
-      let complement = named?.text;
+      const aboutColor = /\bcolor\b/i.test(subject);
+      const named = aboutColor ? null : nounPhrase();
+      let complement = named?.text || (aboutColor ? colorName() : '') || undefined;
+      let compared = false;
+      if (!complement && (key(word) === 'más' || /^(mayor|menor)(es)?$/.test(key(word)))) {
+        // Luis es más alto que Sofía. El abuelo es mayor que el niño.
+        const at = index;
+        const more = key(word) === 'más' ? 1 : 0;
+        const adjective = tokens[at + more] || '';
+        const own = /^(mayor|menor)(es)?$/.test(key(adjective));
+        const oneKind = subjectKinds.length === 1 && subjectKinds[0].includes(' ') ? subjectKinds[0] : '';
+        const fits = ADJECTIVE_KIND[key(adjective)] && (oneKind ? agrees(adjective, oneKind) : ADJECTIVE_KIND[key(adjective)].endsWith(verbPlural ? 'plural' : 'singular'));
+        if (!fits || own === Boolean(more) || key(tokens[at + more + 1] || '') !== 'que') return { explanations, relations, supported: false };
+        if (more) explanations[at] = `“más” (more) goes right before ${quote(adjective)} to compare.`;
+        explanations[at + more] = own
+          ? `${quote(adjective)} comes right after ${quote(verb)} with no “más”: it already means “${key(adjective).startsWith('mayor') ? 'older' : 'younger'}”.`
+          : `${quote(adjective)} comes right after “más”.${oneKind ? ` ${agreementNote(adjective, subject, oneKind)}` : ''}`;
+        explanations[at + more + 1] = `“que” (than) comes after ${quote(tokens.slice(at, at + more + 1).join(' '))}, before who you compare with.`;
+        index = at + more + 2;
+        if (NAME_KIND[key(tokens[index] || '')]) {
+          explanations[index] = `${quote(tokens[index] || '')} comes last, right after “que”.`;
+          index += 1;
+        } else if (!(possessivePhrase() || nounPhrase())) {
+          return { explanations, relations, supported: false };
+        }
+        complement = tokens.slice(at, index).join(' ');
+        compared = true;
+      }
       if (named && key(named.text) === 'el número' && NUMBER_NAMES.has(key(tokens[index] || ''))) {
         explanations[index] = `${quote(tokens[index])} names the number, so it comes right after “el número”.`;
         complement = `${named.text} ${tokens[index]}`;
@@ -1401,11 +1605,13 @@ function teachClause(text: string): ClausePlan {
         const veryIndex = key(tokens[index] || '') === 'muy' ? index : -1;
         if (veryIndex >= 0) index += 1;
         const adjective = tokens[index] || '';
-        if (agrees(adjective, subjectKind)) {
+        const shaded = shadeOf(index, subjectKind);
+        if (shaded < 0) return { explanations, relations, supported: false };
+        if (shaded || agrees(adjective, subjectKind)) {
           if (veryIndex >= 0) explanations[veryIndex] = `“muy” (very) goes right before ${quote(adjective)}.`;
-          explanations[index] = `${quote(adjective)} comes after ${quote(verb)}. ${agreementNote(adjective, subject, subjectKind)}`;
+          explanations[index] = `${quote(adjective)} comes after ${quote(verb)}. ${shaded ? shadedNote(adjective) : agreementNote(adjective, subject, subjectKind)}`;
           complement = adjective;
-          index += 1;
+          index += 1 + shaded;
         } else if (veryIndex >= 0) {
           return { explanations, relations, supported: false };
         }
@@ -1464,11 +1670,15 @@ function teachClause(text: string): ClausePlan {
       if (!complement) complement = possessivePhrase()?.text;
       if (!complement && verbKey === 'son' && NOUN_KIND[key(word)]?.endsWith('plural')) {
         complement = word;
-        explanations[index] = `${quote(word)} is a plural, so after “son” it needs no article.`;
+        explanations[index] = `${quote(word)} is a plural, so after “son” it needs no article.${pluralNote(word)}`;
         index += 1;
       }
       if (!complement) return { explanations, relations, supported: false };
-      relations.push({ start: verbIndex, end: index, explanation: ADJECTIVE_KIND[key(complement)]
+      relations.push({ start: verbIndex, end: index, explanation: compared
+        ? `${quote(verb)} + the comparison: ${quote(complement)}.`
+        : aboutColor
+        ? `After ${quote(verb)} comes the color, named with “el”: ${quote(complement)}.`
+        : ADJECTIVE_KIND[key(complement)]
         ? `After ${quote(verb)} comes the color or size, matching ${quote(subject)}: ${quote(complement)}.`
         : `After ${quote(verb)} comes ${thing ? 'what it is' : 'who they are'}: ${quote(complement)}.` });
     } else if (PRESENT.has(verbKey)) {

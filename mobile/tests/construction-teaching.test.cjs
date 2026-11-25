@@ -215,6 +215,23 @@ test('Spanish course cards explain Spanish order, agreement, es/está and one-or
     'Se llama Pedro.', 'Es una hombre mayor.', 'Mi tíos vive en México.', 'Siempre está corriendo.']) {
     assert.equal(constructionTeachingPlan(card(unsupported)).supported, false, unsupported);
   }
+  // Spanish A1+ Unit 2: ir a/al + place, ¿Cómo vas…?, “this one”, ordinals and floors, favorite colors, -es plurals,
+  // “the red ones”, más … que / mayor que, “don’t” commands, siéntate, and claro/oscuro colors.
+  for (const supported of ['Luis va al gimnasio.', '¿Adónde va Luis?', '¿Cómo va Diego a la oficina?', '¿Cómo vas al gimnasio?',
+    'Ana va a la alberca en bicicleta.', '¿Tienes audífonos?', 'No es un teléfono. Es una cartera.', 'Esta es roja, pero esa no.', 'Esa es azul.',
+    'El gimnasio está en el segundo piso.', 'Es el tercer piso.', 'Vivo en el sexto piso.', '¿Dónde vive Luis?', 'Mi color favorito es el morado.',
+    '¿Cuál es tu color favorito?', 'El color favorito de ella es el morado.', 'Son autobuses.', 'Ellas son mujeres.', 'Tres relojes están en la mesa.',
+    'Quiero los rojos.', 'Ella quiere las verdes.', '¿Cuáles quieres?', 'Quiero el azul.', 'Luis es más alto que Sofía.',
+    'El carro es más pequeño que el autobús.', 'Soy menor que mi hermano.', 'El abuelo es mayor que el niño.', 'No comas en el salón.',
+    'No uses tu teléfono.', 'Siéntate, por favor.', 'Mi bolsa es azul claro.', 'Ana tiene una bolsa azul oscuro.', 'El perro es café oscuro.',
+    'Mi color favorito es el verde oscuro.', 'Las mujeres tienen relojes.']) {
+    assert.equal(constructionTeachingPlan(card(supported)).supported, true, supported);
+  }
+  for (const unsupported of ['Quiero los roja.', 'El gimnasio está en el segunda piso.', 'Es el tercero piso.', 'Luis es más alto de Sofía.',
+    'Luis es más alta que Sofía.', 'Soy más mayor que mi hermano.', 'Este es roja.', 'Mi camisa es roja oscuro.', 'Mi bolsa es azul clara.',
+    'Mi color favorito es la morada.', 'Dos autobús están en la parada.', '¿Cómo vas Luis al gimnasio?', 'Las mujeres tiene relojes.']) {
+    assert.equal(constructionTeachingPlan(card(unsupported)).supported, false, unsupported);
+  }
   const notDoing = choice('Ella no está leyendo.', 'Ella está leyendo.', 'She is not reading.');
   assert.equal(spanishChoiceHint(notDoing, 'wrong'),
     'You heard “Ella no está leyendo”: She is not reading. “no” before the verb means “not”.');
