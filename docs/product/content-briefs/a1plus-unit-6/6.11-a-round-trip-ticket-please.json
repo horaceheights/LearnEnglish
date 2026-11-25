@@ -5,7 +5,7 @@
     "lesson": "6.11",
     "title": "Which Bus Do I Need?"
   },
-  "note": "A1+ Unit 6 Lesson 6.11, built on 2026-11-20 under the A1+ lesson standards approved 2026-10-27 and the user's 2026-11-09 rule that every A1+ lesson follows up the A1 lesson with the same number. The user asked on 2026-11-20 \"Lets work on a1+ Unit 6 same all deal as before none stop all approved\" (A1+ 6.Y follows A1 6.Y, one step each; fifteen lessons; the Units 2-4 deal: straight to Preview in batches, Gemini 2.5 Flash photos and ElevenLabs audio pre-approved, no per-lesson gates, reviewed in Preview). Four new photos (Gemini 2.5 Flash): a one-way ticket (one arrow), a round-trip ticket (a two-way arrow), Sofia at a train ticket window and Diego at a bus ticket window.",
+  "note": "A1+ Unit 6 Lesson 6.11, built on 2026-11-20 under the A1+ lesson standards approved 2026-10-27 and the user's 2026-11-09 rule that every A1+ lesson follows up the A1 lesson with the same number. The user asked on 2026-11-20 \"Lets work on a1+ Unit 6 same all deal as before none stop all approved\" (A1+ 6.Y follows A1 6.Y, one step each; fifteen lessons; the Units 2-4 deal: straight to Preview in batches, Gemini 2.5 Flash photos and ElevenLabs audio pre-approved, no per-lesson gates, reviewed in Preview). Four new photos (Gemini 2.5 Flash): a one-way ticket (one arrow), a round-trip ticket (a two-way arrow), Sofia at a train ticket window and Diego at a bus ticket window. Review fix 2026-11-23 (user: \"Fix both\"): more expensive is a heard Listen line.",
   "target": "backend/lessons/a1_plus/unit_6/a1plus-unit-6-lesson-6-11.yaml",
   "captions": false,
   "narrators": [
@@ -62,7 +62,7 @@
     "grammar_function": "A follow-up of A1 6.11 Which Bus Do I Need?: A1 asks Can I have a ticket, please?; A1+ 6.11 chooses the kind of ticket. The new items are one-way and round-trip before ticket (A round-trip ticket, please.), the clerk's question One-way or round-trip? with its short answers, and A1 5's How much is …? for the fare with a price up to twenty (It's ten dollars.). The two ticket photos show the kind of ticket with an arrow: one arrow for one way, an arrow at both ends for there and back. A photo of a purchase cannot show the kind of ticket, so Sofia's and Diego's ticket-window photos are only heard with a dialogue, never offered as a choice between one-way and round-trip.",
     "prerequisite": "A1 6.11 Can I have a ticket, please?; A1 5 How much is …? and dollars; A1 6 airport and station.",
     "speaking_outcome": "Say ONE-way and ROUND-trip with the stress on the first part. Do not require native-like speed.",
-    "content_revision": 1,
+    "content_revision": 2,
     "learn_context_groups": [
       {
         "kind": "sequence",
@@ -644,25 +644,6 @@
       "learn": false
     },
     {
-      "id": "u5-more",
-      "text": "A round-trip ticket is more expensive.",
-      "es": "Un boleto redondo es más caro.",
-      "image": "/lesson-assets/a1plus-unit-6-x02-3e2cc6b8357b00f5.webp",
-      "kind": "u5-more",
-      "image_choices": false,
-      "use": false,
-      "accepts": {
-        "subject-variety": "The sentence keeps the person and the place and changes only the reused detail; the photo fits each option and the words decide.",
-        "action-variety": "The sentence keeps the person and the place and changes only the reused detail; the photo fits each option and the words decide.",
-        "conversational-response": "The sentence keeps the person and the place and changes only the reused detail; the photo fits each option and the words decide.",
-        "reading-load": "The sentence keeps the person and the place and changes only the reused detail; the photo fits each option and the words decide."
-      },
-      "prefer": [
-        "A one-way ticket is more expensive."
-      ],
-      "learn": false
-    },
-    {
       "id": "u5-need2",
       "text": "I need to buy a ticket.",
       "es": "Necesito comprar un boleto.",
@@ -743,6 +724,37 @@
       "prefer": [
         "Do you need anything else? Yes, I need a round-trip ticket.",
         "Do you need anything else? Yes, I need a one-way ticket."
+      ],
+      "learn": false
+    },
+    {
+      "id": "u5-more",
+      "text": "Which ticket is more expensive? The round-trip ticket is more expensive.",
+      "es": "¿Qué boleto es más caro? El boleto redondo es más caro.",
+      "image": "/lesson-assets/a1plus-unit-6-x02-3e2cc6b8357b00f5.webp",
+      "kind": "u5-more",
+      "image_choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "Which ticket is more expensive?",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-6-x02-3e2cc6b8357b00f5.webp"
+        },
+        {
+          "text": "The round-trip ticket is more expensive.",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-6-x02-3e2cc6b8357b00f5.webp"
+        }
+      ],
+      "accepts": {
+        "subject-variety": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "action-variety": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "conversational-response": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "reading-load": "Listen keeps the question and changes only the answer; the answer is what was heard."
+      },
+      "prefer": [
+        "Which ticket is more expensive? The one-way ticket is more expensive."
       ],
       "learn": false
     }
@@ -847,13 +859,6 @@
       "image_choices": false
     },
     {
-      "text": "A one-way ticket is more expensive.",
-      "es": "Un boleto sencillo es más caro.",
-      "image": "/lesson-assets/a1plus-unit-6-x02-3e2cc6b8357b00f5.webp",
-      "kind": "u5-more",
-      "image_choices": false
-    },
-    {
       "text": "I need to buy a passport.",
       "es": "Necesito comprar un pasaporte.",
       "image": "/lesson-assets/a1plus-unit-6-x01-396a25f8e16de8e1.webp",
@@ -894,6 +899,13 @@
       "image": "/lesson-assets/a1plus-unit-6-x03-c1b43783df0d91a4.webp",
       "kind": "u5-all",
       "image_choices": false
+    },
+    {
+      "text": "Which ticket is more expensive? The one-way ticket is more expensive.",
+      "es": "¿Qué boleto es más caro? El boleto sencillo es más caro.",
+      "image": "/lesson-assets/a1plus-unit-6-x02-3e2cc6b8357b00f5.webp",
+      "kind": "u5-more",
+      "image_choices": false
     }
   ],
   "layout": {
@@ -919,7 +931,7 @@
       "g-luis",
       "u5-need2",
       "r-one",
-      "u5-more"
+      "t-one"
     ],
     "Listen": [
       "g-diego",
@@ -928,7 +940,7 @@
       "u5-price",
       "g-ana",
       "x-round",
-      "t-round",
+      "u5-more",
       "r-round",
       "u5-all",
       "u4-once"

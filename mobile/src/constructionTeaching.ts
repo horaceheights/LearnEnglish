@@ -73,6 +73,8 @@ for (const noun of words('classroom desk')) NOUNS.add(noun);
 NOUNS.add('neighbor');
 // A1+ Unit 6 (2026-11-20): places, transport, travel things and the hotel (Sofia takes the subway to work.).
 for (const noun of words('bakery bookstore subway motorcycle platform gate passport suitcase backpack reservation elevator tickets')) NOUNS.add(noun);
+// A1+ 6.7 review fix (2026-11-23): Turn right at the crosswalk. / Turn left at the traffic light.
+for (const noun of words('crosswalk light')) NOUNS.add(noun);
 // A1+ 4.15-4.16 (2026-11-21): cups on a table (There are some cups on the table.).
 for (const noun of words('cup cups')) NOUNS.add(noun);
 // A1+ 4.15 (2026-11-23): several keys (There are some keys on the floor.).
@@ -112,6 +114,8 @@ Object.assign(COMPOUND_NOUNS, { 'police station': 'estación de policía', 'gas 
 Object.assign(COMPOUND_NOUNS, { 'hot chocolate': 'chocolate caliente', 'orange juice': 'jugo de naranja' });
 // A1+ 7.3 (2026-11-24): T-shirt is written with a hyphen and read here as its two parts (a blue T-shirt).
 Object.assign(COMPOUND_NOUNS, { 't shirt': 'camiseta' });
+// A1+ 6.7 review fix (2026-11-23): Turn left at the traffic light.
+Object.assign(COMPOUND_NOUNS, { 'traffic light': 'semáforo' });
 const STATES = set('red blue green yellow black white happy sad tired hungry thirsty sunny rainy cold hot windy cloudy mexican spanish american canadian');
 // A1 2.13 (2026-11-15): four more colors, before a noun (a brown dog) and after "is" (It is brown.).
 for (const color of words('brown pink purple gray')) { COLORS.add(color); STATES.add(color); }

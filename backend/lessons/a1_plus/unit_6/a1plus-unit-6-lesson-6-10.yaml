@@ -33,12 +33,19 @@
     "opposite the park",
     "Turn left",
     "Turn right",
-    "at the bakery"
+    "at the bakery",
+    "Excuse me",
+    "Can you help me",
+    "How do I get to",
+    "Sorry, no",
+    "traffic light",
+    "crosswalk",
+    "Yes"
   ],
   "grammar_function": "A follow-up of A1 6.10 Can You Help Me Get There?: A1 asks Can you help me? and How do I get to…?; A1+ 6.10 asks a stranger more politely and checks the distance. The new items are Could you tell me where the … is? (the place before is, as in a statement), Is it far? and its answers No, it's near here. / Yes, it's far. Take a taxi. (far as an adjective after A1 6.6's far from). A1 6's Ana asks the man on the street; 6.6-6.7's corner, park and turn photos show the answers: the man showing Ana a short route on a street map, or a nearby street, for near here, and A1 6's town map, with the airport far across town, for far. The answer No, it's near here. brings back 6.1's near here.",
   "prerequisite": "A1 6.6 far from; A1 6.10 How do I get to…?; A1+ 6.1 places, 6.6 on the corner and opposite, 6.7 Turn left at ….",
   "speaking_outcome": "Say Could you as COOD-juh; keep where the bank is in statement order. Link is it far (iz-it-FAR). Do not require native-like speed.",
-  "content_revision": 1,
+  "content_revision": 2,
   "learn_context_groups": [
     {
       "kind": "exchange",
@@ -549,36 +556,34 @@
     {
       "slide_id": "R10",
       "interaction_type": "i2t3",
-      "prompt": "Could you tell me where the bookstore is?",
+      "prompt": "",
       "stage": "Recognize",
-      "correct_option_id": "turn-left-at-the-bakery-r10",
+      "correct_option_id": "turn-left-at-the-traffic-light-r10",
       "options": [
         {
-          "id": "turn-left-at-the-bakery-r10",
+          "id": "turn-left-at-the-traffic-light-r10",
           "image_url": "",
-          "label": "Turn left at the bakery.",
-          "spanish_translation": "Da vuelta a la izquierda en la panadería."
+          "label": "Turn left at the traffic light.",
+          "spanish_translation": "Da vuelta a la izquierda en el semáforo."
         },
         {
-          "id": "turn-right-at-the-bakery-r10",
+          "id": "turn-right-at-the-traffic-light-r10",
           "image_url": "",
-          "label": "Turn right at the bakery.",
-          "spanish_translation": "Da vuelta a la derecha en la panadería."
+          "label": "Turn right at the traffic light.",
+          "spanish_translation": "Da vuelta a la derecha en el semáforo."
         },
         {
-          "id": "it's-opposite-the-park-r10",
+          "id": "turn-left-at-the-crosswalk-r10",
           "image_url": "",
-          "label": "It's opposite the park.",
-          "spanish_translation": "Está enfrente del parque."
+          "label": "Turn left at the crosswalk.",
+          "spanish_translation": "Da vuelta a la izquierda en el cruce peatonal."
         }
       ],
-      "audio_text": "Could you tell me where the bookstore is?",
-      "answer_audio_text": "Turn left at the bakery.",
-      "prompt_image_url": "/lesson-assets/a1plus-unit-6-k01-1ce0d396b8be11de.webp",
-      "spanish_translation": "¿Me podría decir dónde está la librería?",
-      "answer_audio_speaker": "teacher",
-      "pedagogy_note": "Story beat 10: Turn left at the bakery.",
-      "audio_speaker": "co-teacher",
+      "audio_text": "",
+      "answer_audio_text": "Turn left at the traffic light.",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-6-k05-d1bb05c23de8fa3a.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "pedagogy_note": "Story beat 10: Turn left at the traffic light.",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -609,28 +614,41 @@
     },
     {
       "slide_id": "A2",
-      "interaction_type": "a2i2",
+      "interaction_type": "a2t2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "could-you-tell-me-where-the-bank-is-a2",
+      "correct_option_id": "excuse-me-could-you-tell-me-where-the-bank-is-yes-it's-on-the-corner-a2",
       "options": [
         {
-          "id": "could-you-tell-me-where-the-bank-is-a2",
-          "image_url": "/lesson-assets/a1plus-unit-6-p03-8512e54e83af7341.webp",
-          "label": null
+          "id": "excuse-me-could-you-tell-me-where-the-bank-is-yes-it's-on-the-corner-a2",
+          "image_url": "",
+          "label": "Excuse me. Could you tell me where the bank is? Yes. It's on the corner.",
+          "spanish_translation": "Disculpe. ¿Me podría decir dónde está el banco? Sí. Está en la esquina."
         },
         {
-          "id": "could-you-tell-me-where-the-bakery-is-a2",
-          "image_url": "/lesson-assets/a1plus-unit-6-c01-bed86d009f018e78.webp",
-          "label": null
+          "id": "excuse-me-could-you-tell-me-where-the-bank-is-yes-it's-opposite-the-park-a2",
+          "image_url": "",
+          "label": "Excuse me. Could you tell me where the bank is? Yes. It's opposite the park.",
+          "spanish_translation": "Disculpe. ¿Me podría decir dónde está el banco? Sí. Está enfrente del parque."
         }
       ],
-      "audio_text": "Could you tell me where the bank is?",
+      "audio_text": "Excuse me. Could you tell me where the bank is? Yes. It's on the corner.",
       "answer_audio_text": null,
       "prompt_image_url": "",
+      "audio_turns": [
+        {
+          "text": "Excuse me. Could you tell me where the bank is?",
+          "speaker_role": "co-teacher",
+          "image_url": "/lesson-assets/a1_photo_u6_story_help_second_question_v1.webp"
+        },
+        {
+          "text": "Yes. It's on the corner.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_photo_u6_story_help_second_question_v1.webp"
+        }
+      ],
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 02: Could you tell me where the bank is?",
-      "audio_speaker": "co-teacher",
+      "pedagogy_note": "Story beat 02: Excuse me. Could you tell me where the bank is? Yes. It's on the corner.",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -729,38 +747,38 @@
       "interaction_type": "a2t2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "could-you-tell-me-where-the-bank-is-yes-it's-on-the-corner-a6",
+      "correct_option_id": "can-you-help-me-how-do-i-get-to-the-gas-station-it's-near-here-it's-opposite-the-park-a6",
       "options": [
         {
-          "id": "could-you-tell-me-where-the-bank-is-yes-it's-opposite-the-park-a6",
+          "id": "can-you-help-me-how-do-i-get-to-the-gas-station-it's-near-here-it's-on-the-corner-a6",
           "image_url": "",
-          "label": "Could you tell me where the bank is? Yes. It's opposite the park.",
-          "spanish_translation": "¿Me podría decir dónde está el banco? Sí. Está enfrente del parque."
+          "label": "Can you help me? How do I get to the gas station? It's near here. It's on the corner.",
+          "spanish_translation": "¿Me puede ayudar? ¿Cómo llego a la gasolinera? Está cerca de aquí. Está en la esquina."
         },
         {
-          "id": "could-you-tell-me-where-the-bank-is-yes-it's-on-the-corner-a6",
+          "id": "can-you-help-me-how-do-i-get-to-the-gas-station-it's-near-here-it's-opposite-the-park-a6",
           "image_url": "",
-          "label": "Could you tell me where the bank is? Yes. It's on the corner.",
-          "spanish_translation": "¿Me podría decir dónde está el banco? Sí. Está en la esquina."
+          "label": "Can you help me? How do I get to the gas station? It's near here. It's opposite the park.",
+          "spanish_translation": "¿Me puede ayudar? ¿Cómo llego a la gasolinera? Está cerca de aquí. Está enfrente del parque."
         }
       ],
-      "audio_text": "Could you tell me where the bank is? Yes. It's on the corner.",
+      "audio_text": "Can you help me? How do I get to the gas station? It's near here. It's opposite the park.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "audio_turns": [
         {
-          "text": "Could you tell me where the bank is?",
+          "text": "Can you help me? How do I get to the gas station?",
           "speaker_role": "co-teacher",
-          "image_url": "/lesson-assets/a1_photo_u6_story_help_second_question_v1.webp"
+          "image_url": "/lesson-assets/a1plus-unit-6-c04-a749eb532fa5d942.webp"
         },
         {
-          "text": "Yes. It's on the corner.",
+          "text": "It's near here. It's opposite the park.",
           "speaker_role": "teacher",
-          "image_url": "/lesson-assets/a1_photo_u6_story_help_second_yes_v1.webp"
+          "image_url": "/lesson-assets/a1plus-unit-6-c04-a749eb532fa5d942.webp"
         }
       ],
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 06: Could you tell me where the bank is? Yes. It's on the corner.",
+      "pedagogy_note": "Story beat 06: Can you help me? How do I get to the gas station? It's near here. It's opposite the park.",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -824,38 +842,38 @@
       "interaction_type": "a2t2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "is-it-far-yes-it's-far-a9",
+      "correct_option_id": "is-it-far-no-it's-near-here-turn-left-at-the-bakery-a9",
       "options": [
         {
-          "id": "is-it-far-no-it-isn't-far-a9",
+          "id": "is-it-far-no-it's-near-here-turn-right-at-the-bakery-a9",
           "image_url": "",
-          "label": "Is it far? No, it isn't far.",
-          "spanish_translation": "¿Está lejos? No, no está lejos."
+          "label": "Is it far? No, it's near here. Turn right at the bakery.",
+          "spanish_translation": "¿Está lejos? No, está cerca de aquí. Da vuelta a la derecha en la panadería."
         },
         {
-          "id": "is-it-far-yes-it's-far-a9",
+          "id": "is-it-far-no-it's-near-here-turn-left-at-the-bakery-a9",
           "image_url": "",
-          "label": "Is it far? Yes, it's far.",
-          "spanish_translation": "¿Está lejos? Sí, está lejos."
+          "label": "Is it far? No, it's near here. Turn left at the bakery.",
+          "spanish_translation": "¿Está lejos? No, está cerca de aquí. Da vuelta a la izquierda en la panadería."
         }
       ],
-      "audio_text": "Is it far? Yes, it's far.",
+      "audio_text": "Is it far? No, it's near here. Turn left at the bakery.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "audio_turns": [
         {
           "text": "Is it far?",
-          "speaker_role": "co-teacher",
-          "image_url": "/lesson-assets/a1_photo_u6_story_help_first_question_v1.webp"
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1plus-unit-6-k01-1ce0d396b8be11de.webp"
         },
         {
-          "text": "Yes, it's far.",
-          "speaker_role": "teacher",
-          "image_url": "/lesson-assets/a1_photo_u6_story_neighborhood_wide_v1.webp"
+          "text": "No, it's near here. Turn left at the bakery.",
+          "speaker_role": "co-teacher",
+          "image_url": "/lesson-assets/a1plus-unit-6-k01-1ce0d396b8be11de.webp"
         }
       ],
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 09: Is it far? Yes, it's far.",
+      "pedagogy_note": "Story beat 09: Is it far? No, it's near here. Turn left at the bakery.",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -863,33 +881,44 @@
       "interaction_type": "a2t3",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "it's-on-the-corner-a10",
+      "correct_option_id": "could-you-tell-me-where-the-bookstore-is-yes-turn-right-at-the-crosswalk-a10",
       "options": [
         {
-          "id": "it's-opposite-the-park-a10",
+          "id": "could-you-tell-me-where-the-bookstore-is-yes-turn-left-at-the-traffic-light-a10",
           "image_url": "",
-          "label": "It's opposite the park.",
-          "spanish_translation": "Está enfrente del parque."
+          "label": "Could you tell me where the bookstore is? Yes. Turn left at the traffic light.",
+          "spanish_translation": "¿Me podría decir dónde está la librería? Sí. Da vuelta a la izquierda en el semáforo."
         },
         {
-          "id": "turn-left-at-the-bakery-a10",
+          "id": "could-you-tell-me-where-the-bookstore-is-yes-turn-left-at-the-crosswalk-a10",
           "image_url": "",
-          "label": "Turn left at the bakery.",
-          "spanish_translation": "Da vuelta a la izquierda en la panadería."
+          "label": "Could you tell me where the bookstore is? Yes. Turn left at the crosswalk.",
+          "spanish_translation": "¿Me podría decir dónde está la librería? Sí. Da vuelta a la izquierda en el cruce peatonal."
         },
         {
-          "id": "it's-on-the-corner-a10",
+          "id": "could-you-tell-me-where-the-bookstore-is-yes-turn-right-at-the-crosswalk-a10",
           "image_url": "",
-          "label": "It's on the corner.",
-          "spanish_translation": "Está en la esquina."
+          "label": "Could you tell me where the bookstore is? Yes. Turn right at the crosswalk.",
+          "spanish_translation": "¿Me podría decir dónde está la librería? Sí. Da vuelta a la derecha en el cruce peatonal."
         }
       ],
-      "audio_text": "It's on the corner.",
+      "audio_text": "Could you tell me where the bookstore is? Yes. Turn right at the crosswalk.",
       "answer_audio_text": null,
       "prompt_image_url": "",
+      "audio_turns": [
+        {
+          "text": "Could you tell me where the bookstore is?",
+          "speaker_role": "co-teacher",
+          "image_url": "/lesson-assets/a1plus-unit-6-k06-6efb26135abad54a.webp"
+        },
+        {
+          "text": "Yes. Turn right at the crosswalk.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1plus-unit-6-k06-6efb26135abad54a.webp"
+        }
+      ],
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 10: It's on the corner.",
-      "audio_speaker": "teacher",
+      "pedagogy_note": "Story beat 10: Could you tell me where the bookstore is? Yes. Turn right at the crosswalk.",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -939,7 +968,7 @@
       "audio_turns": [
         {
           "text": "Is it far?",
-          "speaker_role": "teacher",
+          "speaker_role": "co-teacher",
           "image_url": "/lesson-assets/a1_photo_u6_story_help_second_question_v1.webp",
           "delivery": "a1-pronunciation-v1"
         }
@@ -1339,7 +1368,9 @@
         "word-5",
         "word-6"
       ],
+      "answer_audio_speaker": "co-teacher",
       "pedagogy_note": "Story beat 06: Yes, it's far. Take a taxi.",
+      "audio_speaker": "co-teacher",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -1381,9 +1412,7 @@
         "word-3",
         "word-4"
       ],
-      "answer_audio_speaker": "co-teacher",
       "pedagogy_note": "Story beat 07: The airport is far.",
-      "audio_speaker": "co-teacher",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -1431,7 +1460,9 @@
         "word-4",
         "word-5"
       ],
+      "answer_audio_speaker": "co-teacher",
       "pedagogy_note": "Story beat 08: The bank is near here.",
+      "audio_speaker": "co-teacher",
       "answer_audio_policy": "authored-only"
     }
   ]

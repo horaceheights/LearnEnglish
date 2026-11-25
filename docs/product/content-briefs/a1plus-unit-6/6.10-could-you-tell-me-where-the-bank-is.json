@@ -5,7 +5,7 @@
     "lesson": "6.10",
     "title": "Can You Help Me Get There?"
   },
-  "note": "A1+ Unit 6 Lesson 6.10, built on 2026-11-20 under the A1+ lesson standards approved 2026-10-27 and the user's 2026-11-09 rule that every A1+ lesson follows up the A1 lesson with the same number. The user asked on 2026-11-20 \"Lets work on a1+ Unit 6 same all deal as before none stop all approved\" (A1+ 6.Y follows A1 6.Y, one step each; fifteen lessons; the Units 2-4 deal: straight to Preview in batches, Gemini 2.5 Flash photos and ElevenLabs audio pre-approved, no per-lesson gates, reviewed in Preview). No new photos: A1 6's Ana and the man on the street, A1 6's town map, and the A1+ 6.1-6.8 places, corners and route maps.",
+  "note": "A1+ Unit 6 Lesson 6.10, built on 2026-11-20 under the A1+ lesson standards approved 2026-10-27 and the user's 2026-11-09 rule that every A1+ lesson follows up the A1 lesson with the same number. The user asked on 2026-11-20 \"Lets work on a1+ Unit 6 same all deal as before none stop all approved\" (A1+ 6.Y follows A1 6.Y, one step each; fifteen lessons; the Units 2-4 deal: straight to Preview in batches, Gemini 2.5 Flash photos and ElevenLabs audio pre-approved, no per-lesson gates, reviewed in Preview). No new photos: A1 6's Ana and the man on the street, A1 6's town map, and the A1+ 6.1-6.8 places, corners and route maps. Review fix 2026-11-23 (user: \"Fix both\"): A1 6.10's Excuse me, Can you help me? and How do I get to...? return, and 6.7's traffic light and crosswalk are the turning points.",
   "target": "backend/lessons/a1_plus/unit_6/a1plus-unit-6-lesson-6-10.yaml",
   "captions": false,
   "narrators": [
@@ -49,12 +49,19 @@
       "opposite the park",
       "Turn left",
       "Turn right",
-      "at the bakery"
+      "at the bakery",
+      "Excuse me",
+      "Can you help me",
+      "How do I get to",
+      "Sorry, no",
+      "traffic light",
+      "crosswalk",
+      "Yes"
     ],
     "grammar_function": "A follow-up of A1 6.10 Can You Help Me Get There?: A1 asks Can you help me? and How do I get to…?; A1+ 6.10 asks a stranger more politely and checks the distance. The new items are Could you tell me where the … is? (the place before is, as in a statement), Is it far? and its answers No, it's near here. / Yes, it's far. Take a taxi. (far as an adjective after A1 6.6's far from). A1 6's Ana asks the man on the street; 6.6-6.7's corner, park and turn photos show the answers: the man showing Ana a short route on a street map, or a nearby street, for near here, and A1 6's town map, with the airport far across town, for far. The answer No, it's near here. brings back 6.1's near here.",
     "prerequisite": "A1 6.6 far from; A1 6.10 How do I get to…?; A1+ 6.1 places, 6.6 on the corner and opposite, 6.7 Turn left at ….",
     "speaking_outcome": "Say Could you as COOD-juh; keep where the bank is in statement order. Link is it far (iz-it-FAR). Do not require native-like speed.",
-    "content_revision": 1,
+    "content_revision": 2,
     "learn_context_groups": [
       {
         "kind": "exchange",
@@ -655,7 +662,8 @@
       "choices": false,
       "use": true,
       "blanks": null,
-      "learn": false
+      "learn": false,
+      "speaker": "co-teacher"
     },
     {
       "id": "u-taxi",
@@ -666,6 +674,151 @@
       "choices": false,
       "use": true,
       "blanks": null,
+      "learn": false
+    },
+    {
+      "id": "a1-excuse",
+      "text": "Excuse me. Could you tell me where the bank is? Yes. It's on the corner.",
+      "es": "Disculpe. ¿Me podría decir dónde está el banco? Sí. Está en la esquina.",
+      "image": "/lesson-assets/a1_photo_u6_story_help_second_question_v1.webp",
+      "kind": "a1-excuse",
+      "image_choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "Excuse me. Could you tell me where the bank is?",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1_photo_u6_story_help_second_question_v1.webp"
+        },
+        {
+          "text": "Yes. It's on the corner.",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1_photo_u6_story_help_second_question_v1.webp"
+        }
+      ],
+      "accepts": {
+        "subject-variety": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "action-variety": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "conversational-response": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "reading-load": "Listen keeps the question and changes only the answer; the answer is what was heard."
+      },
+      "prefer": [
+        "Excuse me. Could you tell me where the bank is? Yes. It's opposite the park."
+      ],
+      "learn": false
+    },
+    {
+      "id": "a1-help",
+      "text": "Can you help me? How do I get to the gas station? It's near here. It's opposite the park.",
+      "es": "¿Me puede ayudar? ¿Cómo llego a la gasolinera? Está cerca de aquí. Está enfrente del parque.",
+      "image": "/lesson-assets/a1plus-unit-6-c04-a749eb532fa5d942.webp",
+      "kind": "a1-help",
+      "image_choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "Can you help me? How do I get to the gas station?",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-6-c04-a749eb532fa5d942.webp"
+        },
+        {
+          "text": "It's near here. It's opposite the park.",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-6-c04-a749eb532fa5d942.webp"
+        }
+      ],
+      "accepts": {
+        "subject-variety": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "action-variety": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "conversational-response": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "reading-load": "Listen keeps the question and changes only the answer; the answer is what was heard."
+      },
+      "prefer": [
+        "Can you help me? How do I get to the gas station? It's near here. It's on the corner."
+      ],
+      "learn": false
+    },
+    {
+      "id": "a1-tl",
+      "text": "Turn left at the traffic light.",
+      "es": "Da vuelta a la izquierda en el semáforo.",
+      "image": "/lesson-assets/a1plus-unit-6-k05-d1bb05c23de8fa3a.webp",
+      "kind": "a1-tl",
+      "image_choices": false,
+      "use": false,
+      "accepts": {
+        "subject-variety": "The sentence keeps the person or the thing and changes only one detail; the photo shows which is true.",
+        "action-variety": "The sentence keeps the person or the thing and changes only one detail; the photo shows which is true.",
+        "conversational-response": "The sentence keeps the person or the thing and changes only one detail; the photo shows which is true.",
+        "reading-load": "The sentence keeps the person or the thing and changes only one detail; the photo shows which is true."
+      },
+      "prefer": [
+        "Turn right at the traffic light.",
+        "Turn left at the crosswalk."
+      ],
+      "learn": false
+    },
+    {
+      "id": "a1-cw",
+      "text": "Could you tell me where the bookstore is? Yes. Turn right at the crosswalk.",
+      "es": "¿Me podría decir dónde está la librería? Sí. Da vuelta a la derecha en el cruce peatonal.",
+      "image": "/lesson-assets/a1plus-unit-6-k06-6efb26135abad54a.webp",
+      "kind": "a1-cw",
+      "image_choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "Could you tell me where the bookstore is?",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-6-k06-6efb26135abad54a.webp"
+        },
+        {
+          "text": "Yes. Turn right at the crosswalk.",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-6-k06-6efb26135abad54a.webp"
+        }
+      ],
+      "accepts": {
+        "subject-variety": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "action-variety": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "conversational-response": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "reading-load": "Listen keeps the question and changes only the answer; the answer is what was heard."
+      },
+      "prefer": [
+        "Could you tell me where the bookstore is? Yes. Turn left at the traffic light.",
+        "Could you tell me where the bookstore is? Yes. Turn left at the crosswalk."
+      ],
+      "learn": false
+    },
+    {
+      "id": "a1-bak",
+      "text": "Is it far? No, it's near here. Turn left at the bakery.",
+      "es": "¿Está lejos? No, está cerca de aquí. Da vuelta a la izquierda en la panadería.",
+      "image": "/lesson-assets/a1plus-unit-6-k01-1ce0d396b8be11de.webp",
+      "kind": "a1-bak",
+      "image_choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "Is it far?",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-6-k01-1ce0d396b8be11de.webp"
+        },
+        {
+          "text": "No, it's near here. Turn left at the bakery.",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-6-k01-1ce0d396b8be11de.webp"
+        }
+      ],
+      "accepts": {
+        "subject-variety": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "action-variety": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "conversational-response": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "reading-load": "Listen keeps the question and changes only the answer; the answer is what was heard."
+      },
+      "prefer": [
+        "Is it far? No, it's near here. Turn right at the bakery."
+      ],
       "learn": false
     }
   ],
@@ -767,6 +920,55 @@
       "image": "/lesson-assets/a1_photo_u6_story_help_second_yes_v1.webp",
       "kind": "xc",
       "image_choices": false
+    },
+    {
+      "text": "Excuse me. Could you tell me where the bank is? Yes. It's opposite the park.",
+      "es": "Disculpe. ¿Me podría decir dónde está el banco? Sí. Está enfrente del parque.",
+      "image": "/lesson-assets/a1_photo_u6_story_help_second_question_v1.webp",
+      "kind": "a1-excuse",
+      "image_choices": false
+    },
+    {
+      "text": "Can you help me? How do I get to the gas station? It's near here. It's on the corner.",
+      "es": "¿Me puede ayudar? ¿Cómo llego a la gasolinera? Está cerca de aquí. Está en la esquina.",
+      "image": "/lesson-assets/a1plus-unit-6-c04-a749eb532fa5d942.webp",
+      "kind": "a1-help",
+      "image_choices": false
+    },
+    {
+      "text": "Turn right at the traffic light.",
+      "es": "Da vuelta a la derecha en el semáforo.",
+      "image": "/lesson-assets/a1plus-unit-6-k05-d1bb05c23de8fa3a.webp",
+      "kind": "a1-tl",
+      "image_choices": false
+    },
+    {
+      "text": "Turn left at the crosswalk.",
+      "es": "Da vuelta a la izquierda en el cruce peatonal.",
+      "image": "/lesson-assets/a1plus-unit-6-k05-d1bb05c23de8fa3a.webp",
+      "kind": "a1-tl",
+      "image_choices": false
+    },
+    {
+      "text": "Could you tell me where the bookstore is? Yes. Turn left at the traffic light.",
+      "es": "¿Me podría decir dónde está la librería? Sí. Da vuelta a la izquierda en el semáforo.",
+      "image": "/lesson-assets/a1plus-unit-6-k06-6efb26135abad54a.webp",
+      "kind": "a1-cw",
+      "image_choices": false
+    },
+    {
+      "text": "Is it far? No, it's near here. Turn right at the bakery.",
+      "es": "¿Está lejos? No, está cerca de aquí. Da vuelta a la derecha en la panadería.",
+      "image": "/lesson-assets/a1plus-unit-6-k01-1ce0d396b8be11de.webp",
+      "kind": "a1-bak",
+      "image_choices": false
+    },
+    {
+      "text": "Could you tell me where the bookstore is? Yes. Turn left at the crosswalk.",
+      "es": "¿Me podría decir dónde está la librería? Sí. Da vuelta a la izquierda en el cruce peatonal.",
+      "image": "/lesson-assets/a1plus-unit-6-k06-6efb26135abad54a.webp",
+      "kind": "a1-cw",
+      "image_choices": false
     }
   ],
   "layout": {
@@ -792,19 +994,19 @@
       "f-far",
       "w-police",
       "q-gas",
-      "w-books"
+      "a1-tl"
     ],
     "Listen": [
       "q-bakery",
-      "q-bank",
+      "a1-excuse",
       "x-far",
       "q-police",
       "q-gas",
-      "x-could",
+      "a1-help",
       "r-far",
       "r-walk1",
-      "x-far2",
-      "w-bakery"
+      "a1-bak",
+      "a1-cw"
     ],
     "Speak": [
       "u-could",

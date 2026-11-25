@@ -5,7 +5,7 @@
     "lesson": "6.4",
     "title": "More Places to Visit"
   },
-  "note": "A1+ Unit 6 Lesson 6.4, built on 2026-11-20 under the A1+ lesson standards approved 2026-10-27 and the user's 2026-11-09 rule that every A1+ lesson follows up the A1 lesson with the same number. The user asked on 2026-11-20 \"Lets work on a1+ Unit 6 same all deal as before none stop all approved\" (A1+ 6.Y follows A1 6.Y, one step each; fifteen lessons; the Units 2-4 deal: straight to Preview in batches, Gemini 2.5 Flash photos and ElevenLabs audio pre-approved, no per-lesson gates, reviewed in Preview). Four new photos (Gemini 2.5 Flash) plus one remake: Ana with her suitcase under a big 4 on a train platform, a plain green train under a big 7, Luis at airport gate 12 and an empty gate 9. The first platform-7 photo (a train nose with the digits 720) was rejected.",
+  "note": "A1+ Unit 6 Lesson 6.4, built on 2026-11-20 under the A1+ lesson standards approved 2026-10-27 and the user's 2026-11-09 rule that every A1+ lesson follows up the A1 lesson with the same number. The user asked on 2026-11-20 \"Lets work on a1+ Unit 6 same all deal as before none stop all approved\" (A1+ 6.Y follows A1 6.Y, one step each; fifteen lessons; the Units 2-4 deal: straight to Preview in batches, Gemini 2.5 Flash photos and ElevenLabs audio pre-approved, no per-lesson gates, reviewed in Preview). Four new photos (Gemini 2.5 Flash) plus one remake: Ana with her suitcase under a big 4 on a train platform, a plain green train under a big 7, Luis at airport gate 12 and an empty gate 9. The first platform-7 photo (a train nose with the digits 720) was rejected. Review fix 2026-11-23 (user: \"Fix both\"): A1 6.4's airport, bus stop and hotel return on Luis's gate photo.",
   "target": "backend/lessons/a1_plus/unit_6/a1plus-unit-6-lesson-6-4.yaml",
   "captions": false,
   "narrators": [
@@ -46,12 +46,16 @@
       "Ana",
       "Luis",
       "is on",
-      "is at"
+      "is at",
+      "airport",
+      "bus stop",
+      "hotel",
+      "he's"
     ],
     "grammar_function": "A follow-up of A1 6.4 More Places to Visit: A1 adds the airport and travel points; A1+ 6.4 finds the platform or gate. The new items are platform and gate with a number (platform four, gate twelve), leaves from after A1 6.12's leaves (The train leaves from platform four.) and the question Which platform is it? / Which gate is it?. Every photo has one big sign with one number and no other digit; platform seven and gate twelve keep their sign outside the centered 4:5 crop, so they are never in a four-picture card.",
     "prerequisite": "A1 6.2 train and airplane; A1 6.4 airport; A1 6.12 leaves; A1 numbers to twenty.",
     "speaking_outcome": "Stress PLAT-form; link leaves from (LEEVZ-from). Do not require native-like speed.",
-    "content_revision": 1,
+    "content_revision": 2,
     "learn_context_groups": [
       {
         "kind": "sequence",
@@ -512,6 +516,57 @@
         "When is the train? It leaves at half past ten."
       ],
       "learn": false
+    },
+    {
+      "id": "a1-airport",
+      "text": "Luis is at the airport.",
+      "es": "Luis está en el aeropuerto.",
+      "image": "/lesson-assets/a1plus-unit-6-g03-de90fc3156e87869.webp",
+      "kind": "a1-airport",
+      "image_choices": false,
+      "use": false,
+      "accepts": {
+        "subject-variety": "The sentence keeps the person or the thing and changes only one detail; the photo shows which is true.",
+        "action-variety": "The sentence keeps the person or the thing and changes only one detail; the photo shows which is true.",
+        "conversational-response": "The sentence keeps the person or the thing and changes only one detail; the photo shows which is true.",
+        "reading-load": "The sentence keeps the person or the thing and changes only one detail; the photo shows which is true."
+      },
+      "prefer": [
+        "Luis is at the bus stop.",
+        "Luis is at the hotel."
+      ],
+      "learn": false
+    },
+    {
+      "id": "a1-busstop",
+      "text": "Is Luis at the bus stop? No, he's at the airport, at gate twelve.",
+      "es": "¿Luis está en la parada de autobús? No, está en el aeropuerto, en la puerta doce.",
+      "image": "/lesson-assets/a1plus-unit-6-g03-de90fc3156e87869.webp",
+      "kind": "a1-busstop",
+      "image_choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "Is Luis at the bus stop?",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-6-g03-de90fc3156e87869.webp"
+        },
+        {
+          "text": "No, he's at the airport, at gate twelve.",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-6-g03-de90fc3156e87869.webp"
+        }
+      ],
+      "accepts": {
+        "subject-variety": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "action-variety": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "conversational-response": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "reading-load": "Listen keeps the question and changes only the answer; the answer is what was heard."
+      },
+      "prefer": [
+        "Is Luis at the bus stop? Yes, he's at the bus stop."
+      ],
+      "learn": false
     }
   ],
   "pool": [
@@ -654,6 +709,27 @@
       "image": "/lesson-assets/a1plus-unit-6-g01-431d69f6535fe414.webp",
       "kind": "u4-when",
       "image_choices": false
+    },
+    {
+      "text": "Luis is at the bus stop.",
+      "es": "Luis está en la parada de autobús.",
+      "image": "/lesson-assets/a1plus-unit-6-g03-de90fc3156e87869.webp",
+      "kind": "a1-airport",
+      "image_choices": false
+    },
+    {
+      "text": "Luis is at the hotel.",
+      "es": "Luis está en el hotel.",
+      "image": "/lesson-assets/a1plus-unit-6-g03-de90fc3156e87869.webp",
+      "kind": "a1-airport",
+      "image_choices": false
+    },
+    {
+      "text": "Is Luis at the bus stop? Yes, he's at the bus stop.",
+      "es": "¿Luis está en la parada de autobús? Sí, está en la parada de autobús.",
+      "image": "/lesson-assets/a1plus-unit-6-g03-de90fc3156e87869.webp",
+      "kind": "a1-busstop",
+      "image_choices": false
     }
   ],
   "layout": {
@@ -679,7 +755,7 @@
       "f-g12",
       "r-p4",
       "a-luis",
-      "r-g9"
+      "a1-airport"
     ],
     "Listen": [
       "f-g12",
@@ -690,7 +766,7 @@
       "a-luis",
       "f-p7",
       "r-g12",
-      "f-g9",
+      "a1-busstop",
       "u4-when"
     ],
     "Speak": [

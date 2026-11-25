@@ -1,0 +1,62 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "a91fa0c2-1870-4bef-b10b-5967265a2e46",
+  "asset_id": "p06-run",
+  "pack_sha256": "f52ae5e32c2fef77dc6c1b7adc87caa81ac08197db93051151111c47965c5263",
+  "started_at": "2026-11-24T03:05:53.127459+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, menus, screens, cups, clothes or bags.\n\nKeep the people and the thing that carries the meaning inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nIt is clearly daytime with soft natural light.\n\nOnly these two people are in the photo; there is nobody else, even far in the background.\n\nNo shop, car, sign, screen, map, bag or building shows any letters, words, numbers, logos or clocks.\n\nImage 1 shows Luis. Keep the face, hair, skin and build exactly; dress him in his navy crew-neck T-shirt and dark-grey running shorts. Create a new photograph of Luis running side by side with Sofia along a wide path in a green city park with trees. Sofia is a woman with warm brown skin and long curly dark hair tied up in a high bun, in a bright blue T-shirt and black running leggings. Both run toward the camera, smiling, full bodies visible, large in the photo. Nobody else is in the photo.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1plus-unit-1-q01-135c3f8f772bcbe4.webp",
+    "sha256": "135c3f8f772bcbe472b8cec719eb02318a7d52ce1c7152a94c6952aeb78566c2"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "EP8Ea86iM5msz7IPudL5iA4",
+  "usage": {
+    "promptTokenCount": 609,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1899,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 351
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038883",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 609,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 8.6,
+  "output": "output/imagegen/a1plus-unit-6-lesson-v6160/p06-run.png",
+  "sha256": "21e8904870f96438aedada017994a8d5a0056a2cb57f522372a7d85349dc43cd",
+  "byte_count": 1498578,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}

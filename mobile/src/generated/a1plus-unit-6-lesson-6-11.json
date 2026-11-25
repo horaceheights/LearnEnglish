@@ -87,7 +87,7 @@
     "U7",
     "U8"
   ],
-  "content_revision": 1,
+  "content_revision": 2,
   "cards": [
     {
       "slide_id": "L1",
@@ -729,29 +729,35 @@
     },
     {
       "slide_id": "R10",
-      "interaction_type": "i2t2",
+      "interaction_type": "i2t3",
       "prompt": "",
       "stage": "Recognize",
-      "correct_option_id": "a-round-trip-ticket-is-more-expensive-r10",
+      "correct_option_id": "this-is-a-one-way-ticket-r10",
       "options": [
         {
-          "id": "a-round-trip-ticket-is-more-expensive-r10",
+          "id": "this-is-a-one-way-ticket-r10",
           "image_url": "",
-          "label": "A round-trip ticket is more expensive.",
-          "spanish_translation": "Un boleto redondo es m\u00e1s caro."
+          "label": "This is a one-way ticket.",
+          "spanish_translation": "Este es un boleto sencillo."
         },
         {
-          "id": "a-one-way-ticket-is-more-expensive-r10",
+          "id": "this-is-a-round-trip-ticket-r10",
           "image_url": "",
-          "label": "A one-way ticket is more expensive.",
-          "spanish_translation": "Un boleto sencillo es m\u00e1s caro."
+          "label": "This is a round-trip ticket.",
+          "spanish_translation": "Este es un boleto redondo."
+        },
+        {
+          "id": "this-is-a-passport-r10",
+          "image_url": "",
+          "label": "This is a passport.",
+          "spanish_translation": "Este es un pasaporte."
         }
       ],
       "audio_text": "",
-      "answer_audio_text": "A round-trip ticket is more expensive.",
-      "prompt_image_url": "/lesson-assets/a1plus-unit-6-x02-3e2cc6b8357b00f5.webp",
+      "answer_audio_text": "This is a one-way ticket.",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-6-x01-396a25f8e16de8e1.webp",
       "spanish_translation": "Elige la frase correcta.",
-      "pedagogy_note": "Story beat 10: A round-trip ticket is more expensive.",
+      "pedagogy_note": "Story beat 10: This is a one-way ticket.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "answer_audio_policy": "authored-only",
@@ -759,12 +765,12 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "a1plus-unit-6-lesson-6-11-c014-answer-c8a2d669eb8b255b38ef",
+          "id": "a1plus-unit-6-lesson-6-11-c014-answer-7f2b7408d8ded13fbaf6",
           "purpose": "answer",
-          "text": "A round-trip ticket is more expensive.",
+          "text": "This is a one-way ticket.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1plus-unit-6-x02-3e2cc6b8357b00f5.webp",
+          "image_ref": "/lesson-assets/a1plus-unit-6-x01-396a25f8e16de8e1.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1110,48 +1116,66 @@
     },
     {
       "slide_id": "A7",
-      "interaction_type": "a2t3",
+      "interaction_type": "a2t2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "this-is-a-round-trip-ticket-a7",
+      "correct_option_id": "which-ticket-is-more-expensive-the-round-trip-ticket-is-more-expensive-a7",
       "options": [
         {
-          "id": "this-is-a-round-trip-ticket-a7",
+          "id": "which-ticket-is-more-expensive-the-one-way-ticket-is-more-expensive-a7",
           "image_url": "",
-          "label": "This is a round-trip ticket.",
-          "spanish_translation": "Este es un boleto redondo."
+          "label": "Which ticket is more expensive? The one-way ticket is more expensive.",
+          "spanish_translation": "\u00bfQu\u00e9 boleto es m\u00e1s caro? El boleto sencillo es m\u00e1s caro."
         },
         {
-          "id": "this-is-a-one-way-ticket-a7",
+          "id": "which-ticket-is-more-expensive-the-round-trip-ticket-is-more-expensive-a7",
           "image_url": "",
-          "label": "This is a one-way ticket.",
-          "spanish_translation": "Este es un boleto sencillo."
-        },
-        {
-          "id": "this-is-a-passport-a7",
-          "image_url": "",
-          "label": "This is a passport.",
-          "spanish_translation": "Este es un pasaporte."
+          "label": "Which ticket is more expensive? The round-trip ticket is more expensive.",
+          "spanish_translation": "\u00bfQu\u00e9 boleto es m\u00e1s caro? El boleto redondo es m\u00e1s caro."
         }
       ],
-      "audio_text": "This is a round-trip ticket.",
+      "audio_text": "Which ticket is more expensive? The round-trip ticket is more expensive.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 07: This is a round-trip ticket.",
+      "pedagogy_note": "Story beat 07: Which ticket is more expensive? The round-trip ticket is more expensive.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
+      "audio_turns": [
+        {
+          "text": "Which ticket is more expensive?",
+          "speaker_role": "co-teacher",
+          "image_url": "/lesson-assets/a1plus-unit-6-x02-3e2cc6b8357b00f5.webp"
+        },
+        {
+          "text": "The round-trip ticket is more expensive.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1plus-unit-6-x02-3e2cc6b8357b00f5.webp"
+        }
+      ],
       "answer_audio_policy": "authored-only",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "a1plus-unit-6-lesson-6-11-c021-prompt-2cf5cf4eb583dd6aa909",
-          "purpose": "prompt",
-          "text": "This is a round-trip ticket.",
+          "id": "a1plus-unit-6-lesson-6-11-c021-prompt-turn-1-6ba5a3f72f15adbc7b60",
+          "purpose": "prompt-turn-1",
+          "text": "Which ticket is more expensive?",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "text-only:98ea59c4803142a95edf",
+          "image_ref": "/lesson-assets/a1plus-unit-6-x02-3e2cc6b8357b00f5.webp",
+          "semantic_role": "question",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "a1plus-unit-6-lesson-6-11-c021-prompt-turn-2-10de9387fd6db7b0ad62",
+          "purpose": "prompt-turn-2",
+          "text": "The round-trip ticket is more expensive.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1plus-unit-6-x02-3e2cc6b8357b00f5.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1371,7 +1395,7 @@
       "audio_turns": [
         {
           "text": "A one-way ticket, please.",
-          "speaker_role": "co-teacher",
+          "speaker_role": "teacher",
           "image_url": "/lesson-assets/a1plus-unit-6-x01-396a25f8e16de8e1.webp",
           "delivery": "a1-pronunciation-v1"
         }
@@ -1381,14 +1405,14 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "a1plus-unit-6-lesson-6-11-c025-prompt-turn-1-b0a0e0f86f5db4581a4f",
+          "id": "a1plus-unit-6-lesson-6-11-c025-prompt-turn-1-f459144614dfdc6a49ec",
           "purpose": "prompt-turn-1",
           "text": "A one-way ticket, please.",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
           "image_ref": "/lesson-assets/a1plus-unit-6-x01-396a25f8e16de8e1.webp",
           "semantic_role": "teacher",
-          "speaker_role": "co-teacher",
+          "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1,
           "delivery": "a1-pronunciation-v1"
@@ -1418,7 +1442,7 @@
       "audio_turns": [
         {
           "text": "Can I have a round-trip ticket, please?",
-          "speaker_role": "teacher",
+          "speaker_role": "co-teacher",
           "image_url": "/lesson-assets/a1plus-unit-6-x03-c1b43783df0d91a4.webp",
           "delivery": "a1-pronunciation-v1"
         }
@@ -1428,14 +1452,14 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "a1plus-unit-6-lesson-6-11-c026-prompt-turn-1-a806f689fbdba2272479",
+          "id": "a1plus-unit-6-lesson-6-11-c026-prompt-turn-1-f318b45ea296e4f153a3",
           "purpose": "prompt-turn-1",
           "text": "Can I have a round-trip ticket, please?",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
           "image_ref": "/lesson-assets/a1plus-unit-6-x03-c1b43783df0d91a4.webp",
           "semantic_role": "question",
-          "speaker_role": "teacher",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1,
           "delivery": "a1-pronunciation-v1"
@@ -1465,7 +1489,7 @@
       "audio_turns": [
         {
           "text": "How much is a one-way ticket?",
-          "speaker_role": "co-teacher",
+          "speaker_role": "teacher",
           "image_url": "/lesson-assets/a1plus-unit-6-x04-e3b8ba3fa1edcd4f.webp",
           "delivery": "a1-pronunciation-v1"
         }
@@ -1475,14 +1499,14 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "a1plus-unit-6-lesson-6-11-c027-prompt-turn-1-a872084c3936c0ed8f32",
+          "id": "a1plus-unit-6-lesson-6-11-c027-prompt-turn-1-8be4100a6a19508d756e",
           "purpose": "prompt-turn-1",
           "text": "How much is a one-way ticket?",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
           "image_ref": "/lesson-assets/a1plus-unit-6-x04-e3b8ba3fa1edcd4f.webp",
           "semantic_role": "question",
-          "speaker_role": "co-teacher",
+          "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1,
           "delivery": "a1-pronunciation-v1"
@@ -1512,7 +1536,7 @@
       "audio_turns": [
         {
           "text": "Round-trip, please.",
-          "speaker_role": "teacher",
+          "speaker_role": "co-teacher",
           "image_url": "/lesson-assets/a1plus-unit-6-x02-3e2cc6b8357b00f5.webp",
           "delivery": "a1-pronunciation-v1"
         }
@@ -1522,14 +1546,14 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "a1plus-unit-6-lesson-6-11-c028-prompt-turn-1-b76ce37b424e3e2e994d",
+          "id": "a1plus-unit-6-lesson-6-11-c028-prompt-turn-1-492c43d84758640276e9",
           "purpose": "prompt-turn-1",
           "text": "Round-trip, please.",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
           "image_ref": "/lesson-assets/a1plus-unit-6-x02-3e2cc6b8357b00f5.webp",
           "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1,
           "delivery": "a1-pronunciation-v1"
@@ -1606,7 +1630,7 @@
       "audio_turns": [
         {
           "text": "A round-trip ticket to the airport, please.",
-          "speaker_role": "co-teacher",
+          "speaker_role": "teacher",
           "image_url": "/lesson-assets/a1plus-unit-6-x02-3e2cc6b8357b00f5.webp",
           "delivery": "a1-pronunciation-v1"
         }
@@ -1616,14 +1640,14 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "a1plus-unit-6-lesson-6-11-c030-prompt-turn-1-b4c0f23d4876cc892a30",
+          "id": "a1plus-unit-6-lesson-6-11-c030-prompt-turn-1-43577a2a3eb684f7c2a3",
           "purpose": "prompt-turn-1",
           "text": "A round-trip ticket to the airport, please.",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
           "image_ref": "/lesson-assets/a1plus-unit-6-x02-3e2cc6b8357b00f5.webp",
           "semantic_role": "teacher",
-          "speaker_role": "co-teacher",
+          "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1,
           "delivery": "a1-pronunciation-v1"
@@ -1653,7 +1677,7 @@
       "audio_turns": [
         {
           "text": "One-way, please.",
-          "speaker_role": "teacher",
+          "speaker_role": "co-teacher",
           "image_url": "/lesson-assets/a1plus-unit-6-x01-396a25f8e16de8e1.webp",
           "delivery": "a1-pronunciation-v1"
         }
@@ -1663,14 +1687,14 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "a1plus-unit-6-lesson-6-11-c031-prompt-turn-1-5b075cde7e27f07ff082",
+          "id": "a1plus-unit-6-lesson-6-11-c031-prompt-turn-1-ee778cc63636973317c6",
           "purpose": "prompt-turn-1",
           "text": "One-way, please.",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
           "image_ref": "/lesson-assets/a1plus-unit-6-x01-396a25f8e16de8e1.webp",
           "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1,
           "delivery": "a1-pronunciation-v1"
@@ -1700,7 +1724,7 @@
       "audio_turns": [
         {
           "text": "A one-way ticket to the station, please.",
-          "speaker_role": "co-teacher",
+          "speaker_role": "teacher",
           "image_url": "/lesson-assets/a1plus-unit-6-x01-396a25f8e16de8e1.webp",
           "delivery": "a1-pronunciation-v1"
         }
@@ -1710,14 +1734,14 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "a1plus-unit-6-lesson-6-11-c032-prompt-turn-1-ed22fd49495c2f37bd0f",
+          "id": "a1plus-unit-6-lesson-6-11-c032-prompt-turn-1-edd5413fa0205c58b8f3",
           "purpose": "prompt-turn-1",
           "text": "A one-way ticket to the station, please.",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
           "image_ref": "/lesson-assets/a1plus-unit-6-x01-396a25f8e16de8e1.webp",
           "semantic_role": "teacher",
-          "speaker_role": "co-teacher",
+          "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1,
           "delivery": "a1-pronunciation-v1"
@@ -1751,33 +1775,33 @@
       "prompt_image_url": "/lesson-assets/a1plus-unit-6-x01-396a25f8e16de8e1.webp",
       "spanish_translation": "Un boleto sencillo, por favor.",
       "pedagogy_note": "Story beat 01: A one-way ticket, please.",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
+      "audio_speaker": "co-teacher",
+      "answer_audio_speaker": "co-teacher",
       "answer_audio_policy": "authored-only",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "a1plus-unit-6-lesson-6-11-c033-prompt-8f50b4977c868248b56b",
+          "id": "a1plus-unit-6-lesson-6-11-c033-prompt-34697ff268d7a84b370c",
           "purpose": "prompt",
           "text": "A one-way ticket, please.",
           "mode": "prompt",
           "variant": "prompt",
           "image_ref": "/lesson-assets/a1plus-unit-6-x01-396a25f8e16de8e1.webp",
           "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "a1plus-unit-6-lesson-6-11-c033-answer-1c868a4dc4a1d66e6478",
+          "id": "a1plus-unit-6-lesson-6-11-c033-answer-83792b6b23747827165f",
           "purpose": "answer",
           "text": "A one-way ticket, please.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1plus-unit-6-x01-396a25f8e16de8e1.webp",
           "semantic_role": "answer",
-          "speaker_role": "answer",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1810,33 +1834,33 @@
       "prompt_image_url": "/lesson-assets/a1plus-unit-6-x03-c1b43783df0d91a4.webp",
       "spanish_translation": "\u00bfMe da un boleto redondo, por favor?",
       "pedagogy_note": "Story beat 02: Can I have a round-trip ticket, please?",
-      "audio_speaker": "co-teacher",
-      "answer_audio_speaker": "co-teacher",
+      "audio_speaker": null,
+      "answer_audio_speaker": null,
       "answer_audio_policy": "authored-only",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "a1plus-unit-6-lesson-6-11-c034-prompt-6c3c8aba1178f32fb595",
+          "id": "a1plus-unit-6-lesson-6-11-c034-prompt-1b1c7eb2b4c7e2fe74a7",
           "purpose": "prompt",
           "text": "Can I have a round-trip ticket, please?",
           "mode": "prompt",
           "variant": "prompt",
           "image_ref": "/lesson-assets/a1plus-unit-6-x03-c1b43783df0d91a4.webp",
           "semantic_role": "question",
-          "speaker_role": "co-teacher",
+          "speaker_role": "question",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "a1plus-unit-6-lesson-6-11-c034-answer-6b2d7bc45747a10347ae",
+          "id": "a1plus-unit-6-lesson-6-11-c034-answer-5c7511d5d0a075a8afca",
           "purpose": "answer",
           "text": "Can I have a round-trip ticket, please?",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1plus-unit-6-x03-c1b43783df0d91a4.webp",
           "semantic_role": "answer",
-          "speaker_role": "co-teacher",
+          "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1928,33 +1952,33 @@
       "prompt_image_url": "/lesson-assets/a1plus-unit-6-x02-3e2cc6b8357b00f5.webp",
       "spanish_translation": "Un boleto redondo al aeropuerto, por favor.",
       "pedagogy_note": "Story beat 04: A round-trip ticket to the airport, please.",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
+      "audio_speaker": "co-teacher",
+      "answer_audio_speaker": "co-teacher",
       "answer_audio_policy": "authored-only",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "a1plus-unit-6-lesson-6-11-c036-prompt-8b453d4717593e2e152f",
+          "id": "a1plus-unit-6-lesson-6-11-c036-prompt-64aa7ec4475889520431",
           "purpose": "prompt",
           "text": "A round-trip ticket to the airport, please.",
           "mode": "prompt",
           "variant": "prompt",
           "image_ref": "/lesson-assets/a1plus-unit-6-x02-3e2cc6b8357b00f5.webp",
           "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "a1plus-unit-6-lesson-6-11-c036-answer-011e56a78a7ccd11f99e",
+          "id": "a1plus-unit-6-lesson-6-11-c036-answer-618a38b67d33ec9c6a13",
           "purpose": "answer",
           "text": "A round-trip ticket to the airport, please.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1plus-unit-6-x02-3e2cc6b8357b00f5.webp",
           "semantic_role": "answer",
-          "speaker_role": "answer",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1993,33 +2017,33 @@
       "prompt_image_url": "/lesson-assets/a1plus-unit-6-x04-e3b8ba3fa1edcd4f.webp",
       "spanish_translation": "Cuesta diez d\u00f3lares.",
       "pedagogy_note": "Story beat 05: It's ten dollars.",
-      "audio_speaker": "co-teacher",
-      "answer_audio_speaker": "co-teacher",
+      "audio_speaker": null,
+      "answer_audio_speaker": null,
       "answer_audio_policy": "authored-only",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "a1plus-unit-6-lesson-6-11-c037-prompt-1e136e4a36c4c91683e9",
+          "id": "a1plus-unit-6-lesson-6-11-c037-prompt-41d0651e54b389a2489c",
           "purpose": "prompt",
           "text": "It's ten dollars.",
           "mode": "prompt",
           "variant": "prompt",
           "image_ref": "/lesson-assets/a1plus-unit-6-x04-e3b8ba3fa1edcd4f.webp",
           "semantic_role": "teacher",
-          "speaker_role": "co-teacher",
+          "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "a1plus-unit-6-lesson-6-11-c037-answer-6f005ce60e26be9da1e9",
+          "id": "a1plus-unit-6-lesson-6-11-c037-answer-bea8f4a7a68b52ad7de6",
           "purpose": "answer",
           "text": "It's ten dollars.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1plus-unit-6-x04-e3b8ba3fa1edcd4f.webp",
           "semantic_role": "answer",
-          "speaker_role": "co-teacher",
+          "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -2076,33 +2100,33 @@
       "prompt_image_url": "/lesson-assets/a1plus-unit-6-x03-c1b43783df0d91a4.webp",
       "spanish_translation": "\u00bfMe da un boleto, por favor?",
       "pedagogy_note": "Story beat 06: Can I have a ticket, please?",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
+      "audio_speaker": "co-teacher",
+      "answer_audio_speaker": "co-teacher",
       "answer_audio_policy": "authored-only",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "a1plus-unit-6-lesson-6-11-c038-prompt-921f824909dc91681dcc",
+          "id": "a1plus-unit-6-lesson-6-11-c038-prompt-7716c7f3a34cc06e0660",
           "purpose": "prompt",
           "text": "Can I have a ticket, please?",
           "mode": "prompt",
           "variant": "prompt",
           "image_ref": "/lesson-assets/a1plus-unit-6-x03-c1b43783df0d91a4.webp",
           "semantic_role": "question",
-          "speaker_role": "question",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "a1plus-unit-6-lesson-6-11-c038-answer-f8a2f96afd6b6c90a4fd",
+          "id": "a1plus-unit-6-lesson-6-11-c038-answer-a6bb3ae0189aef876501",
           "purpose": "answer",
           "text": "Can I have a ticket, please?",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1plus-unit-6-x03-c1b43783df0d91a4.webp",
           "semantic_role": "answer",
-          "speaker_role": "answer",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -2159,33 +2183,33 @@
       "prompt_image_url": "/lesson-assets/a1plus-unit-6-x03-c1b43783df0d91a4.webp",
       "spanish_translation": "Dos boletos al aeropuerto, por favor.",
       "pedagogy_note": "Story beat 07: Two tickets to the airport, please.",
-      "audio_speaker": "co-teacher",
-      "answer_audio_speaker": "co-teacher",
+      "audio_speaker": null,
+      "answer_audio_speaker": null,
       "answer_audio_policy": "authored-only",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "a1plus-unit-6-lesson-6-11-c039-prompt-26f4bfcd61d876c90560",
+          "id": "a1plus-unit-6-lesson-6-11-c039-prompt-e104e39d6a8e16c72e96",
           "purpose": "prompt",
           "text": "Two tickets to the airport, please.",
           "mode": "prompt",
           "variant": "prompt",
           "image_ref": "/lesson-assets/a1plus-unit-6-x03-c1b43783df0d91a4.webp",
           "semantic_role": "teacher",
-          "speaker_role": "co-teacher",
+          "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "a1plus-unit-6-lesson-6-11-c039-answer-40721baa5c1c1a1fd75b",
+          "id": "a1plus-unit-6-lesson-6-11-c039-answer-40e82e13d3bf74d99328",
           "purpose": "answer",
           "text": "Two tickets to the airport, please.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1plus-unit-6-x03-c1b43783df0d91a4.webp",
           "semantic_role": "answer",
-          "speaker_role": "co-teacher",
+          "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }

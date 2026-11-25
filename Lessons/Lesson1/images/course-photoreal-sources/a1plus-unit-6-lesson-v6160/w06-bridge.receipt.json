@@ -1,0 +1,55 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "b87e65b7-26d2-4ea4-b37f-3f39ae65d594",
+  "asset_id": "w06-bridge",
+  "pack_sha256": "f52ae5e32c2fef77dc6c1b7adc87caa81ac08197db93051151111c47965c5263",
+  "started_at": "2026-11-24T03:06:43.983361+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, menus, screens, cups, clothes or bags.\n\nKeep the people and the thing that carries the meaning inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nIt is clearly daytime with soft natural light.\n\nThere are no people anywhere in the photo.\n\nNo shop, car, sign, screen, map, bag or building shows any letters, words, numbers, logos or clocks.\n\nCreate a photograph of one long old stone bridge with several tall arches that crosses a dry green valley of grass and bushes, seen from the side so the whole bridge fills the photo from left to right. There is NO river, stream, lake, pond or water of any kind anywhere in the photo: under the arches there is only grass. Blue sky above.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "Q_8Ea9P2CsjQz7IPmJDywQo",
+  "usage": {
+    "promptTokenCount": 297,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1587,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 297
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038789",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 297,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 6.4,
+  "output": "output/imagegen/a1plus-unit-6-lesson-v6160/w06-bridge.png",
+  "sha256": "06889209ffa998209d1a4d69ca9e021be1a2d8fc7c0121fe5eec7b2d76b5c197",
+  "byte_count": 1741247,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}

@@ -5,7 +5,7 @@
     "lesson": "6.5",
     "title": "A Trip to the Mall"
   },
-  "note": "A1+ Unit 6 Lesson 6.5, built on 2026-11-20 under the A1+ lesson standards approved 2026-10-27 and the user's 2026-11-09 rule that every A1+ lesson follows up the A1 lesson with the same number. The user asked on 2026-11-20 \"Lets work on a1+ Unit 6 same all deal as before none stop all approved\" (A1+ 6.Y follows A1 6.Y, one step each; fifteen lessons; the Units 2-4 deal: straight to Preview in batches, Gemini 2.5 Flash photos and ElevenLabs audio pre-approved, no per-lesson gates, reviewed in Preview). Four new photos (Gemini 2.5 Flash): a passport on a table, a suitcase by a front door, Diego with a grey backpack, and a grey-haired woman handing Ana her passport at the door. Ana on platform four and Luis at gate twelve (A1+ 6.4) and A1 6.11's ticket are reused.",
+  "note": "A1+ Unit 6 Lesson 6.5, built on 2026-11-20 under the A1+ lesson standards approved 2026-10-27 and the user's 2026-11-09 rule that every A1+ lesson follows up the A1 lesson with the same number. The user asked on 2026-11-20 \"Lets work on a1+ Unit 6 same all deal as before none stop all approved\" (A1+ 6.Y follows A1 6.Y, one step each; fifteen lessons; the Units 2-4 deal: straight to Preview in batches, Gemini 2.5 Flash photos and ElevenLabs audio pre-approved, no per-lesson gates, reviewed in Preview). Four new photos (Gemini 2.5 Flash): a passport on a table, a suitcase by a front door, Diego with a grey backpack, and a grey-haired woman handing Ana her passport at the door. Ana on platform four and Luis at gate twelve (A1+ 6.4) and A1 6.11's ticket are reused. Review fix 2026-11-23 (user: \"Fix both\"): new photos d05 (Luis with his backpack in full view) and d06 (Ana gets on the train with her suitcase); A1 6.5's get on and get in return on d06.",
   "target": "backend/lessons/a1_plus/unit_6/a1plus-unit-6-lesson-6-5.yaml",
   "captions": false,
   "narrators": [
@@ -44,12 +44,23 @@
       "It's",
       "Diego",
       "Ana",
-      "Luis"
+      "Luis",
+      "gets on",
+      "Get on",
+      "gets in",
+      "Get in",
+      "the train",
+      "the taxi",
+      "the bus",
+      "with",
+      "her",
+      "my",
+      "Where's"
     ],
     "grammar_function": "A follow-up of A1 6.5 A Trip to the Mall: A1 goes on a short trip by bus and taxi; A1+ 6.5 gets ready for a longer trip. The new items are passport, suitcase and backpack, the reminder Don't forget your … (2.12's Don't + a verb, now said to help someone) and the reply Here it is. to Where's your …?. The photos show each thing plainly: a passport on a table, a suitcase by the front door, Diego with a backpack, and Ana being handed her passport as she leaves with her suitcase. A1 6.11's ticket comes back.",
     "prerequisite": "A1 6.5 a trip; A1 6.11 ticket; A1+ 2.3 has; A1+ 2.12 Don't …; A1+ 4.1 Where's…?.",
     "speaking_outcome": "Stress PASS-port, SUIT-case, BACK-pack; link forget your (fer-GET-yer). Do not require native-like speed.",
-    "content_revision": 1,
+    "content_revision": 2,
     "learn_context_groups": [
       {
         "kind": "sequence",
@@ -283,7 +294,7 @@
       "id": "h-luis",
       "text": "Luis has a backpack.",
       "es": "Luis tiene una mochila.",
-      "image": "/lesson-assets/a1plus-unit-6-g03-de90fc3156e87869.webp",
+      "image": "/lesson-assets/a1plus-unit-6-d05-3ea59cbc20795ee5.webp",
       "kind": "has",
       "prefer": [
         "Luis has a suitcase.",
@@ -299,7 +310,8 @@
         "has",
         "a"
       ],
-      "learn": false
+      "learn": false,
+      "four_card": false
     },
     {
       "id": "r-passport",
@@ -541,6 +553,57 @@
         "I need to take my backpack."
       ],
       "learn": false
+    },
+    {
+      "id": "a1-geton",
+      "text": "Ana gets on the train with her suitcase.",
+      "es": "Ana se sube al tren con su maleta.",
+      "image": "/lesson-assets/a1plus-unit-6-d06-594cf68d0fceb6a4.webp",
+      "kind": "a1-geton",
+      "image_choices": false,
+      "use": false,
+      "accepts": {
+        "subject-variety": "The sentence keeps the person or the thing and changes only one detail; the photo shows which is true.",
+        "action-variety": "The sentence keeps the person or the thing and changes only one detail; the photo shows which is true.",
+        "conversational-response": "The sentence keeps the person or the thing and changes only one detail; the photo shows which is true.",
+        "reading-load": "The sentence keeps the person or the thing and changes only one detail; the photo shows which is true."
+      },
+      "prefer": [
+        "Ana gets in the taxi with her suitcase.",
+        "Ana gets on the bus with her suitcase."
+      ],
+      "learn": false
+    },
+    {
+      "id": "a1-geton-l",
+      "text": "Get on the train, Ana! Where's my suitcase? Here it is!",
+      "es": "¡Súbete al tren, Ana! ¿Dónde está mi maleta? ¡Aquí está!",
+      "image": "/lesson-assets/a1plus-unit-6-d06-594cf68d0fceb6a4.webp",
+      "kind": "a1-geton-l",
+      "image_choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "Get on the train, Ana!",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-6-d06-594cf68d0fceb6a4.webp"
+        },
+        {
+          "text": "Where's my suitcase? Here it is!",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-6-d06-594cf68d0fceb6a4.webp"
+        }
+      ],
+      "accepts": {
+        "subject-variety": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "action-variety": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "conversational-response": "Listen keeps the question and changes only the answer; the answer is what was heard.",
+        "reading-load": "Listen keeps the question and changes only the answer; the answer is what was heard."
+      },
+      "prefer": [
+        "Get in the taxi, Ana! Where's my suitcase? Here it is!"
+      ],
+      "learn": false
     }
   ],
   "pool": [
@@ -596,14 +659,14 @@
     {
       "text": "Luis has a suitcase.",
       "es": "Luis tiene una maleta.",
-      "image": "/lesson-assets/a1plus-unit-6-g03-de90fc3156e87869.webp",
+      "image": "/lesson-assets/a1plus-unit-6-d05-3ea59cbc20795ee5.webp",
       "kind": "has",
       "image_choices": false
     },
     {
       "text": "Luis has a passport.",
       "es": "Luis tiene un pasaporte.",
-      "image": "/lesson-assets/a1plus-unit-6-g03-de90fc3156e87869.webp",
+      "image": "/lesson-assets/a1plus-unit-6-d05-3ea59cbc20795ee5.webp",
       "kind": "has",
       "image_choices": false
     },
@@ -676,6 +739,27 @@
       "image": "/lesson-assets/a1plus-unit-6-d01-07f1ca7cec27741c.webp",
       "kind": "u5-need",
       "image_choices": false
+    },
+    {
+      "text": "Ana gets in the taxi with her suitcase.",
+      "es": "Ana se sube al taxi con su maleta.",
+      "image": "/lesson-assets/a1plus-unit-6-d06-594cf68d0fceb6a4.webp",
+      "kind": "a1-geton",
+      "image_choices": false
+    },
+    {
+      "text": "Ana gets on the bus with her suitcase.",
+      "es": "Ana se sube al autobús con su maleta.",
+      "image": "/lesson-assets/a1plus-unit-6-d06-594cf68d0fceb6a4.webp",
+      "kind": "a1-geton",
+      "image_choices": false
+    },
+    {
+      "text": "Get in the taxi, Ana! Where's my suitcase? Here it is!",
+      "es": "¡Súbete al taxi, Ana! ¿Dónde está mi maleta? ¡Aquí está!",
+      "image": "/lesson-assets/a1plus-unit-6-d06-594cf68d0fceb6a4.webp",
+      "kind": "a1-geton-l",
+      "image_choices": false
     }
   ],
   "layout": {
@@ -698,8 +782,8 @@
       "r-passport",
       "t-suitcase",
       "w-passport",
+      "a1-geton",
       "h-diego",
-      "t-ticket",
       "u5-need",
       "h-luis",
       "w-suitcase"
@@ -713,7 +797,7 @@
       "h-diego",
       "x-h",
       "r-backpack",
-      "t-ticket",
+      "a1-geton-l",
       "u4-stairs"
     ],
     "Speak": [

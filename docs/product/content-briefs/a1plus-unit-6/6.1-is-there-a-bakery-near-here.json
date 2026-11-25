@@ -5,7 +5,7 @@
     "lesson": "6.1",
     "title": "Places Around Town"
   },
-  "note": "A1+ Unit 6 Lesson 6.1, built on 2026-11-20 under the A1+ lesson standards approved 2026-10-27 and the user's 2026-11-09 rule that every A1+ lesson follows up the A1 lesson with the same number. The user asked on 2026-11-20 \"Lets work on a1+ Unit 6 same all deal as before none stop all approved\" (A1+ 6.Y follows A1 6.Y, one step each; fifteen lessons; the Units 2-4 deal: straight to Preview in batches, Gemini 2.5 Flash photos and ElevenLabs audio pre-approved, no per-lesson gates, reviewed in Preview). Four new photos (Gemini 2.5 Flash): a bakery window full of bread, a bookstore window full of books, a police station with a police car and an officer, and Luis filling his red car at a gas station. A1 6's Ana asking a woman for help and A1 6's shopping street are reused.",
+  "note": "A1+ Unit 6 Lesson 6.1, built on 2026-11-20 under the A1+ lesson standards approved 2026-10-27 and the user's 2026-11-09 rule that every A1+ lesson follows up the A1 lesson with the same number. The user asked on 2026-11-20 \"Lets work on a1+ Unit 6 same all deal as before none stop all approved\" (A1+ 6.Y follows A1 6.Y, one step each; fifteen lessons; the Units 2-4 deal: straight to Preview in batches, Gemini 2.5 Flash photos and ElevenLabs audio pre-approved, no per-lesson gates, reviewed in Preview). Four new photos (Gemini 2.5 Flash): a bakery window full of bread, a bookstore window full of books, a police station with a police car and an officer, and Luis filling his red car at a gas station. A1 6's Ana asking a woman for help and A1 6's shopping street are reused. Review fix 2026-11-23 (user: \"Fix both\"): the there-aren't-any line asks about a gas station, because the street photo shows a bookstore.",
   "target": "backend/lessons/a1_plus/unit_6/a1plus-unit-6-lesson-6-1.yaml",
   "captions": false,
   "narrators": [
@@ -52,7 +52,7 @@
     "grammar_function": "A follow-up of A1 6.1 Places Around Town: A1 names useful places; A1+ 6.1 adds four more and asks whether one is near. The new items are bakery, bookstore, police station and gas station, the phrase near here after 4.4's Is there…? (Is there a bakery near here?) and the answer there's one + where it is (Yes, there's one on Park Street.), with 4.4's No, there isn't. Each new place is a photo whose window, car or pump shows what it is without any sign. A Yes answer is shown with that place; a No answer only with A1's shopping street, which has no gas station and no police station.",
     "prerequisite": "A1 6.1 places; A1 3.13 streets; A1+ 4.4 Is there…? and short answers.",
     "speaking_outcome": "Stress the place: BAKE-ry, BOOK-store, po-LICE sta-tion, GAS sta-tion; link there's one (therz-WUN). Do not require native-like speed.",
-    "content_revision": 1,
+    "content_revision": 2,
     "learn_context_groups": [
       {
         "kind": "sequence",
@@ -595,20 +595,20 @@
     },
     {
       "id": "u4-none",
-      "text": "Is there a bookstore near here? No, there isn't. There aren't any bookstores here.",
-      "es": "¿Hay una librería cerca de aquí? No, no hay. Aquí no hay librerías.",
+      "text": "Is there a gas station near here? No, there isn't. There aren't any gas stations here.",
+      "es": "¿Hay una gasolinera cerca de aquí? No, no hay. Aquí no hay gasolineras.",
       "image": "/lesson-assets/a1_photo_u6_story_neighborhood_across_v1.webp",
       "kind": "u4-none",
       "image_choices": false,
       "use": false,
       "turns": [
         {
-          "text": "Is there a bookstore near here?",
+          "text": "Is there a gas station near here?",
           "speaker": "co-teacher",
           "image": "/lesson-assets/a1_photo_u6_story_neighborhood_across_v1.webp"
         },
         {
-          "text": "No, there isn't. There aren't any bookstores here.",
+          "text": "No, there isn't. There aren't any gas stations here.",
           "speaker": "teacher",
           "image": "/lesson-assets/a1_photo_u6_story_neighborhood_across_v1.webp"
         }
@@ -620,7 +620,7 @@
         "reading-load": "Listen keeps the question and changes only the answer; the answer is what was heard."
       },
       "prefer": [
-        "Is there a bookstore near here? Yes, there is. There's one on Park Street."
+        "Is there a gas station near here? Yes, there is. There's one on Park Street."
       ],
       "learn": false
     }
@@ -697,8 +697,8 @@
       "image_choices": false
     },
     {
-      "text": "Is there a bookstore near here? Yes, there is. There's one on Park Street.",
-      "es": "¿Hay una librería cerca de aquí? Sí, hay. Hay una en Park Street.",
+      "text": "Is there a gas station near here? Yes, there is. There's one on Park Street.",
+      "es": "¿Hay una gasolinera cerca de aquí? Sí, hay. Hay una en Park Street.",
       "image": "/lesson-assets/a1_photo_u6_story_neighborhood_across_v1.webp",
       "kind": "u4-none",
       "image_choices": false
