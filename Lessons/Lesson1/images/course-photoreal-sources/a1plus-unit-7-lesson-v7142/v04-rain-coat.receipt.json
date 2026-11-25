@@ -1,0 +1,55 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "943234e8-3d48-4285-844d-93572b455102",
+  "asset_id": "v04-rain-coat",
+  "pack_sha256": "9b5f7ec26d5adcd0844743cb5e2d76d1ebc72248f13e04357aa28a0f0b81465a",
+  "started_at": "2026-11-24T02:31:59.269393+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, menus, screens, cups, clothes or bags.\n\nKeep the people and the thing that carries the meaning inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nIt is clearly daytime with soft natural light.\n\nThese are new people who have never appeared in the course; none of them looks like Ana, Luis, Sofia or Diego.\n\nOnly this one person is in the photo; there is nobody else, even far in the background.\n\nA real woman of about thirty-five with short red hair stands just inside the open glass door of a café, seen from the FRONT, her face and the front of her body toward the camera; behind her, through the open door, heavy rain is falling on the street. She wears a light grey sweater and is in the middle of PUTTING ON a long green raincoat: her LEFT arm is already inside the coat's left sleeve and the coat covers her left shoulder, but her RIGHT shoulder, right arm and chest are still uncovered in the light grey sweater. The empty right half of the coat hangs down behind her back, and her right hand reaches back behind her to find the empty right sleeve. The coat is clearly only HALF ON: one arm in, one arm out. She looks back over her shoulder at the rain. It is obvious at a glance that she is putting the coat on.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "HvcEa-2pOPuhz7IPvcXkiA4",
+  "usage": {
+    "promptTokenCount": 417,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1707,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 417
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038825",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 417,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 6.47,
+  "output": "output/imagegen/a1plus-unit-7-lesson-v7142/v04-rain-coat.png",
+  "sha256": "0f4745cb228fbc8e313a39d1ae446da54b9058ec9a138157d0084ba43bbfa209",
+  "byte_count": 1353185,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}

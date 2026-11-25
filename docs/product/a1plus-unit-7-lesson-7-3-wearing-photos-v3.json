@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "pack": "a1plus-unit-7-lesson-7-3-wearing-photos",
+  "revision": 3,
+  "output_namespace": "a1plus-unit-7-lesson-v732",
+  "authorization": "2026-11-20: the user asked to \"work on a1+ Unit 7 same all deal as before none stop all approved\" (the Unit 2-4 deal: the A1+ Unit 7 map approved up front, straight to Preview with media pre-approved and reviewed in Preview). Gemini is the approved image tool (2026-09-23), Flash only (2026-11-17; \"lets switch to flash for any other images\", 2026-11-19). 2026-11-24: after asking for a review of A1+ Unit 7 (\"make sure the images make sense to the ask and its a true follow up of each of A1 unit 7 lessons\"), the user said \"image redo and audio approved\".",
+  "image_settings": {
+    "provider": "google-gemini",
+    "model": "gemini-2.5-flash-image",
+    "aspect_ratio": "3:2",
+    "image_size": "1K",
+    "runtime_size": "1536x1024",
+    "runtime_format": "webp",
+    "n": 1
+  },
+  "production": {
+    "price_per_image_usd": "0.0387",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing (checked 2026-11-16: Gemini 2.5 Flash Image, about $0.039 per image)",
+    "planned_images": 1,
+    "expected_cost_usd": "0.04",
+    "requested_ceiling_usd": "0.25",
+    "ceiling_note": "The renderer reserves US$0.20 before each request; each request is sent on its own, and the expected spend for the pack is about US$0.04.",
+    "no_automatic_retries": true,
+    "order": "v2's c01 had the long-sleeved black jacket but the man no longer looked like Luis; v3 frames him from the knees up and pins his face and build to the reference."
+  },
+  "shared_prompts": {
+    "photo": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, menus, screens, cups, clothes or bags.",
+    "safe_center": "Keep the people and the thing that carries the meaning inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.",
+    "solo": "Only this one person is in the photo; there is nobody else, even far in the background.",
+    "pair": "Only these two people are in the photo; there is nobody else, even far in the background.",
+    "daytime": "It is clearly daytime with soft natural light.",
+    "nolook": "Nobody looks at the camera.",
+    "fullbody": "The whole person is visible from head to shoes, standing, with a little space above the head and below the shoes."
+  },
+  "assets": [
+    {
+      "id": "c01-luis-jacket",
+      "order": 1,
+      "item": "Luis is wearing a black jacket.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "solo",
+        "daytime"
+      ],
+      "prompt": "Image 1 shows Luis. He must be the SAME man as in image 1: the same broad face with strong jaw and thick dark eyebrows, the same thick wavy black hair, the same warm medium-brown skin, clean-shaven, and the same strong, broad-shouldered build. Create a new photograph: Luis stands on the sidewalk in front of a light-brick apartment building on a cool, clear day and smiles; he is seen from the knees up, standing in the middle of the photo. He is wearing a BLACK JACKET with LONG SLEEVES that cover both arms down to his wrists, a collar and a zip closed up to his chest; under it a little of his navy T-shirt shows at the neck. He also wears light khaki trousers. The jacket is an ordinary casual black jacket: NOT a vest, NOT sleeveless, NOT short-sleeved. The black jacket is the most obvious thing he is wearing. He wears no hat, no scarf and no glasses.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-q01-135c3f8f772bcbe4.webp",
+        "sha256": "135c3f8f772bcbe472b8cec719eb02318a7d52ce1c7152a94c6952aeb78566c2",
+        "observed_description": "Luis (short dark curly hair, clean-shaven, warm medium-brown skin, navy crew-neck T-shirt) drinks coffee from a white mug at a wooden table in his bright kitchen (A1+ 1.2)."
+      }
+    }
+  ]
+}
