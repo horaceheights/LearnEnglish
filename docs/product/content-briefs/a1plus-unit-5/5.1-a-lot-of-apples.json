@@ -5,7 +5,7 @@
     "lesson": "5.1",
     "title": "Fruits"
   },
-  "note": "A1+ Unit 5 Lesson 5.1, built on 2026-11-20 under the A1+ lesson standards approved 2026-10-27 and the user's 2026-11-09 rule that every A1+ lesson follows up the A1 lesson with the same number. The user asked on 2026-11-20 to \"work on a1+ Unit 5 same all deal as before none stop all approved\": A1+ 5.Y follows A1 5.Y with one step each, straight to Preview in batches, Gemini 2.5 Flash photos and ElevenLabs audio pre-approved, no per-lesson gates, reviewed in Preview. Eight still-life photos show a big heap against exactly three pieces of apples, oranges, strawberries and bananas; Diego has a big bowl of fruit, Ana holds a small bowl with three strawberries and Luis a full basket. A unit's first lesson keeps Learn models to 8 words and Listen to 2 lines. a little waits for 5.2.",
+  "note": "A1+ Unit 5 Lesson 5.1, built on 2026-11-20 under the A1+ lesson standards approved 2026-10-27 and the user's 2026-11-09 rule that every A1+ lesson follows up the A1 lesson with the same number. The user asked on 2026-11-20 to \"work on a1+ Unit 5 same all deal as before none stop all approved\": A1+ 5.Y follows A1 5.Y with one step each, straight to Preview in batches, Gemini 2.5 Flash photos and ElevenLabs audio pre-approved, no per-lesson gates, reviewed in Preview. Eight still-life photos show a big heap against exactly three pieces of apples, oranges, lemons and pineapples; Diego has a big bowl of fruit, Ana holds a small bowl with three strawberries and Luis a full basket. A unit's first lesson keeps Learn models to 8 words and Listen to 2 lines. a little waits for 5.2.",
   "target": "backend/lessons/a1_plus/unit_5/a1plus-unit-5-lesson-5-1.yaml",
   "captions": false,
   "narrators": [
@@ -28,7 +28,9 @@
     "goal": "Say if there are a lot of or a few things (There are a lot of apples. / There are a few apples.).",
     "vocabulary": [
       "a lot of",
-      "a few"
+      "a few",
+      "lemons",
+      "pineapples"
     ],
     "review_vocabulary": [
       "there are",
@@ -36,7 +38,6 @@
       "apples",
       "oranges",
       "strawberries",
-      "bananas",
       "fruit",
       "eats",
       "has",
@@ -96,6 +97,30 @@
             "text": "Ana has a few strawberries."
           }
         ]
+      },
+      {
+        "kind": "sequence",
+        "targets": [
+          "lemons"
+        ],
+        "models": [
+          {
+            "slide_id": "L5",
+            "text": "They are lemons."
+          }
+        ]
+      },
+      {
+        "kind": "sequence",
+        "targets": [
+          "pineapples"
+        ],
+        "models": [
+          {
+            "slide_id": "L6",
+            "text": "They are pineapples."
+          }
+        ]
       }
     ]
   },
@@ -145,6 +170,28 @@
       "speaker": "co-teacher"
     },
     {
+      "id": "l-lemons",
+      "text": "They are lemons.",
+      "es": "Son limones.",
+      "image": "/lesson-assets/a1plus-unit-5-k10-06fa1d4eb099eacb.webp",
+      "kind": "sequence",
+      "choices": false,
+      "use": false,
+      "learn": true,
+      "speaker": "teacher"
+    },
+    {
+      "id": "l-pineapples",
+      "text": "They are pineapples.",
+      "es": "Son piñas.",
+      "image": "/lesson-assets/a1plus-unit-5-k12-da19c679a43901b6.webp",
+      "kind": "sequence",
+      "choices": false,
+      "use": false,
+      "learn": true,
+      "speaker": "co-teacher"
+    },
+    {
       "id": "lots-apples",
       "text": "There are a lot of apples.",
       "es": "Hay muchas manzanas.",
@@ -179,7 +226,7 @@
       "speaker": "co-teacher",
       "prefer": [
         "There are a lot of apples.",
-        "There are a few strawberries."
+        "There are a few lemons."
       ],
       "accepts": {
         "subject-variety": "Listen: the answer is what was heard; the other sentences change only the amount or the fruit.",
@@ -228,7 +275,7 @@
       "speaker": "co-teacher",
       "prefer": [
         "There are a lot of oranges.",
-        "There are a few strawberries."
+        "There are a few lemons."
       ],
       "accepts": {
         "subject-variety": "Listen: the answer is what was heard; the other sentences change only the amount or the fruit.",
@@ -243,14 +290,14 @@
       "learn": false
     },
     {
-      "id": "lots-strawberries",
-      "text": "There are a lot of strawberries.",
-      "es": "Hay muchas fresas.",
-      "image": "/lesson-assets/a1plus-unit-5-k05-2ae71aafed100973.webp",
+      "id": "lots-lemons",
+      "text": "There are a lot of lemons.",
+      "es": "Hay muchos limones.",
+      "image": "/lesson-assets/a1plus-unit-5-k09-bd155eb1e52210e9.webp",
       "kind": "amount",
       "speaker": "teacher",
       "prefer": [
-        "There are a few strawberries.",
+        "There are a few lemons.",
         "There are a lot of apples."
       ],
       "accepts": {
@@ -263,20 +310,20 @@
         "a",
         "lot"
       ],
-      "question": "How many strawberries are there?",
-      "question_es": "¿Cuántas fresas hay?",
+      "question": "How many lemons are there?",
+      "question_es": "¿Cuántos limones hay?",
       "question_speaker": "co-teacher",
       "learn": false
     },
     {
-      "id": "few-strawberries",
-      "text": "There are a few strawberries.",
-      "es": "Hay unas pocas fresas.",
-      "image": "/lesson-assets/a1plus-unit-5-k06-27157209aa691b0b.webp",
+      "id": "few-lemons",
+      "text": "There are a few lemons.",
+      "es": "Hay unos pocos limones.",
+      "image": "/lesson-assets/a1plus-unit-5-k10-06fa1d4eb099eacb.webp",
       "kind": "amount",
       "speaker": "co-teacher",
       "prefer": [
-        "There are a lot of strawberries.",
+        "There are a lot of lemons.",
         "There are a few oranges."
       ],
       "accepts": {
@@ -292,14 +339,14 @@
       "learn": false
     },
     {
-      "id": "lots-bananas",
-      "text": "There are a lot of bananas.",
-      "es": "Hay muchos plátanos.",
-      "image": "/lesson-assets/a1plus-unit-5-k07-2e873e0effc2ae5f.webp",
+      "id": "lots-pineapples",
+      "text": "There are a lot of pineapples.",
+      "es": "Hay muchas piñas.",
+      "image": "/lesson-assets/a1plus-unit-5-k11-8e84c3ebb9c017e9.webp",
       "kind": "amount",
       "speaker": "teacher",
       "prefer": [
-        "There are a few bananas.",
+        "There are a few pineapples.",
         "There are a lot of apples."
       ],
       "accepts": {
@@ -312,20 +359,20 @@
         "lot",
         "of"
       ],
-      "question": "How many bananas are there?",
-      "question_es": "¿Cuántos plátanos hay?",
+      "question": "How many pineapples are there?",
+      "question_es": "¿Cuántas piñas hay?",
       "question_speaker": "co-teacher",
       "learn": false
     },
     {
-      "id": "few-bananas",
-      "text": "There are a few bananas.",
-      "es": "Hay unos pocos plátanos.",
-      "image": "/lesson-assets/a1plus-unit-5-k08-1702f433b9e87aeb.webp",
+      "id": "few-pineapples",
+      "text": "There are a few pineapples.",
+      "es": "Hay unas pocas piñas.",
+      "image": "/lesson-assets/a1plus-unit-5-k12-da19c679a43901b6.webp",
       "kind": "amount",
       "speaker": "co-teacher",
       "prefer": [
-        "There are a lot of bananas.",
+        "There are a lot of pineapples.",
         "There are a few oranges."
       ],
       "accepts": {
@@ -466,29 +513,31 @@
       "l-lots",
       "l-few",
       "l-diego",
-      "l-ana"
+      "l-ana",
+      "l-lemons",
+      "l-pineapples"
     ],
     "Recognize": [
       "lots-apples",
       "few-oranges",
       "c-luis",
-      "few-apples",
-      "lots-strawberries",
+      "few-lemons",
+      "lots-pineapples",
       "c-ana",
-      "lots-bananas",
-      "few-strawberries",
+      "lots-lemons",
+      "few-pineapples",
       "c-diego",
-      "few-bananas"
+      "few-apples"
     ],
     "Listen": [
       "few-apples",
       "lots-oranges",
       "c-ana",
-      "few-bananas",
-      "lots-apples",
+      "few-pineapples",
+      "lots-lemons",
       "c-luis",
-      "few-strawberries",
-      "lots-bananas",
+      "few-lemons",
+      "lots-pineapples",
       "c-diego",
       "few-oranges"
     ],
@@ -498,19 +547,19 @@
       "c-diego-i",
       "c-ana-i",
       "c-luis-i",
-      "lots-oranges",
-      "few-bananas",
+      "lots-lemons",
+      "few-pineapples",
       "c-luis"
     ],
     "Use": [
       "lots-apples",
-      "few-oranges",
+      "few-lemons",
       "c-diego",
       "c-diego-i",
-      "few-strawberries",
+      "few-pineapples",
       "c-luis-i",
-      "lots-bananas",
-      "c-ana"
+      "lots-pineapples",
+      "lots-lemons"
     ]
   }
 }
