@@ -1,0 +1,55 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "0799cf92-f24a-406b-a85a-975752872efd",
+  "asset_id": "n23-bike-99",
+  "pack_sha256": "05edc82746a1e56f9fe601dab9632adc536941b3bc58adc76235ac9d1cc425e3",
+  "started_at": "2026-11-24T03:08:23.756771+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. No letters, words, logos or brand marks anywhere. The only writing in the photo is each price card described: a small white card on a little stand with a dollar sign and a number in big, thick black print, upright, facing the camera, sharp and easy to read on a small phone screen. No other signs, labels, screens or clothes show any digit or letter.\n\nThe price is printed in very big black digits on a big white card that stands right in front of the thing; the card is about a quarter of the photo height, and its digits are easy to read in a small thumbnail. No other text is in the photo.\n\nIt is clearly daytime with soft natural light.\n\nOne red city bike stands in a plain bright shop against a white wall. A big white price card that reads $99 stands on the floor right in front of the bike. No people.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "p_8Ea8AhpaDPsg-XipyQDA",
+  "usage": {
+    "promptTokenCount": 279,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1569,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 279
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038784",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 279,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 6.31,
+  "output": "output/imagegen/a1plus-unit-5-lesson-v592/n23-bike-99.png",
+  "sha256": "e37e1b46a0599352aefdec99e7a9996bc1e0f23d4821511c08166bf292a68c21",
+  "byte_count": 1549183,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}

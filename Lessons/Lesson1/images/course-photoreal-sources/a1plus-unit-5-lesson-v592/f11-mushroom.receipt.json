@@ -1,0 +1,55 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "6e720fe2-2c17-4a2e-875a-4a586f72d066",
+  "asset_id": "f11-mushroom",
+  "pack_sha256": "05edc82746a1e56f9fe601dab9632adc536941b3bc58adc76235ac9d1cc425e3",
+  "started_at": "2026-11-24T03:08:52.845175+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, menus, screens, cups, clothes or bags.\n\nThe place is a bright, tidy home kitchen with a light wooden table, white walls and a big window; nothing else is on the table.\n\nNo people, hands or animals are in the photo. The food sits in the middle of the table and fills the central part of the photo, sharp and easy to count or judge on a small phone screen.\n\nIt is clearly daytime with soft natural light.\n\nThe thing that carries the meaning is BIG in the photo: it fills at least a third of the photo height and is sharp, so it is recognized at once in a thumbnail 180 pixels wide.\n\nOne big white button mushroom standing on a light wooden kitchen table, and beside it one mushroom cut in half.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "xP8Ea-OzA-6JqtsPg8av8A0",
+  "usage": {
+    "promptTokenCount": 280,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1570,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 280
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038784",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 280,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 6.91,
+  "output": "output/imagegen/a1plus-unit-5-lesson-v592/f11-mushroom.png",
+  "sha256": "051b46422c82e499171af7f316eb7ad200cc9463e361264cbac077df51c3a016",
+  "byte_count": 1147155,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}

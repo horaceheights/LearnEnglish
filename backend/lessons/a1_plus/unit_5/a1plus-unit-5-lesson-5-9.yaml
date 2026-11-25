@@ -12,18 +12,20 @@
   "goal": "Order politely at a café with I'd like …, please. and understand the question What would you like?",
   "vocabulary": [
     "I'd like",
-    "What would you like?"
+    "What would you like?",
+    "menu",
+    "bill"
   ],
   "review_vocabulary": [
     "please",
     "a sandwich",
     "a cup of tea",
-    "an orange juice",
+    "a lemonade",
     "some cake",
     "Can I have …?",
     "Would you like …?"
   ],
-  "grammar_function": "A follow-up of A1 5.9 Ordering Politely 1: At a Café: A1 orders with Can I have …, please? and hands things over with Here is your …; A1+ 5.9 orders with I'd like …, please. and understands the waiter's What would you like?, after 5.3's Would you like …? offer. I'd like is learnt as a whole (the short form of would is not taken apart). Each cast member stands at the café counter with what they ordered; the waiter is never pictured, so a narrator in a voice other than the customer's asks. Listen sets I'd like against A1's Can I have …?",
+  "grammar_function": "A follow-up of A1 5.9 Ordering Politely 1: At a Café: A1 orders with Can I have …, please? and hands things over with Here is your …; A1+ 5.9 orders with I'd like …, please. and understands the waiter's What would you like?, after 5.3's Would you like …? offer. I'd like is learnt as a whole (the short form of would is not taken apart). Each cast member stands at the café counter with what they ordered; the waiter is never pictured, so a narrator in a voice other than the customer's asks. Listen sets I'd like against A1's Can I have …? On 2026-11-23 the menu and the bill were added: a customer asks for the menu before ordering and for the bill after the meal.",
   "prerequisite": "A1 5.9 Can I have …, please?; A1+ 5.3 Would you like …?; A1 5.13 sandwich; A1 5.14 cup, of, cake; A1+ 4.15 some.",
   "speaking_outcome": "Say I'd like as one word-group (IDE-like), with the d short; do not require native-like speed.",
   "content_revision": 1,
@@ -73,6 +75,30 @@
         {
           "slide_id": "L4",
           "text": "I'd like some cake, please."
+        }
+      ]
+    },
+    {
+      "kind": "sequence",
+      "targets": [
+        "menu"
+      ],
+      "models": [
+        {
+          "slide_id": "L5",
+          "text": "It's the menu."
+        }
+      ]
+    },
+    {
+      "kind": "sequence",
+      "targets": [
+        "bill"
+      ],
+      "models": [
+        {
+          "slide_id": "L6",
+          "text": "It's the bill."
         }
       ]
     }
@@ -205,6 +231,48 @@
       "answer_audio_policy": "authored-only"
     },
     {
+      "slide_id": "L5",
+      "interaction_type": "teach",
+      "prompt": "It's the menu.",
+      "stage": "Learn",
+      "correct_option_id": "it's-the-menu-learn",
+      "options": [
+        {
+          "id": "it's-the-menu-learn",
+          "image_url": "/lesson-assets/a1plus-unit-5-q05-432a2dfee1ac2728.webp",
+          "label": "It's the menu."
+        }
+      ],
+      "audio_text": "It's the menu.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Es el menú.",
+      "pedagogy_note": "Story beat 05: It's the menu.",
+      "audio_speaker": "teacher",
+      "answer_audio_policy": "authored-only"
+    },
+    {
+      "slide_id": "L6",
+      "interaction_type": "teach",
+      "prompt": "It's the bill.",
+      "stage": "Learn",
+      "correct_option_id": "it's-the-bill-learn",
+      "options": [
+        {
+          "id": "it's-the-bill-learn",
+          "image_url": "/lesson-assets/a1plus-unit-5-q06-de9534e77c43430b.webp",
+          "label": "It's the bill."
+        }
+      ],
+      "audio_text": "It's the bill.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Es la cuenta.",
+      "pedagogy_note": "Story beat 06: It's the bill.",
+      "audio_speaker": "co-teacher",
+      "answer_audio_policy": "authored-only"
+    },
+    {
       "slide_id": "R1",
       "interaction_type": "t2i2",
       "prompt": "I'd like a sandwich, please.",
@@ -235,7 +303,7 @@
       "interaction_type": "i2t2",
       "prompt": "What would you like?",
       "stage": "Recognize",
-      "correct_option_id": "i'd-like-an-orange-juice-please-r2",
+      "correct_option_id": "i'd-like-the-menu-please-r2",
       "options": [
         {
           "id": "i'd-like-a-sandwich-please-r2",
@@ -244,19 +312,19 @@
           "spanish_translation": "Quisiera un sándwich, por favor."
         },
         {
-          "id": "i'd-like-an-orange-juice-please-r2",
+          "id": "i'd-like-the-menu-please-r2",
           "image_url": "",
-          "label": "I'd like an orange juice, please.",
-          "spanish_translation": "Quisiera un jugo de naranja, por favor."
+          "label": "I'd like the menu, please.",
+          "spanish_translation": "Quisiera el menú, por favor."
         }
       ],
       "audio_text": "What would you like?",
-      "answer_audio_text": "I'd like an orange juice, please.",
-      "prompt_image_url": "/lesson-assets/a1plus-unit-5-q03-70d3cb6c41177ac3.webp",
+      "answer_audio_text": "I'd like the menu, please.",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-5-q17-43e2bd22cabc337f.webp",
       "spanish_translation": "¿Qué le gustaría?",
-      "answer_audio_speaker": "sofia",
-      "pedagogy_note": "Story beat 02: I'd like an orange juice, please.",
-      "audio_speaker": "co-teacher",
+      "answer_audio_speaker": "diego",
+      "pedagogy_note": "Story beat 02: I'd like the menu, please.",
+      "audio_speaker": "teacher",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -290,7 +358,7 @@
       "interaction_type": "i2t2",
       "prompt": "What would you like?",
       "stage": "Recognize",
-      "correct_option_id": "i'd-like-some-cake-please-r4",
+      "correct_option_id": "i'd-like-the-bill-please-r4",
       "options": [
         {
           "id": "i'd-like-a-sandwich-please-r4",
@@ -299,27 +367,27 @@
           "spanish_translation": "Quisiera un sándwich, por favor."
         },
         {
-          "id": "i'd-like-some-cake-please-r4",
+          "id": "i'd-like-the-bill-please-r4",
           "image_url": "",
-          "label": "I'd like some cake, please.",
-          "spanish_translation": "Quisiera un poco de pastel, por favor."
+          "label": "I'd like the bill, please.",
+          "spanish_translation": "Quisiera la cuenta, por favor."
         }
       ],
       "audio_text": "What would you like?",
-      "answer_audio_text": "I'd like some cake, please.",
-      "prompt_image_url": "/lesson-assets/a1plus-unit-5-q04-f845d818de971072.webp",
+      "answer_audio_text": "I'd like the bill, please.",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-5-q18-4d1fb881613a1ec9.webp",
       "spanish_translation": "¿Qué le gustaría?",
-      "answer_audio_speaker": "diego",
-      "pedagogy_note": "Story beat 04: I'd like some cake, please.",
-      "audio_speaker": "teacher",
+      "answer_audio_speaker": "sofia",
+      "pedagogy_note": "Story beat 04: I'd like the bill, please.",
+      "audio_speaker": "co-teacher",
       "answer_audio_policy": "authored-only"
     },
     {
       "slide_id": "R5",
       "interaction_type": "t2i2",
-      "prompt": "I'd like an orange juice, please.",
+      "prompt": "I'd like a lemonade, please.",
       "stage": "Recognize",
-      "correct_option_id": "i'd-like-an-orange-juice-please-r5",
+      "correct_option_id": "i'd-like-a-lemonade-please-r5",
       "options": [
         {
           "id": "i'd-like-a-sandwich-please-r5",
@@ -327,17 +395,17 @@
           "label": null
         },
         {
-          "id": "i'd-like-an-orange-juice-please-r5",
-          "image_url": "/lesson-assets/a1plus-unit-5-q03-70d3cb6c41177ac3.webp",
+          "id": "i'd-like-a-lemonade-please-r5",
+          "image_url": "/lesson-assets/a1plus-unit-5-q19-e360934d65c6f16b.webp",
           "label": null
         }
       ],
-      "audio_text": "I'd like an orange juice, please.",
+      "audio_text": "I'd like a lemonade, please.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Quisiera un jugo de naranja, por favor.",
-      "pedagogy_note": "Story beat 05: I'd like an orange juice, please.",
-      "audio_speaker": "sofia",
+      "spanish_translation": "Quisiera una limonada, por favor.",
+      "pedagogy_note": "Story beat 05: I'd like a lemonade, please.",
+      "audio_speaker": "luis",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -345,51 +413,46 @@
       "interaction_type": "i2t3",
       "prompt": "What would you like?",
       "stage": "Recognize",
-      "correct_option_id": "i'd-like-a-sandwich-please-r6",
+      "correct_option_id": "i'd-like-some-cake-please-r6",
       "options": [
         {
-          "id": "i'd-like-an-orange-juice-please-r6",
+          "id": "i'd-like-a-cup-of-tea-please-r6",
           "image_url": "",
-          "label": "I'd like an orange juice, please.",
-          "spanish_translation": "Quisiera un jugo de naranja, por favor."
+          "label": "I'd like a cup of tea, please.",
+          "spanish_translation": "Quisiera una taza de té, por favor."
+        },
+        {
+          "id": "i'd-like-some-cake-please-r6",
+          "image_url": "",
+          "label": "I'd like some cake, please.",
+          "spanish_translation": "Quisiera un poco de pastel, por favor."
         },
         {
           "id": "i'd-like-a-sandwich-please-r6",
           "image_url": "",
           "label": "I'd like a sandwich, please.",
           "spanish_translation": "Quisiera un sándwich, por favor."
-        },
-        {
-          "id": "i'd-like-a-cup-of-tea-please-r6",
-          "image_url": "",
-          "label": "I'd like a cup of tea, please.",
-          "spanish_translation": "Quisiera una taza de té, por favor."
         }
       ],
       "audio_text": "What would you like?",
-      "answer_audio_text": "I'd like a sandwich, please.",
-      "prompt_image_url": "/lesson-assets/a1plus-unit-5-q01-ca6bd5e33bb6d4c3.webp",
+      "answer_audio_text": "I'd like some cake, please.",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-5-q04-f845d818de971072.webp",
       "spanish_translation": "¿Qué le gustaría?",
-      "answer_audio_speaker": "luis",
-      "pedagogy_note": "Story beat 06: I'd like a sandwich, please.",
+      "answer_audio_speaker": "diego",
+      "pedagogy_note": "Story beat 06: I'd like some cake, please.",
       "audio_speaker": "teacher",
       "answer_audio_policy": "authored-only"
     },
     {
       "slide_id": "R7",
       "interaction_type": "t2i4",
-      "prompt": "I'd like some cake, please.",
+      "prompt": "I'd like the menu, please.",
       "stage": "Recognize",
-      "correct_option_id": "i'd-like-some-cake-please-r7",
+      "correct_option_id": "i'd-like-the-menu-please-r7",
       "options": [
         {
           "id": "i'd-like-a-cup-of-tea-please-r7",
           "image_url": "/lesson-assets/a1plus-unit-5-q02-6e5d6f9c4b6cf6f6.webp",
-          "label": null
-        },
-        {
-          "id": "i'd-like-an-orange-juice-please-r7",
-          "image_url": "/lesson-assets/a1plus-unit-5-q03-70d3cb6c41177ac3.webp",
           "label": null
         },
         {
@@ -398,16 +461,21 @@
           "label": null
         },
         {
+          "id": "i'd-like-the-menu-please-r7",
+          "image_url": "/lesson-assets/a1plus-unit-5-q17-43e2bd22cabc337f.webp",
+          "label": null
+        },
+        {
           "id": "i'd-like-a-sandwich-please-r7",
           "image_url": "/lesson-assets/a1plus-unit-5-q01-ca6bd5e33bb6d4c3.webp",
           "label": null
         }
       ],
-      "audio_text": "I'd like some cake, please.",
+      "audio_text": "I'd like the menu, please.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Quisiera un poco de pastel, por favor.",
-      "pedagogy_note": "Story beat 07: I'd like some cake, please.",
+      "spanish_translation": "Quisiera el menú, por favor.",
+      "pedagogy_note": "Story beat 07: I'd like the menu, please.",
       "audio_speaker": "diego",
       "answer_audio_policy": "authored-only"
     },
@@ -416,19 +484,19 @@
       "interaction_type": "i2t3",
       "prompt": "What would you like?",
       "stage": "Recognize",
-      "correct_option_id": "i'd-like-a-cup-of-tea-please-r8",
+      "correct_option_id": "i'd-like-the-bill-please-r8",
       "options": [
-        {
-          "id": "i'd-like-an-orange-juice-please-r8",
-          "image_url": "",
-          "label": "I'd like an orange juice, please.",
-          "spanish_translation": "Quisiera un jugo de naranja, por favor."
-        },
         {
           "id": "i'd-like-a-cup-of-tea-please-r8",
           "image_url": "",
           "label": "I'd like a cup of tea, please.",
           "spanish_translation": "Quisiera una taza de té, por favor."
+        },
+        {
+          "id": "i'd-like-the-bill-please-r8",
+          "image_url": "",
+          "label": "I'd like the bill, please.",
+          "spanish_translation": "Quisiera la cuenta, por favor."
         },
         {
           "id": "i'd-like-a-sandwich-please-r8",
@@ -438,24 +506,24 @@
         }
       ],
       "audio_text": "What would you like?",
-      "answer_audio_text": "I'd like a cup of tea, please.",
-      "prompt_image_url": "/lesson-assets/a1plus-unit-5-q02-6e5d6f9c4b6cf6f6.webp",
+      "answer_audio_text": "I'd like the bill, please.",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-5-q18-4d1fb881613a1ec9.webp",
       "spanish_translation": "¿Qué le gustaría?",
-      "answer_audio_speaker": "ana",
-      "pedagogy_note": "Story beat 08: I'd like a cup of tea, please.",
+      "answer_audio_speaker": "sofia",
+      "pedagogy_note": "Story beat 08: I'd like the bill, please.",
       "audio_speaker": "co-teacher",
       "answer_audio_policy": "authored-only"
     },
     {
       "slide_id": "R9",
       "interaction_type": "t2i4",
-      "prompt": "I'd like an orange juice, please.",
+      "prompt": "I'd like a sandwich, please.",
       "stage": "Recognize",
-      "correct_option_id": "i'd-like-an-orange-juice-please-r9",
+      "correct_option_id": "i'd-like-a-sandwich-please-r9",
       "options": [
         {
-          "id": "i'd-like-a-cup-of-tea-please-r9",
-          "image_url": "/lesson-assets/a1plus-unit-5-q02-6e5d6f9c4b6cf6f6.webp",
+          "id": "i'd-like-a-lemonade-please-r9",
+          "image_url": "/lesson-assets/a1plus-unit-5-q19-e360934d65c6f16b.webp",
           "label": null
         },
         {
@@ -464,22 +532,22 @@
           "label": null
         },
         {
-          "id": "i'd-like-an-orange-juice-please-r9",
-          "image_url": "/lesson-assets/a1plus-unit-5-q03-70d3cb6c41177ac3.webp",
-          "label": null
-        },
-        {
           "id": "i'd-like-a-sandwich-please-r9",
           "image_url": "/lesson-assets/a1plus-unit-5-q01-ca6bd5e33bb6d4c3.webp",
           "label": null
+        },
+        {
+          "id": "i'd-like-a-cup-of-tea-please-r9",
+          "image_url": "/lesson-assets/a1plus-unit-5-q02-6e5d6f9c4b6cf6f6.webp",
+          "label": null
         }
       ],
-      "audio_text": "I'd like an orange juice, please.",
+      "audio_text": "I'd like a sandwich, please.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Quisiera un jugo de naranja, por favor.",
-      "pedagogy_note": "Story beat 09: I'd like an orange juice, please.",
-      "audio_speaker": "sofia",
+      "spanish_translation": "Quisiera un sándwich, por favor.",
+      "pedagogy_note": "Story beat 09: I'd like a sandwich, please.",
+      "audio_speaker": "luis",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -487,8 +555,14 @@
       "interaction_type": "i2t3",
       "prompt": "What would you like?",
       "stage": "Recognize",
-      "correct_option_id": "i'd-like-a-sandwich-please-r10",
+      "correct_option_id": "i'd-like-a-lemonade-please-r10",
       "options": [
+        {
+          "id": "i'd-like-a-lemonade-please-r10",
+          "image_url": "",
+          "label": "I'd like a lemonade, please.",
+          "spanish_translation": "Quisiera una limonada, por favor."
+        },
         {
           "id": "i'd-like-a-sandwich-please-r10",
           "image_url": "",
@@ -500,21 +574,15 @@
           "image_url": "",
           "label": "I'd like a cup of tea, please.",
           "spanish_translation": "Quisiera una taza de té, por favor."
-        },
-        {
-          "id": "i'd-like-an-orange-juice-please-r10",
-          "image_url": "",
-          "label": "I'd like an orange juice, please.",
-          "spanish_translation": "Quisiera un jugo de naranja, por favor."
         }
       ],
       "audio_text": "What would you like?",
-      "answer_audio_text": "I'd like a sandwich, please.",
-      "prompt_image_url": "/lesson-assets/a1plus-unit-5-q01-ca6bd5e33bb6d4c3.webp",
+      "answer_audio_text": "I'd like a lemonade, please.",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-5-q19-e360934d65c6f16b.webp",
       "spanish_translation": "¿Qué le gustaría?",
       "answer_audio_speaker": "luis",
-      "pedagogy_note": "Story beat 10: I'd like a sandwich, please.",
-      "audio_speaker": "teacher",
+      "pedagogy_note": "Story beat 10: I'd like a lemonade, please.",
+      "audio_speaker": "co-teacher",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -557,10 +625,10 @@
           "spanish_translation": "¿Me da un sándwich, por favor?"
         },
         {
-          "id": "i'd-like-some-cake-please-a2",
+          "id": "i'd-like-the-bill-please-a2",
           "image_url": "",
-          "label": "I'd like some cake, please.",
-          "spanish_translation": "Quisiera un poco de pastel, por favor."
+          "label": "I'd like the bill, please.",
+          "spanish_translation": "Quisiera la cuenta, por favor."
         }
       ],
       "audio_text": "Can I have a sandwich, please?",
@@ -576,13 +644,13 @@
       "interaction_type": "a2t2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "i'd-like-some-cake-please-a3",
+      "correct_option_id": "i'd-like-the-menu-please-a3",
       "options": [
         {
-          "id": "i'd-like-some-cake-please-a3",
+          "id": "i'd-like-the-menu-please-a3",
           "image_url": "",
-          "label": "I'd like some cake, please.",
-          "spanish_translation": "Quisiera un poco de pastel, por favor."
+          "label": "I'd like the menu, please.",
+          "spanish_translation": "Quisiera el menú, por favor."
         },
         {
           "id": "i'd-like-a-sandwich-please-a3",
@@ -591,11 +659,11 @@
           "spanish_translation": "Quisiera un sándwich, por favor."
         }
       ],
-      "audio_text": "I'd like some cake, please.",
+      "audio_text": "I'd like the menu, please.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 03: I'd like some cake, please.",
+      "pedagogy_note": "Story beat 03: I'd like the menu, please.",
       "audio_speaker": "diego",
       "answer_audio_policy": "authored-only"
     },
@@ -632,11 +700,11 @@
       "interaction_type": "a2i2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "i'd-like-an-orange-juice-please-a5",
+      "correct_option_id": "i'd-like-the-bill-please-a5",
       "options": [
         {
-          "id": "i'd-like-an-orange-juice-please-a5",
-          "image_url": "/lesson-assets/a1plus-unit-5-q03-70d3cb6c41177ac3.webp",
+          "id": "i'd-like-the-bill-please-a5",
+          "image_url": "/lesson-assets/a1plus-unit-5-q18-4d1fb881613a1ec9.webp",
           "label": null
         },
         {
@@ -645,11 +713,11 @@
           "label": null
         }
       ],
-      "audio_text": "I'd like an orange juice, please.",
+      "audio_text": "I'd like the bill, please.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 05: I'd like an orange juice, please.",
+      "pedagogy_note": "Story beat 05: I'd like the bill, please.",
       "audio_speaker": "sofia",
       "answer_audio_policy": "authored-only"
     },
@@ -658,13 +726,13 @@
       "interaction_type": "a2t3",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "i'd-like-a-cup-of-tea-please-a6",
+      "correct_option_id": "i'd-like-a-lemonade-please-a6",
       "options": [
         {
-          "id": "i'd-like-a-cup-of-tea-please-a6",
+          "id": "i'd-like-a-lemonade-please-a6",
           "image_url": "",
-          "label": "I'd like a cup of tea, please.",
-          "spanish_translation": "Quisiera una taza de té, por favor."
+          "label": "I'd like a lemonade, please.",
+          "spanish_translation": "Quisiera una limonada, por favor."
         },
         {
           "id": "i'd-like-a-sandwich-please-a6",
@@ -673,18 +741,18 @@
           "spanish_translation": "Quisiera un sándwich, por favor."
         },
         {
-          "id": "i'd-like-an-orange-juice-please-a6",
+          "id": "i'd-like-a-cup-of-tea-please-a6",
           "image_url": "",
-          "label": "I'd like an orange juice, please.",
-          "spanish_translation": "Quisiera un jugo de naranja, por favor."
+          "label": "I'd like a cup of tea, please.",
+          "spanish_translation": "Quisiera una taza de té, por favor."
         }
       ],
-      "audio_text": "I'd like a cup of tea, please.",
+      "audio_text": "I'd like a lemonade, please.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 06: I'd like a cup of tea, please.",
-      "audio_speaker": "ana",
+      "pedagogy_note": "Story beat 06: I'd like a lemonade, please.",
+      "audio_speaker": "luis",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -710,8 +778,8 @@
           "label": null
         },
         {
-          "id": "i'd-like-an-orange-juice-please-a7",
-          "image_url": "/lesson-assets/a1plus-unit-5-q03-70d3cb6c41177ac3.webp",
+          "id": "i'd-like-a-lemonade-please-a7",
+          "image_url": "/lesson-assets/a1plus-unit-5-q19-e360934d65c6f16b.webp",
           "label": null
         }
       ],
@@ -762,7 +830,7 @@
       "interaction_type": "a2t3",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "i'd-like-an-orange-juice-please-a9",
+      "correct_option_id": "i'd-like-the-menu-please-a9",
       "options": [
         {
           "id": "i'd-like-a-sandwich-please-a9",
@@ -777,18 +845,18 @@
           "spanish_translation": "Quisiera una taza de té, por favor."
         },
         {
-          "id": "i'd-like-an-orange-juice-please-a9",
+          "id": "i'd-like-the-menu-please-a9",
           "image_url": "",
-          "label": "I'd like an orange juice, please.",
-          "spanish_translation": "Quisiera un jugo de naranja, por favor."
+          "label": "I'd like the menu, please.",
+          "spanish_translation": "Quisiera el menú, por favor."
         }
       ],
-      "audio_text": "I'd like an orange juice, please.",
+      "audio_text": "I'd like the menu, please.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 09: I'd like an orange juice, please.",
-      "audio_speaker": "sofia",
+      "pedagogy_note": "Story beat 09: I'd like the menu, please.",
+      "audio_speaker": "diego",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -796,7 +864,7 @@
       "interaction_type": "a2i4",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "i'd-like-a-cup-of-tea-please-a10",
+      "correct_option_id": "i'd-like-the-bill-please-a10",
       "options": [
         {
           "id": "i'd-like-a-sandwich-please-a10",
@@ -804,27 +872,27 @@
           "label": null
         },
         {
-          "id": "i'd-like-an-orange-juice-please-a10",
-          "image_url": "/lesson-assets/a1plus-unit-5-q03-70d3cb6c41177ac3.webp",
-          "label": null
-        },
-        {
-          "id": "i'd-like-some-cake-please-a10",
-          "image_url": "/lesson-assets/a1plus-unit-5-q04-f845d818de971072.webp",
-          "label": null
-        },
-        {
           "id": "i'd-like-a-cup-of-tea-please-a10",
           "image_url": "/lesson-assets/a1plus-unit-5-q02-6e5d6f9c4b6cf6f6.webp",
           "label": null
+        },
+        {
+          "id": "i'd-like-the-menu-please-a10",
+          "image_url": "/lesson-assets/a1plus-unit-5-q17-43e2bd22cabc337f.webp",
+          "label": null
+        },
+        {
+          "id": "i'd-like-the-bill-please-a10",
+          "image_url": "/lesson-assets/a1plus-unit-5-q18-4d1fb881613a1ec9.webp",
+          "label": null
         }
       ],
-      "audio_text": "I'd like a cup of tea, please.",
+      "audio_text": "I'd like the bill, please.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 10: I'd like a cup of tea, please.",
-      "audio_speaker": "ana",
+      "pedagogy_note": "Story beat 10: I'd like the bill, please.",
+      "audio_speaker": "sofia",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -864,57 +932,57 @@
     {
       "slide_id": "S2",
       "interaction_type": "speak",
-      "prompt": "I'd like a cup of tea, please.",
+      "prompt": "I'd like the menu, please.",
       "stage": "Speak",
-      "correct_option_id": "i'd-like-a-cup-of-tea-please-speak",
+      "correct_option_id": "i'd-like-the-menu-please-speak",
       "options": [
         {
-          "id": "i'd-like-a-cup-of-tea-please-speak",
-          "image_url": "/lesson-assets/a1plus-unit-5-q02-6e5d6f9c4b6cf6f6.webp",
-          "label": "I'd like a cup of tea, please."
+          "id": "i'd-like-the-menu-please-speak",
+          "image_url": "/lesson-assets/a1plus-unit-5-q17-43e2bd22cabc337f.webp",
+          "label": "I'd like the menu, please."
         }
       ],
-      "audio_text": "I'd like a cup of tea, please.",
+      "audio_text": "I'd like the menu, please.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "audio_turns": [
         {
-          "text": "I'd like a cup of tea, please.",
-          "speaker_role": "ana",
-          "image_url": "/lesson-assets/a1plus-unit-5-q02-6e5d6f9c4b6cf6f6.webp",
+          "text": "I'd like the menu, please.",
+          "speaker_role": "diego",
+          "image_url": "/lesson-assets/a1plus-unit-5-q17-43e2bd22cabc337f.webp",
           "delivery": "a1-pronunciation-v1"
         }
       ],
-      "spanish_translation": "Quisiera una taza de té, por favor.",
-      "pedagogy_note": "Story beat 02: I'd like a cup of tea, please.",
+      "spanish_translation": "Quisiera el menú, por favor.",
+      "pedagogy_note": "Story beat 02: I'd like the menu, please.",
       "answer_audio_policy": "authored-only"
     },
     {
       "slide_id": "S3",
       "interaction_type": "speak",
-      "prompt": "I'd like an orange juice, please.",
+      "prompt": "I'd like the bill, please.",
       "stage": "Speak",
-      "correct_option_id": "i'd-like-an-orange-juice-please-speak",
+      "correct_option_id": "i'd-like-the-bill-please-speak",
       "options": [
         {
-          "id": "i'd-like-an-orange-juice-please-speak",
-          "image_url": "/lesson-assets/a1plus-unit-5-q03-70d3cb6c41177ac3.webp",
-          "label": "I'd like an orange juice, please."
+          "id": "i'd-like-the-bill-please-speak",
+          "image_url": "/lesson-assets/a1plus-unit-5-q18-4d1fb881613a1ec9.webp",
+          "label": "I'd like the bill, please."
         }
       ],
-      "audio_text": "I'd like an orange juice, please.",
+      "audio_text": "I'd like the bill, please.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "audio_turns": [
         {
-          "text": "I'd like an orange juice, please.",
+          "text": "I'd like the bill, please.",
           "speaker_role": "sofia",
-          "image_url": "/lesson-assets/a1plus-unit-5-q03-70d3cb6c41177ac3.webp",
+          "image_url": "/lesson-assets/a1plus-unit-5-q18-4d1fb881613a1ec9.webp",
           "delivery": "a1-pronunciation-v1"
         }
       ],
-      "spanish_translation": "Quisiera un jugo de naranja, por favor.",
-      "pedagogy_note": "Story beat 03: I'd like an orange juice, please.",
+      "spanish_translation": "Quisiera la cuenta, por favor.",
+      "pedagogy_note": "Story beat 03: I'd like the bill, please.",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -954,7 +1022,7 @@
       "options": [
         {
           "id": "what-would-you-like-speak",
-          "image_url": "/lesson-assets/a1plus-unit-5-q03-70d3cb6c41177ac3.webp",
+          "image_url": "/lesson-assets/a1plus-unit-5-q02-6e5d6f9c4b6cf6f6.webp",
           "label": "What would you like?"
         }
       ],
@@ -965,7 +1033,7 @@
         {
           "text": "What would you like?",
           "speaker_role": "co-teacher",
-          "image_url": "/lesson-assets/a1plus-unit-5-q03-70d3cb6c41177ac3.webp",
+          "image_url": "/lesson-assets/a1plus-unit-5-q02-6e5d6f9c4b6cf6f6.webp",
           "delivery": "a1-pronunciation-v1"
         }
       ],
@@ -982,7 +1050,7 @@
       "options": [
         {
           "id": "would-you-like-some-tea-speak",
-          "image_url": "/lesson-assets/a1plus-unit-5-o01-2b72061f1a90e239.webp",
+          "image_url": "/lesson-assets/a1plus-unit-5-o21-40bf6d4ce15f5a44.webp",
           "label": "Would you like some tea?"
         }
       ],
@@ -993,7 +1061,7 @@
         {
           "text": "Would you like some tea?",
           "speaker_role": "ana",
-          "image_url": "/lesson-assets/a1plus-unit-5-o01-2b72061f1a90e239.webp",
+          "image_url": "/lesson-assets/a1plus-unit-5-o21-40bf6d4ce15f5a44.webp",
           "delivery": "a1-pronunciation-v1"
         }
       ],
@@ -1032,29 +1100,29 @@
     {
       "slide_id": "S8",
       "interaction_type": "speak",
-      "prompt": "I'd like some tea, please.",
+      "prompt": "I'd like a lemonade, please.",
       "stage": "Speak",
-      "correct_option_id": "i'd-like-some-tea-please-speak",
+      "correct_option_id": "i'd-like-a-lemonade-please-speak",
       "options": [
         {
-          "id": "i'd-like-some-tea-please-speak",
-          "image_url": "/lesson-assets/a1plus-unit-5-o01-2b72061f1a90e239.webp",
-          "label": "I'd like some tea, please."
+          "id": "i'd-like-a-lemonade-please-speak",
+          "image_url": "/lesson-assets/a1plus-unit-5-q19-e360934d65c6f16b.webp",
+          "label": "I'd like a lemonade, please."
         }
       ],
-      "audio_text": "I'd like some tea, please.",
+      "audio_text": "I'd like a lemonade, please.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "audio_turns": [
         {
-          "text": "I'd like some tea, please.",
+          "text": "I'd like a lemonade, please.",
           "speaker_role": "luis",
-          "image_url": "/lesson-assets/a1plus-unit-5-o01-2b72061f1a90e239.webp",
+          "image_url": "/lesson-assets/a1plus-unit-5-q19-e360934d65c6f16b.webp",
           "delivery": "a1-pronunciation-v1"
         }
       ],
-      "spanish_translation": "Quisiera un poco de té, por favor.",
-      "pedagogy_note": "Story beat 08: I'd like some tea, please.",
+      "spanish_translation": "Quisiera una limonada, por favor.",
+      "pedagogy_note": "Story beat 08: I'd like a lemonade, please.",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -1092,14 +1160,14 @@
     {
       "slide_id": "U2",
       "interaction_type": "complete2",
-      "prompt": "I'd like a cup of ___, ___.",
+      "prompt": "I'd like the ___, ___.",
       "stage": "Use",
-      "correct_option_id": "tea",
+      "correct_option_id": "menu",
       "options": [
         {
-          "id": "tea",
+          "id": "menu",
           "image_url": "",
-          "label": "tea"
+          "label": "menu"
         },
         {
           "id": "please",
@@ -1107,49 +1175,49 @@
           "label": "please"
         }
       ],
-      "audio_text": "I'd like a cup of tea, please.",
-      "answer_audio_text": "I'd like a cup of tea, please.",
-      "prompt_image_url": "/lesson-assets/a1plus-unit-5-q02-6e5d6f9c4b6cf6f6.webp",
-      "spanish_translation": "Quisiera una taza de té, por favor.",
-      "translation": "Quisiera una taza de té, por favor.",
+      "audio_text": "I'd like the menu, please.",
+      "answer_audio_text": "I'd like the menu, please.",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-5-q17-43e2bd22cabc337f.webp",
+      "spanish_translation": "Quisiera el menú, por favor.",
+      "translation": "Quisiera el menú, por favor.",
       "correct_option_ids": [
-        "tea",
+        "menu",
         "please"
       ],
-      "answer_audio_speaker": "ana",
-      "pedagogy_note": "Story beat 02: I'd like a cup of tea, please.",
-      "audio_speaker": "ana",
+      "answer_audio_speaker": "diego",
+      "pedagogy_note": "Story beat 02: I'd like the menu, please.",
+      "audio_speaker": "diego",
       "answer_audio_policy": "authored-only"
     },
     {
       "slide_id": "U3",
       "interaction_type": "complete2",
-      "prompt": "___ ___ an orange juice, please.",
+      "prompt": "I'd like the ___, ___.",
       "stage": "Use",
-      "correct_option_id": "i'd",
+      "correct_option_id": "bill",
       "options": [
         {
-          "id": "i'd",
+          "id": "bill",
           "image_url": "",
-          "label": "I'd"
+          "label": "bill"
         },
         {
-          "id": "like",
+          "id": "please",
           "image_url": "",
-          "label": "like"
+          "label": "please"
         }
       ],
-      "audio_text": "I'd like an orange juice, please.",
-      "answer_audio_text": "I'd like an orange juice, please.",
-      "prompt_image_url": "/lesson-assets/a1plus-unit-5-q03-70d3cb6c41177ac3.webp",
-      "spanish_translation": "Quisiera un jugo de naranja, por favor.",
-      "translation": "Quisiera un jugo de naranja, por favor.",
+      "audio_text": "I'd like the bill, please.",
+      "answer_audio_text": "I'd like the bill, please.",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-5-q18-4d1fb881613a1ec9.webp",
+      "spanish_translation": "Quisiera la cuenta, por favor.",
+      "translation": "Quisiera la cuenta, por favor.",
       "correct_option_ids": [
-        "i'd",
-        "like"
+        "bill",
+        "please"
       ],
       "answer_audio_speaker": "sofia",
-      "pedagogy_note": "Story beat 03: I'd like an orange juice, please.",
+      "pedagogy_note": "Story beat 03: I'd like the bill, please.",
       "audio_speaker": "sofia",
       "answer_audio_policy": "authored-only"
     },
@@ -1215,7 +1283,7 @@
       ],
       "audio_text": "What would you like?",
       "answer_audio_text": "What would you like?",
-      "prompt_image_url": "/lesson-assets/a1plus-unit-5-q03-70d3cb6c41177ac3.webp",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-5-q02-6e5d6f9c4b6cf6f6.webp",
       "spanish_translation": "¿Qué le gustaría?",
       "translation": "¿Qué le gustaría?",
       "correct_option_ids": [
@@ -1264,7 +1332,7 @@
       ],
       "audio_text": "I'd like some tea, please.",
       "answer_audio_text": "I'd like some tea, please.",
-      "prompt_image_url": "/lesson-assets/a1plus-unit-5-o01-2b72061f1a90e239.webp",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-5-o21-40bf6d4ce15f5a44.webp",
       "spanish_translation": "Quisiera un poco de té, por favor.",
       "translation": "Quisiera un poco de té, por favor.",
       "correct_option_ids": [
@@ -1294,7 +1362,7 @@
         {
           "id": "word-4",
           "image_url": "",
-          "label": "juice"
+          "label": "lemonade"
         },
         {
           "id": "word-1",
@@ -1304,7 +1372,7 @@
         {
           "id": "word-3",
           "image_url": "",
-          "label": "some"
+          "label": "a"
         },
         {
           "id": "word-5",
@@ -1312,11 +1380,11 @@
           "label": "please"
         }
       ],
-      "audio_text": "I'd like some juice, please.",
-      "answer_audio_text": "I'd like some juice, please.",
-      "prompt_image_url": "/lesson-assets/a1plus-unit-5-o06-ea3556af242f7321.webp",
-      "spanish_translation": "Quisiera un poco de jugo, por favor.",
-      "translation": "Quisiera un poco de jugo, por favor.",
+      "audio_text": "I'd like a lemonade, please.",
+      "answer_audio_text": "I'd like a lemonade, please.",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-5-q19-e360934d65c6f16b.webp",
+      "spanish_translation": "Quisiera una limonada, por favor.",
+      "translation": "Quisiera una limonada, por favor.",
       "correct_option_ids": [
         "word-1",
         "word-2",
@@ -1324,9 +1392,9 @@
         "word-4",
         "word-5"
       ],
-      "answer_audio_speaker": "sofia",
-      "pedagogy_note": "Story beat 07: I'd like some juice, please.",
-      "audio_speaker": "sofia",
+      "answer_audio_speaker": "luis",
+      "pedagogy_note": "Story beat 07: I'd like a lemonade, please.",
+      "audio_speaker": "luis",
       "answer_audio_policy": "authored-only"
     },
     {

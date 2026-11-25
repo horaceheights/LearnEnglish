@@ -5,7 +5,7 @@
     "lesson": "5.4",
     "title": "How Many? and Some"
   },
-  "note": "A1+ Unit 5 Lesson 5.4, built on 2026-11-20 under the A1+ lesson standards approved 2026-10-27 and the user's 2026-11-09 rule that every A1+ lesson follows up the A1 lesson with the same number. The user asked on 2026-11-20 to \"work on a1+ Unit 5 same all deal as before none stop all approved\": A1+ 5.Y follows A1 5.Y with one step each, straight to Preview in batches, Gemini 2.5 Flash photos and ElevenLabs audio pre-approved, no per-lesson gates, reviewed in Preview. New photos: a full bottle of milk and a full jug of orange juice against the same nearly empty. 5.1's apples and oranges and 5.2's rice and cheese come back. A bank never sets There isn't much milk. against a sentence that is also true of the same photo.",
+  "note": "A1+ Unit 5 Lesson 5.4, built on 2026-11-20 under the A1+ lesson standards approved 2026-10-27 and the user's 2026-11-09 rule that every A1+ lesson follows up the A1 lesson with the same number. The user asked on 2026-11-20 to \"work on a1+ Unit 5 same all deal as before none stop all approved\": A1+ 5.Y follows A1 5.Y with one step each, straight to Preview in batches, Gemini 2.5 Flash photos and ElevenLabs audio pre-approved, no per-lesson gates, reviewed in Preview. New photos: a full bottle of milk and a full jug of orange juice against the same nearly empty. 5.1's apples and oranges and 5.2's rice and butter come back. A bank never sets There isn't much milk. against a sentence that is also true of the same photo.",
   "target": "backend/lessons/a1_plus/unit_5/a1plus-unit-5-lesson-5-4.yaml",
   "captions": false,
   "narrators": [
@@ -42,9 +42,9 @@
       "milk",
       "juice",
       "rice",
-      "cheese",
+      "butter",
       "apples",
-      "oranges"
+      "lemons"
     ],
     "grammar_function": "A follow-up of A1 5.4 How Many? and Some: A1 asks How many … are there? and counts; A1+ 5.4 asks about a food or drink you do not count, with How much + the food + is there? (How much milk is there?), and answers with 5.1-5.2's a lot of and a little or with not much (There isn't much milk.). How many stays with plurals. Here How much asks about an amount, not a price; prices come back in 5.8. The photos show a full bottle or jug against one with a finger's width at the bottom.",
     "prerequisite": "A1 5.4 How many … are there?; A1+ 5.1 a lot of, a few; A1+ 5.2 a little; A1+ 4.4 Is there…?, there isn't; A1 5.3 milk, juice.",
@@ -317,7 +317,7 @@
       "question_speaker": "teacher",
       "prefer": [
         "There's a little rice.",
-        "There's a lot of cheese."
+        "There's a lot of butter."
       ],
       "accepts": {
         "subject-variety": "Listen: the answer is what was heard; the other sentences change only the amount or the food.",
@@ -343,7 +343,7 @@
       "question_speaker": "teacher",
       "prefer": [
         "There's a lot of rice.",
-        "There's a lot of cheese."
+        "There's a lot of butter."
       ],
       "accepts": {
         "subject-variety": "Listen: the answer is what was heard; the other sentences change only the amount or the food.",
@@ -366,7 +366,7 @@
       "speaker": "teacher",
       "image_choices": false,
       "prefer": [
-        "How much cheese is there?",
+        "How much butter is there?",
         "How many apples are there?"
       ],
       "accepts": {
@@ -382,17 +382,17 @@
       "learn": false
     },
     {
-      "id": "lots-cheese",
-      "text": "There's a lot of cheese.",
-      "es": "Hay mucho queso.",
-      "image": "/lesson-assets/a1plus-unit-5-m05-38082fd76b100c06.webp",
+      "id": "lots-butter",
+      "text": "There's a lot of butter.",
+      "es": "Hay mucha mantequilla.",
+      "image": "/lesson-assets/a1plus-unit-5-m27-85812a35a6f6ffc4.webp",
       "kind": "amount",
       "speaker": "teacher",
-      "question": "How much cheese is there?",
-      "question_es": "¿Cuánto queso hay?",
+      "question": "How much butter is there?",
+      "question_es": "¿Cuánta mantequilla hay?",
       "question_speaker": "co-teacher",
       "prefer": [
-        "There's a little cheese.",
+        "There's a little butter.",
         "There's a lot of milk."
       ],
       "accepts": {
@@ -408,17 +408,17 @@
       "learn": false
     },
     {
-      "id": "small-cheese",
-      "text": "There's a little cheese.",
-      "es": "Hay un poco de queso.",
-      "image": "/lesson-assets/a1plus-unit-5-m06-ceb24e89884e7965.webp",
+      "id": "small-butter",
+      "text": "There's a little butter.",
+      "es": "Hay un poco de mantequilla.",
+      "image": "/lesson-assets/a1plus-unit-5-m28-61e94216fd971210.webp",
       "kind": "amount",
       "speaker": "teacher",
-      "question": "How much cheese is there?",
-      "question_es": "¿Cuánto queso hay?",
+      "question": "How much butter is there?",
+      "question_es": "¿Cuánta mantequilla hay?",
       "question_speaker": "co-teacher",
       "prefer": [
-        "There's a lot of cheese.",
+        "There's a lot of butter.",
         "There's a lot of milk."
       ],
       "accepts": {
@@ -434,10 +434,10 @@
       "learn": false
     },
     {
-      "id": "q-cheese",
-      "text": "How much cheese is there?",
-      "es": "¿Cuánto queso hay?",
-      "image": "/lesson-assets/a1plus-unit-5-m05-38082fd76b100c06.webp",
+      "id": "q-butter",
+      "text": "How much butter is there?",
+      "es": "¿Cuánta mantequilla hay?",
+      "image": "/lesson-assets/a1plus-unit-5-m27-85812a35a6f6ffc4.webp",
       "kind": "question",
       "speaker": "co-teacher",
       "image_choices": false,
@@ -481,14 +481,14 @@
       "learn": false
     },
     {
-      "id": "few-oranges",
-      "text": "There are a few oranges.",
-      "es": "Hay unas pocas naranjas.",
-      "image": "/lesson-assets/a1plus-unit-5-k04-7350202c9369258f.webp",
+      "id": "few-lemons",
+      "text": "There are a few lemons.",
+      "es": "Hay unos pocos limones.",
+      "image": "/lesson-assets/a1plus-unit-5-k10-06fa1d4eb099eacb.webp",
       "kind": "amount",
       "speaker": "teacher",
-      "question": "How many oranges are there?",
-      "question_es": "¿Cuántas naranjas hay?",
+      "question": "How many lemons are there?",
+      "question_es": "¿Cuántos limones hay?",
       "question_speaker": "co-teacher",
       "prefer": [
         "There isn't much juice.",
@@ -561,23 +561,23 @@
       "small-juice",
       "q-rice",
       "small-milk",
-      "lots-cheese",
+      "lots-butter",
       "lots-apples",
       "small-rice",
       "q-milk",
       "lots-juice",
-      "few-oranges",
-      "q-cheese"
+      "few-lemons",
+      "q-butter"
     ],
     "Listen": [
       "small-milk",
       "q-juice",
       "lots-rice",
-      "small-cheese",
+      "small-butter",
       "q-apples",
       "lots-juice",
-      "few-oranges",
-      "q-cheese",
+      "few-lemons",
+      "q-butter",
       "small-juice",
       "lots-milk"
     ],
@@ -588,18 +588,18 @@
       "lots-rice",
       "q-apples",
       "small-juice",
-      "q-cheese",
+      "q-butter",
       "lots-juice"
     ],
     "Use": [
       "q-milk",
       "small-juice",
       "q-rice",
-      "lots-cheese",
+      "lots-butter",
       "q-apples",
       "small-milk",
       "q-juice",
-      "small-cheese"
+      "small-butter"
     ]
   }
 }

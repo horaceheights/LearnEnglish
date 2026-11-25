@@ -12,7 +12,9 @@
   "goal": "Say if there are a lot of or a few things (There are a lot of apples. / There are a few apples.).",
   "vocabulary": [
     "a lot of",
-    "a few"
+    "a few",
+    "lemons",
+    "pineapples"
   ],
   "review_vocabulary": [
     "there are",
@@ -20,7 +22,6 @@
     "apples",
     "oranges",
     "strawberries",
-    "bananas",
     "fruit",
     "eats",
     "has",
@@ -78,6 +79,30 @@
         {
           "slide_id": "L4",
           "text": "Ana has a few strawberries."
+        }
+      ]
+    },
+    {
+      "kind": "sequence",
+      "targets": [
+        "lemons"
+      ],
+      "models": [
+        {
+          "slide_id": "L5",
+          "text": "They are lemons."
+        }
+      ]
+    },
+    {
+      "kind": "sequence",
+      "targets": [
+        "pineapples"
+      ],
+      "models": [
+        {
+          "slide_id": "L6",
+          "text": "They are pineapples."
         }
       ]
     }
@@ -210,6 +235,48 @@
       "answer_audio_policy": "authored-only"
     },
     {
+      "slide_id": "L5",
+      "interaction_type": "teach",
+      "prompt": "They are lemons.",
+      "stage": "Learn",
+      "correct_option_id": "they-are-lemons-learn",
+      "options": [
+        {
+          "id": "they-are-lemons-learn",
+          "image_url": "/lesson-assets/a1plus-unit-5-k10-06fa1d4eb099eacb.webp",
+          "label": "They are lemons."
+        }
+      ],
+      "audio_text": "They are lemons.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Son limones.",
+      "pedagogy_note": "Story beat 05: They are lemons.",
+      "audio_speaker": "teacher",
+      "answer_audio_policy": "authored-only"
+    },
+    {
+      "slide_id": "L6",
+      "interaction_type": "teach",
+      "prompt": "They are pineapples.",
+      "stage": "Learn",
+      "correct_option_id": "they-are-pineapples-learn",
+      "options": [
+        {
+          "id": "they-are-pineapples-learn",
+          "image_url": "/lesson-assets/a1plus-unit-5-k12-da19c679a43901b6.webp",
+          "label": "They are pineapples."
+        }
+      ],
+      "audio_text": "They are pineapples.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Son piñas.",
+      "pedagogy_note": "Story beat 06: They are pineapples.",
+      "audio_speaker": "co-teacher",
+      "answer_audio_policy": "authored-only"
+    },
+    {
       "slide_id": "R1",
       "interaction_type": "t2i2",
       "prompt": "There are a lot of apples.",
@@ -243,10 +310,10 @@
       "correct_option_id": "there-are-a-few-oranges-r2",
       "options": [
         {
-          "id": "there-are-a-few-strawberries-r2",
+          "id": "there-are-a-lot-of-oranges-r2",
           "image_url": "",
-          "label": "There are a few strawberries.",
-          "spanish_translation": "Hay unas pocas fresas."
+          "label": "There are a lot of oranges.",
+          "spanish_translation": "Hay muchas naranjas."
         },
         {
           "id": "there-are-a-few-oranges-r2",
@@ -294,52 +361,52 @@
       "interaction_type": "i2t2",
       "prompt": "",
       "stage": "Recognize",
-      "correct_option_id": "there-are-a-few-apples-r4",
+      "correct_option_id": "there-are-a-few-lemons-r4",
       "options": [
         {
-          "id": "there-are-a-few-strawberries-r4",
+          "id": "there-are-a-lot-of-lemons-r4",
           "image_url": "",
-          "label": "There are a few strawberries.",
-          "spanish_translation": "Hay unas pocas fresas."
+          "label": "There are a lot of lemons.",
+          "spanish_translation": "Hay muchos limones."
         },
         {
-          "id": "there-are-a-few-apples-r4",
+          "id": "there-are-a-few-lemons-r4",
           "image_url": "",
-          "label": "There are a few apples.",
-          "spanish_translation": "Hay unas pocas manzanas."
+          "label": "There are a few lemons.",
+          "spanish_translation": "Hay unos pocos limones."
         }
       ],
       "audio_text": "",
-      "answer_audio_text": "There are a few apples.",
-      "prompt_image_url": "/lesson-assets/a1plus-unit-5-k02-a3c141cdc6d7becc.webp",
+      "answer_audio_text": "There are a few lemons.",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-5-k10-06fa1d4eb099eacb.webp",
       "spanish_translation": "Elige la frase correcta.",
       "answer_audio_speaker": "co-teacher",
-      "pedagogy_note": "Story beat 04: There are a few apples.",
+      "pedagogy_note": "Story beat 04: There are a few lemons.",
       "answer_audio_policy": "authored-only"
     },
     {
       "slide_id": "R5",
       "interaction_type": "t2i2",
-      "prompt": "There are a lot of strawberries.",
+      "prompt": "There are a lot of pineapples.",
       "stage": "Recognize",
-      "correct_option_id": "there-are-a-lot-of-strawberries-r5",
+      "correct_option_id": "there-are-a-lot-of-pineapples-r5",
       "options": [
         {
-          "id": "there-are-a-few-strawberries-r5",
-          "image_url": "/lesson-assets/a1plus-unit-5-k06-27157209aa691b0b.webp",
+          "id": "there-are-a-few-pineapples-r5",
+          "image_url": "/lesson-assets/a1plus-unit-5-k12-da19c679a43901b6.webp",
           "label": null
         },
         {
-          "id": "there-are-a-lot-of-strawberries-r5",
-          "image_url": "/lesson-assets/a1plus-unit-5-k05-2ae71aafed100973.webp",
+          "id": "there-are-a-lot-of-pineapples-r5",
+          "image_url": "/lesson-assets/a1plus-unit-5-k11-8e84c3ebb9c017e9.webp",
           "label": null
         }
       ],
-      "audio_text": "There are a lot of strawberries.",
+      "audio_text": "There are a lot of pineapples.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Hay muchas fresas.",
-      "pedagogy_note": "Story beat 05: There are a lot of strawberries.",
+      "spanish_translation": "Hay muchas piñas.",
+      "pedagogy_note": "Story beat 05: There are a lot of pineapples.",
       "audio_speaker": "teacher",
       "answer_audio_policy": "authored-only"
     },
@@ -380,9 +447,9 @@
     {
       "slide_id": "R7",
       "interaction_type": "t2i4",
-      "prompt": "There are a lot of bananas.",
+      "prompt": "There are a lot of lemons.",
       "stage": "Recognize",
-      "correct_option_id": "there-are-a-lot-of-bananas-r7",
+      "correct_option_id": "there-are-a-lot-of-lemons-r7",
       "options": [
         {
           "id": "there-are-a-lot-of-apples-r7",
@@ -390,26 +457,26 @@
           "label": null
         },
         {
-          "id": "there-are-a-few-strawberries-r7",
-          "image_url": "/lesson-assets/a1plus-unit-5-k06-27157209aa691b0b.webp",
+          "id": "there-are-a-few-oranges-r7",
+          "image_url": "/lesson-assets/a1plus-unit-5-k04-7350202c9369258f.webp",
           "label": null
         },
         {
-          "id": "there-are-a-lot-of-bananas-r7",
-          "image_url": "/lesson-assets/a1plus-unit-5-k07-2e873e0effc2ae5f.webp",
+          "id": "there-are-a-lot-of-lemons-r7",
+          "image_url": "/lesson-assets/a1plus-unit-5-k09-bd155eb1e52210e9.webp",
           "label": null
         },
         {
-          "id": "there-are-a-few-bananas-r7",
-          "image_url": "/lesson-assets/a1plus-unit-5-k08-1702f433b9e87aeb.webp",
+          "id": "there-are-a-few-lemons-r7",
+          "image_url": "/lesson-assets/a1plus-unit-5-k10-06fa1d4eb099eacb.webp",
           "label": null
         }
       ],
-      "audio_text": "There are a lot of bananas.",
+      "audio_text": "There are a lot of lemons.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Hay muchos plátanos.",
-      "pedagogy_note": "Story beat 07: There are a lot of bananas.",
+      "spanish_translation": "Hay muchos limones.",
+      "pedagogy_note": "Story beat 07: There are a lot of lemons.",
       "audio_speaker": "teacher",
       "answer_audio_policy": "authored-only"
     },
@@ -418,33 +485,33 @@
       "interaction_type": "i2t3",
       "prompt": "",
       "stage": "Recognize",
-      "correct_option_id": "there-are-a-few-strawberries-r8",
+      "correct_option_id": "there-are-a-few-pineapples-r8",
       "options": [
-        {
-          "id": "there-are-a-lot-of-bananas-r8",
-          "image_url": "",
-          "label": "There are a lot of bananas.",
-          "spanish_translation": "Hay muchos plátanos."
-        },
-        {
-          "id": "there-are-a-few-strawberries-r8",
-          "image_url": "",
-          "label": "There are a few strawberries.",
-          "spanish_translation": "Hay unas pocas fresas."
-        },
         {
           "id": "there-are-a-few-oranges-r8",
           "image_url": "",
           "label": "There are a few oranges.",
           "spanish_translation": "Hay unas pocas naranjas."
+        },
+        {
+          "id": "there-are-a-few-pineapples-r8",
+          "image_url": "",
+          "label": "There are a few pineapples.",
+          "spanish_translation": "Hay unas pocas piñas."
+        },
+        {
+          "id": "there-are-a-lot-of-pineapples-r8",
+          "image_url": "",
+          "label": "There are a lot of pineapples.",
+          "spanish_translation": "Hay muchas piñas."
         }
       ],
       "audio_text": "",
-      "answer_audio_text": "There are a few strawberries.",
-      "prompt_image_url": "/lesson-assets/a1plus-unit-5-k06-27157209aa691b0b.webp",
+      "answer_audio_text": "There are a few pineapples.",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-5-k12-da19c679a43901b6.webp",
       "spanish_translation": "Elige la frase correcta.",
       "answer_audio_speaker": "co-teacher",
-      "pedagogy_note": "Story beat 08: There are a few strawberries.",
+      "pedagogy_note": "Story beat 08: There are a few pineapples.",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -483,33 +550,33 @@
       "interaction_type": "i2t3",
       "prompt": "",
       "stage": "Recognize",
-      "correct_option_id": "there-are-a-few-bananas-r10",
+      "correct_option_id": "there-are-a-few-apples-r10",
       "options": [
         {
-          "id": "there-are-a-few-bananas-r10",
+          "id": "there-are-a-few-apples-r10",
           "image_url": "",
-          "label": "There are a few bananas.",
-          "spanish_translation": "Hay unos pocos plátanos."
+          "label": "There are a few apples.",
+          "spanish_translation": "Hay unas pocas manzanas."
         },
         {
-          "id": "there-are-a-few-oranges-r10",
+          "id": "there-are-a-lot-of-apples-r10",
           "image_url": "",
-          "label": "There are a few oranges.",
-          "spanish_translation": "Hay unas pocas naranjas."
+          "label": "There are a lot of apples.",
+          "spanish_translation": "Hay muchas manzanas."
         },
         {
-          "id": "there-are-a-few-strawberries-r10",
+          "id": "there-are-a-few-lemons-r10",
           "image_url": "",
-          "label": "There are a few strawberries.",
-          "spanish_translation": "Hay unas pocas fresas."
+          "label": "There are a few lemons.",
+          "spanish_translation": "Hay unos pocos limones."
         }
       ],
       "audio_text": "",
-      "answer_audio_text": "There are a few bananas.",
-      "prompt_image_url": "/lesson-assets/a1plus-unit-5-k08-1702f433b9e87aeb.webp",
+      "answer_audio_text": "There are a few apples.",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-5-k02-a3c141cdc6d7becc.webp",
       "spanish_translation": "Elige la frase correcta.",
       "answer_audio_speaker": "co-teacher",
-      "pedagogy_note": "Story beat 10: There are a few bananas.",
+      "pedagogy_note": "Story beat 10: There are a few apples.",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -525,8 +592,8 @@
           "label": null
         },
         {
-          "id": "there-are-a-few-strawberries-a1",
-          "image_url": "/lesson-assets/a1plus-unit-5-k06-27157209aa691b0b.webp",
+          "id": "there-are-a-lot-of-apples-a1",
+          "image_url": "/lesson-assets/a1plus-unit-5-k01-acb250621630dd19.webp",
           "label": null
         }
       ],
@@ -597,24 +664,24 @@
       "interaction_type": "a2i2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "there-are-a-few-bananas-a4",
+      "correct_option_id": "there-are-a-few-pineapples-a4",
       "options": [
         {
-          "id": "there-are-a-few-oranges-a4",
-          "image_url": "/lesson-assets/a1plus-unit-5-k04-7350202c9369258f.webp",
+          "id": "there-are-a-lot-of-pineapples-a4",
+          "image_url": "/lesson-assets/a1plus-unit-5-k11-8e84c3ebb9c017e9.webp",
           "label": null
         },
         {
-          "id": "there-are-a-few-bananas-a4",
-          "image_url": "/lesson-assets/a1plus-unit-5-k08-1702f433b9e87aeb.webp",
+          "id": "there-are-a-few-pineapples-a4",
+          "image_url": "/lesson-assets/a1plus-unit-5-k12-da19c679a43901b6.webp",
           "label": null
         }
       ],
-      "audio_text": "There are a few bananas.",
+      "audio_text": "There are a few pineapples.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 04: There are a few bananas.",
+      "pedagogy_note": "Story beat 04: There are a few pineapples.",
       "audio_speaker": "co-teacher",
       "answer_audio_policy": "authored-only"
     },
@@ -623,24 +690,24 @@
       "interaction_type": "a2i2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "there-are-a-lot-of-apples-a5",
+      "correct_option_id": "there-are-a-lot-of-lemons-a5",
       "options": [
         {
-          "id": "there-are-a-lot-of-apples-a5",
-          "image_url": "/lesson-assets/a1plus-unit-5-k01-acb250621630dd19.webp",
+          "id": "there-are-a-lot-of-lemons-a5",
+          "image_url": "/lesson-assets/a1plus-unit-5-k09-bd155eb1e52210e9.webp",
           "label": null
         },
         {
-          "id": "there-are-a-few-apples-a5",
-          "image_url": "/lesson-assets/a1plus-unit-5-k02-a3c141cdc6d7becc.webp",
+          "id": "there-are-a-few-lemons-a5",
+          "image_url": "/lesson-assets/a1plus-unit-5-k10-06fa1d4eb099eacb.webp",
           "label": null
         }
       ],
-      "audio_text": "There are a lot of apples.",
+      "audio_text": "There are a lot of lemons.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 05: There are a lot of apples.",
+      "pedagogy_note": "Story beat 05: There are a lot of lemons.",
       "audio_speaker": "teacher",
       "answer_audio_policy": "authored-only"
     },
@@ -683,34 +750,34 @@
       "interaction_type": "a2i4",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "there-are-a-few-strawberries-a7",
+      "correct_option_id": "there-are-a-few-lemons-a7",
       "options": [
         {
-          "id": "there-are-a-few-bananas-a7",
-          "image_url": "/lesson-assets/a1plus-unit-5-k08-1702f433b9e87aeb.webp",
+          "id": "there-are-a-lot-of-pineapples-a7",
+          "image_url": "/lesson-assets/a1plus-unit-5-k11-8e84c3ebb9c017e9.webp",
           "label": null
         },
         {
-          "id": "there-are-a-few-strawberries-a7",
-          "image_url": "/lesson-assets/a1plus-unit-5-k06-27157209aa691b0b.webp",
+          "id": "there-are-a-few-lemons-a7",
+          "image_url": "/lesson-assets/a1plus-unit-5-k10-06fa1d4eb099eacb.webp",
+          "label": null
+        },
+        {
+          "id": "there-are-a-lot-of-lemons-a7",
+          "image_url": "/lesson-assets/a1plus-unit-5-k09-bd155eb1e52210e9.webp",
           "label": null
         },
         {
           "id": "there-are-a-few-oranges-a7",
           "image_url": "/lesson-assets/a1plus-unit-5-k04-7350202c9369258f.webp",
           "label": null
-        },
-        {
-          "id": "there-are-a-lot-of-bananas-a7",
-          "image_url": "/lesson-assets/a1plus-unit-5-k07-2e873e0effc2ae5f.webp",
-          "label": null
         }
       ],
-      "audio_text": "There are a few strawberries.",
+      "audio_text": "There are a few lemons.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 07: There are a few strawberries.",
+      "pedagogy_note": "Story beat 07: There are a few lemons.",
       "audio_speaker": "co-teacher",
       "answer_audio_policy": "authored-only"
     },
@@ -719,21 +786,21 @@
       "interaction_type": "a2i4",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "there-are-a-lot-of-bananas-a8",
+      "correct_option_id": "there-are-a-lot-of-pineapples-a8",
       "options": [
         {
-          "id": "there-are-a-few-strawberries-a8",
-          "image_url": "/lesson-assets/a1plus-unit-5-k06-27157209aa691b0b.webp",
+          "id": "there-are-a-few-lemons-a8",
+          "image_url": "/lesson-assets/a1plus-unit-5-k10-06fa1d4eb099eacb.webp",
           "label": null
         },
         {
-          "id": "there-are-a-lot-of-bananas-a8",
-          "image_url": "/lesson-assets/a1plus-unit-5-k07-2e873e0effc2ae5f.webp",
+          "id": "there-are-a-lot-of-pineapples-a8",
+          "image_url": "/lesson-assets/a1plus-unit-5-k11-8e84c3ebb9c017e9.webp",
           "label": null
         },
         {
-          "id": "there-are-a-few-bananas-a8",
-          "image_url": "/lesson-assets/a1plus-unit-5-k08-1702f433b9e87aeb.webp",
+          "id": "there-are-a-few-pineapples-a8",
+          "image_url": "/lesson-assets/a1plus-unit-5-k12-da19c679a43901b6.webp",
           "label": null
         },
         {
@@ -742,11 +809,11 @@
           "label": null
         }
       ],
-      "audio_text": "There are a lot of bananas.",
+      "audio_text": "There are a lot of pineapples.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 08: There are a lot of bananas.",
+      "pedagogy_note": "Story beat 08: There are a lot of pineapples.",
       "audio_speaker": "teacher",
       "answer_audio_policy": "authored-only"
     },
@@ -792,18 +859,18 @@
       "correct_option_id": "there-are-a-few-oranges-a10",
       "options": [
         {
-          "id": "there-are-a-few-strawberries-a10",
-          "image_url": "/lesson-assets/a1plus-unit-5-k06-27157209aa691b0b.webp",
+          "id": "there-are-a-lot-of-oranges-a10",
+          "image_url": "/lesson-assets/a1plus-unit-5-k03-5a345a3def47d7b6.webp",
           "label": null
         },
         {
-          "id": "there-are-a-lot-of-strawberries-a10",
-          "image_url": "/lesson-assets/a1plus-unit-5-k05-2ae71aafed100973.webp",
+          "id": "there-are-a-few-lemons-a10",
+          "image_url": "/lesson-assets/a1plus-unit-5-k10-06fa1d4eb099eacb.webp",
           "label": null
         },
         {
-          "id": "there-are-a-few-apples-a10",
-          "image_url": "/lesson-assets/a1plus-unit-5-k02-a3c141cdc6d7becc.webp",
+          "id": "there-are-a-lot-of-lemons-a10",
+          "image_url": "/lesson-assets/a1plus-unit-5-k09-bd155eb1e52210e9.webp",
           "label": null
         },
         {
@@ -963,57 +1030,57 @@
     {
       "slide_id": "S6",
       "interaction_type": "speak",
-      "prompt": "There are a lot of oranges.",
+      "prompt": "There are a lot of lemons.",
       "stage": "Speak",
-      "correct_option_id": "there-are-a-lot-of-oranges-speak",
+      "correct_option_id": "there-are-a-lot-of-lemons-speak",
       "options": [
         {
-          "id": "there-are-a-lot-of-oranges-speak",
-          "image_url": "/lesson-assets/a1plus-unit-5-k03-5a345a3def47d7b6.webp",
-          "label": "There are a lot of oranges."
+          "id": "there-are-a-lot-of-lemons-speak",
+          "image_url": "/lesson-assets/a1plus-unit-5-k09-bd155eb1e52210e9.webp",
+          "label": "There are a lot of lemons."
         }
       ],
-      "audio_text": "There are a lot of oranges.",
+      "audio_text": "There are a lot of lemons.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "audio_turns": [
         {
-          "text": "There are a lot of oranges.",
+          "text": "There are a lot of lemons.",
           "speaker_role": "co-teacher",
-          "image_url": "/lesson-assets/a1plus-unit-5-k03-5a345a3def47d7b6.webp",
+          "image_url": "/lesson-assets/a1plus-unit-5-k09-bd155eb1e52210e9.webp",
           "delivery": "a1-pronunciation-v1"
         }
       ],
-      "spanish_translation": "Hay muchas naranjas.",
-      "pedagogy_note": "Story beat 06: There are a lot of oranges.",
+      "spanish_translation": "Hay muchos limones.",
+      "pedagogy_note": "Story beat 06: There are a lot of lemons.",
       "answer_audio_policy": "authored-only"
     },
     {
       "slide_id": "S7",
       "interaction_type": "speak",
-      "prompt": "There are a few bananas.",
+      "prompt": "There are a few pineapples.",
       "stage": "Speak",
-      "correct_option_id": "there-are-a-few-bananas-speak",
+      "correct_option_id": "there-are-a-few-pineapples-speak",
       "options": [
         {
-          "id": "there-are-a-few-bananas-speak",
-          "image_url": "/lesson-assets/a1plus-unit-5-k08-1702f433b9e87aeb.webp",
-          "label": "There are a few bananas."
+          "id": "there-are-a-few-pineapples-speak",
+          "image_url": "/lesson-assets/a1plus-unit-5-k12-da19c679a43901b6.webp",
+          "label": "There are a few pineapples."
         }
       ],
-      "audio_text": "There are a few bananas.",
+      "audio_text": "There are a few pineapples.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "audio_turns": [
         {
-          "text": "There are a few bananas.",
+          "text": "There are a few pineapples.",
           "speaker_role": "co-teacher",
-          "image_url": "/lesson-assets/a1plus-unit-5-k08-1702f433b9e87aeb.webp",
+          "image_url": "/lesson-assets/a1plus-unit-5-k12-da19c679a43901b6.webp",
           "delivery": "a1-pronunciation-v1"
         }
       ],
-      "spanish_translation": "Hay unos pocos plátanos.",
-      "pedagogy_note": "Story beat 07: There are a few bananas.",
+      "spanish_translation": "Hay unas pocas piñas.",
+      "pedagogy_note": "Story beat 07: There are a few pineapples.",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -1079,7 +1146,7 @@
     {
       "slide_id": "U2",
       "interaction_type": "complete2",
-      "prompt": "There are ___ ___ oranges.",
+      "prompt": "There are ___ ___ lemons.",
       "stage": "Use",
       "correct_option_id": "a",
       "options": [
@@ -1094,17 +1161,17 @@
           "label": "few"
         }
       ],
-      "audio_text": "There are a few oranges.",
-      "answer_audio_text": "There are a few oranges.",
-      "prompt_image_url": "/lesson-assets/a1plus-unit-5-k04-7350202c9369258f.webp",
-      "spanish_translation": "Hay unas pocas naranjas.",
-      "translation": "Hay unas pocas naranjas.",
+      "audio_text": "There are a few lemons.",
+      "answer_audio_text": "There are a few lemons.",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-5-k10-06fa1d4eb099eacb.webp",
+      "spanish_translation": "Hay unos pocos limones.",
+      "translation": "Hay unos pocos limones.",
       "correct_option_ids": [
         "a",
         "few"
       ],
       "answer_audio_speaker": "co-teacher",
-      "pedagogy_note": "Story beat 02: There are a few oranges.",
+      "pedagogy_note": "Story beat 02: There are a few lemons.",
       "audio_speaker": "co-teacher",
       "answer_audio_policy": "authored-only"
     },
@@ -1202,14 +1269,14 @@
         {
           "id": "word-5",
           "image_url": "",
-          "label": "strawberries"
+          "label": "pineapples"
         }
       ],
-      "audio_text": "There are a few strawberries.",
-      "answer_audio_text": "There are a few strawberries.",
-      "prompt_image_url": "/lesson-assets/a1plus-unit-5-k06-27157209aa691b0b.webp",
-      "spanish_translation": "Hay unas pocas fresas.",
-      "translation": "Hay unas pocas fresas.",
+      "audio_text": "There are a few pineapples.",
+      "answer_audio_text": "There are a few pineapples.",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-5-k12-da19c679a43901b6.webp",
+      "spanish_translation": "Hay unas pocas piñas.",
+      "translation": "Hay unas pocas piñas.",
       "correct_option_ids": [
         "word-1",
         "word-2",
@@ -1218,7 +1285,7 @@
         "word-5"
       ],
       "answer_audio_speaker": "co-teacher",
-      "pedagogy_note": "Story beat 05: There are a few strawberries.",
+      "pedagogy_note": "Story beat 05: There are a few pineapples.",
       "audio_speaker": "co-teacher",
       "answer_audio_policy": "authored-only"
     },
@@ -1298,7 +1365,7 @@
         {
           "id": "word-6",
           "image_url": "",
-          "label": "bananas"
+          "label": "pineapples"
         },
         {
           "id": "word-1",
@@ -1316,11 +1383,11 @@
           "label": "of"
         }
       ],
-      "audio_text": "There are a lot of bananas.",
-      "answer_audio_text": "There are a lot of bananas.",
-      "prompt_image_url": "/lesson-assets/a1plus-unit-5-k07-2e873e0effc2ae5f.webp",
-      "spanish_translation": "Hay muchos plátanos.",
-      "translation": "Hay muchos plátanos.",
+      "audio_text": "There are a lot of pineapples.",
+      "answer_audio_text": "There are a lot of pineapples.",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-5-k11-8e84c3ebb9c017e9.webp",
+      "spanish_translation": "Hay muchas piñas.",
+      "translation": "Hay muchas piñas.",
       "correct_option_ids": [
         "word-1",
         "word-2",
@@ -1330,31 +1397,36 @@
         "word-6"
       ],
       "answer_audio_speaker": "teacher",
-      "pedagogy_note": "Story beat 07: There are a lot of bananas.",
+      "pedagogy_note": "Story beat 07: There are a lot of pineapples.",
       "audio_speaker": "teacher",
       "answer_audio_policy": "authored-only"
     },
     {
       "slide_id": "U8",
       "interaction_type": "complete-sentence",
-      "prompt": "___ ___ ___ ___ ___.",
+      "prompt": "___ ___ ___ ___ ___ ___.",
       "stage": "Use",
       "correct_option_id": "word-1",
       "options": [
         {
           "id": "word-2",
           "image_url": "",
-          "label": "has"
+          "label": "are"
         },
         {
           "id": "word-4",
           "image_url": "",
-          "label": "few"
+          "label": "lot"
+        },
+        {
+          "id": "word-6",
+          "image_url": "",
+          "label": "lemons"
         },
         {
           "id": "word-1",
           "image_url": "",
-          "label": "Ana"
+          "label": "There"
         },
         {
           "id": "word-3",
@@ -1364,24 +1436,25 @@
         {
           "id": "word-5",
           "image_url": "",
-          "label": "strawberries"
+          "label": "of"
         }
       ],
-      "audio_text": "Ana has a few strawberries.",
-      "answer_audio_text": "Ana has a few strawberries.",
-      "prompt_image_url": "/lesson-assets/a1plus-unit-5-c02-f57fd9089ba4c932.webp",
-      "spanish_translation": "Ana tiene unas pocas fresas.",
-      "translation": "Ana tiene unas pocas fresas.",
+      "audio_text": "There are a lot of lemons.",
+      "answer_audio_text": "There are a lot of lemons.",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-5-k09-bd155eb1e52210e9.webp",
+      "spanish_translation": "Hay muchos limones.",
+      "translation": "Hay muchos limones.",
       "correct_option_ids": [
         "word-1",
         "word-2",
         "word-3",
         "word-4",
-        "word-5"
+        "word-5",
+        "word-6"
       ],
-      "answer_audio_speaker": "co-teacher",
-      "pedagogy_note": "Story beat 08: Ana has a few strawberries.",
-      "audio_speaker": "co-teacher",
+      "answer_audio_speaker": "teacher",
+      "pedagogy_note": "Story beat 08: There are a lot of lemons.",
+      "audio_speaker": "teacher",
       "answer_audio_policy": "authored-only"
     }
   ]
