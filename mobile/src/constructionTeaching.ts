@@ -110,6 +110,8 @@ const COMPOUND_NOUNS: Record<string, string> = { 'post office': 'oficina de corr
 Object.assign(COMPOUND_NOUNS, { 'police station': 'estación de policía', 'gas station': 'gasolinera' });
 // A1+ 5.3 and 5.9 (2026-11-20): hot chocolate, orange juice.
 Object.assign(COMPOUND_NOUNS, { 'hot chocolate': 'chocolate caliente', 'orange juice': 'jugo de naranja' });
+// A1+ 7.3 (2026-11-24): T-shirt is written with a hyphen and read here as its two parts (a blue T-shirt).
+Object.assign(COMPOUND_NOUNS, { 't shirt': 'camiseta' });
 const STATES = set('red blue green yellow black white happy sad tired hungry thirsty sunny rainy cold hot windy cloudy mexican spanish american canadian');
 // A1 2.13 (2026-11-15): four more colors, before a noun (a brown dog) and after "is" (It is brown.).
 for (const color of words('brown pink purple gray')) { COLORS.add(color); STATES.add(color); }
@@ -123,6 +125,9 @@ for (const description of words('big small new used same different')) DESCRIPTIO
 for (const description of words('cheap expensive')) DESCRIPTIONS.add(description);
 // A1 7.9 (2026-11-15): how someone is (I am fine.) and how something is (The apple is good.); 7.10: It is warm.
 for (const description of words('good bad great fine sick angry afraid warm')) DESCRIPTIONS.add(description);
+// A1+ 7.2 and 7.4 (2026-11-24): two more feelings with a reason, and what the rain does (Ana is excited. /
+// Diego is worried. / Diego is wet.).
+for (const description of words('excited worried wet')) DESCRIPTIONS.add(description);
 // A1+ 2.8 (2026-11-19): favorite before a noun (my favorite color).
 DESCRIPTIONS.add('favorite');
 // A1+ 5.11 (2026-11-20): the cheaper bag; The red one is cheaper.
@@ -209,6 +214,9 @@ const WEATHER_NOW: Record<string, string> = { raining: 'lloviendo', snowing: 'ne
 const ACTIVITIES = set('dancing painting drawing singing');
 // A1+ 7.9 (2026-11-20): illnesses after have/has a.
 for (const noun of words('headache stomachache cough fever')) NOUNS.add(noun);
+// A1+ 7.3 and 7.13 (2026-11-24): two more clothes and two more things to be good at (Ana is wearing jeans. /
+// Luis is good at basketball. / Ana is good at playing the piano.).
+for (const noun of words('jeans basketball piano')) NOUNS.add(noun);
 const FEELINGS: Record<string, string> = { sick: 'enfermo o enferma', fine: 'bien', great: 'muy bien', tired: 'cansado o cansada' };
 // A1+ 7.10 (2026-11-20): seasons after in.
 const SEASONS: Record<string, string> = { spring: 'primavera', summer: 'verano', fall: 'otoño', winter: 'invierno' };
@@ -421,6 +429,14 @@ function teachClause(text: string): ClausePlan {
       && (end === start + 3 && (NOUNS.has(keys[start + 2]) || ACTIONS.has(keys[start + 2]) || ACTIVITIES.has(keys[start + 2])))) {
       teach(start, start + 2, `“good at” (bueno o buena para) va después de ${quote(anchor)}; “at” va justo antes de la actividad.`);
       teach(start + 2, end, `${quote(tokens[start + 2])} es la actividad y va después de “good at”${/ing$/.test(keys[start + 2]) ? ', con -ing' : ''}.`);
+      return true;
+    }
+    // A1+ 7.13 (2026-11-24): good at playing an instrument (Ana is good at playing the piano.).
+    if (end === start + 5 && keys[start] === 'good' && keys[start + 1] === 'at' && BE.has(anchor.toLowerCase())
+      && keys[start + 2] === 'playing' && keys[start + 3] === 'the' && NOUNS.has(keys[start + 4])) {
+      teach(start, start + 2, `“good at” (bueno o buena para) va después de ${quote(anchor)}; “at” va justo antes de la actividad.`);
+      teach(start + 2, start + 3, '“playing” (tocar) es la actividad y va después de “good at”, con -ing.');
+      teach(start + 3, end, `${quote(phrase(start + 3, end))} es el instrumento y cierra la frase: “the” va antes de ${quote(tokens[start + 4])}.`);
       return true;
     }
     // A1+ 2.11 (2026-11-20): Luis is taller than Sofia. / I am older than my brother. / … than me.
@@ -1273,6 +1289,13 @@ function teachClause(text: string): ClausePlan {
     teach(0, 1, '“Sorry” (lo siento) abre la respuesta: así decimos que no, con amabilidad.');
     teach(1, be, '“I’m” es la forma corta de “I am” y va después de “Sorry,”.');
     teach(be, keys.length, `${quote(phrase(be, keys.length))} dice por qué no podemos; va después de “I’m”.`);
+    return { explanations, relations, supported: true };
+  }
+  // A1+ 7.4 (2026-11-24): a third thing the weather does now (The sun is shining.).
+  if (joined === 'the sun is shining' && !text.trim().endsWith('?')) {
+    teach(0, 2, '“The sun” (el sol) es de qué hablamos y va primero: “The” va antes de “sun”.');
+    teach(2, 3, '“is” va después de “The sun” y antes de la acción.');
+    teach(3, 4, '“shining” (brillando) dice qué hace el sol ahora, con -ing; va al final.');
     return { explanations, relations, supported: true };
   }
   const isBusy = /^(ana|luis|sofia|diego|he|she) is busy$/.exec(joined);

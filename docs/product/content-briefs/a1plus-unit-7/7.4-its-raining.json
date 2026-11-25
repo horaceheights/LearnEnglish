@@ -5,7 +5,7 @@
     "lesson": "7.4",
     "title": "The Weather Today"
   },
-  "note": "A1+ Unit 7 Lesson 7.4, built on 2026-11-20 under the A1+ lesson standards approved 2026-10-27 and the user's 2026-11-09 rule that every A1+ lesson follows up the A1 lesson with the same number. On 2026-11-20 the user asked to \"work on a1+ Unit 7 same all deal as before none stop all approved\": the A1+ Unit 7 map (A1+ 7.Y follows A1 7.Y, one step each, fifteen lessons) approved up front, straight to Preview, Gemini 2.5 Flash photos and ElevenLabs audio pre-approved, no per-lesson gates, reviewed in Preview. Two new photos (Gemini 2.5 Flash): Luis at home with a mug, watching heavy rain through his window, and Ana in a park while big snowflakes fall. A1's rainy street, falling snow, empty rainy street and sunny park show the weather happening; It isn't raining. always comes with It's sunny., which the picture shows.",
+  "note": "A1+ Unit 7 Lesson 7.4, built on 2026-11-20 under the A1+ lesson standards approved 2026-10-27 and the user's 2026-11-09 rule that every A1+ lesson follows up the A1 lesson with the same number. On 2026-11-20 the user asked to \"work on a1+ Unit 7 same all deal as before none stop all approved\": the A1+ Unit 7 map (A1+ 7.Y follows A1 7.Y, one step each, fifteen lessons) approved up front, straight to Preview, Gemini 2.5 Flash photos and ElevenLabs audio pre-approved, no per-lesson gates, reviewed in Preview. Two new photos (Gemini 2.5 Flash): Luis at home with a mug, watching heavy rain through his window, and Ana in a park while big snowflakes fall. A1's rainy street, falling snow, empty rainy street and sunny park show the weather happening; It isn't raining. always comes with It's sunny., which the picture shows. Revised on 2026-11-24: the review of A1+ Unit 7 reported that this lesson added a grammar step with little new vocabulary, and the user answered \"Yes, add words\". Two words are new: shining (The sun is shining., on A1's sunny park) and wet (Diego with no umbrella in the rain, one new Gemini 2.5 Flash photo). A1 7.4's cloudy comes back in practice (It isn't raining. It's cloudy.).",
   "target": "backend/lessons/a1_plus/unit_7/a1plus-unit-7-lesson-7-4.yaml",
   "captions": false,
   "narrators": [
@@ -25,10 +25,12 @@
     "lesson_title": "It's raining",
     "sub_lesson_id": "7.4",
     "sub_lesson_title": "It's raining",
-    "goal": "Say what the weather is doing now with It's raining. / It's snowing. and ask Is it raining?.",
+    "goal": "Say what the weather is doing now with It's raining. / It's snowing. / The sun is shining., ask Is it raining?, and say someone is wet.",
     "vocabulary": [
       "raining",
-      "snowing"
+      "snowing",
+      "shining",
+      "wet"
     ],
     "review_vocabulary": [
       "it's",
@@ -47,12 +49,16 @@
       "he",
       "has",
       "an",
-      "umbrella"
+      "umbrella",
+      "the",
+      "sun",
+      "Diego",
+      "cloudy"
     ],
-    "grammar_function": "A follow-up of A1 7.4 The Weather Today: A1 describes the day with an adjective (It is rainy. It is sunny.) and A1 7.10 names rain and snow; A1+ 7.4 says what the weather is doing now. The one new grammar relationship is It's + raining/snowing (the weather as an action happening now), with the question Is it raining? / Is it snowing? and the short answers Yes, it is. / No, it isn't. from A1+ 3.4. 7.2's because and 7.3's wearing come back with the weather as the reason (Ana is wearing a hat because it's snowing.).",
+    "grammar_function": "A follow-up of A1 7.4 The Weather Today: A1 describes the day with an adjective (It is rainy. It is sunny.) and A1 7.10 names rain and snow; A1+ 7.4 says what the weather is doing now. The one new grammar relationship is It's + raining/snowing (the weather as an action happening now), with the question Is it raining? / Is it snowing? and the short answers Yes, it is. / No, it isn't. from A1+ 3.4. 7.2's because and 7.3's wearing come back with the weather as the reason (Ana is wearing a hat because it's snowing.). Two words are new: shining, a third thing the weather does now (The sun is shining.), and wet, what the rain does to you (Diego is wet because it's raining.). A1 7.4's cloudy returns in practice.",
     "prerequisite": "A1 7.4 rainy and sunny; A1 7.5 umbrella; A1 7.10 rain and snow; A1+ 3.4 short answers; A1+ 7.2 because; A1+ 7.3 wearing.",
-    "speaking_outcome": "Say raining and snowing with the stress on the first part (RAY-ning, SNOH-ing); in the question, let the voice go up at the end (Is it RAI-ning?). Do not require native-like speed.",
-    "content_revision": 1,
+    "speaking_outcome": "Say raining, snowing and shining with the stress on the first part (RAY-ning, SNOH-ing, SHY-ning); in the question, let the voice go up at the end (Is it RAI-ning?). Do not require native-like speed.",
+    "content_revision": 2,
     "learn_context_groups": [
       {
         "kind": "sequence",
@@ -79,13 +85,38 @@
         ]
       },
       {
+        "kind": "sequence",
+        "targets": [
+          "shining"
+        ],
+        "models": [
+          {
+            "slide_id": "L3",
+            "text": "The sun is shining."
+          }
+        ]
+      },
+      {
+        "kind": "sequence",
+        "targets": [
+          "wet",
+          "raining"
+        ],
+        "models": [
+          {
+            "slide_id": "L4",
+            "text": "Diego is wet because it's raining."
+          }
+        ]
+      },
+      {
         "kind": "exchange",
         "targets": [
           "raining"
         ],
         "models": [
           {
-            "slide_id": "L3",
+            "slide_id": "L5",
             "text": "Is it raining? Yes, it is.",
             "turns": [
               "Is it raining?",
@@ -101,7 +132,7 @@
         ],
         "models": [
           {
-            "slide_id": "L4",
+            "slide_id": "L6",
             "text": "Is it raining? No, it isn't. It's sunny.",
             "turns": [
               "Is it raining?",
@@ -132,6 +163,26 @@
       "choices": false,
       "use": false,
       "speaker": "teacher"
+    },
+    {
+      "id": "l-shine",
+      "text": "The sun is shining.",
+      "es": "El sol está brillando.",
+      "image": "/lesson-assets/a1_sunny.webp",
+      "kind": "sequence",
+      "choices": false,
+      "use": false,
+      "speaker": "teacher"
+    },
+    {
+      "id": "l-wet",
+      "text": "Diego is wet because it's raining.",
+      "es": "Diego está mojado porque está lloviendo.",
+      "image": "/lesson-assets/a1plus-unit-7-r06-3398f2aa8b862feb.webp",
+      "kind": "sequence",
+      "choices": false,
+      "use": false,
+      "speaker": "co-teacher"
     },
     {
       "id": "l-luis",
@@ -210,24 +261,6 @@
       "learn": false
     },
     {
-      "id": "w-sunny",
-      "text": "It isn't raining. It's sunny.",
-      "es": "No está lloviendo. Hace sol.",
-      "image": "/lesson-assets/a1_sunny.webp",
-      "kind": "now",
-      "accepts": {
-        "subject-variety": "The bank keeps It's and changes only the weather the picture shows happening now.",
-        "action-variety": "The bank keeps It's and changes only the weather the picture shows happening now.",
-        "conversational-response": "The bank keeps It's and changes only the weather the picture shows happening now.",
-        "reading-load": "The bank keeps It's and changes only the weather the picture shows happening now."
-      },
-      "prefer": [
-        "It isn't sunny. It's raining."
-      ],
-      "use": false,
-      "learn": false
-    },
-    {
       "id": "u-sunny",
       "text": "It isn't raining.",
       "es": "No está lloviendo.",
@@ -237,19 +270,6 @@
       "blanks": [
         "isn't",
         "raining"
-      ],
-      "learn": false
-    },
-    {
-      "id": "u-rain",
-      "text": "It isn't snowing.",
-      "es": "No está nevando.",
-      "image": "/lesson-assets/a1_photo_u7_seasons_rain_v1.webp",
-      "kind": "u",
-      "choices": false,
-      "blanks": [
-        "isn't",
-        "snowing"
       ],
       "learn": false
     },
@@ -324,76 +344,6 @@
       "learn": false
     },
     {
-      "id": "y-ana",
-      "text": "Yes, it is.",
-      "es": "Sí.",
-      "image": "/lesson-assets/a1plus-unit-7-r02-abd6db5ed0f920b6.webp",
-      "kind": "yn",
-      "question": "Is it snowing?",
-      "question_es": "¿Está nevando?",
-      "question_speaker": "co-teacher",
-      "speaker": "ana",
-      "image_choices": false,
-      "use": false,
-      "accepts": {
-        "subject-variety": "The question stays the same and the reply changes only yes or no; the picture shows the weather.",
-        "action-variety": "The question stays the same and the reply changes only yes or no; the picture shows the weather.",
-        "conversational-response": "The question stays the same and the reply changes only yes or no; the picture shows the weather.",
-        "reading-load": "The question stays the same and the reply changes only yes or no; the picture shows the weather."
-      },
-      "prefer": [
-        "No, it isn't."
-      ],
-      "listening_turns": [
-        {
-          "text": "Is it snowing?",
-          "speaker": "co-teacher",
-          "image": "/lesson-assets/a1plus-unit-7-r02-abd6db5ed0f920b6.webp"
-        },
-        {
-          "text": "Yes, it is.",
-          "speaker": "ana",
-          "image": "/lesson-assets/a1plus-unit-7-r02-abd6db5ed0f920b6.webp"
-        }
-      ],
-      "learn": false
-    },
-    {
-      "id": "y-rain",
-      "text": "No, it isn't.",
-      "es": "No.",
-      "image": "/lesson-assets/a1_photo_u7_seasons_rain_v1.webp",
-      "kind": "yn",
-      "question": "Is it snowing?",
-      "question_es": "¿Está nevando?",
-      "question_speaker": "co-teacher",
-      "speaker": "teacher",
-      "image_choices": false,
-      "use": false,
-      "accepts": {
-        "subject-variety": "The question stays the same and the reply changes only yes or no; the picture shows the weather.",
-        "action-variety": "The question stays the same and the reply changes only yes or no; the picture shows the weather.",
-        "conversational-response": "The question stays the same and the reply changes only yes or no; the picture shows the weather.",
-        "reading-load": "The question stays the same and the reply changes only yes or no; the picture shows the weather."
-      },
-      "prefer": [
-        "Yes, it is."
-      ],
-      "listening_turns": [
-        {
-          "text": "Is it snowing?",
-          "speaker": "co-teacher",
-          "image": "/lesson-assets/a1_photo_u7_seasons_rain_v1.webp"
-        },
-        {
-          "text": "No, it isn't.",
-          "speaker": "teacher",
-          "image": "/lesson-assets/a1_photo_u7_seasons_rain_v1.webp"
-        }
-      ],
-      "learn": false
-    },
-    {
       "id": "b-ana",
       "text": "Ana is wearing a hat because it's snowing.",
       "es": "Ana lleva un gorro porque está nevando.",
@@ -436,27 +386,6 @@
       "learn": false
     },
     {
-      "id": "b-man",
-      "text": "He has an umbrella because it's raining.",
-      "es": "Tiene un paraguas porque está lloviendo.",
-      "image": "/lesson-assets/a1_rainy.webp",
-      "kind": "why",
-      "accepts": {
-        "subject-variety": "The bank keeps the person and changes only the weather after because; the picture shows it.",
-        "action-variety": "The bank keeps the person and changes only the weather after because; the picture shows it.",
-        "conversational-response": "The bank keeps the person and changes only the weather after because; the picture shows it.",
-        "reading-load": "The bank keeps the person and changes only the weather after because; the picture shows it."
-      },
-      "prefer": [
-        "He has an umbrella because it's sunny."
-      ],
-      "blanks": [
-        "it's",
-        "raining"
-      ],
-      "learn": false
-    },
-    {
       "id": "q-rain",
       "text": "Is it raining?",
       "es": "¿Está lloviendo?",
@@ -472,17 +401,6 @@
       "text": "Is it snowing?",
       "es": "¿Está nevando?",
       "image": "/lesson-assets/a1plus-unit-7-r02-abd6db5ed0f920b6.webp",
-      "kind": "question",
-      "speaker": "co-teacher",
-      "choices": false,
-      "use": false,
-      "learn": false
-    },
-    {
-      "id": "q-rain2",
-      "text": "Is it raining?",
-      "es": "¿Está lloviendo?",
-      "image": "/lesson-assets/a1_sunny.webp",
       "kind": "question",
       "speaker": "co-teacher",
       "choices": false,
@@ -519,6 +437,119 @@
         "Is it snowing? No, it isn't."
       ],
       "learn": false
+    },
+    {
+      "id": "w-shine",
+      "text": "The sun is shining.",
+      "es": "El sol está brillando.",
+      "image": "/lesson-assets/a1_sunny.webp",
+      "kind": "now",
+      "accepts": {
+        "subject-variety": "The bank keeps It's and changes only the weather the picture shows happening now.",
+        "action-variety": "The bank keeps It's and changes only the weather the picture shows happening now.",
+        "conversational-response": "The bank keeps It's and changes only the weather the picture shows happening now.",
+        "reading-load": "The bank keeps It's and changes only the weather the picture shows happening now."
+      },
+      "prefer": [
+        "It's raining."
+      ],
+      "learn": false,
+      "blanks": [
+        "is",
+        "shining"
+      ],
+      "avoid": [
+        "It's sunny.",
+        "It isn't raining. It's sunny.",
+        "It isn't raining. The sun is shining."
+      ]
+    },
+    {
+      "id": "x-shine",
+      "text": "It isn't raining. The sun is shining.",
+      "es": "No está lloviendo. El sol está brillando.",
+      "image": "/lesson-assets/a1_sunny.webp",
+      "kind": "now",
+      "accepts": {
+        "subject-variety": "The bank keeps It's and changes only the weather the picture shows happening now.",
+        "action-variety": "The bank keeps It's and changes only the weather the picture shows happening now.",
+        "conversational-response": "The bank keeps It's and changes only the weather the picture shows happening now.",
+        "reading-load": "The bank keeps It's and changes only the weather the picture shows happening now."
+      },
+      "prefer": [
+        "It isn't sunny. It's raining."
+      ],
+      "use": false,
+      "learn": false,
+      "avoid": [
+        "It isn't raining. It's sunny.",
+        "It's sunny."
+      ]
+    },
+    {
+      "id": "b-wet",
+      "text": "Diego is wet because it's raining.",
+      "es": "Diego está mojado porque está lloviendo.",
+      "image": "/lesson-assets/a1plus-unit-7-r06-3398f2aa8b862feb.webp",
+      "kind": "why",
+      "accepts": {
+        "subject-variety": "The bank keeps the person and changes only the weather after because; the picture shows it.",
+        "action-variety": "The bank keeps the person and changes only the weather after because; the picture shows it.",
+        "conversational-response": "The bank keeps the person and changes only the weather after because; the picture shows it.",
+        "reading-load": "The bank keeps the person and changes only the weather after because; the picture shows it."
+      },
+      "prefer": [
+        "Diego is wet because it's snowing."
+      ],
+      "blanks": [
+        "is",
+        "wet"
+      ],
+      "learn": false
+    },
+    {
+      "id": "t-wet",
+      "text": "Diego is wet.",
+      "es": "Diego está mojado.",
+      "image": "/lesson-assets/a1plus-unit-7-r06-3398f2aa8b862feb.webp",
+      "kind": "state",
+      "accepts": {
+        "subject-variety": "The bank keeps the person and changes only what is true of him; the picture shows him wet in the rain.",
+        "action-variety": "The bank keeps the person and changes only what is true of him; the picture shows him wet in the rain.",
+        "conversational-response": "The bank keeps the person and changes only what is true of him; the picture shows him wet in the rain.",
+        "reading-load": "The bank keeps the person and changes only what is true of him; the picture shows him wet in the rain."
+      },
+      "prefer": [
+        "Diego is at home."
+      ],
+      "learn": false,
+      "blanks": [
+        "is",
+        "wet"
+      ],
+      "image_choices": false
+    },
+    {
+      "id": "w-cloudy",
+      "text": "It isn't raining. It's cloudy.",
+      "es": "No está lloviendo. Está nublado.",
+      "image": "/lesson-assets/a1_cloudy.webp",
+      "kind": "now",
+      "accepts": {
+        "subject-variety": "The bank keeps It's and changes only the weather the picture shows happening now.",
+        "action-variety": "The bank keeps It's and changes only the weather the picture shows happening now.",
+        "conversational-response": "The bank keeps It's and changes only the weather the picture shows happening now.",
+        "reading-load": "The bank keeps It's and changes only the weather the picture shows happening now."
+      },
+      "prefer": [
+        "It isn't cloudy. It's raining."
+      ],
+      "use": false,
+      "learn": false,
+      "avoid": [
+        "The sun is shining.",
+        "It isn't raining. The sun is shining."
+      ]
     }
   ],
   "pool": [
@@ -612,6 +643,55 @@
       "image": "/lesson-assets/a1plus-unit-7-r02-abd6db5ed0f920b6.webp",
       "kind": "exch",
       "image_choices": false
+    },
+    {
+      "text": "Diego is wet because it's snowing.",
+      "es": "Diego está mojado porque está nevando.",
+      "image": "/lesson-assets/a1plus-unit-7-r06-3398f2aa8b862feb.webp",
+      "kind": "why",
+      "image_choices": false
+    },
+    {
+      "text": "Diego is wet because it's sunny.",
+      "es": "Diego está mojado porque hace sol.",
+      "image": "/lesson-assets/a1plus-unit-7-r06-3398f2aa8b862feb.webp",
+      "kind": "why",
+      "image_choices": false
+    },
+    {
+      "text": "Diego is at home.",
+      "es": "Diego está en casa.",
+      "image": "/lesson-assets/a1plus-unit-7-r06-3398f2aa8b862feb.webp",
+      "kind": "state",
+      "image_choices": false
+    },
+    {
+      "text": "Diego is wearing a hat.",
+      "es": "Diego lleva un sombrero.",
+      "image": "/lesson-assets/a1plus-unit-7-r06-3398f2aa8b862feb.webp",
+      "kind": "state",
+      "image_choices": false
+    },
+    {
+      "text": "No, it isn't.",
+      "es": "No.",
+      "image": "/lesson-assets/a1plus-unit-7-r06-3398f2aa8b862feb.webp",
+      "kind": "yn",
+      "image_choices": false
+    },
+    {
+      "text": "It isn't cloudy. It's raining.",
+      "es": "No está nublado. Está lloviendo.",
+      "image": "/lesson-assets/a1_cloudy.webp",
+      "kind": "now",
+      "image_choices": false
+    },
+    {
+      "text": "It isn't raining. It's sunny.",
+      "es": "No está lloviendo. Hace sol.",
+      "image": "/lesson-assets/a1_cloudy.webp",
+      "kind": "now",
+      "image_choices": false
     }
   ],
   "layout": {
@@ -624,52 +704,54 @@
     "Learn": [
       "l-rain",
       "l-snow",
+      "l-shine",
+      "l-wet",
       "l-luis",
       "l-sunny"
     ],
     "Recognize": [
       "w-rain",
       "y-luis",
+      "w-shine",
+      "t-wet",
+      "b-ana",
       "w-snow",
       "y-sunny",
-      "b-ana",
-      "w-sunny",
-      "y-ana",
-      "b-luis",
-      "y-rain",
-      "b-man",
-      "w-snow"
+      "b-wet",
+      "w-cloudy",
+      "x-shine",
+      "b-luis"
     ],
     "Listen": [
       "y-luis",
-      "w-snow",
+      "w-shine",
       "x-ana",
-      "b-luis",
+      "b-wet",
       "y-sunny",
       "w-rain",
-      "y-rain",
+      "t-wet",
       "b-ana",
-      "w-sunny",
-      "b-man"
+      "w-cloudy",
+      "x-shine"
     ],
     "Speak": [
       "q-rain",
       "w-rain",
       "q-snow",
       "w-snow",
-      "q-rain2",
-      "w-sunny",
-      "b-ana",
-      "b-luis"
+      "w-shine",
+      "t-wet",
+      "b-wet",
+      "x-shine"
     ],
     "Use": [
       "w-rain",
       "w-snow",
+      "w-shine",
+      "t-wet",
+      "b-wet",
       "u-sunny",
-      "b-ana",
-      "b-luis",
-      "b-man",
-      "u-rain"
+      "w-shine"
     ]
   }
 }

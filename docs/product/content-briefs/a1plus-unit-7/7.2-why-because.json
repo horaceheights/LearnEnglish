@@ -5,7 +5,7 @@
     "lesson": "7.2",
     "title": "How Are You?"
   },
-  "note": "A1+ Unit 7 Lesson 7.2, built on 2026-11-20 under the A1+ lesson standards approved 2026-10-27 and the user's 2026-11-09 rule that every A1+ lesson follows up the A1 lesson with the same number. On 2026-11-20 the user asked to \"work on a1+ Unit 7 same all deal as before none stop all approved\": the A1+ Unit 7 map (A1+ 7.Y follows A1 7.Y, one step each, fifteen lessons) approved up front, straight to Preview, Gemini 2.5 Flash photos and ElevenLabs audio pre-approved, no per-lesson gates, reviewed in Preview. Two new photos (Gemini 2.5 Flash): Sofia drinks water after running in the park, and Diego kneels by his sick dog. A1 7.4's cold, windy shore and hot, sunny bench give the weather reasons, and 7.1's photos of Sofia's head and Diego's legs give the hurts reasons. Every reason is visible in its photo.",
+  "note": "A1+ Unit 7 Lesson 7.2, built on 2026-11-20 under the A1+ lesson standards approved 2026-10-27 and the user's 2026-11-09 rule that every A1+ lesson follows up the A1 lesson with the same number. On 2026-11-20 the user asked to \"work on a1+ Unit 7 same all deal as before none stop all approved\": the A1+ Unit 7 map (A1+ 7.Y follows A1 7.Y, one step each, fifteen lessons) approved up front, straight to Preview, Gemini 2.5 Flash photos and ElevenLabs audio pre-approved, no per-lesson gates, reviewed in Preview. Two new photos (Gemini 2.5 Flash): Sofia drinks water after running in the park, and Diego kneels by his sick dog. A1 7.4's cold, windy shore and hot, sunny bench give the weather reasons, and 7.1's photos of Sofia's head and Diego's legs give the hurts reasons. Every reason is visible in its photo. Revised on 2026-11-24: the review of A1+ Unit 7 reported that this lesson added a grammar step with little new vocabulary, and the user answered \"Yes, add words\". Two feelings are new: worried (Diego by his sick dog, where the first build said sad) and excited (Ana at her birthday cake, one new Gemini 2.5 Flash photo). Sad stays with the two hurts photos.",
   "target": "backend/lessons/a1_plus/unit_7/a1plus-unit-7-lesson-7-2.yaml",
   "captions": false,
   "narrators": [
@@ -28,7 +28,9 @@
     "goal": "Ask why someone feels a certain way with Why …? and answer with Because … (Why is she cold? Because it's windy.).",
     "vocabulary": [
       "Why",
-      "Because"
+      "Because",
+      "excited",
+      "worried"
     ],
     "review_vocabulary": [
       "is",
@@ -51,12 +53,14 @@
       "hurts",
       "hurt",
       "head",
-      "legs"
+      "legs",
+      "birthday",
+      "Ana"
     ],
-    "grammar_function": "A follow-up of A1 7.2 How Are You?: A1 asks how someone is and answers with a feeling (How is she? She is sad.); A1+ 7.2 asks why. The one new grammar relationship is Why + be + person + feeling? answered with Because + a reason (Why is she cold? Because it's windy.), then joined into one sentence (She's cold because it's windy.). The reasons are things A1 and A1+ already taught: the weather (A1 7.4), being sick (A1 7.9), running (A1 Unit 1) and 7.1's hurts.",
+    "grammar_function": "A follow-up of A1 7.2 How Are You?: A1 asks how someone is and answers with a feeling (How is she? She is sad.); A1+ 7.2 asks why. The one new grammar relationship is Why + be + person + feeling? answered with Because + a reason (Why is she cold? Because it's windy.), then joined into one sentence (She's cold because it's windy.). The reasons are things A1 and A1+ already taught: the weather (A1 7.4), being sick (A1 7.9), running (A1 Unit 1) and 7.1's hurts. Two new feelings join A1 7.2's: worried and excited, each with a reason the photo shows (Diego is worried because his dog is sick. / Ana is excited because it's her birthday.).",
     "prerequisite": "A1 7.2 How are you? feelings; A1 7.4 weather; A1 7.9 sick; A1+ 3.3 he's/she's + -ing; A1+ 7.1 hurts.",
     "speaking_outcome": "Say Why with a rising start and a falling end (WHY is she COLD?); say because as bi-KOZ with the stress on the second part. Do not require native-like speed.",
-    "content_revision": 1,
+    "content_revision": 2,
     "learn_context_groups": [
       {
         "kind": "exchange",
@@ -78,16 +82,35 @@
       {
         "kind": "exchange",
         "targets": [
+          "worried",
           "Why",
           "Because"
         ],
         "models": [
           {
             "slide_id": "L2",
-            "text": "Why is Diego sad? Because his dog is sick.",
+            "text": "Why is Diego worried? Because his dog is sick.",
             "turns": [
-              "Why is Diego sad?",
+              "Why is Diego worried?",
               "Because his dog is sick."
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "exchange",
+        "targets": [
+          "excited",
+          "Why",
+          "Because"
+        ],
+        "models": [
+          {
+            "slide_id": "L3",
+            "text": "Why is Ana excited? Because it's her birthday.",
+            "turns": [
+              "Why is Ana excited?",
+              "Because it's her birthday."
             ]
           }
         ]
@@ -100,7 +123,7 @@
         ],
         "models": [
           {
-            "slide_id": "L3",
+            "slide_id": "L4",
             "text": "Why are you thirsty? Because I'm running.",
             "turns": [
               "Why are you thirsty?",
@@ -135,15 +158,15 @@
     },
     {
       "id": "l-dog",
-      "text": "Why is Diego sad? Because his dog is sick.",
-      "es": "¿Por qué está triste Diego? Porque su perro está enfermo.",
+      "text": "Why is Diego worried? Because his dog is sick.",
+      "es": "¿Por qué está preocupado Diego? Porque su perro está enfermo.",
       "image": "/lesson-assets/a1plus-unit-7-w02-e5048c773a9bec69.webp",
       "kind": "exchange",
       "choices": false,
       "use": false,
       "turns": [
         {
-          "text": "Why is Diego sad?",
+          "text": "Why is Diego worried?",
           "speaker": "teacher",
           "image": "/lesson-assets/a1plus-unit-7-w02-e5048c773a9bec69.webp"
         },
@@ -151,6 +174,27 @@
           "text": "Because his dog is sick.",
           "speaker": "co-teacher",
           "image": "/lesson-assets/a1plus-unit-7-w02-e5048c773a9bec69.webp"
+        }
+      ]
+    },
+    {
+      "id": "l-ana",
+      "text": "Why is Ana excited? Because it's her birthday.",
+      "es": "¿Por qué está emocionada Ana? Porque es su cumpleaños.",
+      "image": "/lesson-assets/a1plus-unit-7-e01-3e4b3ae218c58c29.webp",
+      "kind": "exchange",
+      "choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "Why is Ana excited?",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-7-e01-3e4b3ae218c58c29.webp"
+        },
+        {
+          "text": "Because it's her birthday.",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-7-e01-3e4b3ae218c58c29.webp"
         }
       ]
     },
@@ -227,8 +271,8 @@
       "es": "Porque su perro está enfermo.",
       "image": "/lesson-assets/a1plus-unit-7-w02-e5048c773a9bec69.webp",
       "kind": "reply",
-      "question": "Why is Diego sad?",
-      "question_es": "¿Por qué está triste Diego?",
+      "question": "Why is Diego worried?",
+      "question_es": "¿Por qué está preocupado Diego?",
       "question_speaker": "co-teacher",
       "speaker": "teacher",
       "image_choices": false,
@@ -358,8 +402,8 @@
     },
     {
       "id": "s-dog",
-      "text": "Diego is sad because his dog is sick.",
-      "es": "Diego está triste porque su perro está enfermo.",
+      "text": "Diego is worried because his dog is sick.",
+      "es": "Diego está preocupado porque su perro está enfermo.",
       "image": "/lesson-assets/a1plus-unit-7-w02-e5048c773a9bec69.webp",
       "kind": "whole",
       "accepts": {
@@ -369,11 +413,11 @@
         "reading-load": "The bank keeps the person and the feeling and changes only the reason after because."
       },
       "prefer": [
-        "Diego is sad because his legs hurt."
+        "Diego is worried because his legs hurt."
       ],
       "blanks": [
-        "because",
-        "his"
+        "worried",
+        "because"
       ],
       "text_choices": false,
       "learn": false
@@ -434,8 +478,8 @@
     },
     {
       "id": "q-sad",
-      "text": "Why is Diego sad?",
-      "es": "¿Por qué está triste Diego?",
+      "text": "Why is Diego worried?",
+      "es": "¿Por qué está preocupado Diego?",
       "image": "/lesson-assets/a1plus-unit-7-w02-e5048c773a9bec69.webp",
       "kind": "question",
       "speaker": "co-teacher",
@@ -483,6 +527,62 @@
       "prefer": [
         "Why are you thirsty? Because I'm sad."
       ],
+      "learn": false
+    },
+    {
+      "id": "r-ana",
+      "text": "Because it's her birthday.",
+      "es": "Porque es su cumpleaños.",
+      "image": "/lesson-assets/a1plus-unit-7-e01-3e4b3ae218c58c29.webp",
+      "kind": "reply",
+      "question": "Why is Ana excited?",
+      "question_es": "¿Por qué está emocionada Ana?",
+      "question_speaker": "co-teacher",
+      "speaker": "teacher",
+      "image_choices": false,
+      "use": false,
+      "accepts": {
+        "subject-variety": "The question stays the same and the reply changes only the reason; the picture shows the reason.",
+        "action-variety": "The question stays the same and the reply changes only the reason; the picture shows the reason.",
+        "conversational-response": "The question stays the same and the reply changes only the reason; the picture shows the reason.",
+        "reading-load": "The question stays the same and the reply changes only the reason; the picture shows the reason."
+      },
+      "prefer": [
+        "Because it's windy."
+      ],
+      "learn": false
+    },
+    {
+      "id": "s-ana",
+      "text": "Ana is excited because it's her birthday.",
+      "es": "Ana está emocionada porque es su cumpleaños.",
+      "image": "/lesson-assets/a1plus-unit-7-e01-3e4b3ae218c58c29.webp",
+      "kind": "whole",
+      "accepts": {
+        "subject-variety": "The bank keeps the person and the feeling and changes only the reason after because.",
+        "action-variety": "The bank keeps the person and the feeling and changes only the reason after because.",
+        "conversational-response": "The bank keeps the person and the feeling and changes only the reason after because.",
+        "reading-load": "The bank keeps the person and the feeling and changes only the reason after because."
+      },
+      "prefer": [
+        "Ana is excited because it's windy."
+      ],
+      "blanks": [
+        "excited",
+        "because"
+      ],
+      "text_choices": false,
+      "learn": false
+    },
+    {
+      "id": "q-ana",
+      "text": "Why is Ana excited?",
+      "es": "¿Por qué está emocionada Ana?",
+      "image": "/lesson-assets/a1plus-unit-7-e01-3e4b3ae218c58c29.webp",
+      "kind": "question",
+      "speaker": "co-teacher",
+      "choices": false,
+      "use": false,
       "learn": false
     }
   ],
@@ -544,8 +644,8 @@
       "image_choices": false
     },
     {
-      "text": "Diego is sad because his legs hurt.",
-      "es": "Diego está triste porque le duelen las piernas.",
+      "text": "Diego is worried because his legs hurt.",
+      "es": "Diego está preocupado porque le duelen las piernas.",
       "image": "/lesson-assets/a1plus-unit-7-w02-e5048c773a9bec69.webp",
       "kind": "whole",
       "image_choices": false
@@ -570,6 +670,34 @@
       "image": "/lesson-assets/a1plus-unit-7-w01-2c2419fb3d8cea4e.webp",
       "kind": "exch",
       "image_choices": false
+    },
+    {
+      "text": "Because it's windy.",
+      "es": "Porque hace viento.",
+      "image": "/lesson-assets/a1plus-unit-7-e01-3e4b3ae218c58c29.webp",
+      "kind": "reply",
+      "image_choices": false
+    },
+    {
+      "text": "Because she's running.",
+      "es": "Porque está corriendo.",
+      "image": "/lesson-assets/a1plus-unit-7-e01-3e4b3ae218c58c29.webp",
+      "kind": "reply",
+      "image_choices": false
+    },
+    {
+      "text": "Ana is excited because it's windy.",
+      "es": "Ana está emocionada porque hace viento.",
+      "image": "/lesson-assets/a1plus-unit-7-e01-3e4b3ae218c58c29.webp",
+      "kind": "whole",
+      "image_choices": false
+    },
+    {
+      "text": "Ana is excited because her head hurts.",
+      "es": "Ana está emocionada porque le duele la cabeza.",
+      "image": "/lesson-assets/a1plus-unit-7-e01-3e4b3ae218c58c29.webp",
+      "kind": "whole",
+      "image_choices": false
     }
   ],
   "layout": {
@@ -582,52 +710,53 @@
     "Learn": [
       "l-cold",
       "l-dog",
+      "l-ana",
       "l-sofia"
     ],
     "Recognize": [
       "r-cold",
       "s-hot",
       "r-dog",
-      "s-sofia",
+      "s-ana",
       "r-legs",
       "s-cold",
-      "r-sofia",
+      "r-ana",
       "s-dog",
-      "r-head",
-      "s-head",
-      "r-hot"
+      "r-sofia",
+      "s-sofia",
+      "r-head"
     ],
     "Listen": [
       "r-hot",
-      "s-cold",
+      "s-ana",
       "x-sofia",
       "r-dog",
       "s-head",
-      "r-legs",
+      "r-ana",
       "s-sofia",
       "r-cold",
       "s-dog",
-      "r-head"
+      "r-legs"
     ],
     "Speak": [
       "q-cold",
       "s-cold",
       "q-sad",
       "s-dog",
+      "q-ana",
+      "s-ana",
       "q-you",
-      "s-sofia",
-      "s-hot",
-      "s-head"
+      "s-sofia"
     ],
     "Use": [
       "s-cold",
       "s-hot",
       "s-dog",
-      "s-sofia",
+      "s-ana",
       "s-head",
       "q-cold",
       "s-dog",
-      "s-sofia"
+      "s-ana"
     ]
   }
 }

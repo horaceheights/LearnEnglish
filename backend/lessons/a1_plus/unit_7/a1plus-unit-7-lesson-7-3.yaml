@@ -9,10 +9,12 @@
   "lesson_title": "She's wearing a blue dress",
   "sub_lesson_id": "7.3",
   "sub_lesson_title": "She's wearing a blue dress",
-  "goal": "Say what people are wearing now with am/is/are + wearing (Luis is wearing a black jacket.) and ask What are you wearing?.",
+  "goal": "Say what people are wearing now with am/is/are + wearing (Luis is wearing a black jacket.), ask What are you wearing?, and name two more clothes: a T-shirt and jeans.",
   "vocabulary": [
     "wearing",
-    "What are you wearing?"
+    "What are you wearing?",
+    "T-shirt",
+    "jeans"
   ],
   "review_vocabulary": [
     "I'm",
@@ -35,10 +37,10 @@
     "scarf",
     "what"
   ],
-  "grammar_function": "A follow-up of A1 7.3 My Clothes: A1 names clothes and their colors (My shirt is red.); A1+ 7.3 says what someone is wearing now. The one new grammar relationship is am/is/are + wearing + clothes (Luis is wearing a black jacket. / I'm wearing a red shirt.), with the question What are you wearing? / What is she wearing?. It uses A1+ 3.3's he's/she's + -ing. Four new photos dress the cast in one clear piece each, and A1's photos of a red hat, a hat and shorts, boots and a red scarf come back.",
+  "grammar_function": "A follow-up of A1 7.3 My Clothes: A1 names clothes and their colors (My shirt is red.); A1+ 7.3 says what someone is wearing now. The one new grammar relationship is am/is/are + wearing + clothes (Luis is wearing a black jacket. / I'm wearing a red shirt.), with the question What are you wearing? / What is she wearing?. It uses A1+ 3.3's he's/she's + -ing. Four new photos dress the cast in one clear piece each, and A1's photos of a red hat, a hat and shorts, boots and a red scarf come back. Two clothes are new and are taught inside the same frame: a T-shirt and jeans (Luis is wearing a blue T-shirt. / Ana is wearing jeans.); jeans takes no a, like boots and shorts.",
   "prerequisite": "A1 7.3 clothes and colors; A1 7.5 boots, scarf and shorts; A1+ 3.3 he's/she's + -ing.",
-  "speaking_outcome": "Say wearing as WAIR-ing with the stress on the first part, and join I'm wearing (aim-WAIR-ing). Do not require native-like speed.",
-  "content_revision": 1,
+  "speaking_outcome": "Say wearing as WAIR-ing with the stress on the first part, and join I'm wearing (aim-WAIR-ing); say T-shirt as TEE-shirt and jeans with a clear j (JEENZ). Do not require native-like speed.",
+  "content_revision": 2,
   "learn_context_groups": [
     {
       "kind": "sequence",
@@ -53,6 +55,32 @@
       ]
     },
     {
+      "kind": "sequence",
+      "targets": [
+        "T-shirt",
+        "wearing"
+      ],
+      "models": [
+        {
+          "slide_id": "L2",
+          "text": "Luis is wearing a blue T-shirt."
+        }
+      ]
+    },
+    {
+      "kind": "sequence",
+      "targets": [
+        "jeans",
+        "wearing"
+      ],
+      "models": [
+        {
+          "slide_id": "L3",
+          "text": "Ana is wearing jeans."
+        }
+      ]
+    },
+    {
       "kind": "exchange",
       "targets": [
         "What are you wearing?",
@@ -60,7 +88,7 @@
       ],
       "models": [
         {
-          "slide_id": "L2",
+          "slide_id": "L4",
           "text": "What are you wearing? I'm wearing a red shirt.",
           "turns": [
             "What are you wearing?",
@@ -76,7 +104,7 @@
       ],
       "models": [
         {
-          "slide_id": "L3",
+          "slide_id": "L5",
           "text": "What is she wearing? She's wearing a blue dress.",
           "turns": [
             "What is she wearing?",
@@ -88,6 +116,8 @@
   ],
   "purposeful_review_slides": [
     "L1",
+    "L2",
+    "L3",
     "R1",
     "R2",
     "R3",
@@ -151,6 +181,48 @@
     {
       "slide_id": "L2",
       "interaction_type": "teach",
+      "prompt": "Luis is wearing a blue T-shirt.",
+      "stage": "Learn",
+      "correct_option_id": "luis-is-wearing-a-blue-t-shirt-learn",
+      "options": [
+        {
+          "id": "luis-is-wearing-a-blue-t-shirt-learn",
+          "image_url": "/lesson-assets/a1plus-unit-7-c05-01dd24a92fb6b0b3.webp",
+          "label": "Luis is wearing a blue T-shirt."
+        }
+      ],
+      "audio_text": "Luis is wearing a blue T-shirt.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Luis lleva una camiseta azul.",
+      "pedagogy_note": "Story beat 02: Luis is wearing a blue T-shirt.",
+      "audio_speaker": "co-teacher",
+      "answer_audio_policy": "authored-only"
+    },
+    {
+      "slide_id": "L3",
+      "interaction_type": "teach",
+      "prompt": "Ana is wearing jeans.",
+      "stage": "Learn",
+      "correct_option_id": "ana-is-wearing-jeans-learn",
+      "options": [
+        {
+          "id": "ana-is-wearing-jeans-learn",
+          "image_url": "/lesson-assets/a1plus-unit-7-c06-5bfd3d95b1070567.webp",
+          "label": "Ana is wearing jeans."
+        }
+      ],
+      "audio_text": "Ana is wearing jeans.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Ana lleva jeans.",
+      "pedagogy_note": "Story beat 03: Ana is wearing jeans.",
+      "audio_speaker": "teacher",
+      "answer_audio_policy": "authored-only"
+    },
+    {
+      "slide_id": "L4",
+      "interaction_type": "teach",
       "prompt": "What are you wearing? I'm wearing a red shirt.",
       "stage": "Learn",
       "correct_option_id": "what-are-you-wearing-i'm-wearing-a-red-shirt-learn",
@@ -177,11 +249,11 @@
         }
       ],
       "spanish_translation": "¿Qué llevas puesto? Llevo una camisa roja.",
-      "pedagogy_note": "Story beat 02: What are you wearing? I'm wearing a red shirt.",
+      "pedagogy_note": "Story beat 04: What are you wearing? I'm wearing a red shirt.",
       "answer_audio_policy": "authored-only"
     },
     {
-      "slide_id": "L3",
+      "slide_id": "L5",
       "interaction_type": "teach",
       "prompt": "What is she wearing? She's wearing a blue dress.",
       "stage": "Learn",
@@ -209,32 +281,32 @@
         }
       ],
       "spanish_translation": "¿Qué lleva puesto? Lleva un vestido azul.",
-      "pedagogy_note": "Story beat 03: What is she wearing? She's wearing a blue dress.",
+      "pedagogy_note": "Story beat 05: What is she wearing? She's wearing a blue dress.",
       "answer_audio_policy": "authored-only"
     },
     {
       "slide_id": "R1",
       "interaction_type": "t2i2",
-      "prompt": "Luis is wearing a black jacket.",
+      "prompt": "Luis is wearing a blue T-shirt.",
       "stage": "Recognize",
-      "correct_option_id": "luis-is-wearing-a-black-jacket-r1",
+      "correct_option_id": "luis-is-wearing-a-blue-t-shirt-r1",
       "options": [
-        {
-          "id": "sofia-is-wearing-a-blue-dress-r1",
-          "image_url": "/lesson-assets/a1plus-unit-7-c02-ef4e86570539ba36.webp",
-          "label": null
-        },
         {
           "id": "luis-is-wearing-a-black-jacket-r1",
           "image_url": "/lesson-assets/a1plus-unit-7-c01-c4ef3595dc05b81c.webp",
           "label": null
+        },
+        {
+          "id": "luis-is-wearing-a-blue-t-shirt-r1",
+          "image_url": "/lesson-assets/a1plus-unit-7-c05-01dd24a92fb6b0b3.webp",
+          "label": null
         }
       ],
-      "audio_text": "Luis is wearing a black jacket.",
+      "audio_text": "Luis is wearing a blue T-shirt.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Luis lleva una chaqueta negra.",
-      "pedagogy_note": "Story beat 01: Luis is wearing a black jacket.",
+      "spanish_translation": "Luis lleva una camiseta azul.",
+      "pedagogy_note": "Story beat 01: Luis is wearing a blue T-shirt.",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -269,26 +341,26 @@
     {
       "slide_id": "R3",
       "interaction_type": "t2i2",
-      "prompt": "She's wearing a red hat.",
+      "prompt": "Ana is wearing jeans.",
       "stage": "Recognize",
-      "correct_option_id": "she's-wearing-a-red-hat-r3",
+      "correct_option_id": "ana-is-wearing-jeans-r3",
       "options": [
         {
-          "id": "she's-wearing-a-red-hat-r3",
-          "image_url": "/lesson-assets/a1_u7_review_v2_red_hat.webp",
+          "id": "ana-is-wearing-jeans-r3",
+          "image_url": "/lesson-assets/a1plus-unit-7-c06-5bfd3d95b1070567.webp",
           "label": null
         },
         {
-          "id": "she's-wearing-a-red-scarf-r3",
-          "image_url": "/lesson-assets/a1_photo_u7_approved_weather_cold_windy_v1.webp",
+          "id": "ana-is-wearing-a-green-skirt-r3",
+          "image_url": "/lesson-assets/a1plus-unit-7-c03-421b31f2ad607969.webp",
           "label": null
         }
       ],
-      "audio_text": "She's wearing a red hat.",
+      "audio_text": "Ana is wearing jeans.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Lleva un gorro rojo.",
-      "pedagogy_note": "Story beat 03: She's wearing a red hat.",
+      "spanish_translation": "Ana lleva jeans.",
+      "pedagogy_note": "Story beat 03: Ana is wearing jeans.",
       "audio_speaker": "co-teacher",
       "answer_audio_policy": "authored-only"
     },
@@ -324,27 +396,27 @@
       "interaction_type": "i2t2",
       "prompt": "What are you wearing?",
       "stage": "Recognize",
-      "correct_option_id": "i'm-wearing-a-green-skirt-r5",
+      "correct_option_id": "i'm-wearing-a-blue-t-shirt-r5",
       "options": [
         {
-          "id": "i'm-wearing-a-blue-dress-r5",
+          "id": "i'm-wearing-a-black-jacket-r5",
           "image_url": "",
-          "label": "I'm wearing a blue dress.",
-          "spanish_translation": "Llevo un vestido azul."
+          "label": "I'm wearing a black jacket.",
+          "spanish_translation": "Llevo una chaqueta negra."
         },
         {
-          "id": "i'm-wearing-a-green-skirt-r5",
+          "id": "i'm-wearing-a-blue-t-shirt-r5",
           "image_url": "",
-          "label": "I'm wearing a green skirt.",
-          "spanish_translation": "Llevo una falda verde."
+          "label": "I'm wearing a blue T-shirt.",
+          "spanish_translation": "Llevo una camiseta azul."
         }
       ],
       "audio_text": "What are you wearing?",
-      "answer_audio_text": "I'm wearing a green skirt.",
-      "prompt_image_url": "/lesson-assets/a1plus-unit-7-c03-421b31f2ad607969.webp",
+      "answer_audio_text": "I'm wearing a blue T-shirt.",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-7-c05-01dd24a92fb6b0b3.webp",
       "spanish_translation": "¿Qué llevas puesto?",
-      "answer_audio_speaker": "ana",
-      "pedagogy_note": "Story beat 05: I'm wearing a green skirt.",
+      "answer_audio_speaker": "luis",
+      "pedagogy_note": "Story beat 05: I'm wearing a blue T-shirt.",
       "audio_speaker": "co-teacher",
       "answer_audio_policy": "authored-only"
     },
@@ -384,37 +456,37 @@
     },
     {
       "slide_id": "R7",
-      "interaction_type": "t2i4",
-      "prompt": "Ana is wearing a green skirt.",
+      "interaction_type": "i2t3",
+      "prompt": "What are you wearing?",
       "stage": "Recognize",
-      "correct_option_id": "ana-is-wearing-a-green-skirt-r7",
+      "correct_option_id": "i'm-wearing-jeans-r7",
       "options": [
         {
-          "id": "diego-is-wearing-a-red-shirt-r7",
-          "image_url": "/lesson-assets/a1plus-unit-7-c04-4928921cbdbd6baa.webp",
-          "label": null
+          "id": "i'm-wearing-jeans-r7",
+          "image_url": "",
+          "label": "I'm wearing jeans.",
+          "spanish_translation": "Llevo jeans."
         },
         {
-          "id": "luis-is-wearing-a-black-jacket-r7",
-          "image_url": "/lesson-assets/a1plus-unit-7-c01-c4ef3595dc05b81c.webp",
-          "label": null
+          "id": "i'm-wearing-a-green-skirt-r7",
+          "image_url": "",
+          "label": "I'm wearing a green skirt.",
+          "spanish_translation": "Llevo una falda verde."
         },
         {
-          "id": "ana-is-wearing-a-green-skirt-r7",
-          "image_url": "/lesson-assets/a1plus-unit-7-c03-421b31f2ad607969.webp",
-          "label": null
-        },
-        {
-          "id": "sofia-is-wearing-a-blue-dress-r7",
-          "image_url": "/lesson-assets/a1plus-unit-7-c02-ef4e86570539ba36.webp",
-          "label": null
+          "id": "i'm-wearing-a-blue-dress-r7",
+          "image_url": "",
+          "label": "I'm wearing a blue dress.",
+          "spanish_translation": "Llevo un vestido azul."
         }
       ],
-      "audio_text": "Ana is wearing a green skirt.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Ana lleva una falda verde.",
-      "pedagogy_note": "Story beat 07: Ana is wearing a green skirt.",
+      "audio_text": "What are you wearing?",
+      "answer_audio_text": "I'm wearing jeans.",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-7-c06-5bfd3d95b1070567.webp",
+      "spanish_translation": "¿Qué llevas puesto?",
+      "answer_audio_speaker": "ana",
+      "pedagogy_note": "Story beat 07: I'm wearing jeans.",
+      "audio_speaker": "co-teacher",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -485,7 +557,6 @@
       "prompt_image_url": "",
       "spanish_translation": "Lleva botas.",
       "pedagogy_note": "Story beat 09: She's wearing boots.",
-      "audio_speaker": "co-teacher",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -493,49 +564,45 @@
       "interaction_type": "i2t3",
       "prompt": "",
       "stage": "Recognize",
-      "correct_option_id": "diego-is-wearing-a-red-shirt-r10",
+      "correct_option_id": "ana-is-wearing-a-green-skirt-r10",
       "options": [
-        {
-          "id": "diego-is-wearing-a-red-shirt-r10",
-          "image_url": "",
-          "label": "Diego is wearing a red shirt.",
-          "spanish_translation": "Diego lleva una camisa roja."
-        },
-        {
-          "id": "diego-is-wearing-a-black-jacket-r10",
-          "image_url": "",
-          "label": "Diego is wearing a black jacket.",
-          "spanish_translation": "Diego lleva una chaqueta negra."
-        },
         {
           "id": "ana-is-wearing-a-green-skirt-r10",
           "image_url": "",
           "label": "Ana is wearing a green skirt.",
           "spanish_translation": "Ana lleva una falda verde."
+        },
+        {
+          "id": "ana-is-wearing-a-blue-dress-r10",
+          "image_url": "",
+          "label": "Ana is wearing a blue dress.",
+          "spanish_translation": "Ana lleva un vestido azul."
+        },
+        {
+          "id": "sofia-is-wearing-a-blue-dress-r10",
+          "image_url": "",
+          "label": "Sofia is wearing a blue dress.",
+          "spanish_translation": "Sofía lleva un vestido azul."
         }
       ],
       "audio_text": "",
-      "answer_audio_text": "Diego is wearing a red shirt.",
-      "prompt_image_url": "/lesson-assets/a1plus-unit-7-c04-4928921cbdbd6baa.webp",
+      "answer_audio_text": "Ana is wearing a green skirt.",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-7-c03-421b31f2ad607969.webp",
       "spanish_translation": "Elige la frase correcta.",
-      "pedagogy_note": "Story beat 10: Diego is wearing a red shirt.",
+      "answer_audio_speaker": "co-teacher",
+      "pedagogy_note": "Story beat 10: Ana is wearing a green skirt.",
       "answer_audio_policy": "authored-only"
     },
     {
       "slide_id": "R11",
       "interaction_type": "t2i4",
-      "prompt": "She's wearing a red scarf.",
+      "prompt": "She's wearing a red hat.",
       "stage": "Recognize",
-      "correct_option_id": "she's-wearing-a-red-scarf-r11",
+      "correct_option_id": "she's-wearing-a-red-hat-r11",
       "options": [
         {
-          "id": "she's-wearing-a-red-hat-r11",
-          "image_url": "/lesson-assets/a1_u7_review_v2_red_hat.webp",
-          "label": null
-        },
-        {
-          "id": "she's-wearing-boots-r11",
-          "image_url": "/lesson-assets/a1_photo_u7_approved_library_umbrella_v1.webp",
+          "id": "she's-wearing-a-red-scarf-r11",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_weather_cold_windy_v1.webp",
           "label": null
         },
         {
@@ -544,17 +611,21 @@
           "label": null
         },
         {
-          "id": "she's-wearing-a-red-scarf-r11",
-          "image_url": "/lesson-assets/a1_photo_u7_approved_weather_cold_windy_v1.webp",
+          "id": "she's-wearing-boots-r11",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_library_umbrella_v1.webp",
+          "label": null
+        },
+        {
+          "id": "she's-wearing-a-red-hat-r11",
+          "image_url": "/lesson-assets/a1_u7_review_v2_red_hat.webp",
           "label": null
         }
       ],
-      "audio_text": "She's wearing a red scarf.",
+      "audio_text": "She's wearing a red hat.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Lleva una bufanda roja.",
-      "pedagogy_note": "Story beat 11: She's wearing a red scarf.",
-      "audio_speaker": "co-teacher",
+      "spanish_translation": "Lleva un gorro rojo.",
+      "pedagogy_note": "Story beat 11: She's wearing a red hat.",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -601,24 +672,25 @@
       "interaction_type": "a2i2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "luis-is-wearing-a-black-jacket-a2",
+      "correct_option_id": "luis-is-wearing-a-blue-t-shirt-a2",
       "options": [
+        {
+          "id": "luis-is-wearing-a-blue-t-shirt-a2",
+          "image_url": "/lesson-assets/a1plus-unit-7-c05-01dd24a92fb6b0b3.webp",
+          "label": null
+        },
         {
           "id": "luis-is-wearing-a-black-jacket-a2",
           "image_url": "/lesson-assets/a1plus-unit-7-c01-c4ef3595dc05b81c.webp",
           "label": null
-        },
-        {
-          "id": "sofia-is-wearing-a-blue-dress-a2",
-          "image_url": "/lesson-assets/a1plus-unit-7-c02-ef4e86570539ba36.webp",
-          "label": null
         }
       ],
-      "audio_text": "Luis is wearing a black jacket.",
+      "audio_text": "Luis is wearing a blue T-shirt.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 02: Luis is wearing a black jacket.",
+      "pedagogy_note": "Story beat 02: Luis is wearing a blue T-shirt.",
+      "audio_speaker": "co-teacher",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -665,25 +737,24 @@
       "interaction_type": "a2i2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "she's-wearing-a-red-scarf-a4",
+      "correct_option_id": "ana-is-wearing-jeans-a4",
       "options": [
         {
-          "id": "she's-wearing-a-red-hat-a4",
-          "image_url": "/lesson-assets/a1_u7_review_v2_red_hat.webp",
+          "id": "ana-is-wearing-a-green-skirt-a4",
+          "image_url": "/lesson-assets/a1plus-unit-7-c03-421b31f2ad607969.webp",
           "label": null
         },
         {
-          "id": "she's-wearing-a-red-scarf-a4",
-          "image_url": "/lesson-assets/a1_photo_u7_approved_weather_cold_windy_v1.webp",
+          "id": "ana-is-wearing-jeans-a4",
+          "image_url": "/lesson-assets/a1plus-unit-7-c06-5bfd3d95b1070567.webp",
           "label": null
         }
       ],
-      "audio_text": "She's wearing a red scarf.",
+      "audio_text": "Ana is wearing jeans.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 04: She's wearing a red scarf.",
-      "audio_speaker": "co-teacher",
+      "pedagogy_note": "Story beat 04: Ana is wearing jeans.",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -709,6 +780,7 @@
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
       "pedagogy_note": "Story beat 05: Diego is wearing a red shirt.",
+      "audio_speaker": "co-teacher",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -716,19 +788,19 @@
       "interaction_type": "a2t3",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "i'm-wearing-a-black-jacket-a6",
+      "correct_option_id": "i'm-wearing-jeans-a6",
       "options": [
         {
-          "id": "i'm-wearing-a-black-jacket-a6",
+          "id": "i'm-wearing-jeans-a6",
           "image_url": "",
-          "label": "I'm wearing a black jacket.",
-          "spanish_translation": "Llevo una chaqueta negra."
+          "label": "I'm wearing jeans.",
+          "spanish_translation": "Llevo jeans."
         },
         {
-          "id": "i'm-wearing-a-red-shirt-a6",
+          "id": "i'm-wearing-a-green-skirt-a6",
           "image_url": "",
-          "label": "I'm wearing a red shirt.",
-          "spanish_translation": "Llevo una camisa roja."
+          "label": "I'm wearing a green skirt.",
+          "spanish_translation": "Llevo una falda verde."
         },
         {
           "id": "i'm-wearing-a-blue-dress-a6",
@@ -737,23 +809,23 @@
           "spanish_translation": "Llevo un vestido azul."
         }
       ],
-      "audio_text": "What are you wearing? I'm wearing a black jacket.",
+      "audio_text": "What are you wearing? I'm wearing jeans.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "audio_turns": [
         {
           "text": "What are you wearing?",
           "speaker_role": "co-teacher",
-          "image_url": "/lesson-assets/a1plus-unit-7-c01-c4ef3595dc05b81c.webp"
+          "image_url": "/lesson-assets/a1plus-unit-7-c06-5bfd3d95b1070567.webp"
         },
         {
-          "text": "I'm wearing a black jacket.",
-          "speaker_role": "luis",
-          "image_url": "/lesson-assets/a1plus-unit-7-c01-c4ef3595dc05b81c.webp"
+          "text": "I'm wearing jeans.",
+          "speaker_role": "ana",
+          "image_url": "/lesson-assets/a1plus-unit-7-c06-5bfd3d95b1070567.webp"
         }
       ],
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 06: I'm wearing a black jacket.",
+      "pedagogy_note": "Story beat 06: I'm wearing jeans.",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -761,18 +833,8 @@
       "interaction_type": "a2i4",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "she's-wearing-boots-a7",
+      "correct_option_id": "she's-wearing-a-red-scarf-a7",
       "options": [
-        {
-          "id": "she's-wearing-a-red-hat-a7",
-          "image_url": "/lesson-assets/a1_u7_review_v2_red_hat.webp",
-          "label": null
-        },
-        {
-          "id": "she's-wearing-boots-a7",
-          "image_url": "/lesson-assets/a1_photo_u7_approved_library_umbrella_v1.webp",
-          "label": null
-        },
         {
           "id": "he's-wearing-a-hat-and-shorts-a7",
           "image_url": "/lesson-assets/a1_photo_u7_approved_park_shorts_hat_v1.webp",
@@ -782,49 +844,68 @@
           "id": "she's-wearing-a-red-scarf-a7",
           "image_url": "/lesson-assets/a1_photo_u7_approved_weather_cold_windy_v1.webp",
           "label": null
+        },
+        {
+          "id": "she's-wearing-a-red-hat-a7",
+          "image_url": "/lesson-assets/a1_u7_review_v2_red_hat.webp",
+          "label": null
+        },
+        {
+          "id": "she's-wearing-boots-a7",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_library_umbrella_v1.webp",
+          "label": null
         }
       ],
-      "audio_text": "She's wearing boots.",
+      "audio_text": "She's wearing a red scarf.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 07: She's wearing boots.",
-      "audio_speaker": "co-teacher",
+      "pedagogy_note": "Story beat 07: She's wearing a red scarf.",
       "answer_audio_policy": "authored-only"
     },
     {
       "slide_id": "A8",
-      "interaction_type": "a2i4",
+      "interaction_type": "a2t3",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "sofia-is-wearing-a-blue-dress-a8",
+      "correct_option_id": "i'm-wearing-a-blue-t-shirt-a8",
       "options": [
         {
-          "id": "diego-is-wearing-a-red-shirt-a8",
-          "image_url": "/lesson-assets/a1plus-unit-7-c04-4928921cbdbd6baa.webp",
-          "label": null
+          "id": "i'm-wearing-a-blue-t-shirt-a8",
+          "image_url": "",
+          "label": "I'm wearing a blue T-shirt.",
+          "spanish_translation": "Llevo una camiseta azul."
         },
         {
-          "id": "sofia-is-wearing-a-blue-dress-a8",
-          "image_url": "/lesson-assets/a1plus-unit-7-c02-ef4e86570539ba36.webp",
-          "label": null
+          "id": "i'm-wearing-a-black-jacket-a8",
+          "image_url": "",
+          "label": "I'm wearing a black jacket.",
+          "spanish_translation": "Llevo una chaqueta negra."
         },
         {
-          "id": "luis-is-wearing-a-black-jacket-a8",
-          "image_url": "/lesson-assets/a1plus-unit-7-c01-c4ef3595dc05b81c.webp",
-          "label": null
-        },
-        {
-          "id": "ana-is-wearing-a-green-skirt-a8",
-          "image_url": "/lesson-assets/a1plus-unit-7-c03-421b31f2ad607969.webp",
-          "label": null
+          "id": "i'm-wearing-jeans-a8",
+          "image_url": "",
+          "label": "I'm wearing jeans.",
+          "spanish_translation": "Llevo jeans."
         }
       ],
-      "audio_text": "Sofia is wearing a blue dress.",
+      "audio_text": "What are you wearing? I'm wearing a blue T-shirt.",
       "answer_audio_text": null,
       "prompt_image_url": "",
+      "audio_turns": [
+        {
+          "text": "What are you wearing?",
+          "speaker_role": "co-teacher",
+          "image_url": "/lesson-assets/a1plus-unit-7-c05-01dd24a92fb6b0b3.webp"
+        },
+        {
+          "text": "I'm wearing a blue T-shirt.",
+          "speaker_role": "luis",
+          "image_url": "/lesson-assets/a1plus-unit-7-c05-01dd24a92fb6b0b3.webp"
+        }
+      ],
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 08: Sofia is wearing a blue dress.",
+      "pedagogy_note": "Story beat 08: I'm wearing a blue T-shirt.",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -877,34 +958,34 @@
       "interaction_type": "a2i4",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "she's-wearing-a-red-hat-a10",
+      "correct_option_id": "luis-is-wearing-a-black-jacket-a10",
       "options": [
         {
-          "id": "she's-wearing-a-red-scarf-a10",
-          "image_url": "/lesson-assets/a1_photo_u7_approved_weather_cold_windy_v1.webp",
+          "id": "luis-is-wearing-a-red-shirt-a10",
+          "image_url": "/lesson-assets/a1plus-unit-7-c05-01dd24a92fb6b0b3.webp",
           "label": null
         },
         {
-          "id": "he's-wearing-a-hat-and-shorts-a10",
-          "image_url": "/lesson-assets/a1_photo_u7_approved_park_shorts_hat_v1.webp",
+          "id": "sofia-is-wearing-a-blue-dress-a10",
+          "image_url": "/lesson-assets/a1plus-unit-7-c02-ef4e86570539ba36.webp",
           "label": null
         },
         {
-          "id": "she's-wearing-boots-a10",
-          "image_url": "/lesson-assets/a1_photo_u7_approved_library_umbrella_v1.webp",
+          "id": "ana-is-wearing-a-green-skirt-a10",
+          "image_url": "/lesson-assets/a1plus-unit-7-c03-421b31f2ad607969.webp",
           "label": null
         },
         {
-          "id": "she's-wearing-a-red-hat-a10",
-          "image_url": "/lesson-assets/a1_u7_review_v2_red_hat.webp",
+          "id": "luis-is-wearing-a-black-jacket-a10",
+          "image_url": "/lesson-assets/a1plus-unit-7-c01-c4ef3595dc05b81c.webp",
           "label": null
         }
       ],
-      "audio_text": "She's wearing a red hat.",
+      "audio_text": "Luis is wearing a black jacket.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 10: She's wearing a red hat.",
+      "pedagogy_note": "Story beat 10: Luis is wearing a black jacket.",
       "audio_speaker": "co-teacher",
       "answer_audio_policy": "authored-only"
     },
@@ -939,29 +1020,29 @@
     {
       "slide_id": "S2",
       "interaction_type": "speak",
-      "prompt": "I'm wearing a green skirt.",
+      "prompt": "I'm wearing jeans.",
       "stage": "Speak",
-      "correct_option_id": "i'm-wearing-a-green-skirt-speak",
+      "correct_option_id": "i'm-wearing-jeans-speak",
       "options": [
         {
-          "id": "i'm-wearing-a-green-skirt-speak",
-          "image_url": "/lesson-assets/a1plus-unit-7-c03-421b31f2ad607969.webp",
-          "label": "I'm wearing a green skirt."
+          "id": "i'm-wearing-jeans-speak",
+          "image_url": "/lesson-assets/a1plus-unit-7-c06-5bfd3d95b1070567.webp",
+          "label": "I'm wearing jeans."
         }
       ],
-      "audio_text": "I'm wearing a green skirt.",
+      "audio_text": "I'm wearing jeans.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "audio_turns": [
         {
-          "text": "I'm wearing a green skirt.",
+          "text": "I'm wearing jeans.",
           "speaker_role": "ana",
-          "image_url": "/lesson-assets/a1plus-unit-7-c03-421b31f2ad607969.webp",
+          "image_url": "/lesson-assets/a1plus-unit-7-c06-5bfd3d95b1070567.webp",
           "delivery": "a1-pronunciation-v1"
         }
       ],
-      "spanish_translation": "Llevo una falda verde.",
-      "pedagogy_note": "Story beat 02: I'm wearing a green skirt.",
+      "spanish_translation": "Llevo jeans.",
+      "pedagogy_note": "Story beat 02: I'm wearing jeans.",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -1051,91 +1132,91 @@
     {
       "slide_id": "S6",
       "interaction_type": "speak",
-      "prompt": "Luis is wearing a black jacket.",
+      "prompt": "Luis is wearing a blue T-shirt.",
       "stage": "Speak",
-      "correct_option_id": "luis-is-wearing-a-black-jacket-speak",
+      "correct_option_id": "luis-is-wearing-a-blue-t-shirt-speak",
       "options": [
         {
-          "id": "luis-is-wearing-a-black-jacket-speak",
-          "image_url": "/lesson-assets/a1plus-unit-7-c01-c4ef3595dc05b81c.webp",
-          "label": "Luis is wearing a black jacket."
+          "id": "luis-is-wearing-a-blue-t-shirt-speak",
+          "image_url": "/lesson-assets/a1plus-unit-7-c05-01dd24a92fb6b0b3.webp",
+          "label": "Luis is wearing a blue T-shirt."
         }
       ],
-      "audio_text": "Luis is wearing a black jacket.",
+      "audio_text": "Luis is wearing a blue T-shirt.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "audio_turns": [
         {
-          "text": "Luis is wearing a black jacket.",
+          "text": "Luis is wearing a blue T-shirt.",
           "speaker_role": "co-teacher",
-          "image_url": "/lesson-assets/a1plus-unit-7-c01-c4ef3595dc05b81c.webp",
+          "image_url": "/lesson-assets/a1plus-unit-7-c05-01dd24a92fb6b0b3.webp",
           "delivery": "a1-pronunciation-v1"
         }
       ],
-      "spanish_translation": "Luis lleva una chaqueta negra.",
-      "pedagogy_note": "Story beat 06: Luis is wearing a black jacket.",
+      "spanish_translation": "Luis lleva una camiseta azul.",
+      "pedagogy_note": "Story beat 06: Luis is wearing a blue T-shirt.",
       "answer_audio_policy": "authored-only"
     },
     {
       "slide_id": "S7",
       "interaction_type": "speak",
-      "prompt": "She's wearing a red hat.",
+      "prompt": "Ana is wearing jeans.",
       "stage": "Speak",
-      "correct_option_id": "she's-wearing-a-red-hat-speak",
+      "correct_option_id": "ana-is-wearing-jeans-speak",
       "options": [
         {
-          "id": "she's-wearing-a-red-hat-speak",
-          "image_url": "/lesson-assets/a1_u7_review_v2_red_hat.webp",
-          "label": "She's wearing a red hat."
+          "id": "ana-is-wearing-jeans-speak",
+          "image_url": "/lesson-assets/a1plus-unit-7-c06-5bfd3d95b1070567.webp",
+          "label": "Ana is wearing jeans."
         }
       ],
-      "audio_text": "She's wearing a red hat.",
+      "audio_text": "Ana is wearing jeans.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "audio_turns": [
         {
-          "text": "She's wearing a red hat.",
+          "text": "Ana is wearing jeans.",
           "speaker_role": "teacher",
-          "image_url": "/lesson-assets/a1_u7_review_v2_red_hat.webp",
+          "image_url": "/lesson-assets/a1plus-unit-7-c06-5bfd3d95b1070567.webp",
           "delivery": "a1-pronunciation-v1"
         }
       ],
-      "spanish_translation": "Lleva un gorro rojo.",
-      "pedagogy_note": "Story beat 07: She's wearing a red hat.",
+      "spanish_translation": "Ana lleva jeans.",
+      "pedagogy_note": "Story beat 07: Ana is wearing jeans.",
       "answer_audio_policy": "authored-only"
     },
     {
       "slide_id": "S8",
       "interaction_type": "speak",
-      "prompt": "I'm wearing a red shirt.",
+      "prompt": "I'm wearing a blue T-shirt.",
       "stage": "Speak",
-      "correct_option_id": "i'm-wearing-a-red-shirt-speak",
+      "correct_option_id": "i'm-wearing-a-blue-t-shirt-speak",
       "options": [
         {
-          "id": "i'm-wearing-a-red-shirt-speak",
-          "image_url": "/lesson-assets/a1plus-unit-7-c04-4928921cbdbd6baa.webp",
-          "label": "I'm wearing a red shirt."
+          "id": "i'm-wearing-a-blue-t-shirt-speak",
+          "image_url": "/lesson-assets/a1plus-unit-7-c05-01dd24a92fb6b0b3.webp",
+          "label": "I'm wearing a blue T-shirt."
         }
       ],
-      "audio_text": "I'm wearing a red shirt.",
+      "audio_text": "I'm wearing a blue T-shirt.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "audio_turns": [
         {
-          "text": "I'm wearing a red shirt.",
-          "speaker_role": "diego",
-          "image_url": "/lesson-assets/a1plus-unit-7-c04-4928921cbdbd6baa.webp",
+          "text": "I'm wearing a blue T-shirt.",
+          "speaker_role": "luis",
+          "image_url": "/lesson-assets/a1plus-unit-7-c05-01dd24a92fb6b0b3.webp",
           "delivery": "a1-pronunciation-v1"
         }
       ],
-      "spanish_translation": "Llevo una camisa roja.",
-      "pedagogy_note": "Story beat 08: I'm wearing a red shirt.",
+      "spanish_translation": "Llevo una camiseta azul.",
+      "pedagogy_note": "Story beat 08: I'm wearing a blue T-shirt.",
       "answer_audio_policy": "authored-only"
     },
     {
       "slide_id": "U1",
       "interaction_type": "complete2",
-      "prompt": "Luis is ___ ___ black jacket.",
+      "prompt": "Luis is ___ ___ blue T-shirt.",
       "stage": "Use",
       "correct_option_id": "wearing",
       "options": [
@@ -1150,24 +1231,54 @@
           "label": "a"
         }
       ],
-      "audio_text": "Luis is wearing a black jacket.",
-      "answer_audio_text": "Luis is wearing a black jacket.",
-      "prompt_image_url": "/lesson-assets/a1plus-unit-7-c01-c4ef3595dc05b81c.webp",
-      "spanish_translation": "Luis lleva una chaqueta negra.",
-      "translation": "Luis lleva una chaqueta negra.",
+      "audio_text": "Luis is wearing a blue T-shirt.",
+      "answer_audio_text": "Luis is wearing a blue T-shirt.",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-7-c05-01dd24a92fb6b0b3.webp",
+      "spanish_translation": "Luis lleva una camiseta azul.",
+      "translation": "Luis lleva una camiseta azul.",
       "correct_option_ids": [
         "wearing",
         "a"
       ],
       "answer_audio_speaker": "co-teacher",
-      "pedagogy_note": "Story beat 01: Luis is wearing a black jacket.",
+      "pedagogy_note": "Story beat 01: Luis is wearing a blue T-shirt.",
       "audio_speaker": "co-teacher",
       "answer_audio_policy": "authored-only"
     },
     {
       "slide_id": "U2",
       "interaction_type": "complete2",
-      "prompt": "___ ___ a red shirt.",
+      "prompt": "Ana is ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "wearing",
+      "options": [
+        {
+          "id": "wearing",
+          "image_url": "",
+          "label": "wearing"
+        },
+        {
+          "id": "jeans",
+          "image_url": "",
+          "label": "jeans"
+        }
+      ],
+      "audio_text": "Ana is wearing jeans.",
+      "answer_audio_text": "Ana is wearing jeans.",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-7-c06-5bfd3d95b1070567.webp",
+      "spanish_translation": "Ana lleva jeans.",
+      "translation": "Ana lleva jeans.",
+      "correct_option_ids": [
+        "wearing",
+        "jeans"
+      ],
+      "pedagogy_note": "Story beat 02: Ana is wearing jeans.",
+      "answer_audio_policy": "authored-only"
+    },
+    {
+      "slide_id": "U3",
+      "interaction_type": "complete2",
+      "prompt": "___ ___ a blue T-shirt.",
       "stage": "Use",
       "correct_option_id": "i'm",
       "options": [
@@ -1182,36 +1293,88 @@
           "label": "wearing"
         }
       ],
-      "audio_text": "I'm wearing a red shirt.",
-      "answer_audio_text": "I'm wearing a red shirt.",
-      "prompt_image_url": "/lesson-assets/a1plus-unit-7-c04-4928921cbdbd6baa.webp",
-      "spanish_translation": "Llevo una camisa roja.",
-      "translation": "Llevo una camisa roja.",
+      "audio_text": "I'm wearing a blue T-shirt.",
+      "answer_audio_text": "I'm wearing a blue T-shirt.",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-7-c05-01dd24a92fb6b0b3.webp",
+      "spanish_translation": "Llevo una camiseta azul.",
+      "translation": "Llevo una camiseta azul.",
       "correct_option_ids": [
         "i'm",
         "wearing"
       ],
-      "answer_audio_speaker": "diego",
-      "pedagogy_note": "Story beat 02: I'm wearing a red shirt.",
-      "audio_speaker": "diego",
+      "answer_audio_speaker": "luis",
+      "pedagogy_note": "Story beat 03: I'm wearing a blue T-shirt.",
+      "audio_speaker": "luis",
       "answer_audio_policy": "authored-only"
     },
     {
-      "slide_id": "U3",
+      "slide_id": "U4",
       "interaction_type": "complete2",
-      "prompt": "Sofia is ___ ___ blue dress.",
+      "prompt": "___ ___ jeans.",
       "stage": "Use",
-      "correct_option_id": "wearing",
+      "correct_option_id": "i'm",
       "options": [
+        {
+          "id": "i'm",
+          "image_url": "",
+          "label": "I'm"
+        },
         {
           "id": "wearing",
           "image_url": "",
           "label": "wearing"
+        }
+      ],
+      "audio_text": "I'm wearing jeans.",
+      "answer_audio_text": "I'm wearing jeans.",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-7-c06-5bfd3d95b1070567.webp",
+      "spanish_translation": "Llevo jeans.",
+      "translation": "Llevo jeans.",
+      "correct_option_ids": [
+        "i'm",
+        "wearing"
+      ],
+      "answer_audio_speaker": "ana",
+      "pedagogy_note": "Story beat 04: I'm wearing jeans.",
+      "audio_speaker": "ana",
+      "answer_audio_policy": "authored-only"
+    },
+    {
+      "slide_id": "U5",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___ ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "word-1",
+      "options": [
+        {
+          "id": "word-2",
+          "image_url": "",
+          "label": "is"
         },
         {
-          "id": "a",
+          "id": "word-4",
           "image_url": "",
           "label": "a"
+        },
+        {
+          "id": "word-6",
+          "image_url": "",
+          "label": "dress"
+        },
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "Sofia"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "wearing"
+        },
+        {
+          "id": "word-5",
+          "image_url": "",
+          "label": "blue"
         }
       ],
       "audio_text": "Sofia is wearing a blue dress.",
@@ -1220,91 +1383,15 @@
       "spanish_translation": "Sofía lleva un vestido azul.",
       "translation": "Sofía lleva un vestido azul.",
       "correct_option_ids": [
-        "wearing",
-        "a"
-      ],
-      "pedagogy_note": "Story beat 03: Sofia is wearing a blue dress.",
-      "answer_audio_policy": "authored-only"
-    },
-    {
-      "slide_id": "U4",
-      "interaction_type": "complete2",
-      "prompt": "___ ___ a green skirt.",
-      "stage": "Use",
-      "correct_option_id": "i'm",
-      "options": [
-        {
-          "id": "i'm",
-          "image_url": "",
-          "label": "I'm"
-        },
-        {
-          "id": "wearing",
-          "image_url": "",
-          "label": "wearing"
-        }
-      ],
-      "audio_text": "I'm wearing a green skirt.",
-      "answer_audio_text": "I'm wearing a green skirt.",
-      "prompt_image_url": "/lesson-assets/a1plus-unit-7-c03-421b31f2ad607969.webp",
-      "spanish_translation": "Llevo una falda verde.",
-      "translation": "Llevo una falda verde.",
-      "correct_option_ids": [
-        "i'm",
-        "wearing"
-      ],
-      "answer_audio_speaker": "ana",
-      "pedagogy_note": "Story beat 04: I'm wearing a green skirt.",
-      "audio_speaker": "ana",
-      "answer_audio_policy": "authored-only"
-    },
-    {
-      "slide_id": "U5",
-      "interaction_type": "complete-sentence",
-      "prompt": "___ ___ ___ ___ ___.",
-      "stage": "Use",
-      "correct_option_id": "word-1",
-      "options": [
-        {
-          "id": "word-2",
-          "image_url": "",
-          "label": "wearing"
-        },
-        {
-          "id": "word-4",
-          "image_url": "",
-          "label": "red"
-        },
-        {
-          "id": "word-1",
-          "image_url": "",
-          "label": "She's"
-        },
-        {
-          "id": "word-3",
-          "image_url": "",
-          "label": "a"
-        },
-        {
-          "id": "word-5",
-          "image_url": "",
-          "label": "hat"
-        }
-      ],
-      "audio_text": "She's wearing a red hat.",
-      "answer_audio_text": "She's wearing a red hat.",
-      "prompt_image_url": "/lesson-assets/a1_u7_review_v2_red_hat.webp",
-      "spanish_translation": "Lleva un gorro rojo.",
-      "translation": "Lleva un gorro rojo.",
-      "correct_option_ids": [
         "word-1",
         "word-2",
         "word-3",
         "word-4",
-        "word-5"
+        "word-5",
+        "word-6"
       ],
       "answer_audio_speaker": "co-teacher",
-      "pedagogy_note": "Story beat 05: She's wearing a red hat.",
+      "pedagogy_note": "Story beat 05: Sofia is wearing a blue dress.",
       "audio_speaker": "co-teacher",
       "answer_audio_policy": "authored-only"
     },
@@ -1391,50 +1478,56 @@
     {
       "slide_id": "U8",
       "interaction_type": "complete-sentence",
-      "prompt": "___ ___ ___ ___ ___.",
+      "prompt": "___ ___ ___ ___ ___ ___.",
       "stage": "Use",
       "correct_option_id": "word-1",
       "options": [
         {
           "id": "word-2",
           "image_url": "",
-          "label": "wearing"
+          "label": "is"
         },
         {
           "id": "word-4",
           "image_url": "",
-          "label": "red"
+          "label": "a"
+        },
+        {
+          "id": "word-6",
+          "image_url": "",
+          "label": "jacket"
         },
         {
           "id": "word-1",
           "image_url": "",
-          "label": "She's"
+          "label": "Luis"
         },
         {
           "id": "word-3",
           "image_url": "",
-          "label": "a"
+          "label": "wearing"
         },
         {
           "id": "word-5",
           "image_url": "",
-          "label": "scarf"
+          "label": "black"
         }
       ],
-      "audio_text": "She's wearing a red scarf.",
-      "answer_audio_text": "She's wearing a red scarf.",
-      "prompt_image_url": "/lesson-assets/a1_photo_u7_approved_weather_cold_windy_v1.webp",
-      "spanish_translation": "Lleva una bufanda roja.",
-      "translation": "Lleva una bufanda roja.",
+      "audio_text": "Luis is wearing a black jacket.",
+      "answer_audio_text": "Luis is wearing a black jacket.",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-7-c01-c4ef3595dc05b81c.webp",
+      "spanish_translation": "Luis lleva una chaqueta negra.",
+      "translation": "Luis lleva una chaqueta negra.",
       "correct_option_ids": [
         "word-1",
         "word-2",
         "word-3",
         "word-4",
-        "word-5"
+        "word-5",
+        "word-6"
       ],
       "answer_audio_speaker": "co-teacher",
-      "pedagogy_note": "Story beat 08: She's wearing a red scarf.",
+      "pedagogy_note": "Story beat 08: Luis is wearing a black jacket.",
       "audio_speaker": "co-teacher",
       "answer_audio_policy": "authored-only"
     }
