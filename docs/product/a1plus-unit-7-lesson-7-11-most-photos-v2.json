@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "pack": "a1plus-unit-7-lesson-7-11-most-photos",
+  "revision": 2,
+  "output_namespace": "a1plus-unit-7-lesson-v7111",
+  "authorization": "2026-11-20: the user asked to \"work on a1+ Unit 7 same all deal as before none stop all approved\" (the Unit 2-4 deal: the A1+ Unit 7 map approved up front, straight to Preview with media pre-approved and reviewed in Preview). Gemini is the approved image tool (2026-09-23), Flash only (2026-11-17; \"lets switch to flash for any other images\", 2026-11-19). 2026-11-24: after asking for a review of A1+ Unit 7 (\"make sure the images make sense to the ask and its a true follow up of each of A1 unit 7 lessons\"), the user said \"image redo and audio approved\".",
+  "image_settings": {
+    "provider": "google-gemini",
+    "model": "gemini-2.5-flash-image",
+    "aspect_ratio": "3:2",
+    "image_size": "1K",
+    "runtime_size": "1536x1024",
+    "runtime_format": "webp",
+    "n": 1
+  },
+  "production": {
+    "price_per_image_usd": "0.0387",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing (checked 2026-11-16: Gemini 2.5 Flash Image, about $0.039 per image)",
+    "planned_images": 3,
+    "expected_cost_usd": "0.12",
+    "requested_ceiling_usd": "0.35",
+    "ceiling_note": "The renderer reserves US$0.20 before each request; each request is sent on its own, and the expected spend for the pack is about US$0.12.",
+    "no_automatic_retries": true,
+    "order": "v1's t01 hid the step between Sofia and Ana behind Sofia's bun, and its dogs and houses used none of A1 7.11's outdoor words; v2 remakes the three heights and adds three flowers and three trees. Generate t01 first and check the three steps; then t04 and t05."
+  },
+  "shared_prompts": {
+    "photo": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, menus, screens, cups, clothes or bags.",
+    "safe_center": "Keep the people and the thing that carries the meaning inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.",
+    "solo": "Only this one person is in the photo; there is nobody else, even far in the background.",
+    "pair": "Only these two people are in the photo; there is nobody else, even far in the background.",
+    "daytime": "It is clearly daytime with soft natural light.",
+    "nolook": "Nobody looks at the camera.",
+    "fullbody": "The whole person is visible from head to shoes, standing, with a little space above the head and below the shoes.",
+    "offframe": "The person they are talking to is NOT in the photo: they stand just outside the edge of the photo that is named, so no part of that person (no hand, arm, shoulder or shadow) is visible.",
+    "candles": "The cake has a few plain thin birthday candles with small flames; there are no number candles and no writing on the cake."
+  },
+  "assets": [
+    {
+      "id": "t01-three-heights",
+      "order": 1,
+      "item": "Luis is the tallest. Sofia is the shortest.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "daytime"
+      ],
+      "prompt": "Image 1 shows Sofia (left) and Luis (right). Keep both faces, skin and builds exactly, and keep their clothes: Sofia in her bright blue blazer over a white blouse, Luis in his navy T-shirt. Sofia's dark curly hair is tied LOW at the back of her neck, flat on top, with NO bun and no hair standing up on top of her head. Create a new photograph of THREE people standing side by side with a small gap between them against a plain light-grey wall, all smiling at the camera, their whole bodies visible from head to shoes, all in flat shoes on the same floor: on the LEFT Sofia, who is clearly the SHORTEST, the top of her head only as high as the middle woman's chin; in the MIDDLE a woman of medium height with long dark wavy hair and light-olive skin in a sage-green overshirt over a white top (Ana), the top of her head only as high as Luis's chin; on the RIGHT Luis, who is very tall and clearly the TALLEST. The three heights make clear steps like stairs from left to right. Only these three people are in the photo.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-p02-094cffd8654fde7e.webp",
+        "sha256": "094cffd8654fde7eacbcf5b643e8c43eebb30aff39e32cde627ca9861bda7b3d",
+        "observed_description": "Sofia (left: warm brown skin, dark curly hair in a high bun, bright blue blazer over a white blouse, black trousers) stands shoulder to shoulder with Luis (right: a very tall man with short dark curly hair, navy crew-neck T-shirt, khaki chinos, navy sneakers) against a plain light-grey wall; both smile at the camera (A1+ 1.1)."
+      }
+    },
+    {
+      "id": "t04-three-flowers",
+      "order": 2,
+      "item": "The yellow flower is the biggest. The white flower is the smallest.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "daytime"
+      ],
+      "prompt": "Outdoors in a sunny garden, exactly three flowers stand in a row in three identical small terracotta pots on a plain wooden garden table, one flower in each pot, with soft green garden leaves far behind them: on the left a very BIG YELLOW sunflower with a huge flower head, in the middle a medium-sized RED flower, and on the right a very SMALL WHITE daisy with a tiny flower head. Each flower has one clear color. The difference in size is obvious at a glance: the yellow flower is clearly the biggest and the white flower is clearly the smallest. There are exactly three flowers and exactly three pots; no other flowers, no people, no tools and no labels."
+    },
+    {
+      "id": "t05-three-trees",
+      "order": 3,
+      "item": "The green tree is the tallest. The red tree is the shortest.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "daytime"
+      ],
+      "prompt": "A wide grassy field under a clear blue sky on a sunny fall day, with exactly three trees standing apart in a row at the same distance from the camera, each whole tree visible from the grass to its top: on the left a very TALL tree full of GREEN leaves, in the middle a tree of medium height full of YELLOW leaves, and on the right a SHORT little tree full of RED leaves, only half as tall as the middle tree. Each tree has one clear leaf color. The difference in height is obvious at a glance: the green tree is clearly the tallest and the red tree is clearly the shortest. There are exactly three trees; no other trees or bushes anywhere, no people, no animals, no buildings and no benches."
+    }
+  ]
+}
