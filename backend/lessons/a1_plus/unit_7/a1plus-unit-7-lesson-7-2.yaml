@@ -12,7 +12,9 @@
   "goal": "Ask why someone feels a certain way with Why …? and answer with Because … (Why is she cold? Because it's windy.).",
   "vocabulary": [
     "Why",
-    "Because"
+    "Because",
+    "excited",
+    "worried"
   ],
   "review_vocabulary": [
     "is",
@@ -35,12 +37,14 @@
     "hurts",
     "hurt",
     "head",
-    "legs"
+    "legs",
+    "birthday",
+    "Ana"
   ],
-  "grammar_function": "A follow-up of A1 7.2 How Are You?: A1 asks how someone is and answers with a feeling (How is she? She is sad.); A1+ 7.2 asks why. The one new grammar relationship is Why + be + person + feeling? answered with Because + a reason (Why is she cold? Because it's windy.), then joined into one sentence (She's cold because it's windy.). The reasons are things A1 and A1+ already taught: the weather (A1 7.4), being sick (A1 7.9), running (A1 Unit 1) and 7.1's hurts.",
+  "grammar_function": "A follow-up of A1 7.2 How Are You?: A1 asks how someone is and answers with a feeling (How is she? She is sad.); A1+ 7.2 asks why. The one new grammar relationship is Why + be + person + feeling? answered with Because + a reason (Why is she cold? Because it's windy.), then joined into one sentence (She's cold because it's windy.). The reasons are things A1 and A1+ already taught: the weather (A1 7.4), being sick (A1 7.9), running (A1 Unit 1) and 7.1's hurts. Two new feelings join A1 7.2's: worried and excited, each with a reason the photo shows (Diego is worried because his dog is sick. / Ana is excited because it's her birthday.).",
   "prerequisite": "A1 7.2 How are you? feelings; A1 7.4 weather; A1 7.9 sick; A1+ 3.3 he's/she's + -ing; A1+ 7.1 hurts.",
   "speaking_outcome": "Say Why with a rising start and a falling end (WHY is she COLD?); say because as bi-KOZ with the stress on the second part. Do not require native-like speed.",
-  "content_revision": 1,
+  "content_revision": 2,
   "learn_context_groups": [
     {
       "kind": "exchange",
@@ -62,16 +66,35 @@
     {
       "kind": "exchange",
       "targets": [
+        "worried",
         "Why",
         "Because"
       ],
       "models": [
         {
           "slide_id": "L2",
-          "text": "Why is Diego sad? Because his dog is sick.",
+          "text": "Why is Diego worried? Because his dog is sick.",
           "turns": [
-            "Why is Diego sad?",
+            "Why is Diego worried?",
             "Because his dog is sick."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "exchange",
+      "targets": [
+        "excited",
+        "Why",
+        "Because"
+      ],
+      "models": [
+        {
+          "slide_id": "L3",
+          "text": "Why is Ana excited? Because it's her birthday.",
+          "turns": [
+            "Why is Ana excited?",
+            "Because it's her birthday."
           ]
         }
       ]
@@ -84,7 +107,7 @@
       ],
       "models": [
         {
-          "slide_id": "L3",
+          "slide_id": "L4",
           "text": "Why are you thirsty? Because I'm running.",
           "turns": [
             "Why are you thirsty?",
@@ -95,7 +118,7 @@
     }
   ],
   "purposeful_review_slides": [
-    "L3",
+    "L4",
     "R1",
     "R2",
     "R3",
@@ -170,22 +193,22 @@
     {
       "slide_id": "L2",
       "interaction_type": "teach",
-      "prompt": "Why is Diego sad? Because his dog is sick.",
+      "prompt": "Why is Diego worried? Because his dog is sick.",
       "stage": "Learn",
-      "correct_option_id": "why-is-diego-sad-because-his-dog-is-sick-learn",
+      "correct_option_id": "why-is-diego-worried-because-his-dog-is-sick-learn",
       "options": [
         {
-          "id": "why-is-diego-sad-because-his-dog-is-sick-learn",
+          "id": "why-is-diego-worried-because-his-dog-is-sick-learn",
           "image_url": "/lesson-assets/a1plus-unit-7-w02-e5048c773a9bec69.webp",
-          "label": "Why is Diego sad? Because his dog is sick."
+          "label": "Why is Diego worried? Because his dog is sick."
         }
       ],
-      "audio_text": "Why is Diego sad? Because his dog is sick.",
+      "audio_text": "Why is Diego worried? Because his dog is sick.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "audio_turns": [
         {
-          "text": "Why is Diego sad?",
+          "text": "Why is Diego worried?",
           "speaker_role": "teacher",
           "image_url": "/lesson-assets/a1plus-unit-7-w02-e5048c773a9bec69.webp"
         },
@@ -195,12 +218,44 @@
           "image_url": "/lesson-assets/a1plus-unit-7-w02-e5048c773a9bec69.webp"
         }
       ],
-      "spanish_translation": "¿Por qué está triste Diego? Porque su perro está enfermo.",
-      "pedagogy_note": "Story beat 02: Why is Diego sad? Because his dog is sick.",
+      "spanish_translation": "¿Por qué está preocupado Diego? Porque su perro está enfermo.",
+      "pedagogy_note": "Story beat 02: Why is Diego worried? Because his dog is sick.",
       "answer_audio_policy": "authored-only"
     },
     {
       "slide_id": "L3",
+      "interaction_type": "teach",
+      "prompt": "Why is Ana excited? Because it's her birthday.",
+      "stage": "Learn",
+      "correct_option_id": "why-is-ana-excited-because-it's-her-birthday-learn",
+      "options": [
+        {
+          "id": "why-is-ana-excited-because-it's-her-birthday-learn",
+          "image_url": "/lesson-assets/a1plus-unit-7-e01-3e4b3ae218c58c29.webp",
+          "label": "Why is Ana excited? Because it's her birthday."
+        }
+      ],
+      "audio_text": "Why is Ana excited? Because it's her birthday.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "audio_turns": [
+        {
+          "text": "Why is Ana excited?",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1plus-unit-7-e01-3e4b3ae218c58c29.webp"
+        },
+        {
+          "text": "Because it's her birthday.",
+          "speaker_role": "co-teacher",
+          "image_url": "/lesson-assets/a1plus-unit-7-e01-3e4b3ae218c58c29.webp"
+        }
+      ],
+      "spanish_translation": "¿Por qué está emocionada Ana? Porque es su cumpleaños.",
+      "pedagogy_note": "Story beat 03: Why is Ana excited? Because it's her birthday.",
+      "answer_audio_policy": "authored-only"
+    },
+    {
+      "slide_id": "L4",
       "interaction_type": "teach",
       "prompt": "Why are you thirsty? Because I'm running.",
       "stage": "Learn",
@@ -228,7 +283,7 @@
         }
       ],
       "spanish_translation": "¿Por qué tienes sed? Porque estoy corriendo.",
-      "pedagogy_note": "Story beat 03: Why are you thirsty? Because I'm running.",
+      "pedagogy_note": "Story beat 04: Why are you thirsty? Because I'm running.",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -288,7 +343,7 @@
     {
       "slide_id": "R3",
       "interaction_type": "i2t2",
-      "prompt": "Why is Diego sad?",
+      "prompt": "Why is Diego worried?",
       "stage": "Recognize",
       "correct_option_id": "because-his-dog-is-sick-r3",
       "options": [
@@ -305,10 +360,10 @@
           "spanish_translation": "Porque hace sol."
         }
       ],
-      "audio_text": "Why is Diego sad?",
+      "audio_text": "Why is Diego worried?",
       "answer_audio_text": "Because his dog is sick.",
       "prompt_image_url": "/lesson-assets/a1plus-unit-7-w02-e5048c773a9bec69.webp",
-      "spanish_translation": "¿Por qué está triste Diego?",
+      "spanish_translation": "¿Por qué está preocupado Diego?",
       "answer_audio_speaker": "teacher",
       "pedagogy_note": "Story beat 03: Because his dog is sick.",
       "audio_speaker": "co-teacher",
@@ -317,26 +372,26 @@
     {
       "slide_id": "R4",
       "interaction_type": "t2i2",
-      "prompt": "Sofia is thirsty because she's running.",
+      "prompt": "Ana is excited because it's her birthday.",
       "stage": "Recognize",
-      "correct_option_id": "sofia-is-thirsty-because-she's-running-r4",
+      "correct_option_id": "ana-is-excited-because-it's-her-birthday-r4",
       "options": [
         {
-          "id": "diego-is-sad-because-his-dog-is-sick-r4",
-          "image_url": "/lesson-assets/a1plus-unit-7-w02-e5048c773a9bec69.webp",
+          "id": "sofia-is-sad-because-her-head-hurts-r4",
+          "image_url": "/lesson-assets/a1plus-unit-7-h01-1b2f3f21fafa53a0.webp",
           "label": null
         },
         {
-          "id": "sofia-is-thirsty-because-she's-running-r4",
-          "image_url": "/lesson-assets/a1plus-unit-7-w01-2c2419fb3d8cea4e.webp",
+          "id": "ana-is-excited-because-it's-her-birthday-r4",
+          "image_url": "/lesson-assets/a1plus-unit-7-e01-3e4b3ae218c58c29.webp",
           "label": null
         }
       ],
-      "audio_text": "Sofia is thirsty because she's running.",
+      "audio_text": "Ana is excited because it's her birthday.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Sofía tiene sed porque está corriendo.",
-      "pedagogy_note": "Story beat 04: Sofia is thirsty because she's running.",
+      "spanish_translation": "Ana está emocionada porque es su cumpleaños.",
+      "pedagogy_note": "Story beat 04: Ana is excited because it's her birthday.",
       "audio_speaker": "co-teacher",
       "answer_audio_policy": "authored-only"
     },
@@ -405,21 +460,21 @@
     {
       "slide_id": "R7",
       "interaction_type": "i2t3",
-      "prompt": "Why is Sofia thirsty?",
+      "prompt": "Why is Ana excited?",
       "stage": "Recognize",
-      "correct_option_id": "because-she's-running-r7",
+      "correct_option_id": "because-it's-her-birthday-r7",
       "options": [
         {
-          "id": "because-she's-running-r7",
+          "id": "because-it's-her-birthday-r7",
           "image_url": "",
-          "label": "Because she's running.",
-          "spanish_translation": "Porque está corriendo."
+          "label": "Because it's her birthday.",
+          "spanish_translation": "Porque es su cumpleaños."
         },
         {
-          "id": "because-his-dog-is-sick-r7",
+          "id": "because-it's-windy-r7",
           "image_url": "",
-          "label": "Because his dog is sick.",
-          "spanish_translation": "Porque su perro está enfermo."
+          "label": "Because it's windy.",
+          "spanish_translation": "Porque hace viento."
         },
         {
           "id": "because-it's-sunny-r7",
@@ -428,21 +483,21 @@
           "spanish_translation": "Porque hace sol."
         }
       ],
-      "audio_text": "Why is Sofia thirsty?",
-      "answer_audio_text": "Because she's running.",
-      "prompt_image_url": "/lesson-assets/a1plus-unit-7-w01-2c2419fb3d8cea4e.webp",
-      "spanish_translation": "¿Por qué tiene sed Sofía?",
+      "audio_text": "Why is Ana excited?",
+      "answer_audio_text": "Because it's her birthday.",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-7-e01-3e4b3ae218c58c29.webp",
+      "spanish_translation": "¿Por qué está emocionada Ana?",
       "answer_audio_speaker": "teacher",
-      "pedagogy_note": "Story beat 07: Because she's running.",
+      "pedagogy_note": "Story beat 07: Because it's her birthday.",
       "audio_speaker": "co-teacher",
       "answer_audio_policy": "authored-only"
     },
     {
       "slide_id": "R8",
       "interaction_type": "t2i4",
-      "prompt": "Diego is sad because his dog is sick.",
+      "prompt": "Diego is worried because his dog is sick.",
       "stage": "Recognize",
-      "correct_option_id": "diego-is-sad-because-his-dog-is-sick-r8",
+      "correct_option_id": "diego-is-worried-because-his-dog-is-sick-r8",
       "options": [
         {
           "id": "sofia-is-thirsty-because-she's-running-r8",
@@ -455,7 +510,7 @@
           "label": null
         },
         {
-          "id": "diego-is-sad-because-his-dog-is-sick-r8",
+          "id": "diego-is-worried-because-his-dog-is-sick-r8",
           "image_url": "/lesson-assets/a1plus-unit-7-w02-e5048c773a9bec69.webp",
           "label": null
         },
@@ -465,32 +520,102 @@
           "label": null
         }
       ],
-      "audio_text": "Diego is sad because his dog is sick.",
+      "audio_text": "Diego is worried because his dog is sick.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Diego está triste porque su perro está enfermo.",
-      "pedagogy_note": "Story beat 08: Diego is sad because his dog is sick.",
+      "spanish_translation": "Diego está preocupado porque su perro está enfermo.",
+      "pedagogy_note": "Story beat 08: Diego is worried because his dog is sick.",
       "audio_speaker": "co-teacher",
       "answer_audio_policy": "authored-only"
     },
     {
       "slide_id": "R9",
+      "interaction_type": "i2t3",
+      "prompt": "Why is Sofia thirsty?",
+      "stage": "Recognize",
+      "correct_option_id": "because-she's-running-r9",
+      "options": [
+        {
+          "id": "because-it's-sunny-r9",
+          "image_url": "",
+          "label": "Because it's sunny.",
+          "spanish_translation": "Porque hace sol."
+        },
+        {
+          "id": "because-she's-running-r9",
+          "image_url": "",
+          "label": "Because she's running.",
+          "spanish_translation": "Porque está corriendo."
+        },
+        {
+          "id": "because-his-dog-is-sick-r9",
+          "image_url": "",
+          "label": "Because his dog is sick.",
+          "spanish_translation": "Porque su perro está enfermo."
+        }
+      ],
+      "audio_text": "Why is Sofia thirsty?",
+      "answer_audio_text": "Because she's running.",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-7-w01-2c2419fb3d8cea4e.webp",
+      "spanish_translation": "¿Por qué tiene sed Sofía?",
+      "answer_audio_speaker": "teacher",
+      "pedagogy_note": "Story beat 09: Because she's running.",
+      "audio_speaker": "co-teacher",
+      "answer_audio_policy": "authored-only"
+    },
+    {
+      "slide_id": "R10",
+      "interaction_type": "t2i4",
+      "prompt": "Sofia is thirsty because she's running.",
+      "stage": "Recognize",
+      "correct_option_id": "sofia-is-thirsty-because-she's-running-r10",
+      "options": [
+        {
+          "id": "sofia-is-sad-because-her-head-hurts-r10",
+          "image_url": "/lesson-assets/a1plus-unit-7-h01-1b2f3f21fafa53a0.webp",
+          "label": null
+        },
+        {
+          "id": "he's-hot-because-it's-sunny-r10",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_weather_hot_sunny_v1.webp",
+          "label": null
+        },
+        {
+          "id": "sofia-is-thirsty-because-she's-running-r10",
+          "image_url": "/lesson-assets/a1plus-unit-7-w01-2c2419fb3d8cea4e.webp",
+          "label": null
+        },
+        {
+          "id": "diego-is-worried-because-his-dog-is-sick-r10",
+          "image_url": "/lesson-assets/a1plus-unit-7-w02-e5048c773a9bec69.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "Sofia is thirsty because she's running.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Sofía tiene sed porque está corriendo.",
+      "pedagogy_note": "Story beat 10: Sofia is thirsty because she's running.",
+      "answer_audio_policy": "authored-only"
+    },
+    {
+      "slide_id": "R11",
       "interaction_type": "i2t2",
       "prompt": "Why is Sofia sad?",
       "stage": "Recognize",
-      "correct_option_id": "because-her-head-hurts-r9",
+      "correct_option_id": "because-her-head-hurts-r11",
       "options": [
         {
-          "id": "because-her-head-hurts-r9",
-          "image_url": "",
-          "label": "Because her head hurts.",
-          "spanish_translation": "Porque le duele la cabeza."
-        },
-        {
-          "id": "because-his-legs-hurt-r9",
+          "id": "because-his-legs-hurt-r11",
           "image_url": "",
           "label": "Because his legs hurt.",
           "spanish_translation": "Porque le duelen las piernas."
+        },
+        {
+          "id": "because-her-head-hurts-r11",
+          "image_url": "",
+          "label": "Because her head hurts.",
+          "spanish_translation": "Porque le duele la cabeza."
         }
       ],
       "audio_text": "Why is Sofia sad?",
@@ -498,75 +623,7 @@
       "prompt_image_url": "/lesson-assets/a1plus-unit-7-h01-1b2f3f21fafa53a0.webp",
       "spanish_translation": "¿Por qué está triste Sofía?",
       "answer_audio_speaker": "teacher",
-      "pedagogy_note": "Story beat 09: Because her head hurts.",
-      "audio_speaker": "co-teacher",
-      "answer_audio_policy": "authored-only"
-    },
-    {
-      "slide_id": "R10",
-      "interaction_type": "i2t3",
-      "prompt": "",
-      "stage": "Recognize",
-      "correct_option_id": "sofia-is-sad-because-her-head-hurts-r10",
-      "options": [
-        {
-          "id": "sofia-is-sad-because-her-head-hurts-r10",
-          "image_url": "",
-          "label": "Sofia is sad because her head hurts.",
-          "spanish_translation": "Sofía está triste porque le duele la cabeza."
-        },
-        {
-          "id": "sofia-is-sad-because-she's-running-r10",
-          "image_url": "",
-          "label": "Sofia is sad because she's running.",
-          "spanish_translation": "Sofía está triste porque está corriendo."
-        },
-        {
-          "id": "sofia-is-thirsty-because-she's-running-r10",
-          "image_url": "",
-          "label": "Sofia is thirsty because she's running.",
-          "spanish_translation": "Sofía tiene sed porque está corriendo."
-        }
-      ],
-      "audio_text": "",
-      "answer_audio_text": "Sofia is sad because her head hurts.",
-      "prompt_image_url": "/lesson-assets/a1plus-unit-7-h01-1b2f3f21fafa53a0.webp",
-      "spanish_translation": "Elige la frase correcta.",
-      "pedagogy_note": "Story beat 10: Sofia is sad because her head hurts.",
-      "answer_audio_policy": "authored-only"
-    },
-    {
-      "slide_id": "R11",
-      "interaction_type": "i2t3",
-      "prompt": "Why is he hot?",
-      "stage": "Recognize",
-      "correct_option_id": "because-it's-sunny-r11",
-      "options": [
-        {
-          "id": "because-it's-windy-r11",
-          "image_url": "",
-          "label": "Because it's windy.",
-          "spanish_translation": "Porque hace viento."
-        },
-        {
-          "id": "because-his-dog-is-sick-r11",
-          "image_url": "",
-          "label": "Because his dog is sick.",
-          "spanish_translation": "Porque su perro está enfermo."
-        },
-        {
-          "id": "because-it's-sunny-r11",
-          "image_url": "",
-          "label": "Because it's sunny.",
-          "spanish_translation": "Porque hace sol."
-        }
-      ],
-      "audio_text": "Why is he hot?",
-      "answer_audio_text": "Because it's sunny.",
-      "prompt_image_url": "/lesson-assets/a1_photo_u7_approved_weather_hot_sunny_v1.webp",
-      "spanish_translation": "¿Por qué tiene calor?",
-      "answer_audio_speaker": "teacher",
-      "pedagogy_note": "Story beat 11: Because it's sunny.",
+      "pedagogy_note": "Story beat 11: Because her head hurts.",
       "audio_speaker": "co-teacher",
       "answer_audio_policy": "authored-only"
     },
@@ -603,24 +660,24 @@
       "interaction_type": "a2i2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "she's-cold-because-it's-windy-a2",
+      "correct_option_id": "ana-is-excited-because-it's-her-birthday-a2",
       "options": [
         {
-          "id": "she's-cold-because-it's-windy-a2",
-          "image_url": "/lesson-assets/a1_photo_u7_approved_weather_cold_windy_v1.webp",
+          "id": "ana-is-excited-because-it's-her-birthday-a2",
+          "image_url": "/lesson-assets/a1plus-unit-7-e01-3e4b3ae218c58c29.webp",
           "label": null
         },
         {
-          "id": "he's-hot-because-it's-sunny-a2",
-          "image_url": "/lesson-assets/a1_photo_u7_approved_weather_hot_sunny_v1.webp",
+          "id": "sofia-is-sad-because-her-head-hurts-a2",
+          "image_url": "/lesson-assets/a1plus-unit-7-h01-1b2f3f21fafa53a0.webp",
           "label": null
         }
       ],
-      "audio_text": "She's cold because it's windy.",
+      "audio_text": "Ana is excited because it's her birthday.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 02: She's cold because it's windy.",
+      "pedagogy_note": "Story beat 02: Ana is excited because it's her birthday.",
       "audio_speaker": "co-teacher",
       "answer_audio_policy": "authored-only"
     },
@@ -718,29 +775,35 @@
     },
     {
       "slide_id": "A6",
-      "interaction_type": "a2t2",
+      "interaction_type": "a2t3",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "because-his-legs-hurt-a6",
+      "correct_option_id": "because-it's-her-birthday-a6",
       "options": [
         {
-          "id": "because-her-head-hurts-a6",
+          "id": "because-it's-her-birthday-a6",
           "image_url": "",
-          "label": "Because her head hurts.",
-          "spanish_translation": "Porque le duele la cabeza."
+          "label": "Because it's her birthday.",
+          "spanish_translation": "Porque es su cumpleaños."
         },
         {
-          "id": "because-his-legs-hurt-a6",
+          "id": "because-it's-windy-a6",
           "image_url": "",
-          "label": "Because his legs hurt.",
-          "spanish_translation": "Porque le duelen las piernas."
+          "label": "Because it's windy.",
+          "spanish_translation": "Porque hace viento."
+        },
+        {
+          "id": "because-it's-sunny-a6",
+          "image_url": "",
+          "label": "Because it's sunny.",
+          "spanish_translation": "Porque hace sol."
         }
       ],
-      "audio_text": "Because his legs hurt.",
+      "audio_text": "Because it's her birthday.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 06: Because his legs hurt.",
+      "pedagogy_note": "Story beat 06: Because it's her birthday.",
       "audio_speaker": "teacher",
       "answer_audio_policy": "authored-only"
     },
@@ -762,7 +825,7 @@
           "label": null
         },
         {
-          "id": "diego-is-sad-because-his-dog-is-sick-a7",
+          "id": "diego-is-worried-because-his-dog-is-sick-a7",
           "image_url": "/lesson-assets/a1plus-unit-7-w02-e5048c773a9bec69.webp",
           "label": null
         },
@@ -819,7 +882,7 @@
       "interaction_type": "a2i4",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "diego-is-sad-because-his-dog-is-sick-a9",
+      "correct_option_id": "diego-is-worried-because-his-dog-is-sick-a9",
       "options": [
         {
           "id": "she's-cold-because-it's-windy-a9",
@@ -827,7 +890,7 @@
           "label": null
         },
         {
-          "id": "diego-is-sad-because-his-dog-is-sick-a9",
+          "id": "diego-is-worried-because-his-dog-is-sick-a9",
           "image_url": "/lesson-assets/a1plus-unit-7-w02-e5048c773a9bec69.webp",
           "label": null
         },
@@ -842,11 +905,11 @@
           "label": null
         }
       ],
-      "audio_text": "Diego is sad because his dog is sick.",
+      "audio_text": "Diego is worried because his dog is sick.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 09: Diego is sad because his dog is sick.",
+      "pedagogy_note": "Story beat 09: Diego is worried because his dog is sick.",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -854,26 +917,26 @@
       "interaction_type": "a2t2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "because-her-head-hurts-a10",
+      "correct_option_id": "because-his-legs-hurt-a10",
       "options": [
-        {
-          "id": "because-his-legs-hurt-a10",
-          "image_url": "",
-          "label": "Because his legs hurt.",
-          "spanish_translation": "Porque le duelen las piernas."
-        },
         {
           "id": "because-her-head-hurts-a10",
           "image_url": "",
           "label": "Because her head hurts.",
           "spanish_translation": "Porque le duele la cabeza."
+        },
+        {
+          "id": "because-his-legs-hurt-a10",
+          "image_url": "",
+          "label": "Because his legs hurt.",
+          "spanish_translation": "Porque le duelen las piernas."
         }
       ],
-      "audio_text": "Because her head hurts.",
+      "audio_text": "Because his legs hurt.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 10: Because her head hurts.",
+      "pedagogy_note": "Story beat 10: Because his legs hurt.",
       "audio_speaker": "teacher",
       "answer_audio_policy": "authored-only"
     },
@@ -936,61 +999,117 @@
     {
       "slide_id": "S3",
       "interaction_type": "speak",
-      "prompt": "Why is Diego sad?",
+      "prompt": "Why is Diego worried?",
       "stage": "Speak",
-      "correct_option_id": "why-is-diego-sad-speak",
+      "correct_option_id": "why-is-diego-worried-speak",
       "options": [
         {
-          "id": "why-is-diego-sad-speak",
+          "id": "why-is-diego-worried-speak",
           "image_url": "/lesson-assets/a1plus-unit-7-w02-e5048c773a9bec69.webp",
-          "label": "Why is Diego sad?"
+          "label": "Why is Diego worried?"
         }
       ],
-      "audio_text": "Why is Diego sad?",
+      "audio_text": "Why is Diego worried?",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "audio_turns": [
         {
-          "text": "Why is Diego sad?",
+          "text": "Why is Diego worried?",
           "speaker_role": "co-teacher",
           "image_url": "/lesson-assets/a1plus-unit-7-w02-e5048c773a9bec69.webp",
           "delivery": "a1-pronunciation-v1"
         }
       ],
-      "spanish_translation": "¿Por qué está triste Diego?",
-      "pedagogy_note": "Story beat 03: Why is Diego sad?",
+      "spanish_translation": "¿Por qué está preocupado Diego?",
+      "pedagogy_note": "Story beat 03: Why is Diego worried?",
       "answer_audio_policy": "authored-only"
     },
     {
       "slide_id": "S4",
       "interaction_type": "speak",
-      "prompt": "Diego is sad because his dog is sick.",
+      "prompt": "Diego is worried because his dog is sick.",
       "stage": "Speak",
-      "correct_option_id": "diego-is-sad-because-his-dog-is-sick-speak",
+      "correct_option_id": "diego-is-worried-because-his-dog-is-sick-speak",
       "options": [
         {
-          "id": "diego-is-sad-because-his-dog-is-sick-speak",
+          "id": "diego-is-worried-because-his-dog-is-sick-speak",
           "image_url": "/lesson-assets/a1plus-unit-7-w02-e5048c773a9bec69.webp",
-          "label": "Diego is sad because his dog is sick."
+          "label": "Diego is worried because his dog is sick."
         }
       ],
-      "audio_text": "Diego is sad because his dog is sick.",
+      "audio_text": "Diego is worried because his dog is sick.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "audio_turns": [
         {
-          "text": "Diego is sad because his dog is sick.",
+          "text": "Diego is worried because his dog is sick.",
           "speaker_role": "teacher",
           "image_url": "/lesson-assets/a1plus-unit-7-w02-e5048c773a9bec69.webp",
           "delivery": "a1-pronunciation-v1"
         }
       ],
-      "spanish_translation": "Diego está triste porque su perro está enfermo.",
-      "pedagogy_note": "Story beat 04: Diego is sad because his dog is sick.",
+      "spanish_translation": "Diego está preocupado porque su perro está enfermo.",
+      "pedagogy_note": "Story beat 04: Diego is worried because his dog is sick.",
       "answer_audio_policy": "authored-only"
     },
     {
       "slide_id": "S5",
+      "interaction_type": "speak",
+      "prompt": "Why is Ana excited?",
+      "stage": "Speak",
+      "correct_option_id": "why-is-ana-excited-speak",
+      "options": [
+        {
+          "id": "why-is-ana-excited-speak",
+          "image_url": "/lesson-assets/a1plus-unit-7-e01-3e4b3ae218c58c29.webp",
+          "label": "Why is Ana excited?"
+        }
+      ],
+      "audio_text": "Why is Ana excited?",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "audio_turns": [
+        {
+          "text": "Why is Ana excited?",
+          "speaker_role": "co-teacher",
+          "image_url": "/lesson-assets/a1plus-unit-7-e01-3e4b3ae218c58c29.webp",
+          "delivery": "a1-pronunciation-v1"
+        }
+      ],
+      "spanish_translation": "¿Por qué está emocionada Ana?",
+      "pedagogy_note": "Story beat 05: Why is Ana excited?",
+      "answer_audio_policy": "authored-only"
+    },
+    {
+      "slide_id": "S6",
+      "interaction_type": "speak",
+      "prompt": "Ana is excited because it's her birthday.",
+      "stage": "Speak",
+      "correct_option_id": "ana-is-excited-because-it's-her-birthday-speak",
+      "options": [
+        {
+          "id": "ana-is-excited-because-it's-her-birthday-speak",
+          "image_url": "/lesson-assets/a1plus-unit-7-e01-3e4b3ae218c58c29.webp",
+          "label": "Ana is excited because it's her birthday."
+        }
+      ],
+      "audio_text": "Ana is excited because it's her birthday.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "audio_turns": [
+        {
+          "text": "Ana is excited because it's her birthday.",
+          "speaker_role": "co-teacher",
+          "image_url": "/lesson-assets/a1plus-unit-7-e01-3e4b3ae218c58c29.webp",
+          "delivery": "a1-pronunciation-v1"
+        }
+      ],
+      "spanish_translation": "Ana está emocionada porque es su cumpleaños.",
+      "pedagogy_note": "Story beat 06: Ana is excited because it's her birthday.",
+      "answer_audio_policy": "authored-only"
+    },
+    {
+      "slide_id": "S7",
       "interaction_type": "speak",
       "prompt": "Why are you thirsty?",
       "stage": "Speak",
@@ -1014,11 +1133,11 @@
         }
       ],
       "spanish_translation": "¿Por qué tienes sed?",
-      "pedagogy_note": "Story beat 05: Why are you thirsty?",
+      "pedagogy_note": "Story beat 07: Why are you thirsty?",
       "answer_audio_policy": "authored-only"
     },
     {
-      "slide_id": "S6",
+      "slide_id": "S8",
       "interaction_type": "speak",
       "prompt": "Sofia is thirsty because she's running.",
       "stage": "Speak",
@@ -1036,69 +1155,13 @@
       "audio_turns": [
         {
           "text": "Sofia is thirsty because she's running.",
-          "speaker_role": "co-teacher",
+          "speaker_role": "teacher",
           "image_url": "/lesson-assets/a1plus-unit-7-w01-2c2419fb3d8cea4e.webp",
           "delivery": "a1-pronunciation-v1"
         }
       ],
       "spanish_translation": "Sofía tiene sed porque está corriendo.",
-      "pedagogy_note": "Story beat 06: Sofia is thirsty because she's running.",
-      "answer_audio_policy": "authored-only"
-    },
-    {
-      "slide_id": "S7",
-      "interaction_type": "speak",
-      "prompt": "He's hot because it's sunny.",
-      "stage": "Speak",
-      "correct_option_id": "he's-hot-because-it's-sunny-speak",
-      "options": [
-        {
-          "id": "he's-hot-because-it's-sunny-speak",
-          "image_url": "/lesson-assets/a1_photo_u7_approved_weather_hot_sunny_v1.webp",
-          "label": "He's hot because it's sunny."
-        }
-      ],
-      "audio_text": "He's hot because it's sunny.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "audio_turns": [
-        {
-          "text": "He's hot because it's sunny.",
-          "speaker_role": "teacher",
-          "image_url": "/lesson-assets/a1_photo_u7_approved_weather_hot_sunny_v1.webp",
-          "delivery": "a1-pronunciation-v1"
-        }
-      ],
-      "spanish_translation": "Tiene calor porque hace sol.",
-      "pedagogy_note": "Story beat 07: He's hot because it's sunny.",
-      "answer_audio_policy": "authored-only"
-    },
-    {
-      "slide_id": "S8",
-      "interaction_type": "speak",
-      "prompt": "Sofia is sad because her head hurts.",
-      "stage": "Speak",
-      "correct_option_id": "sofia-is-sad-because-her-head-hurts-speak",
-      "options": [
-        {
-          "id": "sofia-is-sad-because-her-head-hurts-speak",
-          "image_url": "/lesson-assets/a1plus-unit-7-h01-1b2f3f21fafa53a0.webp",
-          "label": "Sofia is sad because her head hurts."
-        }
-      ],
-      "audio_text": "Sofia is sad because her head hurts.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "audio_turns": [
-        {
-          "text": "Sofia is sad because her head hurts.",
-          "speaker_role": "co-teacher",
-          "image_url": "/lesson-assets/a1plus-unit-7-h01-1b2f3f21fafa53a0.webp",
-          "delivery": "a1-pronunciation-v1"
-        }
-      ],
-      "spanish_translation": "Sofía está triste porque le duele la cabeza.",
-      "pedagogy_note": "Story beat 08: Sofia is sad because her head hurts.",
+      "pedagogy_note": "Story beat 08: Sofia is thirsty because she's running.",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -1128,7 +1191,9 @@
         "because",
         "it's"
       ],
+      "answer_audio_speaker": "co-teacher",
       "pedagogy_note": "Story beat 01: She's cold because it's windy.",
+      "audio_speaker": "co-teacher",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -1158,71 +1223,69 @@
         "because",
         "it's"
       ],
-      "answer_audio_speaker": "co-teacher",
       "pedagogy_note": "Story beat 02: He's hot because it's sunny.",
-      "audio_speaker": "co-teacher",
       "answer_audio_policy": "authored-only"
     },
     {
       "slide_id": "U3",
       "interaction_type": "complete2",
-      "prompt": "Diego is sad ___ ___ dog is sick.",
+      "prompt": "Diego is ___ ___ his dog is sick.",
       "stage": "Use",
-      "correct_option_id": "because",
+      "correct_option_id": "worried",
       "options": [
+        {
+          "id": "worried",
+          "image_url": "",
+          "label": "worried"
+        },
         {
           "id": "because",
           "image_url": "",
           "label": "because"
-        },
-        {
-          "id": "his",
-          "image_url": "",
-          "label": "his"
         }
       ],
-      "audio_text": "Diego is sad because his dog is sick.",
-      "answer_audio_text": "Diego is sad because his dog is sick.",
+      "audio_text": "Diego is worried because his dog is sick.",
+      "answer_audio_text": "Diego is worried because his dog is sick.",
       "prompt_image_url": "/lesson-assets/a1plus-unit-7-w02-e5048c773a9bec69.webp",
-      "spanish_translation": "Diego está triste porque su perro está enfermo.",
-      "translation": "Diego está triste porque su perro está enfermo.",
+      "spanish_translation": "Diego está preocupado porque su perro está enfermo.",
+      "translation": "Diego está preocupado porque su perro está enfermo.",
       "correct_option_ids": [
-        "because",
-        "his"
+        "worried",
+        "because"
       ],
-      "pedagogy_note": "Story beat 03: Diego is sad because his dog is sick.",
+      "answer_audio_speaker": "co-teacher",
+      "pedagogy_note": "Story beat 03: Diego is worried because his dog is sick.",
+      "audio_speaker": "co-teacher",
       "answer_audio_policy": "authored-only"
     },
     {
       "slide_id": "U4",
       "interaction_type": "complete2",
-      "prompt": "Sofia is thirsty ___ ___ running.",
+      "prompt": "Ana is ___ ___ it's her birthday.",
       "stage": "Use",
-      "correct_option_id": "because",
+      "correct_option_id": "excited",
       "options": [
+        {
+          "id": "excited",
+          "image_url": "",
+          "label": "excited"
+        },
         {
           "id": "because",
           "image_url": "",
           "label": "because"
-        },
-        {
-          "id": "she's",
-          "image_url": "",
-          "label": "she's"
         }
       ],
-      "audio_text": "Sofia is thirsty because she's running.",
-      "answer_audio_text": "Sofia is thirsty because she's running.",
-      "prompt_image_url": "/lesson-assets/a1plus-unit-7-w01-2c2419fb3d8cea4e.webp",
-      "spanish_translation": "Sofía tiene sed porque está corriendo.",
-      "translation": "Sofía tiene sed porque está corriendo.",
+      "audio_text": "Ana is excited because it's her birthday.",
+      "answer_audio_text": "Ana is excited because it's her birthday.",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-7-e01-3e4b3ae218c58c29.webp",
+      "spanish_translation": "Ana está emocionada porque es su cumpleaños.",
+      "translation": "Ana está emocionada porque es su cumpleaños.",
       "correct_option_ids": [
-        "because",
-        "she's"
+        "excited",
+        "because"
       ],
-      "answer_audio_speaker": "co-teacher",
-      "pedagogy_note": "Story beat 04: Sofia is thirsty because she's running.",
-      "audio_speaker": "co-teacher",
+      "pedagogy_note": "Story beat 04: Ana is excited because it's her birthday.",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -1282,7 +1345,9 @@
         "word-6",
         "word-7"
       ],
+      "answer_audio_speaker": "co-teacher",
       "pedagogy_note": "Story beat 05: Sofia is sad because her head hurts.",
+      "audio_speaker": "co-teacher",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -1364,7 +1429,7 @@
         {
           "id": "word-3",
           "image_url": "",
-          "label": "sad"
+          "label": "worried"
         },
         {
           "id": "word-5",
@@ -1377,11 +1442,11 @@
           "label": "is"
         }
       ],
-      "audio_text": "Diego is sad because his dog is sick.",
-      "answer_audio_text": "Diego is sad because his dog is sick.",
+      "audio_text": "Diego is worried because his dog is sick.",
+      "answer_audio_text": "Diego is worried because his dog is sick.",
       "prompt_image_url": "/lesson-assets/a1plus-unit-7-w02-e5048c773a9bec69.webp",
-      "spanish_translation": "Diego está triste porque su perro está enfermo.",
-      "translation": "Diego está triste porque su perro está enfermo.",
+      "spanish_translation": "Diego está preocupado porque su perro está enfermo.",
+      "translation": "Diego está preocupado porque su perro está enfermo.",
       "correct_option_ids": [
         "word-1",
         "word-2",
@@ -1392,15 +1457,13 @@
         "word-7",
         "word-8"
       ],
-      "answer_audio_speaker": "co-teacher",
-      "pedagogy_note": "Story beat 07: Diego is sad because his dog is sick.",
-      "audio_speaker": "co-teacher",
+      "pedagogy_note": "Story beat 07: Diego is worried because his dog is sick.",
       "answer_audio_policy": "authored-only"
     },
     {
       "slide_id": "U8",
       "interaction_type": "complete-sentence",
-      "prompt": "___ ___ ___ ___ ___ ___.",
+      "prompt": "___ ___ ___ ___ ___ ___ ___.",
       "stage": "Use",
       "correct_option_id": "word-1",
       "options": [
@@ -1417,38 +1480,46 @@
         {
           "id": "word-6",
           "image_url": "",
-          "label": "running"
+          "label": "her"
         },
         {
           "id": "word-1",
           "image_url": "",
-          "label": "Sofia"
+          "label": "Ana"
         },
         {
           "id": "word-3",
           "image_url": "",
-          "label": "thirsty"
+          "label": "excited"
         },
         {
           "id": "word-5",
           "image_url": "",
-          "label": "she's"
+          "label": "it's"
+        },
+        {
+          "id": "word-7",
+          "image_url": "",
+          "label": "birthday"
         }
       ],
-      "audio_text": "Sofia is thirsty because she's running.",
-      "answer_audio_text": "Sofia is thirsty because she's running.",
-      "prompt_image_url": "/lesson-assets/a1plus-unit-7-w01-2c2419fb3d8cea4e.webp",
-      "spanish_translation": "Sofía tiene sed porque está corriendo.",
-      "translation": "Sofía tiene sed porque está corriendo.",
+      "audio_text": "Ana is excited because it's her birthday.",
+      "answer_audio_text": "Ana is excited because it's her birthday.",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-7-e01-3e4b3ae218c58c29.webp",
+      "spanish_translation": "Ana está emocionada porque es su cumpleaños.",
+      "translation": "Ana está emocionada porque es su cumpleaños.",
       "correct_option_ids": [
         "word-1",
         "word-2",
         "word-3",
         "word-4",
         "word-5",
-        "word-6"
+        "word-6",
+        "word-7"
       ],
-      "pedagogy_note": "Story beat 08: Sofia is thirsty because she's running.",
+      "answer_audio_speaker": "co-teacher",
+      "pedagogy_note": "Story beat 08: Ana is excited because it's her birthday.",
+      "audio_speaker": "co-teacher",
       "answer_audio_policy": "authored-only"
     }
   ]

@@ -119,6 +119,9 @@ for (const description of words('big small new used same different')) DESCRIPTIO
 for (const description of words('cheap expensive')) DESCRIPTIONS.add(description);
 // A1 7.9 (2026-11-15): how someone is (I am fine.) and how something is (The apple is good.); 7.10: It is warm.
 for (const description of words('good bad great fine sick angry afraid warm')) DESCRIPTIONS.add(description);
+// A1+ 7.2 and 7.4 (2026-11-24): two more feelings with a reason, and what the rain does (Ana is excited. /
+// Diego is worried. / Diego is wet.).
+for (const description of words('excited worried wet')) DESCRIPTIONS.add(description);
 // A1+ 2.8 (2026-11-19): favorite before a noun (my favorite color).
 DESCRIPTIONS.add('favorite');
 // A1+ 5.11 (2026-11-20): the cheaper bag; The red one is cheaper.
@@ -205,6 +208,9 @@ const WEATHER_NOW: Record<string, string> = { raining: 'lloviendo', snowing: 'ne
 const ACTIVITIES = set('dancing painting drawing singing');
 // A1+ 7.9 (2026-11-20): illnesses after have/has a.
 for (const noun of words('headache stomachache cough fever')) NOUNS.add(noun);
+// A1+ 7.3 and 7.13 (2026-11-24): two more clothes and two more things to be good at (Ana is wearing jeans. /
+// Luis is good at basketball. / Ana is good at playing the piano.).
+for (const noun of words('jeans basketball piano')) NOUNS.add(noun);
 const FEELINGS: Record<string, string> = { sick: 'enfermo o enferma', fine: 'bien', great: 'muy bien', tired: 'cansado o cansada' };
 // A1+ 7.10 (2026-11-20): seasons after in.
 const SEASONS: Record<string, string> = { spring: 'primavera', summer: 'verano', fall: 'otoño', winter: 'invierno' };

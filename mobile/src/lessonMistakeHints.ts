@@ -269,6 +269,9 @@ const MEANINGS: Record<string, string> = {
   climb: 'trepar',
   // A1+ 7.7 (2026-11-20): polite invitations.
   party: 'fiesta', busy: 'ocupado u ocupada', "i'd love to": 'me encantaría',
+  // A1+ 7.2, 7.3, 7.4 and 7.13 (2026-11-24): the words added after the Unit 7 review.
+  excited: 'emocionado o emocionada', worried: 'preocupado o preocupada', jeans: 'jeans',
+  shining: 'brillando', wet: 'mojado o mojada', basketball: 'básquetbol', piano: 'piano',
   // A1+ 7.8 (2026-11-20): polite repair and asking what a word means.
   means: 'significa', mean: 'significar',
   grandchildren: 'nietos',
