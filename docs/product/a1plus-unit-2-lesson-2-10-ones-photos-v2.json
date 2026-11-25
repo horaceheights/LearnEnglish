@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "pack": "a1plus-unit-2-lesson-2-10-ones-photos",
+  "image_settings": {
+    "provider": "google-gemini",
+    "model": "gemini-2.5-flash-image",
+    "aspect_ratio": "3:2",
+    "image_size": "1K",
+    "runtime_size": "1536x1024",
+    "runtime_format": "webp",
+    "n": 1
+  },
+  "revision": 2,
+  "output_namespace": "a1plus-unit-2-lesson-v2101",
+  "authorization": "2026-11-24: in the A1+ Unit 4 review the user approved image redos (\"image redo and audio approved\") and, asked whether to redo A1+ 2.10's shoe photo, answered \"Yes, redo it\". Gemini 2.5 Flash only (2026-11-17).",
+  "production": {
+    "price_per_image_usd": "0.0387",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing (checked 2026-11-16: Gemini 2.5 Flash Image, about $0.039 per image)",
+    "planned_images": 1,
+    "expected_cost_usd": "0.04",
+    "requested_ceiling_usd": "0.25",
+    "ceiling_note": "One request; the renderer reserves US$0.20 before it.",
+    "no_automatic_retries": true,
+    "order": "One edit of the installed w01 photo."
+  },
+  "shared_prompts": {
+    "edit": "Edit Image 1. Keep Sofia, her face, hair and clothes, the shoe store, the light and the camera position exactly the same; change only what is described below. No letters, words, numbers or logos anywhere."
+  },
+  "assets": [
+    {
+      "id": "w11-sofia-red-shoes",
+      "order": 1,
+      "item": "Which ones do you want? The red ones. / She wants the red ones.",
+      "shared": [
+        "edit"
+      ],
+      "prompt": "Sofia now holds a PAIR of red shoes: one red shoe in her left hand and one red shoe in her right hand, the two red shoes side by side in front of her, both whole and clearly visible, so it is obvious at a glance that she holds two shoes. The pair of black shoes stays on the wooden shelf beside her, exactly where it is. No other red shoe is anywhere in the photo.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-2-w01-b2c2e50e21089f18.webp",
+        "sha256": "b2c2e50e21089f1863dd9c83bd459f7cf4f472f192d077fd89bf3ee1ff6f4f9d",
+        "observed_description": "Sofia (curly dark hair, blue blazer over a white blouse) stands in a shoe store looking at ONE red shoe in her hands; a pair of black shoes stands on the wooden shelf beside her (A1+ 2.10)."
+      }
+    }
+  ]
+}

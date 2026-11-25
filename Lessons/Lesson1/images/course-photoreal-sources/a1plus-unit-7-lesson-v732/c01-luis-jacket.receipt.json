@@ -1,0 +1,62 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "a957b876-e89f-4155-b672-a0367182dd5a",
+  "asset_id": "c01-luis-jacket",
+  "pack_sha256": "23c2673a8f2fae687d94d169d210ee241f14729930c31bd51455221f927549a3",
+  "started_at": "2026-11-24T02:32:27.325206+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, menus, screens, cups, clothes or bags.\n\nKeep the people and the thing that carries the meaning inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nOnly this one person is in the photo; there is nobody else, even far in the background.\n\nIt is clearly daytime with soft natural light.\n\nImage 1 shows Luis. He must be the SAME man as in image 1: the same broad face with strong jaw and thick dark eyebrows, the same thick wavy black hair, the same warm medium-brown skin, clean-shaven, and the same strong, broad-shouldered build. Create a new photograph: Luis stands on the sidewalk in front of a light-brick apartment building on a cool, clear day and smiles; he is seen from the knees up, standing in the middle of the photo. He is wearing a BLACK JACKET with LONG SLEEVES that cover both arms down to his wrists, a collar and a zip closed up to his chest; under it a little of his navy T-shirt shows at the neck. He also wears light khaki trousers. The jacket is an ordinary casual black jacket: NOT a vest, NOT sleeveless, NOT short-sleeved. The black jacket is the most obvious thing he is wearing. He wears no hat, no scarf and no glasses.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1plus-unit-1-q01-135c3f8f772bcbe4.webp",
+    "sha256": "135c3f8f772bcbe472b8cec719eb02318a7d52ce1c7152a94c6952aeb78566c2"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "O_cEa42cCtiJ6dkPsfOKiQY",
+  "usage": {
+    "promptTokenCount": 671,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1961,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 413
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038901",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 671,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 8.79,
+  "output": "output/imagegen/a1plus-unit-7-lesson-v732/c01-luis-jacket.png",
+  "sha256": "10d10a0ca4f5b68de9d449370a8c9d8bc4deaa2ef3e2231406ce0577e534f1c8",
+  "byte_count": 1190317,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}

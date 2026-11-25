@@ -1,0 +1,55 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "8994e74c-b4a2-4aee-be71-c5e00f09bbff",
+  "asset_id": "t05-three-trees",
+  "pack_sha256": "1fb395d00bb581af17d05e52623e24f79e74e2a2175e9e8908ec7eef3726ba76",
+  "started_at": "2026-11-24T02:30:43.386274+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, menus, screens, cups, clothes or bags.\n\nKeep the people and the thing that carries the meaning inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nIt is clearly daytime with soft natural light.\n\nA wide grassy field under a clear blue sky on a sunny fall day, with exactly three trees standing apart in a row at the same distance from the camera, each whole tree visible from the grass to its top: on the left a very TALL tree full of GREEN leaves, in the middle a tree of medium height full of YELLOW leaves, and on the right a SHORT little tree full of RED leaves, only half as tall as the middle tree. Each tree has one clear leaf color. The difference in height is obvious at a glance: the green tree is clearly the tallest and the red tree is clearly the shortest. There are exactly three trees; no other trees or bushes anywhere, no people, no animals, no buildings and no benches.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "0vYEa-7bK8fVz7IPrZukkQY",
+  "usage": {
+    "promptTokenCount": 338,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1628,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 338
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038801",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 338,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 6.5,
+  "output": "output/imagegen/a1plus-unit-7-lesson-v7111/t05-three-trees.png",
+  "sha256": "91fa215af586b1539d53eb6595432f8d9be99a65f706026d9ea00e971dba5084",
+  "byte_count": 1902057,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}

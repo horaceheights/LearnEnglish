@@ -1,0 +1,55 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "f7ce8347-32f3-42d4-b7b4-1c1e2f2ab788",
+  "asset_id": "t04-three-flowers",
+  "pack_sha256": "1fb395d00bb581af17d05e52623e24f79e74e2a2175e9e8908ec7eef3726ba76",
+  "started_at": "2026-11-24T02:30:36.048220+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, menus, screens, cups, clothes or bags.\n\nKeep the people and the thing that carries the meaning inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nIt is clearly daytime with soft natural light.\n\nOutdoors in a sunny garden, exactly three flowers stand in a row in three identical small terracotta pots on a plain wooden garden table, one flower in each pot, with soft green garden leaves far behind them: on the left a very BIG YELLOW sunflower with a huge flower head, in the middle a medium-sized RED flower, and on the right a very SMALL WHITE daisy with a tiny flower head. Each flower has one clear color. The difference in size is obvious at a glance: the yellow flower is clearly the biggest and the white flower is clearly the smallest. There are exactly three flowers and exactly three pots; no other flowers, no people, no tools and no labels.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "y_YEa9XlFqWgz7IPl4qckAw",
+  "usage": {
+    "promptTokenCount": 325,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1615,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 325
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038798",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 325,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 5.98,
+  "output": "output/imagegen/a1plus-unit-7-lesson-v7111/t04-three-flowers.png",
+  "sha256": "3f6620b6a441d7b87eddb5428f483b66673e0307356813b57e9bb12271523851",
+  "byte_count": 1369568,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}
