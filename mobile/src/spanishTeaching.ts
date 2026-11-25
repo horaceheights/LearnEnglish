@@ -164,7 +164,7 @@ const registerPresent = () => {
       const person = PERSONS[at] || '';
       PRESENT.add(form);
       if (!VERB_PERSON[form]) VERB_PERSON[form] = person;
-      if (!VERB_ENGLISH[form]) VERB_ENGLISH[form] = `${WHO_ENGLISH[person]} ${person === '3s' ? english.replace(/^(\w+)/, (verb: string) => (verb === 'go' ? 'goes' : `${verb}s`)) : english}`;
+      if (!VERB_ENGLISH[form]) VERB_ENGLISH[form] = `${WHO_ENGLISH[person]} ${person === '3s' ? english.replace(/^(\w+)/, (verb: string) => (verb === 'go' ? 'goes' : /[^aeiou]y$/.test(verb) ? `${verb.slice(0, -1)}ies` : /(sh|ch|ss|x)$/.test(verb) ? `${verb}es` : `${verb}s`)) : english}`;
     });
   }
 };
@@ -326,6 +326,45 @@ Object.assign(FIXED_QUESTIONS, {
   repite: ['“Repite” (repeat, tú) asks someone to say it again.'],
   'hablas rápido': ['“Hablas” (you speak) starts the sentence; Spanish leaves out “tú”.', '“rápido” (fast) comes after the verb.'],
   'habla despacio': ['“Habla” (speak, tú) tells someone what to do, so it comes first.', '“despacio” (slowly) comes right after “Habla”.'],
+});
+
+// Spanish A1+ Unit 1: what people look like, family, habits, how often, pets and “con”.
+Object.assign(NOUN_KIND, {
+  mamá: 'feminine singular', papá: 'masculine singular', tía: 'feminine singular', tío: 'masculine singular',
+  primo: 'masculine singular', prima: 'feminine singular', amigo: 'masculine singular', pelo: 'masculine singular',
+  barba: 'feminine singular',
+});
+for (const stem of ['alt', 'baj', 'larg']) {
+  Object.assign(ADJECTIVE_KIND, {
+    [`${stem}o`]: 'masculine singular', [`${stem}a`]: 'feminine singular', [`${stem}os`]: 'masculine plural', [`${stem}as`]: 'feminine plural',
+  });
+}
+for (const [one, many] of [['mayor', 'mayores'], ['menor', 'menores'], ['joven', 'jóvenes']]) {
+  ADJECTIVE_KIND[one] = 'singular';
+  ADJECTIVE_KIND[many] = 'plural';
+}
+PRESENT_FORMS.push(
+  ['le', 'read', ['leo', 'lees', 'lee', 'leemos', 'leen']], ['escrib', 'write', ['escribo', 'escribes', 'escribe', 'escribimos', 'escriben']],
+  ['nad', 'swim', ['nado', 'nadas', 'nada', 'nadamos', 'nadan']], ['viv', 'live', ['vivo', 'vives', 'vive', 'vivimos', 'viven']],
+  ['cocin', 'cook', ['cocino', 'cocinas', 'cocina', 'cocinamos', 'cocinan']],
+  ['cen', 'eat dinner', ['ceno', 'cenas', 'cena', 'cenamos', 'cenan']], ['bail', 'dance', ['bailo', 'bailas', 'baila', 'bailamos', 'bailan']],
+);
+registerPresent();
+// A name is who the sentence is about; its gender is the person's.
+const NAME_KIND: Record<string, string> = {
+  ana: 'feminine singular', sofía: 'feminine singular', luis: 'masculine singular', diego: 'masculine singular',
+};
+const PET_NAMES = set('max luna rio coco toby');
+// How often: one word (or “a veces”) right before the verb.
+const FREQUENCY: Record<string, string> = { siempre: 'always', normalmente: 'usually', nunca: 'never' };
+// After “con” (with), Spanish uses the same words as for who does it: con él is “with him”.
+const WITH_ENGLISH: Record<string, string> = { él: 'him', ella: 'her', ellos: 'them', ellas: 'them' };
+const PEOPLE = set('hombre mujer niño niña persona');
+Object.assign(FIXED_QUESTIONS, {
+  'cuántos hermanos y hermanas tienes': ['“Cuántos” (how many) starts the question and matches “hermanos”.', '“hermanos” (brothers) comes right after “Cuántos”.',
+    '“y” (and) joins “hermanos” and “hermanas”.', '“hermanas” (sisters) comes after “y”.', '“tienes” (you have) ends the question.'],
+  'cómo se llama': ['“Cómo” (how) starts the question.', '“se” comes before the verb: Spanish asks how it is called.', '“llama” ends it: “¿Cómo se llama?” asks a name.'],
+  'cómo se llama él': ['“Cómo” (how) starts the question.', '“se” comes before the verb: Spanish asks how he is called.', '“llama” comes after “se”.', '“él” comes last in the question.'],
 });
 
 type Relation = { start: number; end: number; explanation: string };
@@ -530,6 +569,20 @@ function teachClause(text: string): ClausePlan {
       relations.push({ start, end: index, explanation: `How you travel: ${quote(tokens.slice(start, index).join(' '))}.` });
       return true;
     }
+    if (first === 'en' && key(tokens[index + 1] || '') === 'casa') {
+      explanations[index] = '“en” starts “en casa” (at home).';
+      explanations[index + 1] = '“casa” takes no article in “en casa”.';
+      index += 2;
+      relations.push({ start, end: index, explanation: 'Where comes after the verb: “en casa” (at home).' });
+      return true;
+    }
+    if (first === 'en' && (COUNTRIES.has(key(tokens[index + 1] || '')) || key(tokens[index + 1] || '') === 'estados')) {
+      explanations[index] = '“en” (in) comes before the country, which takes no article.';
+      index += 1;
+      if (!countryPhrase()) return false;
+      relations.push({ start, end: index, explanation: `Where comes after the verb: ${quote(tokens.slice(start, index).join(' '))}.` });
+      return true;
+    }
     if (first === 'en' || first === 'sobre') {
       explanations[index] = first === 'en' ? '“en” (in, at) comes before the place.' : '“sobre” (on) comes before the thing underneath.';
       index += 1;
@@ -638,6 +691,69 @@ function teachClause(text: string): ClausePlan {
       explanations[andAt] = `“y” (and) joins ${quote(first)} and ${quote(second)}, so it goes between them.`;
     }
     return tokens.slice(start, index).join(' ');
+  };
+  const dayPart = () => {
+    // en la mañana, en la noche; de noche (at night).
+    const at = index;
+    if (key(tokens[at] || '') === 'de' && key(tokens[at + 1] || '') === 'noche') {
+      explanations[at] = '“de” starts “de noche” (at night), with no article.';
+      explanations[at + 1] = '“noche” (night) ends “de noche”; when comes after the verb.';
+      relations.push({ start: at, end: at + 2, explanation: 'When comes after the verb: “de noche” (at night).' });
+      index += 2;
+      return true;
+    }
+    if (key(tokens[at] || '') !== 'en' || key(tokens[at + 1] || '') !== 'la' || !['mañana', 'tarde', 'noche'].includes(key(tokens[at + 2] || ''))) return false;
+    explanations[at] = '“en” comes before the part of the day.';
+    explanations[at + 1] = `“la” is the article for ${quote(tokens[at + 2] || '')}.`;
+    explanations[at + 2] = `${quote(tokens[at + 2] || '')} says which part of the day.`;
+    relations.push({ start: at, end: at + 3, explanation: `When comes after the verb: ${quote(tokens.slice(at, at + 3).join(' '))}.` });
+    index += 3;
+    return true;
+  };
+  const withPhrase = () => {
+    // con él, con ella, con ellos; con su papá, con mis abuelos, con los niños.
+    const at = index;
+    if (key(tokens[at] || '') !== 'con') return false;
+    index += 1;
+    const pronoun = key(tokens[index] || '');
+    if (WITH_ENGLISH[pronoun]) {
+      explanations[index] = `${quote(tokens[index] || '')} after “con” is “${WITH_ENGLISH[pronoun]}”: Spanish uses the same word as for who does it.`;
+      index += 1;
+    } else if (!(possessivePhrase() || nounPhrase())) {
+      return false;
+    }
+    explanations[at] = `“con” (with) comes before ${quote(tokens.slice(at + 1, index).join(' '))}.`;
+    relations.push({ start: at, end: index, explanation: `Who with comes after the verb: ${quote(tokens.slice(at, index).join(' '))}.` });
+    return true;
+  };
+  const attempt = (part: () => boolean) => {
+    const at = index;
+    if (part()) return true;
+    index = at;
+    return false;
+  };
+  const adjuncts = () => {
+    // Where, when and who with can follow one another after the verb.
+    while (index < tokens.length) {
+      if (!(attempt(dayPart) || attempt(withPhrase) || attempt(locationPhrase))) return false;
+    }
+    return true;
+  };
+  const frequency = () => {
+    // siempre, normalmente, a veces, nunca: how often goes right before the verb.
+    const word = key(tokens[index] || '');
+    if (FREQUENCY[word]) {
+      explanations[index] = `${quote(tokens[index] || '')} (${FREQUENCY[word]}) goes right before the verb.`;
+      index += 1;
+      return tokens[index - 1] || '';
+    }
+    if (word === 'a' && key(tokens[index + 1] || '') === 'veces') {
+      explanations[index] = `${quote(tokens[index] || '')} starts “a veces” (sometimes).`;
+      explanations[index + 1] = '“veces” ends “a veces”; it goes right before the verb.';
+      index += 2;
+      return tokens.slice(index - 2, index).join(' ');
+    }
+    return '';
   };
   const timePhrase = () => {
     // a la una, a las siete: “a” + the hour.
@@ -774,6 +890,53 @@ function teachClause(text: string): ClausePlan {
     explanations[0] = '“Es” starts the sentence: Spanish leaves out “it”.';
     explanations[1] = `${quote(tokens[1] || '')} is the month; Spanish months have no capital letter.`;
     return { explanations, relations, supported: true };
+  }
+  if (lower[0] === 'dónde' && PRESENT.has(lower[1] || '') && VERB_PERSON[lower[1] || ''] === '3s') {
+    // ¿Dónde vive tu tía? The verb comes before who it is about.
+    explanations[0] = '“Dónde” (where) starts the question.';
+    explanations[1] = `${quote(tokens[1] || '')} comes right after “Dónde”: in the question the verb comes before who it is about.`;
+    index = 2;
+    if (!(possessivePhrase() || nounPhrase())) return { explanations, relations, supported: false };
+    relations.push({ start: 0, end: index, explanation: `Spanish asks ${quote(tokens.join(' '))}: where, the verb, then who.` });
+    return doneHere();
+  }
+  if (lower[0] === 'con' && lower[1] === 'quién' && PRESENT.has(lower[2] || '') && VERB_PERSON[lower[2] || ''] === '3s') {
+    // ¿Con quién vive tu primo? ¿Con quién cocina la cena la abuela?
+    explanations[0] = '“Con” (with) starts the question: Spanish puts it before “quién”.';
+    explanations[1] = '“quién” (who) comes right after “Con”: “Con quién” is “who … with”.';
+    explanations[2] = `${quote(tokens[2] || '')} comes after “Con quién”, before who it is about.`;
+    index = 3;
+    if (!(possessivePhrase() || nounPhrase())) return { explanations, relations, supported: false };
+    if (index < tokens.length && !(possessivePhrase() || nounPhrase())) return { explanations, relations, supported: false };
+    relations.push({ start: 0, end: 3, explanation: `${quote(tokens.slice(0, 3).join(' '))}: “Con quién” first, then the verb.` });
+    return doneHere();
+  }
+  if (lower[0] === 'con' && lower[1] === 'qué' && lower[2] === 'frecuencia' && PRESENT.has(lower[3] || '')) {
+    // ¿Con qué frecuencia estudias de noche?
+    explanations[0] = '“Con” starts the question: Spanish asks “with what frequency”.';
+    explanations[1] = '“qué” (what) comes right after “Con”.';
+    explanations[2] = '“frecuencia” follows “Con qué”: “Con qué frecuencia” is “How often”.';
+    explanations[3] = `${quote(tokens[3] || '')} (${VERB_ENGLISH[lower[3] || '']}) comes after “Con qué frecuencia”; Spanish leaves out ${DROPPED[VERB_PERSON[lower[3] || ''] || ''] || 'who'}.`;
+    relations.push({ start: 0, end: 3, explanation: '“Con qué frecuencia” is “How often”.' });
+    index = 4;
+    const start = index;
+    if (index < tokens.length && !['en', 'de', 'con'].includes(lower[index] || '') && !items()) return { explanations, relations, supported: false };
+    if (index > start) relations.push({ start, end: index, explanation: `What comes right after the verb: ${quote(tokens.slice(start, index).join(' '))}.` });
+    if (!adjuncts()) return { explanations, relations, supported: false };
+    return doneHere();
+  }
+  {
+    // Se llama Max. Él se llama Luis. “se llama” is “is called”: Spanish names someone this way.
+    const lead = PRONOUNS.has(lower[0] || '') && !PLURAL_PRONOUNS.has(lower[0] || '') && lower[1] === 'se' ? 1 : 0;
+    const named = key(tokens[lead + 2] || '');
+    if (lower[lead] === 'se' && lower[lead + 1] === 'llama' && tokens.length === lead + 3 && (NAMES.has(named) || PET_NAMES.has(named))) {
+      if (lead) explanations[0] = `${quote(tokens[0] || '')} is who you name, so it comes first.`;
+      explanations[lead] = `${quote(tokens[lead] || '')} comes before the verb: Spanish says “se llama”, is called.`;
+      explanations[lead + 1] = `“llama” comes right after ${quote(tokens[lead] || '')}.`;
+      explanations[lead + 2] = `${quote(tokens[lead + 2] || '')} is the name, so it comes last.`;
+      relations.push({ start: lead, end: lead + 2, explanation: '“se llama” is “its name is” or “his/her name is”: “se” before “llama”.' });
+      return { explanations, relations, supported: true };
+    }
   }
   if (lower[0] === 'dónde' && lower[1] === 'está') {
     explanations[0] = '“Dónde” (where) starts the question.';
@@ -1009,6 +1172,7 @@ function teachClause(text: string): ClausePlan {
     if (!countryPhrase()) return { explanations, relations, supported: false };
     return done();
   }
+  let ownedSubject: { text: string; kind: string } | null = null;
   if (POSSESSIVE_KIND[lower[0]]) {
     // Tu nombre es Luis. Su nombre es Sofía.
     const owned = possessivePhrase();
@@ -1031,11 +1195,16 @@ function teachClause(text: string): ClausePlan {
       index += 2;
       return done();
     }
-    if (!owned || key(tokens[index] || '') !== 'es' || !NAMES.has(key(tokens[index + 1] || ''))) return { explanations, relations, supported: false };
-    explanations[index] = `“es” comes right after ${quote(owned.text)}.`;
-    explanations[index + 1] = `${quote(tokens[index + 1] || '')} is the name, so it comes last.`;
-    index += 2;
-    return done();
+    if (owned && key(tokens[index] || '') === 'es' && NAMES.has(key(tokens[index + 1] || ''))) {
+      explanations[index] = `“es” comes right after ${quote(owned.text)}.`;
+      explanations[index + 1] = `${quote(tokens[index + 1] || '')} is the name, so it comes last.`;
+      index += 2;
+      return done();
+    }
+    if (!owned || !PRESENT.has(key(tokens[index] || '')) && !FREQUENCY[key(tokens[index] || '')] && key(tokens[index] || '') !== 'no' && key(tokens[index] || '') !== 'a') {
+      return { explanations, relations, supported: false };
+    }
+    ownedSubject = owned;
   }
   if (lower.join(' ') === 'qué es esto') {
     explanations[0] = '“Qué” asks what, so the question starts with it.';
@@ -1123,7 +1292,27 @@ function teachClause(text: string): ClausePlan {
   let plural = false;
   let person = '';
   const subjectKinds: string[] = [];
-  if (PRONOUN_PERSON[key(tokens[index] || '')]) {
+  if (ownedSubject) {
+    subject = ownedSubject.text;
+    plural = ownedSubject.kind.endsWith('plural');
+    person = plural ? '3p' : '3s';
+    subjectKinds.push(ownedSubject.kind);
+  } else if (NAME_KIND[key(tokens[index] || '')]) {
+    subject = tokens[index] || '';
+    person = '3s';
+    subjectKinds.push(NAME_KIND[key(subject)]);
+    explanations[index] = `${quote(subject)} is who the sentence is about, so it comes first.`;
+    index += 1;
+    if (key(tokens[index] || '') === 'y' && NAME_KIND[key(tokens[index + 1] || '')]) {
+      explanations[index] = '“y” (and) joins the two names, so it goes between them.';
+      explanations[index + 1] = `${quote(tokens[index + 1] || '')} is the second person; together they take the “ellos” verb.`;
+      subjectKinds.push(NAME_KIND[key(tokens[index + 1] || '')]);
+      subject = `${subject} y ${tokens[index + 1]}`;
+      plural = true;
+      person = '3p';
+      index += 2;
+    }
+  } else if (PRONOUN_PERSON[key(tokens[index] || '')]) {
     subject = tokens[index] || '';
     person = PRONOUN_PERSON[key(subject)];
     plural = person.endsWith('p');
@@ -1151,12 +1340,15 @@ function teachClause(text: string): ClausePlan {
     }
   }
   if (index < tokens.length) {
+    const freqText = frequency();
     // "no" goes right before the verb (Él no está), where English puts "not" after it.
     const negation = key(tokens[index] || '') === 'no' ? index : -1;
     if (negation >= 0) index += 1;
     const verb = tokens[index] || '';
     const verbKey = key(verb);
-    if (verbKey === 'trabaja' && subject && !plural && negation < 0) {
+    if (freqText && !PRESENT.has(verbKey)) return { explanations, relations, supported: false };
+    const after = freqText || subject;
+    if (verbKey === 'trabaja' && subject && !plural && negation < 0 && !freqText && key(tokens[index + 1] || '') === 'en' && ARTICLE_KIND[key(tokens[index + 2] || '')]) {
       // El hombre trabaja en el hospital: works + en + the place.
       explanations[index] = `${quote(verb)} comes right after ${quote(subject)}; it says what the person does.`;
       relations.push({ start: subjectStart, end: index + 1, explanation: `The verb comes right after who it is about: ${quote(`${subject} ${verb}`)}.` });
@@ -1176,18 +1368,22 @@ function teachClause(text: string): ClausePlan {
       explanations[negation] = `“no” goes right before ${quote(verb)}: Spanish says ${quote(`no ${verb}`)} where English says “${notEnglish}”.`;
       relations.push({ start: negation, end: index + 1, explanation: `“no” comes before the verb: Spanish says ${quote(`no ${verb}`)}, English says “${notEnglish}”.` });
     }
-    explanations[index] = !subject && text.trim().startsWith('¿') && verbPerson === '3s' && PRESENT.has(verbKey)
+    explanations[index] = !subject && !freqText && text.trim().startsWith('¿') && verbPerson === '3s' && PRESENT.has(verbKey)
       ? `${quote(verb)} starts the question: speaking politely (usted), Spanish uses the “él/ella” form and leaves out “usted”.`
       : !subject && VERB_ENGLISH[verbKey]
-      ? `${quote(verb)} ${negation >= 0 ? 'comes right after “no”' : 'starts the sentence'}: Spanish leaves out ${DROPPED[verbPerson]}, and ${quote(verb)} already means “${VERB_ENGLISH[verbKey]}”.`
+      ? `${quote(verb)} ${negation >= 0 ? 'comes right after “no”' : freqText ? `comes right after ${quote(freqText)}` : 'starts the sentence'}: Spanish leaves out ${DROPPED[verbPerson]}, and ${quote(verb)} already means “${VERB_ENGLISH[verbKey]}”.`
+      : !subject && verbKey === 'es' && negation < 0 && ARTICLE_KIND[key(tokens[index + 1] || '')] && PEOPLE.has(key(tokens[index + 2] || ''))
+        ? '“Es” starts the sentence: Spanish leaves out “él” or “ella”, and “Es” already means “he is” or “she is”.'
       : !subject && negation >= 0
         ? `${quote(verb)} comes right after “no”; it says ${meaning}.`
         : !subject
           ? `${quote(verb)} starts the sentence: Spanish leaves out ${verbPlural ? '“ellos”' : '“it”'}, and ${quote(verb)} already means ${verbPlural ? '“they are”' : '“it is”'}.`
       : negation >= 0
         ? `${quote(verb)} comes right after “no”; it says ${meaning}${verbPlural ? (thing ? ' for more than one thing' : ' for more than one person') : ''}.`
-        : `${quote(verb)} comes right after ${quote(subject)}; it says ${meaning}${verbPlural ? (thing ? ' for more than one thing' : ' for more than one person') : ''}.`;
-    if (subject) relations.push({ start: subjectStart, end: index + 1, explanation: `The verb comes right after who it is about: ${quote(`${subject} ${negation >= 0 ? 'no ' : ''}${verb}`)}.` });
+        : `${quote(verb)} comes right after ${quote(after)}; it says ${meaning}${verbPlural ? (thing ? ' for more than one thing' : ' for more than one person') : ''}.`;
+    if (subject) relations.push({ start: subjectStart, end: index + 1, explanation: freqText
+      ? `Who it is about, how often, then the verb: ${quote(`${subject} ${freqText} ${verb}`)}.`
+      : `The verb comes right after who it is about: ${quote(`${subject} ${negation >= 0 ? 'no ' : ''}${verb}`)}.` });
     const verbIndex = index;
     index += 1;
     const word = tokens[index] || '';
@@ -1293,12 +1489,13 @@ function teachClause(text: string): ClausePlan {
         dayPhrase();
         return done();
       }
-      if (index < tokens.length && !['en', 'sobre', 'debajo', 'al'].includes(key(tokens[index] || '')) || key(tokens[index] || '') === 'al' && key(tokens[index + 1] || '') !== 'lado') {
+      const adjunctNext = ['en', 'sobre', 'debajo', 'al', 'con'].includes(key(tokens[index] || '')) || (key(tokens[index] || '') === 'de' && key(tokens[index + 1] || '') === 'noche');
+      if (index < tokens.length && !adjunctNext || key(tokens[index] || '') === 'al' && key(tokens[index + 1] || '') !== 'lado') {
         const object = timePhrase() || (['a', 'al'].includes(key(tokens[index] || '')) ? objectPhrase() : Boolean(items()));
         if (!object) return { explanations, relations, supported: false };
         relations.push({ start: verbIndex, end: index, explanation: `What comes right after the verb: ${quote(tokens.slice(start, index).join(' '))}.` });
       }
-      if (index < tokens.length && !locationPhrase()) return { explanations, relations, supported: false };
+      if (!adjuncts()) return { explanations, relations, supported: false };
     } else if (ESTAR.has(verbKey) && ['en', 'sobre', 'debajo', 'al', 'a', 'cerca', 'lejos', 'enfrente', 'entre', 'cruzando'].includes(key(word))) {
       if (!locationPhrase()) return { explanations, relations, supported: false };
     } else if (TENER.has(verbKey)) {
@@ -1321,6 +1518,11 @@ function teachClause(text: string): ClausePlan {
           had = `${word} y ${tokens[index + 1]}`;
           index += 2;
         }
+      }
+      if (!had && key(word) === 'barba') {
+        explanations[index] = `“barba” (a beard) takes no article after ${quote(verb)}: Spanish says ${quote(`${key(verb)} barba`)}.`;
+        had = word;
+        index += 1;
       }
       if (!had) had = items();
       if (!had && NOUN_KIND[key(word)]?.endsWith('plural')) {
