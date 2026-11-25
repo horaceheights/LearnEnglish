@@ -18321,6 +18321,12 @@
         "audio_speaker": "co-teacher"
       },
       "L3": {
+        "audio_speaker": "teacher"
+      },
+      "L4": {
+        "audio_speaker": "co-teacher"
+      },
+      "L5": {
         "audio_turns": [
           {
             "speaker_role": "co-teacher",
@@ -18334,18 +18340,18 @@
       },
       "R1": {},
       "R2": {
-        "answer_audio_speaker": "diego",
-        "audio_speaker": "co-teacher"
+        "answer_audio_speaker": "co-teacher"
       },
-      "R3": {
-        "audio_speaker": "co-teacher"
+      "R3": {},
+      "R4": {
+        "answer_audio_speaker": "co-teacher"
       },
-      "R4": {},
       "R5": {
+        "answer_audio_speaker": "diego",
         "audio_speaker": "co-teacher"
       },
       "R6": {
-        "answer_audio_speaker": "diego",
+        "answer_audio_speaker": "luis",
         "audio_speaker": "co-teacher"
       },
       "R7": {},
@@ -18368,8 +18374,8 @@
             "text": "What are you good at?"
           },
           {
-            "speaker_role": "sofia",
-            "text": "I'm good at tennis."
+            "speaker_role": "luis",
+            "text": "I'm good at basketball."
           }
         ]
       },
@@ -18406,9 +18412,20 @@
         ]
       },
       "A9": {
+        "audio_turns": [
+          {
+            "speaker_role": "co-teacher",
+            "text": "What are you good at?"
+          },
+          {
+            "speaker_role": "ana",
+            "text": "I'm good at playing the piano."
+          }
+        ]
+      },
+      "A10": {
         "audio_speaker": "co-teacher"
       },
-      "A10": {},
       "S1": {
         "audio_turns": [
           {
@@ -18420,8 +18437,8 @@
       "S2": {
         "audio_turns": [
           {
-            "speaker_role": "ana",
-            "text": "I'm good at swimming."
+            "speaker_role": "luis",
+            "text": "I'm good at basketball."
           }
         ]
       },
@@ -18436,15 +18453,15 @@
       "S4": {
         "audio_turns": [
           {
-            "speaker_role": "diego",
-            "text": "I'm good at running."
+            "speaker_role": "ana",
+            "text": "I'm good at playing the piano."
           }
         ]
       },
       "S5": {
         "audio_turns": [
           {
-            "speaker_role": "co-teacher",
+            "speaker_role": "teacher",
             "text": "She's good at tennis."
           }
         ]
@@ -18452,12 +18469,20 @@
       "S6": {
         "audio_turns": [
           {
-            "speaker_role": "teacher",
-            "text": "He isn't good at tennis."
+            "speaker_role": "co-teacher",
+            "text": "Luis is good at basketball."
           }
         ]
       },
       "S7": {
+        "audio_turns": [
+          {
+            "speaker_role": "teacher",
+            "text": "Ana is good at playing the piano."
+          }
+        ]
+      },
+      "S8": {
         "audio_turns": [
           {
             "speaker_role": "co-teacher",
@@ -18465,37 +18490,29 @@
           }
         ]
       },
-      "S8": {
-        "audio_turns": [
-          {
-            "speaker_role": "teacher",
-            "text": "She's good at singing."
-          }
-        ]
-      },
-      "U1": {
+      "U1": {},
+      "U2": {
         "answer_audio_speaker": "co-teacher",
         "audio_speaker": "co-teacher"
       },
-      "U2": {},
       "U3": {
-        "answer_audio_speaker": "diego",
-        "audio_speaker": "diego"
+        "answer_audio_speaker": "luis",
+        "audio_speaker": "luis"
       },
-      "U4": {
+      "U4": {},
+      "U5": {
         "answer_audio_speaker": "co-teacher",
         "audio_speaker": "co-teacher"
       },
-      "U5": {},
       "U6": {
         "answer_audio_speaker": "co-teacher",
         "audio_speaker": "co-teacher"
       },
-      "U7": {
-        "answer_audio_speaker": "co-teacher",
-        "audio_speaker": "co-teacher"
-      },
-      "U8": {}
+      "U7": {},
+      "U8": {
+        "answer_audio_speaker": "diego",
+        "audio_speaker": "diego"
+      }
     },
     "a1plus-unit-7-lesson-7-14": {
       "L1": {
@@ -18861,7 +18878,7 @@
         "audio_turns": [
           {
             "speaker_role": "teacher",
-            "text": "Why is Diego sad?"
+            "text": "Why is Diego worried?"
           },
           {
             "speaker_role": "co-teacher",
@@ -18870,6 +18887,18 @@
         ]
       },
       "L3": {
+        "audio_turns": [
+          {
+            "speaker_role": "teacher",
+            "text": "Why is Ana excited?"
+          },
+          {
+            "speaker_role": "co-teacher",
+            "text": "Because it's her birthday."
+          }
+        ]
+      },
+      "L4": {
         "audio_turns": [
           {
             "speaker_role": "co-teacher",
@@ -18969,7 +18998,7 @@
         "audio_turns": [
           {
             "speaker_role": "co-teacher",
-            "text": "Why is Diego sad?"
+            "text": "Why is Diego worried?"
           }
         ]
       },
@@ -18977,7 +19006,7 @@
         "audio_turns": [
           {
             "speaker_role": "teacher",
-            "text": "Diego is sad because his dog is sick."
+            "text": "Diego is worried because his dog is sick."
           }
         ]
       },
@@ -18985,7 +19014,7 @@
         "audio_turns": [
           {
             "speaker_role": "co-teacher",
-            "text": "Why are you thirsty?"
+            "text": "Why is Ana excited?"
           }
         ]
       },
@@ -18993,52 +19022,61 @@
         "audio_turns": [
           {
             "speaker_role": "co-teacher",
-            "text": "Sofia is thirsty because she's running."
+            "text": "Ana is excited because it's her birthday."
           }
         ]
       },
       "S7": {
         "audio_turns": [
           {
-            "speaker_role": "teacher",
-            "text": "He's hot because it's sunny."
+            "speaker_role": "co-teacher",
+            "text": "Why are you thirsty?"
           }
         ]
       },
       "S8": {
         "audio_turns": [
           {
-            "speaker_role": "co-teacher",
-            "text": "Sofia is sad because her head hurts."
+            "speaker_role": "teacher",
+            "text": "Sofia is thirsty because she's running."
           }
         ]
       },
-      "U1": {},
-      "U2": {
+      "U1": {
         "answer_audio_speaker": "co-teacher",
         "audio_speaker": "co-teacher"
       },
-      "U3": {},
-      "U4": {
+      "U2": {},
+      "U3": {
         "answer_audio_speaker": "co-teacher",
         "audio_speaker": "co-teacher"
       },
-      "U5": {},
+      "U4": {},
+      "U5": {
+        "answer_audio_speaker": "co-teacher",
+        "audio_speaker": "co-teacher"
+      },
       "U6": {
         "answer_audio_speaker": "co-teacher",
         "audio_speaker": "co-teacher"
       },
-      "U7": {
+      "U7": {},
+      "U8": {
         "answer_audio_speaker": "co-teacher",
         "audio_speaker": "co-teacher"
-      },
-      "U8": {}
+      }
     },
     "a1plus-unit-7-lesson-7-3": {
       "L1": {
         "audio_speaker": "teacher"
       },
       "L2": {
+        "audio_speaker": "co-teacher"
+      },
+      "L3": {
+        "audio_speaker": "teacher"
+      },
+      "L4": {
         "audio_turns": [
           {
             "speaker_role": "co-teacher",
@@ -19050,7 +19088,7 @@
           }
         ]
       },
-      "L3": {
+      "L5": {
         "audio_turns": [
           {
             "speaker_role": "co-teacher",
@@ -19072,24 +19110,25 @@
       },
       "R4": {},
       "R5": {
-        "answer_audio_speaker": "ana",
+        "answer_audio_speaker": "luis",
         "audio_speaker": "co-teacher"
       },
       "R6": {
         "answer_audio_speaker": "co-teacher"
       },
-      "R7": {},
+      "R7": {
+        "answer_audio_speaker": "ana",
+        "audio_speaker": "co-teacher"
+      },
       "R8": {
         "answer_audio_speaker": "luis",
         "audio_speaker": "co-teacher"
       },
-      "R9": {
-        "audio_speaker": "co-teacher"
+      "R9": {},
+      "R10": {
+        "answer_audio_speaker": "co-teacher"
       },
-      "R10": {},
-      "R11": {
-        "audio_speaker": "co-teacher"
-      },
+      "R11": {},
       "A1": {
         "audio_turns": [
           {
@@ -19102,7 +19141,9 @@
           }
         ]
       },
-      "A2": {},
+      "A2": {
+        "audio_speaker": "co-teacher"
+      },
       "A3": {
         "audio_turns": [
           {
@@ -19115,10 +19156,10 @@
           }
         ]
       },
-      "A4": {
+      "A4": {},
+      "A5": {
         "audio_speaker": "co-teacher"
       },
-      "A5": {},
       "A6": {
         "audio_turns": [
           {
@@ -19126,15 +19167,24 @@
             "text": "What are you wearing?"
           },
           {
-            "speaker_role": "luis",
-            "text": "I'm wearing a black jacket."
+            "speaker_role": "ana",
+            "text": "I'm wearing jeans."
           }
         ]
       },
-      "A7": {
-        "audio_speaker": "co-teacher"
+      "A7": {},
+      "A8": {
+        "audio_turns": [
+          {
+            "speaker_role": "co-teacher",
+            "text": "What are you wearing?"
+          },
+          {
+            "speaker_role": "luis",
+            "text": "I'm wearing a blue T-shirt."
+          }
+        ]
       },
-      "A8": {},
       "A9": {
         "audio_turns": [
           {
@@ -19162,7 +19212,7 @@
         "audio_turns": [
           {
             "speaker_role": "ana",
-            "text": "I'm wearing a green skirt."
+            "text": "I'm wearing jeans."
           }
         ]
       },
@@ -19194,7 +19244,7 @@
         "audio_turns": [
           {
             "speaker_role": "co-teacher",
-            "text": "Luis is wearing a black jacket."
+            "text": "Luis is wearing a blue T-shirt."
           }
         ]
       },
@@ -19202,15 +19252,15 @@
         "audio_turns": [
           {
             "speaker_role": "teacher",
-            "text": "She's wearing a red hat."
+            "text": "Ana is wearing jeans."
           }
         ]
       },
       "S8": {
         "audio_turns": [
           {
-            "speaker_role": "diego",
-            "text": "I'm wearing a red shirt."
+            "speaker_role": "luis",
+            "text": "I'm wearing a blue T-shirt."
           }
         ]
       },
@@ -19218,11 +19268,11 @@
         "answer_audio_speaker": "co-teacher",
         "audio_speaker": "co-teacher"
       },
-      "U2": {
-        "answer_audio_speaker": "diego",
-        "audio_speaker": "diego"
+      "U2": {},
+      "U3": {
+        "answer_audio_speaker": "luis",
+        "audio_speaker": "luis"
       },
-      "U3": {},
       "U4": {
         "answer_audio_speaker": "ana",
         "audio_speaker": "ana"
@@ -19249,6 +19299,12 @@
         "audio_speaker": "teacher"
       },
       "L3": {
+        "audio_speaker": "teacher"
+      },
+      "L4": {
+        "audio_speaker": "co-teacher"
+      },
+      "L5": {
         "audio_turns": [
           {
             "speaker_role": "co-teacher",
@@ -19260,7 +19316,7 @@
           }
         ]
       },
-      "L4": {
+      "L6": {
         "audio_turns": [
           {
             "speaker_role": "teacher",
@@ -19280,23 +19336,19 @@
       "R3": {
         "audio_speaker": "co-teacher"
       },
-      "R4": {
+      "R4": {},
+      "R5": {
+        "audio_speaker": "co-teacher"
+      },
+      "R6": {},
+      "R7": {
         "answer_audio_speaker": "teacher",
         "audio_speaker": "co-teacher"
       },
-      "R5": {},
-      "R6": {
+      "R8": {
         "answer_audio_speaker": "co-teacher"
       },
-      "R7": {
-        "answer_audio_speaker": "ana",
-        "audio_speaker": "co-teacher"
-      },
-      "R8": {},
-      "R9": {
-        "answer_audio_speaker": "teacher",
-        "audio_speaker": "co-teacher"
-      },
+      "R9": {},
       "R10": {
         "answer_audio_speaker": "co-teacher"
       },
@@ -19344,23 +19396,14 @@
       "A6": {
         "audio_speaker": "co-teacher"
       },
-      "A7": {
-        "audio_turns": [
-          {
-            "speaker_role": "co-teacher",
-            "text": "Is it snowing?"
-          },
-          {
-            "speaker_role": "teacher",
-            "text": "No, it isn't."
-          }
-        ]
-      },
-      "A8": {},
-      "A9": {
+      "A7": {},
+      "A8": {
         "audio_speaker": "co-teacher"
       },
-      "A10": {},
+      "A9": {},
+      "A10": {
+        "audio_speaker": "co-teacher"
+      },
       "S1": {
         "audio_turns": [
           {
@@ -19372,7 +19415,7 @@
       "S2": {
         "audio_turns": [
           {
-            "speaker_role": "co-teacher",
+            "speaker_role": "teacher",
             "text": "It's raining."
           }
         ]
@@ -19388,7 +19431,7 @@
       "S4": {
         "audio_turns": [
           {
-            "speaker_role": "teacher",
+            "speaker_role": "co-teacher",
             "text": "It's snowing."
           }
         ]
@@ -19396,8 +19439,8 @@
       "S5": {
         "audio_turns": [
           {
-            "speaker_role": "co-teacher",
-            "text": "Is it raining?"
+            "speaker_role": "teacher",
+            "text": "The sun is shining."
           }
         ]
       },
@@ -19405,7 +19448,7 @@
         "audio_turns": [
           {
             "speaker_role": "co-teacher",
-            "text": "It isn't raining. It's sunny."
+            "text": "Diego is wet."
           }
         ]
       },
@@ -19413,7 +19456,7 @@
         "audio_turns": [
           {
             "speaker_role": "teacher",
-            "text": "Ana is wearing a hat because it's snowing."
+            "text": "Diego is wet because it's raining."
           }
         ]
       },
@@ -19421,7 +19464,7 @@
         "audio_turns": [
           {
             "speaker_role": "co-teacher",
-            "text": "Luis is at home because it's raining."
+            "text": "It isn't raining. The sun is shining."
           }
         ]
       },

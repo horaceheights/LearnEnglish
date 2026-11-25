@@ -1,0 +1,62 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "a32b3399-c1a1-4a0b-b54c-94c69f03e3f5",
+  "asset_id": "c06-ana-jeans",
+  "pack_sha256": "97e991403047aaecfee3a14c9d389c36bf61600cb17a3d454a6b477940373672",
+  "started_at": "2026-11-25T02:11:29.333050+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, menus, screens, cups, clothes or bags.\n\nKeep the people and the thing that carries the meaning inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nOnly this one person is in the photo; there is nobody else, even far in the background.\n\nIt is clearly daytime with soft natural light.\n\nThe whole person is visible from head to shoes, standing, with a little space above the head and below the shoes.\n\nImage 1 shows Ana. She must be the SAME woman as in image 1: the same face, the same long dark wavy hair, the same light-olive skin and the same build. Create a new photograph: Ana stands on a quiet tree-lined street on a warm day and smiles, with her thumbs hooked in the front pockets of her jeans. She is wearing classic BLUE JEANS: long blue denim trousers that reach her ankles, with visible seams and front pockets. With them she wears a plain white T-shirt tucked in and white sneakers. The blue jeans are the most obvious thing she is wearing and are fully visible from her waist to her ankles. They are long trousers: NOT shorts, NOT a skirt and NOT a dress. She wears no jacket, no overshirt, no hat and no scarf.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1plus-unit-1-q02-c2b4398b65207eff.webp",
+    "sha256": "c2b4398b65207effa51e51260cc607c38ada48caea82f14eb872e4c9c8b5d0d5"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "0kMGa5fZFoOMqtsPpsD3qAw",
+  "usage": {
+    "promptTokenCount": 658,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1948,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 400
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038897",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 658,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 8.75,
+  "output": "output/imagegen/a1plus-unit-7-lesson-v7201/c06-ana-jeans.png",
+  "sha256": "501dd7a5a5e6642db38fe98e833108e674329824ce0dfb64109bb59ce74af2b9",
+  "byte_count": 1457986,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}

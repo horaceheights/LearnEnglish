@@ -1,0 +1,143 @@
+{
+ "schema_version": 1,
+ "pack": "a1plus-unit-7-vocabulary-photos",
+ "revision": 1,
+ "output_namespace": "a1plus-unit-7-lesson-v7201",
+ "authorization": "2026-11-20: the user asked to \"work on a1+ Unit 7 same all deal as before none stop all approved\" (the Unit 2-4 deal: the A1+ Unit 7 map approved up front, straight to Preview with media pre-approved and reviewed in Preview). Gemini is the approved image tool (2026-09-23), Flash only (2026-11-17; \"lets switch to flash for any other images\", 2026-11-19). 2026-11-24: after asking for a review of A1+ Unit 7 (\"make sure the images make sense to the ask and its a true follow up of each of A1 unit 7 lessons\"), the user said \"image redo and audio approved\". The review reported that 7.2, 7.3, 7.4 and 7.13 add a grammar step with little new vocabulary; asked on 2026-11-24 \"Add new vocabulary to the thin Unit 7 lessons?\", the user answered \"Yes, add words\".",
+ "image_settings": {
+  "provider": "google-gemini",
+  "model": "gemini-2.5-flash-image",
+  "aspect_ratio": "3:2",
+  "image_size": "1K",
+  "runtime_size": "1536x1024",
+  "runtime_format": "webp",
+  "n": 1
+ },
+ "production": {
+  "price_per_image_usd": "0.0387",
+  "price_source": "https://ai.google.dev/gemini-api/docs/pricing (checked 2026-11-16: Gemini 2.5 Flash Image, about $0.039 per image)",
+  "planned_images": 6,
+  "expected_cost_usd": "0.24",
+  "requested_ceiling_usd": "0.60",
+  "ceiling_note": "The renderer reserves US$0.20 before each request; each request is sent on its own, and the expected spend for the pack is about US$0.24.",
+  "no_automatic_retries": true,
+  "order": "Six photos for the eight words added to 7.2 (excited; worried reuses Diego and his sick dog), 7.3 (T-shirt, jeans), 7.4 (wet; shining reuses A1's sunny park) and 7.13 (basketball, piano). Each is sent once and reviewed before any remake."
+ },
+ "shared_prompts": {
+  "photo": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, menus, screens, cups, clothes or bags.",
+  "safe_center": "Keep the people and the thing that carries the meaning inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.",
+  "solo": "Only this one person is in the photo; there is nobody else, even far in the background.",
+  "pair": "Only these two people are in the photo; there is nobody else, even far in the background.",
+  "daytime": "It is clearly daytime with soft natural light.",
+  "nolook": "Nobody looks at the camera.",
+  "fullbody": "The whole person is visible from head to shoes, standing, with a little space above the head and below the shoes.",
+  "offframe": "The person they are talking to is NOT in the photo: they stand just outside the edge of the photo that is named, so no part of that person (no hand, arm, shoulder or shadow) is visible.",
+  "candles": "The cake has a few plain thin birthday candles with small flames; there are no number candles and no writing on the cake."
+ },
+ "assets": [
+  {
+   "id": "e01-ana-excited",
+   "order": 1,
+   "item": "Why is Ana excited? Because it's her birthday.",
+   "shared": [
+    "photo",
+    "safe_center",
+    "solo",
+    "daytime",
+    "candles"
+   ],
+   "prompt": "Image 1 shows Ana. She must be the SAME woman as in image 1: the same face, the same long dark wavy hair, the same light-olive skin and the same build. She wears her sage-green overshirt over a white top and blue jeans. Create a new photograph: in her bright living room Ana stands right behind a table with her BIRTHDAY CAKE on it, a round white cake with lit candles, and a few plain colored balloons float beside her. She is VERY EXCITED: both fists raised up beside her shoulders, her mouth wide open in a huge delighted smile, her eyes wide and bright, looking down at the cake. Her excitement and the birthday cake are both obvious at a glance. She is seen from the waist up, in the middle of the photo, with the cake in front of her.",
+   "reference_file": {
+    "path": "Lessons/Lesson1/images/a1plus-unit-1-q02-c2b4398b65207eff.webp",
+    "sha256": "c2b4398b65207effa51e51260cc607c38ada48caea82f14eb872e4c9c8b5d0d5",
+    "observed_description": "Ana (long dark wavy hair, light-olive skin, sage-green overshirt over a white top, jeans) sits on a light-grey sofa and reads an open hardcover book (A1+ 1.2)."
+   }
+  },
+  {
+   "id": "c05-luis-tshirt",
+   "order": 2,
+   "item": "Luis is wearing a blue T-shirt.",
+   "shared": [
+    "photo",
+    "safe_center",
+    "solo",
+    "daytime"
+   ],
+   "prompt": "Image 1 shows Luis. He must be the SAME man as in image 1: the same broad face with strong jaw and thick dark eyebrows, the same short dark curly hair, the same warm medium-brown skin, clean-shaven, and the same tall, strong, broad-shouldered build. Create a new photograph: Luis stands in a sunny park on a warm day and smiles; he is seen from the knees up, standing in the middle of the photo, with his arms relaxed at his sides. He is wearing a plain BRIGHT BLUE T-SHIRT with short sleeves that end above his elbows and a round neck, and nothing over it; his arms are bare below the short sleeves. He also wears light khaki trousers. The T-shirt is plain, with no print, no pocket, no buttons and no collar: it is a T-shirt, NOT a button shirt and NOT a polo shirt. The blue T-shirt is the most obvious thing he is wearing. He wears no jacket, no sweater, no hat, no scarf and no glasses.",
+   "reference_file": {
+    "path": "Lessons/Lesson1/images/a1plus-unit-1-q01-135c3f8f772bcbe4.webp",
+    "sha256": "135c3f8f772bcbe472b8cec719eb02318a7d52ce1c7152a94c6952aeb78566c2",
+    "observed_description": "Luis (short dark curly hair, clean-shaven, warm medium-brown skin, navy crew-neck T-shirt) drinks coffee from a white mug at a wooden table in his bright kitchen (A1+ 1.2)."
+   }
+  },
+  {
+   "id": "c06-ana-jeans",
+   "order": 3,
+   "item": "Ana is wearing jeans.",
+   "shared": [
+    "photo",
+    "safe_center",
+    "solo",
+    "daytime",
+    "fullbody"
+   ],
+   "prompt": "Image 1 shows Ana. She must be the SAME woman as in image 1: the same face, the same long dark wavy hair, the same light-olive skin and the same build. Create a new photograph: Ana stands on a quiet tree-lined street on a warm day and smiles, with her thumbs hooked in the front pockets of her jeans. She is wearing classic BLUE JEANS: long blue denim trousers that reach her ankles, with visible seams and front pockets. With them she wears a plain white T-shirt tucked in and white sneakers. The blue jeans are the most obvious thing she is wearing and are fully visible from her waist to her ankles. They are long trousers: NOT shorts, NOT a skirt and NOT a dress. She wears no jacket, no overshirt, no hat and no scarf.",
+   "reference_file": {
+    "path": "Lessons/Lesson1/images/a1plus-unit-1-q02-c2b4398b65207eff.webp",
+    "sha256": "c2b4398b65207effa51e51260cc607c38ada48caea82f14eb872e4c9c8b5d0d5",
+    "observed_description": "Ana (long dark wavy hair, light-olive skin, sage-green overshirt over a white top, jeans) sits on a light-grey sofa and reads an open hardcover book (A1+ 1.2)."
+   }
+  },
+  {
+   "id": "r06-diego-wet",
+   "order": 4,
+   "item": "Diego is wet because it's raining.",
+   "shared": [
+    "photo",
+    "safe_center",
+    "solo",
+    "daytime"
+   ],
+   "prompt": "Image 1 shows Diego. He must be the SAME man as in image 1: the same face, the same dark curly hair with a little grey, the same short full beard and the same build. He wears his burgundy button shirt. Create a new photograph: Diego stands on a city sidewalk in HEAVY RAIN with NO umbrella, no hood and no coat. He is completely WET: his hair is soaked flat and dripping, water runs down his face, and his shirt is dark, soaked and stuck to his shoulders and arms. He holds his arms a little out from his body and looks down at his wet shirt with an unhappy face. Many raindrops are falling all around him and splashing in the puddles on the ground; the sky is grey. He is seen from the knees up in the middle of the photo. It is obvious at a glance that it is raining and that he is very wet.",
+   "reference_file": {
+    "path": "Lessons/Lesson1/images/a1plus-unit-1-q04-ded74a2cb6021167.webp",
+    "sha256": "ded74a2cb6021167d6af2351e9012476d36c1b0936ca9f4f4b6dee68783bb9e2",
+    "observed_description": "Diego (dark curly hair with a little grey, short full beard, burgundy button shirt) sits at a wooden kitchen table and bites a red apple (A1+ 1.2)."
+   }
+  },
+  {
+   "id": "g03-luis-basketball",
+   "order": 5,
+   "item": "Luis is good at basketball.",
+   "shared": [
+    "photo",
+    "safe_center",
+    "solo",
+    "daytime"
+   ],
+   "prompt": "Image 1 shows Luis. He must be the SAME man as in image 1: the same broad face with strong jaw and thick dark eyebrows, the same short dark curly hair, the same warm medium-brown skin, clean-shaven, and the same tall, strong, broad-shouldered build. He wears a plain white sleeveless sports top and navy sports shorts. Create a new photograph: on an outdoor basketball court on a sunny day, Luis has just made a perfect shot: he is in the air with one arm still stretched up toward the basket after releasing the ball, and the orange BASKETBALL is dropping straight down through the hoop and its net, exactly in the middle. He looks confident and skillful, like a real basketball player. Luis, the hoop and the ball going through the net are all clearly visible together in the central part of the photo. The ball is an orange basketball with black lines and no writing.",
+   "reference_file": {
+    "path": "Lessons/Lesson1/images/a1plus-unit-1-q01-135c3f8f772bcbe4.webp",
+    "sha256": "135c3f8f772bcbe472b8cec719eb02318a7d52ce1c7152a94c6952aeb78566c2",
+    "observed_description": "Luis (short dark curly hair, clean-shaven, warm medium-brown skin, navy crew-neck T-shirt) drinks coffee from a white mug at a wooden table in his bright kitchen (A1+ 1.2)."
+   }
+  },
+  {
+   "id": "g04-ana-piano",
+   "order": 6,
+   "item": "Ana is good at playing the piano.",
+   "shared": [
+    "photo",
+    "safe_center",
+    "solo",
+    "daytime"
+   ],
+   "prompt": "Image 1 shows Ana. She must be the SAME woman as in image 1: the same face, the same long dark wavy hair, the same light-olive skin and the same build. She wears her sage-green overshirt over a white top. Create a new photograph: in a bright living room Ana sits on a piano bench and PLAYS an upright wooden PIANO with great skill: both hands are on the black and white keys with her fingers spread and moving confidently, her back is straight, and she smiles calmly with her eyes on the keys, like an experienced pianist. She is seen from the side and a little from the front, so her face, both hands and the piano keys are all clearly visible in the central part of the photo. There are no sheets of paper or books on the piano.",
+   "reference_file": {
+    "path": "Lessons/Lesson1/images/a1plus-unit-1-q02-c2b4398b65207eff.webp",
+    "sha256": "c2b4398b65207effa51e51260cc607c38ada48caea82f14eb872e4c9c8b5d0d5",
+    "observed_description": "Ana (long dark wavy hair, light-olive skin, sage-green overshirt over a white top, jeans) sits on a light-grey sofa and reads an open hardcover book (A1+ 1.2)."
+   }
+  }
+ ]
+}
