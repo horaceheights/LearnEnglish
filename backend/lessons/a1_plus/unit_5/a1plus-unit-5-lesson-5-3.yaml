@@ -12,13 +12,13 @@
   "goal": "Offer a drink with Would you like some …? and accept or refuse it (Yes, please. / No, thank you.).",
   "vocabulary": [
     "Would you like",
-    "hot chocolate"
+    "hot chocolate",
+    "lemonade"
   ],
   "review_vocabulary": [
     "some",
     "tea",
     "coffee",
-    "juice",
     "water",
     "Yes, please.",
     "No, thank you.",
@@ -26,8 +26,8 @@
     "I like",
     "drinks"
   ],
-  "grammar_function": "A follow-up of A1 5.3 Drinks: A1 names drinks and says who drinks them, and A1 5.10 answers an offer with Yes, please. / No, thank you.; A1+ 5.3 makes the offer: Would you like some + a drink? It is one new frame, learnt as a whole (would is not taken apart), with A1+ 4.15's some; hot chocolate is the one new drink. In each photo a host holds out a drink and the guest takes it or holds up a hand, so the photo shows the reply. The asker's voice always differs from the answerer's (Ana and Sofia share one voice, as do Luis and Diego). I'd like waits for 5.9.",
-  "prerequisite": "A1 5.3 tea, coffee, juice, water; A1 5.10 Yes, please. / No, thank you.; A1+ 4.15 some; A1 5.5 I like.",
+  "grammar_function": "A follow-up of A1 5.3 Drinks: A1 names drinks and says who drinks them, and A1 5.10 answers an offer with Yes, please. / No, thank you.; A1+ 5.3 makes the offer: Would you like some + a drink? It is one new frame, learnt as a whole (would is not taken apart), with A1+ 4.15's some; hot chocolate and lemonade are the new drinks (lemonade added 2026-11-23). In each photo a host holds out a drink and the guest takes it or holds up a hand, so the photo shows the reply. The asker's voice always differs from the answerer's (Ana and Sofia share one voice, as do Luis and Diego). I'd like waits for 5.9.",
+  "prerequisite": "A1 5.3 tea, coffee, water; A1 5.10 Yes, please. / No, thank you.; A1+ 4.15 some; A1 5.5 I like.",
   "speaking_outcome": "Say Would you like as one phrase (WOOD-ja-LIKE is fine) with rising intonation at the end of the offer; do not require native-like speed.",
   "content_revision": 1,
   "learn_context_groups": [
@@ -72,6 +72,18 @@
         {
           "slide_id": "L3",
           "text": "It's hot chocolate."
+        }
+      ]
+    },
+    {
+      "kind": "sequence",
+      "targets": [
+        "lemonade"
+      ],
+      "models": [
+        {
+          "slide_id": "L4",
+          "text": "It's lemonade."
         }
       ]
     }
@@ -127,7 +139,7 @@
       "options": [
         {
           "id": "would-you-like-some-tea-yes-please-learn",
-          "image_url": "/lesson-assets/a1plus-unit-5-o01-2b72061f1a90e239.webp",
+          "image_url": "/lesson-assets/a1plus-unit-5-o21-40bf6d4ce15f5a44.webp",
           "label": "Would you like some tea? Yes, please."
         }
       ],
@@ -138,12 +150,12 @@
         {
           "text": "Would you like some tea?",
           "speaker_role": "ana",
-          "image_url": "/lesson-assets/a1plus-unit-5-o01-2b72061f1a90e239.webp"
+          "image_url": "/lesson-assets/a1plus-unit-5-o21-40bf6d4ce15f5a44.webp"
         },
         {
           "text": "Yes, please.",
           "speaker_role": "luis",
-          "image_url": "/lesson-assets/a1plus-unit-5-o01-2b72061f1a90e239.webp"
+          "image_url": "/lesson-assets/a1plus-unit-5-o21-40bf6d4ce15f5a44.webp"
         }
       ],
       "spanish_translation": "¿Quieres un poco de té? Sí, por favor.",
@@ -159,7 +171,7 @@
       "options": [
         {
           "id": "would-you-like-some-coffee-no-thank-you-learn",
-          "image_url": "/lesson-assets/a1plus-unit-5-o02-c48db8fc1066e53b.webp",
+          "image_url": "/lesson-assets/a1plus-unit-5-o22-69a1dcab08db6a7a.webp",
           "label": "Would you like some coffee? No, thank you."
         }
       ],
@@ -170,12 +182,12 @@
         {
           "text": "Would you like some coffee?",
           "speaker_role": "ana",
-          "image_url": "/lesson-assets/a1plus-unit-5-o02-c48db8fc1066e53b.webp"
+          "image_url": "/lesson-assets/a1plus-unit-5-o22-69a1dcab08db6a7a.webp"
         },
         {
           "text": "No, thank you.",
           "speaker_role": "diego",
-          "image_url": "/lesson-assets/a1plus-unit-5-o02-c48db8fc1066e53b.webp"
+          "image_url": "/lesson-assets/a1plus-unit-5-o22-69a1dcab08db6a7a.webp"
         }
       ],
       "spanish_translation": "¿Quieres un poco de café? No, gracias.",
@@ -204,6 +216,27 @@
       "answer_audio_policy": "authored-only"
     },
     {
+      "slide_id": "L4",
+      "interaction_type": "teach",
+      "prompt": "It's lemonade.",
+      "stage": "Learn",
+      "correct_option_id": "it's-lemonade-learn",
+      "options": [
+        {
+          "id": "it's-lemonade-learn",
+          "image_url": "/lesson-assets/a1plus-unit-5-o25-8de4522b3084b76f.webp",
+          "label": "It's lemonade."
+        }
+      ],
+      "audio_text": "It's lemonade.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Es limonada.",
+      "pedagogy_note": "Story beat 04: It's lemonade.",
+      "audio_speaker": "co-teacher",
+      "answer_audio_policy": "authored-only"
+    },
+    {
       "slide_id": "R1",
       "interaction_type": "t2i2",
       "prompt": "Would you like some tea?",
@@ -212,12 +245,12 @@
       "options": [
         {
           "id": "would-you-like-some-coffee-r1",
-          "image_url": "/lesson-assets/a1plus-unit-5-o02-c48db8fc1066e53b.webp",
+          "image_url": "/lesson-assets/a1plus-unit-5-o22-69a1dcab08db6a7a.webp",
           "label": null
         },
         {
           "id": "would-you-like-some-tea-r1",
-          "image_url": "/lesson-assets/a1plus-unit-5-o01-2b72061f1a90e239.webp",
+          "image_url": "/lesson-assets/a1plus-unit-5-o21-40bf6d4ce15f5a44.webp",
           "label": null
         }
       ],
@@ -251,7 +284,7 @@
       ],
       "audio_text": "Would you like some coffee?",
       "answer_audio_text": "No, thank you.",
-      "prompt_image_url": "/lesson-assets/a1plus-unit-5-o02-c48db8fc1066e53b.webp",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-5-o22-69a1dcab08db6a7a.webp",
       "spanish_translation": "¿Quieres un poco de café?",
       "answer_audio_speaker": "diego",
       "pedagogy_note": "Story beat 02: No, thank you.",
@@ -261,27 +294,27 @@
     {
       "slide_id": "R3",
       "interaction_type": "t2i2",
-      "prompt": "Would you like some juice?",
+      "prompt": "Would you like some lemonade?",
       "stage": "Recognize",
-      "correct_option_id": "would-you-like-some-juice-r3",
+      "correct_option_id": "would-you-like-some-lemonade-r3",
       "options": [
         {
-          "id": "would-you-like-some-juice-r3",
-          "image_url": "/lesson-assets/a1plus-unit-5-o06-ea3556af242f7321.webp",
+          "id": "would-you-like-some-lemonade-r3",
+          "image_url": "/lesson-assets/a1plus-unit-5-o23-eeaf0874ac0d1b94.webp",
           "label": null
         },
         {
           "id": "would-you-like-some-tea-r3",
-          "image_url": "/lesson-assets/a1plus-unit-5-o01-2b72061f1a90e239.webp",
+          "image_url": "/lesson-assets/a1plus-unit-5-o21-40bf6d4ce15f5a44.webp",
           "label": null
         }
       ],
-      "audio_text": "Would you like some juice?",
+      "audio_text": "Would you like some lemonade?",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "¿Quieres un poco de jugo?",
-      "pedagogy_note": "Story beat 03: Would you like some juice?",
-      "audio_speaker": "diego",
+      "spanish_translation": "¿Quieres un poco de limonada?",
+      "pedagogy_note": "Story beat 03: Would you like some lemonade?",
+      "audio_speaker": "sofia",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -306,7 +339,7 @@
       ],
       "audio_text": "Would you like some tea?",
       "answer_audio_text": "Yes, please.",
-      "prompt_image_url": "/lesson-assets/a1plus-unit-5-o01-2b72061f1a90e239.webp",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-5-o21-40bf6d4ce15f5a44.webp",
       "spanish_translation": "¿Quieres un poco de té?",
       "answer_audio_speaker": "luis",
       "pedagogy_note": "Story beat 04: Yes, please.",
@@ -322,12 +355,12 @@
       "options": [
         {
           "id": "would-you-like-some-tea-r5",
-          "image_url": "/lesson-assets/a1plus-unit-5-o01-2b72061f1a90e239.webp",
+          "image_url": "/lesson-assets/a1plus-unit-5-o21-40bf6d4ce15f5a44.webp",
           "label": null
         },
         {
           "id": "would-you-like-some-hot-chocolate-r5",
-          "image_url": "/lesson-assets/a1plus-unit-5-o04-46fa0f12814eaee3.webp",
+          "image_url": "/lesson-assets/a1plus-unit-5-o34-663ce81372f000b7.webp",
           "label": null
         }
       ],
@@ -367,7 +400,7 @@
       ],
       "audio_text": "Would you like some water?",
       "answer_audio_text": "No, thank you.",
-      "prompt_image_url": "/lesson-assets/a1plus-unit-5-o07-06ab329abf678aae.webp",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-5-o27-365ede13505961cc.webp",
       "spanish_translation": "¿Quieres un poco de agua?",
       "answer_audio_speaker": "ana",
       "pedagogy_note": "Story beat 06: No, thank you.",
@@ -376,29 +409,24 @@
     },
     {
       "slide_id": "R7",
-      "interaction_type": "t2i4",
+      "interaction_type": "t2i3",
       "prompt": "Would you like some coffee?",
       "stage": "Recognize",
       "correct_option_id": "would-you-like-some-coffee-r7",
       "options": [
         {
-          "id": "would-you-like-some-juice-r7",
-          "image_url": "/lesson-assets/a1plus-unit-5-o06-ea3556af242f7321.webp",
-          "label": null
-        },
-        {
-          "id": "would-you-like-some-hot-chocolate-r7",
-          "image_url": "/lesson-assets/a1plus-unit-5-o04-46fa0f12814eaee3.webp",
-          "label": null
-        },
-        {
           "id": "would-you-like-some-coffee-r7",
-          "image_url": "/lesson-assets/a1plus-unit-5-o02-c48db8fc1066e53b.webp",
+          "image_url": "/lesson-assets/a1plus-unit-5-o22-69a1dcab08db6a7a.webp",
           "label": null
         },
         {
           "id": "would-you-like-some-tea-r7",
-          "image_url": "/lesson-assets/a1plus-unit-5-o01-2b72061f1a90e239.webp",
+          "image_url": "/lesson-assets/a1plus-unit-5-o21-40bf6d4ce15f5a44.webp",
+          "label": null
+        },
+        {
+          "id": "would-you-like-some-lemonade-r7",
+          "image_url": "/lesson-assets/a1plus-unit-5-o23-eeaf0874ac0d1b94.webp",
           "label": null
         }
       ],
@@ -413,7 +441,7 @@
     {
       "slide_id": "R8",
       "interaction_type": "i2t3",
-      "prompt": "Would you like some juice?",
+      "prompt": "Would you like some lemonade?",
       "stage": "Recognize",
       "correct_option_id": "yes-please-r8",
       "options": [
@@ -436,40 +464,35 @@
           "spanish_translation": "No, gracias."
         }
       ],
-      "audio_text": "Would you like some juice?",
+      "audio_text": "Would you like some lemonade?",
       "answer_audio_text": "Yes, please.",
-      "prompt_image_url": "/lesson-assets/a1plus-unit-5-o06-ea3556af242f7321.webp",
-      "spanish_translation": "¿Quieres un poco de jugo?",
-      "answer_audio_speaker": "sofia",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-5-o23-eeaf0874ac0d1b94.webp",
+      "spanish_translation": "¿Quieres un poco de limonada?",
+      "answer_audio_speaker": "luis",
       "pedagogy_note": "Story beat 08: Yes, please.",
-      "audio_speaker": "diego",
+      "audio_speaker": "sofia",
       "answer_audio_policy": "authored-only"
     },
     {
       "slide_id": "R9",
-      "interaction_type": "t2i4",
+      "interaction_type": "t2i3",
       "prompt": "Would you like some water?",
       "stage": "Recognize",
       "correct_option_id": "would-you-like-some-water-r9",
       "options": [
         {
           "id": "would-you-like-some-coffee-r9",
-          "image_url": "/lesson-assets/a1plus-unit-5-o02-c48db8fc1066e53b.webp",
-          "label": null
-        },
-        {
-          "id": "would-you-like-some-hot-chocolate-r9",
-          "image_url": "/lesson-assets/a1plus-unit-5-o04-46fa0f12814eaee3.webp",
+          "image_url": "/lesson-assets/a1plus-unit-5-o22-69a1dcab08db6a7a.webp",
           "label": null
         },
         {
           "id": "would-you-like-some-water-r9",
-          "image_url": "/lesson-assets/a1plus-unit-5-o07-06ab329abf678aae.webp",
+          "image_url": "/lesson-assets/a1plus-unit-5-o27-365ede13505961cc.webp",
           "label": null
         },
         {
           "id": "would-you-like-some-tea-r9",
-          "image_url": "/lesson-assets/a1plus-unit-5-o01-2b72061f1a90e239.webp",
+          "image_url": "/lesson-assets/a1plus-unit-5-o21-40bf6d4ce15f5a44.webp",
           "label": null
         }
       ],
@@ -509,7 +532,7 @@
       ],
       "audio_text": "Would you like some hot chocolate?",
       "answer_audio_text": "No, thank you.",
-      "prompt_image_url": "/lesson-assets/a1plus-unit-5-o04-46fa0f12814eaee3.webp",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-5-o34-663ce81372f000b7.webp",
       "spanish_translation": "¿Quieres un poco de chocolate caliente?",
       "answer_audio_speaker": "sofia",
       "pedagogy_note": "Story beat 10: No, thank you.",
@@ -518,29 +541,24 @@
     },
     {
       "slide_id": "R11",
-      "interaction_type": "t2i4",
+      "interaction_type": "t2i3",
       "prompt": "Would you like some hot chocolate?",
       "stage": "Recognize",
       "correct_option_id": "would-you-like-some-hot-chocolate-r11",
       "options": [
         {
           "id": "would-you-like-some-tea-r11",
-          "image_url": "/lesson-assets/a1plus-unit-5-o01-2b72061f1a90e239.webp",
+          "image_url": "/lesson-assets/a1plus-unit-5-o21-40bf6d4ce15f5a44.webp",
           "label": null
         },
         {
           "id": "would-you-like-some-coffee-r11",
-          "image_url": "/lesson-assets/a1plus-unit-5-o02-c48db8fc1066e53b.webp",
-          "label": null
-        },
-        {
-          "id": "would-you-like-some-juice-r11",
-          "image_url": "/lesson-assets/a1plus-unit-5-o06-ea3556af242f7321.webp",
+          "image_url": "/lesson-assets/a1plus-unit-5-o22-69a1dcab08db6a7a.webp",
           "label": null
         },
         {
           "id": "would-you-like-some-hot-chocolate-r11",
-          "image_url": "/lesson-assets/a1plus-unit-5-o04-46fa0f12814eaee3.webp",
+          "image_url": "/lesson-assets/a1plus-unit-5-o34-663ce81372f000b7.webp",
           "label": null
         }
       ],
@@ -561,12 +579,12 @@
       "options": [
         {
           "id": "would-you-like-some-coffee-a1",
-          "image_url": "/lesson-assets/a1plus-unit-5-o02-c48db8fc1066e53b.webp",
+          "image_url": "/lesson-assets/a1plus-unit-5-o22-69a1dcab08db6a7a.webp",
           "label": null
         },
         {
           "id": "would-you-like-some-tea-a1",
-          "image_url": "/lesson-assets/a1plus-unit-5-o01-2b72061f1a90e239.webp",
+          "image_url": "/lesson-assets/a1plus-unit-5-o21-40bf6d4ce15f5a44.webp",
           "label": null
         }
       ],
@@ -671,12 +689,12 @@
       "options": [
         {
           "id": "would-you-like-some-tea-a5",
-          "image_url": "/lesson-assets/a1plus-unit-5-o01-2b72061f1a90e239.webp",
+          "image_url": "/lesson-assets/a1plus-unit-5-o21-40bf6d4ce15f5a44.webp",
           "label": null
         },
         {
           "id": "would-you-like-some-coffee-a5",
-          "image_url": "/lesson-assets/a1plus-unit-5-o02-c48db8fc1066e53b.webp",
+          "image_url": "/lesson-assets/a1plus-unit-5-o22-69a1dcab08db6a7a.webp",
           "label": null
         }
       ],
@@ -719,34 +737,29 @@
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
       "pedagogy_note": "Story beat 06: Yes, please.",
-      "audio_speaker": "sofia",
+      "audio_speaker": "luis",
       "answer_audio_policy": "authored-only"
     },
     {
       "slide_id": "A7",
-      "interaction_type": "a2i4",
+      "interaction_type": "a2i3",
       "prompt": "Listen and choose.",
       "stage": "Listen",
       "correct_option_id": "would-you-like-some-hot-chocolate-a7",
       "options": [
         {
-          "id": "would-you-like-some-juice-a7",
-          "image_url": "/lesson-assets/a1plus-unit-5-o06-ea3556af242f7321.webp",
-          "label": null
-        },
-        {
           "id": "would-you-like-some-hot-chocolate-a7",
-          "image_url": "/lesson-assets/a1plus-unit-5-o04-46fa0f12814eaee3.webp",
+          "image_url": "/lesson-assets/a1plus-unit-5-o34-663ce81372f000b7.webp",
           "label": null
         },
         {
           "id": "would-you-like-some-tea-a7",
-          "image_url": "/lesson-assets/a1plus-unit-5-o01-2b72061f1a90e239.webp",
+          "image_url": "/lesson-assets/a1plus-unit-5-o21-40bf6d4ce15f5a44.webp",
           "label": null
         },
         {
           "id": "would-you-like-some-coffee-a7",
-          "image_url": "/lesson-assets/a1plus-unit-5-o02-c48db8fc1066e53b.webp",
+          "image_url": "/lesson-assets/a1plus-unit-5-o22-69a1dcab08db6a7a.webp",
           "label": null
         }
       ],
@@ -797,7 +810,7 @@
       "interaction_type": "a2t3",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "would-you-like-some-juice-a9",
+      "correct_option_id": "would-you-like-some-lemonade-a9",
       "options": [
         {
           "id": "would-you-like-some-tea-a9",
@@ -812,18 +825,18 @@
           "spanish_translation": "¿Quieres un poco de café?"
         },
         {
-          "id": "would-you-like-some-juice-a9",
+          "id": "would-you-like-some-lemonade-a9",
           "image_url": "",
-          "label": "Would you like some juice?",
-          "spanish_translation": "¿Quieres un poco de jugo?"
+          "label": "Would you like some lemonade?",
+          "spanish_translation": "¿Quieres un poco de limonada?"
         }
       ],
-      "audio_text": "Would you like some juice?",
+      "audio_text": "Would you like some lemonade?",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 09: Would you like some juice?",
-      "audio_speaker": "diego",
+      "pedagogy_note": "Story beat 09: Would you like some lemonade?",
+      "audio_speaker": "sofia",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -869,7 +882,7 @@
       "options": [
         {
           "id": "would-you-like-some-tea-yes-please-speak",
-          "image_url": "/lesson-assets/a1plus-unit-5-o01-2b72061f1a90e239.webp",
+          "image_url": "/lesson-assets/a1plus-unit-5-o21-40bf6d4ce15f5a44.webp",
           "label": "Would you like some tea? Yes, please."
         }
       ],
@@ -880,13 +893,13 @@
         {
           "text": "Would you like some tea?",
           "speaker_role": "ana",
-          "image_url": "/lesson-assets/a1plus-unit-5-o01-2b72061f1a90e239.webp",
+          "image_url": "/lesson-assets/a1plus-unit-5-o21-40bf6d4ce15f5a44.webp",
           "delivery": "a1-pronunciation-v1"
         },
         {
           "text": "Yes, please.",
           "speaker_role": "luis",
-          "image_url": "/lesson-assets/a1plus-unit-5-o01-2b72061f1a90e239.webp",
+          "image_url": "/lesson-assets/a1plus-unit-5-o21-40bf6d4ce15f5a44.webp",
           "delivery": "a1-pronunciation-v1"
         }
       ],
@@ -903,7 +916,7 @@
       "options": [
         {
           "id": "would-you-like-some-coffee-speak",
-          "image_url": "/lesson-assets/a1plus-unit-5-o02-c48db8fc1066e53b.webp",
+          "image_url": "/lesson-assets/a1plus-unit-5-o22-69a1dcab08db6a7a.webp",
           "label": "Would you like some coffee?"
         }
       ],
@@ -914,7 +927,7 @@
         {
           "text": "Would you like some coffee?",
           "speaker_role": "ana",
-          "image_url": "/lesson-assets/a1plus-unit-5-o02-c48db8fc1066e53b.webp",
+          "image_url": "/lesson-assets/a1plus-unit-5-o22-69a1dcab08db6a7a.webp",
           "delivery": "a1-pronunciation-v1"
         }
       ],
@@ -931,7 +944,7 @@
       "options": [
         {
           "id": "yes-please-speak",
-          "image_url": "/lesson-assets/a1plus-unit-5-o01-2b72061f1a90e239.webp",
+          "image_url": "/lesson-assets/a1plus-unit-5-o21-40bf6d4ce15f5a44.webp",
           "label": "Yes, please."
         }
       ],
@@ -942,7 +955,7 @@
         {
           "text": "Yes, please.",
           "speaker_role": "luis",
-          "image_url": "/lesson-assets/a1plus-unit-5-o01-2b72061f1a90e239.webp",
+          "image_url": "/lesson-assets/a1plus-unit-5-o21-40bf6d4ce15f5a44.webp",
           "delivery": "a1-pronunciation-v1"
         }
       ],
@@ -959,7 +972,7 @@
       "options": [
         {
           "id": "no-thank-you-speak",
-          "image_url": "/lesson-assets/a1plus-unit-5-o02-c48db8fc1066e53b.webp",
+          "image_url": "/lesson-assets/a1plus-unit-5-o22-69a1dcab08db6a7a.webp",
           "label": "No, thank you."
         }
       ],
@@ -970,7 +983,7 @@
         {
           "text": "No, thank you.",
           "speaker_role": "diego",
-          "image_url": "/lesson-assets/a1plus-unit-5-o02-c48db8fc1066e53b.webp",
+          "image_url": "/lesson-assets/a1plus-unit-5-o22-69a1dcab08db6a7a.webp",
           "delivery": "a1-pronunciation-v1"
         }
       ],
@@ -1009,29 +1022,29 @@
     {
       "slide_id": "S6",
       "interaction_type": "speak",
-      "prompt": "Would you like some juice?",
+      "prompt": "Would you like some lemonade?",
       "stage": "Speak",
-      "correct_option_id": "would-you-like-some-juice-speak",
+      "correct_option_id": "would-you-like-some-lemonade-speak",
       "options": [
         {
-          "id": "would-you-like-some-juice-speak",
-          "image_url": "/lesson-assets/a1plus-unit-5-o06-ea3556af242f7321.webp",
-          "label": "Would you like some juice?"
+          "id": "would-you-like-some-lemonade-speak",
+          "image_url": "/lesson-assets/a1plus-unit-5-o23-eeaf0874ac0d1b94.webp",
+          "label": "Would you like some lemonade?"
         }
       ],
-      "audio_text": "Would you like some juice?",
+      "audio_text": "Would you like some lemonade?",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "audio_turns": [
         {
-          "text": "Would you like some juice?",
-          "speaker_role": "diego",
-          "image_url": "/lesson-assets/a1plus-unit-5-o06-ea3556af242f7321.webp",
+          "text": "Would you like some lemonade?",
+          "speaker_role": "sofia",
+          "image_url": "/lesson-assets/a1plus-unit-5-o23-eeaf0874ac0d1b94.webp",
           "delivery": "a1-pronunciation-v1"
         }
       ],
-      "spanish_translation": "¿Quieres un poco de jugo?",
-      "pedagogy_note": "Story beat 06: Would you like some juice?",
+      "spanish_translation": "¿Quieres un poco de limonada?",
+      "pedagogy_note": "Story beat 06: Would you like some lemonade?",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -1043,7 +1056,7 @@
       "options": [
         {
           "id": "would-you-like-some-hot-chocolate-speak",
-          "image_url": "/lesson-assets/a1plus-unit-5-o04-46fa0f12814eaee3.webp",
+          "image_url": "/lesson-assets/a1plus-unit-5-o34-663ce81372f000b7.webp",
           "label": "Would you like some hot chocolate?"
         }
       ],
@@ -1054,7 +1067,7 @@
         {
           "text": "Would you like some hot chocolate?",
           "speaker_role": "luis",
-          "image_url": "/lesson-assets/a1plus-unit-5-o04-46fa0f12814eaee3.webp",
+          "image_url": "/lesson-assets/a1plus-unit-5-o34-663ce81372f000b7.webp",
           "delivery": "a1-pronunciation-v1"
         }
       ],
@@ -1065,29 +1078,29 @@
     {
       "slide_id": "S8",
       "interaction_type": "speak",
-      "prompt": "Would you like some water?",
+      "prompt": "I like lemonade.",
       "stage": "Speak",
-      "correct_option_id": "would-you-like-some-water-speak",
+      "correct_option_id": "i-like-lemonade-speak",
       "options": [
         {
-          "id": "would-you-like-some-water-speak",
-          "image_url": "/lesson-assets/a1plus-unit-5-o07-06ab329abf678aae.webp",
-          "label": "Would you like some water?"
+          "id": "i-like-lemonade-speak",
+          "image_url": "/lesson-assets/a1plus-unit-5-o25-8de4522b3084b76f.webp",
+          "label": "I like lemonade."
         }
       ],
-      "audio_text": "Would you like some water?",
+      "audio_text": "I like lemonade.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "audio_turns": [
         {
-          "text": "Would you like some water?",
+          "text": "I like lemonade.",
           "speaker_role": "luis",
-          "image_url": "/lesson-assets/a1plus-unit-5-o07-06ab329abf678aae.webp",
+          "image_url": "/lesson-assets/a1plus-unit-5-o25-8de4522b3084b76f.webp",
           "delivery": "a1-pronunciation-v1"
         }
       ],
-      "spanish_translation": "¿Quieres un poco de agua?",
-      "pedagogy_note": "Story beat 08: Would you like some water?",
+      "spanish_translation": "Me gusta la limonada.",
+      "pedagogy_note": "Story beat 08: I like lemonade.",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -1110,7 +1123,7 @@
       ],
       "audio_text": "Would you like some tea?",
       "answer_audio_text": "Would you like some tea?",
-      "prompt_image_url": "/lesson-assets/a1plus-unit-5-o01-2b72061f1a90e239.webp",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-5-o21-40bf6d4ce15f5a44.webp",
       "spanish_translation": "¿Quieres un poco de té?",
       "translation": "¿Quieres un poco de té?",
       "correct_option_ids": [
@@ -1142,7 +1155,7 @@
       ],
       "audio_text": "No, thank you.",
       "answer_audio_text": "No, thank you.",
-      "prompt_image_url": "/lesson-assets/a1plus-unit-5-o02-c48db8fc1066e53b.webp",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-5-o22-69a1dcab08db6a7a.webp",
       "spanish_translation": "No, gracias.",
       "translation": "No, gracias.",
       "correct_option_ids": [
@@ -1174,7 +1187,7 @@
       ],
       "audio_text": "Would you like some coffee?",
       "answer_audio_text": "Would you like some coffee?",
-      "prompt_image_url": "/lesson-assets/a1plus-unit-5-o02-c48db8fc1066e53b.webp",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-5-o22-69a1dcab08db6a7a.webp",
       "spanish_translation": "¿Quieres un poco de café?",
       "translation": "¿Quieres un poco de café?",
       "correct_option_ids": [
@@ -1248,14 +1261,14 @@
         {
           "id": "word-5",
           "image_url": "",
-          "label": "juice"
+          "label": "lemonade"
         }
       ],
-      "audio_text": "Would you like some juice?",
-      "answer_audio_text": "Would you like some juice?",
-      "prompt_image_url": "/lesson-assets/a1plus-unit-5-o06-ea3556af242f7321.webp",
-      "spanish_translation": "¿Quieres un poco de jugo?",
-      "translation": "¿Quieres un poco de jugo?",
+      "audio_text": "Would you like some lemonade?",
+      "answer_audio_text": "Would you like some lemonade?",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-5-o23-eeaf0874ac0d1b94.webp",
+      "spanish_translation": "¿Quieres un poco de limonada?",
+      "translation": "¿Quieres un poco de limonada?",
       "correct_option_ids": [
         "word-1",
         "word-2",
@@ -1263,53 +1276,47 @@
         "word-4",
         "word-5"
       ],
-      "answer_audio_speaker": "diego",
-      "pedagogy_note": "Story beat 05: Would you like some juice?",
-      "audio_speaker": "diego",
+      "answer_audio_speaker": "sofia",
+      "pedagogy_note": "Story beat 05: Would you like some lemonade?",
+      "audio_speaker": "sofia",
       "answer_audio_policy": "authored-only"
     },
     {
       "slide_id": "U6",
       "interaction_type": "complete-sentence",
-      "prompt": "___ ___ ___ ___.",
+      "prompt": "___ ___ ___.",
       "stage": "Use",
       "correct_option_id": "word-1",
       "options": [
         {
           "id": "word-2",
           "image_url": "",
-          "label": "drinks"
-        },
-        {
-          "id": "word-4",
-          "image_url": "",
-          "label": "chocolate"
+          "label": "like"
         },
         {
           "id": "word-1",
           "image_url": "",
-          "label": "Luis"
+          "label": "I"
         },
         {
           "id": "word-3",
           "image_url": "",
-          "label": "hot"
+          "label": "lemonade"
         }
       ],
-      "audio_text": "Luis drinks hot chocolate.",
-      "answer_audio_text": "Luis drinks hot chocolate.",
-      "prompt_image_url": "/lesson-assets/a1plus-unit-5-o05-480c8d2bf11bb340.webp",
-      "spanish_translation": "Luis toma chocolate caliente.",
-      "translation": "Luis toma chocolate caliente.",
+      "audio_text": "I like lemonade.",
+      "answer_audio_text": "I like lemonade.",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-5-o25-8de4522b3084b76f.webp",
+      "spanish_translation": "Me gusta la limonada.",
+      "translation": "Me gusta la limonada.",
       "correct_option_ids": [
         "word-1",
         "word-2",
-        "word-3",
-        "word-4"
+        "word-3"
       ],
-      "answer_audio_speaker": "teacher",
-      "pedagogy_note": "Story beat 06: Luis drinks hot chocolate.",
-      "audio_speaker": "teacher",
+      "answer_audio_speaker": "luis",
+      "pedagogy_note": "Story beat 06: I like lemonade.",
+      "audio_speaker": "luis",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -1352,7 +1359,7 @@
       ],
       "audio_text": "Would you like some hot chocolate?",
       "answer_audio_text": "Would you like some hot chocolate?",
-      "prompt_image_url": "/lesson-assets/a1plus-unit-5-o04-46fa0f12814eaee3.webp",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-5-o34-663ce81372f000b7.webp",
       "spanish_translation": "¿Quieres un poco de chocolate caliente?",
       "translation": "¿Quieres un poco de chocolate caliente?",
       "correct_option_ids": [
@@ -1403,7 +1410,7 @@
       ],
       "audio_text": "Would you like some water?",
       "answer_audio_text": "Would you like some water?",
-      "prompt_image_url": "/lesson-assets/a1plus-unit-5-o07-06ab329abf678aae.webp",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-5-o27-365ede13505961cc.webp",
       "spanish_translation": "¿Quieres un poco de agua?",
       "translation": "¿Quieres un poco de agua?",
       "correct_option_ids": [

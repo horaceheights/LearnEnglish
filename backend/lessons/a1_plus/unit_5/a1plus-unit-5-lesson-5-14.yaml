@@ -12,12 +12,15 @@
   "goal": "Ask someone at the table to pass something (Can you pass the salt, please? Here you are.) and ask for or offer a piece of cake.",
   "vocabulary": [
     "Can you pass",
-    "a piece of"
+    "a piece of",
+    "fork",
+    "knife",
+    "spoon"
   ],
   "review_vocabulary": [
     "the salt",
     "the sugar",
-    "the water",
+    "the butter",
     "the bread",
     "please",
     "Here you are.",
@@ -28,7 +31,7 @@
     "No, thank you.",
     "It's"
   ],
-  "grammar_function": "A follow-up of A1 5.14 At the Table: A1 names things at the table (salt, sugar, cup, glass, bottle, plate, cake) and says what a cup or a glass holds (a cup of tea); A1+ 5.14 asks for something at the table with Can you pass the …, please?, a request answered by A1 5.9's Here you are., and adds a piece of for part of a cake, next to 5.3's Would you like …? and 5.9's I'd like …. Can is a request here, not ability. In each photo one cast member hands a thing across the table to the one who asks; the asker's voice always differs from the giver's.",
+  "grammar_function": "A follow-up of A1 5.14 At the Table: A1 names things at the table (salt, sugar, cup, glass, bottle, plate, cake) and says what a cup or a glass holds (a cup of tea); A1+ 5.14 asks for something at the table with Can you pass the …, please?, a request answered by A1 5.9's Here you are., and adds a piece of for part of a cake, next to 5.3's Would you like …? and 5.9's I'd like …. Can is a request here, not ability. In each photo one cast member hands a thing across the table to the one who asks; the asker's voice always differs from the giver's. On 2026-11-23 fork, knife and spoon were added, each named on its own photo and then asked for at the table, and 5.2's butter comes back.",
   "prerequisite": "A1 5.14 salt, sugar, cake, of; A1 5.9 Here you are.; A1 5.2-5.3 bread, water; A1+ 5.3 Would you like …?; A1+ 5.9 I'd like ….",
   "speaking_outcome": "Join Can you pass as one group (kn-you-PASS) and say a piece of with of short (a-PEE-suv); do not require native-like speed.",
   "content_revision": 1,
@@ -92,6 +95,42 @@
           ]
         }
       ]
+    },
+    {
+      "kind": "sequence",
+      "targets": [
+        "fork"
+      ],
+      "models": [
+        {
+          "slide_id": "L5",
+          "text": "It's a fork."
+        }
+      ]
+    },
+    {
+      "kind": "sequence",
+      "targets": [
+        "knife"
+      ],
+      "models": [
+        {
+          "slide_id": "L6",
+          "text": "It's a knife."
+        }
+      ]
+    },
+    {
+      "kind": "sequence",
+      "targets": [
+        "spoon"
+      ],
+      "models": [
+        {
+          "slide_id": "L7",
+          "text": "It's a spoon."
+        }
+      ]
     }
   ],
   "purposeful_review_slides": [
@@ -125,7 +164,6 @@
     "S5",
     "S6",
     "S7",
-    "S8",
     "U1",
     "U2",
     "U3",
@@ -145,7 +183,7 @@
       "options": [
         {
           "id": "can-you-pass-the-salt-please-here-you-are-learn",
-          "image_url": "/lesson-assets/a1plus-unit-5-t01-4bb8feca0ac9f466.webp",
+          "image_url": "/lesson-assets/a1plus-unit-5-t21-66f116d498cda74b.webp",
           "label": "Can you pass the salt, please? Here you are."
         }
       ],
@@ -156,12 +194,12 @@
         {
           "text": "Can you pass the salt, please?",
           "speaker_role": "luis",
-          "image_url": "/lesson-assets/a1plus-unit-5-t01-4bb8feca0ac9f466.webp"
+          "image_url": "/lesson-assets/a1plus-unit-5-t21-66f116d498cda74b.webp"
         },
         {
           "text": "Here you are.",
           "speaker_role": "ana",
-          "image_url": "/lesson-assets/a1plus-unit-5-t01-4bb8feca0ac9f466.webp"
+          "image_url": "/lesson-assets/a1plus-unit-5-t21-66f116d498cda74b.webp"
         }
       ],
       "spanish_translation": "¿Me pasas la sal, por favor? Aquí tienes.",
@@ -198,7 +236,7 @@
       "options": [
         {
           "id": "can-you-pass-the-sugar-please-here-you-are-learn",
-          "image_url": "/lesson-assets/a1plus-unit-5-t02-4d2861af4c2398ca.webp",
+          "image_url": "/lesson-assets/a1plus-unit-5-t22-9dc79af8a03313d7.webp",
           "label": "Can you pass the sugar, please? Here you are."
         }
       ],
@@ -209,12 +247,12 @@
         {
           "text": "Can you pass the sugar, please?",
           "speaker_role": "diego",
-          "image_url": "/lesson-assets/a1plus-unit-5-t02-4d2861af4c2398ca.webp"
+          "image_url": "/lesson-assets/a1plus-unit-5-t22-9dc79af8a03313d7.webp"
         },
         {
           "text": "Here you are.",
           "speaker_role": "sofia",
-          "image_url": "/lesson-assets/a1plus-unit-5-t02-4d2861af4c2398ca.webp"
+          "image_url": "/lesson-assets/a1plus-unit-5-t22-9dc79af8a03313d7.webp"
         }
       ],
       "spanish_translation": "¿Me pasas el azúcar, por favor? Aquí tienes.",
@@ -254,6 +292,69 @@
       "answer_audio_policy": "authored-only"
     },
     {
+      "slide_id": "L5",
+      "interaction_type": "teach",
+      "prompt": "It's a fork.",
+      "stage": "Learn",
+      "correct_option_id": "it's-a-fork-learn",
+      "options": [
+        {
+          "id": "it's-a-fork-learn",
+          "image_url": "/lesson-assets/a1plus-unit-5-u01-0b1c79ca176bb05a.webp",
+          "label": "It's a fork."
+        }
+      ],
+      "audio_text": "It's a fork.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Es un tenedor.",
+      "pedagogy_note": "Story beat 05: It's a fork.",
+      "audio_speaker": "teacher",
+      "answer_audio_policy": "authored-only"
+    },
+    {
+      "slide_id": "L6",
+      "interaction_type": "teach",
+      "prompt": "It's a knife.",
+      "stage": "Learn",
+      "correct_option_id": "it's-a-knife-learn",
+      "options": [
+        {
+          "id": "it's-a-knife-learn",
+          "image_url": "/lesson-assets/a1plus-unit-5-u02-d1cd7b4ca217ee7d.webp",
+          "label": "It's a knife."
+        }
+      ],
+      "audio_text": "It's a knife.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Es un cuchillo.",
+      "pedagogy_note": "Story beat 06: It's a knife.",
+      "audio_speaker": "co-teacher",
+      "answer_audio_policy": "authored-only"
+    },
+    {
+      "slide_id": "L7",
+      "interaction_type": "teach",
+      "prompt": "It's a spoon.",
+      "stage": "Learn",
+      "correct_option_id": "it's-a-spoon-learn",
+      "options": [
+        {
+          "id": "it's-a-spoon-learn",
+          "image_url": "/lesson-assets/a1plus-unit-5-u03-c9681cb7b1dcf208.webp",
+          "label": "It's a spoon."
+        }
+      ],
+      "audio_text": "It's a spoon.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Es una cuchara.",
+      "pedagogy_note": "Story beat 07: It's a spoon.",
+      "audio_speaker": "teacher",
+      "answer_audio_policy": "authored-only"
+    },
+    {
       "slide_id": "R1",
       "interaction_type": "t2i2",
       "prompt": "Can you pass the salt, please?",
@@ -262,12 +363,12 @@
       "options": [
         {
           "id": "can-you-pass-the-sugar-please-r1",
-          "image_url": "/lesson-assets/a1plus-unit-5-t02-4d2861af4c2398ca.webp",
+          "image_url": "/lesson-assets/a1plus-unit-5-t22-9dc79af8a03313d7.webp",
           "label": null
         },
         {
           "id": "can-you-pass-the-salt-please-r1",
-          "image_url": "/lesson-assets/a1plus-unit-5-t01-4bb8feca0ac9f466.webp",
+          "image_url": "/lesson-assets/a1plus-unit-5-t21-66f116d498cda74b.webp",
           "label": null
         }
       ],
@@ -310,26 +411,26 @@
     {
       "slide_id": "R3",
       "interaction_type": "t2i2",
-      "prompt": "Can you pass the water, please?",
+      "prompt": "Can you pass a fork, please?",
       "stage": "Recognize",
-      "correct_option_id": "can-you-pass-the-water-please-r3",
+      "correct_option_id": "can-you-pass-a-fork-please-r3",
       "options": [
         {
-          "id": "can-you-pass-the-water-please-r3",
-          "image_url": "/lesson-assets/a1plus-unit-5-t03-5d4be7219eae356d.webp",
+          "id": "can-you-pass-a-fork-please-r3",
+          "image_url": "/lesson-assets/a1plus-unit-5-u05-33efb6c63f8d8b6c.webp",
           "label": null
         },
         {
           "id": "can-you-pass-the-salt-please-r3",
-          "image_url": "/lesson-assets/a1plus-unit-5-t01-4bb8feca0ac9f466.webp",
+          "image_url": "/lesson-assets/a1plus-unit-5-t21-66f116d498cda74b.webp",
           "label": null
         }
       ],
-      "audio_text": "Can you pass the water, please?",
+      "audio_text": "Can you pass a fork, please?",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "¿Me pasas el agua, por favor?",
-      "pedagogy_note": "Story beat 03: Can you pass the water, please?",
+      "spanish_translation": "¿Me pasas un tenedor, por favor?",
+      "pedagogy_note": "Story beat 03: Can you pass a fork, please?",
       "audio_speaker": "ana",
       "answer_audio_policy": "authored-only"
     },
@@ -365,27 +466,27 @@
     {
       "slide_id": "R5",
       "interaction_type": "t2i2",
-      "prompt": "Can you pass the sugar, please?",
+      "prompt": "Can you pass a knife, please?",
       "stage": "Recognize",
-      "correct_option_id": "can-you-pass-the-sugar-please-r5",
+      "correct_option_id": "can-you-pass-a-knife-please-r5",
       "options": [
         {
           "id": "can-you-pass-the-salt-please-r5",
-          "image_url": "/lesson-assets/a1plus-unit-5-t01-4bb8feca0ac9f466.webp",
+          "image_url": "/lesson-assets/a1plus-unit-5-t21-66f116d498cda74b.webp",
           "label": null
         },
         {
-          "id": "can-you-pass-the-sugar-please-r5",
-          "image_url": "/lesson-assets/a1plus-unit-5-t02-4d2861af4c2398ca.webp",
+          "id": "can-you-pass-a-knife-please-r5",
+          "image_url": "/lesson-assets/a1plus-unit-5-u07-4bbdef9c7b4ecdab.webp",
           "label": null
         }
       ],
-      "audio_text": "Can you pass the sugar, please?",
+      "audio_text": "Can you pass a knife, please?",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "¿Me pasas el azúcar, por favor?",
-      "pedagogy_note": "Story beat 05: Can you pass the sugar, please?",
-      "audio_speaker": "diego",
+      "spanish_translation": "¿Me pasas un cuchillo, por favor?",
+      "pedagogy_note": "Story beat 05: Can you pass a knife, please?",
+      "audio_speaker": "luis",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -393,64 +494,64 @@
       "interaction_type": "i2t3",
       "prompt": "",
       "stage": "Recognize",
-      "correct_option_id": "it's-a-piece-of-cake-r6",
+      "correct_option_id": "can-you-pass-a-spoon-please-r6",
       "options": [
         {
-          "id": "it's-a-glass-of-water-r6",
+          "id": "can-you-pass-the-sugar-please-r6",
           "image_url": "",
-          "label": "It's a glass of water.",
-          "spanish_translation": "Es un vaso de agua."
+          "label": "Can you pass the sugar, please?",
+          "spanish_translation": "¿Me pasas el azúcar, por favor?"
         },
         {
-          "id": "it's-a-piece-of-cake-r6",
+          "id": "can-you-pass-a-spoon-please-r6",
           "image_url": "",
-          "label": "It's a piece of cake.",
-          "spanish_translation": "Es un pedazo de pastel."
+          "label": "Can you pass a spoon, please?",
+          "spanish_translation": "¿Me pasas una cuchara, por favor?"
         },
         {
-          "id": "it's-a-cup-of-tea-r6",
+          "id": "can-you-pass-the-salt-please-r6",
           "image_url": "",
-          "label": "It's a cup of tea.",
-          "spanish_translation": "Es una taza de té."
+          "label": "Can you pass the salt, please?",
+          "spanish_translation": "¿Me pasas la sal, por favor?"
         }
       ],
       "audio_text": "",
-      "answer_audio_text": "It's a piece of cake.",
-      "prompt_image_url": "/lesson-assets/a1plus-unit-5-t05-e741b657800069dd.webp",
+      "answer_audio_text": "Can you pass a spoon, please?",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-5-u06-b03afd8e0524ea00.webp",
       "spanish_translation": "Elige la frase correcta.",
-      "answer_audio_speaker": "co-teacher",
-      "pedagogy_note": "Story beat 06: It's a piece of cake.",
+      "answer_audio_speaker": "diego",
+      "pedagogy_note": "Story beat 06: Can you pass a spoon, please?",
       "answer_audio_policy": "authored-only"
     },
     {
       "slide_id": "R7",
       "interaction_type": "t2i3",
-      "prompt": "Can you pass the bread, please?",
+      "prompt": "Can you pass the butter, please?",
       "stage": "Recognize",
-      "correct_option_id": "can-you-pass-the-bread-please-r7",
+      "correct_option_id": "can-you-pass-the-butter-please-r7",
       "options": [
         {
-          "id": "can-you-pass-the-bread-please-r7",
-          "image_url": "/lesson-assets/a1plus-unit-5-t07-af8cd41d82ddbdca.webp",
+          "id": "can-you-pass-the-butter-please-r7",
+          "image_url": "/lesson-assets/a1plus-unit-5-t29-c59fb63f71aff339.webp",
           "label": null
         },
         {
           "id": "can-you-pass-the-salt-please-r7",
-          "image_url": "/lesson-assets/a1plus-unit-5-t01-4bb8feca0ac9f466.webp",
+          "image_url": "/lesson-assets/a1plus-unit-5-t21-66f116d498cda74b.webp",
           "label": null
         },
         {
           "id": "can-you-pass-the-sugar-please-r7",
-          "image_url": "/lesson-assets/a1plus-unit-5-t02-4d2861af4c2398ca.webp",
+          "image_url": "/lesson-assets/a1plus-unit-5-t22-9dc79af8a03313d7.webp",
           "label": null
         }
       ],
-      "audio_text": "Can you pass the bread, please?",
+      "audio_text": "Can you pass the butter, please?",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "¿Me pasas el pan, por favor?",
-      "pedagogy_note": "Story beat 07: Can you pass the bread, please?",
-      "audio_speaker": "sofia",
+      "spanish_translation": "¿Me pasas la mantequilla, por favor?",
+      "pedagogy_note": "Story beat 07: Can you pass the butter, please?",
+      "audio_speaker": "ana",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -458,93 +559,98 @@
       "interaction_type": "i2t3",
       "prompt": "",
       "stage": "Recognize",
-      "correct_option_id": "it's-a-piece-of-cake-r8",
+      "correct_option_id": "can-you-pass-a-spoon-please-r8",
       "options": [
         {
-          "id": "it's-a-glass-of-water-r8",
+          "id": "can-you-pass-the-sugar-please-r8",
           "image_url": "",
-          "label": "It's a glass of water.",
-          "spanish_translation": "Es un vaso de agua."
+          "label": "Can you pass the sugar, please?",
+          "spanish_translation": "¿Me pasas el azúcar, por favor?"
         },
         {
-          "id": "it's-a-piece-of-cake-r8",
+          "id": "can-you-pass-a-spoon-please-r8",
           "image_url": "",
-          "label": "It's a piece of cake.",
-          "spanish_translation": "Es un pedazo de pastel."
+          "label": "Can you pass a spoon, please?",
+          "spanish_translation": "¿Me pasas una cuchara, por favor?"
         },
         {
-          "id": "it's-a-cup-of-tea-r8",
+          "id": "can-you-pass-the-salt-please-r8",
           "image_url": "",
-          "label": "It's a cup of tea.",
-          "spanish_translation": "Es una taza de té."
+          "label": "Can you pass the salt, please?",
+          "spanish_translation": "¿Me pasas la sal, por favor?"
         }
       ],
       "audio_text": "",
-      "answer_audio_text": "It's a piece of cake.",
-      "prompt_image_url": "/lesson-assets/a1plus-unit-5-t05-e741b657800069dd.webp",
+      "answer_audio_text": "Can you pass a spoon, please?",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-5-u06-b03afd8e0524ea00.webp",
       "spanish_translation": "Elige la frase correcta.",
-      "answer_audio_speaker": "co-teacher",
-      "pedagogy_note": "Story beat 08: It's a piece of cake.",
+      "answer_audio_speaker": "diego",
+      "pedagogy_note": "Story beat 08: Can you pass a spoon, please?",
       "answer_audio_policy": "authored-only"
     },
     {
       "slide_id": "R9",
       "interaction_type": "t2i3",
-      "prompt": "Can you pass the water, please?",
+      "prompt": "Can you pass a fork, please?",
       "stage": "Recognize",
-      "correct_option_id": "can-you-pass-the-water-please-r9",
+      "correct_option_id": "can-you-pass-a-fork-please-r9",
       "options": [
         {
           "id": "can-you-pass-the-sugar-please-r9",
-          "image_url": "/lesson-assets/a1plus-unit-5-t02-4d2861af4c2398ca.webp",
+          "image_url": "/lesson-assets/a1plus-unit-5-t22-9dc79af8a03313d7.webp",
           "label": null
         },
         {
-          "id": "can-you-pass-the-water-please-r9",
-          "image_url": "/lesson-assets/a1plus-unit-5-t03-5d4be7219eae356d.webp",
+          "id": "can-you-pass-a-fork-please-r9",
+          "image_url": "/lesson-assets/a1plus-unit-5-u05-33efb6c63f8d8b6c.webp",
           "label": null
         },
         {
           "id": "can-you-pass-the-salt-please-r9",
-          "image_url": "/lesson-assets/a1plus-unit-5-t01-4bb8feca0ac9f466.webp",
+          "image_url": "/lesson-assets/a1plus-unit-5-t21-66f116d498cda74b.webp",
           "label": null
         }
       ],
-      "audio_text": "Can you pass the water, please?",
+      "audio_text": "Can you pass a fork, please?",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "¿Me pasas el agua, por favor?",
-      "pedagogy_note": "Story beat 09: Can you pass the water, please?",
+      "spanish_translation": "¿Me pasas un tenedor, por favor?",
+      "pedagogy_note": "Story beat 09: Can you pass a fork, please?",
       "audio_speaker": "ana",
       "answer_audio_policy": "authored-only"
     },
     {
       "slide_id": "R10",
-      "interaction_type": "i2t2",
-      "prompt": "Would you like a piece of cake?",
+      "interaction_type": "i2t3",
+      "prompt": "",
       "stage": "Recognize",
-      "correct_option_id": "yes-please-r10",
+      "correct_option_id": "can-you-pass-a-knife-please-r10",
       "options": [
         {
-          "id": "yes-please-r10",
+          "id": "can-you-pass-a-knife-please-r10",
           "image_url": "",
-          "label": "Yes, please.",
-          "spanish_translation": "Sí, por favor."
+          "label": "Can you pass a knife, please?",
+          "spanish_translation": "¿Me pasas un cuchillo, por favor?"
         },
         {
-          "id": "no-thank-you-r10",
+          "id": "can-you-pass-the-salt-please-r10",
           "image_url": "",
-          "label": "No, thank you.",
-          "spanish_translation": "No, gracias."
+          "label": "Can you pass the salt, please?",
+          "spanish_translation": "¿Me pasas la sal, por favor?"
+        },
+        {
+          "id": "can-you-pass-the-sugar-please-r10",
+          "image_url": "",
+          "label": "Can you pass the sugar, please?",
+          "spanish_translation": "¿Me pasas el azúcar, por favor?"
         }
       ],
-      "audio_text": "Would you like a piece of cake?",
-      "answer_audio_text": "Yes, please.",
-      "prompt_image_url": "/lesson-assets/a1plus-unit-5-t06-54600056b775678d.webp",
-      "spanish_translation": "¿Quieres un pedazo de pastel?",
-      "answer_audio_speaker": "diego",
-      "pedagogy_note": "Story beat 10: Yes, please.",
-      "audio_speaker": "sofia",
+      "audio_text": "",
+      "answer_audio_text": "Can you pass a knife, please?",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-5-u07-4bbdef9c7b4ecdab.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "answer_audio_speaker": "luis",
+      "pedagogy_note": "Story beat 10: Can you pass a knife, please?",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -556,12 +662,12 @@
       "options": [
         {
           "id": "can-you-pass-the-sugar-please-a1",
-          "image_url": "/lesson-assets/a1plus-unit-5-t02-4d2861af4c2398ca.webp",
+          "image_url": "/lesson-assets/a1plus-unit-5-t22-9dc79af8a03313d7.webp",
           "label": null
         },
         {
           "id": "can-you-pass-the-salt-please-a1",
-          "image_url": "/lesson-assets/a1plus-unit-5-t01-4bb8feca0ac9f466.webp",
+          "image_url": "/lesson-assets/a1plus-unit-5-t21-66f116d498cda74b.webp",
           "label": null
         }
       ],
@@ -587,7 +693,7 @@
         },
         {
           "id": "it's-a-cup-of-tea-a2",
-          "image_url": "/lesson-assets/a1plus-unit-5-o01-2b72061f1a90e239.webp",
+          "image_url": "/lesson-assets/a1plus-unit-5-o21-40bf6d4ce15f5a44.webp",
           "label": null
         }
       ],
@@ -604,13 +710,13 @@
       "interaction_type": "a2t2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "can-you-pass-the-bread-please-a3",
+      "correct_option_id": "can-you-pass-a-spoon-please-a3",
       "options": [
         {
-          "id": "can-you-pass-the-bread-please-a3",
+          "id": "can-you-pass-a-spoon-please-a3",
           "image_url": "",
-          "label": "Can you pass the bread, please?",
-          "spanish_translation": "¿Me pasas el pan, por favor?"
+          "label": "Can you pass a spoon, please?",
+          "spanish_translation": "¿Me pasas una cuchara, por favor?"
         },
         {
           "id": "can-you-pass-the-salt-please-a3",
@@ -619,12 +725,12 @@
           "spanish_translation": "¿Me pasas la sal, por favor?"
         }
       ],
-      "audio_text": "Can you pass the bread, please?",
+      "audio_text": "Can you pass a spoon, please?",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 03: Can you pass the bread, please?",
-      "audio_speaker": "sofia",
+      "pedagogy_note": "Story beat 03: Can you pass a spoon, please?",
+      "audio_speaker": "diego",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -660,25 +766,25 @@
       "interaction_type": "a2i2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "can-you-pass-the-salt-please-a5",
+      "correct_option_id": "can-you-pass-a-fork-please-a5",
       "options": [
         {
-          "id": "can-you-pass-the-salt-please-a5",
-          "image_url": "/lesson-assets/a1plus-unit-5-t01-4bb8feca0ac9f466.webp",
+          "id": "can-you-pass-a-fork-please-a5",
+          "image_url": "/lesson-assets/a1plus-unit-5-u05-33efb6c63f8d8b6c.webp",
           "label": null
         },
         {
-          "id": "can-you-pass-the-sugar-please-a5",
-          "image_url": "/lesson-assets/a1plus-unit-5-t02-4d2861af4c2398ca.webp",
+          "id": "can-you-pass-the-salt-please-a5",
+          "image_url": "/lesson-assets/a1plus-unit-5-t21-66f116d498cda74b.webp",
           "label": null
         }
       ],
-      "audio_text": "Can you pass the salt, please?",
+      "audio_text": "Can you pass a fork, please?",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 05: Can you pass the salt, please?",
-      "audio_speaker": "luis",
+      "pedagogy_note": "Story beat 05: Can you pass a fork, please?",
+      "audio_speaker": "ana",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -686,33 +792,33 @@
       "interaction_type": "a2t3",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "it's-a-piece-of-cake-a6",
+      "correct_option_id": "can-you-pass-a-knife-please-a6",
       "options": [
         {
-          "id": "it's-a-piece-of-cake-a6",
+          "id": "can-you-pass-a-knife-please-a6",
           "image_url": "",
-          "label": "It's a piece of cake.",
-          "spanish_translation": "Es un pedazo de pastel."
+          "label": "Can you pass a knife, please?",
+          "spanish_translation": "¿Me pasas un cuchillo, por favor?"
         },
         {
-          "id": "it's-a-cup-of-tea-a6",
+          "id": "can-you-pass-the-salt-please-a6",
           "image_url": "",
-          "label": "It's a cup of tea.",
-          "spanish_translation": "Es una taza de té."
+          "label": "Can you pass the salt, please?",
+          "spanish_translation": "¿Me pasas la sal, por favor?"
         },
         {
-          "id": "it's-a-glass-of-water-a6",
+          "id": "can-you-pass-the-sugar-please-a6",
           "image_url": "",
-          "label": "It's a glass of water.",
-          "spanish_translation": "Es un vaso de agua."
+          "label": "Can you pass the sugar, please?",
+          "spanish_translation": "¿Me pasas el azúcar, por favor?"
         }
       ],
-      "audio_text": "It's a piece of cake.",
+      "audio_text": "Can you pass a knife, please?",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 06: It's a piece of cake.",
-      "audio_speaker": "co-teacher",
+      "pedagogy_note": "Story beat 06: Can you pass a knife, please?",
+      "audio_speaker": "luis",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -720,29 +826,29 @@
       "interaction_type": "a2i3",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "can-you-pass-the-water-please-a7",
+      "correct_option_id": "can-you-pass-the-butter-please-a7",
       "options": [
         {
-          "id": "can-you-pass-the-water-please-a7",
-          "image_url": "/lesson-assets/a1plus-unit-5-t03-5d4be7219eae356d.webp",
+          "id": "can-you-pass-the-butter-please-a7",
+          "image_url": "/lesson-assets/a1plus-unit-5-t29-c59fb63f71aff339.webp",
           "label": null
         },
         {
           "id": "can-you-pass-the-salt-please-a7",
-          "image_url": "/lesson-assets/a1plus-unit-5-t01-4bb8feca0ac9f466.webp",
+          "image_url": "/lesson-assets/a1plus-unit-5-t21-66f116d498cda74b.webp",
           "label": null
         },
         {
           "id": "can-you-pass-the-sugar-please-a7",
-          "image_url": "/lesson-assets/a1plus-unit-5-t02-4d2861af4c2398ca.webp",
+          "image_url": "/lesson-assets/a1plus-unit-5-t22-9dc79af8a03313d7.webp",
           "label": null
         }
       ],
-      "audio_text": "Can you pass the water, please?",
+      "audio_text": "Can you pass the butter, please?",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 07: Can you pass the water, please?",
+      "pedagogy_note": "Story beat 07: Can you pass the butter, please?",
       "audio_speaker": "ana",
       "answer_audio_policy": "authored-only"
     },
@@ -751,58 +857,64 @@
       "interaction_type": "a2i3",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "can-you-pass-the-sugar-please-a8",
+      "correct_option_id": "can-you-pass-a-spoon-please-a8",
       "options": [
         {
-          "id": "can-you-pass-the-sugar-please-a8",
-          "image_url": "/lesson-assets/a1plus-unit-5-t02-4d2861af4c2398ca.webp",
+          "id": "can-you-pass-a-spoon-please-a8",
+          "image_url": "/lesson-assets/a1plus-unit-5-u06-b03afd8e0524ea00.webp",
           "label": null
         },
         {
           "id": "can-you-pass-the-salt-please-a8",
-          "image_url": "/lesson-assets/a1plus-unit-5-t01-4bb8feca0ac9f466.webp",
+          "image_url": "/lesson-assets/a1plus-unit-5-t21-66f116d498cda74b.webp",
           "label": null
         },
         {
-          "id": "can-you-pass-the-water-please-a8",
-          "image_url": "/lesson-assets/a1plus-unit-5-t03-5d4be7219eae356d.webp",
+          "id": "can-you-pass-the-sugar-please-a8",
+          "image_url": "/lesson-assets/a1plus-unit-5-t22-9dc79af8a03313d7.webp",
           "label": null
         }
       ],
-      "audio_text": "Can you pass the sugar, please?",
+      "audio_text": "Can you pass a spoon, please?",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 08: Can you pass the sugar, please?",
+      "pedagogy_note": "Story beat 08: Can you pass a spoon, please?",
       "audio_speaker": "diego",
       "answer_audio_policy": "authored-only"
     },
     {
       "slide_id": "A9",
-      "interaction_type": "a2t2",
+      "interaction_type": "a2t3",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "yes-please-a9",
+      "correct_option_id": "can-you-pass-a-knife-please-a9",
       "options": [
         {
-          "id": "no-thank-you-a9",
+          "id": "can-you-pass-the-salt-please-a9",
           "image_url": "",
-          "label": "No, thank you.",
-          "spanish_translation": "No, gracias."
+          "label": "Can you pass the salt, please?",
+          "spanish_translation": "¿Me pasas la sal, por favor?"
         },
         {
-          "id": "yes-please-a9",
+          "id": "can-you-pass-the-sugar-please-a9",
           "image_url": "",
-          "label": "Yes, please.",
-          "spanish_translation": "Sí, por favor."
+          "label": "Can you pass the sugar, please?",
+          "spanish_translation": "¿Me pasas el azúcar, por favor?"
+        },
+        {
+          "id": "can-you-pass-a-knife-please-a9",
+          "image_url": "",
+          "label": "Can you pass a knife, please?",
+          "spanish_translation": "¿Me pasas un cuchillo, por favor?"
         }
       ],
-      "audio_text": "Yes, please.",
+      "audio_text": "Can you pass a knife, please?",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 09: Yes, please.",
-      "audio_speaker": "diego",
+      "pedagogy_note": "Story beat 09: Can you pass a knife, please?",
+      "audio_speaker": "luis",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -810,30 +922,30 @@
       "interaction_type": "a2i3",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "can-you-pass-the-bread-please-a10",
+      "correct_option_id": "can-you-pass-a-fork-please-a10",
       "options": [
         {
           "id": "can-you-pass-the-salt-please-a10",
-          "image_url": "/lesson-assets/a1plus-unit-5-t01-4bb8feca0ac9f466.webp",
+          "image_url": "/lesson-assets/a1plus-unit-5-t21-66f116d498cda74b.webp",
           "label": null
         },
         {
           "id": "can-you-pass-the-sugar-please-a10",
-          "image_url": "/lesson-assets/a1plus-unit-5-t02-4d2861af4c2398ca.webp",
+          "image_url": "/lesson-assets/a1plus-unit-5-t22-9dc79af8a03313d7.webp",
           "label": null
         },
         {
-          "id": "can-you-pass-the-bread-please-a10",
-          "image_url": "/lesson-assets/a1plus-unit-5-t07-af8cd41d82ddbdca.webp",
+          "id": "can-you-pass-a-fork-please-a10",
+          "image_url": "/lesson-assets/a1plus-unit-5-u05-33efb6c63f8d8b6c.webp",
           "label": null
         }
       ],
-      "audio_text": "Can you pass the bread, please?",
+      "audio_text": "Can you pass a fork, please?",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 10: Can you pass the bread, please?",
-      "audio_speaker": "sofia",
+      "pedagogy_note": "Story beat 10: Can you pass a fork, please?",
+      "audio_speaker": "ana",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -845,7 +957,7 @@
       "options": [
         {
           "id": "can-you-pass-the-salt-please-here-you-are-speak",
-          "image_url": "/lesson-assets/a1plus-unit-5-t01-4bb8feca0ac9f466.webp",
+          "image_url": "/lesson-assets/a1plus-unit-5-t21-66f116d498cda74b.webp",
           "label": "Can you pass the salt, please? Here you are."
         }
       ],
@@ -856,13 +968,13 @@
         {
           "text": "Can you pass the salt, please?",
           "speaker_role": "luis",
-          "image_url": "/lesson-assets/a1plus-unit-5-t01-4bb8feca0ac9f466.webp",
+          "image_url": "/lesson-assets/a1plus-unit-5-t21-66f116d498cda74b.webp",
           "delivery": "a1-pronunciation-v1"
         },
         {
           "text": "Here you are.",
           "speaker_role": "ana",
-          "image_url": "/lesson-assets/a1plus-unit-5-t01-4bb8feca0ac9f466.webp",
+          "image_url": "/lesson-assets/a1plus-unit-5-t21-66f116d498cda74b.webp",
           "delivery": "a1-pronunciation-v1"
         }
       ],
@@ -873,85 +985,85 @@
     {
       "slide_id": "S2",
       "interaction_type": "speak",
-      "prompt": "Can you pass the sugar, please?",
+      "prompt": "Can you pass a fork, please?",
       "stage": "Speak",
-      "correct_option_id": "can-you-pass-the-sugar-please-speak",
+      "correct_option_id": "can-you-pass-a-fork-please-speak",
       "options": [
         {
-          "id": "can-you-pass-the-sugar-please-speak",
-          "image_url": "/lesson-assets/a1plus-unit-5-t02-4d2861af4c2398ca.webp",
-          "label": "Can you pass the sugar, please?"
+          "id": "can-you-pass-a-fork-please-speak",
+          "image_url": "/lesson-assets/a1plus-unit-5-u05-33efb6c63f8d8b6c.webp",
+          "label": "Can you pass a fork, please?"
         }
       ],
-      "audio_text": "Can you pass the sugar, please?",
+      "audio_text": "Can you pass a fork, please?",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "audio_turns": [
         {
-          "text": "Can you pass the sugar, please?",
-          "speaker_role": "diego",
-          "image_url": "/lesson-assets/a1plus-unit-5-t02-4d2861af4c2398ca.webp",
+          "text": "Can you pass a fork, please?",
+          "speaker_role": "ana",
+          "image_url": "/lesson-assets/a1plus-unit-5-u05-33efb6c63f8d8b6c.webp",
           "delivery": "a1-pronunciation-v1"
         }
       ],
-      "spanish_translation": "¿Me pasas el azúcar, por favor?",
-      "pedagogy_note": "Story beat 02: Can you pass the sugar, please?",
+      "spanish_translation": "¿Me pasas un tenedor, por favor?",
+      "pedagogy_note": "Story beat 02: Can you pass a fork, please?",
       "answer_audio_policy": "authored-only"
     },
     {
       "slide_id": "S3",
       "interaction_type": "speak",
-      "prompt": "Can you pass the water, please?",
+      "prompt": "Can you pass a knife, please?",
       "stage": "Speak",
-      "correct_option_id": "can-you-pass-the-water-please-speak",
+      "correct_option_id": "can-you-pass-a-knife-please-speak",
       "options": [
         {
-          "id": "can-you-pass-the-water-please-speak",
-          "image_url": "/lesson-assets/a1plus-unit-5-t03-5d4be7219eae356d.webp",
-          "label": "Can you pass the water, please?"
+          "id": "can-you-pass-a-knife-please-speak",
+          "image_url": "/lesson-assets/a1plus-unit-5-u07-4bbdef9c7b4ecdab.webp",
+          "label": "Can you pass a knife, please?"
         }
       ],
-      "audio_text": "Can you pass the water, please?",
+      "audio_text": "Can you pass a knife, please?",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "audio_turns": [
         {
-          "text": "Can you pass the water, please?",
-          "speaker_role": "ana",
-          "image_url": "/lesson-assets/a1plus-unit-5-t03-5d4be7219eae356d.webp",
+          "text": "Can you pass a knife, please?",
+          "speaker_role": "luis",
+          "image_url": "/lesson-assets/a1plus-unit-5-u07-4bbdef9c7b4ecdab.webp",
           "delivery": "a1-pronunciation-v1"
         }
       ],
-      "spanish_translation": "¿Me pasas el agua, por favor?",
-      "pedagogy_note": "Story beat 03: Can you pass the water, please?",
+      "spanish_translation": "¿Me pasas un cuchillo, por favor?",
+      "pedagogy_note": "Story beat 03: Can you pass a knife, please?",
       "answer_audio_policy": "authored-only"
     },
     {
       "slide_id": "S4",
       "interaction_type": "speak",
-      "prompt": "Can you pass the bread, please?",
+      "prompt": "Can you pass a spoon, please?",
       "stage": "Speak",
-      "correct_option_id": "can-you-pass-the-bread-please-speak",
+      "correct_option_id": "can-you-pass-a-spoon-please-speak",
       "options": [
         {
-          "id": "can-you-pass-the-bread-please-speak",
-          "image_url": "/lesson-assets/a1plus-unit-5-t07-af8cd41d82ddbdca.webp",
-          "label": "Can you pass the bread, please?"
+          "id": "can-you-pass-a-spoon-please-speak",
+          "image_url": "/lesson-assets/a1plus-unit-5-u06-b03afd8e0524ea00.webp",
+          "label": "Can you pass a spoon, please?"
         }
       ],
-      "audio_text": "Can you pass the bread, please?",
+      "audio_text": "Can you pass a spoon, please?",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "audio_turns": [
         {
-          "text": "Can you pass the bread, please?",
-          "speaker_role": "sofia",
-          "image_url": "/lesson-assets/a1plus-unit-5-t07-af8cd41d82ddbdca.webp",
+          "text": "Can you pass a spoon, please?",
+          "speaker_role": "diego",
+          "image_url": "/lesson-assets/a1plus-unit-5-u06-b03afd8e0524ea00.webp",
           "delivery": "a1-pronunciation-v1"
         }
       ],
-      "spanish_translation": "¿Me pasas el pan, por favor?",
-      "pedagogy_note": "Story beat 04: Can you pass the bread, please?",
+      "spanish_translation": "¿Me pasas una cuchara, por favor?",
+      "pedagogy_note": "Story beat 04: Can you pass a spoon, please?",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -1013,157 +1125,33 @@
     {
       "slide_id": "S7",
       "interaction_type": "speak",
-      "prompt": "Here you are.",
+      "prompt": "Can you pass the butter, please?",
       "stage": "Speak",
-      "correct_option_id": "here-you-are-speak",
+      "correct_option_id": "can-you-pass-the-butter-please-speak",
       "options": [
         {
-          "id": "here-you-are-speak",
-          "image_url": "/lesson-assets/a1plus-unit-5-t03-5d4be7219eae356d.webp",
-          "label": "Here you are."
+          "id": "can-you-pass-the-butter-please-speak",
+          "image_url": "/lesson-assets/a1plus-unit-5-t29-c59fb63f71aff339.webp",
+          "label": "Can you pass the butter, please?"
         }
       ],
-      "audio_text": "Here you are.",
+      "audio_text": "Can you pass the butter, please?",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "audio_turns": [
         {
-          "text": "Here you are.",
-          "speaker_role": "diego",
-          "image_url": "/lesson-assets/a1plus-unit-5-t03-5d4be7219eae356d.webp",
+          "text": "Can you pass the butter, please?",
+          "speaker_role": "ana",
+          "image_url": "/lesson-assets/a1plus-unit-5-t29-c59fb63f71aff339.webp",
           "delivery": "a1-pronunciation-v1"
         }
       ],
-      "spanish_translation": "Aquí tienes.",
-      "pedagogy_note": "Story beat 07: Here you are.",
-      "answer_audio_policy": "authored-only"
-    },
-    {
-      "slide_id": "S8",
-      "interaction_type": "speak",
-      "prompt": "It's a cake.",
-      "stage": "Speak",
-      "correct_option_id": "it's-a-cake-speak",
-      "options": [
-        {
-          "id": "it's-a-cake-speak",
-          "image_url": "/lesson-assets/a1plus-unit-5-p05-15741834d5f33564.webp",
-          "label": "It's a cake."
-        }
-      ],
-      "audio_text": "It's a cake.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "audio_turns": [
-        {
-          "text": "It's a cake.",
-          "speaker_role": "teacher",
-          "image_url": "/lesson-assets/a1plus-unit-5-p05-15741834d5f33564.webp",
-          "delivery": "a1-pronunciation-v1"
-        }
-      ],
-      "spanish_translation": "Es un pastel.",
-      "pedagogy_note": "Story beat 08: It's a cake.",
+      "spanish_translation": "¿Me pasas la mantequilla, por favor?",
+      "pedagogy_note": "Story beat 07: Can you pass the butter, please?",
       "answer_audio_policy": "authored-only"
     },
     {
       "slide_id": "U1",
-      "interaction_type": "complete2",
-      "prompt": "Can you ___ ___ salt, please?",
-      "stage": "Use",
-      "correct_option_id": "pass",
-      "options": [
-        {
-          "id": "pass",
-          "image_url": "",
-          "label": "pass"
-        },
-        {
-          "id": "the",
-          "image_url": "",
-          "label": "the"
-        }
-      ],
-      "audio_text": "Can you pass the salt, please?",
-      "answer_audio_text": "Can you pass the salt, please?",
-      "prompt_image_url": "/lesson-assets/a1plus-unit-5-t01-4bb8feca0ac9f466.webp",
-      "spanish_translation": "¿Me pasas la sal, por favor?",
-      "translation": "¿Me pasas la sal, por favor?",
-      "correct_option_ids": [
-        "pass",
-        "the"
-      ],
-      "answer_audio_speaker": "luis",
-      "pedagogy_note": "Story beat 01: Can you pass the salt, please?",
-      "audio_speaker": "luis",
-      "answer_audio_policy": "authored-only"
-    },
-    {
-      "slide_id": "U2",
-      "interaction_type": "complete2",
-      "prompt": "Can you pass the ___, ___?",
-      "stage": "Use",
-      "correct_option_id": "sugar",
-      "options": [
-        {
-          "id": "sugar",
-          "image_url": "",
-          "label": "sugar"
-        },
-        {
-          "id": "please",
-          "image_url": "",
-          "label": "please"
-        }
-      ],
-      "audio_text": "Can you pass the sugar, please?",
-      "answer_audio_text": "Can you pass the sugar, please?",
-      "prompt_image_url": "/lesson-assets/a1plus-unit-5-t02-4d2861af4c2398ca.webp",
-      "spanish_translation": "¿Me pasas el azúcar, por favor?",
-      "translation": "¿Me pasas el azúcar, por favor?",
-      "correct_option_ids": [
-        "sugar",
-        "please"
-      ],
-      "answer_audio_speaker": "diego",
-      "pedagogy_note": "Story beat 02: Can you pass the sugar, please?",
-      "audio_speaker": "diego",
-      "answer_audio_policy": "authored-only"
-    },
-    {
-      "slide_id": "U3",
-      "interaction_type": "complete2",
-      "prompt": "Can you ___ ___ water, please?",
-      "stage": "Use",
-      "correct_option_id": "pass",
-      "options": [
-        {
-          "id": "pass",
-          "image_url": "",
-          "label": "pass"
-        },
-        {
-          "id": "the",
-          "image_url": "",
-          "label": "the"
-        }
-      ],
-      "audio_text": "Can you pass the water, please?",
-      "answer_audio_text": "Can you pass the water, please?",
-      "prompt_image_url": "/lesson-assets/a1plus-unit-5-t03-5d4be7219eae356d.webp",
-      "spanish_translation": "¿Me pasas el agua, por favor?",
-      "translation": "¿Me pasas el agua, por favor?",
-      "correct_option_ids": [
-        "pass",
-        "the"
-      ],
-      "answer_audio_speaker": "ana",
-      "pedagogy_note": "Story beat 03: Can you pass the water, please?",
-      "audio_speaker": "ana",
-      "answer_audio_policy": "authored-only"
-    },
-    {
-      "slide_id": "U4",
       "interaction_type": "complete2",
       "prompt": "Can you pass the ___, ___?",
       "stage": "Use",
@@ -1182,7 +1170,7 @@
       ],
       "audio_text": "Can you pass the bread, please?",
       "answer_audio_text": "Can you pass the bread, please?",
-      "prompt_image_url": "/lesson-assets/a1plus-unit-5-t07-af8cd41d82ddbdca.webp",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-5-t27-197d63c05d5e4cd3.webp",
       "spanish_translation": "¿Me pasas el pan, por favor?",
       "translation": "¿Me pasas el pan, por favor?",
       "correct_option_ids": [
@@ -1190,8 +1178,104 @@
         "please"
       ],
       "answer_audio_speaker": "sofia",
-      "pedagogy_note": "Story beat 04: Can you pass the bread, please?",
+      "pedagogy_note": "Story beat 01: Can you pass the bread, please?",
       "audio_speaker": "sofia",
+      "answer_audio_policy": "authored-only"
+    },
+    {
+      "slide_id": "U2",
+      "interaction_type": "complete2",
+      "prompt": "Can you pass a ___, ___?",
+      "stage": "Use",
+      "correct_option_id": "fork",
+      "options": [
+        {
+          "id": "fork",
+          "image_url": "",
+          "label": "fork"
+        },
+        {
+          "id": "please",
+          "image_url": "",
+          "label": "please"
+        }
+      ],
+      "audio_text": "Can you pass a fork, please?",
+      "answer_audio_text": "Can you pass a fork, please?",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-5-u05-33efb6c63f8d8b6c.webp",
+      "spanish_translation": "¿Me pasas un tenedor, por favor?",
+      "translation": "¿Me pasas un tenedor, por favor?",
+      "correct_option_ids": [
+        "fork",
+        "please"
+      ],
+      "answer_audio_speaker": "ana",
+      "pedagogy_note": "Story beat 02: Can you pass a fork, please?",
+      "audio_speaker": "ana",
+      "answer_audio_policy": "authored-only"
+    },
+    {
+      "slide_id": "U3",
+      "interaction_type": "complete2",
+      "prompt": "Can you pass a ___, ___?",
+      "stage": "Use",
+      "correct_option_id": "knife",
+      "options": [
+        {
+          "id": "knife",
+          "image_url": "",
+          "label": "knife"
+        },
+        {
+          "id": "please",
+          "image_url": "",
+          "label": "please"
+        }
+      ],
+      "audio_text": "Can you pass a knife, please?",
+      "answer_audio_text": "Can you pass a knife, please?",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-5-u07-4bbdef9c7b4ecdab.webp",
+      "spanish_translation": "¿Me pasas un cuchillo, por favor?",
+      "translation": "¿Me pasas un cuchillo, por favor?",
+      "correct_option_ids": [
+        "knife",
+        "please"
+      ],
+      "answer_audio_speaker": "luis",
+      "pedagogy_note": "Story beat 03: Can you pass a knife, please?",
+      "audio_speaker": "luis",
+      "answer_audio_policy": "authored-only"
+    },
+    {
+      "slide_id": "U4",
+      "interaction_type": "complete2",
+      "prompt": "Can you pass a ___, ___?",
+      "stage": "Use",
+      "correct_option_id": "spoon",
+      "options": [
+        {
+          "id": "spoon",
+          "image_url": "",
+          "label": "spoon"
+        },
+        {
+          "id": "please",
+          "image_url": "",
+          "label": "please"
+        }
+      ],
+      "audio_text": "Can you pass a spoon, please?",
+      "answer_audio_text": "Can you pass a spoon, please?",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-5-u06-b03afd8e0524ea00.webp",
+      "spanish_translation": "¿Me pasas una cuchara, por favor?",
+      "translation": "¿Me pasas una cuchara, por favor?",
+      "correct_option_ids": [
+        "spoon",
+        "please"
+      ],
+      "answer_audio_speaker": "diego",
+      "pedagogy_note": "Story beat 04: Can you pass a spoon, please?",
+      "audio_speaker": "diego",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -1388,7 +1472,7 @@
         {
           "id": "word-6",
           "image_url": "",
-          "label": "Ana"
+          "label": "please"
         },
         {
           "id": "word-1",
@@ -1403,14 +1487,14 @@
         {
           "id": "word-5",
           "image_url": "",
-          "label": "salt"
+          "label": "butter"
         }
       ],
-      "audio_text": "Can you pass the salt, Ana?",
-      "answer_audio_text": "Can you pass the salt, Ana?",
-      "prompt_image_url": "/lesson-assets/a1plus-unit-5-t01-4bb8feca0ac9f466.webp",
-      "spanish_translation": "¿Me pasas la sal, Ana?",
-      "translation": "¿Me pasas la sal, Ana?",
+      "audio_text": "Can you pass the butter, please?",
+      "answer_audio_text": "Can you pass the butter, please?",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-5-t29-c59fb63f71aff339.webp",
+      "spanish_translation": "¿Me pasas la mantequilla, por favor?",
+      "translation": "¿Me pasas la mantequilla, por favor?",
       "correct_option_ids": [
         "word-1",
         "word-2",
@@ -1419,9 +1503,9 @@
         "word-5",
         "word-6"
       ],
-      "answer_audio_speaker": "luis",
-      "pedagogy_note": "Story beat 08: Can you pass the salt, Ana?",
-      "audio_speaker": "luis",
+      "answer_audio_speaker": "ana",
+      "pedagogy_note": "Story beat 08: Can you pass the butter, please?",
+      "audio_speaker": "ana",
       "answer_audio_policy": "authored-only"
     }
   ]
