@@ -201,6 +201,20 @@ test('Spanish course cards explain Spanish order, agreement, es/está and one-or
     'Hace nublado.', 'Está sol.', 'Me gustan bailar.', 'Tengo la hambre.', 'Es un día buen.', 'Vamos a ver tele.', '¿Cómo están ella?']) {
     assert.equal(constructionTeachingPlan(card(unsupported)).supported, false, unsupported);
   }
+  // Spanish A1+ Unit 1: looks, present-tense habits, how often, where family lives, pets, con + él/ella/ellos.
+  for (const supported of ['Luis es alto.', 'Sofía es baja.', 'Ana tiene el pelo largo.', 'Diego tiene barba.', 'Es un hombre mayor.',
+    'Es una mujer joven.', 'Ana lee libros.', 'Sofía y Luis nadan en la mañana.', 'Mi tía vive en Canadá.', 'Vivo en Estados Unidos.',
+    'Esta es mi hermana mayor.', 'Luis tiene un hermano menor.', '¿Cuántos hermanos y hermanas tienes?', 'Mi abuela siempre toma té.',
+    'Él a veces corre en el parque.', 'Siempre trabajo en casa.', '¿Con qué frecuencia estudias de noche?', 'La hija normalmente estudia de noche.',
+    'Diego no cocina la cena.', 'No ceno en un restaurante.', '¿Tu abuela toma té?', '¿Dónde vive tu tía?', '¿Con quién vive tu primo?',
+    '¿Cómo se llama?', 'Se llama Coco.', 'Ella cocina la cena con él.', 'Él juega fútbol con ellos.', 'Los niños leen con ella.']) {
+    assert.equal(constructionTeachingPlan(card(supported)).supported, true, supported);
+  }
+  for (const unsupported of ['Luis es alta.', 'Sofía es bajo.', 'Mi tía viven en Canadá.', 'Ellos nada en la mañana.', 'Ella siempre tomo té.',
+    'Esta es mi tío.', 'Sofía y Luis nada en el parque.', 'Mi abuela toma siempre té.', '¿Dónde viven tu tía?', 'Ana tiene el pelo larga.',
+    'Se llama Pedro.', 'Es una hombre mayor.', 'Mi tíos vive en México.', 'Siempre está corriendo.']) {
+    assert.equal(constructionTeachingPlan(card(unsupported)).supported, false, unsupported);
+  }
   const notDoing = choice('Ella no está leyendo.', 'Ella está leyendo.', 'She is not reading.');
   assert.equal(spanishChoiceHint(notDoing, 'wrong'),
     'You heard “Ella no está leyendo”: She is not reading. “no” before the verb means “not”.');
