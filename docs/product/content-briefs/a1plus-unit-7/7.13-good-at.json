@@ -5,7 +5,7 @@
     "lesson": "7.13",
     "title": "Sports and Music"
   },
-  "note": "A1+ Unit 7 Lesson 7.13, built on 2026-11-20 under the A1+ lesson standards approved 2026-10-27 and the user's 2026-11-09 rule that every A1+ lesson follows up the A1 lesson with the same number. On 2026-11-20 the user asked to \"work on a1+ Unit 7 same all deal as before none stop all approved\": the A1+ Unit 7 map (A1+ 7.Y follows A1 7.Y, one step each, fifteen lessons) approved up front, straight to Preview, Gemini 2.5 Flash photos and ElevenLabs audio pre-approved, no per-lesson gates, reviewed in Preview. Two new photos (Gemini 2.5 Flash): Sofia hits a tennis ball with a strong swing, and Luis sits on a tennis court laughing among the balls he missed. A1 7.13's woman singing and three singers, and the cast's A1+ photos of Diego painting, Ana swimming and Diego running show what they are good at.",
+  "note": "A1+ Unit 7 Lesson 7.13, built on 2026-11-20 under the A1+ lesson standards approved 2026-10-27 and the user's 2026-11-09 rule that every A1+ lesson follows up the A1 lesson with the same number. On 2026-11-20 the user asked to \"work on a1+ Unit 7 same all deal as before none stop all approved\": the A1+ Unit 7 map (A1+ 7.Y follows A1 7.Y, one step each, fifteen lessons) approved up front, straight to Preview, Gemini 2.5 Flash photos and ElevenLabs audio pre-approved, no per-lesson gates, reviewed in Preview. Two new photos (Gemini 2.5 Flash): Sofia hits a tennis ball with a strong swing, and Luis sits on a tennis court laughing among the balls he missed. A1 7.13's woman singing and three singers, and the cast's A1+ photos of Diego painting, Ana swimming and Diego running show what they are good at. Revised on 2026-11-24: the review of A1+ Unit 7 reported that this lesson added a grammar step with little new vocabulary, and the user answered \"Yes, add words\". Two words are new: basketball (Luis makes a shot) and piano (Ana plays), on two new Gemini 2.5 Flash photos; they sit beside A1 7.13's tennis and singing.",
   "target": "backend/lessons/a1_plus/unit_7/a1plus-unit-7-lesson-7-13.yaml",
   "captions": false,
   "narrators": [
@@ -25,10 +25,12 @@
     "lesson_title": "Sofia is good at tennis",
     "sub_lesson_id": "7.13",
     "sub_lesson_title": "Sofia is good at tennis",
-    "goal": "Say what people are good at with be + good at (Sofia is good at tennis. / Luis isn't good at tennis.) and ask What are you good at?.",
+    "goal": "Say what people are good at with be + good at (Sofia is good at tennis. / Luis isn't good at tennis.), ask What are you good at?, and name two more: basketball and playing the piano.",
     "vocabulary": [
       "good at",
-      "What are you good at?"
+      "What are you good at?",
+      "basketball",
+      "piano"
     ],
     "review_vocabulary": [
       "I'm",
@@ -45,12 +47,14 @@
       "Sofia",
       "Luis",
       "Ana",
-      "Diego"
+      "Diego",
+      "playing",
+      "the"
     ],
-    "grammar_function": "A follow-up of A1 7.13 Sports and Music: A1 names sports and singing (Tennis is a sport. They sing.); A1+ 7.13 says who is good at them. The one new grammar relationship is be + good at + a sport or an -ing activity (Sofia is good at tennis. / They're good at singing.), with isn't/aren't for the opposite (A1+ 3.4) and the question What are you good at?. Two new photos show Sofia playing tennis well and Luis sitting on the court among missed balls; A1 7.13's singers and the cast's A1+ photos of painting, swimming and running come back.",
+    "grammar_function": "A follow-up of A1 7.13 Sports and Music: A1 names sports and singing (Tennis is a sport. They sing.); A1+ 7.13 says who is good at them. The one new grammar relationship is be + good at + a sport or an -ing activity (Sofia is good at tennis. / They're good at singing.), with isn't/aren't for the opposite (A1+ 3.4) and the question What are you good at?. Two new photos show Sofia playing tennis well and Luis sitting on the court among missed balls; A1 7.13's singers and the cast's A1+ photos of painting, swimming and running come back. Two words are new and stay inside the same frame: basketball, a sport like tennis (Luis is good at basketball.), and piano, with playing the (Ana is good at playing the piano.).",
     "prerequisite": "A1 7.13 tennis and sing; A1 7.6 paint; A1+ 3.4 isn't/aren't; A1+ 7.6 like + -ing; A1+ 1.3 swim and run.",
-    "speaking_outcome": "Join good at (GOOD-at) and stress the activity; say isn't good at with a clear t. Do not require native-like speed.",
-    "content_revision": 1,
+    "speaking_outcome": "Join good at (GOOD-at) and stress the activity; say isn't good at with a clear t; stress BAS-ket-ball on the first part and pi-A-no on the second. Do not require native-like speed.",
+    "content_revision": 2,
     "learn_context_groups": [
       {
         "kind": "sequence",
@@ -77,13 +81,39 @@
         ]
       },
       {
+        "kind": "sequence",
+        "targets": [
+          "basketball",
+          "good at"
+        ],
+        "models": [
+          {
+            "slide_id": "L3",
+            "text": "Luis is good at basketball."
+          }
+        ]
+      },
+      {
+        "kind": "sequence",
+        "targets": [
+          "piano",
+          "good at"
+        ],
+        "models": [
+          {
+            "slide_id": "L4",
+            "text": "Ana is good at playing the piano."
+          }
+        ]
+      },
+      {
         "kind": "exchange",
         "targets": [
           "What are you good at?"
         ],
         "models": [
           {
-            "slide_id": "L3",
+            "slide_id": "L5",
             "text": "What are you good at? I'm good at painting.",
             "turns": [
               "What are you good at?",
@@ -110,6 +140,26 @@
       "text": "Luis isn't good at tennis.",
       "es": "Luis no es bueno para el tenis.",
       "image": "/lesson-assets/a1plus-unit-7-g02-55cff6eb319a6406.webp",
+      "kind": "sequence",
+      "choices": false,
+      "use": false,
+      "speaker": "co-teacher"
+    },
+    {
+      "id": "l-basket",
+      "text": "Luis is good at basketball.",
+      "es": "Luis es bueno para el básquetbol.",
+      "image": "/lesson-assets/a1plus-unit-7-g03-dbc5dd0c878501aa.webp",
+      "kind": "sequence",
+      "choices": false,
+      "use": false,
+      "speaker": "teacher"
+    },
+    {
+      "id": "l-piano",
+      "text": "Ana is good at playing the piano.",
+      "es": "Ana es buena para tocar el piano.",
+      "image": "/lesson-assets/a1plus-unit-7-g04-fbcc60c1ea5379c8.webp",
       "kind": "sequence",
       "choices": false,
       "use": false,
@@ -238,7 +288,10 @@
       "prefer": [
         "Luis is good at tennis."
       ],
-      "learn": false
+      "learn": false,
+      "avoid": [
+        "Luis is good at basketball."
+      ]
     },
     {
       "id": "m-diego",
@@ -317,82 +370,6 @@
       "learn": false
     },
     {
-      "id": "m-sofia",
-      "text": "I'm good at tennis.",
-      "es": "Soy buena para el tenis.",
-      "image": "/lesson-assets/a1plus-unit-7-g01-1e49537028fd2d63.webp",
-      "kind": "me",
-      "speaker": "sofia",
-      "question": "What are you good at?",
-      "question_es": "¿Para qué eres bueno?",
-      "question_speaker": "co-teacher",
-      "image_choices": false,
-      "accepts": {
-        "subject-variety": "The question stays the same and the reply changes only the activity; the picture shows it.",
-        "action-variety": "The question stays the same and the reply changes only the activity; the picture shows it.",
-        "conversational-response": "The question stays the same and the reply changes only the activity; the picture shows it.",
-        "reading-load": "The question stays the same and the reply changes only the activity; the picture shows it."
-      },
-      "prefer": [
-        "I'm good at swimming."
-      ],
-      "blanks": [
-        "good",
-        "at"
-      ],
-      "listening_turns": [
-        {
-          "text": "What are you good at?",
-          "speaker": "co-teacher",
-          "image": "/lesson-assets/a1plus-unit-7-g01-1e49537028fd2d63.webp"
-        },
-        {
-          "text": "I'm good at tennis.",
-          "speaker": "sofia",
-          "image": "/lesson-assets/a1plus-unit-7-g01-1e49537028fd2d63.webp"
-        }
-      ],
-      "learn": false
-    },
-    {
-      "id": "m-run",
-      "text": "I'm good at running.",
-      "es": "Soy bueno para correr.",
-      "image": "/lesson-assets/a1plus-unit-1-s04-1055dd20fb2b0977.webp",
-      "kind": "me",
-      "speaker": "diego",
-      "question": "What are you good at?",
-      "question_es": "¿Para qué eres bueno?",
-      "question_speaker": "co-teacher",
-      "image_choices": false,
-      "accepts": {
-        "subject-variety": "The question stays the same and the reply changes only the activity; the picture shows it.",
-        "action-variety": "The question stays the same and the reply changes only the activity; the picture shows it.",
-        "conversational-response": "The question stays the same and the reply changes only the activity; the picture shows it.",
-        "reading-load": "The question stays the same and the reply changes only the activity; the picture shows it."
-      },
-      "prefer": [
-        "I'm good at tennis."
-      ],
-      "blanks": [
-        "good",
-        "at"
-      ],
-      "listening_turns": [
-        {
-          "text": "What are you good at?",
-          "speaker": "co-teacher",
-          "image": "/lesson-assets/a1plus-unit-1-s04-1055dd20fb2b0977.webp"
-        },
-        {
-          "text": "I'm good at running.",
-          "speaker": "diego",
-          "image": "/lesson-assets/a1plus-unit-1-s04-1055dd20fb2b0977.webp"
-        }
-      ],
-      "learn": false
-    },
-    {
       "id": "n-sofia",
       "text": "Sofia is good at tennis.",
       "es": "Sofía es buena para el tenis.",
@@ -432,7 +409,10 @@
         "at",
         "swimming"
       ],
-      "learn": false
+      "learn": false,
+      "avoid": [
+        "Ana is good at playing the piano."
+      ]
     },
     {
       "id": "n-diego",
@@ -452,27 +432,6 @@
       "blanks": [
         "at",
         "painting"
-      ],
-      "learn": false
-    },
-    {
-      "id": "n-run",
-      "text": "Diego is good at running.",
-      "es": "Diego es bueno para correr.",
-      "image": "/lesson-assets/a1plus-unit-1-s04-1055dd20fb2b0977.webp",
-      "kind": "name",
-      "accepts": {
-        "subject-variety": "The bank keeps good at and changes only the activity; the picture shows the person doing it.",
-        "action-variety": "The bank keeps good at and changes only the activity; the picture shows the person doing it.",
-        "conversational-response": "The bank keeps good at and changes only the activity; the picture shows the person doing it.",
-        "reading-load": "The bank keeps good at and changes only the activity; the picture shows the person doing it."
-      },
-      "prefer": [
-        "Diego is good at painting."
-      ],
-      "blanks": [
-        "at",
-        "running"
       ],
       "learn": false
     },
@@ -497,6 +456,153 @@
       "choices": false,
       "use": false,
       "learn": false
+    },
+    {
+      "id": "n-basket",
+      "text": "Luis is good at basketball.",
+      "es": "Luis es bueno para el básquetbol.",
+      "image": "/lesson-assets/a1plus-unit-7-g03-dbc5dd0c878501aa.webp",
+      "kind": "name",
+      "accepts": {
+        "subject-variety": "The bank keeps good at and changes only the activity; the picture shows the person doing it.",
+        "action-variety": "The bank keeps good at and changes only the activity; the picture shows the person doing it.",
+        "conversational-response": "The bank keeps good at and changes only the activity; the picture shows the person doing it.",
+        "reading-load": "The bank keeps good at and changes only the activity; the picture shows the person doing it."
+      },
+      "prefer": [
+        "Luis is good at tennis."
+      ],
+      "blanks": [
+        "at",
+        "basketball"
+      ],
+      "learn": false,
+      "four_card": false
+    },
+    {
+      "id": "m-basket",
+      "text": "I'm good at basketball.",
+      "es": "Soy bueno para el básquetbol.",
+      "image": "/lesson-assets/a1plus-unit-7-g03-dbc5dd0c878501aa.webp",
+      "kind": "me",
+      "speaker": "luis",
+      "question": "What are you good at?",
+      "question_es": "¿Para qué eres bueno?",
+      "question_speaker": "co-teacher",
+      "image_choices": false,
+      "accepts": {
+        "subject-variety": "The question stays the same and the reply changes only the activity; the picture shows it.",
+        "action-variety": "The question stays the same and the reply changes only the activity; the picture shows it.",
+        "conversational-response": "The question stays the same and the reply changes only the activity; the picture shows it.",
+        "reading-load": "The question stays the same and the reply changes only the activity; the picture shows it."
+      },
+      "prefer": [
+        "I'm good at tennis."
+      ],
+      "blanks": [
+        "good",
+        "at"
+      ],
+      "listening_turns": [
+        {
+          "text": "What are you good at?",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-7-g03-dbc5dd0c878501aa.webp"
+        },
+        {
+          "text": "I'm good at basketball.",
+          "speaker": "luis",
+          "image": "/lesson-assets/a1plus-unit-7-g03-dbc5dd0c878501aa.webp"
+        }
+      ],
+      "learn": false,
+      "four_card": false
+    },
+    {
+      "id": "n-piano",
+      "text": "Ana is good at playing the piano.",
+      "es": "Ana es buena para tocar el piano.",
+      "image": "/lesson-assets/a1plus-unit-7-g04-fbcc60c1ea5379c8.webp",
+      "kind": "name",
+      "accepts": {
+        "subject-variety": "The bank keeps good at and changes only the activity; the picture shows the person doing it.",
+        "action-variety": "The bank keeps good at and changes only the activity; the picture shows the person doing it.",
+        "conversational-response": "The bank keeps good at and changes only the activity; the picture shows the person doing it.",
+        "reading-load": "The bank keeps good at and changes only the activity; the picture shows the person doing it."
+      },
+      "prefer": [
+        "Ana is good at painting."
+      ],
+      "blanks": [
+        "the",
+        "piano"
+      ],
+      "learn": false,
+      "four_card": false,
+      "avoid": [
+        "Ana is good at swimming."
+      ]
+    },
+    {
+      "id": "m-piano",
+      "text": "I'm good at playing the piano.",
+      "es": "Soy buena para tocar el piano.",
+      "image": "/lesson-assets/a1plus-unit-7-g04-fbcc60c1ea5379c8.webp",
+      "kind": "me",
+      "speaker": "ana",
+      "question": "What are you good at?",
+      "question_es": "¿Para qué eres bueno?",
+      "question_speaker": "co-teacher",
+      "image_choices": false,
+      "accepts": {
+        "subject-variety": "The question stays the same and the reply changes only the activity; the picture shows it.",
+        "action-variety": "The question stays the same and the reply changes only the activity; the picture shows it.",
+        "conversational-response": "The question stays the same and the reply changes only the activity; the picture shows it.",
+        "reading-load": "The question stays the same and the reply changes only the activity; the picture shows it."
+      },
+      "prefer": [
+        "I'm good at painting."
+      ],
+      "blanks": [
+        "good",
+        "at"
+      ],
+      "listening_turns": [
+        {
+          "text": "What are you good at?",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-7-g04-fbcc60c1ea5379c8.webp"
+        },
+        {
+          "text": "I'm good at playing the piano.",
+          "speaker": "ana",
+          "image": "/lesson-assets/a1plus-unit-7-g04-fbcc60c1ea5379c8.webp"
+        }
+      ],
+      "learn": false,
+      "four_card": false
+    },
+    {
+      "id": "g-piano",
+      "text": "She's good at playing the piano.",
+      "es": "Es buena para tocar el piano.",
+      "image": "/lesson-assets/a1plus-unit-7-g04-fbcc60c1ea5379c8.webp",
+      "kind": "good",
+      "accepts": {
+        "subject-variety": "The bank keeps the person and the activity and changes only good at or isn't good at; the picture shows which.",
+        "action-variety": "The bank keeps the person and the activity and changes only good at or isn't good at; the picture shows which.",
+        "conversational-response": "The bank keeps the person and the activity and changes only good at or isn't good at; the picture shows which.",
+        "reading-load": "The bank keeps the person and the activity and changes only good at or isn't good at; the picture shows which."
+      },
+      "prefer": [
+        "She isn't good at playing the piano."
+      ],
+      "blanks": [
+        "playing",
+        "the"
+      ],
+      "learn": false,
+      "four_card": false
     }
   ],
   "pool": [
@@ -583,6 +689,69 @@
       "image": "/lesson-assets/a1plus-unit-1-s04-1055dd20fb2b0977.webp",
       "kind": "name",
       "image_choices": false
+    },
+    {
+      "text": "Luis is good at tennis.",
+      "es": "Luis es bueno para el tenis.",
+      "image": "/lesson-assets/a1plus-unit-7-g03-dbc5dd0c878501aa.webp",
+      "kind": "name",
+      "image_choices": false
+    },
+    {
+      "text": "Luis is good at swimming.",
+      "es": "Luis es bueno para nadar.",
+      "image": "/lesson-assets/a1plus-unit-7-g03-dbc5dd0c878501aa.webp",
+      "kind": "name",
+      "image_choices": false
+    },
+    {
+      "text": "I'm good at tennis.",
+      "es": "Soy bueno para el tenis.",
+      "image": "/lesson-assets/a1plus-unit-7-g03-dbc5dd0c878501aa.webp",
+      "kind": "me",
+      "image_choices": false
+    },
+    {
+      "text": "I'm good at painting.",
+      "es": "Soy bueno para pintar.",
+      "image": "/lesson-assets/a1plus-unit-7-g03-dbc5dd0c878501aa.webp",
+      "kind": "me",
+      "image_choices": false
+    },
+    {
+      "text": "Ana is good at painting.",
+      "es": "Ana es buena para pintar.",
+      "image": "/lesson-assets/a1plus-unit-7-g04-fbcc60c1ea5379c8.webp",
+      "kind": "name",
+      "image_choices": false
+    },
+    {
+      "text": "Ana is good at tennis.",
+      "es": "Ana es buena para el tenis.",
+      "image": "/lesson-assets/a1plus-unit-7-g04-fbcc60c1ea5379c8.webp",
+      "kind": "name",
+      "image_choices": false
+    },
+    {
+      "text": "I'm good at painting.",
+      "es": "Soy buena para pintar.",
+      "image": "/lesson-assets/a1plus-unit-7-g04-fbcc60c1ea5379c8.webp",
+      "kind": "me",
+      "image_choices": false
+    },
+    {
+      "text": "I'm good at running.",
+      "es": "Soy buena para correr.",
+      "image": "/lesson-assets/a1plus-unit-7-g04-fbcc60c1ea5379c8.webp",
+      "kind": "me",
+      "image_choices": false
+    },
+    {
+      "text": "She isn't good at playing the piano.",
+      "es": "No es buena para tocar el piano.",
+      "image": "/lesson-assets/a1plus-unit-7-g04-fbcc60c1ea5379c8.webp",
+      "kind": "good",
+      "image_choices": false
     }
   ],
   "layout": {
@@ -595,52 +764,54 @@
     "Learn": [
       "l-sofia",
       "l-luis",
+      "l-basket",
+      "l-piano",
       "l-diego"
     ],
     "Recognize": [
       "g-sofia",
-      "m-diego",
+      "n-basket",
       "g-luis",
+      "n-piano",
+      "m-diego",
+      "m-basket",
+      "g-piano",
       "n-ana",
-      "g-sings",
-      "m-run",
-      "n-sofia",
+      "m-piano",
       "g-choir",
-      "m-ana",
-      "n-diego",
       "n-luis"
     ],
     "Listen": [
       "g-luis",
-      "m-sofia",
-      "n-run",
+      "m-basket",
+      "n-piano",
       "g-sings",
       "m-ana",
-      "n-sofia",
-      "g-choir",
+      "n-basket",
+      "g-piano",
       "m-diego",
-      "g-sofia",
-      "n-luis"
+      "m-piano",
+      "n-sofia"
     ],
     "Speak": [
       "q-you",
-      "m-ana",
+      "m-basket",
       "q-you2",
-      "m-run",
+      "m-piano",
       "g-sofia",
-      "g-luis",
-      "n-luis",
-      "g-sings"
+      "n-basket",
+      "n-piano",
+      "n-luis"
     ],
     "Use": [
       "g-sofia",
-      "n-diego",
-      "m-diego",
-      "n-ana",
-      "g-sings",
+      "n-basket",
+      "m-basket",
+      "n-piano",
+      "g-piano",
       "q-you",
-      "n-sofia",
-      "g-choir"
+      "n-diego",
+      "m-diego"
     ]
   }
 }

@@ -1,0 +1,62 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "958fb65a-e455-47a6-acc8-1096f3a33d42",
+  "asset_id": "g04-ana-piano",
+  "pack_sha256": "97e991403047aaecfee3a14c9d389c36bf61600cb17a3d454a6b477940373672",
+  "started_at": "2026-11-25T02:11:59.039249+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, menus, screens, cups, clothes or bags.\n\nKeep the people and the thing that carries the meaning inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nOnly this one person is in the photo; there is nobody else, even far in the background.\n\nIt is clearly daytime with soft natural light.\n\nImage 1 shows Ana. She must be the SAME woman as in image 1: the same face, the same long dark wavy hair, the same light-olive skin and the same build. She wears her sage-green overshirt over a white top. Create a new photograph: in a bright living room Ana sits on a piano bench and PLAYS an upright wooden PIANO with great skill: both hands are on the black and white keys with her fingers spread and moving confidently, her back is straight, and she smiles calmly with her eyes on the keys, like an experienced pianist. She is seen from the side and a little from the front, so her face, both hands and the piano keys are all clearly visible in the central part of the photo. There are no sheets of paper or books on the piano.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1plus-unit-1-q02-c2b4398b65207eff.webp",
+    "sha256": "c2b4398b65207effa51e51260cc607c38ada48caea82f14eb872e4c9c8b5d0d5"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "8EMGa_e5BIbpz7IP677v8QQ",
+  "usage": {
+    "promptTokenCount": 633,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1923,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 375
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038890",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 633,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 10.8,
+  "output": "output/imagegen/a1plus-unit-7-lesson-v7201/g04-ana-piano.png",
+  "sha256": "5475b2cecb368e151b375833b6e383bbaf53af7f5395cea3c8e4efebc90411a1",
+  "byte_count": 1263567,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}

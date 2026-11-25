@@ -5,7 +5,7 @@
     "lesson": "7.3",
     "title": "My Clothes"
   },
-  "note": "A1+ Unit 7 Lesson 7.3, built on 2026-11-20 under the A1+ lesson standards approved 2026-10-27 and the user's 2026-11-09 rule that every A1+ lesson follows up the A1 lesson with the same number. On 2026-11-20 the user asked to \"work on a1+ Unit 7 same all deal as before none stop all approved\": the A1+ Unit 7 map (A1+ 7.Y follows A1 7.Y, one step each, fifteen lessons) approved up front, straight to Preview, Gemini 2.5 Flash photos and ElevenLabs audio pre-approved, no per-lesson gates, reviewed in Preview. Four new photos (Gemini 2.5 Flash), each of one cast member wearing one clear piece: Luis a black jacket, Sofia a blue dress, Ana a green skirt, Diego a red shirt. Every wrong option names a piece that person is not wearing. A1 7.4-7.5's photos give the red hat, the hat and shorts, the boots and the red scarf.",
+  "note": "A1+ Unit 7 Lesson 7.3, built on 2026-11-20 under the A1+ lesson standards approved 2026-10-27 and the user's 2026-11-09 rule that every A1+ lesson follows up the A1 lesson with the same number. On 2026-11-20 the user asked to \"work on a1+ Unit 7 same all deal as before none stop all approved\": the A1+ Unit 7 map (A1+ 7.Y follows A1 7.Y, one step each, fifteen lessons) approved up front, straight to Preview, Gemini 2.5 Flash photos and ElevenLabs audio pre-approved, no per-lesson gates, reviewed in Preview. Four new photos (Gemini 2.5 Flash), each of one cast member wearing one clear piece: Luis a black jacket, Sofia a blue dress, Ana a green skirt, Diego a red shirt. Every wrong option names a piece that person is not wearing. A1 7.4-7.5's photos give the red hat, the hat and shorts, the boots and the red scarf. Revised on 2026-11-24: the review of A1+ Unit 7 reported that this lesson added a grammar step with little new vocabulary, and the user answered \"Yes, add words\". Two clothes are new: T-shirt (Luis in a blue T-shirt) and jeans (Ana in jeans), on two new Gemini 2.5 Flash photos; A1 7.3's jacket, shirt, dress, skirt and hat stay in every stage.",
   "target": "backend/lessons/a1_plus/unit_7/a1plus-unit-7-lesson-7-3.yaml",
   "captions": false,
   "narrators": [
@@ -25,10 +25,12 @@
     "lesson_title": "She's wearing a blue dress",
     "sub_lesson_id": "7.3",
     "sub_lesson_title": "She's wearing a blue dress",
-    "goal": "Say what people are wearing now with am/is/are + wearing (Luis is wearing a black jacket.) and ask What are you wearing?.",
+    "goal": "Say what people are wearing now with am/is/are + wearing (Luis is wearing a black jacket.), ask What are you wearing?, and name two more clothes: a T-shirt and jeans.",
     "vocabulary": [
       "wearing",
-      "What are you wearing?"
+      "What are you wearing?",
+      "T-shirt",
+      "jeans"
     ],
     "review_vocabulary": [
       "I'm",
@@ -51,10 +53,10 @@
       "scarf",
       "what"
     ],
-    "grammar_function": "A follow-up of A1 7.3 My Clothes: A1 names clothes and their colors (My shirt is red.); A1+ 7.3 says what someone is wearing now. The one new grammar relationship is am/is/are + wearing + clothes (Luis is wearing a black jacket. / I'm wearing a red shirt.), with the question What are you wearing? / What is she wearing?. It uses A1+ 3.3's he's/she's + -ing. Four new photos dress the cast in one clear piece each, and A1's photos of a red hat, a hat and shorts, boots and a red scarf come back.",
+    "grammar_function": "A follow-up of A1 7.3 My Clothes: A1 names clothes and their colors (My shirt is red.); A1+ 7.3 says what someone is wearing now. The one new grammar relationship is am/is/are + wearing + clothes (Luis is wearing a black jacket. / I'm wearing a red shirt.), with the question What are you wearing? / What is she wearing?. It uses A1+ 3.3's he's/she's + -ing. Four new photos dress the cast in one clear piece each, and A1's photos of a red hat, a hat and shorts, boots and a red scarf come back. Two clothes are new and are taught inside the same frame: a T-shirt and jeans (Luis is wearing a blue T-shirt. / Ana is wearing jeans.); jeans takes no a, like boots and shorts.",
     "prerequisite": "A1 7.3 clothes and colors; A1 7.5 boots, scarf and shorts; A1+ 3.3 he's/she's + -ing.",
-    "speaking_outcome": "Say wearing as WAIR-ing with the stress on the first part, and join I'm wearing (aim-WAIR-ing). Do not require native-like speed.",
-    "content_revision": 1,
+    "speaking_outcome": "Say wearing as WAIR-ing with the stress on the first part, and join I'm wearing (aim-WAIR-ing); say T-shirt as TEE-shirt and jeans with a clear j (JEENZ). Do not require native-like speed.",
+    "content_revision": 2,
     "learn_context_groups": [
       {
         "kind": "sequence",
@@ -69,6 +71,32 @@
         ]
       },
       {
+        "kind": "sequence",
+        "targets": [
+          "T-shirt",
+          "wearing"
+        ],
+        "models": [
+          {
+            "slide_id": "L2",
+            "text": "Luis is wearing a blue T-shirt."
+          }
+        ]
+      },
+      {
+        "kind": "sequence",
+        "targets": [
+          "jeans",
+          "wearing"
+        ],
+        "models": [
+          {
+            "slide_id": "L3",
+            "text": "Ana is wearing jeans."
+          }
+        ]
+      },
+      {
         "kind": "exchange",
         "targets": [
           "What are you wearing?",
@@ -76,7 +104,7 @@
         ],
         "models": [
           {
-            "slide_id": "L2",
+            "slide_id": "L4",
             "text": "What are you wearing? I'm wearing a red shirt.",
             "turns": [
               "What are you wearing?",
@@ -92,7 +120,7 @@
         ],
         "models": [
           {
-            "slide_id": "L3",
+            "slide_id": "L5",
             "text": "What is she wearing? She's wearing a blue dress.",
             "turns": [
               "What is she wearing?",
@@ -109,6 +137,26 @@
       "text": "Luis is wearing a black jacket.",
       "es": "Luis lleva una chaqueta negra.",
       "image": "/lesson-assets/a1plus-unit-7-c01-c4ef3595dc05b81c.webp",
+      "kind": "sequence",
+      "choices": false,
+      "use": false,
+      "speaker": "teacher"
+    },
+    {
+      "id": "l-tshirt",
+      "text": "Luis is wearing a blue T-shirt.",
+      "es": "Luis lleva una camiseta azul.",
+      "image": "/lesson-assets/a1plus-unit-7-c05-01dd24a92fb6b0b3.webp",
+      "kind": "sequence",
+      "choices": false,
+      "use": false,
+      "speaker": "co-teacher"
+    },
+    {
+      "id": "l-jeans",
+      "text": "Ana is wearing jeans.",
+      "es": "Ana lleva jeans.",
+      "image": "/lesson-assets/a1plus-unit-7-c06-5bfd3d95b1070567.webp",
       "kind": "sequence",
       "choices": false,
       "use": false,
@@ -175,7 +223,11 @@
         "wearing",
         "a"
       ],
-      "learn": false
+      "learn": false,
+      "avoid": [
+        "Luis is wearing a blue T-shirt.",
+        "I'm wearing a blue T-shirt."
+      ]
     },
     {
       "id": "m-luis",
@@ -213,7 +265,11 @@
           "image": "/lesson-assets/a1plus-unit-7-c01-c4ef3595dc05b81c.webp"
         }
       ],
-      "learn": false
+      "learn": false,
+      "avoid": [
+        "Luis is wearing a blue T-shirt.",
+        "I'm wearing a blue T-shirt."
+      ]
     },
     {
       "id": "n-sofia",
@@ -539,6 +595,131 @@
         "What are you wearing? I'm wearing a blue dress."
       ],
       "learn": false
+    },
+    {
+      "id": "n-tshirt",
+      "text": "Luis is wearing a blue T-shirt.",
+      "es": "Luis lleva una camiseta azul.",
+      "image": "/lesson-assets/a1plus-unit-7-c05-01dd24a92fb6b0b3.webp",
+      "kind": "name",
+      "accepts": {
+        "subject-variety": "The bank keeps the person and changes only the clothes; the picture shows what they are wearing.",
+        "action-variety": "The bank keeps the person and changes only the clothes; the picture shows what they are wearing.",
+        "conversational-response": "The bank keeps the person and changes only the clothes; the picture shows what they are wearing.",
+        "reading-load": "The bank keeps the person and changes only the clothes; the picture shows what they are wearing."
+      },
+      "prefer": [
+        "Luis is wearing a black jacket."
+      ],
+      "blanks": [
+        "wearing",
+        "a"
+      ],
+      "learn": false
+    },
+    {
+      "id": "m-tshirt",
+      "text": "I'm wearing a blue T-shirt.",
+      "es": "Llevo una camiseta azul.",
+      "image": "/lesson-assets/a1plus-unit-7-c05-01dd24a92fb6b0b3.webp",
+      "kind": "me",
+      "speaker": "luis",
+      "question": "What are you wearing?",
+      "question_es": "¿Qué llevas puesto?",
+      "question_speaker": "co-teacher",
+      "image_choices": false,
+      "accepts": {
+        "subject-variety": "The bank keeps the person and changes only the clothes; the picture shows what they are wearing.",
+        "action-variety": "The bank keeps the person and changes only the clothes; the picture shows what they are wearing.",
+        "conversational-response": "The bank keeps the person and changes only the clothes; the picture shows what they are wearing.",
+        "reading-load": "The bank keeps the person and changes only the clothes; the picture shows what they are wearing."
+      },
+      "prefer": [
+        "I'm wearing a black jacket."
+      ],
+      "blanks": [
+        "I'm",
+        "wearing"
+      ],
+      "listening_turns": [
+        {
+          "text": "What are you wearing?",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-7-c05-01dd24a92fb6b0b3.webp"
+        },
+        {
+          "text": "I'm wearing a blue T-shirt.",
+          "speaker": "luis",
+          "image": "/lesson-assets/a1plus-unit-7-c05-01dd24a92fb6b0b3.webp"
+        }
+      ],
+      "learn": false
+    },
+    {
+      "id": "n-jeans",
+      "text": "Ana is wearing jeans.",
+      "es": "Ana lleva jeans.",
+      "image": "/lesson-assets/a1plus-unit-7-c06-5bfd3d95b1070567.webp",
+      "kind": "name",
+      "accepts": {
+        "subject-variety": "The bank keeps the person and changes only the clothes; the picture shows what they are wearing.",
+        "action-variety": "The bank keeps the person and changes only the clothes; the picture shows what they are wearing.",
+        "conversational-response": "The bank keeps the person and changes only the clothes; the picture shows what they are wearing.",
+        "reading-load": "The bank keeps the person and changes only the clothes; the picture shows what they are wearing."
+      },
+      "prefer": [
+        "Ana is wearing a green skirt."
+      ],
+      "blanks": [
+        "wearing",
+        "jeans"
+      ],
+      "learn": false,
+      "avoid": [
+        "Luis is wearing a blue T-shirt."
+      ]
+    },
+    {
+      "id": "m-jeans",
+      "text": "I'm wearing jeans.",
+      "es": "Llevo jeans.",
+      "image": "/lesson-assets/a1plus-unit-7-c06-5bfd3d95b1070567.webp",
+      "kind": "me",
+      "speaker": "ana",
+      "question": "What are you wearing?",
+      "question_es": "¿Qué llevas puesto?",
+      "question_speaker": "co-teacher",
+      "image_choices": false,
+      "accepts": {
+        "subject-variety": "The bank keeps the person and changes only the clothes; the picture shows what they are wearing.",
+        "action-variety": "The bank keeps the person and changes only the clothes; the picture shows what they are wearing.",
+        "conversational-response": "The bank keeps the person and changes only the clothes; the picture shows what they are wearing.",
+        "reading-load": "The bank keeps the person and changes only the clothes; the picture shows what they are wearing."
+      },
+      "prefer": [
+        "I'm wearing a green skirt.",
+        "I'm wearing a blue dress."
+      ],
+      "blanks": [
+        "I'm",
+        "wearing"
+      ],
+      "listening_turns": [
+        {
+          "text": "What are you wearing?",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-7-c06-5bfd3d95b1070567.webp"
+        },
+        {
+          "text": "I'm wearing jeans.",
+          "speaker": "ana",
+          "image": "/lesson-assets/a1plus-unit-7-c06-5bfd3d95b1070567.webp"
+        }
+      ],
+      "learn": false,
+      "avoid": [
+        "I'm wearing a blue T-shirt."
+      ]
     }
   ],
   "pool": [
@@ -632,6 +813,62 @@
       "image": "/lesson-assets/a1plus-unit-7-c03-421b31f2ad607969.webp",
       "kind": "exch",
       "image_choices": false
+    },
+    {
+      "text": "Luis is wearing a black jacket.",
+      "es": "Luis lleva una chaqueta negra.",
+      "image": "/lesson-assets/a1plus-unit-7-c05-01dd24a92fb6b0b3.webp",
+      "kind": "name",
+      "image_choices": false
+    },
+    {
+      "text": "Luis is wearing a red shirt.",
+      "es": "Luis lleva una camisa roja.",
+      "image": "/lesson-assets/a1plus-unit-7-c05-01dd24a92fb6b0b3.webp",
+      "kind": "name",
+      "image_choices": false
+    },
+    {
+      "text": "I'm wearing a black jacket.",
+      "es": "Llevo una chaqueta negra.",
+      "image": "/lesson-assets/a1plus-unit-7-c05-01dd24a92fb6b0b3.webp",
+      "kind": "me",
+      "image_choices": false
+    },
+    {
+      "text": "I'm wearing a red shirt.",
+      "es": "Llevo una camisa roja.",
+      "image": "/lesson-assets/a1plus-unit-7-c05-01dd24a92fb6b0b3.webp",
+      "kind": "me",
+      "image_choices": false
+    },
+    {
+      "text": "Ana is wearing a green skirt.",
+      "es": "Ana lleva una falda verde.",
+      "image": "/lesson-assets/a1plus-unit-7-c06-5bfd3d95b1070567.webp",
+      "kind": "name",
+      "image_choices": false
+    },
+    {
+      "text": "Ana is wearing shorts.",
+      "es": "Ana lleva shorts.",
+      "image": "/lesson-assets/a1plus-unit-7-c06-5bfd3d95b1070567.webp",
+      "kind": "name",
+      "image_choices": false
+    },
+    {
+      "text": "I'm wearing a green skirt.",
+      "es": "Llevo una falda verde.",
+      "image": "/lesson-assets/a1plus-unit-7-c06-5bfd3d95b1070567.webp",
+      "kind": "me",
+      "image_choices": false
+    },
+    {
+      "text": "I'm wearing shorts.",
+      "es": "Llevo shorts.",
+      "image": "/lesson-assets/a1plus-unit-7-c06-5bfd3d95b1070567.webp",
+      "kind": "me",
+      "image_choices": false
     }
   ],
   "layout": {
@@ -643,53 +880,55 @@
   "stage_sequences": {
     "Learn": [
       "l-luis",
+      "l-tshirt",
+      "l-jeans",
       "l-diego",
       "l-sofia"
     ],
     "Recognize": [
-      "n-luis",
+      "n-tshirt",
       "m-diego",
-      "o-hat",
+      "n-jeans",
       "n-sofia",
-      "m-ana",
+      "m-tshirt",
       "o-shorts",
-      "n-ana",
+      "m-jeans",
       "m-luis",
       "o-boots",
-      "n-diego",
-      "o-scarf"
+      "n-ana",
+      "o-hat"
     ],
     "Listen": [
       "m-sofia",
-      "n-luis",
+      "n-tshirt",
       "x-ana",
-      "o-scarf",
+      "n-jeans",
       "n-diego",
-      "m-luis",
-      "o-boots",
-      "n-sofia",
+      "m-jeans",
+      "o-scarf",
+      "m-tshirt",
       "m-ana",
-      "o-hat"
+      "n-luis"
     ],
     "Speak": [
       "q-you",
-      "m-ana",
+      "m-jeans",
       "q-she",
       "n-sofia",
       "q-he",
-      "n-luis",
-      "o-hat",
-      "m-diego"
+      "n-tshirt",
+      "n-jeans",
+      "m-tshirt"
     ],
     "Use": [
-      "n-luis",
-      "m-diego",
+      "n-tshirt",
+      "n-jeans",
+      "m-tshirt",
+      "m-jeans",
       "n-sofia",
-      "m-ana",
-      "o-hat",
       "q-you",
       "o-boots",
-      "o-scarf"
+      "n-luis"
     ]
   }
 }
