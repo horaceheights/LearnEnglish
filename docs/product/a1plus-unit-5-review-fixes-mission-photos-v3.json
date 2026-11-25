@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "pack": "a1plus-unit-5-review-fixes-mission-photos",
+  "revision": 3,
+  "output_namespace": "a1plus-unit-5-lesson-v598",
+  "authorization": "2026-11-23: after reviewing A1+ Unit 5 the user asked to \"review unit A1+ 5 make sure the images make sense to the ask ... introducing new vocabulary and expanding\", said \"image redo and audio approved\" and chose \"Photos and new words\". Gemini is the approved image tool (2026-09-23), Flash only (2026-11-17).",
+  "image_settings": {
+    "provider": "google-gemini",
+    "model": "gemini-2.5-flash-image",
+    "aspect_ratio": "3:2",
+    "image_size": "1K",
+    "runtime_size": "1536x1024",
+    "runtime_format": "webp",
+    "n": 1
+  },
+  "production": {
+    "price_per_image_usd": "0.0387",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing (checked 2026-11-16: Gemini 2.5 Flash Image, about $0.039 per image)",
+    "planned_images": 1,
+    "expected_cost_usd": "0.04",
+    "requested_ceiling_usd": "0.25",
+    "ceiling_note": "The renderer reserves US$0.20 before each request; each request is sent on its own, and the expected spend for the pack is about US$0.04.",
+    "no_automatic_retries": true,
+    "order": [
+      "w38-table"
+    ]
+  },
+  "shared_prompts": {
+    "photo": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, menus, screens, cups, clothes or bags.",
+    "safe_center": "Keep the people and the thing that carries the meaning inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.",
+    "solo": "Only this one person is in the photo; there is nobody else, even far in the background.",
+    "pair": "Only these two people are in the photo; there is nobody else, even far in the background.",
+    "daytime": "It is clearly daytime with soft natural light.",
+    "kitchen": "The place is a bright, tidy home kitchen with a light wooden table, white walls and a big window; nothing else is on the table.",
+    "still": "No people, hands or animals are in the photo. The food sits in the middle of the table and fills the central part of the photo, sharp and easy to count or judge on a small phone screen.",
+    "few": "Exactly three pieces are visible, clearly separate, not touching, with plenty of empty space around them so the small amount is obvious at once.",
+    "lots": "There are so many that they cannot be counted at a glance: a big generous heap.",
+    "keep": "Keep each pictured person's face, hair, skin, build and clothes exactly as in the reference image; they look natural and relaxed, not posing for the camera.",
+    "numeral": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. No letters, words, logos or brand marks anywhere. The only writing in the photo is each price card described: a small white card on a little stand with a dollar sign and a number in big, thick black print, upright, facing the camera, sharp and easy to read on a small phone screen. No other signs, labels, screens or clothes show any digit or letter.",
+    "phototext": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No logos or brand marks anywhere.",
+    "big": "The thing that carries the meaning is BIG in the photo: it fills at least a third of the photo height and is sharp, so it is recognized at once in a thumbnail 180 pixels wide.",
+    "stall": "The place is an outdoor fruit market by day, at a wooden stall; the background is softly blurred. No seller is in the photo.",
+    "cafe": "The place is a bright, simple neighborhood café with light wooden tables, a few plants and big windows; the tables behind are empty.",
+    "card": "The price is printed in very big black digits on a big white card that stands right in front of the thing; the card is about a quarter of the photo height, and its digits are easy to read in a small thumbnail. No other text is in the photo.",
+    "stranger": "The people are ordinary adults who appear nowhere else; nobody resembles a celebrity."
+  },
+  "assets": [
+    {
+      "id": "w38-table",
+      "order": 1,
+      "item": "It's the fork. It's the knife. It's the spoon. It's the butter.",
+      "shared": [
+        "photo",
+        "daytime",
+        "big"
+      ],
+      "prompt": "Seen from above: four things in a row, far apart, on a long light wooden table, each big and easy to tell from the others. From left to right: one shiny metal fork; one shiny metal table knife; one shiny metal soup spoon; one flat white plate with a big uncovered rectangular block of pale yellow butter on it, with no lid and no cover anywhere. Each thing is about a third of the photo height. No people, no text."
+    }
+  ]
+}

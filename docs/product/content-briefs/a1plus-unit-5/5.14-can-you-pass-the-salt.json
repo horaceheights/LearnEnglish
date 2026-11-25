@@ -5,7 +5,7 @@
     "lesson": "5.14",
     "title": "At the Table"
   },
-  "note": "A1+ Unit 5 Lesson 5.14, built on 2026-11-20 under the A1+ lesson standards approved 2026-10-27 and the user's 2026-11-09 rule that every A1+ lesson follows up the A1 lesson with the same number. The user asked on 2026-11-20 to \"work on a1+ Unit 5 same all deal as before none stop all approved\": A1+ 5.Y follows A1 5.Y with one step each, straight to Preview in batches, Gemini 2.5 Flash photos and ElevenLabs audio pre-approved, no per-lesson gates, reviewed in Preview. Four table photos: Ana passes Luis the salt, Sofia passes Diego the sugar, Diego passes Ana the water, Luis passes Sofia the bread; a piece of chocolate cake by the rest of the cake, and Sofia offering Diego a piece.",
+  "note": "A1+ Unit 5 Lesson 5.14, built on 2026-11-20 under the A1+ lesson standards approved 2026-10-27 and the user's 2026-11-09 rule that every A1+ lesson follows up the A1 lesson with the same number. The user asked on 2026-11-20 to \"work on a1+ Unit 5 same all deal as before none stop all approved\": A1+ 5.Y follows A1 5.Y with one step each, straight to Preview in batches, Gemini 2.5 Flash photos and ElevenLabs audio pre-approved, no per-lesson gates, reviewed in Preview. Seven table photos, each with the thing held up big between the two people: salt, sugar, bread, butter, a fork, a spoon and a knife; a piece of chocolate cake by the rest of the cake, and Sofia offering Diego a piece.",
   "target": "backend/lessons/a1_plus/unit_5/a1plus-unit-5-lesson-5-14.yaml",
   "captions": false,
   "narrators": [
@@ -28,12 +28,15 @@
     "goal": "Ask someone at the table to pass something (Can you pass the salt, please? Here you are.) and ask for or offer a piece of cake.",
     "vocabulary": [
       "Can you pass",
-      "a piece of"
+      "a piece of",
+      "fork",
+      "knife",
+      "spoon"
     ],
     "review_vocabulary": [
       "the salt",
       "the sugar",
-      "the water",
+      "the butter",
       "the bread",
       "please",
       "Here you are.",
@@ -44,7 +47,7 @@
       "No, thank you.",
       "It's"
     ],
-    "grammar_function": "A follow-up of A1 5.14 At the Table: A1 names things at the table (salt, sugar, cup, glass, bottle, plate, cake) and says what a cup or a glass holds (a cup of tea); A1+ 5.14 asks for something at the table with Can you pass the …, please?, a request answered by A1 5.9's Here you are., and adds a piece of for part of a cake, next to 5.3's Would you like …? and 5.9's I'd like …. Can is a request here, not ability. In each photo one cast member hands a thing across the table to the one who asks; the asker's voice always differs from the giver's.",
+    "grammar_function": "A follow-up of A1 5.14 At the Table: A1 names things at the table (salt, sugar, cup, glass, bottle, plate, cake) and says what a cup or a glass holds (a cup of tea); A1+ 5.14 asks for something at the table with Can you pass the …, please?, a request answered by A1 5.9's Here you are., and adds a piece of for part of a cake, next to 5.3's Would you like …? and 5.9's I'd like …. Can is a request here, not ability. In each photo one cast member hands a thing across the table to the one who asks; the asker's voice always differs from the giver's. On 2026-11-23 fork, knife and spoon were added, each named on its own photo and then asked for at the table, and 5.2's butter comes back.",
     "prerequisite": "A1 5.14 salt, sugar, cake, of; A1 5.9 Here you are.; A1 5.2-5.3 bread, water; A1+ 5.3 Would you like …?; A1+ 5.9 I'd like ….",
     "speaking_outcome": "Join Can you pass as one group (kn-you-PASS) and say a piece of with of short (a-PEE-suv); do not require native-like speed.",
     "content_revision": 1,
@@ -108,6 +111,42 @@
             ]
           }
         ]
+      },
+      {
+        "kind": "sequence",
+        "targets": [
+          "fork"
+        ],
+        "models": [
+          {
+            "slide_id": "L5",
+            "text": "It's a fork."
+          }
+        ]
+      },
+      {
+        "kind": "sequence",
+        "targets": [
+          "knife"
+        ],
+        "models": [
+          {
+            "slide_id": "L6",
+            "text": "It's a knife."
+          }
+        ]
+      },
+      {
+        "kind": "sequence",
+        "targets": [
+          "spoon"
+        ],
+        "models": [
+          {
+            "slide_id": "L7",
+            "text": "It's a spoon."
+          }
+        ]
       }
     ]
   },
@@ -116,7 +155,7 @@
       "id": "l-pass",
       "text": "Can you pass the salt, please? Here you are.",
       "es": "¿Me pasas la sal, por favor? Aquí tienes.",
-      "image": "/lesson-assets/a1plus-unit-5-t01-4bb8feca0ac9f466.webp",
+      "image": "/lesson-assets/a1plus-unit-5-t21-66f116d498cda74b.webp",
       "kind": "exchange",
       "choices": false,
       "use": false,
@@ -125,12 +164,12 @@
         {
           "text": "Can you pass the salt, please?",
           "speaker": "luis",
-          "image": "/lesson-assets/a1plus-unit-5-t01-4bb8feca0ac9f466.webp"
+          "image": "/lesson-assets/a1plus-unit-5-t21-66f116d498cda74b.webp"
         },
         {
           "text": "Here you are.",
           "speaker": "ana",
-          "image": "/lesson-assets/a1plus-unit-5-t01-4bb8feca0ac9f466.webp"
+          "image": "/lesson-assets/a1plus-unit-5-t21-66f116d498cda74b.webp"
         }
       ]
     },
@@ -149,7 +188,7 @@
       "id": "l-pass-sugar",
       "text": "Can you pass the sugar, please? Here you are.",
       "es": "¿Me pasas el azúcar, por favor? Aquí tienes.",
-      "image": "/lesson-assets/a1plus-unit-5-t02-4d2861af4c2398ca.webp",
+      "image": "/lesson-assets/a1plus-unit-5-t22-9dc79af8a03313d7.webp",
       "kind": "exchange",
       "choices": false,
       "use": false,
@@ -158,12 +197,12 @@
         {
           "text": "Can you pass the sugar, please?",
           "speaker": "diego",
-          "image": "/lesson-assets/a1plus-unit-5-t02-4d2861af4c2398ca.webp"
+          "image": "/lesson-assets/a1plus-unit-5-t22-9dc79af8a03313d7.webp"
         },
         {
           "text": "Here you are.",
           "speaker": "sofia",
-          "image": "/lesson-assets/a1plus-unit-5-t02-4d2861af4c2398ca.webp"
+          "image": "/lesson-assets/a1plus-unit-5-t22-9dc79af8a03313d7.webp"
         }
       ]
     },
@@ -190,16 +229,49 @@
       ]
     },
     {
+      "id": "l-fork",
+      "text": "It's a fork.",
+      "es": "Es un tenedor.",
+      "image": "/lesson-assets/a1plus-unit-5-u01-0b1c79ca176bb05a.webp",
+      "kind": "sequence",
+      "choices": false,
+      "use": false,
+      "learn": true,
+      "speaker": "teacher"
+    },
+    {
+      "id": "l-knife",
+      "text": "It's a knife.",
+      "es": "Es un cuchillo.",
+      "image": "/lesson-assets/a1plus-unit-5-u02-d1cd7b4ca217ee7d.webp",
+      "kind": "sequence",
+      "choices": false,
+      "use": false,
+      "learn": true,
+      "speaker": "co-teacher"
+    },
+    {
+      "id": "l-spoon",
+      "text": "It's a spoon.",
+      "es": "Es una cuchara.",
+      "image": "/lesson-assets/a1plus-unit-5-u03-c9681cb7b1dcf208.webp",
+      "kind": "sequence",
+      "choices": false,
+      "use": false,
+      "learn": true,
+      "speaker": "teacher"
+    },
+    {
       "id": "p-salt",
       "text": "Can you pass the salt, please?",
       "es": "¿Me pasas la sal, por favor?",
-      "image": "/lesson-assets/a1plus-unit-5-t01-4bb8feca0ac9f466.webp",
+      "image": "/lesson-assets/a1plus-unit-5-t21-66f116d498cda74b.webp",
       "kind": "request",
       "speaker": "luis",
       "four_card": false,
       "prefer": [
         "Can you pass the sugar, please?",
-        "Can you pass the water, please?"
+        "Can you pass the bread, please?"
       ],
       "accepts": {
         "subject-variety": "Listen: the answer is what was heard.",
@@ -217,18 +289,18 @@
       "id": "x-salt",
       "text": "Can you pass the salt, please? Here you are.",
       "es": "¿Me pasas la sal, por favor? Aquí tienes.",
-      "image": "/lesson-assets/a1plus-unit-5-t01-4bb8feca0ac9f466.webp",
+      "image": "/lesson-assets/a1plus-unit-5-t21-66f116d498cda74b.webp",
       "kind": "exchange",
       "turns": [
         {
           "text": "Can you pass the salt, please?",
           "speaker": "luis",
-          "image": "/lesson-assets/a1plus-unit-5-t01-4bb8feca0ac9f466.webp"
+          "image": "/lesson-assets/a1plus-unit-5-t21-66f116d498cda74b.webp"
         },
         {
           "text": "Here you are.",
           "speaker": "ana",
-          "image": "/lesson-assets/a1plus-unit-5-t01-4bb8feca0ac9f466.webp"
+          "image": "/lesson-assets/a1plus-unit-5-t21-66f116d498cda74b.webp"
         }
       ],
       "choices": false,
@@ -239,13 +311,13 @@
       "id": "p-sugar",
       "text": "Can you pass the sugar, please?",
       "es": "¿Me pasas el azúcar, por favor?",
-      "image": "/lesson-assets/a1plus-unit-5-t02-4d2861af4c2398ca.webp",
+      "image": "/lesson-assets/a1plus-unit-5-t22-9dc79af8a03313d7.webp",
       "kind": "request",
       "speaker": "diego",
       "four_card": false,
       "prefer": [
         "Can you pass the salt, please?",
-        "Can you pass the water, please?"
+        "Can you pass the bread, please?"
       ],
       "accepts": {
         "subject-variety": "Listen: the answer is what was heard.",
@@ -263,64 +335,18 @@
       "id": "x-sugar",
       "text": "Can you pass the sugar, please? Here you are.",
       "es": "¿Me pasas el azúcar, por favor? Aquí tienes.",
-      "image": "/lesson-assets/a1plus-unit-5-t02-4d2861af4c2398ca.webp",
+      "image": "/lesson-assets/a1plus-unit-5-t22-9dc79af8a03313d7.webp",
       "kind": "exchange",
       "turns": [
         {
           "text": "Can you pass the sugar, please?",
           "speaker": "diego",
-          "image": "/lesson-assets/a1plus-unit-5-t02-4d2861af4c2398ca.webp"
+          "image": "/lesson-assets/a1plus-unit-5-t22-9dc79af8a03313d7.webp"
         },
         {
           "text": "Here you are.",
           "speaker": "sofia",
-          "image": "/lesson-assets/a1plus-unit-5-t02-4d2861af4c2398ca.webp"
-        }
-      ],
-      "choices": false,
-      "use": false,
-      "learn": false
-    },
-    {
-      "id": "p-water",
-      "text": "Can you pass the water, please?",
-      "es": "¿Me pasas el agua, por favor?",
-      "image": "/lesson-assets/a1plus-unit-5-t03-5d4be7219eae356d.webp",
-      "kind": "request",
-      "speaker": "ana",
-      "four_card": false,
-      "prefer": [
-        "Can you pass the salt, please?",
-        "Can you pass the sugar, please?"
-      ],
-      "accepts": {
-        "subject-variety": "Listen: the answer is what was heard.",
-        "action-variety": "Listen: the answer is what was heard.",
-        "conversational-response": "Listen: the answer is what was heard.",
-        "reading-load": "Listen: the answer is what was heard."
-      },
-      "blanks": [
-        "pass",
-        "the"
-      ],
-      "learn": false
-    },
-    {
-      "id": "x-water",
-      "text": "Can you pass the water, please? Here you are.",
-      "es": "¿Me pasas el agua, por favor? Aquí tienes.",
-      "image": "/lesson-assets/a1plus-unit-5-t03-5d4be7219eae356d.webp",
-      "kind": "exchange",
-      "turns": [
-        {
-          "text": "Can you pass the water, please?",
-          "speaker": "ana",
-          "image": "/lesson-assets/a1plus-unit-5-t03-5d4be7219eae356d.webp"
-        },
-        {
-          "text": "Here you are.",
-          "speaker": "diego",
-          "image": "/lesson-assets/a1plus-unit-5-t03-5d4be7219eae356d.webp"
+          "image": "/lesson-assets/a1plus-unit-5-t22-9dc79af8a03313d7.webp"
         }
       ],
       "choices": false,
@@ -331,7 +357,7 @@
       "id": "p-bread",
       "text": "Can you pass the bread, please?",
       "es": "¿Me pasas el pan, por favor?",
-      "image": "/lesson-assets/a1plus-unit-5-t07-af8cd41d82ddbdca.webp",
+      "image": "/lesson-assets/a1plus-unit-5-t27-197d63c05d5e4cd3.webp",
       "kind": "request",
       "speaker": "sofia",
       "four_card": false,
@@ -355,18 +381,202 @@
       "id": "x-bread",
       "text": "Can you pass the bread, please? Here you are.",
       "es": "¿Me pasas el pan, por favor? Aquí tienes.",
-      "image": "/lesson-assets/a1plus-unit-5-t07-af8cd41d82ddbdca.webp",
+      "image": "/lesson-assets/a1plus-unit-5-t27-197d63c05d5e4cd3.webp",
       "kind": "exchange",
       "turns": [
         {
           "text": "Can you pass the bread, please?",
           "speaker": "sofia",
-          "image": "/lesson-assets/a1plus-unit-5-t07-af8cd41d82ddbdca.webp"
+          "image": "/lesson-assets/a1plus-unit-5-t27-197d63c05d5e4cd3.webp"
         },
         {
           "text": "Here you are.",
           "speaker": "luis",
-          "image": "/lesson-assets/a1plus-unit-5-t07-af8cd41d82ddbdca.webp"
+          "image": "/lesson-assets/a1plus-unit-5-t27-197d63c05d5e4cd3.webp"
+        }
+      ],
+      "choices": false,
+      "use": false,
+      "learn": false
+    },
+    {
+      "id": "p-butter",
+      "text": "Can you pass the butter, please?",
+      "es": "¿Me pasas la mantequilla, por favor?",
+      "image": "/lesson-assets/a1plus-unit-5-t29-c59fb63f71aff339.webp",
+      "kind": "request",
+      "speaker": "ana",
+      "four_card": false,
+      "prefer": [
+        "Can you pass the salt, please?",
+        "Can you pass the sugar, please?"
+      ],
+      "accepts": {
+        "subject-variety": "Listen: the answer is what was heard.",
+        "action-variety": "Listen: the answer is what was heard.",
+        "conversational-response": "Listen: the answer is what was heard.",
+        "reading-load": "Listen: the answer is what was heard."
+      },
+      "blanks": [
+        "butter",
+        "please"
+      ],
+      "learn": false
+    },
+    {
+      "id": "x-butter",
+      "text": "Can you pass the butter, please? Here you are.",
+      "es": "¿Me pasas la mantequilla, por favor? Aquí tienes.",
+      "image": "/lesson-assets/a1plus-unit-5-t29-c59fb63f71aff339.webp",
+      "kind": "exchange",
+      "turns": [
+        {
+          "text": "Can you pass the butter, please?",
+          "speaker": "ana",
+          "image": "/lesson-assets/a1plus-unit-5-t29-c59fb63f71aff339.webp"
+        },
+        {
+          "text": "Here you are.",
+          "speaker": "diego",
+          "image": "/lesson-assets/a1plus-unit-5-t29-c59fb63f71aff339.webp"
+        }
+      ],
+      "choices": false,
+      "use": false,
+      "learn": false
+    },
+    {
+      "id": "p-fork",
+      "text": "Can you pass a fork, please?",
+      "es": "¿Me pasas un tenedor, por favor?",
+      "image": "/lesson-assets/a1plus-unit-5-u05-33efb6c63f8d8b6c.webp",
+      "kind": "request",
+      "speaker": "ana",
+      "four_card": false,
+      "prefer": [
+        "Can you pass the salt, please?",
+        "Can you pass the sugar, please?"
+      ],
+      "accepts": {
+        "subject-variety": "Listen: the answer is what was heard.",
+        "action-variety": "Listen: the answer is what was heard.",
+        "conversational-response": "Listen: the answer is what was heard.",
+        "reading-load": "Listen: the answer is what was heard."
+      },
+      "blanks": [
+        "fork",
+        "please"
+      ],
+      "learn": false
+    },
+    {
+      "id": "x-fork",
+      "text": "Can you pass a fork, please? Here you are.",
+      "es": "¿Me pasas un tenedor, por favor? Aquí tienes.",
+      "image": "/lesson-assets/a1plus-unit-5-u05-33efb6c63f8d8b6c.webp",
+      "kind": "exchange",
+      "turns": [
+        {
+          "text": "Can you pass a fork, please?",
+          "speaker": "ana",
+          "image": "/lesson-assets/a1plus-unit-5-u05-33efb6c63f8d8b6c.webp"
+        },
+        {
+          "text": "Here you are.",
+          "speaker": "luis",
+          "image": "/lesson-assets/a1plus-unit-5-u05-33efb6c63f8d8b6c.webp"
+        }
+      ],
+      "choices": false,
+      "use": false,
+      "learn": false
+    },
+    {
+      "id": "p-spoon",
+      "text": "Can you pass a spoon, please?",
+      "es": "¿Me pasas una cuchara, por favor?",
+      "image": "/lesson-assets/a1plus-unit-5-u06-b03afd8e0524ea00.webp",
+      "kind": "request",
+      "speaker": "diego",
+      "four_card": false,
+      "prefer": [
+        "Can you pass the salt, please?",
+        "Can you pass the sugar, please?"
+      ],
+      "accepts": {
+        "subject-variety": "Listen: the answer is what was heard.",
+        "action-variety": "Listen: the answer is what was heard.",
+        "conversational-response": "Listen: the answer is what was heard.",
+        "reading-load": "Listen: the answer is what was heard."
+      },
+      "blanks": [
+        "spoon",
+        "please"
+      ],
+      "learn": false
+    },
+    {
+      "id": "x-spoon",
+      "text": "Can you pass a spoon, please? Here you are.",
+      "es": "¿Me pasas una cuchara, por favor? Aquí tienes.",
+      "image": "/lesson-assets/a1plus-unit-5-u06-b03afd8e0524ea00.webp",
+      "kind": "exchange",
+      "turns": [
+        {
+          "text": "Can you pass a spoon, please?",
+          "speaker": "diego",
+          "image": "/lesson-assets/a1plus-unit-5-u06-b03afd8e0524ea00.webp"
+        },
+        {
+          "text": "Here you are.",
+          "speaker": "sofia",
+          "image": "/lesson-assets/a1plus-unit-5-u06-b03afd8e0524ea00.webp"
+        }
+      ],
+      "choices": false,
+      "use": false,
+      "learn": false
+    },
+    {
+      "id": "p-knife",
+      "text": "Can you pass a knife, please?",
+      "es": "¿Me pasas un cuchillo, por favor?",
+      "image": "/lesson-assets/a1plus-unit-5-u07-4bbdef9c7b4ecdab.webp",
+      "kind": "request",
+      "speaker": "luis",
+      "four_card": false,
+      "prefer": [
+        "Can you pass the salt, please?",
+        "Can you pass the sugar, please?"
+      ],
+      "accepts": {
+        "subject-variety": "Listen: the answer is what was heard.",
+        "action-variety": "Listen: the answer is what was heard.",
+        "conversational-response": "Listen: the answer is what was heard.",
+        "reading-load": "Listen: the answer is what was heard."
+      },
+      "blanks": [
+        "knife",
+        "please"
+      ],
+      "learn": false
+    },
+    {
+      "id": "x-knife",
+      "text": "Can you pass a knife, please? Here you are.",
+      "es": "¿Me pasas un cuchillo, por favor? Aquí tienes.",
+      "image": "/lesson-assets/a1plus-unit-5-u07-4bbdef9c7b4ecdab.webp",
+      "kind": "exchange",
+      "turns": [
+        {
+          "text": "Can you pass a knife, please?",
+          "speaker": "luis",
+          "image": "/lesson-assets/a1plus-unit-5-u07-4bbdef9c7b4ecdab.webp"
+        },
+        {
+          "text": "Here you are.",
+          "speaker": "ana",
+          "image": "/lesson-assets/a1plus-unit-5-u07-4bbdef9c7b4ecdab.webp"
         }
       ],
       "choices": false,
@@ -462,7 +672,7 @@
       "id": "u-ana",
       "text": "Can you pass the salt, Ana?",
       "es": "¿Me pasas la sal, Ana?",
-      "image": "/lesson-assets/a1plus-unit-5-t01-4bb8feca0ac9f466.webp",
+      "image": "/lesson-assets/a1plus-unit-5-t21-66f116d498cda74b.webp",
       "kind": "say",
       "speaker": "luis",
       "choices": false,
@@ -488,14 +698,14 @@
     {
       "text": "Can you pass the milk, please?",
       "es": "¿Me pasas la leche, por favor?",
-      "image": "/lesson-assets/a1plus-unit-5-t01-4bb8feca0ac9f466.webp",
+      "image": "/lesson-assets/a1plus-unit-5-t21-66f116d498cda74b.webp",
       "kind": "request",
       "image_choices": false
     },
     {
       "text": "It's a cup of tea.",
       "es": "Es una taza de té.",
-      "image": "/lesson-assets/a1plus-unit-5-o01-2b72061f1a90e239.webp",
+      "image": "/lesson-assets/a1plus-unit-5-o21-40bf6d4ce15f5a44.webp",
       "kind": "cake",
       "image_choices": false
     },
@@ -517,7 +727,7 @@
   "layout": {
     "Recognize": 10,
     "Listen": 10,
-    "Speak": 8,
+    "Speak": 7,
     "Use": 8
   },
   "stage_sequences": {
@@ -525,51 +735,53 @@
       "l-pass",
       "l-piece",
       "l-pass-sugar",
-      "l-piece-offer"
+      "l-piece-offer",
+      "l-fork",
+      "l-knife",
+      "l-spoon"
     ],
     "Recognize": [
       "p-salt",
       "c-piece",
-      "p-water",
+      "p-fork",
       "r-yes",
-      "p-sugar",
-      "c-piece",
-      "p-bread",
-      "c-piece",
-      "p-water",
-      "r-yes"
+      "p-knife",
+      "p-spoon",
+      "p-butter",
+      "p-spoon",
+      "p-fork",
+      "p-knife"
     ],
     "Listen": [
       "p-sugar",
       "c-piece",
-      "p-bread",
+      "p-spoon",
       "r-yes",
-      "p-salt",
-      "c-piece",
-      "p-water",
-      "p-sugar",
-      "r-yes",
-      "p-bread"
+      "p-fork",
+      "p-knife",
+      "p-butter",
+      "p-spoon",
+      "p-knife",
+      "p-fork"
     ],
     "Speak": [
       "x-salt",
-      "p-sugar",
-      "p-water",
-      "p-bread",
+      "p-fork",
+      "p-knife",
+      "p-spoon",
       "o-piece",
       "i-piece",
-      "h-here",
-      "c-whole"
+      "p-butter"
     ],
     "Use": [
-      "p-salt",
-      "p-sugar",
-      "p-water",
       "p-bread",
+      "p-fork",
+      "p-knife",
+      "p-spoon",
       "c-piece",
       "o-piece",
       "i-piece",
-      "u-ana"
+      "p-butter"
     ]
   }
 }

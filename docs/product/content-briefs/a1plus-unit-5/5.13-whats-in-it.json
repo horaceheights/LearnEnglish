@@ -5,7 +5,7 @@
     "lesson": "5.13",
     "title": "More Food"
   },
-  "note": "A1+ Unit 5 Lesson 5.13, built on 2026-11-20 under the A1+ lesson standards approved 2026-10-27 and the user's 2026-11-09 rule that every A1+ lesson follows up the A1 lesson with the same number. The user asked on 2026-11-20 to \"work on a1+ Unit 5 same all deal as before none stop all approved\": A1+ 5.Y follows A1 5.Y with one step each, straight to Preview in batches, Gemini 2.5 Flash photos and ElevenLabs audio pre-approved, no per-lesson gates, reviewed in Preview. Four dishes on a kitchen table seen so their insides show: a sandwich with cheese and tomato, a sandwich with chicken, a salad with egg and tomato, a soup with meat and potato; Ana lifts the bread of her sandwich to look inside.",
+  "note": "A1+ Unit 5 Lesson 5.13, built on 2026-11-20 under the A1+ lesson standards approved 2026-10-27 and the user's 2026-11-09 rule that every A1+ lesson follows up the A1 lesson with the same number. The user asked on 2026-11-20 to \"work on a1+ Unit 5 same all deal as before none stop all approved\": A1+ 5.Y follows A1 5.Y with one step each, straight to Preview in batches, Gemini 2.5 Flash photos and ElevenLabs audio pre-approved, no per-lesson gates, reviewed in Preview. Five dishes on a kitchen table seen so their insides show: a sandwich with cheese and tomato, a sandwich with mushroom and cheese, a soup with onion and carrot, a bowl of carrot and egg, a soup with meat and potato; Ana lifts the bread of her sandwich to look inside.",
   "target": "backend/lessons/a1_plus/unit_5/a1plus-unit-5-lesson-5-13.yaml",
   "captions": false,
   "narrators": [
@@ -28,7 +28,10 @@
     "goal": "Ask what is in a dish (What's in it? / What's in the soup?) and say what it holds (There's cheese and tomato in it.).",
     "vocabulary": [
       "What's in it?",
-      "in it"
+      "in it",
+      "onion",
+      "carrot",
+      "mushroom"
     ],
     "review_vocabulary": [
       "What's",
@@ -46,7 +49,7 @@
       "and",
       "I like"
     ],
-    "grammar_function": "A follow-up of A1 5.13 More Food: A1 names more foods (meat, cheese, vegetables, potato, tomato, salad, soup, sandwich) and says what you like and want; A1+ 5.13 asks what is inside a dish with What's in it? / What's in the …? and answers with A1+ 4.4's There's … in it, it standing for the dish (A1+ 4.11's it). Each photo shows one dish opened or from above so everything in it can be seen; every answer names all of it, so it fits one photo only. A1+ 4.15's any comes back in There isn't any chicken in it., told apart by ear.",
+    "grammar_function": "A follow-up of A1 5.13 More Food: A1 names more foods (meat, cheese, vegetables, potato, tomato, salad, soup, sandwich) and says what you like and want; A1+ 5.13 asks what is inside a dish with What's in it? / What's in the …? and answers with A1+ 4.4's There's … in it, it standing for the dish (A1+ 4.11's it). Each photo shows one dish opened or from above so everything in it can be seen; every answer names all of it, so it fits one photo only. A1+ 4.15's any comes back in There isn't any chicken in it., told apart by ear. On 2026-11-23 three new foods were added, onion, carrot and mushroom, each named on its own photo and then found inside a dish.",
     "prerequisite": "A1 5.13 sandwich, salad, soup, cheese, tomato, meat, potato; A1 5.2 chicken, egg; A1+ 4.4 There's; A1+ 4.11 it; A1+ 4.15 any.",
     "speaking_outcome": "Join What's in it as one group (WHAT-sin-it) and keep in it short and joined (IN-it); do not require native-like speed.",
     "content_revision": 1,
@@ -88,6 +91,42 @@
           {
             "slide_id": "L3",
             "text": "There's meat and potato in it."
+          }
+        ]
+      },
+      {
+        "kind": "sequence",
+        "targets": [
+          "onion"
+        ],
+        "models": [
+          {
+            "slide_id": "L4",
+            "text": "It's an onion."
+          }
+        ]
+      },
+      {
+        "kind": "sequence",
+        "targets": [
+          "carrot"
+        ],
+        "models": [
+          {
+            "slide_id": "L5",
+            "text": "It's a carrot."
+          }
+        ]
+      },
+      {
+        "kind": "sequence",
+        "targets": [
+          "mushroom"
+        ],
+        "models": [
+          {
+            "slide_id": "L6",
+            "text": "It's a mushroom."
           }
         ]
       }
@@ -139,6 +178,39 @@
       "speaker": "teacher"
     },
     {
+      "id": "l-onion",
+      "text": "It's an onion.",
+      "es": "Es una cebolla.",
+      "image": "/lesson-assets/a1plus-unit-5-f09-8246931376486986.webp",
+      "kind": "sequence",
+      "choices": false,
+      "use": false,
+      "learn": true,
+      "speaker": "co-teacher"
+    },
+    {
+      "id": "l-carrot",
+      "text": "It's a carrot.",
+      "es": "Es una zanahoria.",
+      "image": "/lesson-assets/a1plus-unit-5-f10-f6d8606863d3dd51.webp",
+      "kind": "sequence",
+      "choices": false,
+      "use": false,
+      "learn": true,
+      "speaker": "teacher"
+    },
+    {
+      "id": "l-mushroom",
+      "text": "It's a mushroom.",
+      "es": "Es un champiñón.",
+      "image": "/lesson-assets/a1plus-unit-5-f11-3971cfb05797c561.webp",
+      "kind": "sequence",
+      "choices": false,
+      "use": false,
+      "learn": true,
+      "speaker": "co-teacher"
+    },
+    {
       "id": "a-cheese",
       "text": "There's cheese and tomato in it.",
       "es": "Tiene queso y tomate.",
@@ -149,8 +221,8 @@
       "question_es": "¿Qué tiene?",
       "question_speaker": "teacher",
       "prefer": [
-        "There's chicken in it.",
-        "There's egg and tomato in it."
+        "There's onion and carrot in it.",
+        "There's mushroom and cheese in it."
       ],
       "accepts": {
         "subject-variety": "Listen: the answer is what was heard.",
@@ -187,10 +259,10 @@
       "learn": false
     },
     {
-      "id": "a-chicken",
-      "text": "There's chicken in it.",
-      "es": "Tiene pollo.",
-      "image": "/lesson-assets/a1plus-unit-5-f02-c4a197197647c0ac.webp",
+      "id": "a-onion",
+      "text": "There's onion and carrot in it.",
+      "es": "Tiene cebolla y zanahoria.",
+      "image": "/lesson-assets/a1plus-unit-5-f06-2758a47a736edff1.webp",
       "kind": "inside",
       "speaker": "teacher",
       "question": "What's in it?",
@@ -198,55 +270,7 @@
       "question_speaker": "co-teacher",
       "prefer": [
         "There's cheese and tomato in it.",
-        "There's egg and tomato in it."
-      ],
-      "accepts": {
-        "subject-variety": "Listen: the answer is what was heard.",
-        "action-variety": "Listen: the answer is what was heard.",
-        "conversational-response": "Listen: the answer is what was heard.",
-        "reading-load": "Listen: the answer is what was heard."
-      },
-      "blanks": [
-        "chicken",
-        "in"
-      ],
-      "learn": false
-    },
-    {
-      "id": "x-chicken",
-      "text": "What's in it? There's chicken in it.",
-      "es": "¿Qué tiene? Tiene pollo.",
-      "image": "/lesson-assets/a1plus-unit-5-f02-c4a197197647c0ac.webp",
-      "kind": "exchange",
-      "turns": [
-        {
-          "text": "What's in it?",
-          "speaker": "co-teacher",
-          "image": "/lesson-assets/a1plus-unit-5-f02-c4a197197647c0ac.webp"
-        },
-        {
-          "text": "There's chicken in it.",
-          "speaker": "teacher",
-          "image": "/lesson-assets/a1plus-unit-5-f02-c4a197197647c0ac.webp"
-        }
-      ],
-      "choices": false,
-      "use": false,
-      "learn": false
-    },
-    {
-      "id": "a-salad",
-      "text": "There's egg and tomato in it.",
-      "es": "Tiene huevo y tomate.",
-      "image": "/lesson-assets/a1plus-unit-5-f03-5db91a8223869cd1.webp",
-      "kind": "inside",
-      "speaker": "co-teacher",
-      "question": "What's in it?",
-      "question_es": "¿Qué tiene?",
-      "question_speaker": "teacher",
-      "prefer": [
-        "There's cheese and tomato in it.",
-        "There's chicken in it."
+        "There's mushroom and cheese in it."
       ],
       "accepts": {
         "subject-variety": "Listen: the answer is what was heard.",
@@ -256,26 +280,122 @@
       },
       "blanks": [
         "There's",
-        "egg"
+        "onion"
       ],
       "learn": false
     },
     {
-      "id": "x-salad",
-      "text": "What's in it? There's egg and tomato in it.",
-      "es": "¿Qué tiene? Tiene huevo y tomate.",
-      "image": "/lesson-assets/a1plus-unit-5-f03-5db91a8223869cd1.webp",
+      "id": "x-onion",
+      "text": "What's in it? There's onion and carrot in it.",
+      "es": "¿Qué tiene? Tiene cebolla y zanahoria.",
+      "image": "/lesson-assets/a1plus-unit-5-f06-2758a47a736edff1.webp",
+      "kind": "exchange",
+      "turns": [
+        {
+          "text": "What's in it?",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-5-f06-2758a47a736edff1.webp"
+        },
+        {
+          "text": "There's onion and carrot in it.",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-5-f06-2758a47a736edff1.webp"
+        }
+      ],
+      "choices": false,
+      "use": false,
+      "learn": false
+    },
+    {
+      "id": "a-mushroom",
+      "text": "There's mushroom and cheese in it.",
+      "es": "Tiene champiñón y queso.",
+      "image": "/lesson-assets/a1plus-unit-5-f07-d6f14ab07421310b.webp",
+      "kind": "inside",
+      "speaker": "co-teacher",
+      "question": "What's in it?",
+      "question_es": "¿Qué tiene?",
+      "question_speaker": "teacher",
+      "prefer": [
+        "There's cheese and tomato in it.",
+        "There's onion and carrot in it."
+      ],
+      "accepts": {
+        "subject-variety": "Listen: the answer is what was heard.",
+        "action-variety": "Listen: the answer is what was heard.",
+        "conversational-response": "Listen: the answer is what was heard.",
+        "reading-load": "Listen: the answer is what was heard."
+      },
+      "blanks": [
+        "There's",
+        "mushroom"
+      ],
+      "learn": false
+    },
+    {
+      "id": "x-mushroom",
+      "text": "What's in it? There's mushroom and cheese in it.",
+      "es": "¿Qué tiene? Tiene champiñón y queso.",
+      "image": "/lesson-assets/a1plus-unit-5-f07-d6f14ab07421310b.webp",
       "kind": "exchange",
       "turns": [
         {
           "text": "What's in it?",
           "speaker": "teacher",
-          "image": "/lesson-assets/a1plus-unit-5-f03-5db91a8223869cd1.webp"
+          "image": "/lesson-assets/a1plus-unit-5-f07-d6f14ab07421310b.webp"
         },
         {
-          "text": "There's egg and tomato in it.",
+          "text": "There's mushroom and cheese in it.",
           "speaker": "co-teacher",
-          "image": "/lesson-assets/a1plus-unit-5-f03-5db91a8223869cd1.webp"
+          "image": "/lesson-assets/a1plus-unit-5-f07-d6f14ab07421310b.webp"
+        }
+      ],
+      "choices": false,
+      "use": false,
+      "learn": false
+    },
+    {
+      "id": "a-carrot",
+      "text": "There's carrot and egg in it.",
+      "es": "Tiene zanahoria y huevo.",
+      "image": "/lesson-assets/a1plus-unit-5-f08-e62fcb4b91c97ae7.webp",
+      "kind": "inside",
+      "speaker": "teacher",
+      "question": "What's in it?",
+      "question_es": "¿Qué tiene?",
+      "question_speaker": "co-teacher",
+      "prefer": [
+        "There's cheese and tomato in it.",
+        "There's onion and carrot in it."
+      ],
+      "accepts": {
+        "subject-variety": "Listen: the answer is what was heard.",
+        "action-variety": "Listen: the answer is what was heard.",
+        "conversational-response": "Listen: the answer is what was heard.",
+        "reading-load": "Listen: the answer is what was heard."
+      },
+      "blanks": [
+        "There's",
+        "carrot"
+      ],
+      "learn": false
+    },
+    {
+      "id": "x-carrot",
+      "text": "What's in it? There's carrot and egg in it.",
+      "es": "¿Qué tiene? Tiene zanahoria y huevo.",
+      "image": "/lesson-assets/a1plus-unit-5-f08-e62fcb4b91c97ae7.webp",
+      "kind": "exchange",
+      "turns": [
+        {
+          "text": "What's in it?",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-5-f08-e62fcb4b91c97ae7.webp"
+        },
+        {
+          "text": "There's carrot and egg in it.",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-5-f08-e62fcb4b91c97ae7.webp"
         }
       ],
       "choices": false,
@@ -288,13 +408,13 @@
       "es": "Tiene carne y papa.",
       "image": "/lesson-assets/a1plus-unit-5-f04-1b046a823426ef6f.webp",
       "kind": "inside",
-      "speaker": "teacher",
+      "speaker": "co-teacher",
       "question": "What's in it?",
       "question_es": "¿Qué tiene?",
-      "question_speaker": "co-teacher",
+      "question_speaker": "teacher",
       "prefer": [
         "There's cheese and tomato in it.",
-        "There's chicken in it."
+        "There's onion and carrot in it."
       ],
       "accepts": {
         "subject-variety": "Listen: the answer is what was heard.",
@@ -317,12 +437,12 @@
       "turns": [
         {
           "text": "What's in it?",
-          "speaker": "co-teacher",
+          "speaker": "teacher",
           "image": "/lesson-assets/a1plus-unit-5-f04-1b046a823426ef6f.webp"
         },
         {
           "text": "There's meat and potato in it.",
-          "speaker": "teacher",
+          "speaker": "co-teacher",
           "image": "/lesson-assets/a1plus-unit-5-f04-1b046a823426ef6f.webp"
         }
       ],
@@ -406,7 +526,7 @@
       "id": "u-salad",
       "text": "What's in the salad?",
       "es": "¿Qué tiene la ensalada?",
-      "image": "/lesson-assets/a1plus-unit-5-f03-5db91a8223869cd1.webp",
+      "image": "/lesson-assets/a1plus-unit-5-f08-e62fcb4b91c97ae7.webp",
       "kind": "ask",
       "speaker": "diego",
       "choices": false,
@@ -420,7 +540,7 @@
       "id": "u-sand",
       "text": "What's in the sandwich?",
       "es": "¿Qué tiene el sándwich?",
-      "image": "/lesson-assets/a1plus-unit-5-f02-c4a197197647c0ac.webp",
+      "image": "/lesson-assets/a1plus-unit-5-f07-d6f14ab07421310b.webp",
       "kind": "ask",
       "speaker": "ana",
       "choices": false,
@@ -474,13 +594,13 @@
     {
       "text": "What's in the salad?",
       "es": "¿Qué tiene la ensalada?",
-      "image": "/lesson-assets/a1plus-unit-5-f03-5db91a8223869cd1.webp",
+      "image": "/lesson-assets/a1plus-unit-5-f08-e62fcb4b91c97ae7.webp",
       "kind": "ask-q",
       "image_choices": false
     }
   ],
   "layout": {
-    "Recognize": 11,
+    "Recognize": 10,
     "Listen": 10,
     "Speak": 8,
     "Use": 8
@@ -489,51 +609,53 @@
     "Learn": [
       "l-what",
       "l-in-it",
-      "l-in-soup"
+      "l-in-soup",
+      "l-onion",
+      "l-carrot",
+      "l-mushroom"
     ],
     "Recognize": [
+      "a-onion",
+      "a-mushroom",
+      "a-carrot",
       "a-cheese",
       "a-soup",
-      "a-chicken",
-      "a-salad",
-      "a-soup",
+      "a-onion",
+      "a-mushroom",
+      "a-carrot",
       "a-cheese",
-      "a-salad",
-      "a-chicken",
-      "a-cheese",
-      "a-soup",
-      "a-salad"
+      "a-onion"
     ],
     "Listen": [
-      "a-chicken",
-      "a-salad",
+      "a-mushroom",
+      "a-carrot",
       "n-soup",
-      "a-cheese",
+      "a-onion",
       "a-soup",
       "q-it",
-      "a-chicken",
+      "a-mushroom",
       "a-cheese",
-      "a-soup",
-      "a-chicken"
+      "a-onion",
+      "a-carrot"
     ],
     "Speak": [
       "q-ana",
       "x-cheese",
-      "a-salad",
-      "a-chicken",
+      "a-onion",
+      "a-mushroom",
       "u-soup",
-      "u-like",
+      "a-carrot",
       "a-soup",
       "u-sand"
     ],
     "Use": [
       "a-cheese",
       "u-soup",
-      "a-salad",
+      "a-onion",
       "u-it",
-      "a-chicken",
+      "a-mushroom",
       "a-soup",
-      "u-sand",
+      "a-carrot",
       "n-soup"
     ]
   }

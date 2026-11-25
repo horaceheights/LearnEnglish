@@ -1,0 +1,55 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "6ad2a1ad-03dd-4848-9c47-87cdb4ebc62b",
+  "asset_id": "w13-cafe-wants",
+  "pack_sha256": "31bfc2881e16d14ada802851e1fbca7a58b2ccd9af88efdfc9c0db57abb43c10",
+  "started_at": "2026-11-24T03:11:03.986951+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, menus, screens, cups, clothes or bags.\n\nIt is clearly daytime with soft natural light.\n\nThe people are ordinary adults who appear nowhere else; nobody resembles a celebrity.\n\nThe place is a bright, simple neighborhood café with light wooden tables, a few plants and big windows; the tables behind are empty.\n\nA wide photo of a café with four customers standing far apart in a row at a long glass counter, each in front of one thing, none of them eating or drinking yet, each with empty hands. From left to right: a man in a checked shirt points at a big sandwich on a plate behind the glass; a woman in sports clothes points at a bottle of water in a small fridge; a small boy in a blue hoodie presses both hands on the glass in front of a big chocolate cake; a woman in a red coat points at a big mug of hot chocolate with whipped cream on the counter. Each person and their thing are clearly separate from the others, with empty space between the four groups. No other people.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "RwAFa8qCDM2cz7IP7O6X4Ag",
+  "usage": {
+    "promptTokenCount": 332,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1622,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 332
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038800",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 332,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 6.48,
+  "output": "output/imagegen/a1plus-unit-5-lesson-v594/w13-cafe-wants.png",
+  "sha256": "c8236c34c7d23dd0566e9d44adfb264d62f408bcb5a0cef0f9bd46f325a0da06",
+  "byte_count": 1550558,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}
