@@ -5,7 +5,7 @@
     "lesson": "7.11",
     "title": "Outdoors"
   },
-  "note": "A1+ Unit 7 Lesson 7.11, built on 2026-11-20 under the A1+ lesson standards approved 2026-10-27 and the user's 2026-11-09 rule that every A1+ lesson follows up the A1 lesson with the same number. On 2026-11-20 the user asked to \"work on a1+ Unit 7 same all deal as before none stop all approved\": the A1+ Unit 7 map (A1+ 7.Y follows A1 7.Y, one step each, fifteen lessons) approved up front, straight to Preview, Gemini 2.5 Flash photos and ElevenLabs audio pre-approved, no per-lesson gates, reviewed in Preview. Three new photos (Gemini 2.5 Flash): Sofia, Ana and Luis against a wall from shortest to tallest, Diego with a big black, a medium brown and a tiny white dog, and a big green, a medium white and a small red house. Every wrong option is false of its photo; the other true sentences about the same photo are never offered as wrong.",
+  "note": "A1+ Unit 7 Lesson 7.11, built on 2026-11-20 under the A1+ lesson standards approved 2026-10-27 and the user's 2026-11-09 rule that every A1+ lesson follows up the A1 lesson with the same number. On 2026-11-20 the user asked to \"work on a1+ Unit 7 same all deal as before none stop all approved\": the A1+ Unit 7 map (A1+ 7.Y follows A1 7.Y, one step each, fifteen lessons) approved up front, straight to Preview, Gemini 2.5 Flash photos and ElevenLabs audio pre-approved, no per-lesson gates, reviewed in Preview. Revised on 2026-11-24 after the user's review request (\"make sure the images make sense to the ask and its a true follow up of each of A1 unit 7 lessons\"; \"image redo and audio approved\"): the first build compared dogs and houses and used none of A1 7.11's outdoor words. Three photos (Gemini 2.5 Flash): Sofia, Ana and Luis against a wall from shortest to tallest (remade), a big yellow, a medium red and a small white flower in three pots, and a tall green, a medium yellow and a short red tree in a field. Every wrong option is false of its photo; the other true sentences about the same photo are never offered as wrong.",
   "target": "backend/lessons/a1_plus/unit_7/a1plus-unit-7-lesson-7-11.yaml",
   "captions": false,
   "narrators": [
@@ -25,7 +25,7 @@
     "lesson_title": "Luis is the tallest",
     "sub_lesson_id": "7.11",
     "sub_lesson_title": "Luis is the tallest",
-    "goal": "Compare three people or things with the + -est (Luis is the tallest. / The red house is the smallest.) and ask Which … is the biggest?.",
+    "goal": "Compare three people or things with the + -est (Luis is the tallest. / The white flower is the smallest.) and ask Which … is the biggest?.",
     "vocabulary": [
       "the tallest",
       "the shortest",
@@ -38,13 +38,12 @@
       "Sofia",
       "Ana",
       "the",
-      "black",
-      "brown",
+      "yellow",
       "white",
       "green",
       "red",
-      "dog",
-      "house",
+      "flower",
+      "tree",
       "taller",
       "shorter",
       "bigger",
@@ -52,15 +51,12 @@
       "than",
       "which",
       "who",
-      "one",
-      "bag",
-      "Luis's",
-      "Sofia's"
+      "one"
     ],
-    "grammar_function": "A follow-up of A1 7.11 Outdoors, where A1 names the things around us; A1+ 7.11 compares three of them. The one new grammar relationship is the + adjective + -est for the top of three (Luis is the tallest. / The black dog is the biggest.), set against A1+ 2.11's -er than for two (Luis is taller than Sofia.); big doubles its g (bigger, biggest). Three new photos line up three of a kind: Sofia, Ana and Luis by height, Diego's three dogs and three houses on a street; A1+ 2.10's The red one. answers Which …?.",
-    "prerequisite": "A1+ 2.10 Which one? The red one.; A1+ 2.11 -er than; A1 2.11 big and small; A1 1.10 dog; A1 4.15 house.",
+    "grammar_function": "A follow-up of A1 7.11 Outdoors: A1 names the things outdoors (This is a tree. This is a flower.); A1+ 7.11 compares three of them. The one new grammar relationship is the + adjective + -est for the top of three (Luis is the tallest. / The yellow flower is the biggest.), set against A1+ 2.11's -er than for two (Ana is taller than Sofia.); big doubles its g (bigger, biggest). Three photos line up three of a kind: Sofia, Ana and Luis by height, three flowers by size and three trees by height, so A1 7.11's flower and tree come back in every stage; A1+ 2.10's The yellow one. answers Which …?.",
+    "prerequisite": "A1 7.11 tree and flower; A1+ 2.10 Which one? The red one.; A1+ 2.11 -er than; A1 2.11 big and small; A1 2.7 colors.",
     "speaking_outcome": "Say the -est ending clearly (TALL-ist, BIG-ist, SMALL-ist) and stress the adjective. Do not require native-like speed.",
-    "content_revision": 1,
+    "content_revision": 2,
     "learn_context_groups": [
       {
         "kind": "sequence",
@@ -94,10 +90,10 @@
         "models": [
           {
             "slide_id": "L3",
-            "text": "Which dog is the biggest? The black one.",
+            "text": "Which flower is the biggest? The yellow one.",
             "turns": [
-              "Which dog is the biggest?",
-              "The black one."
+              "Which flower is the biggest?",
+              "The yellow one."
             ]
           }
         ]
@@ -110,7 +106,7 @@
         "models": [
           {
             "slide_id": "L4",
-            "text": "The red house is the smallest."
+            "text": "The white flower is the smallest."
           }
         ]
       }
@@ -121,7 +117,7 @@
       "id": "l-luis",
       "text": "Luis is the tallest.",
       "es": "Luis es el más alto.",
-      "image": "/lesson-assets/a1plus-unit-7-t01-e62120839fd28156.webp",
+      "image": "/lesson-assets/a1plus-unit-7-t01-b205da1df581b6a2.webp",
       "kind": "sequence",
       "choices": false,
       "use": false,
@@ -131,38 +127,38 @@
       "id": "l-sofia",
       "text": "Sofia is the shortest.",
       "es": "Sofía es la más baja.",
-      "image": "/lesson-assets/a1plus-unit-7-t01-e62120839fd28156.webp",
+      "image": "/lesson-assets/a1plus-unit-7-t01-b205da1df581b6a2.webp",
       "kind": "sequence",
       "choices": false,
       "use": false,
       "speaker": "co-teacher"
     },
     {
-      "id": "l-dog",
-      "text": "Which dog is the biggest? The black one.",
-      "es": "¿Cuál perro es el más grande? El negro.",
-      "image": "/lesson-assets/a1plus-unit-7-t02-8b1f4e126aaea441.webp",
+      "id": "l-flower",
+      "text": "Which flower is the biggest? The yellow one.",
+      "es": "¿Cuál flor es la más grande? La amarilla.",
+      "image": "/lesson-assets/a1plus-unit-7-t04-5c9b3290da50bba4.webp",
       "kind": "exchange",
       "choices": false,
       "use": false,
       "turns": [
         {
-          "text": "Which dog is the biggest?",
+          "text": "Which flower is the biggest?",
           "speaker": "co-teacher",
-          "image": "/lesson-assets/a1plus-unit-7-t02-8b1f4e126aaea441.webp"
+          "image": "/lesson-assets/a1plus-unit-7-t04-5c9b3290da50bba4.webp"
         },
         {
-          "text": "The black one.",
-          "speaker": "diego",
-          "image": "/lesson-assets/a1plus-unit-7-t02-8b1f4e126aaea441.webp"
+          "text": "The yellow one.",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-7-t04-5c9b3290da50bba4.webp"
         }
       ]
     },
     {
-      "id": "l-house",
-      "text": "The red house is the smallest.",
-      "es": "La casa roja es la más pequeña.",
-      "image": "/lesson-assets/a1plus-unit-7-t03-aa07ecfe4a270c19.webp",
+      "id": "l-white",
+      "text": "The white flower is the smallest.",
+      "es": "La flor blanca es la más pequeña.",
+      "image": "/lesson-assets/a1plus-unit-7-t04-5c9b3290da50bba4.webp",
       "kind": "sequence",
       "choices": false,
       "use": false,
@@ -172,7 +168,7 @@
       "id": "w-luis",
       "text": "Luis is the tallest.",
       "es": "Luis es el más alto.",
-      "image": "/lesson-assets/a1plus-unit-7-t01-e62120839fd28156.webp",
+      "image": "/lesson-assets/a1plus-unit-7-t01-b205da1df581b6a2.webp",
       "kind": "most-t01",
       "image_choices": false,
       "accepts": {
@@ -199,7 +195,7 @@
       "id": "w-sofia",
       "text": "Sofia is the shortest.",
       "es": "Sofía es la más baja.",
-      "image": "/lesson-assets/a1plus-unit-7-t01-e62120839fd28156.webp",
+      "image": "/lesson-assets/a1plus-unit-7-t01-b205da1df581b6a2.webp",
       "kind": "most-t01",
       "image_choices": false,
       "accepts": {
@@ -223,11 +219,11 @@
       "learn": false
     },
     {
-      "id": "w-black",
-      "text": "The black dog is the biggest.",
-      "es": "El perro negro es el más grande.",
-      "image": "/lesson-assets/a1plus-unit-7-t02-8b1f4e126aaea441.webp",
-      "kind": "most-t02",
+      "id": "w-yellow",
+      "text": "The yellow flower is the biggest.",
+      "es": "La flor amarilla es la más grande.",
+      "image": "/lesson-assets/a1plus-unit-7-t04-5c9b3290da50bba4.webp",
+      "kind": "most-t04",
       "image_choices": false,
       "accepts": {
         "subject-variety": "The bank keeps the comparison and changes only who or which one; the photo shows all three.",
@@ -236,25 +232,26 @@
         "reading-load": "The bank keeps the comparison and changes only who or which one; the photo shows all three."
       },
       "prefer": [
-        "The brown dog is the biggest."
+        "The red flower is the biggest."
       ],
       "blanks": [
         "the",
         "biggest"
       ],
       "avoid": [
-        "The black dog is the biggest.",
-        "The white dog is the smallest.",
-        "The brown dog is bigger than the white dog."
+        "The yellow flower is the biggest.",
+        "The white flower is the smallest.",
+        "The red flower is bigger than the white flower."
       ],
+      "four_card": false,
       "learn": false
     },
     {
       "id": "w-white",
-      "text": "The white dog is the smallest.",
-      "es": "El perro blanco es el más pequeño.",
-      "image": "/lesson-assets/a1plus-unit-7-t02-8b1f4e126aaea441.webp",
-      "kind": "most-t02",
+      "text": "The white flower is the smallest.",
+      "es": "La flor blanca es la más pequeña.",
+      "image": "/lesson-assets/a1plus-unit-7-t04-5c9b3290da50bba4.webp",
+      "kind": "most-t04",
       "image_choices": false,
       "accepts": {
         "subject-variety": "The bank keeps the comparison and changes only who or which one; the photo shows all three.",
@@ -263,25 +260,26 @@
         "reading-load": "The bank keeps the comparison and changes only who or which one; the photo shows all three."
       },
       "prefer": [
-        "The black dog is the smallest."
+        "The yellow flower is the smallest."
       ],
       "blanks": [
         "the",
         "smallest"
       ],
       "avoid": [
-        "The black dog is the biggest.",
-        "The white dog is the smallest.",
-        "The brown dog is bigger than the white dog."
+        "The yellow flower is the biggest.",
+        "The white flower is the smallest.",
+        "The red flower is bigger than the white flower."
       ],
+      "four_card": false,
       "learn": false
     },
     {
       "id": "w-green",
-      "text": "The green house is the biggest.",
-      "es": "La casa verde es la más grande.",
-      "image": "/lesson-assets/a1plus-unit-7-t03-aa07ecfe4a270c19.webp",
-      "kind": "most-t03",
+      "text": "The green tree is the tallest.",
+      "es": "El árbol verde es el más alto.",
+      "image": "/lesson-assets/a1plus-unit-7-t05-e4b8b970601124b5.webp",
+      "kind": "most-t05",
       "image_choices": false,
       "accepts": {
         "subject-variety": "The bank keeps the comparison and changes only who or which one; the photo shows all three.",
@@ -290,25 +288,26 @@
         "reading-load": "The bank keeps the comparison and changes only who or which one; the photo shows all three."
       },
       "prefer": [
-        "The white house is the biggest."
+        "The yellow tree is the tallest."
       ],
       "blanks": [
         "the",
-        "biggest"
+        "tallest"
       ],
       "avoid": [
-        "The green house is the biggest.",
-        "The red house is the smallest.",
-        "The white house is bigger than the red house."
+        "The green tree is the tallest.",
+        "The red tree is the shortest.",
+        "The yellow tree is taller than the red tree."
       ],
+      "four_card": false,
       "learn": false
     },
     {
       "id": "w-red",
-      "text": "The red house is the smallest.",
-      "es": "La casa roja es la más pequeña.",
-      "image": "/lesson-assets/a1plus-unit-7-t03-aa07ecfe4a270c19.webp",
-      "kind": "most-t03",
+      "text": "The red tree is the shortest.",
+      "es": "El árbol rojo es el más bajo.",
+      "image": "/lesson-assets/a1plus-unit-7-t05-e4b8b970601124b5.webp",
+      "kind": "most-t05",
       "image_choices": false,
       "accepts": {
         "subject-variety": "The bank keeps the comparison and changes only who or which one; the photo shows all three.",
@@ -317,24 +316,25 @@
         "reading-load": "The bank keeps the comparison and changes only who or which one; the photo shows all three."
       },
       "prefer": [
-        "The green house is the smallest."
+        "The green tree is the shortest."
       ],
       "blanks": [
         "the",
-        "smallest"
+        "shortest"
       ],
       "avoid": [
-        "The green house is the biggest.",
-        "The red house is the smallest.",
-        "The white house is bigger than the red house."
+        "The green tree is the tallest.",
+        "The red tree is the shortest.",
+        "The yellow tree is taller than the red tree."
       ],
+      "four_card": false,
       "learn": false
     },
     {
       "id": "c-ana",
       "text": "Ana is taller than Sofia.",
       "es": "Ana es más alta que Sofía.",
-      "image": "/lesson-assets/a1plus-unit-7-t01-e62120839fd28156.webp",
+      "image": "/lesson-assets/a1plus-unit-7-t01-b205da1df581b6a2.webp",
       "kind": "more-t01",
       "image_choices": false,
       "accepts": {
@@ -355,11 +355,11 @@
       "learn": false
     },
     {
-      "id": "c-brown",
-      "text": "The brown dog is bigger than the white dog.",
-      "es": "El perro café es más grande que el perro blanco.",
-      "image": "/lesson-assets/a1plus-unit-7-t02-8b1f4e126aaea441.webp",
-      "kind": "more-t02",
+      "id": "c-flower",
+      "text": "The red flower is bigger than the white flower.",
+      "es": "La flor roja es más grande que la flor blanca.",
+      "image": "/lesson-assets/a1plus-unit-7-t04-5c9b3290da50bba4.webp",
+      "kind": "more-t04",
       "image_choices": false,
       "accepts": {
         "subject-variety": "The bank keeps the two things compared and changes only -er; the photo shows which is bigger or taller.",
@@ -368,22 +368,23 @@
         "reading-load": "The bank keeps the two things compared and changes only -er; the photo shows which is bigger or taller."
       },
       "prefer": [
-        "The brown dog is smaller than the white dog."
+        "The red flower is smaller than the white flower."
       ],
       "use": false,
       "avoid": [
-        "The black dog is the biggest.",
-        "The white dog is the smallest.",
-        "The brown dog is bigger than the white dog."
+        "The yellow flower is the biggest.",
+        "The white flower is the smallest.",
+        "The red flower is bigger than the white flower."
       ],
+      "four_card": false,
       "learn": false
     },
     {
-      "id": "c-white",
-      "text": "The white house is bigger than the red house.",
-      "es": "La casa blanca es más grande que la casa roja.",
-      "image": "/lesson-assets/a1plus-unit-7-t03-aa07ecfe4a270c19.webp",
-      "kind": "more-t03",
+      "id": "c-tree",
+      "text": "The yellow tree is taller than the red tree.",
+      "es": "El árbol amarillo es más alto que el árbol rojo.",
+      "image": "/lesson-assets/a1plus-unit-7-t05-e4b8b970601124b5.webp",
+      "kind": "more-t05",
       "image_choices": false,
       "accepts": {
         "subject-variety": "The bank keeps the two things compared and changes only -er; the photo shows which is bigger or taller.",
@@ -392,21 +393,22 @@
         "reading-load": "The bank keeps the two things compared and changes only -er; the photo shows which is bigger or taller."
       },
       "prefer": [
-        "The white house is smaller than the red house."
+        "The yellow tree is shorter than the red tree."
       ],
       "use": false,
       "avoid": [
-        "The green house is the biggest.",
-        "The red house is the smallest.",
-        "The white house is bigger than the red house."
+        "The green tree is the tallest.",
+        "The red tree is the shortest.",
+        "The yellow tree is taller than the red tree."
       ],
+      "four_card": false,
       "learn": false
     },
     {
       "id": "p-luis",
       "text": "Luis is the tallest.",
       "es": "Luis es el más alto.",
-      "image": "/lesson-assets/a1plus-unit-7-t01-e62120839fd28156.webp",
+      "image": "/lesson-assets/a1plus-unit-7-t01-b205da1df581b6a2.webp",
       "kind": "pic",
       "text_choices": false,
       "use": false,
@@ -414,13 +416,14 @@
         "subject-variety": "A picture bank: only one photo shows that person or thing at the top of three.",
         "action-variety": "A picture bank: only one photo shows that person or thing at the top of three."
       },
+      "four_card": false,
       "learn": false
     },
     {
-      "id": "p-dog",
-      "text": "The black dog is the biggest.",
-      "es": "El perro negro es el más grande.",
-      "image": "/lesson-assets/a1plus-unit-7-t02-8b1f4e126aaea441.webp",
+      "id": "p-flower",
+      "text": "The yellow flower is the biggest.",
+      "es": "La flor amarilla es la más grande.",
+      "image": "/lesson-assets/a1plus-unit-7-t04-5c9b3290da50bba4.webp",
       "kind": "pic",
       "text_choices": false,
       "use": false,
@@ -428,13 +431,14 @@
         "subject-variety": "A picture bank: only one photo shows that person or thing at the top of three.",
         "action-variety": "A picture bank: only one photo shows that person or thing at the top of three."
       },
+      "four_card": false,
       "learn": false
     },
     {
-      "id": "p-house",
-      "text": "The green house is the biggest.",
-      "es": "La casa verde es la más grande.",
-      "image": "/lesson-assets/a1plus-unit-7-t03-aa07ecfe4a270c19.webp",
+      "id": "p-tree",
+      "text": "The green tree is the tallest.",
+      "es": "El árbol verde es el más alto.",
+      "image": "/lesson-assets/a1plus-unit-7-t05-e4b8b970601124b5.webp",
       "kind": "pic",
       "text_choices": false,
       "use": false,
@@ -442,18 +446,19 @@
         "subject-variety": "A picture bank: only one photo shows that person or thing at the top of three.",
         "action-variety": "A picture bank: only one photo shows that person or thing at the top of three."
       },
+      "four_card": false,
       "learn": false
     },
     {
-      "id": "r-dog",
+      "id": "r-flower",
       "text": "The white one.",
-      "es": "El blanco.",
-      "image": "/lesson-assets/a1plus-unit-7-t02-8b1f4e126aaea441.webp",
+      "es": "La blanca.",
+      "image": "/lesson-assets/a1plus-unit-7-t04-5c9b3290da50bba4.webp",
       "kind": "which",
-      "question": "Which dog is the smallest?",
-      "question_es": "¿Cuál perro es el más pequeño?",
+      "question": "Which flower is the smallest?",
+      "question_es": "¿Cuál flor es la más pequeña?",
       "question_speaker": "co-teacher",
-      "speaker": "diego",
+      "speaker": "teacher",
       "image_choices": false,
       "use": false,
       "accepts": {
@@ -463,30 +468,31 @@
         "reading-load": "The question stays the same and the reply changes only the color; the photo shows which one."
       },
       "prefer": [
-        "The black one."
+        "The yellow one."
       ],
       "listening_turns": [
         {
-          "text": "Which dog is the smallest?",
+          "text": "Which flower is the smallest?",
           "speaker": "co-teacher",
-          "image": "/lesson-assets/a1plus-unit-7-t02-8b1f4e126aaea441.webp"
+          "image": "/lesson-assets/a1plus-unit-7-t04-5c9b3290da50bba4.webp"
         },
         {
           "text": "The white one.",
-          "speaker": "diego",
-          "image": "/lesson-assets/a1plus-unit-7-t02-8b1f4e126aaea441.webp"
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-7-t04-5c9b3290da50bba4.webp"
         }
       ],
+      "four_card": false,
       "learn": false
     },
     {
-      "id": "r-house",
+      "id": "r-tree",
       "text": "The green one.",
-      "es": "La verde.",
-      "image": "/lesson-assets/a1plus-unit-7-t03-aa07ecfe4a270c19.webp",
+      "es": "El verde.",
+      "image": "/lesson-assets/a1plus-unit-7-t05-e4b8b970601124b5.webp",
       "kind": "which",
-      "question": "Which house is the biggest?",
-      "question_es": "¿Cuál casa es la más grande?",
+      "question": "Which tree is the tallest?",
+      "question_es": "¿Cuál árbol es el más alto?",
       "question_speaker": "co-teacher",
       "speaker": "teacher",
       "image_choices": false,
@@ -502,23 +508,24 @@
       ],
       "listening_turns": [
         {
-          "text": "Which house is the biggest?",
+          "text": "Which tree is the tallest?",
           "speaker": "co-teacher",
-          "image": "/lesson-assets/a1plus-unit-7-t03-aa07ecfe4a270c19.webp"
+          "image": "/lesson-assets/a1plus-unit-7-t05-e4b8b970601124b5.webp"
         },
         {
           "text": "The green one.",
           "speaker": "teacher",
-          "image": "/lesson-assets/a1plus-unit-7-t03-aa07ecfe4a270c19.webp"
+          "image": "/lesson-assets/a1plus-unit-7-t05-e4b8b970601124b5.webp"
         }
       ],
+      "four_card": false,
       "learn": false
     },
     {
       "id": "r-who",
       "text": "Luis is.",
       "es": "Luis.",
-      "image": "/lesson-assets/a1plus-unit-7-t01-e62120839fd28156.webp",
+      "image": "/lesson-assets/a1plus-unit-7-t01-b205da1df581b6a2.webp",
       "kind": "who",
       "question": "Who is the tallest?",
       "question_es": "¿Quién es el más alto?",
@@ -539,12 +546,12 @@
         {
           "text": "Who is the tallest?",
           "speaker": "co-teacher",
-          "image": "/lesson-assets/a1plus-unit-7-t01-e62120839fd28156.webp"
+          "image": "/lesson-assets/a1plus-unit-7-t01-b205da1df581b6a2.webp"
         },
         {
           "text": "Luis is.",
           "speaker": "teacher",
-          "image": "/lesson-assets/a1plus-unit-7-t01-e62120839fd28156.webp"
+          "image": "/lesson-assets/a1plus-unit-7-t01-b205da1df581b6a2.webp"
         }
       ],
       "learn": false
@@ -553,7 +560,7 @@
       "id": "r-short",
       "text": "Sofia is.",
       "es": "Sofía.",
-      "image": "/lesson-assets/a1plus-unit-7-t01-e62120839fd28156.webp",
+      "image": "/lesson-assets/a1plus-unit-7-t01-b205da1df581b6a2.webp",
       "kind": "who",
       "question": "Who is the shortest?",
       "question_es": "¿Quién es la más baja?",
@@ -574,12 +581,12 @@
         {
           "text": "Who is the shortest?",
           "speaker": "co-teacher",
-          "image": "/lesson-assets/a1plus-unit-7-t01-e62120839fd28156.webp"
+          "image": "/lesson-assets/a1plus-unit-7-t01-b205da1df581b6a2.webp"
         },
         {
           "text": "Sofia is.",
           "speaker": "teacher",
-          "image": "/lesson-assets/a1plus-unit-7-t01-e62120839fd28156.webp"
+          "image": "/lesson-assets/a1plus-unit-7-t01-b205da1df581b6a2.webp"
         }
       ],
       "learn": false
@@ -588,7 +595,7 @@
       "id": "q-who",
       "text": "Who is the tallest?",
       "es": "¿Quién es el más alto?",
-      "image": "/lesson-assets/a1plus-unit-7-t01-e62120839fd28156.webp",
+      "image": "/lesson-assets/a1plus-unit-7-t01-b205da1df581b6a2.webp",
       "kind": "question",
       "speaker": "co-teacher",
       "choices": false,
@@ -596,10 +603,10 @@
       "learn": false
     },
     {
-      "id": "q-dog",
-      "text": "Which dog is the biggest?",
-      "es": "¿Cuál perro es el más grande?",
-      "image": "/lesson-assets/a1plus-unit-7-t02-8b1f4e126aaea441.webp",
+      "id": "q-flower",
+      "text": "Which flower is the biggest?",
+      "es": "¿Cuál flor es la más grande?",
+      "image": "/lesson-assets/a1plus-unit-7-t04-5c9b3290da50bba4.webp",
       "kind": "question",
       "speaker": "co-teacher",
       "choices": false,
@@ -611,99 +618,99 @@
     {
       "text": "Ana is the tallest.",
       "es": "Ana es la más alta.",
-      "image": "/lesson-assets/a1plus-unit-7-t01-e62120839fd28156.webp",
+      "image": "/lesson-assets/a1plus-unit-7-t01-b205da1df581b6a2.webp",
       "kind": "most-t01",
       "image_choices": false
     },
     {
       "text": "Ana is the shortest.",
       "es": "Ana es la más baja.",
-      "image": "/lesson-assets/a1plus-unit-7-t01-e62120839fd28156.webp",
+      "image": "/lesson-assets/a1plus-unit-7-t01-b205da1df581b6a2.webp",
       "kind": "most-t01",
       "image_choices": false
     },
     {
-      "text": "The brown dog is the biggest.",
-      "es": "El perro café es el más grande.",
-      "image": "/lesson-assets/a1plus-unit-7-t02-8b1f4e126aaea441.webp",
-      "kind": "most-t02",
+      "text": "The red flower is the biggest.",
+      "es": "La flor roja es la más grande.",
+      "image": "/lesson-assets/a1plus-unit-7-t04-5c9b3290da50bba4.webp",
+      "kind": "most-t04",
       "image_choices": false
     },
     {
-      "text": "The black dog is the smallest.",
-      "es": "El perro negro es el más pequeño.",
-      "image": "/lesson-assets/a1plus-unit-7-t02-8b1f4e126aaea441.webp",
-      "kind": "most-t02",
+      "text": "The yellow flower is the smallest.",
+      "es": "La flor amarilla es la más pequeña.",
+      "image": "/lesson-assets/a1plus-unit-7-t04-5c9b3290da50bba4.webp",
+      "kind": "most-t04",
       "image_choices": false
     },
     {
-      "text": "The white house is the biggest.",
-      "es": "La casa blanca es la más grande.",
-      "image": "/lesson-assets/a1plus-unit-7-t03-aa07ecfe4a270c19.webp",
-      "kind": "most-t03",
+      "text": "The yellow tree is the tallest.",
+      "es": "El árbol amarillo es el más alto.",
+      "image": "/lesson-assets/a1plus-unit-7-t05-e4b8b970601124b5.webp",
+      "kind": "most-t05",
       "image_choices": false
     },
     {
-      "text": "The green house is the smallest.",
-      "es": "La casa verde es la más pequeña.",
-      "image": "/lesson-assets/a1plus-unit-7-t03-aa07ecfe4a270c19.webp",
-      "kind": "most-t03",
+      "text": "The green tree is the shortest.",
+      "es": "El árbol verde es el más bajo.",
+      "image": "/lesson-assets/a1plus-unit-7-t05-e4b8b970601124b5.webp",
+      "kind": "most-t05",
       "image_choices": false
     },
     {
       "text": "Ana is shorter than Sofia.",
       "es": "Ana es más baja que Sofía.",
-      "image": "/lesson-assets/a1plus-unit-7-t01-e62120839fd28156.webp",
+      "image": "/lesson-assets/a1plus-unit-7-t01-b205da1df581b6a2.webp",
       "kind": "more-t01",
       "image_choices": false
     },
     {
       "text": "Ana is shorter than Luis.",
-      "es": "Ana es más baja que Sofía.",
-      "image": "/lesson-assets/a1plus-unit-7-t01-e62120839fd28156.webp",
+      "es": "Ana es más baja que Luis.",
+      "image": "/lesson-assets/a1plus-unit-7-t01-b205da1df581b6a2.webp",
       "kind": "more-t01",
       "image_choices": false
     },
     {
-      "text": "The brown dog is smaller than the white dog.",
-      "es": "El perro café es más pequeño que el perro blanco.",
-      "image": "/lesson-assets/a1plus-unit-7-t02-8b1f4e126aaea441.webp",
-      "kind": "more-t02",
+      "text": "The red flower is smaller than the white flower.",
+      "es": "La flor roja es más pequeña que la flor blanca.",
+      "image": "/lesson-assets/a1plus-unit-7-t04-5c9b3290da50bba4.webp",
+      "kind": "more-t04",
       "image_choices": false
     },
     {
-      "text": "The white house is smaller than the red house.",
-      "es": "La casa blanca es más pequeña que la casa roja.",
-      "image": "/lesson-assets/a1plus-unit-7-t03-aa07ecfe4a270c19.webp",
-      "kind": "more-t03",
+      "text": "The yellow tree is shorter than the red tree.",
+      "es": "El árbol amarillo es más bajo que el árbol rojo.",
+      "image": "/lesson-assets/a1plus-unit-7-t05-e4b8b970601124b5.webp",
+      "kind": "more-t05",
       "image_choices": false
     },
     {
-      "text": "The black one.",
-      "es": "El negro.",
-      "image": "/lesson-assets/a1plus-unit-7-t02-8b1f4e126aaea441.webp",
+      "text": "The yellow one.",
+      "es": "La amarilla.",
+      "image": "/lesson-assets/a1plus-unit-7-t04-5c9b3290da50bba4.webp",
       "kind": "which",
       "image_choices": false
     },
     {
       "text": "The red one.",
-      "es": "La roja.",
-      "image": "/lesson-assets/a1plus-unit-7-t03-aa07ecfe4a270c19.webp",
+      "es": "El rojo.",
+      "image": "/lesson-assets/a1plus-unit-7-t05-e4b8b970601124b5.webp",
       "kind": "which",
       "image_choices": false
     },
     {
       "text": "Sofia is.",
       "es": "Sofía.",
-      "image": "/lesson-assets/a1plus-unit-7-t01-e62120839fd28156.webp",
+      "image": "/lesson-assets/a1plus-unit-7-t01-b205da1df581b6a2.webp",
       "kind": "who",
       "image_choices": false
     },
     {
       "text": "Luis is.",
       "es": "Luis.",
-      "image": "/lesson-assets/a1plus-unit-7-t01-e62120839fd28156.webp",
-      "kind": "which",
+      "image": "/lesson-assets/a1plus-unit-7-t01-b205da1df581b6a2.webp",
+      "kind": "who",
       "image_choices": false
     }
   ],
@@ -717,29 +724,29 @@
     "Learn": [
       "l-luis",
       "l-sofia",
-      "l-dog",
-      "l-house"
+      "l-flower",
+      "l-white"
     ],
     "Recognize": [
       "p-luis",
-      "c-white",
-      "w-black",
-      "r-dog",
-      "p-house",
-      "c-brown",
+      "c-flower",
+      "w-yellow",
+      "r-flower",
+      "p-tree",
+      "c-tree",
       "w-sofia",
-      "p-dog",
-      "r-short",
-      "w-green"
+      "p-flower",
+      "r-tree",
+      "w-white"
     ],
     "Listen": [
       "w-sofia",
       "r-who",
-      "p-dog",
-      "w-luis",
-      "p-house",
-      "r-dog",
-      "c-brown",
+      "p-flower",
+      "w-white",
+      "p-tree",
+      "r-flower",
+      "c-tree",
       "r-short",
       "p-luis",
       "w-red"
@@ -747,22 +754,22 @@
     "Speak": [
       "q-who",
       "w-luis",
-      "q-dog",
-      "w-black",
+      "q-flower",
+      "w-yellow",
       "w-sofia",
       "w-white",
-      "w-red",
+      "w-green",
       "c-ana"
     ],
     "Use": [
       "w-luis",
       "w-sofia",
-      "w-black",
+      "w-yellow",
       "w-white",
       "w-green",
       "w-red",
       "c-ana",
-      "w-sofia"
+      "w-white"
     ]
   }
 }
