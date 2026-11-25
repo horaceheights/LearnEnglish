@@ -1,0 +1,62 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "b96af7b9-5d0a-453e-9e81-6ef558619317",
+  "asset_id": "t27-luis-bread-sofia",
+  "pack_sha256": "05edc82746a1e56f9fe601dab9632adc536941b3bc58adc76235ac9d1cc425e3",
+  "started_at": "2026-11-24T03:09:45.539035+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "request": {
+    "model": "gemini-2.5-flash-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, menus, screens, cups, clothes or bags.\n\nKeep the people and the thing that carries the meaning inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nOnly these two people are in the photo; there is nobody else, even far in the background.\n\nIt is clearly daytime with soft natural light.\n\nKeep each pictured person's face, hair, skin, build and clothes exactly as in the reference image; they look natural and relaxed, not posing for the camera.\n\nImage 1 shows Luis alone; copy his face, hair, skin and build exactly. Luis: a very tall man with short dark curly hair, clean-shaven, warm medium-brown skin, navy crew-neck T-shirt. Sofia: long dark curly hair (often in a high bun), warm brown skin, bright blue blazer over a white blouse. Luis (left) hands Sofia (right) a woven basket full of bread rolls and slices of bread; Sofia reaches out to take it. They sit facing each other across a light wooden dining table in a bright dining room by day. The camera is close: both are seen from the waist up, and the thing that is passed is held up in the exact middle of the photo, between them, big and sharp, well above the plates.",
+    "image_config": {
+      "aspectRatio": "3:2"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1plus-unit-1-q01-135c3f8f772bcbe4.webp",
+    "sha256": "135c3f8f772bcbe472b8cec719eb02318a7d52ce1c7152a94c6952aeb78566c2"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "-f8Ea8GKBIHUz7IPmaGPsAQ",
+  "usage": {
+    "promptTokenCount": 665,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 1955,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 407
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1290
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.038900",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-11-16; before tax, not an invoice.",
+    "input_tokens": 665,
+    "image_output_tokens": 1290,
+    "text_and_thinking_output_tokens": 0
+  },
+  "elapsed_seconds": 8.33,
+  "output": "output/imagegen/a1plus-unit-5-lesson-v592/t27-luis-bread-sofia.png",
+  "sha256": "2964829eacb514f16e469c43a3609de24d31a18eb26a72632d60ff17a8574daf",
+  "byte_count": 1298339,
+  "pixel_size": [
+    1248,
+    832
+  ],
+  "returned_mime_type": "image/png"
+}

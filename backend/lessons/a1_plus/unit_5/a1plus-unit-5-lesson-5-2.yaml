@@ -12,7 +12,8 @@
   "goal": "Say how much food there is with a lot of and a little (There's a lot of pasta. / There's a little rice.), and tell a little from 5.1's a few.",
   "vocabulary": [
     "pasta",
-    "a little"
+    "a little",
+    "butter"
   ],
   "review_vocabulary": [
     "there's",
@@ -20,16 +21,15 @@
     "a lot of",
     "a few",
     "rice",
-    "cheese",
-    "apples",
-    "oranges",
+    "lemons",
+    "pineapples",
     "fruit",
     "eats",
     "eat",
     "I"
   ],
-  "grammar_function": "A follow-up of A1 5.2 Food: A1 names food (bread, rice, chicken, fish) and says who eats or cooks it; A1+ 5.2 says how much of a food there is. A food you do not count takes there's and a little, not a few, and no plural (There's a little rice. / There are a few apples.); a lot of fits both (There's a lot of pasta.). pasta is the one new food. The photos show a big heap against one small spoonful of the same food.",
-  "prerequisite": "A1+ 5.1 a lot of and a few; A1 5.2 rice, A1 5.13 cheese; A1+ 2.4 contractions (there's); A1+ 1.2 eats.",
+  "grammar_function": "A follow-up of A1 5.2 Food: A1 names food (bread, rice, chicken, fish) and says who eats or cooks it; A1+ 5.2 says how much of a food there is. A food you do not count takes there's and a little, not a few, and no plural (There's a little rice. / There are a few lemons.); a lot of fits both (There's a lot of pasta.). pasta and butter are the new foods (butter added 2026-11-23). The photos show a big heap against one small spoonful of the same food.",
+  "prerequisite": "A1+ 5.1 a lot of and a few; A1 5.2 rice; A1+ 2.4 contractions (there's); A1+ 1.2 eats.",
   "speaking_outcome": "Say a little as one phrase (a-LIT-tle, a very short); keep there's short; do not require native-like speed.",
   "content_revision": 1,
   "learn_context_groups": [
@@ -78,6 +78,18 @@
         {
           "slide_id": "L4",
           "text": "Luis eats a lot of pasta."
+        }
+      ]
+    },
+    {
+      "kind": "sequence",
+      "targets": [
+        "butter"
+      ],
+      "models": [
+        {
+          "slide_id": "L5",
+          "text": "It's butter."
         }
       ]
     }
@@ -134,7 +146,7 @@
       "options": [
         {
           "id": "there's-a-lot-of-pasta-learn",
-          "image_url": "/lesson-assets/a1plus-unit-5-m03-4fe580a5db23075b.webp",
+          "image_url": "/lesson-assets/a1plus-unit-5-m23-6bdc1dc7afded899.webp",
           "label": "There's a lot of pasta."
         }
       ],
@@ -207,6 +219,27 @@
       "spanish_translation": "Luis come mucha pasta.",
       "pedagogy_note": "Story beat 04: Luis eats a lot of pasta.",
       "audio_speaker": "co-teacher",
+      "answer_audio_policy": "authored-only"
+    },
+    {
+      "slide_id": "L5",
+      "interaction_type": "teach",
+      "prompt": "It's butter.",
+      "stage": "Learn",
+      "correct_option_id": "it's-butter-learn",
+      "options": [
+        {
+          "id": "it's-butter-learn",
+          "image_url": "/lesson-assets/a1plus-unit-5-m27-85812a35a6f6ffc4.webp",
+          "label": "It's butter."
+        }
+      ],
+      "audio_text": "It's butter.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Es mantequilla.",
+      "pedagogy_note": "Story beat 05: It's butter.",
+      "audio_speaker": "teacher",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -320,26 +353,26 @@
     {
       "slide_id": "R5",
       "interaction_type": "t2i2",
-      "prompt": "There's a lot of cheese.",
+      "prompt": "There's a lot of butter.",
       "stage": "Recognize",
-      "correct_option_id": "there's-a-lot-of-cheese-r5",
+      "correct_option_id": "there's-a-lot-of-butter-r5",
       "options": [
         {
-          "id": "there's-a-little-cheese-r5",
-          "image_url": "/lesson-assets/a1plus-unit-5-m06-ceb24e89884e7965.webp",
+          "id": "there's-a-little-butter-r5",
+          "image_url": "/lesson-assets/a1plus-unit-5-m28-61e94216fd971210.webp",
           "label": null
         },
         {
-          "id": "there's-a-lot-of-cheese-r5",
-          "image_url": "/lesson-assets/a1plus-unit-5-m05-38082fd76b100c06.webp",
+          "id": "there's-a-lot-of-butter-r5",
+          "image_url": "/lesson-assets/a1plus-unit-5-m27-85812a35a6f6ffc4.webp",
           "label": null
         }
       ],
-      "audio_text": "There's a lot of cheese.",
+      "audio_text": "There's a lot of butter.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Hay mucho queso.",
-      "pedagogy_note": "Story beat 05: There's a lot of cheese.",
+      "spanish_translation": "Hay mucha mantequilla.",
+      "pedagogy_note": "Story beat 05: There's a lot of butter.",
       "audio_speaker": "teacher",
       "answer_audio_policy": "authored-only"
     },
@@ -380,23 +413,23 @@
     {
       "slide_id": "R7",
       "interaction_type": "t2i4",
-      "prompt": "There are a few apples.",
+      "prompt": "There are a few lemons.",
       "stage": "Recognize",
-      "correct_option_id": "there-are-a-few-apples-r7",
+      "correct_option_id": "there-are-a-few-lemons-r7",
       "options": [
         {
-          "id": "there's-a-lot-of-cheese-r7",
-          "image_url": "/lesson-assets/a1plus-unit-5-m05-38082fd76b100c06.webp",
+          "id": "there's-a-lot-of-butter-r7",
+          "image_url": "/lesson-assets/a1plus-unit-5-m27-85812a35a6f6ffc4.webp",
           "label": null
         },
         {
-          "id": "there's-a-little-cheese-r7",
-          "image_url": "/lesson-assets/a1plus-unit-5-m06-ceb24e89884e7965.webp",
+          "id": "there's-a-little-butter-r7",
+          "image_url": "/lesson-assets/a1plus-unit-5-m28-61e94216fd971210.webp",
           "label": null
         },
         {
-          "id": "there-are-a-few-apples-r7",
-          "image_url": "/lesson-assets/a1plus-unit-5-k02-a3c141cdc6d7becc.webp",
+          "id": "there-are-a-few-lemons-r7",
+          "image_url": "/lesson-assets/a1plus-unit-5-k10-06fa1d4eb099eacb.webp",
           "label": null
         },
         {
@@ -405,11 +438,11 @@
           "label": null
         }
       ],
-      "audio_text": "There are a few apples.",
+      "audio_text": "There are a few lemons.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Hay unas pocas manzanas.",
-      "pedagogy_note": "Story beat 07: There are a few apples.",
+      "spanish_translation": "Hay unos pocos limones.",
+      "pedagogy_note": "Story beat 07: There are a few lemons.",
       "audio_speaker": "teacher",
       "answer_audio_policy": "authored-only"
     },
@@ -418,7 +451,7 @@
       "interaction_type": "i2t3",
       "prompt": "",
       "stage": "Recognize",
-      "correct_option_id": "there's-a-little-cheese-r8",
+      "correct_option_id": "there's-a-little-butter-r8",
       "options": [
         {
           "id": "there's-a-little-pasta-r8",
@@ -427,24 +460,24 @@
           "spanish_translation": "Hay un poco de pasta."
         },
         {
-          "id": "there's-a-little-cheese-r8",
+          "id": "there's-a-little-butter-r8",
           "image_url": "",
-          "label": "There's a little cheese.",
-          "spanish_translation": "Hay un poco de queso."
+          "label": "There's a little butter.",
+          "spanish_translation": "Hay un poco de mantequilla."
         },
         {
-          "id": "there's-a-lot-of-cheese-r8",
+          "id": "there's-a-lot-of-butter-r8",
           "image_url": "",
-          "label": "There's a lot of cheese.",
-          "spanish_translation": "Hay mucho queso."
+          "label": "There's a lot of butter.",
+          "spanish_translation": "Hay mucha mantequilla."
         }
       ],
       "audio_text": "",
-      "answer_audio_text": "There's a little cheese.",
-      "prompt_image_url": "/lesson-assets/a1plus-unit-5-m06-ceb24e89884e7965.webp",
+      "answer_audio_text": "There's a little butter.",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-5-m28-61e94216fd971210.webp",
       "spanish_translation": "Elige la frase correcta.",
       "answer_audio_speaker": "co-teacher",
-      "pedagogy_note": "Story beat 08: There's a little cheese.",
+      "pedagogy_note": "Story beat 08: There's a little butter.",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -466,7 +499,7 @@
         },
         {
           "id": "there's-a-lot-of-pasta-r9",
-          "image_url": "/lesson-assets/a1plus-unit-5-m03-4fe580a5db23075b.webp",
+          "image_url": "/lesson-assets/a1plus-unit-5-m23-6bdc1dc7afded899.webp",
           "label": null
         },
         {
@@ -552,7 +585,7 @@
       "options": [
         {
           "id": "there's-a-lot-of-pasta-a2",
-          "image_url": "/lesson-assets/a1plus-unit-5-m03-4fe580a5db23075b.webp",
+          "image_url": "/lesson-assets/a1plus-unit-5-m23-6bdc1dc7afded899.webp",
           "label": null
         },
         {
@@ -602,24 +635,24 @@
       "interaction_type": "a2i2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "there's-a-little-cheese-a4",
+      "correct_option_id": "there's-a-little-butter-a4",
       "options": [
         {
-          "id": "there's-a-lot-of-cheese-a4",
-          "image_url": "/lesson-assets/a1plus-unit-5-m05-38082fd76b100c06.webp",
+          "id": "there's-a-lot-of-butter-a4",
+          "image_url": "/lesson-assets/a1plus-unit-5-m27-85812a35a6f6ffc4.webp",
           "label": null
         },
         {
-          "id": "there's-a-little-cheese-a4",
-          "image_url": "/lesson-assets/a1plus-unit-5-m06-ceb24e89884e7965.webp",
+          "id": "there's-a-little-butter-a4",
+          "image_url": "/lesson-assets/a1plus-unit-5-m28-61e94216fd971210.webp",
           "label": null
         }
       ],
-      "audio_text": "There's a little cheese.",
+      "audio_text": "There's a little butter.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 04: There's a little cheese.",
+      "pedagogy_note": "Story beat 04: There's a little butter.",
       "audio_speaker": "co-teacher",
       "answer_audio_policy": "authored-only"
     },
@@ -654,13 +687,13 @@
       "interaction_type": "a2t3",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "there-are-a-few-apples-a6",
+      "correct_option_id": "there-are-a-few-lemons-a6",
       "options": [
         {
-          "id": "there-are-a-few-apples-a6",
+          "id": "there-are-a-few-lemons-a6",
           "image_url": "",
-          "label": "There are a few apples.",
-          "spanish_translation": "Hay unas pocas manzanas."
+          "label": "There are a few lemons.",
+          "spanish_translation": "Hay unos pocos limones."
         },
         {
           "id": "there's-a-little-rice-a6",
@@ -669,17 +702,17 @@
           "spanish_translation": "Hay un poco de arroz."
         },
         {
-          "id": "there's-a-lot-of-cheese-a6",
+          "id": "there's-a-lot-of-butter-a6",
           "image_url": "",
-          "label": "There's a lot of cheese.",
-          "spanish_translation": "Hay mucho queso."
+          "label": "There's a lot of butter.",
+          "spanish_translation": "Hay mucha mantequilla."
         }
       ],
-      "audio_text": "There are a few apples.",
+      "audio_text": "There are a few lemons.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 06: There are a few apples.",
+      "pedagogy_note": "Story beat 06: There are a few lemons.",
       "audio_speaker": "teacher",
       "answer_audio_policy": "authored-only"
     },
@@ -719,7 +752,7 @@
       "interaction_type": "a2i4",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "there's-a-lot-of-cheese-a8",
+      "correct_option_id": "there's-a-lot-of-butter-a8",
       "options": [
         {
           "id": "there's-a-little-pasta-a8",
@@ -727,13 +760,13 @@
           "label": null
         },
         {
-          "id": "there's-a-lot-of-cheese-a8",
-          "image_url": "/lesson-assets/a1plus-unit-5-m05-38082fd76b100c06.webp",
+          "id": "there's-a-lot-of-butter-a8",
+          "image_url": "/lesson-assets/a1plus-unit-5-m27-85812a35a6f6ffc4.webp",
           "label": null
         },
         {
-          "id": "there's-a-little-cheese-a8",
-          "image_url": "/lesson-assets/a1plus-unit-5-m06-ceb24e89884e7965.webp",
+          "id": "there's-a-little-butter-a8",
+          "image_url": "/lesson-assets/a1plus-unit-5-m28-61e94216fd971210.webp",
           "label": null
         },
         {
@@ -742,11 +775,11 @@
           "label": null
         }
       ],
-      "audio_text": "There's a lot of cheese.",
+      "audio_text": "There's a lot of butter.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 08: There's a lot of cheese.",
+      "pedagogy_note": "Story beat 08: There's a lot of butter.",
       "audio_speaker": "teacher",
       "answer_audio_policy": "authored-only"
     },
@@ -764,10 +797,10 @@
           "spanish_translation": "Hay mucha pasta."
         },
         {
-          "id": "there's-a-little-cheese-a9",
+          "id": "there's-a-little-butter-a9",
           "image_url": "",
-          "label": "There's a little cheese.",
-          "spanish_translation": "Hay un poco de queso."
+          "label": "There's a little butter.",
+          "spanish_translation": "Hay un poco de mantequilla."
         },
         {
           "id": "there's-a-little-pasta-a9",
@@ -789,7 +822,7 @@
       "interaction_type": "a2i4",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "there-are-a-lot-of-oranges-a10",
+      "correct_option_id": "there-are-a-lot-of-pineapples-a10",
       "options": [
         {
           "id": "there's-a-little-pasta-a10",
@@ -797,26 +830,26 @@
           "label": null
         },
         {
-          "id": "there-are-a-few-apples-a10",
-          "image_url": "/lesson-assets/a1plus-unit-5-k02-a3c141cdc6d7becc.webp",
+          "id": "there-are-a-few-lemons-a10",
+          "image_url": "/lesson-assets/a1plus-unit-5-k10-06fa1d4eb099eacb.webp",
           "label": null
         },
         {
-          "id": "there's-a-little-cheese-a10",
-          "image_url": "/lesson-assets/a1plus-unit-5-m06-ceb24e89884e7965.webp",
+          "id": "there's-a-little-butter-a10",
+          "image_url": "/lesson-assets/a1plus-unit-5-m28-61e94216fd971210.webp",
           "label": null
         },
         {
-          "id": "there-are-a-lot-of-oranges-a10",
-          "image_url": "/lesson-assets/a1plus-unit-5-k03-5a345a3def47d7b6.webp",
+          "id": "there-are-a-lot-of-pineapples-a10",
+          "image_url": "/lesson-assets/a1plus-unit-5-k11-8e84c3ebb9c017e9.webp",
           "label": null
         }
       ],
-      "audio_text": "There are a lot of oranges.",
+      "audio_text": "There are a lot of pineapples.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 10: There are a lot of oranges.",
+      "pedagogy_note": "Story beat 10: There are a lot of pineapples.",
       "audio_speaker": "co-teacher",
       "answer_audio_policy": "authored-only"
     },
@@ -829,7 +862,7 @@
       "options": [
         {
           "id": "there's-a-lot-of-pasta-speak",
-          "image_url": "/lesson-assets/a1plus-unit-5-m03-4fe580a5db23075b.webp",
+          "image_url": "/lesson-assets/a1plus-unit-5-m23-6bdc1dc7afded899.webp",
           "label": "There's a lot of pasta."
         }
       ],
@@ -840,7 +873,7 @@
         {
           "text": "There's a lot of pasta.",
           "speaker_role": "teacher",
-          "image_url": "/lesson-assets/a1plus-unit-5-m03-4fe580a5db23075b.webp",
+          "image_url": "/lesson-assets/a1plus-unit-5-m23-6bdc1dc7afded899.webp",
           "delivery": "a1-pronunciation-v1"
         }
       ],
@@ -935,29 +968,29 @@
     {
       "slide_id": "S5",
       "interaction_type": "speak",
-      "prompt": "There's a lot of cheese.",
+      "prompt": "There's a lot of butter.",
       "stage": "Speak",
-      "correct_option_id": "there's-a-lot-of-cheese-speak",
+      "correct_option_id": "there's-a-lot-of-butter-speak",
       "options": [
         {
-          "id": "there's-a-lot-of-cheese-speak",
-          "image_url": "/lesson-assets/a1plus-unit-5-m05-38082fd76b100c06.webp",
-          "label": "There's a lot of cheese."
+          "id": "there's-a-lot-of-butter-speak",
+          "image_url": "/lesson-assets/a1plus-unit-5-m27-85812a35a6f6ffc4.webp",
+          "label": "There's a lot of butter."
         }
       ],
-      "audio_text": "There's a lot of cheese.",
+      "audio_text": "There's a lot of butter.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "audio_turns": [
         {
-          "text": "There's a lot of cheese.",
+          "text": "There's a lot of butter.",
           "speaker_role": "co-teacher",
-          "image_url": "/lesson-assets/a1plus-unit-5-m05-38082fd76b100c06.webp",
+          "image_url": "/lesson-assets/a1plus-unit-5-m27-85812a35a6f6ffc4.webp",
           "delivery": "a1-pronunciation-v1"
         }
       ],
-      "spanish_translation": "Hay mucho queso.",
-      "pedagogy_note": "Story beat 05: There's a lot of cheese.",
+      "spanish_translation": "Hay mucha mantequilla.",
+      "pedagogy_note": "Story beat 05: There's a lot of butter.",
       "answer_audio_policy": "authored-only"
     },
     {
@@ -1096,7 +1129,7 @@
       ],
       "audio_text": "There's a lot of pasta.",
       "answer_audio_text": "There's a lot of pasta.",
-      "prompt_image_url": "/lesson-assets/a1plus-unit-5-m03-4fe580a5db23075b.webp",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-5-m23-6bdc1dc7afded899.webp",
       "spanish_translation": "Hay mucha pasta.",
       "translation": "Hay mucha pasta.",
       "correct_option_ids": [
@@ -1187,7 +1220,7 @@
         {
           "id": "word-4",
           "image_url": "",
-          "label": "cheese"
+          "label": "butter"
         },
         {
           "id": "word-1",
@@ -1200,11 +1233,11 @@
           "label": "little"
         }
       ],
-      "audio_text": "There's a little cheese.",
-      "answer_audio_text": "There's a little cheese.",
-      "prompt_image_url": "/lesson-assets/a1plus-unit-5-m06-ceb24e89884e7965.webp",
-      "spanish_translation": "Hay un poco de queso.",
-      "translation": "Hay un poco de queso.",
+      "audio_text": "There's a little butter.",
+      "answer_audio_text": "There's a little butter.",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-5-m28-61e94216fd971210.webp",
+      "spanish_translation": "Hay un poco de mantequilla.",
+      "translation": "Hay un poco de mantequilla.",
       "correct_option_ids": [
         "word-1",
         "word-2",
@@ -1212,7 +1245,7 @@
         "word-4"
       ],
       "answer_audio_speaker": "co-teacher",
-      "pedagogy_note": "Story beat 05: There's a little cheese.",
+      "pedagogy_note": "Story beat 05: There's a little butter.",
       "audio_speaker": "co-teacher",
       "answer_audio_policy": "authored-only"
     },

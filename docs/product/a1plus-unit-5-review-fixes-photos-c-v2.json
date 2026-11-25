@@ -1,0 +1,160 @@
+{
+  "schema_version": 1,
+  "pack": "a1plus-unit-5-review-fixes-photos-c",
+  "revision": 2,
+  "output_namespace": "a1plus-unit-5-lesson-v595",
+  "authorization": "2026-11-23: after reviewing A1+ Unit 5 the user asked to \"review unit A1+ 5 make sure the images make sense to the ask ... introducing new vocabulary and expanding\", said \"image redo and audio approved\" and chose \"Photos and new words\". Gemini is the approved image tool (2026-09-23), Flash only (2026-11-17).",
+  "image_settings": {
+    "provider": "google-gemini",
+    "model": "gemini-2.5-flash-image",
+    "aspect_ratio": "3:2",
+    "image_size": "1K",
+    "runtime_size": "1536x1024",
+    "runtime_format": "webp",
+    "n": 1
+  },
+  "production": {
+    "price_per_image_usd": "0.0387",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing (checked 2026-11-16: Gemini 2.5 Flash Image, about $0.039 per image)",
+    "planned_images": 8,
+    "expected_cost_usd": "0.31",
+    "requested_ceiling_usd": "0.55",
+    "ceiling_note": "The renderer reserves US$0.20 before each request; each request is sent on its own, and the expected spend for the pack is about US$0.31.",
+    "no_automatic_retries": true,
+    "order": [
+      "v36-man-bed",
+      "v37-woman-lemons",
+      "v38-soup-mushroom-onion",
+      "v39-pass-butter",
+      "v40-man-bill",
+      "v41-woman-fork-knife",
+      "v42-lemonade-offer",
+      "v43-pineapples-lots"
+    ]
+  },
+  "shared_prompts": {
+    "photo": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No letters, words, numbers, logos or brand marks anywhere, not on signs, menus, screens, cups, clothes or bags.",
+    "safe_center": "Keep the people and the thing that carries the meaning inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.",
+    "solo": "Only this one person is in the photo; there is nobody else, even far in the background.",
+    "pair": "Only these two people are in the photo; there is nobody else, even far in the background.",
+    "daytime": "It is clearly daytime with soft natural light.",
+    "kitchen": "The place is a bright, tidy home kitchen with a light wooden table, white walls and a big window; nothing else is on the table.",
+    "still": "No people, hands or animals are in the photo. The food sits in the middle of the table and fills the central part of the photo, sharp and easy to count or judge on a small phone screen.",
+    "few": "Exactly three pieces are visible, clearly separate, not touching, with plenty of empty space around them so the small amount is obvious at once.",
+    "lots": "There are so many that they cannot be counted at a glance: a big generous heap.",
+    "keep": "Keep each pictured person's face, hair, skin, build and clothes exactly as in the reference image; they look natural and relaxed, not posing for the camera.",
+    "numeral": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. No letters, words, logos or brand marks anywhere. The only writing in the photo is each price card described: a small white card on a little stand with a dollar sign and a number in big, thick black print, upright, facing the camera, sharp and easy to read on a small phone screen. No other signs, labels, screens or clothes show any digit or letter.",
+    "phototext": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos. No logos or brand marks anywhere.",
+    "big": "The thing that carries the meaning is BIG in the photo: it fills at least a third of the photo height and is sharp, so it is recognized at once in a thumbnail 180 pixels wide.",
+    "stall": "The place is an outdoor fruit market by day, at a wooden stall; the background is softly blurred. No seller is in the photo.",
+    "cafe": "The place is a bright, simple neighborhood café with light wooden tables, a few plants and big windows; the tables behind are empty.",
+    "card": "The price is printed in very big black digits on a big white card that stands right in front of the thing; the card is about a quarter of the photo height, and its digits are easy to read in a small thumbnail. No other text is in the photo.",
+    "stranger": "The people are ordinary adults who appear nowhere else; nobody resembles a celebrity."
+  },
+  "assets": [
+    {
+      "id": "v36-man-bed",
+      "order": 1,
+      "item": "He wants to go to bed.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "daytime",
+        "stranger",
+        "big"
+      ],
+      "prompt": "Late in the evening, a tired man in a grey T-shirt and long grey trousers stands next to a neatly made bed in a bedroom lit by a small lamp; the window behind him is dark. He yawns widely with one hand over his mouth and points at the bed with the other hand. Only this one man is in the photo."
+    },
+    {
+      "id": "v37-woman-lemons",
+      "order": 2,
+      "item": "She has a few lemons.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "daytime",
+        "stranger",
+        "big"
+      ],
+      "prompt": "A young woman with short red hair stands in a kitchen and holds out a white plate with exactly three bright yellow lemons, clearly separate. Only this one woman is in the photo."
+    },
+    {
+      "id": "v38-soup-mushroom-onion",
+      "order": 3,
+      "item": "There's mushroom and onion in it.",
+      "shared": [
+        "photo",
+        "still",
+        "daytime",
+        "big"
+      ],
+      "prompt": "Seen from above on a dark stone table: one white bowl of clear soup with only two things in it, both easy to see: many slices of white mushroom and many white rings of onion. Nothing else is in the soup."
+    },
+    {
+      "id": "v39-pass-butter",
+      "order": 4,
+      "item": "Can you pass the butter, please?",
+      "shared": [
+        "photo",
+        "safe_center",
+        "daytime",
+        "stranger",
+        "big"
+      ],
+      "prompt": "An older man with white hair and an older woman with grey hair sit facing each other across a breakfast table, seen from the waist up. The woman hands the man a white butter dish with one big block of pale yellow butter, held up in the exact middle of the photo, big and sharp. Only these two people are in the photo."
+    },
+    {
+      "id": "v40-man-bill",
+      "order": 5,
+      "item": "I'd like the bill, please.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "daytime",
+        "stranger",
+        "big",
+        "cafe"
+      ],
+      "prompt": "A man with glasses in a grey sweater sits at a café table after his meal, with an empty plate and an empty cup in front of him. He holds his wallet open and raises one hand a little toward someone outside the photo. Only this one man is in the photo."
+    },
+    {
+      "id": "v41-woman-fork-knife",
+      "order": 6,
+      "item": "She has a knife and a fork.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "daytime",
+        "stranger",
+        "big"
+      ],
+      "prompt": "A woman with long black braids sits at a table with a plate of food in front of her and holds up a shiny metal fork in her left hand and a table knife in her right hand, both upright and easy to see, ready to eat. Only this one woman is in the photo."
+    },
+    {
+      "id": "v42-lemonade-offer",
+      "order": 7,
+      "item": "Would you like some lemonade? No, thank you.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "daytime",
+        "stranger",
+        "big"
+      ],
+      "prompt": "In a garden by day, a young man in a yellow T-shirt holds out a tall clear glass of pale yellow lemonade with ice and lemon slices to an older woman in a straw hat sitting on a garden chair; she smiles politely and holds up one open hand, palm toward the glass: a friendly no, thank you. Both are seen from the waist up; the glass is in the middle of the photo. Only these two people are in the photo."
+    },
+    {
+      "id": "v43-pineapples-lots",
+      "order": 8,
+      "item": "There are a lot of pineapples.",
+      "shared": [
+        "photo",
+        "still",
+        "daytime",
+        "big",
+        "stall"
+      ],
+      "prompt": "A market stall counter covered with a big pile of many whole pineapples with green crowns, far too many to count. No people, no price cards, no text."
+    }
+  ]
+}

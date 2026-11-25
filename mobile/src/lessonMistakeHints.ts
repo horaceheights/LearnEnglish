@@ -121,6 +121,10 @@ const MEANINGS: Record<string, string> = {
   // So do I. / Neither do I.
   pasta: 'pasta', few: 'unos pocos o unas pocas', little: 'un poco', much: 'mucho o mucha',
   'lot of': 'mucho o mucha', so: 'también (a mí también)', neither: 'tampoco (a mí tampoco)',
+  // A1+ Unit 5 (2026-11-23): the new foods, drinks and table things added after the user's review.
+  lemon: 'limón', lemons: 'limones', pineapple: 'piña', pineapples: 'piñas', butter: 'mantequilla',
+  lemonade: 'limonada', menu: 'menú', bill: 'cuenta', onion: 'cebolla', carrot: 'zanahoria',
+  mushroom: 'champiñón', fork: 'tenedor', knife: 'cuchillo', spoon: 'cuchara',
   // A1+ 5.11 and 5.14 (2026-11-20): comparing prices, and a piece of.
   cheaper: 'más barato o más barata', 'more expensive': 'más caro o más cara', piece: 'pedazo',
   // A1 3.13 (2026-11-15): phone number and address.

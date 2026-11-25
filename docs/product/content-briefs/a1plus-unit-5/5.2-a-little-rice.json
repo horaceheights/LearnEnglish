@@ -5,7 +5,7 @@
     "lesson": "5.2",
     "title": "Food"
   },
-  "note": "A1+ Unit 5 Lesson 5.2, built on 2026-11-20 under the A1+ lesson standards approved 2026-10-27 and the user's 2026-11-09 rule that every A1+ lesson follows up the A1 lesson with the same number. The user asked on 2026-11-20 to \"work on a1+ Unit 5 same all deal as before none stop all approved\": A1+ 5.Y follows A1 5.Y with one step each, straight to Preview in batches, Gemini 2.5 Flash photos and ElevenLabs audio pre-approved, no per-lesson gates, reviewed in Preview. Six still-life photos show a big amount against a small spoonful of rice, pasta and cheese; Luis eats a big bowl of pasta and Sofia a spoonful of rice. 5.1's apples and oranges come back to set a few against a little.",
+  "note": "A1+ Unit 5 Lesson 5.2, built on 2026-11-20 under the A1+ lesson standards approved 2026-10-27 and the user's 2026-11-09 rule that every A1+ lesson follows up the A1 lesson with the same number. The user asked on 2026-11-20 to \"work on a1+ Unit 5 same all deal as before none stop all approved\": A1+ 5.Y follows A1 5.Y with one step each, straight to Preview in batches, Gemini 2.5 Flash photos and ElevenLabs audio pre-approved, no per-lesson gates, reviewed in Preview. Six still-life photos show a big amount against a small spoonful of rice, pasta and butter; Luis eats a big bowl of pasta and Sofia a spoonful of rice. 5.1's lemons and pineapples come back to set a few against a little.",
   "target": "backend/lessons/a1_plus/unit_5/a1plus-unit-5-lesson-5-2.yaml",
   "captions": false,
   "narrators": [
@@ -28,7 +28,8 @@
     "goal": "Say how much food there is with a lot of and a little (There's a lot of pasta. / There's a little rice.), and tell a little from 5.1's a few.",
     "vocabulary": [
       "pasta",
-      "a little"
+      "a little",
+      "butter"
     ],
     "review_vocabulary": [
       "there's",
@@ -36,16 +37,15 @@
       "a lot of",
       "a few",
       "rice",
-      "cheese",
-      "apples",
-      "oranges",
+      "lemons",
+      "pineapples",
       "fruit",
       "eats",
       "eat",
       "I"
     ],
-    "grammar_function": "A follow-up of A1 5.2 Food: A1 names food (bread, rice, chicken, fish) and says who eats or cooks it; A1+ 5.2 says how much of a food there is. A food you do not count takes there's and a little, not a few, and no plural (There's a little rice. / There are a few apples.); a lot of fits both (There's a lot of pasta.). pasta is the one new food. The photos show a big heap against one small spoonful of the same food.",
-    "prerequisite": "A1+ 5.1 a lot of and a few; A1 5.2 rice, A1 5.13 cheese; A1+ 2.4 contractions (there's); A1+ 1.2 eats.",
+    "grammar_function": "A follow-up of A1 5.2 Food: A1 names food (bread, rice, chicken, fish) and says who eats or cooks it; A1+ 5.2 says how much of a food there is. A food you do not count takes there's and a little, not a few, and no plural (There's a little rice. / There are a few lemons.); a lot of fits both (There's a lot of pasta.). pasta and butter are the new foods (butter added 2026-11-23). The photos show a big heap against one small spoonful of the same food.",
+    "prerequisite": "A1+ 5.1 a lot of and a few; A1 5.2 rice; A1+ 2.4 contractions (there's); A1+ 1.2 eats.",
     "speaking_outcome": "Say a little as one phrase (a-LIT-tle, a very short); keep there's short; do not require native-like speed.",
     "content_revision": 1,
     "learn_context_groups": [
@@ -96,6 +96,18 @@
             "text": "Luis eats a lot of pasta."
           }
         ]
+      },
+      {
+        "kind": "sequence",
+        "targets": [
+          "butter"
+        ],
+        "models": [
+          {
+            "slide_id": "L5",
+            "text": "It's butter."
+          }
+        ]
       }
     ]
   },
@@ -104,7 +116,7 @@
       "id": "l-pasta",
       "text": "There's a lot of pasta.",
       "es": "Hay mucha pasta.",
-      "image": "/lesson-assets/a1plus-unit-5-m03-4fe580a5db23075b.webp",
+      "image": "/lesson-assets/a1plus-unit-5-m23-6bdc1dc7afded899.webp",
       "kind": "sequence",
       "choices": false,
       "use": false,
@@ -145,6 +157,17 @@
       "speaker": "co-teacher"
     },
     {
+      "id": "l-butter",
+      "text": "It's butter.",
+      "es": "Es mantequilla.",
+      "image": "/lesson-assets/a1plus-unit-5-m27-85812a35a6f6ffc4.webp",
+      "kind": "sequence",
+      "choices": false,
+      "use": false,
+      "learn": true,
+      "speaker": "teacher"
+    },
+    {
       "id": "lots-rice",
       "text": "There's a lot of rice.",
       "es": "Hay mucho arroz.",
@@ -176,7 +199,7 @@
       "speaker": "co-teacher",
       "prefer": [
         "There's a lot of rice.",
-        "There's a little cheese."
+        "There's a little butter."
       ],
       "accepts": {
         "subject-variety": "Listen: the answer is what was heard; the other sentences change only the amount or the food.",
@@ -194,7 +217,7 @@
       "id": "lots-pasta",
       "text": "There's a lot of pasta.",
       "es": "Hay mucha pasta.",
-      "image": "/lesson-assets/a1plus-unit-5-m03-4fe580a5db23075b.webp",
+      "image": "/lesson-assets/a1plus-unit-5-m23-6bdc1dc7afded899.webp",
       "kind": "amount",
       "speaker": "teacher",
       "prefer": [
@@ -222,7 +245,7 @@
       "speaker": "co-teacher",
       "prefer": [
         "There's a lot of pasta.",
-        "There's a little cheese."
+        "There's a little butter."
       ],
       "accepts": {
         "subject-variety": "Listen: the answer is what was heard; the other sentences change only the amount or the food.",
@@ -237,14 +260,14 @@
       "learn": false
     },
     {
-      "id": "lots-cheese",
-      "text": "There's a lot of cheese.",
-      "es": "Hay mucho queso.",
-      "image": "/lesson-assets/a1plus-unit-5-m05-38082fd76b100c06.webp",
+      "id": "lots-butter",
+      "text": "There's a lot of butter.",
+      "es": "Hay mucha mantequilla.",
+      "image": "/lesson-assets/a1plus-unit-5-m27-85812a35a6f6ffc4.webp",
       "kind": "amount",
       "speaker": "teacher",
       "prefer": [
-        "There's a little cheese.",
+        "There's a little butter.",
         "There's a lot of rice."
       ],
       "accepts": {
@@ -260,14 +283,14 @@
       "learn": false
     },
     {
-      "id": "little-cheese",
-      "text": "There's a little cheese.",
-      "es": "Hay un poco de queso.",
-      "image": "/lesson-assets/a1plus-unit-5-m06-ceb24e89884e7965.webp",
+      "id": "little-butter",
+      "text": "There's a little butter.",
+      "es": "Hay un poco de mantequilla.",
+      "image": "/lesson-assets/a1plus-unit-5-m28-61e94216fd971210.webp",
       "kind": "amount",
       "speaker": "co-teacher",
       "prefer": [
-        "There's a lot of cheese.",
+        "There's a lot of butter.",
         "There's a little pasta."
       ],
       "accepts": {
@@ -283,15 +306,15 @@
       "learn": false
     },
     {
-      "id": "few-apples",
-      "text": "There are a few apples.",
-      "es": "Hay unas pocas manzanas.",
-      "image": "/lesson-assets/a1plus-unit-5-k02-a3c141cdc6d7becc.webp",
+      "id": "few-lemons",
+      "text": "There are a few lemons.",
+      "es": "Hay unos pocos limones.",
+      "image": "/lesson-assets/a1plus-unit-5-k10-06fa1d4eb099eacb.webp",
       "kind": "amount",
       "speaker": "teacher",
       "prefer": [
         "There's a little rice.",
-        "There's a lot of cheese."
+        "There's a lot of butter."
       ],
       "accepts": {
         "subject-variety": "Listen: the answer is what was heard; the other sentences change only the amount or the food.",
@@ -303,15 +326,15 @@
       "learn": false
     },
     {
-      "id": "lots-oranges",
-      "text": "There are a lot of oranges.",
-      "es": "Hay muchas naranjas.",
-      "image": "/lesson-assets/a1plus-unit-5-k03-5a345a3def47d7b6.webp",
+      "id": "lots-pineapples",
+      "text": "There are a lot of pineapples.",
+      "es": "Hay muchas piñas.",
+      "image": "/lesson-assets/a1plus-unit-5-k11-8e84c3ebb9c017e9.webp",
       "kind": "amount",
       "speaker": "co-teacher",
       "prefer": [
         "There's a little pasta.",
-        "There are a few apples."
+        "There are a few lemons."
       ],
       "accepts": {
         "subject-variety": "Listen: the answer is what was heard; the other sentences change only the amount or the food.",
@@ -441,17 +464,18 @@
       "l-pasta",
       "l-little",
       "l-sofia",
-      "l-luis"
+      "l-luis",
+      "l-butter"
     ],
     "Recognize": [
       "lots-rice",
       "little-pasta",
       "c-sofia",
       "little-rice",
-      "lots-cheese",
+      "lots-butter",
       "c-luis",
-      "few-apples",
-      "little-cheese",
+      "few-lemons",
+      "little-butter",
       "lots-pasta",
       "c-diego"
     ],
@@ -459,20 +483,20 @@
       "little-rice",
       "lots-pasta",
       "c-luis",
-      "little-cheese",
+      "little-butter",
       "lots-rice",
-      "few-apples",
+      "few-lemons",
       "c-sofia",
-      "lots-cheese",
+      "lots-butter",
       "little-pasta",
-      "lots-oranges"
+      "lots-pineapples"
     ],
     "Speak": [
       "lots-pasta",
       "little-rice",
       "c-luis-i",
       "c-sofia-i",
-      "lots-cheese",
+      "lots-butter",
       "little-pasta",
       "c-sofia",
       "lots-rice"
@@ -482,7 +506,7 @@
       "lots-pasta",
       "c-luis",
       "c-sofia-i",
-      "little-cheese",
+      "little-butter",
       "c-luis-i",
       "lots-rice",
       "c-sofia"
