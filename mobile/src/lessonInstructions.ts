@@ -68,7 +68,7 @@ const ENGLISH_INSTRUCTIONS: Record<string, string> = {
 };
 
 function inLanguage(language: UiLanguage, spanish: string) {
-  return language === 'en' ? ENGLISH_INSTRUCTIONS[spanish] ?? spanish : spanish;
+  return language !== 'es' ? ENGLISH_INSTRUCTIONS[spanish] ?? spanish : spanish;
 }
 
 const LISTEN_AND_CHOOSE_PROMPT = 'Listen and choose.';
@@ -126,12 +126,12 @@ export function usesSpanishInstructions(lessonId: string) {
 
 // Stage names are Spanish in every unit, as they were first in Unit 1.
 export function lessonStageLabel(_lessonId: string, stage: string, language: UiLanguage = 'es') {
-  if (language === 'en') return ENGLISH_STAGE_LABELS[stage] || stage;
+  if (language !== 'es') return ENGLISH_STAGE_LABELS[stage] || stage;
   return SPANISH_STAGE_LABELS[stage] || stage;
 }
 
 export function lessonStageShortLabel(lessonId: string, stage: string, language: UiLanguage = 'es') {
-  if (language === 'en') return SHORT_ENGLISH_STAGE_LABELS[stage] || lessonStageLabel(lessonId, stage, language);
+  if (language !== 'es') return SHORT_ENGLISH_STAGE_LABELS[stage] || lessonStageLabel(lessonId, stage, language);
   return SHORT_SPANISH_STAGE_LABELS[stage] || lessonStageLabel(lessonId, stage);
 }
 

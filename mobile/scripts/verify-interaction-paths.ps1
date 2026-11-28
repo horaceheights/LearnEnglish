@@ -35,7 +35,7 @@ try {
   & node --test tests/option-translation.test.cjs tests/option-translation-native.test.mjs
   if ($LASTEXITCODE -ne 0) { throw 'Traducir option translations failed.' }
 
-  & node --test tests/course-ui-language.test.cjs
+  & node --test tests/course-ui-language.test.cjs tests/help-language.test.cjs
   if ($LASTEXITCODE -ne 0) { throw 'Per-course app language (English for English speakers) failed.' }
 
   & node tests/lesson-progress.test.cjs (Join-Path $outputDirectory 'lessonProgress.js')

@@ -20,7 +20,7 @@ import {
 import { useVideoPlayer, VideoView } from 'expo-video';
 
 import { getPronunciationStreamingToken, scorePronunciation } from '../api';
-import { ui, type UiLanguage } from '../uiText';
+import { spanishOrEnglish, ui, type UiLanguage } from '../uiText';
 import { useUiLanguage } from '../uiLanguage';
 import { speechLocaleForLevel } from '../courseSpeech';
 import {
@@ -1034,7 +1034,7 @@ export function PronunciationPractice({
       });
       await completeGradedAttempt(
         accepted,
-        nextResult.feedback?.messages[lang] ?? (accepted ? ui(lang, 'Muy bien.') : ui(lang, 'Inténtalo otra vez.')),
+        nextResult.feedback?.messages[spanishOrEnglish(lang)] ?? (accepted ? ui(lang, 'Muy bien.') : ui(lang, 'Inténtalo otra vez.')),
         recordingUri,
         runId,
       );
@@ -1190,7 +1190,7 @@ export function PronunciationPractice({
       }
       await completeGradedAttempt(
         accepted,
-        nextResult.feedback?.messages[lang] ?? (accepted ? ui(lang, 'Muy bien.') : ui(lang, 'Inténtalo otra vez.')),
+        nextResult.feedback?.messages[spanishOrEnglish(lang)] ?? (accepted ? ui(lang, 'Muy bien.') : ui(lang, 'Inténtalo otra vez.')),
         recordingUri,
         runId,
       );
@@ -2030,7 +2030,7 @@ export function PronunciationPractice({
       message={phase === 'model' ? ui(lang, 'Escucha la pregunta.')
         : phase === 'ready' ? ui(lang, 'Prepárate…')
         : phase === 'listening' ? ui(lang, 'Lee la frase en voz alta.')
-        : result && passed ? result.feedback?.messages[lang] ?? ui(lang, '¡Muy bien!')
+        : result && passed ? result.feedback?.messages[spanishOrEnglish(lang)] ?? ui(lang, '¡Muy bien!')
         : message}
       attemptLabel={attempt > 0 && phase !== 'success' ? ui(lang, 'Intento {number}', { number: attempt + 1 }) : null}
       signal={signal}
@@ -2231,7 +2231,7 @@ export function PronunciationPractice({
                 ]}
               >
                 {passed ? '✨ ' : ''}
-                {result.feedback?.messages[lang] ?? (passed ? ui(lang, '¡Muy bien!') : ui(lang, 'Escucha e inténtalo de nuevo.'))}
+                {result.feedback?.messages[spanishOrEnglish(lang)] ?? (passed ? ui(lang, '¡Muy bien!') : ui(lang, 'Escucha e inténtalo de nuevo.'))}
                 {passed ? ' ✨' : ''}
               </Animated.Text>
             </View>

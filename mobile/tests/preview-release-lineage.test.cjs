@@ -110,10 +110,17 @@ test('additional courses cannot disappear from the release, aggregate, or naviga
   writeFile(repositoryRoot, extraPath, encode(extra));
   writeFile(repositoryRoot, aggregatePath, encode([...lessons, ...extra]));
   writeFile(repositoryRoot, indexPath, encode(index));
-  writeFile(repositoryRoot, 'backend/courses.json', encode([{id: 'a1', catalogPath: manifest.catalog.path},
-    {id: 'additional', catalogPath: extraPath}]));
+  const registry = [{id: 'a1', catalogPath: manifest.catalog.path, targetLanguage: 'en', helpLanguages: ['es']},
+    {id: 'additional', catalogPath: extraPath, targetLanguage: 'de', helpLanguages: ['en']}];
+  writeFile(repositoryRoot, 'backend/courses.json', encode(registry));
   writeManifest(repositoryRoot, manifest);
   assert.doesNotThrow(() => verifyFixture(repositoryRoot));
+  // A course must name what it teaches and help only in other taught languages.
+  for (const broken of [{targetLanguage: undefined}, {helpLanguages: []}, {helpLanguages: ['de']}, {helpLanguages: ['hi']}, {targetLanguage: 'it'}]) {
+    writeFile(repositoryRoot, 'backend/courses.json', encode([registry[0], {...registry[1], ...broken}]));
+    assert.throws(() => verifyFixture(repositoryRoot), /targetLanguage y helpLanguages/);
+  }
+  writeFile(repositoryRoot, 'backend/courses.json', encode(registry));
   manifest.combinedCatalog = descriptor('complete-catalog', aggregatePath, lessons);
   writeFile(repositoryRoot, aggregatePath, encode(lessons));
   writeManifest(repositoryRoot, manifest);

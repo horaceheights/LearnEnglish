@@ -138,6 +138,26 @@ A1+ and later levels wait until that path is proven.
 
 ---
 
+## Multilingual app — any language with any help language
+
+User decision 2026-11-28: the app teaches English, Spanish, German and French,
+each learnable with any of the other three as the help language. Onboarding
+picks the language, the help language, minutes per day and days per week.
+Goal, progress and price are per language. Design and rules:
+[`../product/multilingual-architecture.md`](../product/multilingual-architecture.md).
+Ranked after the open A1/A1+ phone tests unless the user re-ranks.
+
+- [x] Phase 0: architecture document, guardrails, roadmap and Jira items
+- [x] Phase 1: language foundations (target and help languages in the course registry, four-language app text, help text per language, mistake help per pair); no visible change
+- [ ] Phase 2: onboarding, learner languages in the profile, course home per target language, help-language switch in QA, tutor language parameters
+- [ ] Phase 3: daily goal per language (active minutes, non-blocking goal alert, weekly view)
+- [ ] Phase 4: per-course content download from the R2 bucket (separate release-infrastructure plan)
+- [ ] Phase 5: fill pairs one at a time, starting with German for Spanish speakers, each with a native check
+- [ ] Phase 6: French course `fr-a1`
+- [ ] Phase 7: one native build with per-language payments, practice reminders and a rebrand
+
+---
+
 ## P0 — Reliability and complete-course verification
 
 Nothing moves ahead of a serious defect that prevents lesson completion,

@@ -67,6 +67,46 @@ test('only courses for English speakers declare an English app language', () => 
   assert.deepEqual(courses.filter(course => !course.uiLanguage).map(course => course.id), ['a1', 'a1-plus']);
 });
 
+test('each course names the language it teaches and its complete help languages', () => {
+  // Multilingual app (user decision 2026-11-28): onboarding offers only the pairs
+  // listed here, and a course's default help language is always one of them.
+  const courses = JSON.parse(fs.readFileSync(path.join(repositoryRoot, 'backend/courses.json'), 'utf8'));
+  const catalogs = JSON.parse(read('src/generated/course-catalogs.json'));
+  for (const course of courses) {
+    const exported = catalogs.find(entry => entry.id === course.id);
+    assert.equal(exported.targetLanguage, course.targetLanguage, course.id);
+    assert.deepEqual(exported.helpLanguages, course.helpLanguages, course.id);
+    assert.ok(course.helpLanguages.includes(course.uiLanguage || 'es'), `${course.id} must offer its default help language`);
+  }
+  assert.deepEqual(Object.fromEntries(courses.map(course => [course.id, [course.targetLanguage, course.helpLanguages]])), {
+    'a1': ['en', ['es']], 'a1-plus': ['en', ['es']], 'de-a1': ['de', ['en']], 'es-a1': ['es', ['en']], 'es-a1-plus': ['es', ['en']],
+  });
+});
+
+test('a help language is offered only once its screen text is complete', () => {
+  const { UI_GERMAN, UI_FRENCH } = load('src/uiText.ts');
+  const tables = { en: UI_ENGLISH, de: UI_GERMAN, fr: UI_FRENCH };
+  const offered = new Set(JSON.parse(fs.readFileSync(path.join(repositoryRoot, 'backend/courses.json'), 'utf8'))
+    .flatMap(course => course.helpLanguages));
+  for (const language of offered) {
+    if (language === 'es') continue;
+    const missing = Object.keys(UI_ENGLISH).filter(key => !(key in tables[language]));
+    assert.deepEqual(missing, [], `${language} screen text is incomplete`);
+  }
+  for (const table of [UI_GERMAN, UI_FRENCH]) {
+    assert.deepEqual(Object.keys(table).filter(key => !(key in UI_ENGLISH)), [], 'German and French use the English keys');
+  }
+  // Until a table is written, its language reads English rather than Spanish.
+  assert.equal(ui('de', 'Continuar'), 'Continue');
+  assert.equal(ui('fr', 'Siguiente lección: {name}', { name: '1.2' }), 'Next lesson: 1.2');
+});
+
+test('helpers with Spanish and English copy read English for any other help language', () => {
+  const instructions = load('src/lessonInstructions.ts');
+  assert.equal(instructions.lessonStageLabel('x', 'Recognize', 'de'), 'Recognize');
+  assert.equal(instructions.pronunciationInstruction('fr'), 'Listen and repeat!');
+});
+
 test('English courses see English stage names and instructions', () => {
   const instructions = load('src/lessonInstructions.ts');
   assert.equal(instructions.lessonStageLabel('x', 'Recognize', 'en'), 'Recognize');

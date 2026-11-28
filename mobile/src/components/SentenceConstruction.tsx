@@ -18,6 +18,8 @@ import { lessonHelpText } from '../lessonHelp';
 import { ConstructionCelebration, useConstructionCelebration } from './ConstructionCelebration';
 import { ui } from '../uiText';
 import { useUiLanguage } from '../uiLanguage';
+import { hasWrittenMistakeHelp } from '../helpLanguage';
+import { fallbackMistakeHint } from '../lessonMistakeHints';
 
 type Bounds = TileBounds;
 type Flight = { label: string; path: TileFlightPath; slot: number };
@@ -136,7 +138,7 @@ export function SentenceConstruction({ vocabulary = [], card, selected, result, 
   const wideSlots = Math.max(0, ...card.options.map(option => wordWidths[option.id] || 0))
     + layout.textSize * viewport.fontScale > paneWidth - 60;
   const locked = disabled || result !== null;
-  const mistakeHint = result === 'wrong' ? sentenceHint(card, slots) : '';
+  const mistakeHint = result === 'wrong' ? (hasWrittenMistakeHelp(card, lang) ? sentenceHint(card, slots) : fallbackMistakeHint(card, lang)) : '';
   const measureWord = (id: string, width: number) => {
     if (id) setWordWidths(previous => previous[id] === width ? previous : { ...previous, [id]: width });
   };

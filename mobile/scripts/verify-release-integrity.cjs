@@ -179,6 +179,18 @@ function verifyReleaseIntegrity({
         !== JSON.stringify(protectedCourses.map(course => [course.courseId, course.path]))) {
       violations.push('El manifiesto debe proteger cada curso registrado, con su catálogo exacto.');
     }
+    // Multilingual app (user decision 2026-11-28): each course names the language it
+    // teaches and the help languages whose content is complete; onboarding offers
+    // only those pairs, and a course never helps in its own language.
+    const taught = ['en', 'es', 'de', 'fr'];
+    for (const course of registered) {
+      const help = course.helpLanguages;
+      if (!taught.includes(course.targetLanguage) || !Array.isArray(help) || help.length === 0
+          || help.some(language => !taught.includes(language) || language === course.targetLanguage)
+          || new Set(help).size !== help.length) {
+        violations.push(`El curso ${course.id} debe declarar targetLanguage y helpLanguages válidos.`);
+      }
+    }
   }
   const primary = verifyCatalog(repositoryRoot, manifest.catalog, violations);
   if (manifest.additionalCatalogs !== undefined) {

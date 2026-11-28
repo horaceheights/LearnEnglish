@@ -198,6 +198,10 @@ def main() -> None:
     course_destination = export_course(list(LESSONS))
     (OUTPUT_ROOT / "course-catalogs.json").write_text(json.dumps([
         {"id": descriptor["id"], "level": descriptor["level"], "title": descriptor["title"],
+         # The language a course teaches, and the help languages whose
+         # content is complete (docs/product/multilingual-architecture.md).
+         "targetLanguage": descriptor["targetLanguage"],
+         "helpLanguages": list(descriptor["helpLanguages"]),
          # Only a course that speaks another language declares its speech
          # locale; the English courses keep the backend's default.
          **({"speechLocale": descriptor["speechLocale"]} if descriptor.get("speechLocale") else {}),

@@ -4,6 +4,8 @@ import { constructionMistakeHint, isOrderedCompletion } from './constructionTeac
 import { relationalChoiceHint } from './choiceTeaching';
 import { germanChoiceHint } from './germanTeaching';
 import { spanishChoiceHint } from './spanishTeaching';
+import { hasWrittenMistakeHelp } from './helpLanguage';
+import { ui, type UiLanguage } from './uiText';
 
 const SUBJECT_LABELS: Record<string, string> = {
   'a baby': '“A baby” (un bebé)',
@@ -979,7 +981,24 @@ function imageChoiceContrast(card: LessonCard, correctId: string, wrongId: strin
 /** Teach the first mistaken slot, or the meaning that distinguishes the choices.
  * Prompt audio may be a question or contain blanks; it is never the answer source.
  */
-export function lessonMistakeHint(card: LessonCard, selected?: string | string[] | null): string {
+/**
+ * Mistake help for a pair with no hand-written explanations (user decision
+ * 2026-11-28): the correct answer, with its translation in the help language.
+ */
+export function fallbackMistakeHint(card: LessonCard, lang: UiLanguage): string {
+  const ids = card.correct_option_ids?.length ? card.correct_option_ids : [card.correct_option_id];
+  const labels = ids.map(id => card.options.find(option => option.id === id)?.label || '').filter(Boolean);
+  const answer = (isOrderedCompletion(card) ? labels.join(' ') : labels[0]) || card.answer_audio_text || card.audio_text || '';
+  const meaning = !/_{2,}|\[(blank|pausa)\]/i.test(card.spanish_translation || '')
+    ? (card.spanish_translation || '').trim().replace(/[.]+$/, '') : '';
+  if (!answer) return '';
+  return meaning
+    ? ui(lang, 'La respuesta es “{answer}”: {meaning}.', { answer, meaning })
+    : ui(lang, 'La respuesta es “{answer}”.', { answer });
+}
+
+export function lessonMistakeHint(card: LessonCard, selected?: string | string[] | null, helpLanguage?: UiLanguage | null): string {
+  if (!hasWrittenMistakeHelp(card, helpLanguage)) return fallbackMistakeHint(card, helpLanguage!);
   const ids = card.correct_option_ids?.length ? card.correct_option_ids : [card.correct_option_id];
   const selectedIds = Array.isArray(selected) ? selected : selected ? [selected] : [];
   if (isOrderedCompletion(card)) return constructionMistakeHint(card, selectedIds);

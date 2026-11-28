@@ -214,7 +214,7 @@ export function LessonCardView({
   // Landscape tablets instead use the same height-aware 3:2 width cap as a
   // non-video single card so the clip leaves visible margins below the header.
   const useFullWidthSingleActionVideo = useExpandedSingleActionVideo && !isTabletLandscape && !phoneLandscape;
-  const mistakeHint = result === 'wrong' ? lessonMistakeHint(card, selectedIds.length ? selectedIds : selectedId) : '';
+  const mistakeHint = result === 'wrong' ? lessonMistakeHint(card, selectedIds.length ? selectedIds : selectedId, lang) : '';
   const awaitingRetry = awaitingConstructionRetry(card, result);
   const [feedbackMeasurement, setFeedbackMeasurement] = useState({ key: '', height: 0 });
   const feedbackLayoutKey = `${viewportWidth}:${fontScale}:${result}:${mistakeHint}`;
