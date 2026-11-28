@@ -1,3 +1,6 @@
+import type { LearnerLanguage } from './learnerLanguages';
+import type { UiLanguage } from './uiText';
+
 export type TeachingClock = { hour: number; minute: number; label?: string };
 export type CourseDelivery = 'quick' | 'clear' | 'a1-pronunciation-v1';
 
@@ -184,6 +187,10 @@ export type LearnerProfile = {
   confidence: string;
   sessionLength: string;
   challenge: string[];
+  /** Languages chosen at onboarding, each with its own help language and goal (2026-11-28). */
+  languages?: LearnerLanguage[];
+  /** The target language the course home shows. */
+  activeTarget?: UiLanguage;
 };
 
 export type SavedUser = {

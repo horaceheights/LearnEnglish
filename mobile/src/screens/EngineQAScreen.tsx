@@ -22,11 +22,20 @@ import {
 import { isMissionLesson, lessonNavigationGroups } from '../missionExperience';
 import { mergePreviewLessonSummaries, previewCourseCatalogs } from '../previewLessons';
 import type { Lesson, LessonSummary } from '../types';
+import type { UiLanguage } from '../uiText';
 
 type Props = {
   onExit: () => void;
   onOpenCard: (lessonId: string, cardIndex: number) => void;
+  /** Help language forced on QA lessons; null follows each course's default (2026-11-28). */
+  helpLanguage?: UiLanguage | null;
+  onHelpLanguageChange?: (language: UiLanguage | null) => void;
 };
+
+// QA previews any pair, including ones not yet offered, without signing up again.
+const QA_HELP_CHOICES: Array<{ id: UiLanguage | null; label: string }> = [
+  { id: null, label: 'Auto' }, { id: 'es', label: 'ES' }, { id: 'en', label: 'EN' }, { id: 'de', label: 'DE' }, { id: 'fr', label: 'FR' },
+];
 
 type QaLocation = {
   lessonId: string;
@@ -80,7 +89,7 @@ function saveQaLocation(location: QaLocation) {
   return AsyncStorage.setItem(QA_LOCATION_STORAGE_KEY, JSON.stringify(location));
 }
 
-export function EngineQAScreen({ onExit, onOpenCard }: Props) {
+export function EngineQAScreen({ onExit, onOpenCard, helpLanguage = null, onHelpLanguageChange }: Props) {
   const [lessons, setLessons] = useState<LessonSummary[]>([]);
   const [selectedCourseId, setSelectedCourseId] = useState('');
   const [selectedUnitId, setSelectedUnitId] = useState('');
@@ -276,6 +285,23 @@ export function EngineQAScreen({ onExit, onOpenCard }: Props) {
           <Text style={styles.exitText}>← Inicio</Text>
         </Pressable>
       </View>
+
+      {onHelpLanguageChange ? (
+        <View accessibilityLabel="Idioma de ayuda" style={styles.helpLanguageRow}>
+          <Text style={styles.helpLanguageLabel}>Idioma de ayuda</Text>
+          {QA_HELP_CHOICES.map(choice => (
+            <Pressable
+              key={choice.label}
+              accessibilityRole="button"
+              accessibilityState={{ selected: helpLanguage === choice.id }}
+              onPress={() => onHelpLanguageChange(choice.id)}
+              style={[styles.helpLanguageChip, helpLanguage === choice.id ? styles.helpLanguageChipSelected : null]}
+            >
+              <Text style={[styles.helpLanguageChipText, helpLanguage === choice.id ? styles.helpLanguageChipTextSelected : null]}>{choice.label}</Text>
+            </Pressable>
+          ))}
+        </View>
+      ) : null}
 
       <Pressable
         accessibilityRole="button"
@@ -527,6 +553,12 @@ const styles = StyleSheet.create({
   subtitle: { color: '#675f6f', fontSize: 12, lineHeight: 17, marginTop: 2 },
   exitButton: { backgroundColor: '#fff', borderColor: '#cdbbdd', borderRadius: 13, borderWidth: 1, justifyContent: 'center', minHeight: 44, paddingHorizontal: 12 },
   exitText: { color: '#533278', fontSize: 12, fontWeight: '900' },
+  helpLanguageRow: { alignItems: 'center', flexDirection: 'row', flexWrap: 'wrap', gap: 6 },
+  helpLanguageLabel: { color: '#533278', fontSize: 12, fontWeight: '900', marginRight: 4 },
+  helpLanguageChip: { backgroundColor: '#fff', borderColor: '#cdbbdd', borderRadius: 11, borderWidth: 1, justifyContent: 'center', minHeight: 36, paddingHorizontal: 11 },
+  helpLanguageChipSelected: { backgroundColor: '#533278', borderColor: '#533278' },
+  helpLanguageChipText: { color: '#533278', fontSize: 12, fontWeight: '900' },
+  helpLanguageChipTextSelected: { color: '#fff' },
   toolsToggle: { alignItems: 'center', backgroundColor: '#eee3f7', borderRadius: 14, flexDirection: 'row', minHeight: 48, paddingHorizontal: 13, paddingVertical: 8 },
   toolsCopy: { flex: 1, minWidth: 0 },
   toolsTitle: { color: '#3f2859', fontSize: 12, fontWeight: '900' },

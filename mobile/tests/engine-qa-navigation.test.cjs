@@ -124,7 +124,9 @@ const modules = {
   '../components/PlayfulLoading': { PlayfulLoading: 'PlayfulLoading' },
   '../hooks/useConnectivity': { useConnectivity: () => false },
   // Course app language (2026-11-19): the A1 course keeps Spanish.
-  '../uiLanguage': { uiLanguageForCourse: () => 'es', UiLanguageContext: { Provider: 'Provider' } },
+  '../uiLanguage': { uiLanguageForCourse: () => 'es', targetLanguageForCourse: () => 'en', UiLanguageContext: { Provider: 'Provider' } },
+  // Learner languages (2026-11-28): the course home names the language being learned.
+  '../learnerLanguages': { LANGUAGE_NATIVE_NAMES: { en: 'English' }, languageName: () => 'inglés' },
   '../uiText': { ui: (_language, text, values) => (values ? text.replace(/\{(\w+)\}/g, (_, key) => String(values[key] ?? '')) : text) },
 };
 const courseModule = { exports: {} };

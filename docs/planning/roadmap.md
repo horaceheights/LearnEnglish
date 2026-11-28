@@ -149,7 +149,7 @@ Ranked after the open A1/A1+ phone tests unless the user re-ranks.
 
 - [x] Phase 0: architecture document, guardrails, roadmap and Jira items
 - [x] Phase 1: language foundations (target and help languages in the course registry, four-language app text, help text per language, mistake help per pair); no visible change
-- [ ] Phase 2: onboarding, learner languages in the profile, course home per target language, help-language switch in QA, tutor language parameters
+- [~] Phase 2: onboarding, learner languages in the profile, course home per target language, help-language switch in QA, tutor language parameters
 - [ ] Phase 3: daily goal per language (active minutes, non-blocking goal alert, weekly view)
 - [ ] Phase 4: per-course content download from the R2 bucket (separate release-infrastructure plan)
 - [ ] Phase 5: fill pairs one at a time, starting with German for Spanish speakers, each with a native check

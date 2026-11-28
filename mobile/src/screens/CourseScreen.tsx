@@ -31,7 +31,8 @@ import { useConnectivity } from '../hooks/useConnectivity';
 import { setDiagnosticContext } from '../diagnostics';
 import { lessonImageSource } from '../lessonImageSources';
 import { ui } from '../uiText';
-import { UiLanguageContext, uiLanguageForCourse } from '../uiLanguage';
+import { UiLanguageContext, targetLanguageForCourse, uiLanguageForCourse, type UiLanguage } from '../uiLanguage';
+import { LANGUAGE_NATIVE_NAMES, languageName } from '../learnerLanguages';
 import { getPreviewLessonMetadata, mergePreviewLessonSummaries, previewCourseCatalogs } from '../previewLessons';
 import type { LearnerProfile, LessonProgress, LessonSummary } from '../types';
 import {
@@ -595,6 +596,14 @@ type Props = {
   onViewProfile: () => void;
   onSignOut: () => void;
   onOpenQA?: () => void;
+  /** The learner's active target language: the home shows only its courses (2026-11-28). */
+  activeTarget?: UiLanguage | null;
+  /** The learner's help language for the active target. */
+  helpLanguage?: UiLanguage;
+  /** Every target language the learner studies, for the language switcher. */
+  studiedLanguages?: UiLanguage[];
+  onSwitchLanguage?: (target: UiLanguage) => void;
+  onAddLanguage?: () => void;
 };
 
 function lessonName(lesson: LessonSummary): string {
@@ -629,7 +638,10 @@ function unitNumber(lesson?: LessonSummary): number {
   return Number(match?.[0] || 1);
 }
 
-export function CourseScreen({ profile, onHome, onOpenLesson, onViewProfile, onSignOut, onOpenQA }: Props) {
+export function CourseScreen({
+  profile, onHome, onOpenLesson, onViewProfile, onSignOut, onOpenQA,
+  activeTarget, helpLanguage, studiedLanguages = [], onSwitchLanguage, onAddLanguage,
+}: Props) {
   const { isUpdatePending } = Updates.useUpdates();
   const currentVersion = Constants.nativeAppVersion || Updates.runtimeVersion || '1.6.0';
   const isPreviewBuild = Updates.channel === 'preview';
@@ -641,10 +653,12 @@ export function CourseScreen({ profile, onHome, onOpenLesson, onViewProfile, onS
   const courses = useMemo(() => [...new Map(lessons.map(lesson => {
     const id = lesson.course_id || lesson.level;
     return [id, { id, title: previewCourseCatalogs.find(course => course.id === id)?.title || lesson.level }];
-  })).values()], [lessons]);
-  const activeCourseId = selectedCourseId || courses[0]?.id;
-  // The selected course decides the home screen's language (2026-11-19).
-  const lang = uiLanguageForCourse(activeCourseId);
+  })).values()].filter(course => !activeTarget || targetLanguageForCourse(course.id) === activeTarget), [activeTarget, lessons]);
+  const activeCourseId = (selectedCourseId && courses.some(course => course.id === selectedCourseId)
+    ? selectedCourseId : null) || courses[0]?.id;
+  // The learner's help language decides the home screen's language (2026-11-28);
+  // without one, the selected course's default help language (2026-11-19).
+  const lang = helpLanguage || uiLanguageForCourse(activeCourseId);
   const courseLessons = useMemo(() => lessons.filter(lesson =>
     (lesson.course_id || lesson.level) === activeCourseId), [lessons, activeCourseId]);
   const isOffline = useConnectivity();
@@ -661,7 +675,9 @@ export function CourseScreen({ profile, onHome, onOpenLesson, onViewProfile, onS
   const [selectedUnitId, setSelectedUnitId] = useState<string | null>(null);
   const [isAccountMenuOpen, setIsAccountMenuOpen] = useState(false);
   const [updateStatus, setUpdateStatus] = useState<'idle' | 'checking' | 'downloading'>('idle');
-  const recentLessonStorageKey = `course:last-lesson:${profile.userId || profile.displayName.trim().toLowerCase()}`;
+  // The last lesson is remembered per target language; English keeps the original key.
+  const recentLessonStorageKey = `course:last-lesson:${profile.userId || profile.displayName.trim().toLowerCase()}${
+    activeTarget && activeTarget !== 'en' ? `:${activeTarget}` : ''}`;
   const currentLesson = useMemo(
     () => {
       const firstLessonToPass = courseLessons.find((lesson) => !progressByLesson[lesson.id]?.passed);
@@ -913,7 +929,9 @@ export function CourseScreen({ profile, onHome, onOpenLesson, onViewProfile, onS
               />
             </Pressable>
             <View style={styles.greetingBlock}>
-              <Text style={styles.routeLabel}>{ui(lang, 'TU RUTA DE INGLÉS')}</Text>
+              <Text style={styles.routeLabel}>{ui(lang, 'TU RUTA DE {language}', {
+                language: languageName(activeTarget || targetLanguageForCourse(activeCourseId) || 'en', lang).toUpperCase(),
+              })}</Text>
               <Text numberOfLines={1} style={styles.greeting}>{profile.displayName}</Text>
             </View>
           </View>
@@ -1090,6 +1108,19 @@ export function CourseScreen({ profile, onHome, onOpenLesson, onViewProfile, onS
           </Pressable>
         ) : null}
 
+        {onSwitchLanguage && (studiedLanguages.length > 1 || onAddLanguage) ? (
+          <View accessibilityLabel={ui(lang, 'Tus idiomas')} style={styles.courseChoices}>
+            {studiedLanguages.map(language => <Pressable key={language} accessibilityRole="button"
+              accessibilityState={{ selected: language === activeTarget }}
+              onPress={() => { setSelectedCourseId(null); setSelectedUnitId(null); onSwitchLanguage(language); }}
+              style={[styles.courseChoice, language === activeTarget && styles.courseChoiceSelected]}>
+              <Text style={styles.allUnitsButtonText}>{LANGUAGE_NATIVE_NAMES[language]}</Text>
+            </Pressable>)}
+            {onAddLanguage ? <Pressable accessibilityRole="button" onPress={onAddLanguage} style={styles.courseChoice}>
+              <Text style={styles.allUnitsButtonText}>{ui(lang, '+ Añadir idioma')}</Text>
+            </Pressable> : null}
+          </View>
+        ) : null}
         {courses.length > 1 ? <View accessibilityRole="tablist" style={styles.courseChoices}>
           {courses.map(course => <Pressable key={course.id} accessibilityRole="tab"
             accessibilityState={{ selected: course.id === activeCourseId }}

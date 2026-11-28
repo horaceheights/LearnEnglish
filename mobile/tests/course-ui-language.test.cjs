@@ -118,9 +118,12 @@ test('English courses see English stage names and instructions', () => {
   assert.equal(instructions.lessonPromptText('x', 'Listen and choose.', 'en'), 'Listen and choose!');
 });
 
-test('lessons and the course home take their course language; the Spanish-only tutor stays off', () => {
-  assert.match(read('App.tsx'), /UiLanguageContext\.Provider value=\{uiLanguageForLesson\(screen\.lessonId\)\}/);
-  assert.match(read('src/screens/CourseScreen.tsx'), /const lang = uiLanguageForCourse\(activeCourseId\)/);
+test('lessons and the course home take the learner help language; the Spanish-only tutor stays off', () => {
+  // Since 2026-11-28 the learner's help language for the lesson's target language
+  // wins when the course offers it; otherwise the course's default help language.
+  assert.match(read('App.tsx'), /helpLanguageForLesson\(\s*screen\.lessonId,\s*learnerLanguageFor\(profile, targetLanguageForLesson\(screen\.lessonId\)\)\?\.help,/);
+  assert.match(read('App.tsx'), /UiLanguageContext\.Provider value=\{lessonHelp\}/);
+  assert.match(read('src/screens/CourseScreen.tsx'), /const lang = helpLanguage \|\| uiLanguageForCourse\(activeCourseId\)/);
   assert.match(read('src/screens/LessonScreen.tsx'), /tutorContext = useMemo\(\(\) => lang === 'es' &&/);
   const guardrails = fs.readFileSync(path.join(repositoryRoot, 'docs/product/project-guardrails.md'), 'utf8');
   assert.match(guardrails, /uiLanguage/);

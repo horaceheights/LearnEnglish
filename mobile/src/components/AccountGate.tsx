@@ -20,6 +20,8 @@ import { loadLocalProfile } from '../profile';
 import type { AccountSnapshot } from '../accountSyncStore';
 import { DEFAULT_PROFILE } from '../profile';
 import type { LearnerProfile } from '../types';
+import { deviceHelpLanguage } from '../learnerLanguages';
+import { ui } from '../uiText';
 
 type Props = { children: (profile: LearnerProfile, signOut: () => Promise<void>) => ReactNode };
 const publishableKey = process.env.EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY;
@@ -37,6 +39,8 @@ function Gate({ children }: Props) {
   const identity = useRef(userId); identity.current = userId;
   const tokenProvider = useRef(getToken); tokenProvider.current = getToken;
   const isOffline = useConnectivity();
+  // Before a help language is chosen, account screens follow the device (2026-11-28).
+  const lang = deviceHelpLanguage();
   const restore = useCallback(async () => {
     if (!isSignedIn || !userId) return;
     setBusy(true); setError('');
@@ -67,7 +71,7 @@ function Gate({ children }: Props) {
         if (identity.current !== userId) return;
         setSnapshot(cached);
       }
-      setError(cause instanceof Error ? cause.message : 'No pudimos cargar tu cuenta.');
+      setError(cause instanceof Error ? cause.message : ui(lang, 'No pudimos cargar tu cuenta.'));
     } finally { if (identity.current === userId) setBusy(false); }
   }, [isSignedIn, userId]);
   useEffect(() => {
@@ -80,7 +84,7 @@ function Gate({ children }: Props) {
   useEffect(() => {
     if (!snapshot) return;
     const stop = subscribeAccountSync((next, cause) => {
-      if (cause) setError(`Tu progreso queda guardado aquí. ${cause.message}`);
+      if (cause) setError(ui(lang, 'Tu progreso queda guardado aquí. {reason}', { reason: cause.message }));
       else if (next) {
         if (next.profileVersion < (getAccountSession()?.profileVersion || 0)) return;
         setError(''); setSnapshot(next);
@@ -103,7 +107,7 @@ function Gate({ children }: Props) {
     const accountId = snapshot.user.id;
     const scope = progressScope(accountId);
     const checkIdentity = () => {
-      if (importPending.current !== operation || identity.current !== userId || progressScope(accountId) !== scope) throw new Error('La cuenta cambió. Inténtalo otra vez.');
+      if (importPending.current !== operation || identity.current !== userId || progressScope(accountId) !== scope) throw new Error(ui(lang, 'La cuenta cambió. Inténtalo otra vez.'));
     };
     void getLessons().then(lessons => {
       checkIdentity();
@@ -114,18 +118,18 @@ function Gate({ children }: Props) {
       if (importPending.current !== operation || identity.current !== userId) return;
       setLegacyProfile(null);
       return synchronizeAccount().catch(cause => {
-        if (importPending.current === operation && identity.current === userId) setError(`Tu progreso queda guardado aquí. ${cause.message}`);
+        if (importPending.current === operation && identity.current === userId) setError(ui(lang, 'Tu progreso queda guardado aquí. {reason}', { reason: cause.message }));
       });
     }).catch(cause => {
-      if (importPending.current === operation && identity.current === userId) setImportError(cause instanceof Error ? cause.message : 'No pudimos importar tu progreso. Inténtalo otra vez.');
+      if (importPending.current === operation && identity.current === userId) setImportError(cause instanceof Error ? cause.message : ui(lang, 'No pudimos importar tu progreso. Inténtalo otra vez.'));
     }).finally(() => {
       if (importPending.current !== operation) return;
       importPending.current = null; setImporting(false);
     });
   };
-  if (!isLoaded || (busy && !snapshot)) return <View style={{ flex: 1, justifyContent: 'center' }}><PlayfulLoading label="Preparando tu cuenta…" /></View>;
+  if (!isLoaded || (busy && !snapshot)) return <View style={{ flex: 1, justifyContent: 'center' }}><PlayfulLoading label={ui(lang, 'Preparando tu cuenta…')} /></View>;
   if (isSignedIn && snapshot) return <View style={{ flex: 1 }}>
-    {error ? <Pressable accessibilityRole="button" onPress={() => void restore()}><Text style={{ padding: 10, color: '#a34842' }}>{error} Toca para reintentar.</Text></Pressable> : null}
+    {error ? <Pressable accessibilityRole="button" onPress={() => void restore()}><Text style={{ padding: 10, color: '#a34842' }}>{ui(lang, '{error} Toca para reintentar.', { error })}</Text></Pressable> : null}
     <LegacyProgressImportDialog visible={!!legacyProfile} previousName={legacyProfile?.displayName || ''}
       accountName={snapshot.user.display_name === 'Student' ? '' : snapshot.user.display_name} importing={importing} error={importError}
       onImport={importPreviousProgress} onSkip={() => { if (!importPending.current) { setLegacyProfile(null); setImportError(''); } }} />
@@ -135,20 +139,20 @@ function Gate({ children }: Props) {
   const open = async (mode: 'sign-in' | 'sign-up') => {
     setBusy(true); setError('');
     try { await startHostedAuth({ mode, redirectUrl: getNativeAuthRedirectUrl() }); }
-    catch { setError('No pudimos abrir el acceso a tu cuenta. Inténtalo otra vez.'); }
+    catch { setError(ui(lang, 'No pudimos abrir el acceso a tu cuenta. Inténtalo otra vez.')); }
     finally { setBusy(false); }
   };
   return <View style={{ flex: 1, justifyContent: 'center', padding: 28, gap: 18, backgroundColor: '#fbf7ef' }}>
-    <BrandHeader title="Tu aprendizaje, contigo" onLogoPress={() => setError('')} />
-    <Text>Tu cuenta guarda tu aprendizaje para continuar en cualquier dispositivo.</Text>
+    <BrandHeader title={ui(lang, 'Tu aprendizaje, contigo')} onLogoPress={() => setError('')} />
+    <Text>{ui(lang, 'Tu cuenta guarda tu aprendizaje para continuar en cualquier dispositivo.')}</Text>
     {error ? <Text accessibilityRole="alert" style={{ color: '#a34842' }}>{error}</Text> : null}
     <Pressable accessibilityRole="button" onPress={() => isSignedIn ? void restore() : void open('sign-in')} style={{ padding: 18, backgroundColor: '#c94d24', borderRadius: 14 }}>
-      <Text style={{ color: 'white', fontWeight: '800' }}>{isSignedIn ? 'Reintentar' : 'Iniciar sesión'}</Text>
+      <Text style={{ color: 'white', fontWeight: '800' }}>{isSignedIn ? ui(lang, 'Reintentar') : ui(lang, 'Iniciar sesión')}</Text>
     </Pressable>
     <Pressable accessibilityRole="button" onPress={() => isSignedIn ? void leave() : void open('sign-up')}>
-      <Text>{isSignedIn ? 'Cerrar sesión' : 'Crear cuenta'}</Text>
+      <Text>{isSignedIn ? ui(lang, 'Cerrar sesión') : ui(lang, 'Crear cuenta')}</Text>
     </Pressable>
-    <Text>Verifica tu correo y recupera tu contraseña desde la pantalla de acceso.</Text>
+    <Text>{ui(lang, 'Verifica tu correo y recupera tu contraseña desde la pantalla de acceso.')}</Text>
   </View>;
 }
 

@@ -58,6 +58,23 @@ export function helpLanguagesForCourse(courseIdOrLevel?: string | null): UiLangu
   return (courseByIdOrLevel(courseIdOrLevel)?.helpLanguages || []).filter(isUiLanguage);
 }
 
+/** The language taught by the course that owns a lesson. */
+export function targetLanguageForLesson(lessonId?: string | null): UiLanguage | null {
+  const target = courseOfLesson(lessonId)?.targetLanguage;
+  return isUiLanguage(target) ? target : null;
+}
+
+/**
+ * The help language a lesson runs in: the learner's choice when the lesson's
+ * course offers it, else the course's default help language. QA may force any
+ * language to preview an incomplete pair.
+ */
+export function helpLanguageForLesson(lessonId: string | null | undefined, chosen?: UiLanguage | null, qaOverride?: UiLanguage | null): UiLanguage {
+  if (qaOverride) return qaOverride;
+  const course = courseOfLesson(lessonId);
+  return chosen && (course?.helpLanguages || []).includes(chosen) ? chosen : languageOf(course);
+}
+
 export const UiLanguageContext = createContext<UiLanguage>('es');
 
 export function useUiLanguage(): UiLanguage {
