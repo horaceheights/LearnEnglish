@@ -21,11 +21,22 @@ import {
   setDiagnosticContext,
   type DiagnosticContext,
 } from './src/diagnostics';
-import { clearLocalProfile } from './src/profile';
+import { saveLearnerProfile } from './src/api';
+import { synchronizeAccount } from './src/accountSync';
+import {
+  activeLearnerLanguage,
+  deviceHelpLanguage,
+  learnerLanguageFor,
+  learnerLanguages,
+  needsOnboarding,
+  withLearnerLanguage,
+} from './src/learnerLanguages';
+import { clearLocalProfile, persistProfile, profileFromUser } from './src/profile';
 import { CourseScreen } from './src/screens/CourseScreen';
 import { EngineQAScreen } from './src/screens/EngineQAScreen';
 import { LessonScreen } from './src/screens/LessonScreen';
-import { UiLanguageContext, uiLanguageForLesson } from './src/uiLanguage';
+import { OnboardingScreen } from './src/screens/OnboardingScreen';
+import { UiLanguageContext, helpLanguageForLesson, targetLanguageForLesson, type UiLanguage } from './src/uiLanguage';
 import { useConnectivity } from './src/hooks/useConnectivity';
 import { syncLocalLessonResults } from './src/localLessonResults';
 import { ProfileScreen } from './src/screens/ProfileScreen';
@@ -40,7 +51,9 @@ type Screen =
   | { name: 'course' }
   | { name: 'lesson'; lessonId: string; initialCardIndex?: number; previouslyCompleted?: boolean; qaMode?: boolean }
   | { name: 'profile' }
-  | { name: 'qa' };
+  | { name: 'qa' }
+  | { name: 'add-language' };
+
 
 class AppErrorBoundary extends Component<
   { children: ReactNode },
@@ -107,7 +120,22 @@ function AppContent({ accountProfile, signOut }: { accountProfile: LearnerProfil
     return () => subscription.remove();
   }, [isOffline, profile?.userId]);
 
-  useEffect(() => { setProfile(accountProfile); }, [accountProfile]);
+  // A snapshot fetched before a language choice was saved must not undo it.
+  useEffect(() => {
+    setProfile(current => needsOnboarding(accountProfile) && !needsOnboarding(current)
+      ? { ...accountProfile, languages: current.languages, activeTarget: current.activeTarget }
+      : accountProfile);
+  }, [accountProfile]);
+  const [qaHelpLanguage, setQaHelpLanguage] = useState<UiLanguage | null>(null);
+  const activeLanguage = activeLearnerLanguage(profile);
+
+  // Languages, help language and goal live in the account profile (2026-11-28).
+  const saveLanguages = async (nextProfile: LearnerProfile) => {
+    const saved = { ...profileFromUser(await saveLearnerProfile(nextProfile)), qaAccess: profile.qaAccess };
+    await persistProfile(saved);
+    setProfile(saved);
+    void synchronizeAccount().catch(() => undefined);
+  };
 
   useEffect(() => {
     addDiagnosticBreadcrumb('screen_changed', { screen: screen.name });
@@ -126,10 +154,33 @@ function AppContent({ accountProfile, signOut }: { accountProfile: LearnerProfil
 
   const hasQaAccess = accountProfile.qaAccess === true;
 
-  if (screen.name === 'lesson') {
-    // A lesson runs in its course's app language (2026-11-19).
+  // Every learner picks a language first; existing learners once (2026-11-28).
+  if (!activeLanguage || screen.name === 'add-language') {
+    const adding = Boolean(activeLanguage);
     return (
-      <UiLanguageContext.Provider value={uiLanguageForLesson(screen.lessonId)}>
+      <OnboardingScreen
+        initialLanguage={activeLanguage?.help || deviceHelpLanguage()}
+        mode={adding ? 'add' : 'first'}
+        onCancel={adding ? () => setScreen({ name: 'course' }) : undefined}
+        onDone={async (language) => {
+          await saveLanguages(withLearnerLanguage(profile, language));
+          setScreen({ name: 'course' });
+        }}
+        profile={profile}
+      />
+    );
+  }
+
+  if (screen.name === 'lesson') {
+    // A lesson runs in the learner's help language for its target language when
+    // the course offers it, else the course's default (2026-11-28); QA may force one.
+    const lessonHelp = helpLanguageForLesson(
+      screen.lessonId,
+      learnerLanguageFor(profile, targetLanguageForLesson(screen.lessonId))?.help,
+      screen.qaMode ? qaHelpLanguage : null,
+    );
+    return (
+      <UiLanguageContext.Provider value={lessonHelp}>
       <LessonScreen
         key={screen.lessonId}
         initialCardIndex={screen.initialCardIndex}
@@ -148,6 +199,8 @@ function AppContent({ accountProfile, signOut }: { accountProfile: LearnerProfil
   if (screen.name === 'profile') {
     return (
       <ProfileScreen
+        lang={activeLanguage.help}
+        onSaveLanguages={saveLanguages}
         onCancel={() => setScreen({ name: 'course' })}
         onSaved={(nextProfile) => {
           setProfile(nextProfile);
@@ -165,6 +218,8 @@ function AppContent({ accountProfile, signOut }: { accountProfile: LearnerProfil
   if (screen.name === 'qa' && hasQaAccess) {
     return (
       <EngineQAScreen
+        helpLanguage={qaHelpLanguage}
+        onHelpLanguageChange={setQaHelpLanguage}
         onExit={() => setScreen({ name: 'course' })}
         onOpenCard={(lessonId, initialCardIndex) =>
           setScreen({ initialCardIndex, lessonId, name: 'lesson', qaMode: true })}
@@ -174,6 +229,16 @@ function AppContent({ accountProfile, signOut }: { accountProfile: LearnerProfil
 
   return (
     <CourseScreen
+      activeTarget={activeLanguage.target}
+      helpLanguage={activeLanguage.help}
+      studiedLanguages={learnerLanguages(profile).map(entry => entry.target)}
+      onAddLanguage={() => setScreen({ name: 'add-language' })}
+      onSwitchLanguage={(target) => {
+        if (target === activeLanguage.target) return;
+        const switched = { ...profile, activeTarget: target };
+        setProfile(switched);
+        void saveLanguages(switched).catch(() => undefined);
+      }}
       onHome={() => setScreen({ name: 'course' })}
       onSignOut={() => {
         void clearLocalProfile();
