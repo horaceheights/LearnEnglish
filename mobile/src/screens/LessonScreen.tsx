@@ -135,7 +135,8 @@ import { learnTranslationText, useLearnTranslationPreview } from '../hooks/useLe
 import { useManualSentenceTranslation } from '../hooks/useManualSentenceTranslation';
 import { optionTranslationButtonLabel, optionTranslationsAvailable } from '../optionTranslations';
 import { ui } from '../uiText';
-import { useUiLanguage } from '../uiLanguage';
+import { uiLanguageForLesson, useUiLanguage } from '../uiLanguage';
+import { localizeLesson } from '../helpLanguage';
 import type { LearnerProfile, Lesson, LessonCard } from '../types';
 
 const SUCCESS_CHIME = require('../../assets/sfx/person-found-v2.mp3');
@@ -988,7 +989,9 @@ export function LessonScreen({
     missionChapterBreakFromRef.current = null;
     setReviewStageBounds(null);
     try {
-      const nextLesson = await getLesson(lessonId);
+      // Help text follows the learner's help language (2026-11-28); a lesson read in
+      // its course's default help language is unchanged.
+      const nextLesson = localizeLesson(await getLesson(lessonId), lang, uiLanguageForLesson(lessonId));
       if (!qaMode && profile.userId) await loadAccountCheckpoint(profile.userId, lessonId, lessonResumeStorageKey);
       const savedRun = qaMode
         ? null
@@ -1047,7 +1050,7 @@ export function LessonScreen({
     }
   };
 
-  useEffect(() => { void load(); }, [initialCardIndex, lessonId, lessonResumeStorageKey, previouslyCompleted, qaMode]);
+  useEffect(() => { void load(); }, [initialCardIndex, lang, lessonId, lessonResumeStorageKey, previouslyCompleted, qaMode]);
 
   // Open a fresh standard run with the same briefing surface the section
   // boundaries use, so the first card is never the first thing the learner sees.

@@ -48,11 +48,11 @@ export const COMPLETION_RETRY_HELP = 'Lee la pista y toca Reintentar.';
 export const COMPLETION_RETRY_HELP_ENGLISH = 'Read the hint and tap Retry.';
 
 export function completionRetryHelp(language: UiLanguage = 'es') {
-  return language === 'en' ? COMPLETION_RETRY_HELP_ENGLISH : COMPLETION_RETRY_HELP;
+  return language !== 'es' ? COMPLETION_RETRY_HELP_ENGLISH : COMPLETION_RETRY_HELP;
 }
 
 // Courses for English speakers (uiLanguage "en", 2026-11-19) get the same help in English.
-const pick = (language: UiLanguage, spanish: string, english: string) => (language === 'en' ? english : spanish);
+const pick = (language: UiLanguage, spanish: string, english: string) => (language !== 'es' ? english : spanish);
 const ENGLISH_NOUNS: Record<string, string> = { pregunta: 'question', palabra: 'word', frase: 'sentence', imagen: 'picture' };
 
 export type PromptInteractionMode = 'gestures' | 'translation-on-tap' | 'visual-instruction' | 'replay-on-tap';
@@ -74,7 +74,7 @@ function textChoiceNoun(card: LessonCard) {
 
 export function listeningHelpText(card?: LessonCard | null, replayOnPrompt = false, language: UiLanguage = 'es'): string | null {
   if (!card || card.mission_game || !LISTENING_STAGES.has(card.stage)) return null;
-  if (language === 'en') return englishListeningHelpText(card, replayOnPrompt);
+  if (language !== 'es') return englishListeningHelpText(card, replayOnPrompt);
   const instruction = `Escucha y elige la ${hasImageOptions(card) ? 'imagen' : textChoiceNoun(card)} correcta.`;
   const hasPromptAudio = Boolean(card.audio_text?.trim() || card.audio_turns?.length
     || card.audio_assets?.some(asset => asset.purpose === 'prompt'));
@@ -102,7 +102,7 @@ function englishListeningHelpText(card: LessonCard, replayOnPrompt: boolean): st
  */
 function cardHelpInstruction(card: LessonCard, promptInteractionMode: PromptInteractionMode, language: UiLanguage) {
   if (card.stage === 'Use' && !card.mission_game && (card.correct_option_ids?.length || 0) > 1) {
-    if (language === 'en') {
+    if (language !== 'es') {
       const goal = card.interaction_type === 'complete-sentence'
         ? 'Listen and put the words in order by tapping or dragging.'
         : `Listen and put the ${card.correct_option_ids!.length === 2 ? 'two' : card.correct_option_ids!.length} missing words in order by tapping or dragging.`;

@@ -108,7 +108,7 @@ const ENGLISH_FALLBACK_COPY: StageCopy = {
 };
 
 function stageCopy(stage: string, language: UiLanguage = 'es'): StageCopy {
-  if (language === 'en') return ENGLISH_STAGE_COPY[stage] || ENGLISH_FALLBACK_COPY;
+  if (language !== 'es') return ENGLISH_STAGE_COPY[stage] || ENGLISH_FALLBACK_COPY;
   return STAGE_COPY[stage] || FALLBACK_COPY;
 }
 
@@ -204,7 +204,7 @@ function listenMechanic(lesson: Lesson, segment: StageSegment, language: UiLangu
   // Reuse the shared photo/phrase rule so the briefing cannot drift from the
   // instruction the learner then sees on the card itself.
   const options = lesson.cards[segment.start]?.options ?? [];
-  return language === 'en'
+  return language !== 'es'
     ? `${listeningChoiceInstruction(options, language)} Tap 🔊 to replay.`
     : `${listeningChoiceInstruction(options)} Toca 🔊 para repetir.`;
 }

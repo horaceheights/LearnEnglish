@@ -1,8 +1,25 @@
-// App-screen text for courses taught to English speakers (user decision
-// 2026-11-19). The Spanish app text stays the source and the key; a course with
-// `uiLanguage: "en"` shows the English below. This module has no imports so pure
+// App-screen text in the learner's help language. The Spanish app text stays the
+// source and the key. English came first (user decision 2026-11-19); German and
+// French are help languages of the multilingual app (user decision 2026-11-28,
+// docs/product/multilingual-architecture.md). This module has no imports so pure
 // helpers and the vm-based tests can use it.
-export type UiLanguage = 'es' | 'en';
+export type UiLanguage = 'es' | 'en' | 'de' | 'fr';
+
+/** The four taught languages, each also a possible help language. */
+export const UI_LANGUAGES: readonly UiLanguage[] = ['es', 'en', 'de', 'fr'];
+
+export function isUiLanguage(value: unknown): value is UiLanguage {
+  return typeof value === 'string' && (UI_LANGUAGES as readonly string[]).includes(value);
+}
+
+/**
+ * The help copy a module has written in Spanish and English only. Every
+ * non-Spanish help language reads the English copy until its own exists; a
+ * language is offered as a help language only once its copy is complete.
+ */
+export function spanishOrEnglish(language: UiLanguage): 'es' | 'en' {
+  return language === 'es' ? 'es' : 'en';
+}
 
 export const UI_ENGLISH: Readonly<Record<string, string>> = {
   // Lesson screen
@@ -329,10 +346,28 @@ export const UI_ENGLISH: Readonly<Record<string, string>> = {
   'Elige una unidad': 'Choose a unit',
   '{completed}/{total} completadas': '{completed}/{total} complete',
   'Las voces de práctica pueden ser generadas con IA.': 'Practice voices may be AI-generated.',
+  // Mistake help for a pair with no hand-written explanations (2026-11-28)
+  'La respuesta es “{answer}”: {meaning}.': 'The answer is “{answer}”: {meaning}.',
+  'La respuesta es “{answer}”.': 'The answer is “{answer}”.',
 };
 
-/** Spanish app text, or its English version for a course that runs in English. */
+// German and French screen text, keyed like the English table. Empty until those
+// help languages are written; ui() reads English for a missing entry, and
+// mobile/tests/course-ui-language.test.cjs requires a complete table before any
+// course offers the language in helpLanguages.
+export const UI_GERMAN: Readonly<Record<string, string>> = {};
+export const UI_FRENCH: Readonly<Record<string, string>> = {};
+
+const UI_TABLES: Readonly<Record<Exclude<UiLanguage, 'es'>, Readonly<Record<string, string>>>> = {
+  en: UI_ENGLISH,
+  de: UI_GERMAN,
+  fr: UI_FRENCH,
+};
+
+/** Spanish app text, or its version in the learner's help language. */
 export function ui(language: UiLanguage, spanish: string, values?: Record<string, string | number>): string {
-  const template = language === 'en' ? UI_ENGLISH[spanish] ?? spanish : spanish;
+  const template = language === 'es' || !UI_TABLES[language]
+    ? spanish
+    : UI_TABLES[language][spanish] ?? UI_ENGLISH[spanish] ?? spanish;
   return values ? template.replace(/\{(\w+)\}/g, (_, key: string) => String(values[key] ?? '')) : template;
 }

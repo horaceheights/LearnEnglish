@@ -41,7 +41,7 @@ export function MissionConversationDecision(props: Props) {
   const images = state.options.every(option => Boolean(option.image_url));
   const disabled = paused || !interactionReady || state.phase !== 'choosing';
   const imageWidth = Math.max(48, Math.min(bodySize.width || width - 48, ((bodySize.height || height / 2) - 12) * 1.5 / state.options.length));
-  const hint = state.phase === 'wrong' ? lessonMistakeHint(card, state.selectedId) : '';
+  const hint = state.phase === 'wrong' ? lessonMistakeHint(card, state.selectedId, lang) : '';
   const busy = state.phase === 'responding';
   const hasResponse = Boolean(card.answer_audio_text || card.answer_audio_turns?.length);
   const replayDisabled = paused || !['choosing', 'wrong'].includes(state.phase);
